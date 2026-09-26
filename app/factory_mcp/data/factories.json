@@ -1,0 +1,323 @@
+[
+  {
+    "id": "f_orchid",
+    "name": "Orchid Line Electronics (fictional)",
+    "region": "Zhongshan, Guangdong",
+    "archetype": "balanced",
+    "personality": "Balanced: fair first quote, concedes on price if volume is firm, protects lead time.",
+    "capacity": {
+      "processes": [
+        "injection_molding",
+        "pcba",
+        "assembly"
+      ],
+      "materials": [
+        "PC/ABS",
+        "PC",
+        "ABS"
+      ],
+      "moq": 1000,
+      "certifications": [
+        "ISO 9001",
+        "BSCI"
+      ],
+      "lead_time_days": 35,
+      "monthly_capacity": 40000,
+      "current_load_pct": 62.0,
+      "label": "fictional"
+    },
+    "audit_notes": [
+      "Lighting specialist, in-house SMT line",
+      "2 prior US crowdfunding projects shipped"
+    ],
+    "past_performance": {
+      "orders_completed": 48,
+      "on_time_rate_pct": 88.0,
+      "defect_rate_pct": 1.4,
+      "label": "fictional"
+    },
+    "label": "fictional",
+    "fictional": true
+  },
+  {
+    "id": "f_silverfern",
+    "name": "Silverfern Lighting Works (fictional)",
+    "region": "Shenzhen, Guangdong",
+    "archetype": "fast/expensive",
+    "personality": "Fast and premium: low MOQ, short lead time, rarely moves on price.",
+    "capacity": {
+      "processes": [
+        "injection_molding",
+        "cnc",
+        "pcba",
+        "assembly"
+      ],
+      "materials": [
+        "PC/ABS",
+        "PC",
+        "Aluminium 6063"
+      ],
+      "moq": 500,
+      "certifications": [
+        "ISO 9001",
+        "ISO 14001"
+      ],
+      "lead_time_days": 25,
+      "monthly_capacity": 20000,
+      "current_load_pct": 78.0,
+      "label": "fictional"
+    },
+    "audit_notes": [
+      "Prototype-to-production shop",
+      "Strong in anodised aluminium"
+    ],
+    "past_performance": {
+      "orders_completed": 71,
+      "on_time_rate_pct": 94.0,
+      "defect_rate_pct": 0.9,
+      "label": "fictional"
+    },
+    "label": "fictional",
+    "fictional": true
+  },
+  {
+    "id": "f_kestrel",
+    "name": "Kestrel Bay Manufacturing (fictional)",
+    "region": "Dongguan, Guangdong",
+    "archetype": "cheap/slow",
+    "personality": "Cheapest, high MOQ, long lead time, outsources finishing.",
+    "capacity": {
+      "processes": [
+        "injection_molding",
+        "sheet_metal",
+        "assembly"
+      ],
+      "materials": [
+        "PC/ABS",
+        "ABS",
+        "SPCC steel"
+      ],
+      "moq": 2000,
+      "certifications": [
+        "ISO 9001"
+      ],
+      "lead_time_days": 45,
+      "monthly_capacity": 80000,
+      "current_load_pct": 55.0,
+      "label": "fictional"
+    },
+    "audit_notes": [
+      "High-volume consumer goods",
+      "Anodising outsourced"
+    ],
+    "past_performance": {
+      "orders_completed": 120,
+      "on_time_rate_pct": 76.0,
+      "defect_rate_pct": 2.3,
+      "label": "fictional"
+    },
+    "label": "fictional",
+    "fictional": true
+  },
+  {
+    "id": "f_basalt",
+    "name": "Basalt Precision Metal (fictional)",
+    "region": "Suzhou, Jiangsu",
+    "archetype": "specialist (CNC metal)",
+    "personality": "Metal specialist; declines plastic-heavy projects.",
+    "capacity": {
+      "processes": [
+        "cnc",
+        "die_casting",
+        "sheet_metal"
+      ],
+      "materials": [
+        "Aluminium 6061",
+        "Zinc alloy",
+        "Stainless steel"
+      ],
+      "moq": 300,
+      "certifications": [
+        "ISO 9001",
+        "IATF 16949"
+      ],
+      "lead_time_days": 30,
+      "monthly_capacity": 15000,
+      "current_load_pct": 70.0,
+      "label": "fictional"
+    },
+    "audit_notes": [
+      "Automotive-grade QA"
+    ],
+    "past_performance": {
+      "orders_completed": 35,
+      "on_time_rate_pct": 91.0,
+      "defect_rate_pct": 0.7,
+      "label": "fictional"
+    },
+    "label": "fictional",
+    "fictional": true
+  },
+  {
+    "id": "f_jadeharbor",
+    "name": "Jade Harbor Mould & Plastics (fictional)",
+    "region": "Yuyao, Ningbo, Zhejiang",
+    "archetype": "specialist (mould maker)",
+    "personality": "Tooling specialist: cheapest moulds in the network, steady on unit price, wants the mould order first.",
+    "capacity": {
+      "processes": [
+        "injection_molding"
+      ],
+      "materials": [
+        "PC/ABS",
+        "ABS",
+        "PC",
+        "PP",
+        "PA66"
+      ],
+      "moq": 1000,
+      "certifications": [
+        "ISO 9001"
+      ],
+      "lead_time_days": 40,
+      "monthly_capacity": 60000,
+      "current_load_pct": 48.0,
+      "label": "fictional"
+    },
+    "audit_notes": [
+      "In-house mould shop (P20 / 718H steel)",
+      "No electronics — ships moulded parts to your assembler"
+    ],
+    "past_performance": {
+      "orders_completed": 90,
+      "on_time_rate_pct": 90.0,
+      "defect_rate_pct": 1.1,
+      "label": "fictional"
+    },
+    "label": "fictional",
+    "fictional": true
+  },
+  {
+    "id": "f_cobaltriver",
+    "name": "Cobalt River Box-Build EMS (fictional)",
+    "region": "Kunshan, Jiangsu",
+    "archetype": "full box-build (premium)",
+    "personality": "Premium turnkey EMS: everything under one roof, strict on payment terms, moves on MOQ before price.",
+    "capacity": {
+      "processes": [
+        "pcba",
+        "injection_molding",
+        "extrusion",
+        "sheet_metal",
+        "assembly"
+      ],
+      "materials": [
+        "FR-4",
+        "MCPCB",
+        "PC/ABS",
+        "ABS",
+        "Aluminium 6063",
+        "SPCC steel"
+      ],
+      "moq": 1500,
+      "certifications": [
+        "ISO 9001",
+        "ISO 14001",
+        "IATF 16949",
+        "BSCI"
+      ],
+      "lead_time_days": 32,
+      "monthly_capacity": 50000,
+      "current_load_pct": 84.0,
+      "label": "fictional"
+    },
+    "audit_notes": [
+      "Turnkey: SMT, moulding, extrusion, final assembly and test",
+      "Busy with automotive programmes"
+    ],
+    "past_performance": {
+      "orders_completed": 150,
+      "on_time_rate_pct": 95.0,
+      "defect_rate_pct": 0.6,
+      "label": "fictional"
+    },
+    "label": "fictional",
+    "fictional": true
+  },
+  {
+    "id": "f_redkite",
+    "name": "Red Kite Die-Cast (fictional)",
+    "region": "Xiamen, Fujian",
+    "archetype": "specialist (die-cast metal)",
+    "personality": "Metal die-cast specialist: sharp on zinc/aluminium parts, high tooling, flexible on MOQ.",
+    "capacity": {
+      "processes": [
+        "die_casting",
+        "cnc",
+        "extrusion"
+      ],
+      "materials": [
+        "Zinc alloy",
+        "Aluminium ADC12",
+        "Aluminium 6063"
+      ],
+      "moq": 800,
+      "certifications": [
+        "ISO 9001"
+      ],
+      "lead_time_days": 38,
+      "monthly_capacity": 30000,
+      "current_load_pct": 58.0,
+      "label": "fictional"
+    },
+    "audit_notes": [
+      "Die-cast + CNC post-machining + powder coat",
+      "No plastics, no PCBA"
+    ],
+    "past_performance": {
+      "orders_completed": 42,
+      "on_time_rate_pct": 86.0,
+      "defect_rate_pct": 1.6,
+      "label": "fictional"
+    },
+    "label": "fictional",
+    "fictional": true
+  },
+  {
+    "id": "f_littlelantern",
+    "name": "Little Lantern Workshop (fictional)",
+    "region": "Bao'an, Shenzhen, Guangdong",
+    "archetype": "small workshop (1688)",
+    "personality": "Small 1688-style workshop: tiny MOQ, fast replies, cheap, but thin QA and no audits.",
+    "capacity": {
+      "processes": [
+        "cnc",
+        "pcba",
+        "assembly"
+      ],
+      "materials": [
+        "Aluminium 6061",
+        "ABS",
+        "FR-4"
+      ],
+      "moq": 100,
+      "certifications": [],
+      "lead_time_days": 20,
+      "monthly_capacity": 5000,
+      "current_load_pct": 35.0,
+      "label": "fictional"
+    },
+    "audit_notes": [
+      "Found through a 1688-style listing — no third-party audit",
+      "Owner-run, WeChat only"
+    ],
+    "past_performance": {
+      "orders_completed": 18,
+      "on_time_rate_pct": 72.0,
+      "defect_rate_pct": 3.8,
+      "label": "fictional"
+    },
+    "label": "fictional",
+    "fictional": true
+  }
+]

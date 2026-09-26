@@ -1,0 +1,272 @@
+@import "tailwindcss";
+
+/*
+ * PhysicalLovableX design tokens.
+ * Engineering document x premium hardware: warm paper, ink, hairlines, one signal orange.
+ * Every page inherits these through Tailwind utilities (bg-paper, text-ink-2, border-line…).
+ */
+@theme {
+  /* Surfaces */
+  --color-paper: #f7f6f3;
+  --color-paper-2: #efede8;
+  --color-surface: #ffffff;
+  --color-sunken: #faf9f7;
+
+  /* Ink */
+  --color-ink: #111111;
+  --color-ink-2: #5f5e5a; /* secondary text — AA on paper and white */
+  --color-ink-3: #8a8883; /* tertiary / meta, large or non-essential text only */
+  --color-ink-4: #b9b6af;
+
+  /* Lines */
+  --color-line: #e6e4df;
+  --color-line-2: #d6d3cc;
+
+  /* One accent */
+  --color-accent: #ff4f00;
+  --color-accent-ink: #c43c00; /* accent as text on light backgrounds (AA) */
+  --color-accent-soft: #fff1ea;
+
+  /* Trust labels — muted tints + a coloured dot */
+  --color-measured: #1f8a4c;
+  --color-measured-ink: #1d6b3e;
+  --color-measured-soft: #ecf6ef;
+  --color-sourced: #2f6fd6;
+  --color-sourced-ink: #2556a8;
+  --color-sourced-soft: #edf2fb;
+  --color-estimate: #c98a0b;
+  --color-estimate-ink: #8a5d00;
+  --color-estimate-soft: #fbf4e4;
+  --color-fictional: #7c4ddb;
+  --color-fictional-ink: #5d37ad;
+  --color-fictional-soft: #f3effb;
+
+  /* Status */
+  --color-danger: #c4321f;
+  --color-danger-soft: #fbeeec;
+
+  /* Type */
+  --font-sans: var(--font-ui), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-num), ui-monospace, "SF Mono", monospace;
+  --font-display: var(--font-display-face), var(--font-ui), ui-sans-serif, sans-serif;
+
+  /* Strict scale: 11 / 12 / 13 / 14 / 16 / 20 / 28 / 44 / 64 */
+  --text-2xs: 11px;
+  --text-2xs--line-height: 16px;
+  --text-xs: 12px;
+  --text-xs--line-height: 16px;
+  --text-sm: 13px;
+  --text-sm--line-height: 20px;
+  --text-base: 14px;
+  --text-base--line-height: 22px;
+  --text-md: 16px;
+  --text-md--line-height: 26px;
+  --text-lg: 20px;
+  --text-lg--line-height: 28px;
+  --text-xl: 28px;
+  --text-xl--line-height: 34px;
+  --text-2xl: 44px;
+  --text-2xl--line-height: 48px;
+  --text-3xl: 64px;
+  --text-3xl--line-height: 66px;
+
+  --radius-sm: 3px;
+  --radius: 4px;
+  --radius-md: 6px;
+
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --animate-shimmer: shimmer 1.4s ease-in-out infinite;
+
+  @keyframes shimmer {
+    0%,
+    100% {
+      opacity: 0.55;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+}
+
+/* Default border colour is the hairline, never currentColor. */
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-line);
+  }
+}
+
+html {
+  background: var(--color-paper);
+  color-scheme: light;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 22px;
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Numbers never jitter */
+.font-mono,
+.tabular {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum", "zero" 0;
+}
+
+::selection {
+  background: #ffd9c7;
+  color: var(--color-ink);
+}
+
+/* Visible, quiet focus everywhere */
+:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Condensed display: Archivo at 72% width, tight, for page titles and the product name. */
+.font-display {
+  font-family: var(--font-display);
+  font-stretch: 72%;
+  font-variation-settings: "wdth" 72;
+  letter-spacing: -0.01em;
+}
+
+/* Mono uppercase micro-label for section headers */
+.micro {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  line-height: 16px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-ink-2);
+}
+
+/* Form controls share one look */
+.field {
+  width: 100%;
+  border: 1px solid var(--color-line-2);
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  padding: 7px 10px;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--color-ink);
+  transition:
+    border-color 150ms var(--ease-out),
+    box-shadow 150ms var(--ease-out);
+}
+.field::placeholder {
+  color: var(--color-ink-3);
+}
+.field:hover {
+  border-color: var(--color-ink-4);
+}
+.field:focus {
+  outline: none;
+  border-color: var(--color-ink);
+  box-shadow: 0 0 0 3px rgb(17 17 17 / 0.06);
+}
+.field:disabled {
+  background: var(--color-sunken);
+  color: var(--color-ink-3);
+  cursor: not-allowed;
+}
+
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Graph paper behind product stills and the 3D stage: thin, low contrast, fades out at the edges. */
+.graph-paper {
+  background-color: var(--color-paper);
+  background-image:
+    linear-gradient(to right, rgb(17 17 17 / 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(17 17 17 / 0.045) 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-position: center center;
+}
+
+model-viewer {
+  --poster-color: transparent;
+  --progress-bar-color: var(--color-accent);
+  --progress-bar-height: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  header[data-chrome],
+  footer[data-chrome],
+  [data-noprint] {
+    display: none !important;
+  }
+  body,
+  html {
+    background: #fff;
+  }
+  @page {
+    size: A4;
+    margin: 12mm;
+  }
+  /* Fit A4: no clipped columns, long cells wrap, nothing scrolls sideways. */
+  .grid {
+    display: block !important;
+  }
+  article {
+    max-width: 100% !important;
+    overflow: visible !important;
+  }
+  article .overflow-x-auto {
+    overflow: visible !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  article table {
+    table-layout: fixed;
+    width: 100% !important;
+    font-size: 11px;
+  }
+  article th,
+  article td {
+    white-space: normal !important;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+  }
+  article th:first-child,
+  article td:first-child {
+    padding-left: 0 !important;
+  }
+  article .truncate {
+    white-space: normal !important;
+    overflow: visible !important;
+  }
+  article [class*="grid-cols-"] {
+    display: grid !important;
+  }
+  article tr {
+    break-inside: avoid;
+  }
+}

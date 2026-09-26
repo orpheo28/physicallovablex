@@ -1,0 +1,100 @@
+{
+ "fetched_on": "2026-09-26",
+ "source_url": "https://hts.usitc.gov/reststop/exportList?from=9503&to=9504&format=JSON&styles=false",
+ "rows": [
+  {
+   "htsno": "9503.00.00",
+   "indent": "0",
+   "description": "Tricycles, scooters, pedal cars and similar wheeled toys; dolls\u02bc carriages; dolls, other toys; reduced-scale (\u201cscale\u02ee) models and similar recreational models, working or not; puzzles of all kinds; parts and accessories thereof",
+   "superior": null,
+   "units": [],
+   "general": "Free",
+   "special": "",
+   "other": "70%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9503.00.00.11",
+   "indent": "4",
+   "description": "Under 3 years of age",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9503.00.00.13",
+   "indent": "4",
+   "description": "3 to 12 years of age",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9503.00.00.71",
+   "indent": "4",
+   "description": "Under 3 years of age",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9503.00.00.73",
+   "indent": "4",
+   "description": "3 to 12 years of age",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9503.00.00.90",
+   "indent": "1",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  }
+ ]
+}

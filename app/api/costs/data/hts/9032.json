@@ -1,0 +1,488 @@
+{
+ "fetched_on": "2026-09-26",
+ "source_url": "https://hts.usitc.gov/reststop/exportList?from=9032&to=9033&format=JSON&styles=false",
+ "rows": [
+  {
+   "htsno": "9032",
+   "indent": "0",
+   "description": "Automatic regulating or controlling instruments and apparatus; parts and accessories thereof:",
+   "superior": null,
+   "units": [],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": "",
+   "additionalDuties": "",
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9032.10.00",
+   "indent": "1",
+   "description": "Thermostats",
+   "superior": null,
+   "units": [],
+   "general": "1.7%",
+   "special": "Free (A,AU,B,BH,C,CL,CO,D,E,IL,JO,JP,KR,MA,OM,P,PA,PE,S,SG)",
+   "other": "40%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9032.10.00.30",
+   "indent": "3",
+   "description": "Designed for wall mounting",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9032.10.00.60",
+   "indent": "3",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9032.10.00.90",
+   "indent": "2",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9032.20.00.00",
+   "indent": "1",
+   "description": "Manostats",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9032.81.00",
+   "indent": "2",
+   "description": "Hydraulic and pneumatic",
+   "superior": null,
+   "units": [],
+   "general": "Free",
+   "special": "",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9032.81.00.20",
+   "indent": "4",
+   "description": "Hydraulic",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9032.81.00.60",
+   "indent": "4",
+   "description": "Pneumatic",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9032.81.00.80",
+   "indent": "3",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9032.89",
+   "indent": "2",
+   "description": "Other:",
+   "superior": null,
+   "units": [],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": "",
+   "additionalDuties": "",
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9032.89.20.00",
+   "indent": "4",
+   "description": "Designed for use in a 6, 12 or 24 V system",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "1.1%",
+   "special": "Free (A,AU,B,BH,C,CL,CO,D,E,IL,JO,KR,MA,OM,P,PA,PE,S,SG)",
+   "other": "25%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9032.89.40.00",
+   "indent": "4",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "1.7%",
+   "special": "Free (A,AU,BH,C,CL,CO,D,E,IL,JO,KR,MA,OM,P,PA,PE,S,SG)",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9032.89.60",
+   "indent": "3",
+   "description": "Other",
+   "superior": null,
+   "units": [],
+   "general": "1.7%",
+   "special": "Free (A,AU,B,BH,C,CL,CO,D,E,IL,JO,KR,MA,OM,P,PA,PE,S,SG)",
+   "other": "40%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9032.89.60.15",
+   "indent": "5",
+   "description": "Complete systems",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9032.89.60.25",
+   "indent": "5",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9032.89.60.30",
+   "indent": "5",
+   "description": "Complete systems",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9032.89.60.40",
+   "indent": "6",
+   "description": "Temperature control instruments",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9032.89.60.50",
+   "indent": "6",
+   "description": "Pressure and draft control instruments",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9032.89.60.60",
+   "indent": "6",
+   "description": "Flow and liquid level control instruments",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9032.89.60.70",
+   "indent": "6",
+   "description": "Humidity control instruments",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9032.89.60.75",
+   "indent": "6",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "kg"
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9032.89.60.85",
+   "indent": "4",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "kg"
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9032.90",
+   "indent": "1",
+   "description": "Parts and accessories:",
+   "superior": null,
+   "units": [],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": "",
+   "additionalDuties": "",
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9032.90.21.00",
+   "indent": "3",
+   "description": "Designed for use in a 6, 12 or 24 V system",
+   "superior": null,
+   "units": [
+    "kg"
+   ],
+   "general": "1.1%",
+   "special": "Free (A,AU,B,BH,C,CL,CO,D,E,IL,JO,KR,MA,OM,P,PA,PE,S,SG)",
+   "other": "25%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9032.90.41.00",
+   "indent": "3",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "kg"
+   ],
+   "general": "1.7%",
+   "special": "Free (A,AU,BH,C,CL,CO,D,E,IL,JO,KR,MA,OM,P,PA,PE,S,SG)",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9032.90.61",
+   "indent": "2",
+   "description": "Other",
+   "superior": null,
+   "units": [],
+   "general": "1.7%",
+   "special": "Free (A,AU,B,BH,C,CL,CO,D,E,IL,JO,KR,MA,OM,P,PA,PE,S,SG)",
+   "other": "40%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9032.90.61.20",
+   "indent": "3",
+   "description": "Of thermostats",
+   "superior": null,
+   "units": [
+    "kg"
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9032.90.61.40",
+   "indent": "3",
+   "description": "Of manostats",
+   "superior": null,
+   "units": [
+    "kg"
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9032.90.61.60",
+   "indent": "3",
+   "description": "Of instruments and apparatus of subheading 9032.81",
+   "superior": null,
+   "units": [
+    "kg"
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9032.90.61.80",
+   "indent": "3",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "kg"
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  }
+ ]
+}

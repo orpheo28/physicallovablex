@@ -1,0 +1,376 @@
+{
+ "fetched_on": "2026-09-26",
+ "source_url": "https://hts.usitc.gov/reststop/exportList?from=8423&to=8424&format=JSON&styles=false",
+ "rows": [
+  {
+   "htsno": "8423",
+   "indent": "0",
+   "description": "Weighing machinery (excluding balances of a sensitivity of 5 cg or better), including weight-operated counting or checking machines; weighing machine weights of all kinds; parts of weighing machinery:",
+   "superior": null,
+   "units": [],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": "",
+   "additionalDuties": "",
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8423.10.00",
+   "indent": "1",
+   "description": "Personal weighing machines, including baby scales; household scales",
+   "superior": null,
+   "units": [],
+   "general": "Free",
+   "special": "",
+   "other": "45%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8423.10.00.10",
+   "indent": "2",
+   "description": "Digital electronic type",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8423.10.00.30",
+   "indent": "3",
+   "description": "Of a kind suitable for carrying on the person",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8423.10.00.60",
+   "indent": "3",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8423.20",
+   "indent": "1",
+   "description": "Scales for continuous weighing of goods on conveyors:",
+   "superior": null,
+   "units": [],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8423.20.10.00",
+   "indent": "2",
+   "description": "Using electronic means for gauging weights",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "45%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8423.20.90.00",
+   "indent": "2",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "2.9%",
+   "special": "Free (A,AU,BH,CL,CO,D,E,IL,JO,KR,MA,OM,P,PA,PE,S,SG)",
+   "other": "45%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8423.30.00.00",
+   "indent": "1",
+   "description": "Constant-weight scales and scales for discharging a predetermined weight of material into a bag or container, including hopper scales",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "45%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8423.81.00",
+   "indent": "2",
+   "description": "Having a maximum weighing capacity not exceeding 30 kg",
+   "superior": null,
+   "units": [],
+   "general": "Free",
+   "special": "",
+   "other": "45%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8423.81.00.10",
+   "indent": "4",
+   "description": "Counting scales",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8423.81.00.20",
+   "indent": "4",
+   "description": "Retail scales, non-computing",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8423.81.00.30",
+   "indent": "4",
+   "description": "Retail scales, computing",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8423.81.00.40",
+   "indent": "4",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8423.81.00.50",
+   "indent": "3",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8423.82.00",
+   "indent": "2",
+   "description": "Having a maximum weighing capacity exceeding 30 kg but not exceeding 5,000 kg",
+   "superior": null,
+   "units": [],
+   "general": "Free",
+   "special": "",
+   "other": "45%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8423.82.00.10",
+   "indent": "3",
+   "description": "Digital electronic type",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8423.82.00.50",
+   "indent": "3",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8423.89",
+   "indent": "2",
+   "description": "Other:",
+   "superior": null,
+   "units": [],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8423.89.10.00",
+   "indent": "3",
+   "description": "Using electronic means for gauging",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "45%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8423.89.90.00",
+   "indent": "3",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "2.9%",
+   "special": "Free (A,AU,BH,CL,CO,D,E,IL,JO,KR,MA,OM,P,PA,PE,S,SG)",
+   "other": "45%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8423.90",
+   "indent": "1",
+   "description": "Weighing machine weights of all kinds; parts of weighing machinery:",
+   "superior": null,
+   "units": [],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8423.90.10.00",
+   "indent": "2",
+   "description": "Parts of weighing machinery using electronic means for gauging weight, excluding parts of machines for weighing motor vehicles",
+   "superior": null,
+   "units": [
+    "kg"
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "45%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8423.90.90.00",
+   "indent": "2",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "kg"
+   ],
+   "general": "2.8%",
+   "special": "Free (A,AU,BH,CL,CO,D,E,IL,JO,JP,KR,MA,OM,P,PA,PE,S,SG)",
+   "other": "45%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  }
+ ]
+}

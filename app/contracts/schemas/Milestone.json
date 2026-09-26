@@ -1,0 +1,129 @@
+{
+  "$defs": {
+    "Label": {
+      "description": "The four honesty labels. UI text: Measured / Sourced / Estimate / Fictional \u2014 demo data.",
+      "enum": [
+        "measured",
+        "sourced",
+        "estimate",
+        "fictional"
+      ],
+      "title": "Label",
+      "type": "string"
+    },
+    "LabeledValue": {
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "title": "Value",
+          "type": "number"
+        },
+        "unit": {
+          "description": "e.g. USD, EUR, mm, g, days, weeks, pct, units, man-days",
+          "title": "Unit",
+          "type": "string"
+        },
+        "label": {
+          "$ref": "#/$defs/Label"
+        },
+        "source_or_assumption": {
+          "description": "Sourced: '<source>, <YYYY-MM-DD>'. Estimate: the assumption. Measured: the check. Fictional: 'demo data'.",
+          "title": "Source Or Assumption",
+          "type": "string"
+        }
+      },
+      "required": [
+        "value",
+        "unit",
+        "label",
+        "source_or_assumption"
+      ],
+      "title": "LabeledValue",
+      "type": "object"
+    },
+    "MilestoneKind": {
+      "enum": [
+        "deposit",
+        "tooling_t0",
+        "tooling_t1",
+        "golden_sample",
+        "certification",
+        "mass_production",
+        "pre_shipment_inspection",
+        "shipment",
+        "delivered",
+        "other"
+      ],
+      "title": "MilestoneKind",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "name": {
+      "title": "Name",
+      "type": "string"
+    },
+    "kind": {
+      "$ref": "#/$defs/MilestoneKind"
+    },
+    "start_date": {
+      "format": "date",
+      "title": "Start Date",
+      "type": "string"
+    },
+    "end_date": {
+      "format": "date",
+      "title": "End Date",
+      "type": "string"
+    },
+    "duration_days": {
+      "$ref": "#/$defs/LabeledValue"
+    },
+    "depends_on": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Depends On",
+      "type": "array"
+    },
+    "payment": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Cash out at this milestone, if any"
+    },
+    "notes": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Notes"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "kind",
+    "start_date",
+    "end_date",
+    "duration_days"
+  ],
+  "title": "Milestone",
+  "type": "object"
+}

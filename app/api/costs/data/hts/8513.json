@@ -1,0 +1,112 @@
+{
+ "fetched_on": "2026-09-26",
+ "source_url": "https://hts.usitc.gov/reststop/exportList?from=8513&to=8514&format=JSON&styles=false",
+ "rows": [
+  {
+   "htsno": "8513",
+   "indent": "0",
+   "description": "Portable electric lamps designed to function by their own source of energy (for example, dry batteries, storage batteries, magnetos), other than lighting equipment of heading 8512; parts thereof:",
+   "superior": null,
+   "units": [],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": "",
+   "additionalDuties": "",
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8513.10",
+   "indent": "1",
+   "description": "Lamps:",
+   "superior": null,
+   "units": [],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": "",
+   "additionalDuties": "",
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8513.10.20.00",
+   "indent": "2",
+   "description": "Flashlights",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "12.5%",
+   "special": "Free (A*,AU,BH,CL,CO,D,E,IL,JO,KR,MA,OM,P,PA,PE,S,SG)",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8513.10.40.00",
+   "indent": "2",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "3.5%",
+   "special": "Free (A*,AU,BH,CL,CO,D,E,IL,JO,KR,MA,OM,P,PA,PE,S,SG)",
+   "other": "40%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8513.90",
+   "indent": "1",
+   "description": "Parts:",
+   "superior": null,
+   "units": [],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": "",
+   "additionalDuties": "",
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8513.90.20.00",
+   "indent": "2",
+   "description": "Of flashlights",
+   "superior": null,
+   "units": [
+    "kg"
+   ],
+   "general": "12.5%",
+   "special": "Free (A*,AU,BH,CL,CO,D,E,IL,JO,KR,MA,OM,P,PA,PE,S,SG)",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8513.90.40.00",
+   "indent": "2",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "kg"
+   ],
+   "general": "3.5%",
+   "special": "Free (A*,AU,BH,CL,CO,D,E,IL,JO,KR,MA,OM,P,PA,PE,S,SG)",
+   "other": "40%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  }
+ ]
+}

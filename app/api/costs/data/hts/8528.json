@@ -1,0 +1,1396 @@
+{
+ "fetched_on": "2026-09-26",
+ "source_url": "https://hts.usitc.gov/reststop/exportList?from=8528&to=8529&format=JSON&styles=false",
+ "rows": [
+  {
+   "htsno": "8528",
+   "indent": "0",
+   "description": "Monitors and projectors, not incorporating television reception apparatus; reception apparatus for television, whether or not incorporating radio-broadcast receivers or sound or video recording or reproducing apparatus:",
+   "superior": null,
+   "units": [],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": "",
+   "additionalDuties": "",
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.42.00.00",
+   "indent": "2",
+   "description": "Capable of directly connecting to and designed for use with an automatic data processing machine of heading 8471",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.49",
+   "indent": "2",
+   "description": "Other:",
+   "superior": null,
+   "units": [],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": "",
+   "additionalDuties": "",
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.49.05.00",
+   "indent": "5",
+   "description": "Incorporating video recording or reproducing apparatus",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "25%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.49.10.00",
+   "indent": "5",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.49.15.00",
+   "indent": "6",
+   "description": "With a video display diagonal not exceeding 34.29 cm",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "25%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.49.20.00",
+   "indent": "6",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "25%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.49.25.00",
+   "indent": "6",
+   "description": "With a video display diagonal not exceeding 34.29 cm",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.49.30.00",
+   "indent": "6",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.49.35.00",
+   "indent": "5",
+   "description": "Incorporating video recording or reproducing apparatus",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "25%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.49.40.00",
+   "indent": "5",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.49.45.00",
+   "indent": "5",
+   "description": "Incorporating video recording or reproducing apparatus",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "25%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.49.50.00",
+   "indent": "5",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.49.60.00",
+   "indent": "5",
+   "description": "Incorporating video recording or reproducing apparatus",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "25%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.49.65.00",
+   "indent": "5",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.49.70.00",
+   "indent": "5",
+   "description": "Incorporating video recording or reproducing apparatus",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "25%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.49.75.00",
+   "indent": "5",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.49.80.00",
+   "indent": "3",
+   "description": "Black and white or other monochrome",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.52.00.00",
+   "indent": "2",
+   "description": "Capable of directly connecting to and designed for use with an automatic data processing machine of heading 8471",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.59",
+   "indent": "2",
+   "description": "Other:",
+   "superior": null,
+   "units": [],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": "",
+   "additionalDuties": "",
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.59.05.00",
+   "indent": "5",
+   "description": "Incorporating video recording or reproducing apparatus",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "25%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.59.10.00",
+   "indent": "5",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.59.15.00",
+   "indent": "6",
+   "description": "With a video display diagonal not exceeding 34.29 cm",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "25%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.59.23.00",
+   "indent": "6",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "3.9%",
+   "special": "Free (A*,AU,BH,CL,CO,D,E,IL,JO,KR,MA,OM,P,PA,PE,S,SG)",
+   "other": "25%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.59.25.00",
+   "indent": "6",
+   "description": "With a video display diagonal not exceeding 34.29 cm",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.59.33",
+   "indent": "6",
+   "description": "Other",
+   "superior": null,
+   "units": [],
+   "general": "5%",
+   "special": "Free (A+,AU,B,BH,CL,CO,D,E,IL, JO,KR,MA, OM,P,PA,PE,S,SG)",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.59.33.10",
+   "indent": "7",
+   "description": "Plasma-type",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.59.33.50",
+   "indent": "7",
+   "description": "LCD-type (direct view)",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.59.33.70",
+   "indent": "7",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.59.35.00",
+   "indent": "6",
+   "description": "With a video display diagonal not exceeding 34.29 cm",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "25%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.59.40.00",
+   "indent": "6",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "3.9%",
+   "special": "Free (A*,AU,BH,CL,CO,D,E,IL,JO,KR,MA,OM,P,PA,PE,S,SG)",
+   "other": "25%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.59.45.00",
+   "indent": "6",
+   "description": "With a video display diagonal not exceeding 34.29 cm",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.59.50.00",
+   "indent": "6",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "5%",
+   "special": "Free (A+,AU,B,BH,CL,CO,D,E,IL, JO,KR,MA, OM,P,PA,PE,S,SG)",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.59.60.00",
+   "indent": "3",
+   "description": "Black and white or other monochrome",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "5%",
+   "special": "Free (A+,AU,B,BH,CL,CO,D,E,IL, JO,KR,MA, OM,P,PA,PE,S,SG)",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.62.00.00",
+   "indent": "2",
+   "description": "Capable of directly connecting to and designed for use with an automatic data processing machine of heading 8471",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.69",
+   "indent": "2",
+   "description": "Other:",
+   "superior": null,
+   "units": [],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": "",
+   "additionalDuties": "",
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.69.05.00",
+   "indent": "5",
+   "description": "Incorporating video recording or reproducing apparatus",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "25%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.69.10.00",
+   "indent": "5",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.69.15.00",
+   "indent": "5",
+   "description": "Incorporating video recording or reproducing apparatus",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "3.9%",
+   "special": "Free (A,AU,BH,CL,CO,D,E,IL,JO,KR,MA,OM,P,PA,PE,S,SG)",
+   "other": "25%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.69.20.00",
+   "indent": "5",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "5%",
+   "special": "Free (A+,AU,B,BH,CL,CO,D,E,IL, JO,KR,MA, OM,P,PA,PE,S,SG)",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.69.25.00",
+   "indent": "5",
+   "description": "Incorporating video recording or reproducing apparatus",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "3.9%",
+   "special": "Free (A,AU,BH,CL,CO,D,E,IL,JO,KR,MA,OM,P,PA,PE,S,SG)",
+   "other": "25%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.69.30.00",
+   "indent": "5",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "5%",
+   "special": "Free (A+,AU,B,BH,CL,CO,D,E,IL, JO,KR,MA, OM,P,PA,PE,S,SG)",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.69.35.00",
+   "indent": "6",
+   "description": "With a video display diagonal not exceeding 34.29 cm",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "25%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.69.40.00",
+   "indent": "6",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "3.9%",
+   "special": "Free (A,AU,BH,CL,CO,D,E,IL,JO,KR,MA,OM,P,PA,PE,S,SG)",
+   "other": "25%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.69.45.00",
+   "indent": "6",
+   "description": "With a video display diagonal not exceeding 34.29 cm",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.69.50.00",
+   "indent": "6",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "5%",
+   "special": "Free (A+,AU,B,BH,CL,CO,D,E,IL, JO,KR,MA, OM,P,PA,PE,S,SG)",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.69.55.00",
+   "indent": "5",
+   "description": "Incorporating video recording or reproducing apparatus",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "3.9%",
+   "special": "Free (A,AU,BH,CL,CO,D,E,IL,JO,KR,MA,OM,P,PA,PE,S,SG)",
+   "other": "25%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.69.60.00",
+   "indent": "5",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "5%",
+   "special": "Free (A+,AU,B,BH,CL,CO,D,E,IL, JO,KR,MA, OM,P,PA,PE,S,SG)",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.69.70.00",
+   "indent": "3",
+   "description": "Black and white or other monochrome",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "5%",
+   "special": "Free (A+,AU,B,BH,CL,CO,D,E,IL, JO,KR,MA, OM,P,PA,PE,S,SG)",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.71",
+   "indent": "2",
+   "description": "Not designed to incorporate a video display or screen:",
+   "superior": null,
+   "units": [],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": "",
+   "additionalDuties": "",
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.71.10.00",
+   "indent": "3",
+   "description": "Incorporating video recording or reproducing apparatus",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "25%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.71.20.00",
+   "indent": "4",
+   "description": "Set top boxes which have a communications function",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.71.30.00",
+   "indent": "4",
+   "description": "Printed circuit assemblies incorporating a tuner, of a kind used with data processing machines of heading 8471",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.71.40.00",
+   "indent": "5",
+   "description": "Color",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.71.45.00",
+   "indent": "5",
+   "description": "Black and white or other monochrome",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.72",
+   "indent": "2",
+   "description": "Other, color:",
+   "superior": null,
+   "units": [],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": "",
+   "additionalDuties": "",
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.72.04.00",
+   "indent": "4",
+   "description": "Incorporating video recording or reproducing apparatus",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "25%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.72.08.00",
+   "indent": "4",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.72.12.00",
+   "indent": "5",
+   "description": "With a video display diagonal not exceeding 34.29 cm",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "25%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.72.16.00",
+   "indent": "5",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "3.9%",
+   "special": "Free (A,AU,BH,CL,CO,D,E,IL,JO,JP,KR,MA,OM,P,PA,PE,S,SG)",
+   "other": "25%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.72.20.00",
+   "indent": "5",
+   "description": "With a video display diagonal not exceeding 34.29 cm",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.72.24.00",
+   "indent": "5",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "5%",
+   "special": "Free (A+,AU,B,BH,CL,CO,D,E,IL,JO,JP,KR,MA,OM,P,PA,PE,S,SG)",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.72.28.00",
+   "indent": "4",
+   "description": "Incorporating video recording or reproducing apparatus",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "3.9%",
+   "special": "Free (A,AU,BH,CL,CO,D,E,IL,JO,JP,KR,MA,OM,P,PA,PE,S,SG)",
+   "other": "25%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.72.32.00",
+   "indent": "4",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "5%",
+   "special": "Free (A+,AU,B,BH,CL,CO,D,E,IL,JO,JP,KR,MA,OM,P,PA,PE,S,SG)",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.72.36.00",
+   "indent": "4",
+   "description": "Incorporating video recording or reproducing apparatus",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "3.9%",
+   "special": "Free (A,AU,BH,CL,CO,D,E,IL,JO,JP,KR,MA,OM,P,PA,PE,S,SG)",
+   "other": "25%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.72.40.00",
+   "indent": "4",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "5%",
+   "special": "Free (A+,AU,B,BH,CL,CO,D,E,IL,JO,JP,KR,MA,OM,P,PA,PE,S,SG)",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.72.44.00",
+   "indent": "4",
+   "description": "Incorporating video recording or reproducing apparatus",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "3.9%",
+   "special": "Free (A,AU,BH,CL,CO,D,E,IL,JO,JP,KR,MA,OM,P,PA,PE,S,SG)",
+   "other": "25%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.72.48.00",
+   "indent": "4",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "5%",
+   "special": "Free (A+,AU,B,BH,CL,CO,D,E,IL,JO,JP,KR,MA,OM,P,PA,PE,S,SG)",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.72.52.00",
+   "indent": "4",
+   "description": "Incorporating video recording or reproducing apparatus",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "3.9%",
+   "special": "Free (A,AU,BH,CL,CO,D,E,IL,JO,JP,KR,MA,OM,P,PA,PE,S,SG)",
+   "other": "25%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.72.56.00",
+   "indent": "4",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "5%",
+   "special": "Free (A+,AU,B,BH,CL,CO,D,E,IL,JO,JP,KR,MA,OM,P,PA,PE,S,SG)",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.72.62.00",
+   "indent": "5",
+   "description": "With a video display diagonal not exceeding 34.29 cm",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "25%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.72.64",
+   "indent": "5",
+   "description": "Other",
+   "superior": null,
+   "units": [],
+   "general": "3.9%",
+   "special": "Free (A*,AU,BH,CL,CO,D,E,IL,JO,JP,KR,MA,OM,P,PA,PE,S,SG)",
+   "other": "25%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.72.64.20",
+   "indent": "7",
+   "description": "Not exceeding 75 cm",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.72.64.30",
+   "indent": "7",
+   "description": "Exceeding 75 cm but not exceeding 88 cm",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.72.64.40",
+   "indent": "7",
+   "description": "Exceeding 88 cm but not exceeding 113 cm",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.72.64.60",
+   "indent": "7",
+   "description": "Exceeding 113 cm",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.72.68.00",
+   "indent": "5",
+   "description": "With a video display diagonal not exceeding 34.29 cm",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.72.72",
+   "indent": "5",
+   "description": "Other",
+   "superior": null,
+   "units": [],
+   "general": "5%",
+   "special": "Free (A+,AU,B,BH,CL,CO,D,E,IL,JO,JP,KR,MA,OM,P,PA,PE,S,SG)",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.72.72.20",
+   "indent": "7",
+   "description": "Not exceeding 75 cm",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.72.72.30",
+   "indent": "7",
+   "description": "Exceeding 75 cm but not exceeding 88 cm",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.72.72.40",
+   "indent": "7",
+   "description": "Exceeding 88 cm but not exceeding 113 cm",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.72.72.60",
+   "indent": "7",
+   "description": "Exceeding 113 cm",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.72.72.90",
+   "indent": "6",
+   "description": "Other, including plasma-type",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.72.76.00",
+   "indent": "5",
+   "description": "With a video display diagonal not exceeding 34.29 cm",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "25%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.72.80.00",
+   "indent": "5",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "3.9%",
+   "special": "Free (A,AU,BH,CL,CO,D,E,IL,JO,JP,KR,MA,OM,P,PA,PE,S,SG)",
+   "other": "25%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.72.84.00",
+   "indent": "5",
+   "description": "With a video display diagonal not exceeding 34.29 cm",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.72.97.00",
+   "indent": "5",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "5%",
+   "special": "Free (A+,AU,B,BH,CL,CO,D,E,IL,JO,JP,KR,MA,OM,P,PA,PE,S,SG)",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8528.73.00.00",
+   "indent": "2",
+   "description": "Other, monochrome",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "5%",
+   "special": "Free (A+,AU,B,BH,CL,CO,D,E,IL, JO,KR,MA, OM,P,PA,PE,S,SG)",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  }
+ ]
+}

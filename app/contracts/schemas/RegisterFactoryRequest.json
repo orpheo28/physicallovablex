@@ -1,0 +1,103 @@
+{
+  "$defs": {
+    "ProcessType": {
+      "enum": [
+        "injection_molding",
+        "cnc",
+        "sheet_metal",
+        "die_casting",
+        "extrusion",
+        "pcba",
+        "assembly",
+        "other"
+      ],
+      "title": "ProcessType",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "POST /factories \u2014 mirrors MCP `register_capacity` (PRD \u00a710). The factory is Fictional \u2014 demo data.",
+  "properties": {
+    "name": {
+      "description": "' (fictional)' is appended if missing",
+      "title": "Name",
+      "type": "string"
+    },
+    "region": {
+      "title": "Region",
+      "type": "string"
+    },
+    "processes": {
+      "items": {
+        "$ref": "#/$defs/ProcessType"
+      },
+      "minItems": 1,
+      "title": "Processes",
+      "type": "array"
+    },
+    "materials": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Materials",
+      "type": "array"
+    },
+    "moq": {
+      "minimum": 1,
+      "title": "Moq",
+      "type": "integer"
+    },
+    "certifications": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Certifications",
+      "type": "array"
+    },
+    "lead_time_days": {
+      "maximum": 365,
+      "minimum": 1,
+      "title": "Lead Time Days",
+      "type": "integer"
+    },
+    "monthly_capacity": {
+      "minimum": 1,
+      "title": "Monthly Capacity",
+      "type": "integer"
+    },
+    "current_load_pct": {
+      "maximum": 100,
+      "minimum": 0,
+      "title": "Current Load Pct",
+      "type": "number"
+    },
+    "archetype": {
+      "default": "balanced",
+      "title": "Archetype",
+      "type": "string"
+    },
+    "personality": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Personality"
+    }
+  },
+  "required": [
+    "name",
+    "region",
+    "processes",
+    "moq",
+    "lead_time_days",
+    "monthly_capacity",
+    "current_load_pct"
+  ],
+  "title": "RegisterFactoryRequest",
+  "type": "object"
+}

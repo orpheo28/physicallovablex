@@ -1,0 +1,270 @@
+{
+  "$defs": {
+    "AutorunState": {
+      "enum": [
+        "idle",
+        "running",
+        "done",
+        "failed"
+      ],
+      "title": "AutorunState",
+      "type": "string"
+    },
+    "AutorunStatus": {
+      "additionalProperties": false,
+      "description": "Progress of the background autorun (stages 1-7). Poll GET /projects/{id} every ~2 s.",
+      "properties": {
+        "state": {
+          "$ref": "#/$defs/AutorunState",
+          "default": "idle"
+        },
+        "current_stage": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Stage being run while state == running",
+          "title": "Current Stage"
+        },
+        "completed_stages": {
+          "items": {
+            "type": "integer"
+          },
+          "title": "Completed Stages",
+          "type": "array"
+        },
+        "started_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Started At"
+        },
+        "finished_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Finished At"
+        },
+        "error": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Error"
+        }
+      },
+      "title": "AutorunStatus",
+      "type": "object"
+    },
+    "Project": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "mode": {
+          "$ref": "#/$defs/ProjectMode"
+        },
+        "prompt": {
+          "title": "Prompt",
+          "type": "string"
+        },
+        "pasted_bom": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Pasted Bom"
+        },
+        "example": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Fixture set used for fallbacks, e.g. 'desk_lamp', 'tracker_card'",
+          "title": "Example"
+        },
+        "status": {
+          "$ref": "#/$defs/ProjectStatus",
+          "default": "active"
+        },
+        "created_at": {
+          "format": "date-time",
+          "title": "Created At",
+          "type": "string"
+        },
+        "stage_status": {
+          "additionalProperties": {
+            "$ref": "#/$defs/StageStatus"
+          },
+          "description": "Keys are stage numbers as strings ('1'..'13')",
+          "title": "Stage Status",
+          "type": "object"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "mode",
+        "prompt"
+      ],
+      "title": "Project",
+      "type": "object"
+    },
+    "ProjectMode": {
+      "enum": [
+        "idea",
+        "prototype"
+      ],
+      "title": "ProjectMode",
+      "type": "string"
+    },
+    "ProjectStatus": {
+      "enum": [
+        "active",
+        "archived"
+      ],
+      "title": "ProjectStatus",
+      "type": "string"
+    },
+    "StageStatus": {
+      "enum": [
+        "not_started",
+        "draft",
+        "validated"
+      ],
+      "title": "StageStatus",
+      "type": "string"
+    },
+    "StageSummary": {
+      "additionalProperties": false,
+      "properties": {
+        "stage": {
+          "title": "Stage",
+          "type": "integer"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/$defs/StageStatus"
+        },
+        "fallback": {
+          "default": false,
+          "title": "Fallback",
+          "type": "boolean"
+        },
+        "updated_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Updated At"
+        }
+      },
+      "required": [
+        "stage",
+        "name",
+        "title",
+        "status"
+      ],
+      "title": "StageSummary",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "project": {
+      "$ref": "#/$defs/Project"
+    },
+    "stages": {
+      "items": {
+        "$ref": "#/$defs/StageSummary"
+      },
+      "title": "Stages",
+      "type": "array"
+    },
+    "autorun": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/AutorunStatus"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "None if autorun was never started"
+    },
+    "has_fallback": {
+      "default": false,
+      "description": "True if any stage 1-7 serves a cached example (fallback: true)",
+      "title": "Has Fallback",
+      "type": "boolean"
+    },
+    "fallback_stages": {
+      "description": "Stages (1-13) currently serving a cached example",
+      "items": {
+        "type": "integer"
+      },
+      "title": "Fallback Stages",
+      "type": "array"
+    }
+  },
+  "required": [
+    "project",
+    "stages"
+  ],
+  "title": "ProjectDetail",
+  "type": "object"
+}

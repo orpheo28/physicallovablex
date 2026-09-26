@@ -1,0 +1,120 @@
+{
+  "project_id": "demo_desk_lamp",
+  "status": "validated",
+  "fallback": false,
+  "fallback_reason": null,
+  "generated_by": "fixture",
+  "generated_at": "2026-09-26T12:00:00Z",
+  "assumptions": [],
+  "stage": 13,
+  "name_options": [
+    {
+      "name": "Magwick",
+      "rationale": "Magnet + wick: the light head snaps on and off; coined, short, ownable. Trademark search needed before use."
+    },
+    {
+      "name": "Orlune Column",
+      "rationale": "Coined word evoking a small moon of light on a column; easy to spell. Trademark search needed before use."
+    },
+    {
+      "name": "Pivra",
+      "rationale": "Short coined name suggesting pivot and light; playful. Trademark search needed before use."
+    }
+  ],
+  "chosen_name": null,
+  "packaging": {
+    "box_type": "Rigid 2-piece box with moulded pulp insert",
+    "dimensions": {
+      "length": {
+        "value": 360.0,
+        "unit": "mm",
+        "label": "estimate",
+        "source_or_assumption": "Product + 10 mm clearance"
+      },
+      "width": {
+        "value": 130.0,
+        "unit": "mm",
+        "label": "estimate",
+        "source_or_assumption": "Product + 10 mm clearance"
+      },
+      "height": {
+        "value": 70.0,
+        "unit": "mm",
+        "label": "estimate",
+        "source_or_assumption": "Product + 10 mm clearance"
+      }
+    },
+    "materials": [
+      "1200 g greyboard",
+      "FSC paper wrap",
+      "Moulded pulp"
+    ],
+    "printing": "1-colour black + spot UV logo",
+    "contents": [
+      "Lamp base + stem",
+      "Magnetic head",
+      "USB-C cable 1 m",
+      "Quick start card"
+    ],
+    "unit_cost": {
+      "value": 0.9,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Packaging BOM line k1"
+    }
+  },
+  "landing_copy": {
+    "headline": "Light that follows you.",
+    "subheadline": "A desk lamp whose head snaps off and goes where you go. 10 hours, one USB-C cable.",
+    "bullets": [
+      "Magnetic head detaches in one hand",
+      "3 colour temperatures, touch dimming",
+      "Anodised aluminium, weighted base"
+    ],
+    "cta": "Reserve yours — €89"
+  },
+  "shopify_listing": {
+    "channel": "shopify",
+    "title": "Magwick — Magnetic Rechargeable Desk Lamp",
+    "description": "Minimal aluminium desk lamp with a detachable magnetic LED head. USB-C rechargeable, up to 10 hours.",
+    "bullets": [
+      "Detachable magnetic head",
+      "Up to 10 h battery",
+      "3 colour temperatures"
+    ],
+    "price": {
+      "value": 89.0,
+      "unit": "EUR",
+      "label": "estimate",
+      "source_or_assumption": "Founder target"
+    },
+    "keywords": [
+      "desk lamp",
+      "magnetic lamp",
+      "rechargeable lamp"
+    ]
+  },
+  "amazon_listing": {
+    "channel": "amazon",
+    "title": "Magwick Magnetic Desk Lamp, Rechargeable LED Desk Light with Detachable Head, 3 Colour Modes, USB-C",
+    "description": "Cordless LED desk lamp with a detachable magnetic head for reading, working and travel.",
+    "bullets": [
+      "DETACHABLE HEAD — snaps on and off magnetically",
+      "10-HOUR BATTERY — USB-C charging",
+      "3 COLOUR MODES — touch dimming",
+      "PREMIUM BUILD — anodised aluminium"
+    ],
+    "price": {
+      "value": 96.12,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "€89 × 1.08"
+    },
+    "keywords": [
+      "desk lamp",
+      "rechargeable",
+      "magnetic",
+      "LED"
+    ]
+  }
+}

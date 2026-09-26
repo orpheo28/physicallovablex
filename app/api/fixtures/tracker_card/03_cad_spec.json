@@ -1,0 +1,687 @@
+{
+  "project_id": "demo_tracker_card",
+  "status": "validated",
+  "fallback": false,
+  "fallback_reason": null,
+  "generated_by": "fixture",
+  "generated_at": "2026-09-26T12:00:00Z",
+  "assumptions": [],
+  "stage": 3,
+  "product_name": "Bluetooth Tracker Card for Wallets",
+  "direction_id": "d3",
+  "overall_dimensions": {
+    "length": {
+      "value": 86.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the committed full-product CAD model /files/demo_tracker_card/d3.glb (build123d/OCCT export)"
+    },
+    "width": {
+      "value": 54.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the committed full-product CAD model /files/demo_tracker_card/d3.glb (build123d/OCCT export)"
+    },
+    "height": {
+      "value": 2.8,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the committed full-product CAD model /files/demo_tracker_card/d3.glb (build123d/OCCT export)"
+    }
+  },
+  "weight": {
+    "value": 11.0,
+    "unit": "g",
+    "label": "estimate",
+    "source_or_assumption": "Shells 2×2.6 g + PCBA 2 g + cell 3 g + overlay/misc 0.8 g"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "name": "Top shell",
+      "material": "Polycarbonate (UL94 V-0)",
+      "finish": "VDI 24 matte texture, black",
+      "process_hint": "injection_molding",
+      "tolerance": "±0.05 mm on weld ridge, 2.8 ± 0.15 mm stack",
+      "dimensions": {
+        "length": {
+          "value": 85.6,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        },
+        "width": {
+          "value": 54.0,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        },
+        "height": {
+          "value": 1.4,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        }
+      },
+      "wall_thickness": {
+        "value": 0.5,
+        "unit": "mm",
+        "label": "estimate",
+        "source_or_assumption": "Design parameter"
+      },
+      "quantity": 1
+    },
+    {
+      "id": "p2",
+      "name": "Bottom shell",
+      "material": "Polycarbonate (UL94 V-0)",
+      "finish": "VDI 24 matte texture, black",
+      "process_hint": "injection_molding",
+      "tolerance": "±0.05 mm on weld groove",
+      "dimensions": {
+        "length": {
+          "value": 85.6,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        },
+        "width": {
+          "value": 54.0,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        },
+        "height": {
+          "value": 1.4,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        }
+      },
+      "wall_thickness": {
+        "value": 0.5,
+        "unit": "mm",
+        "label": "estimate",
+        "source_or_assumption": "Design parameter"
+      },
+      "quantity": 1
+    },
+    {
+      "id": "p3",
+      "name": "PCBA (BLE SoC + antenna)",
+      "material": "FR-4 4-layer 0.6 mm",
+      "finish": "ENIG, lead-free reflow",
+      "process_hint": "pcba",
+      "tolerance": "PCB thickness 0.6 ± 0.06 mm",
+      "dimensions": {
+        "length": {
+          "value": 44.0,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        },
+        "width": {
+          "value": 48.0,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        },
+        "height": {
+          "value": 1.0,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        }
+      },
+      "wall_thickness": null,
+      "quantity": 1
+    },
+    {
+      "id": "p4",
+      "name": "Thin lithium primary cell",
+      "material": "Li-MnO2 pouch, foil",
+      "finish": "Laminate",
+      "process_hint": "assembly",
+      "tolerance": "Thickness 1.0 ± 0.1 mm",
+      "dimensions": {
+        "length": {
+          "value": 40.0,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        },
+        "width": {
+          "value": 30.0,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        },
+        "height": {
+          "value": 1.0,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        }
+      },
+      "wall_thickness": null,
+      "quantity": 1
+    },
+    {
+      "id": "p5",
+      "name": "Graphic overlay",
+      "material": "PET 0.05 mm + PSA",
+      "finish": "1-colour print",
+      "process_hint": "other",
+      "tolerance": "±0.3 mm registration",
+      "dimensions": {
+        "length": {
+          "value": 84.0,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        },
+        "width": {
+          "value": 52.0,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        },
+        "height": {
+          "value": 0.1,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        }
+      },
+      "wall_thickness": null,
+      "quantity": 1
+    }
+  ],
+  "electronics_blocks": [
+    {
+      "id": "b1",
+      "name": "BLE SoC (nRF52810)",
+      "function": "BLE 5 radio, application logic, buzzer PWM"
+    },
+    {
+      "id": "b2",
+      "name": "Chip antenna",
+      "function": "2.4 GHz radiation, matched to 50 Ω"
+    },
+    {
+      "id": "b3",
+      "name": "Primary cell 3 V",
+      "function": "Sealed energy storage, no regulator (SoC runs 1.7-3.6 V)"
+    },
+    {
+      "id": "b4",
+      "name": "Piezo buzzer",
+      "function": "Audible ring via GPIO PWM"
+    },
+    {
+      "id": "b5",
+      "name": "Button",
+      "function": "Ring phone / pairing"
+    },
+    {
+      "id": "b6",
+      "name": "Status LED",
+      "function": "Pairing and battery indication"
+    },
+    {
+      "id": "b7",
+      "name": "Crystals 32 MHz + 32.768 kHz",
+      "function": "RF clock + low-power timekeeping"
+    }
+  ],
+  "electronics_edges": [
+    {
+      "source": "b3",
+      "target": "b1",
+      "signal": "VBAT 3 V"
+    },
+    {
+      "source": "b7",
+      "target": "b1",
+      "signal": "Clocks"
+    },
+    {
+      "source": "b1",
+      "target": "b2",
+      "signal": "RF 2.4 GHz"
+    },
+    {
+      "source": "b1",
+      "target": "b4",
+      "signal": "PWM"
+    },
+    {
+      "source": "b5",
+      "target": "b1",
+      "signal": "GPIO wake"
+    },
+    {
+      "source": "b1",
+      "target": "b6",
+      "signal": "GPIO"
+    }
+  ],
+  "bom": [
+    {
+      "id": "e1",
+      "part": "BLE 5 SoC nRF52810 (WLCSP-33, 2.5×2.5 mm)",
+      "category": "electronic",
+      "qty": 1.0,
+      "description": "Real LCSC price at the ≥500-unit break, snapshot 2026-09-26",
+      "manufacturer_pn": null,
+      "lcsc_pn": "C3606661",
+      "unit_cost_est": {
+        "value": 1.5745,
+        "unit": "USD",
+        "label": "sourced",
+        "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C3606661.html"
+      },
+      "risk": {
+        "level": "medium",
+        "reasons": [
+          "Single source (Nordic)",
+          "WLCSP 0.4 mm pitch assembly",
+          "LCSC stock 13.7k"
+        ]
+      },
+      "alternative": "nRF52810 QFN-32 (C519278, stock 1,322) at higher thickness"
+    },
+    {
+      "id": "e2",
+      "part": "Crystal 32.768 kHz SMD3215",
+      "category": "electronic",
+      "qty": 1.0,
+      "description": "Real LCSC price at the ≥500-unit break, snapshot 2026-09-26",
+      "manufacturer_pn": null,
+      "lcsc_pn": "C32346",
+      "unit_cost_est": {
+        "value": 0.1034,
+        "unit": "USD",
+        "label": "sourced",
+        "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C32346.html"
+      },
+      "risk": {
+        "level": "low",
+        "reasons": [
+          "Stock 445k",
+          "Multi-source"
+        ]
+      },
+      "alternative": "Any 32.768 kHz 9 pF SMD3215"
+    },
+    {
+      "id": "e3",
+      "part": "Crystal 32 MHz SMD2016",
+      "category": "electronic",
+      "qty": 1.0,
+      "description": "Real LCSC price at the ≥500-unit break, snapshot 2026-09-26",
+      "manufacturer_pn": null,
+      "lcsc_pn": "C718072",
+      "unit_cost_est": {
+        "value": 0.0668,
+        "unit": "USD",
+        "label": "sourced",
+        "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C718072.html"
+      },
+      "risk": {
+        "level": "low",
+        "reasons": [
+          "Stock 61k",
+          "Multi-source"
+        ]
+      },
+      "alternative": "XL7EL89COI-111YLC-32M (C2965584)"
+    },
+    {
+      "id": "e4",
+      "part": "2.4 GHz chip antenna 3.2×1.6 mm",
+      "category": "electronic",
+      "qty": 1.0,
+      "description": "Real LCSC price at the ≥500-unit break, snapshot 2026-09-26",
+      "manufacturer_pn": null,
+      "lcsc_pn": "C127629",
+      "unit_cost_est": {
+        "value": 0.0894,
+        "unit": "USD",
+        "label": "sourced",
+        "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C127629.html"
+      },
+      "risk": {
+        "level": "low",
+        "reasons": [
+          "Stock 77k",
+          "Detuning by nearby metal to validate"
+        ]
+      },
+      "alternative": "Printed PCB antenna (no BOM cost, larger keep-out)"
+    },
+    {
+      "id": "e5",
+      "part": "Tactile switch SMD 4.6×1.8 mm",
+      "category": "electronic",
+      "qty": 1.0,
+      "description": "Real LCSC price at the ≥500-unit break, snapshot 2026-09-26",
+      "manufacturer_pn": null,
+      "lcsc_pn": "C393942",
+      "unit_cost_est": {
+        "value": 0.0196,
+        "unit": "USD",
+        "label": "sourced",
+        "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C393942.html"
+      },
+      "risk": {
+        "level": "low",
+        "reasons": [
+          "Stock 444k"
+        ]
+      },
+      "alternative": "SH-1806SA-A3DW-04 (C22383476)"
+    },
+    {
+      "id": "e6",
+      "part": "Status LED 0402 white",
+      "category": "electronic",
+      "qty": 1.0,
+      "description": "Real LCSC price at the ≥500-unit break, snapshot 2026-09-26",
+      "manufacturer_pn": null,
+      "lcsc_pn": "C20613596",
+      "unit_cost_est": {
+        "value": 0.0087,
+        "unit": "USD",
+        "label": "sourced",
+        "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C20613596.html"
+      },
+      "risk": {
+        "level": "low",
+        "reasons": [
+          "Stock 603k"
+        ]
+      },
+      "alternative": "XL-1005UGC green (C965793)"
+    },
+    {
+      "id": "e7",
+      "part": "MLCC 100 nF 0402 (decoupling)",
+      "category": "electronic",
+      "qty": 6.0,
+      "description": "Real LCSC price at the ≥500-unit break, snapshot 2026-09-26",
+      "manufacturer_pn": null,
+      "lcsc_pn": "C1525",
+      "unit_cost_est": {
+        "value": 0.0047,
+        "unit": "USD",
+        "label": "sourced",
+        "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C1525.html"
+      },
+      "risk": {
+        "level": "low",
+        "reasons": [
+          "LCSC basic part",
+          "Stock 16.4M"
+        ]
+      },
+      "alternative": "CL05B104KB54PNC (C307331)"
+    },
+    {
+      "id": "e8",
+      "part": "MLCC 1 µF 0402",
+      "category": "electronic",
+      "qty": 2.0,
+      "description": "Real LCSC price at the ≥500-unit break, snapshot 2026-09-26",
+      "manufacturer_pn": null,
+      "lcsc_pn": "C52923",
+      "unit_cost_est": {
+        "value": 0.0122,
+        "unit": "USD",
+        "label": "sourced",
+        "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C52923.html"
+      },
+      "risk": {
+        "level": "low",
+        "reasons": [
+          "LCSC basic part",
+          "Stock 4.5M"
+        ]
+      },
+      "alternative": "TCC0402X5R105M6R3AT (C2887021)"
+    },
+    {
+      "id": "e9",
+      "part": "Antenna matching + RF passives 0402 (6 pcs)",
+      "category": "electronic",
+      "qty": 1.0,
+      "description": null,
+      "manufacturer_pn": null,
+      "lcsc_pn": null,
+      "unit_cost_est": {
+        "value": 0.03,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Six 0402 RF passives (C/L) at ~$0.005 each; values set at RF tuning"
+      },
+      "risk": null,
+      "alternative": null
+    },
+    {
+      "id": "e10",
+      "part": "Piezo disc buzzer Ø12 mm, 0.22 mm brass plate",
+      "category": "electronic",
+      "qty": 1.0,
+      "description": null,
+      "manufacturer_pn": null,
+      "lcsc_pn": null,
+      "unit_cost_est": {
+        "value": 0.1,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Catalogue piezo element, 10k pcs; thin SMD variant not selected"
+      },
+      "risk": {
+        "level": "medium",
+        "reasons": [
+          "Loudness inside sealed shells not validated"
+        ]
+      },
+      "alternative": "Thin SMD magnetic transducer, higher cost"
+    },
+    {
+      "id": "e11",
+      "part": "Thin lithium primary pouch cell 3 V, ~1 mm",
+      "category": "electronic",
+      "qty": 1.0,
+      "description": null,
+      "manufacturer_pn": null,
+      "lcsc_pn": null,
+      "unit_cost_est": {
+        "value": 0.6,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Thin lithium primary cell (3 V pouch, non-replaceable) $0.60 at 2k MOQ, branded supplier with UN38.3 report"
+      },
+      "risk": {
+        "level": "high",
+        "reasons": [
+          "Sealed lithium cell: UN38.3 report required",
+          "Counterfeit/unbranded cell risk",
+          "Air-freight restrictions (UN3090/3091)"
+        ]
+      },
+      "alternative": "Rechargeable thin LiPo + charge IC (adds cost, IEC 62133-2, USB/Qi charge access)"
+    },
+    {
+      "id": "e12",
+      "part": "Control PCB 4-layer 0.6 mm ENIG",
+      "category": "electronic",
+      "qty": 1.0,
+      "description": null,
+      "manufacturer_pn": null,
+      "lcsc_pn": null,
+      "unit_cost_est": {
+        "value": 0.45,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Bare PCB, 2k pcs, 90×55 mm panel share"
+      },
+      "risk": {
+        "level": "low",
+        "reasons": []
+      },
+      "alternative": null
+    },
+    {
+      "id": "m1",
+      "part": "Top shell, PC, 0.5 mm wall, textured",
+      "category": "mechanical",
+      "qty": 1.0,
+      "description": null,
+      "manufacturer_pn": null,
+      "lcsc_pn": null,
+      "unit_cost_est": {
+        "value": 0.14,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Part weight 2.6 g × resin + cycle cost"
+      },
+      "risk": null,
+      "alternative": null
+    },
+    {
+      "id": "m2",
+      "part": "Bottom shell, PC, 0.5 mm wall",
+      "category": "mechanical",
+      "qty": 1.0,
+      "description": null,
+      "manufacturer_pn": null,
+      "lcsc_pn": null,
+      "unit_cost_est": {
+        "value": 0.14,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Part weight 2.6 g × resin + cycle cost"
+      },
+      "risk": null,
+      "alternative": null
+    },
+    {
+      "id": "m3",
+      "part": "Printed PET graphic overlay",
+      "category": "mechanical",
+      "qty": 1.0,
+      "description": null,
+      "manufacturer_pn": null,
+      "lcsc_pn": null,
+      "unit_cost_est": {
+        "value": 0.06,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Die-cut 85 × 54 mm, 1-colour print, PSA back"
+      },
+      "risk": null,
+      "alternative": null
+    },
+    {
+      "id": "m4",
+      "part": "Acoustic mesh + adhesive ring",
+      "category": "mechanical",
+      "qty": 1.0,
+      "description": null,
+      "manufacturer_pn": null,
+      "lcsc_pn": null,
+      "unit_cost_est": {
+        "value": 0.02,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Die-cut, 5 mm"
+      },
+      "risk": null,
+      "alternative": null
+    },
+    {
+      "id": "m5",
+      "part": "Cell tab foil + adhesive tape",
+      "category": "mechanical",
+      "qty": 1.0,
+      "description": null,
+      "manufacturer_pn": null,
+      "lcsc_pn": null,
+      "unit_cost_est": {
+        "value": 0.03,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Nickel tab + Kapton"
+      },
+      "risk": null,
+      "alternative": null
+    },
+    {
+      "id": "k1",
+      "part": "Folding carton (blister-free) 95×62×6 mm",
+      "category": "packaging",
+      "qty": 1.0,
+      "description": null,
+      "manufacturer_pn": null,
+      "lcsc_pn": null,
+      "unit_cost_est": {
+        "value": 0.18,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Paperboard 350 g, 1-colour print"
+      },
+      "risk": null,
+      "alternative": null
+    },
+    {
+      "id": "k2",
+      "part": "Quick-start card",
+      "category": "packaging",
+      "qty": 1.0,
+      "description": null,
+      "manufacturer_pn": null,
+      "lcsc_pn": null,
+      "unit_cost_est": {
+        "value": 0.03,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Single-sheet insert"
+      },
+      "risk": null,
+      "alternative": null
+    }
+  ],
+  "tolerances": [
+    "General ISO 2768-f on shells",
+    "Stack thickness 2.8 ± 0.15 mm after welding",
+    "Weld ridge/groove ±0.05 mm"
+  ],
+  "cad_files": [
+    {
+      "format": "glb",
+      "url": "/files/demo_tracker_card/d3.glb",
+      "description": "Full product — materials (viewer model of direction d3)",
+      "size_bytes": 195972
+    },
+    {
+      "format": "step",
+      "url": "/files/demo_tracker_card/enclosure.step",
+      "description": "Moulded parts (DFM) — Card enclosure B-rep (build123d): top + bottom shell 85.6 × 54 × 2.8 mm, 0.5 mm wall, 1° draft — open in any CAD tool",
+      "size_bytes": 187440
+    },
+    {
+      "format": "stl",
+      "url": "/files/demo_tracker_card/enclosure.stl",
+      "description": "Moulded parts (DFM) — Card enclosure mesh for 3D-printed prototypes",
+      "size_bytes": 282684
+    },
+    {
+      "format": "glb",
+      "url": "/files/demo_tracker_card/enclosure.glb",
+      "description": "Moulded parts (DFM) — Card enclosure model for the 3D viewer",
+      "size_bytes": 191124
+    }
+  ]
+}

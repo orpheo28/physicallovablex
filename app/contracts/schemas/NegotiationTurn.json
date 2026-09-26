@@ -1,0 +1,102 @@
+{
+  "$defs": {
+    "Speaker": {
+      "enum": [
+        "platform_agent",
+        "factory_agent",
+        "user"
+      ],
+      "title": "Speaker",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "rfq_id": {
+      "title": "Rfq Id",
+      "type": "string"
+    },
+    "factory_id": {
+      "title": "Factory Id",
+      "type": "string"
+    },
+    "turn": {
+      "title": "Turn",
+      "type": "integer"
+    },
+    "speaker": {
+      "$ref": "#/$defs/Speaker"
+    },
+    "message": {
+      "title": "Message",
+      "type": "string"
+    },
+    "message_cn": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Machine-translated, to be reviewed by a native speaker",
+      "title": "Message Cn"
+    },
+    "quote_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Quote Id"
+    },
+    "proposed_changes": {
+      "additionalProperties": true,
+      "title": "Proposed Changes",
+      "type": "object"
+    },
+    "rationale": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Rationale"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "label": {
+      "const": "fictional",
+      "default": "fictional",
+      "title": "Label",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "rfq_id",
+    "factory_id",
+    "turn",
+    "speaker",
+    "message"
+  ],
+  "title": "NegotiationTurn",
+  "type": "object"
+}

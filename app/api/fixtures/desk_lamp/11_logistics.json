@@ -1,0 +1,283 @@
+{
+  "project_id": "demo_desk_lamp",
+  "status": "validated",
+  "fallback": false,
+  "fallback_reason": null,
+  "generated_by": "fixture (live code)",
+  "generated_at": "2026-09-26T12:00:00Z",
+  "assumptions": [
+    {
+      "id": "a1",
+      "text": "HTS 8513.10.40.00: USITC HTS 8513.10.40.00 general rate 3.5%, https://hts.usitc.gov/search?query=8513.10.40.00, fetched 2026-09-26",
+      "label": "sourced",
+      "source": "https://hts.usitc.gov/search?query=8513.10.40.00",
+      "stage": 11
+    },
+    {
+      "id": "a2",
+      "text": "Section 301 China, heading 9903.88.03 (+25%): USITC HTS, https://hts.usitc.gov/search?query=9903.88.03, fetched 2026-09-26; heading cited with HTS 8513.10.4000 in CBP ruling N350173 (2025-07-09). Coverage on the entry date to be confirmed by a customs broker",
+      "label": "sourced",
+      "source": "https://hts.usitc.gov/search?query=8513.10.40.00",
+      "stage": 11
+    },
+    {
+      "id": "a3",
+      "text": "IEEPA duties not collected since 24/02/2026; de minimis suspended; Section 122 is a user toggle (status to verify)",
+      "label": "sourced",
+      "source": "CBP CSMS 67834313 (https://content.govdelivery.com/accounts/USDHSCBP/bulletins/40b11c9); CBP CSMS 67844987; Federal Register 2026-06-24",
+      "stage": 11
+    },
+    {
+      "id": "a4",
+      "text": "Freight sea lcl: 32 days transit (simulated); cost per unit derived from the Drewry lane rate, see a8-a10",
+      "label": "fictional",
+      "source": "demo data",
+      "stage": 11
+    },
+    {
+      "id": "a5",
+      "text": "Platform/agent fee 7% of FOB (benchmark 5-10%)",
+      "label": "estimate",
+      "source": "https://www.dragonsourcing.com/top-10-cost-insights-for-hiring-a-china-sourcing-agent/",
+      "stage": 11
+    },
+    {
+      "id": "a6",
+      "text": "FOB basis: Approved final terms, quote qt_orchid_v2 — demo data",
+      "label": "fictional",
+      "source": "stage8_final_terms",
+      "stage": 11
+    },
+    {
+      "id": "a7",
+      "text": "Assumed HTS 8513.10.4000 — precedent: CBP ruling N248128 (2013-12-12), https://rulings.cbp.gov/ruling/N248128. Not a binding classification; confirm with a customs broker.",
+      "label": "sourced",
+      "source": "https://rulings.cbp.gov/ruling/N248128",
+      "stage": 11
+    },
+    {
+      "id": "a8",
+      "text": "Sea container rate Drewry World Container Index, 24 Sep 2026: Shanghai–Los Angeles $7,838/40ft (Drewry-assessed spot benchmark, snapshot; the quote you get will differ)",
+      "label": "sourced",
+      "source": "https://www.drewry.co.uk/supply-chain-advisors/supply-chain-expertise/world-container-index-assessed-by-drewry",
+      "stage": 11
+    },
+    {
+      "id": "a9",
+      "text": "Sea freight derived from the Drewry lane rate, cheaper of LCL and FCL chosen automatically: packed unit 0.0111 m³ (bounding box × 1.5 packaging, min 0.5 L) = 6,060 units per 40ft (67 m³ usable); 20ft container ≈ 0.55 × the 40ft rate, 33 m³. Air = max(gross kg, m³ × 167) × $6.00/kg, min $150 per shipment; express = 1.8× air (Estimate: typical China→US air cargo range $4-8/kg, to be confirmed by a forwarder); air and express are never auto-chosen",
+      "label": "estimate",
+      "source": "demo assumption",
+      "stage": 11
+    },
+    {
+      "id": "a10",
+      "text": "LCL consolidation premium vs FCL, typical 1.3–2.0×: 1.5× applied to lane rate ÷ 67 m³, minimum charge 1 m³ per shipment (derived from Drewry WCI 24 Sep 2026)",
+      "label": "estimate",
+      "source": "https://www.drewry.co.uk/supply-chain-advisors/supply-chain-expertise/world-container-index-assessed-by-drewry",
+      "stage": 11
+    }
+  ],
+  "stage": 11,
+  "incoterm": "FOB",
+  "destination": "Los Angeles, CA → US 3PL",
+  "quantity": 2000,
+  "freight_options": [
+    {
+      "mode": "sea_lcl",
+      "transit_days": {
+        "value": 32.0,
+        "unit": "days",
+        "label": "fictional",
+        "source_or_assumption": "demo data"
+      },
+      "cost_per_unit": {
+        "value": 1.94,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "derived from Drewry WCI 24 Sep 2026: $175/m³ (lane rate ÷ 67 m³ × LCL premium 1.5, Estimate) × 22.1 m³ chargeable (min 1 m³) ÷ 2,000 units"
+      }
+    },
+    {
+      "mode": "sea_fcl",
+      "transit_days": {
+        "value": 35.0,
+        "unit": "days",
+        "label": "fictional",
+        "source_or_assumption": "demo data"
+      },
+      "cost_per_unit": {
+        "value": 2.155,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "derived from Drewry WCI 24 Sep 2026: 1 × 20ft container at $4,311 (lane rate Shanghai–Los Angeles $7,838/40ft; 20ft = 0.55 × 40ft, 33 m³, Estimate) ÷ 2,000 units; 0.0111 m³ packed unit (Estimate)"
+      }
+    },
+    {
+      "mode": "air",
+      "transit_days": {
+        "value": 8.0,
+        "unit": "days",
+        "label": "fictional",
+        "source_or_assumption": "demo data"
+      },
+      "cost_per_unit": {
+        "value": 11.077,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "chargeable 1.846 kg/unit = max(gross 0.862 kg, 0.0111 m³ × 167) × $6.00/kg, min $150 per shipment — typical China→US air cargo rate range $4-8/kg, to be confirmed by a forwarder — Li-ion air restrictions apply"
+      }
+    },
+    {
+      "mode": "express",
+      "transit_days": {
+        "value": 5.0,
+        "unit": "days",
+        "label": "fictional",
+        "source_or_assumption": "demo data"
+      },
+      "cost_per_unit": {
+        "value": 19.939,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "chargeable 1.846 kg/unit = max(gross 0.862 kg, 0.0111 m³ × 167) × $6.00/kg, min $150 per shipment, express = 1.8× air — typical China→US air cargo rate range $4-8/kg, to be confirmed by a forwarder — Li-ion air restrictions apply"
+      }
+    }
+  ],
+  "chosen_mode": "sea_lcl",
+  "hts": {
+    "code": "8513.10.40.00",
+    "description": "Lamps — Other — precedent CBP ruling N248128 (2013-12-12): The tariff classification of an LED Table Lamp and Flashlight from China",
+    "general_rate": {
+      "value": 3.5,
+      "unit": "pct",
+      "label": "sourced",
+      "source_or_assumption": "USITC HTS 8513.10.40.00 general rate 3.5%, https://hts.usitc.gov/search?query=8513.10.40.00, fetched 2026-09-26"
+    },
+    "section_301_rate": {
+      "value": 25.0,
+      "unit": "pct",
+      "label": "sourced",
+      "source_or_assumption": "Section 301 China, heading 9903.88.03 (+25%): USITC HTS, https://hts.usitc.gov/search?query=9903.88.03, fetched 2026-09-26; heading cited with HTS 8513.10.4000 in CBP ruling N350173 (2025-07-09). Coverage on the entry date to be confirmed by a customs broker"
+    },
+    "source_url": "https://hts.usitc.gov/search?query=8513.10.40.00"
+  },
+  "section_122_applied": false,
+  "landed_cost_breakdown": [
+    {
+      "name": "FOB unit price",
+      "amount": {
+        "value": 13.0,
+        "unit": "USD",
+        "label": "fictional",
+        "source_or_assumption": "Approved final terms, quote qt_orchid_v2 — demo data"
+      }
+    },
+    {
+      "name": "Freight (SEA LCL)",
+      "amount": {
+        "value": 1.94,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "derived from Drewry WCI 24 Sep 2026: $175/m³ (lane rate ÷ 67 m³ × LCL premium 1.5, Estimate) × 22.1 m³ chargeable (min 1 m³) ÷ 2,000 units"
+      }
+    },
+    {
+      "name": "Insurance (0.3% of FOB)",
+      "amount": {
+        "value": 0.039,
+        "unit": "USD",
+        "label": "fictional",
+        "source_or_assumption": "demo insurance rate 0.3% of FOB — demo data"
+      }
+    },
+    {
+      "name": "Duty HTS 8513.10.40.00 (3.5%)",
+      "amount": {
+        "value": 0.46,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "3.5% × FOB. USITC HTS 8513.10.40.00 general rate 3.5%, https://hts.usitc.gov/search?query=8513.10.40.00, fetched 2026-09-26"
+      }
+    },
+    {
+      "name": "Section 301 (25%)",
+      "amount": {
+        "value": 3.25,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "25% × FOB. Section 301 China, heading 9903.88.03 (+25%): USITC HTS, https://hts.usitc.gov/search?query=9903.88.03, fetched 2026-09-26; heading cited with HTS 8513.10.4000 in CBP ruling N350173 (2025-07-09). Coverage on the entry date to be confirmed by a customs broker"
+      }
+    },
+    {
+      "name": "IEEPA surcharges (0%)",
+      "amount": {
+        "value": 0.0,
+        "unit": "USD",
+        "label": "sourced",
+        "source_or_assumption": "IEEPA duties not collected since 2026-02-24 (CBP CSMS 67834313, https://content.govdelivery.com/accounts/USDHSCBP/bulletins/40b11c9), 2026-02-22"
+      }
+    },
+    {
+      "name": "Section 122 surcharge (10%, toggle off)",
+      "amount": {
+        "value": 0.0,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "10% temporary surcharge announced Feb 2026 for 150 days (CBP CSMS 67844987); current status to verify — user toggle"
+      }
+    },
+    {
+      "name": "Broker + port fees",
+      "amount": {
+        "value": 0.22,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Customs entry/ISF $350 per shipment ÷ 2000 + $0.05/unit port fees"
+      }
+    },
+    {
+      "name": "3PL receiving + storage (1 month)",
+      "amount": {
+        "value": 0.6,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "US 3PL rate card average, assumption"
+      }
+    },
+    {
+      "name": "Platform / agent fee (7% of FOB)",
+      "amount": {
+        "value": 0.91,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Sourcing agent / platform benchmark 5-10% of order (Dragon Sourcing, https://www.dragonsourcing.com/top-10-cost-insights-for-hiring-a-china-sourcing-agent/), 7% assumed"
+      }
+    },
+    {
+      "name": "Pre-shipment inspection",
+      "amount": {
+        "value": 0.27,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "V-Trust rate (Sourced) × estimated man-days: $268/man-day (V-Trust, https://www.v-trust.com/en/our-network, checked 2026-09-26) × 2 man-days ÷ 2000 units"
+      }
+    },
+    {
+      "name": "Tooling amortisation",
+      "amount": {
+        "value": 4.7,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "$9,400 tooling ÷ 2000 units"
+      }
+    }
+  ],
+  "landed_cost_per_unit": {
+    "value": 25.39,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Sum of landed cost components"
+  },
+  "reconciles_with_stage5": true,
+  "reconciliation_note": "Landed $25.39 vs stage 5 estimate $25.06 at 2,000 units (+1.3%): FOB $13.00 vs stage 5 $12.50 (stage8_final_terms); tooling $9,400 vs $10,100."
+}

@@ -1,0 +1,22 @@
+{
+ "fetched_on": "2026-09-26",
+ "source_url": "https://hts.usitc.gov/reststop/exportList?from=8210&to=8211&format=JSON&styles=false",
+ "rows": [
+  {
+   "htsno": "8210.00.00.00",
+   "indent": "0",
+   "description": "Hand-operated mechanical appliances, weighing 10 kg or less, used in the preparation, conditioning or serving of food or drink, and base metal parts thereof",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "3.7%",
+   "special": "Free (A*,AU,BH,CL,CO,D,E,IL,JO,KR,MA,OM,P,PA,PE,S,SG)",
+   "other": "40%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  }
+ ]
+}

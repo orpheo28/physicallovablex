@@ -1,0 +1,22 @@
+.env
+.env.*
+!.env.example
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+*.db
+.next/
+.pytest_cache/
+api/data/
+web/next-env.d.ts
+.DS_Store
+.playwright-mcp/
+
+# QA scratch (W10): keep only the report and PNG evidence
+tests/results/qa/**/*.mjs
+tests/results/qa/**/*.log
+tests/results/qa/**/*.pid
+tests/results/qa/**/*.txt
+tests/results/qa/**/*.pdf
+tests/results/qa/**/*.py

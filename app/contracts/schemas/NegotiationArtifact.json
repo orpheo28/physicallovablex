@@ -1,0 +1,548 @@
+{
+  "$defs": {
+    "Assumption": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "label": {
+          "$ref": "#/$defs/Label"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source"
+        },
+        "stage": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Stage that introduced the assumption",
+          "title": "Stage"
+        }
+      },
+      "required": [
+        "id",
+        "text",
+        "label"
+      ],
+      "title": "Assumption",
+      "type": "object"
+    },
+    "FinalTerms": {
+      "additionalProperties": false,
+      "properties": {
+        "factory_id": {
+          "title": "Factory Id",
+          "type": "string"
+        },
+        "quote_id": {
+          "title": "Quote Id",
+          "type": "string"
+        },
+        "quantity": {
+          "title": "Quantity",
+          "type": "integer"
+        },
+        "unit_price": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "tooling": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "moq": {
+          "title": "Moq",
+          "type": "integer"
+        },
+        "lead_time_days": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "payment_terms": {
+          "title": "Payment Terms",
+          "type": "string"
+        }
+      },
+      "required": [
+        "factory_id",
+        "quote_id",
+        "quantity",
+        "unit_price",
+        "tooling",
+        "moq",
+        "lead_time_days",
+        "payment_terms"
+      ],
+      "title": "FinalTerms",
+      "type": "object"
+    },
+    "Label": {
+      "description": "The four honesty labels. UI text: Measured / Sourced / Estimate / Fictional \u2014 demo data.",
+      "enum": [
+        "measured",
+        "sourced",
+        "estimate",
+        "fictional"
+      ],
+      "title": "Label",
+      "type": "string"
+    },
+    "LabeledValue": {
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "title": "Value",
+          "type": "number"
+        },
+        "unit": {
+          "description": "e.g. USD, EUR, mm, g, days, weeks, pct, units, man-days",
+          "title": "Unit",
+          "type": "string"
+        },
+        "label": {
+          "$ref": "#/$defs/Label"
+        },
+        "source_or_assumption": {
+          "description": "Sourced: '<source>, <YYYY-MM-DD>'. Estimate: the assumption. Measured: the check. Fictional: 'demo data'.",
+          "title": "Source Or Assumption",
+          "type": "string"
+        }
+      },
+      "required": [
+        "value",
+        "unit",
+        "label",
+        "source_or_assumption"
+      ],
+      "title": "LabeledValue",
+      "type": "object"
+    },
+    "NegotiationTurn": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "rfq_id": {
+          "title": "Rfq Id",
+          "type": "string"
+        },
+        "factory_id": {
+          "title": "Factory Id",
+          "type": "string"
+        },
+        "turn": {
+          "title": "Turn",
+          "type": "integer"
+        },
+        "speaker": {
+          "$ref": "#/$defs/Speaker"
+        },
+        "message": {
+          "title": "Message",
+          "type": "string"
+        },
+        "message_cn": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Machine-translated, to be reviewed by a native speaker",
+          "title": "Message Cn"
+        },
+        "quote_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Quote Id"
+        },
+        "proposed_changes": {
+          "additionalProperties": true,
+          "title": "Proposed Changes",
+          "type": "object"
+        },
+        "rationale": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Rationale"
+        },
+        "created_at": {
+          "format": "date-time",
+          "title": "Created At",
+          "type": "string"
+        },
+        "label": {
+          "const": "fictional",
+          "default": "fictional",
+          "title": "Label",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "rfq_id",
+        "factory_id",
+        "turn",
+        "speaker",
+        "message"
+      ],
+      "title": "NegotiationTurn",
+      "type": "object"
+    },
+    "Quote": {
+      "additionalProperties": false,
+      "description": "Mirrors MCP `submit_quote` (PRD \u00a710). Each counter creates a new version.",
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "rfq_id": {
+          "title": "Rfq Id",
+          "type": "string"
+        },
+        "factory_id": {
+          "title": "Factory Id",
+          "type": "string"
+        },
+        "version": {
+          "default": 1,
+          "title": "Version",
+          "type": "integer"
+        },
+        "tiers": {
+          "items": {
+            "$ref": "#/$defs/QuoteTier"
+          },
+          "title": "Tiers",
+          "type": "array"
+        },
+        "tooling_usd": {
+          "title": "Tooling Usd",
+          "type": "number"
+        },
+        "moq": {
+          "title": "Moq",
+          "type": "integer"
+        },
+        "lead_time_days": {
+          "title": "Lead Time Days",
+          "type": "integer"
+        },
+        "payment_terms": {
+          "description": "e.g. '30% deposit / 70% before shipment'",
+          "title": "Payment Terms",
+          "type": "string"
+        },
+        "exceptions": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Exceptions",
+          "type": "array"
+        },
+        "status": {
+          "$ref": "#/$defs/QuoteStatus",
+          "default": "submitted"
+        },
+        "created_at": {
+          "format": "date-time",
+          "title": "Created At",
+          "type": "string"
+        },
+        "label": {
+          "const": "fictional",
+          "default": "fictional",
+          "title": "Label",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "rfq_id",
+        "factory_id",
+        "tiers",
+        "tooling_usd",
+        "moq",
+        "lead_time_days",
+        "payment_terms"
+      ],
+      "title": "Quote",
+      "type": "object"
+    },
+    "QuoteStatus": {
+      "enum": [
+        "submitted",
+        "countered",
+        "superseded",
+        "accepted",
+        "rejected"
+      ],
+      "title": "QuoteStatus",
+      "type": "string"
+    },
+    "QuoteTier": {
+      "additionalProperties": false,
+      "properties": {
+        "quantity": {
+          "title": "Quantity",
+          "type": "integer"
+        },
+        "unit_price_usd": {
+          "title": "Unit Price Usd",
+          "type": "number"
+        }
+      },
+      "required": [
+        "quantity",
+        "unit_price_usd"
+      ],
+      "title": "QuoteTier",
+      "type": "object"
+    },
+    "RFQ": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "project_id": {
+          "title": "Project Id",
+          "type": "string"
+        },
+        "factory_id": {
+          "title": "Factory Id",
+          "type": "string"
+        },
+        "factory_pack_id": {
+          "title": "Factory Pack Id",
+          "type": "string"
+        },
+        "quantities": {
+          "items": {
+            "type": "integer"
+          },
+          "title": "Quantities",
+          "type": "array"
+        },
+        "status": {
+          "$ref": "#/$defs/RFQStatus",
+          "default": "sent"
+        },
+        "created_at": {
+          "format": "date-time",
+          "title": "Created At",
+          "type": "string"
+        },
+        "label": {
+          "const": "fictional",
+          "default": "fictional",
+          "title": "Label",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "project_id",
+        "factory_id",
+        "factory_pack_id",
+        "quantities"
+      ],
+      "title": "RFQ",
+      "type": "object"
+    },
+    "RFQStatus": {
+      "enum": [
+        "sent",
+        "quoted",
+        "declined",
+        "accepted"
+      ],
+      "title": "RFQStatus",
+      "type": "string"
+    },
+    "Recommendation": {
+      "additionalProperties": false,
+      "properties": {
+        "factory_id": {
+          "title": "Factory Id",
+          "type": "string"
+        },
+        "quote_id": {
+          "title": "Quote Id",
+          "type": "string"
+        },
+        "rationale": {
+          "title": "Rationale",
+          "type": "string"
+        }
+      },
+      "required": [
+        "factory_id",
+        "quote_id",
+        "rationale"
+      ],
+      "title": "Recommendation",
+      "type": "object"
+    },
+    "Speaker": {
+      "enum": [
+        "platform_agent",
+        "factory_agent",
+        "user"
+      ],
+      "title": "Speaker",
+      "type": "string"
+    },
+    "StageStatus": {
+      "enum": [
+        "not_started",
+        "draft",
+        "validated"
+      ],
+      "title": "StageStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "project_id": {
+      "title": "Project Id",
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/$defs/StageStatus",
+      "default": "draft"
+    },
+    "fallback": {
+      "default": false,
+      "description": "True when served from a fixture after an error",
+      "title": "Fallback",
+      "type": "boolean"
+    },
+    "fallback_reason": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Fallback Reason"
+    },
+    "generated_by": {
+      "default": "fixture",
+      "description": "'fixture' | 'code' | 'llm:<model slug>'",
+      "title": "Generated By",
+      "type": "string"
+    },
+    "generated_at": {
+      "format": "date-time",
+      "title": "Generated At",
+      "type": "string"
+    },
+    "assumptions": {
+      "items": {
+        "$ref": "#/$defs/Assumption"
+      },
+      "title": "Assumptions",
+      "type": "array"
+    },
+    "stage": {
+      "const": 8,
+      "default": 8,
+      "title": "Stage",
+      "type": "integer"
+    },
+    "rfqs": {
+      "items": {
+        "$ref": "#/$defs/RFQ"
+      },
+      "title": "Rfqs",
+      "type": "array"
+    },
+    "quotes": {
+      "items": {
+        "$ref": "#/$defs/Quote"
+      },
+      "title": "Quotes",
+      "type": "array"
+    },
+    "transcript": {
+      "items": {
+        "$ref": "#/$defs/NegotiationTurn"
+      },
+      "title": "Transcript",
+      "type": "array"
+    },
+    "recommendation": {
+      "$ref": "#/$defs/Recommendation"
+    },
+    "user_approved": {
+      "default": false,
+      "title": "User Approved",
+      "type": "boolean"
+    },
+    "final_terms": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/FinalTerms"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Set once the user approves"
+    }
+  },
+  "required": [
+    "project_id",
+    "rfqs",
+    "quotes",
+    "transcript",
+    "recommendation"
+  ],
+  "title": "NegotiationArtifact",
+  "type": "object"
+}

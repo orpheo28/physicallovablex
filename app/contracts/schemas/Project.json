@@ -1,0 +1,97 @@
+{
+  "$defs": {
+    "ProjectMode": {
+      "enum": [
+        "idea",
+        "prototype"
+      ],
+      "title": "ProjectMode",
+      "type": "string"
+    },
+    "ProjectStatus": {
+      "enum": [
+        "active",
+        "archived"
+      ],
+      "title": "ProjectStatus",
+      "type": "string"
+    },
+    "StageStatus": {
+      "enum": [
+        "not_started",
+        "draft",
+        "validated"
+      ],
+      "title": "StageStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "name": {
+      "title": "Name",
+      "type": "string"
+    },
+    "mode": {
+      "$ref": "#/$defs/ProjectMode"
+    },
+    "prompt": {
+      "title": "Prompt",
+      "type": "string"
+    },
+    "pasted_bom": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Pasted Bom"
+    },
+    "example": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Fixture set used for fallbacks, e.g. 'desk_lamp', 'tracker_card'",
+      "title": "Example"
+    },
+    "status": {
+      "$ref": "#/$defs/ProjectStatus",
+      "default": "active"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "stage_status": {
+      "additionalProperties": {
+        "$ref": "#/$defs/StageStatus"
+      },
+      "description": "Keys are stage numbers as strings ('1'..'13')",
+      "title": "Stage Status",
+      "type": "object"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "mode",
+    "prompt"
+  ],
+  "title": "Project",
+  "type": "object"
+}

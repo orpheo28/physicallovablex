@@ -1,0 +1,547 @@
+{
+ "fetched_on": "2026-09-26",
+ "source_url": "https://hts.usitc.gov/reststop/exportList?from=8523&to=8524&format=JSON&styles=false",
+ "rows": [
+  {
+   "htsno": "8523",
+   "indent": "0",
+   "description": "Discs, tapes, solid-state non-volatile storage devices, \"smart cards\" and other media for the recording of sound or of other phenomena, whether or not recorded, including matrices and masters for the production of discs, but excluding products of Chapter 37:",
+   "superior": null,
+   "units": [],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": "",
+   "additionalDuties": "",
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8523.21.00.00",
+   "indent": "2",
+   "description": "Cards incorporating a magnetic stripe",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "80%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8523.29",
+   "indent": "2",
+   "description": "Other:",
+   "superior": null,
+   "units": [],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": "",
+   "additionalDuties": "",
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8523.29.10.00",
+   "indent": "3",
+   "description": "Unrecorded magnetic media",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "80%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8523.29.20.00",
+   "indent": "4",
+   "description": "Magnetic tapes for reproducing phenomena other than sound or image",
+   "superior": null,
+   "units": [
+    "m2"
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "86.1\u00a2/m2 of recording surface",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8523.29.30.00",
+   "indent": "6",
+   "description": "News sound recordings relating to current events",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "Free",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8523.29.40",
+   "indent": "6",
+   "description": "Other",
+   "superior": null,
+   "units": [],
+   "general": "Free",
+   "special": "",
+   "other": "86.1\u00a2/m2of recording surface",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8523.29.40.10",
+   "indent": "7",
+   "description": "Sound recordings on cassette tapes",
+   "superior": null,
+   "units": [
+    "No.",
+    "m2"
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8523.29.40.20",
+   "indent": "7",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No.",
+    "m2"
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8523.29.50",
+   "indent": "6",
+   "description": "Video tape recordings",
+   "superior": null,
+   "units": [],
+   "general": "Free",
+   "special": "",
+   "other": "3.3\u00a2/lin. m",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8523.29.50.10",
+   "indent": "7",
+   "description": "In cassettes",
+   "superior": null,
+   "units": [
+    "lin. m",
+    "No."
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8523.29.50.20",
+   "indent": "7",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "lin. m"
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8523.29.60.00",
+   "indent": "6",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "m2"
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "86.1\u00a2/m2 of recording surface",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8523.29.70",
+   "indent": "6",
+   "description": "Video tape recordings",
+   "superior": null,
+   "units": [],
+   "general": "Free",
+   "special": "",
+   "other": "3.3\u00a2/lin. m",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8523.29.70.10",
+   "indent": "7",
+   "description": "Of a width not exceeding 16 mm, in cassettes",
+   "superior": null,
+   "units": [
+    "lin. m",
+    "No."
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8523.29.70.20",
+   "indent": "7",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "lin. m"
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8523.29.80.00",
+   "indent": "6",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "m2"
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "86.1\u00a2/m2 of recording surface",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8523.29.90.00",
+   "indent": "4",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "m2"
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "86.1\u00a2/m2 of recording surface",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8523.41.00.00",
+   "indent": "2",
+   "description": "Unrecorded",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "80%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8523.49",
+   "indent": "2",
+   "description": "Other:",
+   "superior": null,
+   "units": [],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": "",
+   "additionalDuties": "",
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8523.49.20",
+   "indent": "3",
+   "description": "For reproducing phenomena other than sound or image",
+   "superior": null,
+   "units": [],
+   "general": "Free",
+   "special": "",
+   "other": "86.1\u00a2/m2 of recording surface",
+   "footnotes": [
+    {
+     "columns": [
+      "other"
+     ],
+     "value": "See 9903.90.08. ",
+     "type": "endnote"
+    }
+   ],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8523.49.20.10",
+   "indent": "4",
+   "description": "Prepackaged software for automatic data processing machines, of a kind sold at retail",
+   "superior": null,
+   "units": [
+    "No.",
+    "m2"
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8523.49.20.20",
+   "indent": "4",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No.",
+    "m2"
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8523.49.30.00",
+   "indent": "3",
+   "description": "For reproducing sound only",
+   "superior": null,
+   "units": [
+    "No.",
+    "m2"
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "86.1\u00a2/m2 of recording surface",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8523.49.40.00",
+   "indent": "4",
+   "description": "For reproducing representations of instructions, data, sound, and image, recorded in a machine readable binary form, and capable of being manipulated or providing interactivity to a user, by means of an automatic data processing machine; proprietary format recorded discs",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "80%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8523.49.50.00",
+   "indent": "4",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "80%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8523.51.00.00",
+   "indent": "2",
+   "description": "Solid-state non-volatile storage devices",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "80%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8523.52.00",
+   "indent": "2",
+   "description": "\"Smart cards\"",
+   "superior": null,
+   "units": [],
+   "general": "Free",
+   "special": "",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8523.52.00.10",
+   "indent": "3",
+   "description": "Unrecorded",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8523.52.00.90",
+   "indent": "3",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8523.59.00.00",
+   "indent": "2",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8523.80",
+   "indent": "1",
+   "description": "Other:",
+   "superior": null,
+   "units": [],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": "",
+   "additionalDuties": "",
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8523.80.10.00",
+   "indent": "2",
+   "description": "Phonograph records",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "30%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8523.80.20.00",
+   "indent": "2",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "80%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  }
+ ]
+}

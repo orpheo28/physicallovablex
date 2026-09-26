@@ -1,0 +1,452 @@
+{
+  "$defs": {
+    "Assumption": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "label": {
+          "$ref": "#/$defs/Label"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source"
+        },
+        "stage": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Stage that introduced the assumption",
+          "title": "Stage"
+        }
+      },
+      "required": [
+        "id",
+        "text",
+        "label"
+      ],
+      "title": "Assumption",
+      "type": "object"
+    },
+    "BOMCategory": {
+      "enum": [
+        "electronic",
+        "mechanical",
+        "packaging"
+      ],
+      "title": "BOMCategory",
+      "type": "string"
+    },
+    "BOMItem": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "part": {
+          "title": "Part",
+          "type": "string"
+        },
+        "category": {
+          "$ref": "#/$defs/BOMCategory"
+        },
+        "qty": {
+          "description": "Quantity per finished unit",
+          "title": "Qty",
+          "type": "number"
+        },
+        "description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Description"
+        },
+        "manufacturer_pn": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Manufacturer Pn"
+        },
+        "lcsc_pn": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "e.g. 'C725790' when matched to the LCSC snapshot",
+          "title": "Lcsc Pn"
+        },
+        "unit_cost_est": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/LabeledValue"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "risk": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ComponentRisk"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "alternative": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Alternative"
+        }
+      },
+      "required": [
+        "id",
+        "part",
+        "category",
+        "qty"
+      ],
+      "title": "BOMItem",
+      "type": "object"
+    },
+    "ClarifyingQuestion": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "topic": {
+          "enum": [
+            "markets",
+            "volume",
+            "target_price",
+            "battery",
+            "wireless",
+            "other"
+          ],
+          "title": "Topic",
+          "type": "string"
+        },
+        "question": {
+          "title": "Question",
+          "type": "string"
+        },
+        "options": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Options",
+          "type": "array"
+        },
+        "answer": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Answer"
+        },
+        "skipped": {
+          "default": false,
+          "title": "Skipped",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "topic",
+        "question"
+      ],
+      "title": "ClarifyingQuestion",
+      "type": "object"
+    },
+    "ComponentRisk": {
+      "additionalProperties": false,
+      "properties": {
+        "level": {
+          "$ref": "#/$defs/RiskLevel"
+        },
+        "reasons": {
+          "description": "e.g. EOL, single source, long lead time, low stock",
+          "items": {
+            "type": "string"
+          },
+          "title": "Reasons",
+          "type": "array"
+        }
+      },
+      "required": [
+        "level"
+      ],
+      "title": "ComponentRisk",
+      "type": "object"
+    },
+    "Label": {
+      "description": "The four honesty labels. UI text: Measured / Sourced / Estimate / Fictional \u2014 demo data.",
+      "enum": [
+        "measured",
+        "sourced",
+        "estimate",
+        "fictional"
+      ],
+      "title": "Label",
+      "type": "string"
+    },
+    "LabeledValue": {
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "title": "Value",
+          "type": "number"
+        },
+        "unit": {
+          "description": "e.g. USD, EUR, mm, g, days, weeks, pct, units, man-days",
+          "title": "Unit",
+          "type": "string"
+        },
+        "label": {
+          "$ref": "#/$defs/Label"
+        },
+        "source_or_assumption": {
+          "description": "Sourced: '<source>, <YYYY-MM-DD>'. Estimate: the assumption. Measured: the check. Fictional: 'demo data'.",
+          "title": "Source Or Assumption",
+          "type": "string"
+        }
+      },
+      "required": [
+        "value",
+        "unit",
+        "label",
+        "source_or_assumption"
+      ],
+      "title": "LabeledValue",
+      "type": "object"
+    },
+    "ProjectMode": {
+      "enum": [
+        "idea",
+        "prototype"
+      ],
+      "title": "ProjectMode",
+      "type": "string"
+    },
+    "RiskLevel": {
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "title": "RiskLevel",
+      "type": "string"
+    },
+    "StageStatus": {
+      "enum": [
+        "not_started",
+        "draft",
+        "validated"
+      ],
+      "title": "StageStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "project_id": {
+      "title": "Project Id",
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/$defs/StageStatus",
+      "default": "draft"
+    },
+    "fallback": {
+      "default": false,
+      "description": "True when served from a fixture after an error",
+      "title": "Fallback",
+      "type": "boolean"
+    },
+    "fallback_reason": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Fallback Reason"
+    },
+    "generated_by": {
+      "default": "fixture",
+      "description": "'fixture' | 'code' | 'llm:<model slug>'",
+      "title": "Generated By",
+      "type": "string"
+    },
+    "generated_at": {
+      "format": "date-time",
+      "title": "Generated At",
+      "type": "string"
+    },
+    "assumptions": {
+      "items": {
+        "$ref": "#/$defs/Assumption"
+      },
+      "title": "Assumptions",
+      "type": "array"
+    },
+    "stage": {
+      "const": 1,
+      "default": 1,
+      "title": "Stage",
+      "type": "integer"
+    },
+    "mode": {
+      "$ref": "#/$defs/ProjectMode"
+    },
+    "prompt": {
+      "title": "Prompt",
+      "type": "string"
+    },
+    "product_name": {
+      "title": "Product Name",
+      "type": "string"
+    },
+    "one_liner": {
+      "title": "One Liner",
+      "type": "string"
+    },
+    "category": {
+      "title": "Category",
+      "type": "string"
+    },
+    "target_markets": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Target Markets",
+      "type": "array"
+    },
+    "target_retail_price": {
+      "$ref": "#/$defs/LabeledValue"
+    },
+    "target_volumes": {
+      "description": "Volume tiers, default [500, 2000, 10000]",
+      "items": {
+        "type": "integer"
+      },
+      "title": "Target Volumes",
+      "type": "array"
+    },
+    "key_features": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Key Features",
+      "type": "array"
+    },
+    "constraints": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Constraints",
+      "type": "array"
+    },
+    "has_battery": {
+      "title": "Has Battery",
+      "type": "boolean"
+    },
+    "wireless": {
+      "description": "e.g. BLE, Wi-Fi, NFC; empty if none",
+      "items": {
+        "type": "string"
+      },
+      "title": "Wireless",
+      "type": "array"
+    },
+    "pasted_bom": {
+      "description": "Prototype mode only",
+      "items": {
+        "$ref": "#/$defs/BOMItem"
+      },
+      "title": "Pasted Bom",
+      "type": "array"
+    },
+    "clarifying_questions": {
+      "items": {
+        "$ref": "#/$defs/ClarifyingQuestion"
+      },
+      "maxItems": 5,
+      "title": "Clarifying Questions",
+      "type": "array"
+    }
+  },
+  "required": [
+    "project_id",
+    "mode",
+    "prompt",
+    "product_name",
+    "one_liner",
+    "category",
+    "target_markets",
+    "target_retail_price",
+    "target_volumes",
+    "key_features",
+    "has_battery"
+  ],
+  "title": "BriefArtifact",
+  "type": "object"
+}

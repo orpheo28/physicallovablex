@@ -1,0 +1,103 @@
+{
+  "project_id": "demo_tracker_card",
+  "status": "validated",
+  "fallback": false,
+  "fallback_reason": null,
+  "generated_by": "fixture",
+  "generated_at": "2026-09-26T12:00:00Z",
+  "assumptions": [
+    {
+      "id": "a4",
+      "text": "Pre-shipment inspection $268 per man-day",
+      "label": "sourced",
+      "source": "V-Trust, https://www.v-trust.com/en/our-network, checked 2026-09-26",
+      "stage": 10
+    }
+  ],
+  "stage": 10,
+  "standard": "ISO 2859-1 (ANSI/ASQ Z1.4)",
+  "inspection_level": "General II",
+  "lot_size": 2000,
+  "sample_size": {
+    "value": 125.0,
+    "unit": "units",
+    "label": "estimate",
+    "source_or_assumption": "Per ISO 2859-1 table (edition not verified): code letter K for lot 1,201-3,200, level General II"
+  },
+  "defects": [
+    {
+      "id": "c1",
+      "severity": "critical",
+      "description": "Cell swelling, punctured pouch, or cell melted by weld heat",
+      "spec_ref": "BOM e11 / DFM i4 / IEC 60086-4",
+      "check_method": "Visual + X-ray on 5 units, weld-line temperature check",
+      "aql": 0.0
+    },
+    {
+      "id": "c2",
+      "severity": "critical",
+      "description": "Card does not advertise / cannot pair, or radio out of FCC channel/power limits",
+      "spec_ref": "Electronics block b1 (nRF52810) / FCC Part 15C",
+      "check_method": "BLE functional test on 100% at end of line + conducted power spot check",
+      "aql": 0.0
+    },
+    {
+      "id": "j1",
+      "severity": "major",
+      "description": "Total thickness outside 2.8 ± 0.15 mm or shells not welded closed",
+      "spec_ref": "Tolerance: stack thickness 2.8 ± 0.15 mm",
+      "check_method": "Caliper on 5 points + pull test",
+      "aql": 2.5
+    },
+    {
+      "id": "j2",
+      "severity": "major",
+      "description": "Buzzer below target loudness or silent",
+      "spec_ref": "Part e10 / DFM i7",
+      "check_method": "SPL meter at 10 cm vs golden sample",
+      "aql": 2.5
+    },
+    {
+      "id": "j3",
+      "severity": "major",
+      "description": "Button stuck or no wake-up",
+      "spec_ref": "Electronics block b5",
+      "check_method": "50 presses on the jig",
+      "aql": 2.5
+    },
+    {
+      "id": "n1",
+      "severity": "minor",
+      "description": "Flow lines, sink marks or shell warpage on visible face",
+      "spec_ref": "Part p1 / DFM m3 (measured 0.5 mm wall)",
+      "check_method": "Visual at 50 cm, D65 light + flatness on plate",
+      "aql": 4.0
+    },
+    {
+      "id": "n2",
+      "severity": "minor",
+      "description": "Overlay misregistration or bubbles",
+      "spec_ref": "Part p5",
+      "check_method": "Visual",
+      "aql": 4.0
+    }
+  ],
+  "inspection_man_days": {
+    "value": 2.0,
+    "unit": "man-days",
+    "label": "estimate",
+    "source_or_assumption": "125 samples + RF and weld checks"
+  },
+  "man_day_rate": {
+    "value": 268.0,
+    "unit": "USD",
+    "label": "sourced",
+    "source_or_assumption": "V-Trust, https://www.v-trust.com/en/our-network, checked 2026-09-26"
+  },
+  "inspection_cost": {
+    "value": 540.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "V-Trust rate (Sourced) × estimated man-days: 2 man-days × $268/man-day (V-Trust, https://www.v-trust.com/en/our-network, checked 2026-09-26)"
+  }
+}

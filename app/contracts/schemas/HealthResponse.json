@@ -1,0 +1,49 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "status": {
+      "const": "ok",
+      "default": "ok",
+      "title": "Status",
+      "type": "string"
+    },
+    "version": {
+      "title": "Version",
+      "type": "string"
+    },
+    "llm_configured": {
+      "title": "Llm Configured",
+      "type": "boolean"
+    },
+    "models": {
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "title": "Models",
+      "type": "object"
+    },
+    "registered_stages": {
+      "description": "Stages with a live handler; others serve fixtures",
+      "items": {
+        "type": "integer"
+      },
+      "title": "Registered Stages",
+      "type": "array"
+    }
+  },
+  "required": [
+    "version",
+    "llm_configured",
+    "models",
+    "registered_stages"
+  ],
+  "title": "HealthResponse",
+  "type": "object"
+}

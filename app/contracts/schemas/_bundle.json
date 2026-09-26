@@ -1,0 +1,4321 @@
+{
+  "$defs": {
+    "Assumption": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "label": {
+          "$ref": "#/$defs/Label"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "stage": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Stage that introduced the assumption"
+        }
+      },
+      "required": [
+        "id",
+        "text",
+        "label",
+        "source",
+        "stage"
+      ],
+      "title": "Assumption",
+      "type": "object"
+    },
+    "AutorunResult": {
+      "additionalProperties": false,
+      "properties": {
+        "project_id": {
+          "type": "string"
+        },
+        "results": {
+          "description": "Empty for the async 202 response",
+          "items": {
+            "$ref": "#/$defs/StageResult"
+          },
+          "type": "array"
+        },
+        "autorun": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/AutorunStatus"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "project_id",
+        "results",
+        "autorun"
+      ],
+      "title": "AutorunResult",
+      "type": "object"
+    },
+    "AutorunState": {
+      "enum": [
+        "idle",
+        "running",
+        "done",
+        "failed"
+      ],
+      "title": "AutorunState",
+      "type": "string"
+    },
+    "AutorunStatus": {
+      "additionalProperties": false,
+      "description": "Progress of the background autorun (stages 1-7). Poll GET /projects/{id} every ~2 s.",
+      "properties": {
+        "state": {
+          "$ref": "#/$defs/AutorunState"
+        },
+        "current_stage": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Stage being run while state == running"
+        },
+        "completed_stages": {
+          "items": {
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "started_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "finished_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "error": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "state",
+        "current_stage",
+        "completed_stages",
+        "started_at",
+        "finished_at",
+        "error"
+      ],
+      "title": "AutorunStatus",
+      "type": "object"
+    },
+    "BOMCategory": {
+      "enum": [
+        "electronic",
+        "mechanical",
+        "packaging"
+      ],
+      "title": "BOMCategory",
+      "type": "string"
+    },
+    "BOMItem": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "part": {
+          "type": "string"
+        },
+        "category": {
+          "$ref": "#/$defs/BOMCategory"
+        },
+        "qty": {
+          "description": "Quantity per finished unit",
+          "type": "number"
+        },
+        "description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "manufacturer_pn": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "lcsc_pn": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "e.g. 'C725790' when matched to the LCSC snapshot"
+        },
+        "unit_cost_est": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/LabeledValue"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "risk": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ComponentRisk"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "alternative": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "id",
+        "part",
+        "category",
+        "qty",
+        "description",
+        "manufacturer_pn",
+        "lcsc_pn",
+        "unit_cost_est",
+        "risk",
+        "alternative"
+      ],
+      "title": "BOMItem",
+      "type": "object"
+    },
+    "BrandArtifact": {
+      "additionalProperties": false,
+      "properties": {
+        "project_id": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/$defs/StageStatus"
+        },
+        "fallback": {
+          "default": false,
+          "description": "True when served from a fixture after an error",
+          "type": "boolean"
+        },
+        "fallback_reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "generated_by": {
+          "default": "fixture",
+          "description": "'fixture' | 'code' | 'llm:<model slug>'",
+          "type": "string"
+        },
+        "generated_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "assumptions": {
+          "items": {
+            "$ref": "#/$defs/Assumption"
+          },
+          "type": "array"
+        },
+        "stage": {
+          "const": 13,
+          "default": 13,
+          "type": "integer"
+        },
+        "name_options": {
+          "items": {
+            "$ref": "#/$defs/NameOption"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "chosen_name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "packaging": {
+          "$ref": "#/$defs/PackagingSpec"
+        },
+        "landing_copy": {
+          "$ref": "#/$defs/LandingCopy"
+        },
+        "shopify_listing": {
+          "$ref": "#/$defs/ListingDraft"
+        },
+        "amazon_listing": {
+          "$ref": "#/$defs/ListingDraft"
+        }
+      },
+      "required": [
+        "project_id",
+        "status",
+        "fallback",
+        "fallback_reason",
+        "generated_by",
+        "generated_at",
+        "assumptions",
+        "stage",
+        "name_options",
+        "chosen_name",
+        "packaging",
+        "landing_copy",
+        "shopify_listing",
+        "amazon_listing"
+      ],
+      "title": "BrandArtifact",
+      "type": "object"
+    },
+    "BriefArtifact": {
+      "additionalProperties": false,
+      "properties": {
+        "project_id": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/$defs/StageStatus"
+        },
+        "fallback": {
+          "default": false,
+          "description": "True when served from a fixture after an error",
+          "type": "boolean"
+        },
+        "fallback_reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "generated_by": {
+          "default": "fixture",
+          "description": "'fixture' | 'code' | 'llm:<model slug>'",
+          "type": "string"
+        },
+        "generated_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "assumptions": {
+          "items": {
+            "$ref": "#/$defs/Assumption"
+          },
+          "type": "array"
+        },
+        "stage": {
+          "const": 1,
+          "default": 1,
+          "type": "integer"
+        },
+        "mode": {
+          "$ref": "#/$defs/ProjectMode"
+        },
+        "prompt": {
+          "type": "string"
+        },
+        "product_name": {
+          "type": "string"
+        },
+        "one_liner": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "target_markets": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "target_retail_price": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "target_volumes": {
+          "description": "Volume tiers, default [500, 2000, 10000]",
+          "items": {
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "key_features": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "constraints": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "has_battery": {
+          "type": "boolean"
+        },
+        "wireless": {
+          "description": "e.g. BLE, Wi-Fi, NFC; empty if none",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "pasted_bom": {
+          "description": "Prototype mode only",
+          "items": {
+            "$ref": "#/$defs/BOMItem"
+          },
+          "type": "array"
+        },
+        "clarifying_questions": {
+          "items": {
+            "$ref": "#/$defs/ClarifyingQuestion"
+          },
+          "maxItems": 5,
+          "type": "array"
+        }
+      },
+      "required": [
+        "project_id",
+        "status",
+        "fallback",
+        "fallback_reason",
+        "generated_by",
+        "generated_at",
+        "assumptions",
+        "stage",
+        "mode",
+        "prompt",
+        "product_name",
+        "one_liner",
+        "category",
+        "target_markets",
+        "target_retail_price",
+        "target_volumes",
+        "key_features",
+        "constraints",
+        "has_battery",
+        "wireless",
+        "pasted_bom",
+        "clarifying_questions"
+      ],
+      "title": "BriefArtifact",
+      "type": "object"
+    },
+    "CadFile": {
+      "additionalProperties": false,
+      "properties": {
+        "format": {
+          "enum": [
+            "step",
+            "stl",
+            "glb",
+            "pdf",
+            "png",
+            "svg"
+          ],
+          "type": "string"
+        },
+        "url": {
+          "description": "Served by the API, e.g. /files/<project_id>/enclosure.step",
+          "type": "string"
+        },
+        "description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "size_bytes": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "format",
+        "url",
+        "description",
+        "size_bytes"
+      ],
+      "title": "CadFile",
+      "type": "object"
+    },
+    "CapacityProfile": {
+      "additionalProperties": false,
+      "description": "Mirrors MCP `register_capacity` input (PRD \u00a710).",
+      "properties": {
+        "processes": {
+          "items": {
+            "$ref": "#/$defs/ProcessType"
+          },
+          "type": "array"
+        },
+        "materials": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "moq": {
+          "type": "integer"
+        },
+        "certifications": {
+          "description": "Factory certifications, e.g. ISO 9001, BSCI",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "lead_time_days": {
+          "type": "integer"
+        },
+        "monthly_capacity": {
+          "description": "Units per month",
+          "type": "integer"
+        },
+        "current_load_pct": {
+          "type": "number"
+        },
+        "label": {
+          "const": "fictional",
+          "default": "fictional",
+          "type": "string"
+        }
+      },
+      "required": [
+        "processes",
+        "materials",
+        "moq",
+        "certifications",
+        "lead_time_days",
+        "monthly_capacity",
+        "current_load_pct",
+        "label"
+      ],
+      "title": "CapacityProfile",
+      "type": "object"
+    },
+    "CashPoint": {
+      "additionalProperties": false,
+      "properties": {
+        "date": {
+          "format": "date",
+          "type": "string"
+        },
+        "milestone_id": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "cash_out": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "cumulative": {
+          "$ref": "#/$defs/LabeledValue"
+        }
+      },
+      "required": [
+        "date",
+        "milestone_id",
+        "description",
+        "cash_out",
+        "cumulative"
+      ],
+      "title": "CashPoint",
+      "type": "object"
+    },
+    "Certification": {
+      "additionalProperties": false,
+      "properties": {
+        "market": {
+          "description": "US, EU, UK, ...",
+          "type": "string"
+        },
+        "standard": {
+          "description": "e.g. FCC Part 15B, CE (LVD/EMC/RED), UKCA, UN38.3",
+          "type": "string"
+        },
+        "applies_because": {
+          "type": "string"
+        },
+        "required": {
+          "default": true,
+          "type": "boolean"
+        },
+        "cost_est": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "lead_time_weeks": {
+          "$ref": "#/$defs/LabeledValue"
+        }
+      },
+      "required": [
+        "market",
+        "standard",
+        "applies_because",
+        "required",
+        "cost_est",
+        "lead_time_weeks"
+      ],
+      "title": "Certification",
+      "type": "object"
+    },
+    "ClarifyingQuestion": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "topic": {
+          "enum": [
+            "markets",
+            "volume",
+            "target_price",
+            "battery",
+            "wireless",
+            "other"
+          ],
+          "type": "string"
+        },
+        "question": {
+          "type": "string"
+        },
+        "options": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "answer": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "skipped": {
+          "default": false,
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "topic",
+        "question",
+        "options",
+        "answer",
+        "skipped"
+      ],
+      "title": "ClarifyingQuestion",
+      "type": "object"
+    },
+    "ComponentRisk": {
+      "additionalProperties": false,
+      "properties": {
+        "level": {
+          "$ref": "#/$defs/RiskLevel"
+        },
+        "reasons": {
+          "description": "e.g. EOL, single source, long lead time, low stock",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "level",
+        "reasons"
+      ],
+      "title": "ComponentRisk",
+      "type": "object"
+    },
+    "ComponentRiskItem": {
+      "additionalProperties": false,
+      "properties": {
+        "bom_item_id": {
+          "type": "string"
+        },
+        "part": {
+          "type": "string"
+        },
+        "level": {
+          "$ref": "#/$defs/RiskLevel"
+        },
+        "reasons": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "alternatives": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "stock": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/LabeledValue"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "lead_time_weeks": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/LabeledValue"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "bom_item_id",
+        "part",
+        "level",
+        "reasons",
+        "alternatives",
+        "stock",
+        "lead_time_weeks"
+      ],
+      "title": "ComponentRiskItem",
+      "type": "object"
+    },
+    "CostLine": {
+      "additionalProperties": false,
+      "properties": {
+        "bom_item_id": {
+          "type": "string"
+        },
+        "part": {
+          "type": "string"
+        },
+        "qty_per_unit": {
+          "type": "number"
+        },
+        "unit_price": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "lcsc_pn": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "stock": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/LabeledValue"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "extended": {
+          "$ref": "#/$defs/LabeledValue"
+        }
+      },
+      "required": [
+        "bom_item_id",
+        "part",
+        "qty_per_unit",
+        "unit_price",
+        "lcsc_pn",
+        "stock",
+        "extended"
+      ],
+      "title": "CostLine",
+      "type": "object"
+    },
+    "CostTier": {
+      "additionalProperties": false,
+      "properties": {
+        "quantity": {
+          "type": "integer"
+        },
+        "bom_cost": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "assembly_cost": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "packaging_cost": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "unit_cost": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "tooling_amortisation": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "margin_pct": {
+          "$ref": "#/$defs/LabeledValue"
+        }
+      },
+      "required": [
+        "quantity",
+        "bom_cost",
+        "assembly_cost",
+        "packaging_cost",
+        "unit_cost",
+        "tooling_amortisation",
+        "margin_pct"
+      ],
+      "title": "CostTier",
+      "type": "object"
+    },
+    "CostsArtifact": {
+      "additionalProperties": false,
+      "properties": {
+        "project_id": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/$defs/StageStatus"
+        },
+        "fallback": {
+          "default": false,
+          "description": "True when served from a fixture after an error",
+          "type": "boolean"
+        },
+        "fallback_reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "generated_by": {
+          "default": "fixture",
+          "description": "'fixture' | 'code' | 'llm:<model slug>'",
+          "type": "string"
+        },
+        "generated_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "assumptions": {
+          "items": {
+            "$ref": "#/$defs/Assumption"
+          },
+          "type": "array"
+        },
+        "stage": {
+          "const": 5,
+          "default": 5,
+          "type": "integer"
+        },
+        "currency": {
+          "default": "USD",
+          "type": "string"
+        },
+        "bom_lines": {
+          "items": {
+            "$ref": "#/$defs/CostLine"
+          },
+          "type": "array"
+        },
+        "volume_factor": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "tiers": {
+          "description": "500 / 2,000 / 10,000 by default",
+          "items": {
+            "$ref": "#/$defs/CostTier"
+          },
+          "minItems": 3,
+          "type": "array"
+        },
+        "tooling": {
+          "items": {
+            "$ref": "#/$defs/ToolingItem"
+          },
+          "type": "array"
+        },
+        "tooling_total": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "certification_total": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "reference_quantity": {
+          "description": "Tier used for the cash-needed figure (first order)",
+          "type": "integer"
+        },
+        "total_cash_needed": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "cash_breakdown": {
+          "description": "Components summing to total_cash_needed",
+          "items": {
+            "$ref": "#/$defs/LandedCostComponent"
+          },
+          "type": "array"
+        },
+        "target_retail_price": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "breakeven_units": {
+          "$ref": "#/$defs/LabeledValue"
+        }
+      },
+      "required": [
+        "project_id",
+        "status",
+        "fallback",
+        "fallback_reason",
+        "generated_by",
+        "generated_at",
+        "assumptions",
+        "stage",
+        "currency",
+        "bom_lines",
+        "volume_factor",
+        "tiers",
+        "tooling",
+        "tooling_total",
+        "certification_total",
+        "reference_quantity",
+        "total_cash_needed",
+        "cash_breakdown",
+        "target_retail_price",
+        "breakeven_units"
+      ],
+      "title": "CostsArtifact",
+      "type": "object"
+    },
+    "CreateProjectRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "mode": {
+          "$ref": "#/$defs/ProjectMode"
+        },
+        "prompt": {
+          "type": "string"
+        },
+        "name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "pasted_bom": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "example": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Force a cached example: 'desk_lamp' | 'tracker_card'"
+        }
+      },
+      "required": [
+        "mode",
+        "prompt",
+        "name",
+        "pasted_bom",
+        "example"
+      ],
+      "title": "CreateProjectRequest",
+      "type": "object"
+    },
+    "DFMArtifact": {
+      "additionalProperties": false,
+      "properties": {
+        "project_id": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/$defs/StageStatus"
+        },
+        "fallback": {
+          "default": false,
+          "description": "True when served from a fixture after an error",
+          "type": "boolean"
+        },
+        "fallback_reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "generated_by": {
+          "default": "fixture",
+          "description": "'fixture' | 'code' | 'llm:<model slug>'",
+          "type": "string"
+        },
+        "generated_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "assumptions": {
+          "items": {
+            "$ref": "#/$defs/Assumption"
+          },
+          "type": "array"
+        },
+        "stage": {
+          "const": 4,
+          "default": 4,
+          "type": "integer"
+        },
+        "issues": {
+          "items": {
+            "$ref": "#/$defs/DFMIssue"
+          },
+          "type": "array"
+        },
+        "component_risks": {
+          "items": {
+            "$ref": "#/$defs/ComponentRiskItem"
+          },
+          "type": "array"
+        },
+        "certifications": {
+          "items": {
+            "$ref": "#/$defs/Certification"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "project_id",
+        "status",
+        "fallback",
+        "fallback_reason",
+        "generated_by",
+        "generated_at",
+        "assumptions",
+        "stage",
+        "issues",
+        "component_risks",
+        "certifications"
+      ],
+      "title": "DFMArtifact",
+      "type": "object"
+    },
+    "DFMIssue": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "severity": {
+          "$ref": "#/$defs/Severity"
+        },
+        "category": {
+          "enum": [
+            "draft",
+            "undercut",
+            "projection",
+            "wall_thickness",
+            "tolerance",
+            "assembly",
+            "material",
+            "other"
+          ],
+          "type": "string"
+        },
+        "method": {
+          "$ref": "#/$defs/DFMMethod"
+        },
+        "part_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "description": {
+          "type": "string"
+        },
+        "fix": {
+          "type": "string"
+        },
+        "rule_citation": {
+          "description": "The rule the finding is based on, with its source",
+          "type": "string"
+        },
+        "measurement": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/LabeledValue"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Required when method == measured"
+        },
+        "resolved": {
+          "default": false,
+          "type": "boolean"
+        },
+        "resolution": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "id",
+        "severity",
+        "category",
+        "method",
+        "part_id",
+        "description",
+        "fix",
+        "rule_citation",
+        "measurement",
+        "resolved",
+        "resolution"
+      ],
+      "title": "DFMIssue",
+      "type": "object"
+    },
+    "DFMMethod": {
+      "enum": [
+        "measured",
+        "ai_reviewed"
+      ],
+      "title": "DFMMethod",
+      "type": "string"
+    },
+    "DefectClass": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "severity": {
+          "$ref": "#/$defs/Severity"
+        },
+        "description": {
+          "type": "string"
+        },
+        "spec_ref": {
+          "description": "Spec line (part id / tolerance / certification) the defect maps to",
+          "type": "string"
+        },
+        "check_method": {
+          "type": "string"
+        },
+        "aql": {
+          "description": "Acceptable quality limit for this class, e.g. 0, 2.5, 4.0",
+          "type": "number"
+        }
+      },
+      "required": [
+        "id",
+        "severity",
+        "description",
+        "spec_ref",
+        "check_method",
+        "aql"
+      ],
+      "title": "DefectClass",
+      "type": "object"
+    },
+    "DesignArtifact": {
+      "additionalProperties": false,
+      "properties": {
+        "project_id": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/$defs/StageStatus"
+        },
+        "fallback": {
+          "default": false,
+          "description": "True when served from a fixture after an error",
+          "type": "boolean"
+        },
+        "fallback_reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "generated_by": {
+          "default": "fixture",
+          "description": "'fixture' | 'code' | 'llm:<model slug>'",
+          "type": "string"
+        },
+        "generated_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "assumptions": {
+          "items": {
+            "$ref": "#/$defs/Assumption"
+          },
+          "type": "array"
+        },
+        "stage": {
+          "const": 2,
+          "default": 2,
+          "type": "integer"
+        },
+        "directions": {
+          "items": {
+            "$ref": "#/$defs/DesignDirection"
+          },
+          "maxItems": 3,
+          "minItems": 3,
+          "type": "array"
+        },
+        "chosen_direction_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "project_id",
+        "status",
+        "fallback",
+        "fallback_reason",
+        "generated_by",
+        "generated_at",
+        "assumptions",
+        "stage",
+        "directions",
+        "chosen_direction_id"
+      ],
+      "title": "DesignArtifact",
+      "type": "object"
+    },
+    "DesignDirection": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "shape": {
+          "type": "string"
+        },
+        "material": {
+          "type": "string"
+        },
+        "finish": {
+          "type": "string"
+        },
+        "dimensions": {
+          "$ref": "#/$defs/Dimensions"
+        },
+        "cad_parameters": {
+          "additionalProperties": {
+            "type": "number"
+          },
+          "description": "Parametric inputs for the build123d generator (mm)",
+          "type": "object"
+        },
+        "render_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "glb_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "description",
+        "shape",
+        "material",
+        "finish",
+        "dimensions",
+        "cad_parameters",
+        "render_url",
+        "glb_url"
+      ],
+      "title": "DesignDirection",
+      "type": "object"
+    },
+    "Dimensions": {
+      "additionalProperties": false,
+      "properties": {
+        "length": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "width": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "height": {
+          "$ref": "#/$defs/LabeledValue"
+        }
+      },
+      "required": [
+        "length",
+        "width",
+        "height"
+      ],
+      "title": "Dimensions",
+      "type": "object"
+    },
+    "ElectronicsBlock": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "function": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "function"
+      ],
+      "title": "ElectronicsBlock",
+      "type": "object"
+    },
+    "ElectronicsEdge": {
+      "additionalProperties": false,
+      "properties": {
+        "source": {
+          "type": "string"
+        },
+        "target": {
+          "type": "string"
+        },
+        "signal": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "source",
+        "target",
+        "signal"
+      ],
+      "title": "ElectronicsEdge",
+      "type": "object"
+    },
+    "ErrorResponse": {
+      "additionalProperties": false,
+      "properties": {
+        "detail": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "detail"
+      ],
+      "title": "ErrorResponse",
+      "type": "object"
+    },
+    "Factory": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "description": "Fictional name \u2014 never a real factory",
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
+        },
+        "archetype": {
+          "description": "e.g. 'cheap/slow', 'fast/expensive', 'balanced' (E_usines.md)",
+          "type": "string"
+        },
+        "personality": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Behaviour of its negotiation agent"
+        },
+        "capacity": {
+          "$ref": "#/$defs/CapacityProfile"
+        },
+        "audit_notes": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "past_performance": {
+          "$ref": "#/$defs/PastPerformance"
+        },
+        "label": {
+          "const": "fictional",
+          "default": "fictional",
+          "type": "string"
+        },
+        "fictional": {
+          "const": true,
+          "default": true,
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "region",
+        "archetype",
+        "personality",
+        "capacity",
+        "audit_notes",
+        "past_performance",
+        "label",
+        "fictional"
+      ],
+      "title": "Factory",
+      "type": "object"
+    },
+    "FactoryMatch": {
+      "additionalProperties": false,
+      "properties": {
+        "rank": {
+          "type": "integer"
+        },
+        "factory_id": {
+          "type": "string"
+        },
+        "factory_name": {
+          "type": "string"
+        },
+        "score": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "score_breakdown": {
+          "items": {
+            "$ref": "#/$defs/ScoreComponent"
+          },
+          "type": "array"
+        },
+        "reasons": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "rank",
+        "factory_id",
+        "factory_name",
+        "score",
+        "score_breakdown",
+        "reasons"
+      ],
+      "title": "FactoryMatch",
+      "type": "object"
+    },
+    "FactoryPack": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "project_id": {
+          "type": "string"
+        },
+        "version": {
+          "default": 1,
+          "type": "integer"
+        },
+        "created_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "fallback": {
+          "default": false,
+          "type": "boolean"
+        },
+        "cached_note": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Set when any of stages 1-7 served a cached example: shown on the Factory Pack and the Launch Dossier cover"
+        },
+        "fallback_stages": {
+          "description": "Stages 1-7 that served a cached example",
+          "items": {
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "product_name": {
+          "type": "string"
+        },
+        "product_summary": {
+          "type": "string"
+        },
+        "product_summary_cn": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "target_markets": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "spec": {
+          "$ref": "#/$defs/StructuredSpec"
+        },
+        "cad_files": {
+          "items": {
+            "$ref": "#/$defs/CadFile"
+          },
+          "type": "array"
+        },
+        "bom": {
+          "items": {
+            "$ref": "#/$defs/BOMItem"
+          },
+          "type": "array"
+        },
+        "dfm_alerts": {
+          "items": {
+            "$ref": "#/$defs/DFMIssue"
+          },
+          "type": "array"
+        },
+        "certifications": {
+          "items": {
+            "$ref": "#/$defs/Certification"
+          },
+          "type": "array"
+        },
+        "target_quantities": {
+          "items": {
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "cost_estimate": {
+          "items": {
+            "$ref": "#/$defs/CostTier"
+          },
+          "type": "array"
+        },
+        "questions": {
+          "items": {
+            "$ref": "#/$defs/FactoryQuestion"
+          },
+          "type": "array"
+        },
+        "assumption_register": {
+          "items": {
+            "$ref": "#/$defs/Assumption"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "project_id",
+        "version",
+        "created_at",
+        "fallback",
+        "cached_note",
+        "fallback_stages",
+        "product_name",
+        "product_summary",
+        "product_summary_cn",
+        "target_markets",
+        "spec",
+        "cad_files",
+        "bom",
+        "dfm_alerts",
+        "certifications",
+        "target_quantities",
+        "cost_estimate",
+        "questions",
+        "assumption_register"
+      ],
+      "title": "FactoryPack",
+      "type": "object"
+    },
+    "FactoryQuestion": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "en": {
+          "type": "string"
+        },
+        "cn": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "cn_review_note": {
+          "default": "Machine-translated \u2014 to be reviewed by a native speaker",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "en",
+        "cn",
+        "cn_review_note"
+      ],
+      "title": "FactoryQuestion",
+      "type": "object"
+    },
+    "FinalTerms": {
+      "additionalProperties": false,
+      "properties": {
+        "factory_id": {
+          "type": "string"
+        },
+        "quote_id": {
+          "type": "string"
+        },
+        "quantity": {
+          "type": "integer"
+        },
+        "unit_price": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "tooling": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "moq": {
+          "type": "integer"
+        },
+        "lead_time_days": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "payment_terms": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "factory_id",
+        "quote_id",
+        "quantity",
+        "unit_price",
+        "tooling",
+        "moq",
+        "lead_time_days",
+        "payment_terms"
+      ],
+      "title": "FinalTerms",
+      "type": "object"
+    },
+    "FinancingArtifact": {
+      "additionalProperties": false,
+      "properties": {
+        "project_id": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/$defs/StageStatus"
+        },
+        "fallback": {
+          "default": false,
+          "description": "True when served from a fixture after an error",
+          "type": "boolean"
+        },
+        "fallback_reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "generated_by": {
+          "default": "fixture",
+          "description": "'fixture' | 'code' | 'llm:<model slug>'",
+          "type": "string"
+        },
+        "generated_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "assumptions": {
+          "items": {
+            "$ref": "#/$defs/Assumption"
+          },
+          "type": "array"
+        },
+        "stage": {
+          "const": 12,
+          "default": 12,
+          "type": "integer"
+        },
+        "cash_curve": {
+          "items": {
+            "$ref": "#/$defs/CashPoint"
+          },
+          "type": "array"
+        },
+        "total_cash": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "matches_stage5_total": {
+          "type": "boolean"
+        },
+        "options": {
+          "items": {
+            "$ref": "#/$defs/FinancingOption"
+          },
+          "type": "array"
+        },
+        "stage5_total": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/LabeledValue"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Stage 5 budget reference (total cash needed)"
+        },
+        "reconciliation_note": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Why the curve differs from stage 5 (e.g. the approved quote replaced the estimate); None if equal"
+        }
+      },
+      "required": [
+        "project_id",
+        "status",
+        "fallback",
+        "fallback_reason",
+        "generated_by",
+        "generated_at",
+        "assumptions",
+        "stage",
+        "cash_curve",
+        "total_cash",
+        "matches_stage5_total",
+        "options",
+        "stage5_total",
+        "reconciliation_note"
+      ],
+      "title": "FinancingArtifact",
+      "type": "object"
+    },
+    "FinancingOption": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "preorders",
+            "crowdfunding",
+            "inventory_financing",
+            "revenue_based",
+            "equity",
+            "other"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "cost": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/LabeledValue"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "pros": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "cons": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "kind",
+        "name",
+        "description",
+        "cost",
+        "pros",
+        "cons"
+      ],
+      "title": "FinancingOption",
+      "type": "object"
+    },
+    "FreightOption": {
+      "additionalProperties": false,
+      "properties": {
+        "mode": {
+          "enum": [
+            "sea_lcl",
+            "sea_fcl",
+            "air",
+            "express"
+          ],
+          "type": "string"
+        },
+        "transit_days": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "cost_per_unit": {
+          "$ref": "#/$defs/LabeledValue"
+        }
+      },
+      "required": [
+        "mode",
+        "transit_days",
+        "cost_per_unit"
+      ],
+      "title": "FreightOption",
+      "type": "object"
+    },
+    "HTSLine": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "description": "e.g. '9405.21.xx'",
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "general_rate": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "section_301_rate": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "source_url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "description",
+        "general_rate",
+        "section_301_rate",
+        "source_url"
+      ],
+      "title": "HTSLine",
+      "type": "object"
+    },
+    "HealthResponse": {
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "const": "ok",
+          "default": "ok",
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "llm_configured": {
+          "type": "boolean"
+        },
+        "models": {
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "type": "object"
+        },
+        "registered_stages": {
+          "description": "Stages with a live handler; others serve fixtures",
+          "items": {
+            "type": "integer"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "status",
+        "version",
+        "llm_configured",
+        "models",
+        "registered_stages"
+      ],
+      "title": "HealthResponse",
+      "type": "object"
+    },
+    "Label": {
+      "description": "The four honesty labels. UI text: Measured / Sourced / Estimate / Fictional \u2014 demo data.",
+      "enum": [
+        "measured",
+        "sourced",
+        "estimate",
+        "fictional"
+      ],
+      "title": "Label",
+      "type": "string"
+    },
+    "LabeledValue": {
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "unit": {
+          "description": "e.g. USD, EUR, mm, g, days, weeks, pct, units, man-days",
+          "type": "string"
+        },
+        "label": {
+          "$ref": "#/$defs/Label"
+        },
+        "source_or_assumption": {
+          "description": "Sourced: '<source>, <YYYY-MM-DD>'. Estimate: the assumption. Measured: the check. Fictional: 'demo data'.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "value",
+        "unit",
+        "label",
+        "source_or_assumption"
+      ],
+      "title": "LabeledValue",
+      "type": "object"
+    },
+    "LandedCostComponent": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "amount": {
+          "$ref": "#/$defs/LabeledValue"
+        }
+      },
+      "required": [
+        "name",
+        "amount"
+      ],
+      "title": "LandedCostComponent",
+      "type": "object"
+    },
+    "LandingCopy": {
+      "additionalProperties": false,
+      "properties": {
+        "headline": {
+          "type": "string"
+        },
+        "subheadline": {
+          "type": "string"
+        },
+        "bullets": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "cta": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "headline",
+        "subheadline",
+        "bullets",
+        "cta"
+      ],
+      "title": "LandingCopy",
+      "type": "object"
+    },
+    "ListingDraft": {
+      "additionalProperties": false,
+      "properties": {
+        "channel": {
+          "enum": [
+            "shopify",
+            "amazon"
+          ],
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "bullets": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "price": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "keywords": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "channel",
+        "title",
+        "description",
+        "bullets",
+        "price",
+        "keywords"
+      ],
+      "title": "ListingDraft",
+      "type": "object"
+    },
+    "LogisticsArtifact": {
+      "additionalProperties": false,
+      "properties": {
+        "project_id": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/$defs/StageStatus"
+        },
+        "fallback": {
+          "default": false,
+          "description": "True when served from a fixture after an error",
+          "type": "boolean"
+        },
+        "fallback_reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "generated_by": {
+          "default": "fixture",
+          "description": "'fixture' | 'code' | 'llm:<model slug>'",
+          "type": "string"
+        },
+        "generated_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "assumptions": {
+          "items": {
+            "$ref": "#/$defs/Assumption"
+          },
+          "type": "array"
+        },
+        "stage": {
+          "const": 11,
+          "default": 11,
+          "type": "integer"
+        },
+        "incoterm": {
+          "default": "FOB",
+          "enum": [
+            "EXW",
+            "FOB",
+            "CIF",
+            "DDP"
+          ],
+          "type": "string"
+        },
+        "destination": {
+          "type": "string"
+        },
+        "quantity": {
+          "type": "integer"
+        },
+        "freight_options": {
+          "items": {
+            "$ref": "#/$defs/FreightOption"
+          },
+          "type": "array"
+        },
+        "chosen_mode": {
+          "enum": [
+            "sea_lcl",
+            "sea_fcl",
+            "air",
+            "express"
+          ],
+          "type": "string"
+        },
+        "hts": {
+          "$ref": "#/$defs/HTSLine"
+        },
+        "section_122_applied": {
+          "default": false,
+          "type": "boolean"
+        },
+        "landed_cost_breakdown": {
+          "description": "Per-unit components (PRD \u00a711)",
+          "items": {
+            "$ref": "#/$defs/LandedCostComponent"
+          },
+          "type": "array"
+        },
+        "landed_cost_per_unit": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "reconciles_with_stage5": {
+          "type": "boolean"
+        },
+        "reconciliation_note": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "project_id",
+        "status",
+        "fallback",
+        "fallback_reason",
+        "generated_by",
+        "generated_at",
+        "assumptions",
+        "stage",
+        "incoterm",
+        "destination",
+        "quantity",
+        "freight_options",
+        "chosen_mode",
+        "hts",
+        "section_122_applied",
+        "landed_cost_breakdown",
+        "landed_cost_per_unit",
+        "reconciles_with_stage5",
+        "reconciliation_note"
+      ],
+      "title": "LogisticsArtifact",
+      "type": "object"
+    },
+    "MatchingArtifact": {
+      "additionalProperties": false,
+      "properties": {
+        "project_id": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/$defs/StageStatus"
+        },
+        "fallback": {
+          "default": false,
+          "description": "True when served from a fixture after an error",
+          "type": "boolean"
+        },
+        "fallback_reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "generated_by": {
+          "default": "fixture",
+          "description": "'fixture' | 'code' | 'llm:<model slug>'",
+          "type": "string"
+        },
+        "generated_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "assumptions": {
+          "items": {
+            "$ref": "#/$defs/Assumption"
+          },
+          "type": "array"
+        },
+        "stage": {
+          "const": 7,
+          "default": 7,
+          "type": "integer"
+        },
+        "factory_pack_id": {
+          "type": "string"
+        },
+        "queries": {
+          "items": {
+            "$ref": "#/$defs/SearchCapacityQuery"
+          },
+          "type": "array"
+        },
+        "shortlist": {
+          "items": {
+            "$ref": "#/$defs/FactoryMatch"
+          },
+          "minItems": 3,
+          "type": "array"
+        }
+      },
+      "required": [
+        "project_id",
+        "status",
+        "fallback",
+        "fallback_reason",
+        "generated_by",
+        "generated_at",
+        "assumptions",
+        "stage",
+        "factory_pack_id",
+        "queries",
+        "shortlist"
+      ],
+      "title": "MatchingArtifact",
+      "type": "object"
+    },
+    "Milestone": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "kind": {
+          "$ref": "#/$defs/MilestoneKind"
+        },
+        "start_date": {
+          "format": "date",
+          "type": "string"
+        },
+        "end_date": {
+          "format": "date",
+          "type": "string"
+        },
+        "duration_days": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "depends_on": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "payment": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/LabeledValue"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Cash out at this milestone, if any"
+        },
+        "notes": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "kind",
+        "start_date",
+        "end_date",
+        "duration_days",
+        "depends_on",
+        "payment",
+        "notes"
+      ],
+      "title": "Milestone",
+      "type": "object"
+    },
+    "MilestoneKind": {
+      "enum": [
+        "deposit",
+        "tooling_t0",
+        "tooling_t1",
+        "golden_sample",
+        "certification",
+        "mass_production",
+        "pre_shipment_inspection",
+        "shipment",
+        "delivered",
+        "other"
+      ],
+      "title": "MilestoneKind",
+      "type": "string"
+    },
+    "NameOption": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "rationale": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "rationale"
+      ],
+      "title": "NameOption",
+      "type": "object"
+    },
+    "NegotiationArtifact": {
+      "additionalProperties": false,
+      "properties": {
+        "project_id": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/$defs/StageStatus"
+        },
+        "fallback": {
+          "default": false,
+          "description": "True when served from a fixture after an error",
+          "type": "boolean"
+        },
+        "fallback_reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "generated_by": {
+          "default": "fixture",
+          "description": "'fixture' | 'code' | 'llm:<model slug>'",
+          "type": "string"
+        },
+        "generated_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "assumptions": {
+          "items": {
+            "$ref": "#/$defs/Assumption"
+          },
+          "type": "array"
+        },
+        "stage": {
+          "const": 8,
+          "default": 8,
+          "type": "integer"
+        },
+        "rfqs": {
+          "items": {
+            "$ref": "#/$defs/RFQ"
+          },
+          "type": "array"
+        },
+        "quotes": {
+          "items": {
+            "$ref": "#/$defs/Quote"
+          },
+          "type": "array"
+        },
+        "transcript": {
+          "items": {
+            "$ref": "#/$defs/NegotiationTurn"
+          },
+          "type": "array"
+        },
+        "recommendation": {
+          "$ref": "#/$defs/Recommendation"
+        },
+        "user_approved": {
+          "default": false,
+          "type": "boolean"
+        },
+        "final_terms": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/FinalTerms"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Set once the user approves"
+        }
+      },
+      "required": [
+        "project_id",
+        "status",
+        "fallback",
+        "fallback_reason",
+        "generated_by",
+        "generated_at",
+        "assumptions",
+        "stage",
+        "rfqs",
+        "quotes",
+        "transcript",
+        "recommendation",
+        "user_approved",
+        "final_terms"
+      ],
+      "title": "NegotiationArtifact",
+      "type": "object"
+    },
+    "NegotiationTurn": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "rfq_id": {
+          "type": "string"
+        },
+        "factory_id": {
+          "type": "string"
+        },
+        "turn": {
+          "type": "integer"
+        },
+        "speaker": {
+          "$ref": "#/$defs/Speaker"
+        },
+        "message": {
+          "type": "string"
+        },
+        "message_cn": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Machine-translated, to be reviewed by a native speaker"
+        },
+        "quote_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "proposed_changes": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "rationale": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "created_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "label": {
+          "const": "fictional",
+          "default": "fictional",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "rfq_id",
+        "factory_id",
+        "turn",
+        "speaker",
+        "message",
+        "message_cn",
+        "quote_id",
+        "proposed_changes",
+        "rationale",
+        "created_at",
+        "label"
+      ],
+      "title": "NegotiationTurn",
+      "type": "object"
+    },
+    "PackagingSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "box_type": {
+          "type": "string"
+        },
+        "dimensions": {
+          "$ref": "#/$defs/Dimensions"
+        },
+        "materials": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "printing": {
+          "type": "string"
+        },
+        "contents": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "unit_cost": {
+          "$ref": "#/$defs/LabeledValue"
+        }
+      },
+      "required": [
+        "box_type",
+        "dimensions",
+        "materials",
+        "printing",
+        "contents",
+        "unit_cost"
+      ],
+      "title": "PackagingSpec",
+      "type": "object"
+    },
+    "PastPerformance": {
+      "additionalProperties": false,
+      "properties": {
+        "orders_completed": {
+          "type": "integer"
+        },
+        "on_time_rate_pct": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "None = no data yet (self-registered factory, no order on the network)"
+        },
+        "defect_rate_pct": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "None = no data yet"
+        },
+        "no_data": {
+          "default": false,
+          "description": "True for a factory with no completed order on the network: show 'no data yet'",
+          "type": "boolean"
+        },
+        "label": {
+          "const": "fictional",
+          "default": "fictional",
+          "type": "string"
+        }
+      },
+      "required": [
+        "orders_completed",
+        "on_time_rate_pct",
+        "defect_rate_pct",
+        "no_data",
+        "label"
+      ],
+      "title": "PastPerformance",
+      "type": "object"
+    },
+    "PaymentScheduleItem": {
+      "additionalProperties": false,
+      "properties": {
+        "milestone_id": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "pct_of_order": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "amount": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "due_date": {
+          "format": "date",
+          "type": "string"
+        }
+      },
+      "required": [
+        "milestone_id",
+        "description",
+        "pct_of_order",
+        "amount",
+        "due_date"
+      ],
+      "title": "PaymentScheduleItem",
+      "type": "object"
+    },
+    "ProcessStep": {
+      "additionalProperties": false,
+      "properties": {
+        "part_id": {
+          "type": "string"
+        },
+        "part_name": {
+          "type": "string"
+        },
+        "process": {
+          "$ref": "#/$defs/ProcessType"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "region": {
+          "description": "e.g. 'Shenzhen, Guangdong'",
+          "type": "string"
+        },
+        "lead_time_days": {
+          "$ref": "#/$defs/LabeledValue"
+        }
+      },
+      "required": [
+        "part_id",
+        "part_name",
+        "process",
+        "reason",
+        "region",
+        "lead_time_days"
+      ],
+      "title": "ProcessStep",
+      "type": "object"
+    },
+    "ProcessType": {
+      "enum": [
+        "injection_molding",
+        "cnc",
+        "sheet_metal",
+        "die_casting",
+        "extrusion",
+        "pcba",
+        "assembly",
+        "other"
+      ],
+      "title": "ProcessType",
+      "type": "string"
+    },
+    "ProductionPlanArtifact": {
+      "additionalProperties": false,
+      "properties": {
+        "project_id": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/$defs/StageStatus"
+        },
+        "fallback": {
+          "default": false,
+          "description": "True when served from a fixture after an error",
+          "type": "boolean"
+        },
+        "fallback_reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "generated_by": {
+          "default": "fixture",
+          "description": "'fixture' | 'code' | 'llm:<model slug>'",
+          "type": "string"
+        },
+        "generated_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "assumptions": {
+          "items": {
+            "$ref": "#/$defs/Assumption"
+          },
+          "type": "array"
+        },
+        "stage": {
+          "const": 6,
+          "default": 6,
+          "type": "integer"
+        },
+        "steps": {
+          "items": {
+            "$ref": "#/$defs/ProcessStep"
+          },
+          "type": "array"
+        },
+        "assembly_notes": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "total_lead_time_days": {
+          "$ref": "#/$defs/LabeledValue"
+        }
+      },
+      "required": [
+        "project_id",
+        "status",
+        "fallback",
+        "fallback_reason",
+        "generated_by",
+        "generated_at",
+        "assumptions",
+        "stage",
+        "steps",
+        "assembly_notes",
+        "total_lead_time_days"
+      ],
+      "title": "ProductionPlanArtifact",
+      "type": "object"
+    },
+    "Project": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "mode": {
+          "$ref": "#/$defs/ProjectMode"
+        },
+        "prompt": {
+          "type": "string"
+        },
+        "pasted_bom": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "example": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Fixture set used for fallbacks, e.g. 'desk_lamp', 'tracker_card'"
+        },
+        "status": {
+          "$ref": "#/$defs/ProjectStatus"
+        },
+        "created_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "stage_status": {
+          "additionalProperties": {
+            "$ref": "#/$defs/StageStatus"
+          },
+          "description": "Keys are stage numbers as strings ('1'..'13')",
+          "type": "object"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "mode",
+        "prompt",
+        "pasted_bom",
+        "example",
+        "status",
+        "created_at",
+        "stage_status"
+      ],
+      "title": "Project",
+      "type": "object"
+    },
+    "ProjectDetail": {
+      "additionalProperties": false,
+      "properties": {
+        "project": {
+          "$ref": "#/$defs/Project"
+        },
+        "stages": {
+          "items": {
+            "$ref": "#/$defs/StageSummary"
+          },
+          "type": "array"
+        },
+        "autorun": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/AutorunStatus"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "None if autorun was never started"
+        },
+        "has_fallback": {
+          "default": false,
+          "description": "True if any stage 1-7 serves a cached example (fallback: true)",
+          "type": "boolean"
+        },
+        "fallback_stages": {
+          "description": "Stages (1-13) currently serving a cached example",
+          "items": {
+            "type": "integer"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "project",
+        "stages",
+        "autorun",
+        "has_fallback",
+        "fallback_stages"
+      ],
+      "title": "ProjectDetail",
+      "type": "object"
+    },
+    "ProjectMode": {
+      "enum": [
+        "idea",
+        "prototype"
+      ],
+      "title": "ProjectMode",
+      "type": "string"
+    },
+    "ProjectStatus": {
+      "enum": [
+        "active",
+        "archived"
+      ],
+      "title": "ProjectStatus",
+      "type": "string"
+    },
+    "QCArtifact": {
+      "additionalProperties": false,
+      "properties": {
+        "project_id": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/$defs/StageStatus"
+        },
+        "fallback": {
+          "default": false,
+          "description": "True when served from a fixture after an error",
+          "type": "boolean"
+        },
+        "fallback_reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "generated_by": {
+          "default": "fixture",
+          "description": "'fixture' | 'code' | 'llm:<model slug>'",
+          "type": "string"
+        },
+        "generated_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "assumptions": {
+          "items": {
+            "$ref": "#/$defs/Assumption"
+          },
+          "type": "array"
+        },
+        "stage": {
+          "const": 10,
+          "default": 10,
+          "type": "integer"
+        },
+        "standard": {
+          "default": "ISO 2859-1 (ANSI/ASQ Z1.4)",
+          "type": "string"
+        },
+        "inspection_level": {
+          "default": "General II",
+          "type": "string"
+        },
+        "lot_size": {
+          "type": "integer"
+        },
+        "sample_size": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "defects": {
+          "items": {
+            "$ref": "#/$defs/DefectClass"
+          },
+          "type": "array"
+        },
+        "inspection_man_days": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "man_day_rate": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "inspection_cost": {
+          "$ref": "#/$defs/LabeledValue"
+        }
+      },
+      "required": [
+        "project_id",
+        "status",
+        "fallback",
+        "fallback_reason",
+        "generated_by",
+        "generated_at",
+        "assumptions",
+        "stage",
+        "standard",
+        "inspection_level",
+        "lot_size",
+        "sample_size",
+        "defects",
+        "inspection_man_days",
+        "man_day_rate",
+        "inspection_cost"
+      ],
+      "title": "QCArtifact",
+      "type": "object"
+    },
+    "Quote": {
+      "additionalProperties": false,
+      "description": "Mirrors MCP `submit_quote` (PRD \u00a710). Each counter creates a new version.",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "rfq_id": {
+          "type": "string"
+        },
+        "factory_id": {
+          "type": "string"
+        },
+        "version": {
+          "default": 1,
+          "type": "integer"
+        },
+        "tiers": {
+          "items": {
+            "$ref": "#/$defs/QuoteTier"
+          },
+          "type": "array"
+        },
+        "tooling_usd": {
+          "type": "number"
+        },
+        "moq": {
+          "type": "integer"
+        },
+        "lead_time_days": {
+          "type": "integer"
+        },
+        "payment_terms": {
+          "description": "e.g. '30% deposit / 70% before shipment'",
+          "type": "string"
+        },
+        "exceptions": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "status": {
+          "$ref": "#/$defs/QuoteStatus"
+        },
+        "created_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "label": {
+          "const": "fictional",
+          "default": "fictional",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "rfq_id",
+        "factory_id",
+        "version",
+        "tiers",
+        "tooling_usd",
+        "moq",
+        "lead_time_days",
+        "payment_terms",
+        "exceptions",
+        "status",
+        "created_at",
+        "label"
+      ],
+      "title": "Quote",
+      "type": "object"
+    },
+    "QuoteStatus": {
+      "enum": [
+        "submitted",
+        "countered",
+        "superseded",
+        "accepted",
+        "rejected"
+      ],
+      "title": "QuoteStatus",
+      "type": "string"
+    },
+    "QuoteTier": {
+      "additionalProperties": false,
+      "properties": {
+        "quantity": {
+          "type": "integer"
+        },
+        "unit_price_usd": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "quantity",
+        "unit_price_usd"
+      ],
+      "title": "QuoteTier",
+      "type": "object"
+    },
+    "RFQ": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "project_id": {
+          "type": "string"
+        },
+        "factory_id": {
+          "type": "string"
+        },
+        "factory_pack_id": {
+          "type": "string"
+        },
+        "quantities": {
+          "items": {
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "status": {
+          "$ref": "#/$defs/RFQStatus"
+        },
+        "created_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "label": {
+          "const": "fictional",
+          "default": "fictional",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "project_id",
+        "factory_id",
+        "factory_pack_id",
+        "quantities",
+        "status",
+        "created_at",
+        "label"
+      ],
+      "title": "RFQ",
+      "type": "object"
+    },
+    "RFQStatus": {
+      "enum": [
+        "sent",
+        "quoted",
+        "declined",
+        "accepted"
+      ],
+      "title": "RFQStatus",
+      "type": "string"
+    },
+    "RFQWithQuotes": {
+      "additionalProperties": false,
+      "description": "Factory-portal view of one RFQ.",
+      "properties": {
+        "rfq": {
+          "$ref": "#/$defs/RFQ"
+        },
+        "product_name": {
+          "type": "string"
+        },
+        "quotes": {
+          "items": {
+            "$ref": "#/$defs/Quote"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "rfq",
+        "product_name",
+        "quotes"
+      ],
+      "title": "RFQWithQuotes",
+      "type": "object"
+    },
+    "Recommendation": {
+      "additionalProperties": false,
+      "properties": {
+        "factory_id": {
+          "type": "string"
+        },
+        "quote_id": {
+          "type": "string"
+        },
+        "rationale": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "factory_id",
+        "quote_id",
+        "rationale"
+      ],
+      "title": "Recommendation",
+      "type": "object"
+    },
+    "RegisterFactoryRequest": {
+      "additionalProperties": false,
+      "description": "POST /factories \u2014 mirrors MCP `register_capacity` (PRD \u00a710). The factory is Fictional \u2014 demo data.",
+      "properties": {
+        "name": {
+          "description": "' (fictional)' is appended if missing",
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
+        },
+        "processes": {
+          "items": {
+            "$ref": "#/$defs/ProcessType"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "materials": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "moq": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "certifications": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "lead_time_days": {
+          "maximum": 365,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "monthly_capacity": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "current_load_pct": {
+          "maximum": 100,
+          "minimum": 0,
+          "type": "number"
+        },
+        "archetype": {
+          "default": "balanced",
+          "type": "string"
+        },
+        "personality": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "name",
+        "region",
+        "processes",
+        "materials",
+        "moq",
+        "certifications",
+        "lead_time_days",
+        "monthly_capacity",
+        "current_load_pct",
+        "archetype",
+        "personality"
+      ],
+      "title": "RegisterFactoryRequest",
+      "type": "object"
+    },
+    "ResetResult": {
+      "additionalProperties": false,
+      "properties": {
+        "projects": {
+          "items": {
+            "$ref": "#/$defs/Project"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "projects"
+      ],
+      "title": "ResetResult",
+      "type": "object"
+    },
+    "RiskLevel": {
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "title": "RiskLevel",
+      "type": "string"
+    },
+    "RunStageRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "inputs": {
+          "additionalProperties": true,
+          "description": "Stage-specific user inputs, e.g. {'answers': {...}} for 1, {'direction_id': 'd1'} for 3, {'approve': true} for 8",
+          "type": "object"
+        }
+      },
+      "required": [
+        "inputs"
+      ],
+      "title": "RunStageRequest",
+      "type": "object"
+    },
+    "ScoreComponent": {
+      "additionalProperties": false,
+      "properties": {
+        "criterion": {
+          "enum": [
+            "process_fit",
+            "moq",
+            "certifications",
+            "load",
+            "lead_time"
+          ],
+          "type": "string"
+        },
+        "score": {
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        "weight": {
+          "type": "number"
+        },
+        "note": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "criterion",
+        "score",
+        "weight",
+        "note"
+      ],
+      "title": "ScoreComponent",
+      "type": "object"
+    },
+    "SearchCapacityQuery": {
+      "additionalProperties": false,
+      "description": "Mirrors MCP `search_capacity` input.",
+      "properties": {
+        "process": {
+          "$ref": "#/$defs/ProcessType"
+        },
+        "material": {
+          "type": "string"
+        },
+        "quantity": {
+          "type": "integer"
+        },
+        "certifications_required": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "deadline": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "process",
+        "material",
+        "quantity",
+        "certifications_required",
+        "deadline"
+      ],
+      "title": "SearchCapacityQuery",
+      "type": "object"
+    },
+    "Severity": {
+      "enum": [
+        "critical",
+        "major",
+        "minor"
+      ],
+      "title": "Severity",
+      "type": "string"
+    },
+    "Speaker": {
+      "enum": [
+        "platform_agent",
+        "factory_agent",
+        "user"
+      ],
+      "title": "Speaker",
+      "type": "string"
+    },
+    "SpecArtifact": {
+      "additionalProperties": false,
+      "properties": {
+        "project_id": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/$defs/StageStatus"
+        },
+        "fallback": {
+          "default": false,
+          "description": "True when served from a fixture after an error",
+          "type": "boolean"
+        },
+        "fallback_reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "generated_by": {
+          "default": "fixture",
+          "description": "'fixture' | 'code' | 'llm:<model slug>'",
+          "type": "string"
+        },
+        "generated_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "assumptions": {
+          "items": {
+            "$ref": "#/$defs/Assumption"
+          },
+          "type": "array"
+        },
+        "stage": {
+          "const": 3,
+          "default": 3,
+          "type": "integer"
+        },
+        "product_name": {
+          "type": "string"
+        },
+        "direction_id": {
+          "type": "string"
+        },
+        "overall_dimensions": {
+          "$ref": "#/$defs/Dimensions"
+        },
+        "weight": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "parts": {
+          "items": {
+            "$ref": "#/$defs/SpecPart"
+          },
+          "type": "array"
+        },
+        "electronics_blocks": {
+          "items": {
+            "$ref": "#/$defs/ElectronicsBlock"
+          },
+          "type": "array"
+        },
+        "electronics_edges": {
+          "items": {
+            "$ref": "#/$defs/ElectronicsEdge"
+          },
+          "type": "array"
+        },
+        "bom": {
+          "items": {
+            "$ref": "#/$defs/BOMItem"
+          },
+          "type": "array"
+        },
+        "tolerances": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "cad_files": {
+          "items": {
+            "$ref": "#/$defs/CadFile"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "project_id",
+        "status",
+        "fallback",
+        "fallback_reason",
+        "generated_by",
+        "generated_at",
+        "assumptions",
+        "stage",
+        "product_name",
+        "direction_id",
+        "overall_dimensions",
+        "weight",
+        "parts",
+        "electronics_blocks",
+        "electronics_edges",
+        "bom",
+        "tolerances",
+        "cad_files"
+      ],
+      "title": "SpecArtifact",
+      "type": "object"
+    },
+    "SpecPart": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "material": {
+          "type": "string"
+        },
+        "finish": {
+          "type": "string"
+        },
+        "process_hint": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ProcessType"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "tolerance": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "e.g. '\u00b10.1 mm on mating faces'"
+        },
+        "dimensions": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Dimensions"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "wall_thickness": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/LabeledValue"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "quantity": {
+          "default": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "material",
+        "finish",
+        "process_hint",
+        "tolerance",
+        "dimensions",
+        "wall_thickness",
+        "quantity"
+      ],
+      "title": "SpecPart",
+      "type": "object"
+    },
+    "StageResult": {
+      "additionalProperties": false,
+      "properties": {
+        "project_id": {
+          "type": "string"
+        },
+        "stage": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/$defs/StageStatus"
+        },
+        "fallback": {
+          "type": "boolean"
+        },
+        "artifact": {
+          "discriminator": {
+            "mapping": {
+              "1": "#/$defs/BriefArtifact",
+              "10": "#/$defs/QCArtifact",
+              "11": "#/$defs/LogisticsArtifact",
+              "12": "#/$defs/FinancingArtifact",
+              "13": "#/$defs/BrandArtifact",
+              "2": "#/$defs/DesignArtifact",
+              "3": "#/$defs/SpecArtifact",
+              "4": "#/$defs/DFMArtifact",
+              "5": "#/$defs/CostsArtifact",
+              "6": "#/$defs/ProductionPlanArtifact",
+              "7": "#/$defs/MatchingArtifact",
+              "8": "#/$defs/NegotiationArtifact",
+              "9": "#/$defs/ToolingArtifact"
+            },
+            "propertyName": "stage"
+          },
+          "oneOf": [
+            {
+              "$ref": "#/$defs/BriefArtifact"
+            },
+            {
+              "$ref": "#/$defs/DesignArtifact"
+            },
+            {
+              "$ref": "#/$defs/SpecArtifact"
+            },
+            {
+              "$ref": "#/$defs/DFMArtifact"
+            },
+            {
+              "$ref": "#/$defs/CostsArtifact"
+            },
+            {
+              "$ref": "#/$defs/ProductionPlanArtifact"
+            },
+            {
+              "$ref": "#/$defs/MatchingArtifact"
+            },
+            {
+              "$ref": "#/$defs/NegotiationArtifact"
+            },
+            {
+              "$ref": "#/$defs/ToolingArtifact"
+            },
+            {
+              "$ref": "#/$defs/QCArtifact"
+            },
+            {
+              "$ref": "#/$defs/LogisticsArtifact"
+            },
+            {
+              "$ref": "#/$defs/FinancingArtifact"
+            },
+            {
+              "$ref": "#/$defs/BrandArtifact"
+            }
+          ]
+        }
+      },
+      "required": [
+        "project_id",
+        "stage",
+        "name",
+        "title",
+        "status",
+        "fallback",
+        "artifact"
+      ],
+      "title": "StageResult",
+      "type": "object"
+    },
+    "StageStatus": {
+      "enum": [
+        "not_started",
+        "draft",
+        "validated"
+      ],
+      "title": "StageStatus",
+      "type": "string"
+    },
+    "StageSummary": {
+      "additionalProperties": false,
+      "properties": {
+        "stage": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/$defs/StageStatus"
+        },
+        "fallback": {
+          "default": false,
+          "type": "boolean"
+        },
+        "updated_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "stage",
+        "name",
+        "title",
+        "status",
+        "fallback",
+        "updated_at"
+      ],
+      "title": "StageSummary",
+      "type": "object"
+    },
+    "StructuredSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "overall_dimensions": {
+          "$ref": "#/$defs/Dimensions"
+        },
+        "weight": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "parts": {
+          "items": {
+            "$ref": "#/$defs/SpecPart"
+          },
+          "type": "array"
+        },
+        "tolerances": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "overall_dimensions",
+        "weight",
+        "parts",
+        "tolerances"
+      ],
+      "title": "StructuredSpec",
+      "type": "object"
+    },
+    "ToolingArtifact": {
+      "additionalProperties": false,
+      "properties": {
+        "project_id": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/$defs/StageStatus"
+        },
+        "fallback": {
+          "default": false,
+          "description": "True when served from a fixture after an error",
+          "type": "boolean"
+        },
+        "fallback_reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "generated_by": {
+          "default": "fixture",
+          "description": "'fixture' | 'code' | 'llm:<model slug>'",
+          "type": "string"
+        },
+        "generated_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "assumptions": {
+          "items": {
+            "$ref": "#/$defs/Assumption"
+          },
+          "type": "array"
+        },
+        "stage": {
+          "const": 9,
+          "default": 9,
+          "type": "integer"
+        },
+        "milestones": {
+          "items": {
+            "$ref": "#/$defs/Milestone"
+          },
+          "type": "array"
+        },
+        "payment_schedule": {
+          "items": {
+            "$ref": "#/$defs/PaymentScheduleItem"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "project_id",
+        "status",
+        "fallback",
+        "fallback_reason",
+        "generated_by",
+        "generated_at",
+        "assumptions",
+        "stage",
+        "milestones",
+        "payment_schedule"
+      ],
+      "title": "ToolingArtifact",
+      "type": "object"
+    },
+    "ToolingItem": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "process": {
+          "$ref": "#/$defs/ProcessType"
+        },
+        "cost": {
+          "$ref": "#/$defs/LabeledValue"
+        }
+      },
+      "required": [
+        "name",
+        "process",
+        "cost"
+      ],
+      "title": "ToolingItem",
+      "type": "object"
+    },
+    "UpdateStageRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact": {
+          "discriminator": {
+            "mapping": {
+              "1": "#/$defs/BriefArtifact",
+              "10": "#/$defs/QCArtifact",
+              "11": "#/$defs/LogisticsArtifact",
+              "12": "#/$defs/FinancingArtifact",
+              "13": "#/$defs/BrandArtifact",
+              "2": "#/$defs/DesignArtifact",
+              "3": "#/$defs/SpecArtifact",
+              "4": "#/$defs/DFMArtifact",
+              "5": "#/$defs/CostsArtifact",
+              "6": "#/$defs/ProductionPlanArtifact",
+              "7": "#/$defs/MatchingArtifact",
+              "8": "#/$defs/NegotiationArtifact",
+              "9": "#/$defs/ToolingArtifact"
+            },
+            "propertyName": "stage"
+          },
+          "oneOf": [
+            {
+              "$ref": "#/$defs/BriefArtifact"
+            },
+            {
+              "$ref": "#/$defs/DesignArtifact"
+            },
+            {
+              "$ref": "#/$defs/SpecArtifact"
+            },
+            {
+              "$ref": "#/$defs/DFMArtifact"
+            },
+            {
+              "$ref": "#/$defs/CostsArtifact"
+            },
+            {
+              "$ref": "#/$defs/ProductionPlanArtifact"
+            },
+            {
+              "$ref": "#/$defs/MatchingArtifact"
+            },
+            {
+              "$ref": "#/$defs/NegotiationArtifact"
+            },
+            {
+              "$ref": "#/$defs/ToolingArtifact"
+            },
+            {
+              "$ref": "#/$defs/QCArtifact"
+            },
+            {
+              "$ref": "#/$defs/LogisticsArtifact"
+            },
+            {
+              "$ref": "#/$defs/FinancingArtifact"
+            },
+            {
+              "$ref": "#/$defs/BrandArtifact"
+            }
+          ]
+        },
+        "validate_stage": {
+          "default": false,
+          "description": "Also mark the stage validated",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "artifact",
+        "validate_stage"
+      ],
+      "title": "UpdateStageRequest",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "LabeledValue": {
+      "$ref": "#/$defs/LabeledValue"
+    },
+    "Assumption": {
+      "$ref": "#/$defs/Assumption"
+    },
+    "Project": {
+      "$ref": "#/$defs/Project"
+    },
+    "BriefArtifact": {
+      "$ref": "#/$defs/BriefArtifact"
+    },
+    "DesignArtifact": {
+      "$ref": "#/$defs/DesignArtifact"
+    },
+    "SpecArtifact": {
+      "$ref": "#/$defs/SpecArtifact"
+    },
+    "DFMArtifact": {
+      "$ref": "#/$defs/DFMArtifact"
+    },
+    "CostsArtifact": {
+      "$ref": "#/$defs/CostsArtifact"
+    },
+    "ProductionPlanArtifact": {
+      "$ref": "#/$defs/ProductionPlanArtifact"
+    },
+    "MatchingArtifact": {
+      "$ref": "#/$defs/MatchingArtifact"
+    },
+    "NegotiationArtifact": {
+      "$ref": "#/$defs/NegotiationArtifact"
+    },
+    "ToolingArtifact": {
+      "$ref": "#/$defs/ToolingArtifact"
+    },
+    "QCArtifact": {
+      "$ref": "#/$defs/QCArtifact"
+    },
+    "LogisticsArtifact": {
+      "$ref": "#/$defs/LogisticsArtifact"
+    },
+    "FinancingArtifact": {
+      "$ref": "#/$defs/FinancingArtifact"
+    },
+    "BrandArtifact": {
+      "$ref": "#/$defs/BrandArtifact"
+    },
+    "FactoryPack": {
+      "$ref": "#/$defs/FactoryPack"
+    },
+    "Factory": {
+      "$ref": "#/$defs/Factory"
+    },
+    "CapacityProfile": {
+      "$ref": "#/$defs/CapacityProfile"
+    },
+    "RegisterFactoryRequest": {
+      "$ref": "#/$defs/RegisterFactoryRequest"
+    },
+    "AutorunStatus": {
+      "$ref": "#/$defs/AutorunStatus"
+    },
+    "RFQ": {
+      "$ref": "#/$defs/RFQ"
+    },
+    "Quote": {
+      "$ref": "#/$defs/Quote"
+    },
+    "NegotiationTurn": {
+      "$ref": "#/$defs/NegotiationTurn"
+    },
+    "Milestone": {
+      "$ref": "#/$defs/Milestone"
+    },
+    "RFQWithQuotes": {
+      "$ref": "#/$defs/RFQWithQuotes"
+    },
+    "CreateProjectRequest": {
+      "$ref": "#/$defs/CreateProjectRequest"
+    },
+    "RunStageRequest": {
+      "$ref": "#/$defs/RunStageRequest"
+    },
+    "UpdateStageRequest": {
+      "$ref": "#/$defs/UpdateStageRequest"
+    },
+    "StageResult": {
+      "$ref": "#/$defs/StageResult"
+    },
+    "StageSummary": {
+      "$ref": "#/$defs/StageSummary"
+    },
+    "ProjectDetail": {
+      "$ref": "#/$defs/ProjectDetail"
+    },
+    "AutorunResult": {
+      "$ref": "#/$defs/AutorunResult"
+    },
+    "ResetResult": {
+      "$ref": "#/$defs/ResetResult"
+    },
+    "HealthResponse": {
+      "$ref": "#/$defs/HealthResponse"
+    },
+    "ErrorResponse": {
+      "$ref": "#/$defs/ErrorResponse"
+    },
+    "Label": {
+      "$ref": "#/$defs/Label"
+    },
+    "StageStatus": {
+      "$ref": "#/$defs/StageStatus"
+    },
+    "ProcessType": {
+      "$ref": "#/$defs/ProcessType"
+    }
+  },
+  "required": [
+    "LabeledValue",
+    "Assumption",
+    "Project",
+    "BriefArtifact",
+    "DesignArtifact",
+    "SpecArtifact",
+    "DFMArtifact",
+    "CostsArtifact",
+    "ProductionPlanArtifact",
+    "MatchingArtifact",
+    "NegotiationArtifact",
+    "ToolingArtifact",
+    "QCArtifact",
+    "LogisticsArtifact",
+    "FinancingArtifact",
+    "BrandArtifact",
+    "FactoryPack",
+    "Factory",
+    "CapacityProfile",
+    "RegisterFactoryRequest",
+    "AutorunStatus",
+    "RFQ",
+    "Quote",
+    "NegotiationTurn",
+    "Milestone",
+    "RFQWithQuotes",
+    "CreateProjectRequest",
+    "RunStageRequest",
+    "UpdateStageRequest",
+    "StageResult",
+    "StageSummary",
+    "ProjectDetail",
+    "AutorunResult",
+    "ResetResult",
+    "HealthResponse",
+    "ErrorResponse",
+    "Label",
+    "StageStatus",
+    "ProcessType"
+  ],
+  "title": "ContractsBundle",
+  "type": "object"
+}

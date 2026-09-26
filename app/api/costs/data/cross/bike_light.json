@@ -1,0 +1,84 @@
+{
+ "slug": "bike_light",
+ "fetched_on": "2026-09-26",
+ "queries": [
+  "LED bicycle light",
+  "bicycle lamp rechargeable USB",
+  "bicycle tail light",
+  "bicycle light China 9903.88.03"
+ ],
+ "rulings": [
+  {
+   "rulingNumber": "N347268",
+   "subject": "The tariff classification of bicycle accessories from Taiwan",
+   "rulingDate": "2025-04-17",
+   "tariffs": "8512.10.4000, 8714.99.8000, 9901.01.25",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "LED bicycle light"
+  },
+  {
+   "rulingNumber": "N257698",
+   "subject": "The tariff classification of bicycle lights from China",
+   "rulingDate": "2014-10-06",
+   "tariffs": "8512.10.4000",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "LED bicycle light"
+  },
+  {
+   "rulingNumber": "N009530",
+   "subject": "The tariff classification of a LED \"Safety\" Light from China.",
+   "rulingDate": "2007-04-30",
+   "tariffs": "8531.80.0050",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "LED bicycle light"
+  },
+  {
+   "rulingNumber": "H185720",
+   "subject": "Request for Binding Ruling for the Skully\u00ae Skull Light",
+   "rulingDate": "2012-01-18",
+   "tariffs": "8512.10.40",
+   "collection": "hq",
+   "operationallyRevoked": false,
+   "found_by": "LED bicycle light"
+  },
+  {
+   "rulingNumber": "N021772",
+   "subject": "The tariff classification of a portable light from China.",
+   "rulingDate": "2008-01-17",
+   "tariffs": "8513.10.4000",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "LED bicycle light"
+  },
+  {
+   "rulingNumber": "802622",
+   "subject": "The tariff classification of bicycle signalling lights from Canada",
+   "rulingDate": "1994-10-04",
+   "tariffs": "8512.10.4000",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "bicycle tail light"
+  },
+  {
+   "rulingNumber": "N216723",
+   "subject": "The tariff classification of a men\u2019s knit garment from China.",
+   "rulingDate": "2012-06-06",
+   "tariffs": "6103.43.1520",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "bicycle tail light"
+  },
+  {
+   "rulingNumber": "N053055",
+   "subject": "The tariff classification of an electric vehicle from China",
+   "rulingDate": "2009-03-10",
+   "tariffs": "8711.90.0000, 8507.80.8000",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "bicycle tail light"
+  }
+ ]
+}

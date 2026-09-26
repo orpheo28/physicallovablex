@@ -1,0 +1,183 @@
+{
+ "slug": "air_quality_monitor",
+ "fetched_on": "2026-09-26",
+ "queries": [
+  "air quality monitor",
+  "carbon dioxide sensor monitor",
+  "gas detector portable",
+  "sensor China 9903.88.03"
+ ],
+ "rulings": [
+  {
+   "rulingNumber": "N340179",
+   "subject": "The tariff classification of air quality monitors from Italy",
+   "rulingDate": "2024-05-29",
+   "tariffs": "9027.10.2000",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "air quality monitor"
+  },
+  {
+   "rulingNumber": "N355175",
+   "subject": "The country of origin of an automatic upper arm blood pressure monitor",
+   "rulingDate": "2025-11-12",
+   "tariffs": "",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "air quality monitor"
+  },
+  {
+   "rulingNumber": "087597",
+   "subject": "Sampling Equipment; Precipitation Samplers; Air Samplers;     Data Logger; Parts; Accessories; Machines and Mechanical     Appliances, not Specified or Included Elsewhere",
+   "rulingDate": "1990-11-27",
+   "tariffs": "8479.89.90",
+   "collection": "hq",
+   "operationallyRevoked": false,
+   "found_by": "air quality monitor"
+  },
+  {
+   "rulingNumber": "863316",
+   "subject": "The tariff classification of the Blaine Star measuringdevice from Germany.",
+   "rulingDate": "1991-06-03",
+   "tariffs": "9027.80.8060",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "air quality monitor"
+  },
+  {
+   "rulingNumber": "N348122",
+   "subject": "The tariff classification of sensors from China",
+   "rulingDate": "2025-05-14",
+   "tariffs": "9025.19.8085, 9025.80.1000, 9027.50.4050, 9032.10.0060, 9903.01.24, 9903.01.25, 9903.88.01, 9903.88.02",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "air quality monitor"
+  },
+  {
+   "rulingNumber": "851139",
+   "subject": "The tariff classification of gas monitors from England.",
+   "rulingDate": "1990-04-24",
+   "tariffs": "9027.10.2000",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "carbon dioxide sensor monitor"
+  },
+  {
+   "rulingNumber": "086057",
+   "subject": "Carbon Monoxide Monitors; Reconsideration of NYRL 845201",
+   "rulingDate": "1990-02-02",
+   "tariffs": "9027.10.2000, 9018.19.8050",
+   "collection": "hq",
+   "operationallyRevoked": false,
+   "found_by": "carbon dioxide sensor monitor"
+  },
+  {
+   "rulingNumber": "H262310",
+   "subject": "Request for Internal Advice; tariff classification of NOx sensors",
+   "rulingDate": "2016-07-11",
+   "tariffs": "9027.10.2000",
+   "collection": "hq",
+   "operationallyRevoked": false,
+   "found_by": "carbon dioxide sensor monitor"
+  },
+  {
+   "rulingNumber": "967082",
+   "subject": "Gas Detectors",
+   "rulingDate": "2004-06-04",
+   "tariffs": "8531.10.0045, 9027.10.2000",
+   "collection": "hq",
+   "operationallyRevoked": false,
+   "found_by": "carbon dioxide sensor monitor"
+  },
+  {
+   "rulingNumber": "N222336",
+   "subject": "The tariff classification of a gas leak detector from Korea",
+   "rulingDate": "2012-06-26",
+   "tariffs": "8531.10.0045",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "gas detector portable"
+  },
+  {
+   "rulingNumber": "895317",
+   "subject": "The tariff classification and status under the North American Free Trade Agreement (NAFTA), of instruments to detect and monitor fault gases in dielectric oil from Canada.",
+   "rulingDate": "1994-03-25",
+   "tariffs": "9027.10.2000",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "gas detector portable"
+  },
+  {
+   "rulingNumber": "961023",
+   "subject": "Reconsideration of NY B89614; Leak Tester System; LeakDetector Unit;     HQ 954862; 9026.80.60",
+   "rulingDate": "1997-12-16",
+   "tariffs": "9031.80.80",
+   "collection": "hq",
+   "operationallyRevoked": false,
+   "found_by": "gas detector portable"
+  },
+  {
+   "rulingNumber": "H316429",
+   "subject": "Modification of NY N305614; Tariff Classification of a Portable Food Allergen Detection Device, Single-Use Pods and a Starter Kit from China and various other countries",
+   "rulingDate": "2021-08-31",
+   "tariffs": "9027.50.8015, 3822.00.5090, 9903.88.01",
+   "collection": "hq",
+   "operationallyRevoked": false,
+   "found_by": "gas detector portable"
+  },
+  {
+   "rulingNumber": "N305614",
+   "subject": "The tariff classification of a Portable Food Allergen Detection Device, Single-Use Pods and a Starter Kit from China and various other countries.",
+   "rulingDate": "2019-08-30",
+   "tariffs": "9027.50.8015, 3822.00.5090",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "gas detector portable"
+  },
+  {
+   "rulingNumber": "N300548",
+   "subject": "The tariff classification of an ultrasonic height sensor from China",
+   "rulingDate": "2018-10-09",
+   "tariffs": "9015.10.4000, 9903.88.03",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "sensor China 9903.88.03"
+  },
+  {
+   "rulingNumber": "N318760",
+   "subject": "The tariff classification of an electrical controller from China",
+   "rulingDate": "2021-04-19",
+   "tariffs": "8537.10.9170, 9903.88.03",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "sensor China 9903.88.03"
+  },
+  {
+   "rulingNumber": "N309513",
+   "subject": "The tariff classification of the Semios Multi-Sensor Agricultural Smart Device from China",
+   "rulingDate": "2020-02-19",
+   "tariffs": "8424.90.9080, 9903.88.03, 9817.00.50",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "sensor China 9903.88.03"
+  },
+  {
+   "rulingNumber": "N301630",
+   "subject": "The tariff classification of home alarms from China",
+   "rulingDate": "2018-11-30",
+   "tariffs": "8531.10.0035",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "sensor China 9903.88.03"
+  },
+  {
+   "rulingNumber": "N304824",
+   "subject": "The tariff classification of power distribution units from China",
+   "rulingDate": "2019-07-03",
+   "tariffs": "8537.10.9170, 9903.88.03",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "sensor China 9903.88.03"
+  }
+ ]
+}

@@ -1,0 +1,110 @@
+{
+ "slug": "eink_phone",
+ "fetched_on": "2026-09-26",
+ "queries": [
+  "smartphone from China",
+  "cellular telephone e-ink display",
+  "mobile phone"
+ ],
+ "rulings": [
+  {
+   "rulingNumber": "N300791",
+   "subject": "The tariff classification of a smartphone case from China",
+   "rulingDate": "2018-10-23",
+   "tariffs": "4202.32.2000, 9903.88.03",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "smartphone from China"
+  },
+  {
+   "rulingNumber": "N314534",
+   "subject": "The tariff classification of a plastic smartphone holder from China.",
+   "rulingDate": "2020-09-28",
+   "tariffs": "3926.90.9985, 9903.88.15",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "smartphone from China"
+  },
+  {
+   "rulingNumber": "N302706",
+   "subject": "The tariff classification of a smartphone lens from China",
+   "rulingDate": "2019-02-25",
+   "tariffs": "9002.19.0000",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "smartphone from China"
+  },
+  {
+   "rulingNumber": "N360978",
+   "subject": "The tariff classification of a smartphone case from China.",
+   "rulingDate": "2026-05-12",
+   "tariffs": "3926.90.9989",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "smartphone from China"
+  },
+  {
+   "rulingNumber": "N255269",
+   "subject": "The tariff classification of smartphone virtual reality goggles from China",
+   "rulingDate": "2014-08-12",
+   "tariffs": "9004.90.0000, 4202.92.9026",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "smartphone from China"
+  },
+  {
+   "rulingNumber": "H275685",
+   "subject": "Internal Advice; Tariff Classification of the popSLATE iPhone mobile telephone case/image display device",
+   "rulingDate": "2017-08-03",
+   "tariffs": "8543.70.99",
+   "collection": "hq",
+   "operationallyRevoked": false,
+   "found_by": "cellular telephone e-ink display"
+  },
+  {
+   "rulingNumber": "H252291",
+   "subject": "Revocation of NY N049055; classification of mobile phone kits",
+   "rulingDate": "2015-09-30",
+   "tariffs": "4901.99.00, 8504.40.85, 8517.12.00",
+   "collection": "hq",
+   "operationallyRevoked": false,
+   "found_by": "mobile phone"
+  },
+  {
+   "rulingNumber": "N049055",
+   "subject": "The tariff classification of mobile phone kits from Korea",
+   "rulingDate": "2009-02-04",
+   "tariffs": "8517.12.0050",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "mobile phone"
+  },
+  {
+   "rulingNumber": "N307288",
+   "subject": "The country of origin and marking of a mobile phone",
+   "rulingDate": "2019-11-21",
+   "tariffs": "",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "mobile phone"
+  },
+  {
+   "rulingNumber": "L87235",
+   "subject": "The tariff classification of a mobile phone stand from Malaysia.",
+   "rulingDate": "2005-09-18",
+   "tariffs": "8537.10.9070",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "mobile phone"
+  },
+  {
+   "rulingNumber": "L87501",
+   "subject": "The tariff classification of a mobile phone cover from Singapore.",
+   "rulingDate": "2005-09-15",
+   "tariffs": "8529.90.9900",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "mobile phone"
+  }
+ ]
+}

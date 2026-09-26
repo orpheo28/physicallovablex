@@ -1,0 +1,383 @@
+{
+  "$defs": {
+    "Assumption": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "label": {
+          "$ref": "#/$defs/Label"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source"
+        },
+        "stage": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Stage that introduced the assumption",
+          "title": "Stage"
+        }
+      },
+      "required": [
+        "id",
+        "text",
+        "label"
+      ],
+      "title": "Assumption",
+      "type": "object"
+    },
+    "CostLine": {
+      "additionalProperties": false,
+      "properties": {
+        "bom_item_id": {
+          "title": "Bom Item Id",
+          "type": "string"
+        },
+        "part": {
+          "title": "Part",
+          "type": "string"
+        },
+        "qty_per_unit": {
+          "title": "Qty Per Unit",
+          "type": "number"
+        },
+        "unit_price": {
+          "$ref": "#/$defs/LabeledValue",
+          "description": "Sourced: 'LCSC price, <date>'; else Estimate + assumption"
+        },
+        "lcsc_pn": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Lcsc Pn"
+        },
+        "stock": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/LabeledValue"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "extended": {
+          "$ref": "#/$defs/LabeledValue",
+          "description": "qty_per_unit \u00d7 unit_price"
+        }
+      },
+      "required": [
+        "bom_item_id",
+        "part",
+        "qty_per_unit",
+        "unit_price",
+        "extended"
+      ],
+      "title": "CostLine",
+      "type": "object"
+    },
+    "CostTier": {
+      "additionalProperties": false,
+      "properties": {
+        "quantity": {
+          "title": "Quantity",
+          "type": "integer"
+        },
+        "bom_cost": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "assembly_cost": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "packaging_cost": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "unit_cost": {
+          "$ref": "#/$defs/LabeledValue",
+          "description": "Ex-works unit cost (FOB basis) at this tier"
+        },
+        "tooling_amortisation": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "margin_pct": {
+          "$ref": "#/$defs/LabeledValue",
+          "description": "Margin at target retail price, landed-cost estimate basis"
+        }
+      },
+      "required": [
+        "quantity",
+        "bom_cost",
+        "assembly_cost",
+        "packaging_cost",
+        "unit_cost",
+        "tooling_amortisation",
+        "margin_pct"
+      ],
+      "title": "CostTier",
+      "type": "object"
+    },
+    "Label": {
+      "description": "The four honesty labels. UI text: Measured / Sourced / Estimate / Fictional \u2014 demo data.",
+      "enum": [
+        "measured",
+        "sourced",
+        "estimate",
+        "fictional"
+      ],
+      "title": "Label",
+      "type": "string"
+    },
+    "LabeledValue": {
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "title": "Value",
+          "type": "number"
+        },
+        "unit": {
+          "description": "e.g. USD, EUR, mm, g, days, weeks, pct, units, man-days",
+          "title": "Unit",
+          "type": "string"
+        },
+        "label": {
+          "$ref": "#/$defs/Label"
+        },
+        "source_or_assumption": {
+          "description": "Sourced: '<source>, <YYYY-MM-DD>'. Estimate: the assumption. Measured: the check. Fictional: 'demo data'.",
+          "title": "Source Or Assumption",
+          "type": "string"
+        }
+      },
+      "required": [
+        "value",
+        "unit",
+        "label",
+        "source_or_assumption"
+      ],
+      "title": "LabeledValue",
+      "type": "object"
+    },
+    "LandedCostComponent": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "amount": {
+          "$ref": "#/$defs/LabeledValue"
+        }
+      },
+      "required": [
+        "name",
+        "amount"
+      ],
+      "title": "LandedCostComponent",
+      "type": "object"
+    },
+    "ProcessType": {
+      "enum": [
+        "injection_molding",
+        "cnc",
+        "sheet_metal",
+        "die_casting",
+        "extrusion",
+        "pcba",
+        "assembly",
+        "other"
+      ],
+      "title": "ProcessType",
+      "type": "string"
+    },
+    "StageStatus": {
+      "enum": [
+        "not_started",
+        "draft",
+        "validated"
+      ],
+      "title": "StageStatus",
+      "type": "string"
+    },
+    "ToolingItem": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "process": {
+          "$ref": "#/$defs/ProcessType"
+        },
+        "cost": {
+          "$ref": "#/$defs/LabeledValue"
+        }
+      },
+      "required": [
+        "name",
+        "process",
+        "cost"
+      ],
+      "title": "ToolingItem",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "project_id": {
+      "title": "Project Id",
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/$defs/StageStatus",
+      "default": "draft"
+    },
+    "fallback": {
+      "default": false,
+      "description": "True when served from a fixture after an error",
+      "title": "Fallback",
+      "type": "boolean"
+    },
+    "fallback_reason": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Fallback Reason"
+    },
+    "generated_by": {
+      "default": "fixture",
+      "description": "'fixture' | 'code' | 'llm:<model slug>'",
+      "title": "Generated By",
+      "type": "string"
+    },
+    "generated_at": {
+      "format": "date-time",
+      "title": "Generated At",
+      "type": "string"
+    },
+    "assumptions": {
+      "items": {
+        "$ref": "#/$defs/Assumption"
+      },
+      "title": "Assumptions",
+      "type": "array"
+    },
+    "stage": {
+      "const": 5,
+      "default": 5,
+      "title": "Stage",
+      "type": "integer"
+    },
+    "currency": {
+      "default": "USD",
+      "title": "Currency",
+      "type": "string"
+    },
+    "bom_lines": {
+      "items": {
+        "$ref": "#/$defs/CostLine"
+      },
+      "title": "Bom Lines",
+      "type": "array"
+    },
+    "volume_factor": {
+      "$ref": "#/$defs/LabeledValue",
+      "description": "Editable unit-cost decay per tier step"
+    },
+    "tiers": {
+      "description": "500 / 2,000 / 10,000 by default",
+      "items": {
+        "$ref": "#/$defs/CostTier"
+      },
+      "minItems": 3,
+      "title": "Tiers",
+      "type": "array"
+    },
+    "tooling": {
+      "items": {
+        "$ref": "#/$defs/ToolingItem"
+      },
+      "title": "Tooling",
+      "type": "array"
+    },
+    "tooling_total": {
+      "$ref": "#/$defs/LabeledValue"
+    },
+    "certification_total": {
+      "$ref": "#/$defs/LabeledValue"
+    },
+    "reference_quantity": {
+      "description": "Tier used for the cash-needed figure (first order)",
+      "title": "Reference Quantity",
+      "type": "integer"
+    },
+    "total_cash_needed": {
+      "$ref": "#/$defs/LabeledValue",
+      "description": "Tooling + certification + first order (reference_quantity \u00d7 landed estimate) + samples/QC"
+    },
+    "cash_breakdown": {
+      "description": "Components summing to total_cash_needed",
+      "items": {
+        "$ref": "#/$defs/LandedCostComponent"
+      },
+      "title": "Cash Breakdown",
+      "type": "array"
+    },
+    "target_retail_price": {
+      "$ref": "#/$defs/LabeledValue"
+    },
+    "breakeven_units": {
+      "$ref": "#/$defs/LabeledValue"
+    }
+  },
+  "required": [
+    "project_id",
+    "bom_lines",
+    "volume_factor",
+    "tiers",
+    "tooling",
+    "tooling_total",
+    "certification_total",
+    "reference_quantity",
+    "total_cash_needed",
+    "cash_breakdown",
+    "target_retail_price",
+    "breakeven_units"
+  ],
+  "title": "CostsArtifact",
+  "type": "object"
+}

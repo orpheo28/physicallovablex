@@ -1,0 +1,762 @@
+{
+  "project_id": "demo_tracker_card",
+  "status": "validated",
+  "fallback": false,
+  "fallback_reason": null,
+  "generated_by": "fixture",
+  "generated_at": "2026-09-26T12:00:00Z",
+  "assumptions": [
+    {
+      "id": "a1",
+      "text": "Founder target retail price $24.99 (comparable wallet trackers retail in the $20-35 range, not verified)",
+      "label": "estimate",
+      "source": null,
+      "stage": 1
+    },
+    {
+      "id": "a2",
+      "text": "Volume curve: unit cost × 0.92 per tier step (500 → 2,000 → 10,000)",
+      "label": "estimate",
+      "source": "Demo assumption (PRD §11)",
+      "stage": 5
+    },
+    {
+      "id": "a3",
+      "text": "Final assembly (ultrasonic weld, cell attach, flash + RF test) $0.85 per unit at 500",
+      "label": "estimate",
+      "source": null,
+      "stage": 5
+    },
+    {
+      "id": "a5",
+      "text": "Platform/agent fee 7% of FOB (benchmark 5-10%)",
+      "label": "estimate",
+      "source": "Dragon Sourcing benchmark 5-10%",
+      "stage": 11
+    },
+    {
+      "id": "a6",
+      "text": "HTS 8517.62.00.90: general duty 0% (Machines for the reception, conversion and transmission or… — Other — precedent CBP ruling N305756 (2019-09-04): The tar)",
+      "label": "sourced",
+      "source": "USITC HTS 8517.62.00.90 general rate Free, https://hts.usitc.gov/search?query=8517.62.00.90, fetched 2026-09-26",
+      "stage": 11
+    },
+    {
+      "id": "a9",
+      "text": "Thin-wall PC single-cavity molds $3,000-4,500 each (small-mold range $1,000-3,000 plus thin-wall premium)",
+      "label": "estimate",
+      "source": "Zetar Mold 2026 range $1,000-3,000 (vendor, medium) + thin-wall premium assumption",
+      "stage": 5
+    },
+    {
+      "id": "a12",
+      "text": "Thin lithium primary cell (3 V pouch, non-replaceable) $0.60 at 2k MOQ, branded supplier with UN38.3 report",
+      "label": "estimate",
+      "source": null,
+      "stage": 5
+    },
+    {
+      "id": "a13",
+      "text": "Section 301 China 7.5% on HTS 8517.62.00.90",
+      "label": "sourced",
+      "source": "Section 301 China, heading 9903.88.15 (+7.5%): USITC HTS, https://hts.usitc.gov/search?query=9903.88.15, fetched 2026-09-26; heading cited with HTS 8517.62.0090 in CBP ruling N349122 (2025-05-29). Coverage on the entry date to be confirmed by a customs broker",
+      "stage": 11
+    }
+  ],
+  "stage": 5,
+  "currency": "USD",
+  "bom_lines": [
+    {
+      "bom_item_id": "e1",
+      "part": "BLE 5 SoC nRF52810 (WLCSP-33, 2.5×2.5 mm)",
+      "qty_per_unit": 1.0,
+      "unit_price": {
+        "value": 1.5745,
+        "unit": "USD",
+        "label": "sourced",
+        "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C3606661.html"
+      },
+      "lcsc_pn": "C3606661",
+      "stock": {
+        "value": 13709.0,
+        "unit": "units",
+        "label": "sourced",
+        "source_or_assumption": "LCSC stock via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C3606661.html"
+      },
+      "extended": {
+        "value": 1.5745,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "LCSC unit price (Sourced) × estimated quantity: 1 × 1.5745"
+      }
+    },
+    {
+      "bom_item_id": "e2",
+      "part": "Crystal 32.768 kHz SMD3215",
+      "qty_per_unit": 1.0,
+      "unit_price": {
+        "value": 0.1034,
+        "unit": "USD",
+        "label": "sourced",
+        "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C32346.html"
+      },
+      "lcsc_pn": "C32346",
+      "stock": {
+        "value": 444985.0,
+        "unit": "units",
+        "label": "sourced",
+        "source_or_assumption": "LCSC stock via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C32346.html"
+      },
+      "extended": {
+        "value": 0.1034,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "LCSC unit price (Sourced) × estimated quantity: 1 × 0.1034"
+      }
+    },
+    {
+      "bom_item_id": "e3",
+      "part": "Crystal 32 MHz SMD2016",
+      "qty_per_unit": 1.0,
+      "unit_price": {
+        "value": 0.0668,
+        "unit": "USD",
+        "label": "sourced",
+        "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C718072.html"
+      },
+      "lcsc_pn": "C718072",
+      "stock": {
+        "value": 60898.0,
+        "unit": "units",
+        "label": "sourced",
+        "source_or_assumption": "LCSC stock via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C718072.html"
+      },
+      "extended": {
+        "value": 0.0668,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "LCSC unit price (Sourced) × estimated quantity: 1 × 0.0668"
+      }
+    },
+    {
+      "bom_item_id": "e4",
+      "part": "2.4 GHz chip antenna 3.2×1.6 mm",
+      "qty_per_unit": 1.0,
+      "unit_price": {
+        "value": 0.0894,
+        "unit": "USD",
+        "label": "sourced",
+        "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C127629.html"
+      },
+      "lcsc_pn": "C127629",
+      "stock": {
+        "value": 77484.0,
+        "unit": "units",
+        "label": "sourced",
+        "source_or_assumption": "LCSC stock via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C127629.html"
+      },
+      "extended": {
+        "value": 0.0894,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "LCSC unit price (Sourced) × estimated quantity: 1 × 0.0894"
+      }
+    },
+    {
+      "bom_item_id": "e5",
+      "part": "Tactile switch SMD 4.6×1.8 mm",
+      "qty_per_unit": 1.0,
+      "unit_price": {
+        "value": 0.0196,
+        "unit": "USD",
+        "label": "sourced",
+        "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C393942.html"
+      },
+      "lcsc_pn": "C393942",
+      "stock": {
+        "value": 444478.0,
+        "unit": "units",
+        "label": "sourced",
+        "source_or_assumption": "LCSC stock via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C393942.html"
+      },
+      "extended": {
+        "value": 0.0196,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "LCSC unit price (Sourced) × estimated quantity: 1 × 0.0196"
+      }
+    },
+    {
+      "bom_item_id": "e6",
+      "part": "Status LED 0402 white",
+      "qty_per_unit": 1.0,
+      "unit_price": {
+        "value": 0.0087,
+        "unit": "USD",
+        "label": "sourced",
+        "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C20613596.html"
+      },
+      "lcsc_pn": "C20613596",
+      "stock": {
+        "value": 602590.0,
+        "unit": "units",
+        "label": "sourced",
+        "source_or_assumption": "LCSC stock via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C20613596.html"
+      },
+      "extended": {
+        "value": 0.0087,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "LCSC unit price (Sourced) × estimated quantity: 1 × 0.0087"
+      }
+    },
+    {
+      "bom_item_id": "e7",
+      "part": "MLCC 100 nF 0402 (decoupling)",
+      "qty_per_unit": 6.0,
+      "unit_price": {
+        "value": 0.0047,
+        "unit": "USD",
+        "label": "sourced",
+        "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C1525.html"
+      },
+      "lcsc_pn": "C1525",
+      "stock": {
+        "value": 16407331.0,
+        "unit": "units",
+        "label": "sourced",
+        "source_or_assumption": "LCSC stock via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C1525.html"
+      },
+      "extended": {
+        "value": 0.0282,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "LCSC unit price (Sourced) × estimated quantity: 6 × 0.0047"
+      }
+    },
+    {
+      "bom_item_id": "e8",
+      "part": "MLCC 1 µF 0402",
+      "qty_per_unit": 2.0,
+      "unit_price": {
+        "value": 0.0122,
+        "unit": "USD",
+        "label": "sourced",
+        "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C52923.html"
+      },
+      "lcsc_pn": "C52923",
+      "stock": {
+        "value": 4519174.0,
+        "unit": "units",
+        "label": "sourced",
+        "source_or_assumption": "LCSC stock via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C52923.html"
+      },
+      "extended": {
+        "value": 0.0244,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "LCSC unit price (Sourced) × estimated quantity: 2 × 0.0122"
+      }
+    },
+    {
+      "bom_item_id": "e9",
+      "part": "Antenna matching + RF passives 0402 (6 pcs)",
+      "qty_per_unit": 1.0,
+      "unit_price": {
+        "value": 0.03,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Six 0402 RF passives (C/L) at ~$0.005 each; values set at RF tuning"
+      },
+      "lcsc_pn": null,
+      "stock": null,
+      "extended": {
+        "value": 0.03,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "1 × 0.03"
+      }
+    },
+    {
+      "bom_item_id": "e10",
+      "part": "Piezo disc buzzer Ø12 mm, 0.22 mm brass plate",
+      "qty_per_unit": 1.0,
+      "unit_price": {
+        "value": 0.1,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Catalogue piezo element, 10k pcs; thin SMD variant not selected"
+      },
+      "lcsc_pn": null,
+      "stock": null,
+      "extended": {
+        "value": 0.1,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "1 × 0.1"
+      }
+    },
+    {
+      "bom_item_id": "e11",
+      "part": "Thin lithium primary pouch cell 3 V, ~1 mm",
+      "qty_per_unit": 1.0,
+      "unit_price": {
+        "value": 0.6,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Thin lithium primary cell (3 V pouch, non-replaceable) $0.60 at 2k MOQ, branded supplier with UN38.3 report"
+      },
+      "lcsc_pn": null,
+      "stock": null,
+      "extended": {
+        "value": 0.6,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "1 × 0.6"
+      }
+    },
+    {
+      "bom_item_id": "e12",
+      "part": "Control PCB 4-layer 0.6 mm ENIG",
+      "qty_per_unit": 1.0,
+      "unit_price": {
+        "value": 0.45,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Bare PCB, 2k pcs, 90×55 mm panel share"
+      },
+      "lcsc_pn": null,
+      "stock": null,
+      "extended": {
+        "value": 0.45,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "1 × 0.45"
+      }
+    },
+    {
+      "bom_item_id": "m1",
+      "part": "Top shell, PC, 0.5 mm wall, textured",
+      "qty_per_unit": 1.0,
+      "unit_price": {
+        "value": 0.14,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Part weight 2.6 g × resin + cycle cost"
+      },
+      "lcsc_pn": null,
+      "stock": null,
+      "extended": {
+        "value": 0.14,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "1 × 0.14"
+      }
+    },
+    {
+      "bom_item_id": "m2",
+      "part": "Bottom shell, PC, 0.5 mm wall",
+      "qty_per_unit": 1.0,
+      "unit_price": {
+        "value": 0.14,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Part weight 2.6 g × resin + cycle cost"
+      },
+      "lcsc_pn": null,
+      "stock": null,
+      "extended": {
+        "value": 0.14,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "1 × 0.14"
+      }
+    },
+    {
+      "bom_item_id": "m3",
+      "part": "Printed PET graphic overlay",
+      "qty_per_unit": 1.0,
+      "unit_price": {
+        "value": 0.06,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Die-cut 85 × 54 mm, 1-colour print, PSA back"
+      },
+      "lcsc_pn": null,
+      "stock": null,
+      "extended": {
+        "value": 0.06,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "1 × 0.06"
+      }
+    },
+    {
+      "bom_item_id": "m4",
+      "part": "Acoustic mesh + adhesive ring",
+      "qty_per_unit": 1.0,
+      "unit_price": {
+        "value": 0.02,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Die-cut, 5 mm"
+      },
+      "lcsc_pn": null,
+      "stock": null,
+      "extended": {
+        "value": 0.02,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "1 × 0.02"
+      }
+    },
+    {
+      "bom_item_id": "m5",
+      "part": "Cell tab foil + adhesive tape",
+      "qty_per_unit": 1.0,
+      "unit_price": {
+        "value": 0.03,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Nickel tab + Kapton"
+      },
+      "lcsc_pn": null,
+      "stock": null,
+      "extended": {
+        "value": 0.03,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "1 × 0.03"
+      }
+    },
+    {
+      "bom_item_id": "k1",
+      "part": "Folding carton (blister-free) 95×62×6 mm",
+      "qty_per_unit": 1.0,
+      "unit_price": {
+        "value": 0.18,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Paperboard 350 g, 1-colour print"
+      },
+      "lcsc_pn": null,
+      "stock": null,
+      "extended": {
+        "value": 0.18,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "1 × 0.18"
+      }
+    },
+    {
+      "bom_item_id": "k2",
+      "part": "Quick-start card",
+      "qty_per_unit": 1.0,
+      "unit_price": {
+        "value": 0.03,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Single-sheet insert"
+      },
+      "lcsc_pn": null,
+      "stock": null,
+      "extended": {
+        "value": 0.03,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "1 × 0.03"
+      }
+    }
+  ],
+  "volume_factor": {
+    "value": 0.92,
+    "unit": "ratio",
+    "label": "estimate",
+    "source_or_assumption": "Volume curve: unit cost × 0.92 per tier step (500 → 2,000 → 10,000)"
+  },
+  "tiers": [
+    {
+      "quantity": 500,
+      "bom_cost": {
+        "value": 3.49,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "BOM at 500 × 0.92^0"
+      },
+      "assembly_cost": {
+        "value": 0.85,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Final assembly (ultrasonic weld, cell attach, flash + RF test) $0.85 per unit at 500"
+      },
+      "packaging_cost": {
+        "value": 0.21,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Packaging BOM lines"
+      },
+      "unit_cost": {
+        "value": 4.54,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "BOM + assembly + packaging (ex-works)"
+      },
+      "tooling_amortisation": {
+        "value": 19.5,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "$9,750 / 500"
+      },
+      "margin_pct": {
+        "value": -7.9,
+        "unit": "pct",
+        "label": "estimate",
+        "source_or_assumption": "($24.99 target − $26.95 landed estimate) / target"
+      }
+    },
+    {
+      "quantity": 2000,
+      "bom_cost": {
+        "value": 3.21,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "BOM at 500 × 0.92^1"
+      },
+      "assembly_cost": {
+        "value": 0.78,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Final assembly (ultrasonic weld, cell attach, flash + RF test) $0.85 per unit at 500"
+      },
+      "packaging_cost": {
+        "value": 0.19,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Packaging BOM lines"
+      },
+      "unit_cost": {
+        "value": 4.18,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "BOM + assembly + packaging (ex-works)"
+      },
+      "tooling_amortisation": {
+        "value": 4.88,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "$9,750 / 2000"
+      },
+      "margin_pct": {
+        "value": 56.6,
+        "unit": "pct",
+        "label": "estimate",
+        "source_or_assumption": "($24.99 target − $10.85 landed estimate) / target"
+      }
+    },
+    {
+      "quantity": 10000,
+      "bom_cost": {
+        "value": 2.95,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "BOM at 500 × 0.92^2"
+      },
+      "assembly_cost": {
+        "value": 0.72,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Final assembly (ultrasonic weld, cell attach, flash + RF test) $0.85 per unit at 500"
+      },
+      "packaging_cost": {
+        "value": 0.18,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Packaging BOM lines"
+      },
+      "unit_cost": {
+        "value": 3.85,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "BOM + assembly + packaging (ex-works)"
+      },
+      "tooling_amortisation": {
+        "value": 0.97,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "$9,750 / 10000"
+      },
+      "margin_pct": {
+        "value": 74.5,
+        "unit": "pct",
+        "label": "estimate",
+        "source_or_assumption": "($24.99 target − $6.36 landed estimate) / target"
+      }
+    }
+  ],
+  "tooling": [
+    {
+      "name": "Top shell mold (1-cavity, thin-wall PC)",
+      "process": "injection_molding",
+      "cost": {
+        "value": 3800.0,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Zetar Mold 2026 range $1,000-3,000 (vendor, medium) + thin-wall premium assumption"
+      }
+    },
+    {
+      "name": "Bottom shell mold (1-cavity, thin-wall PC)",
+      "process": "injection_molding",
+      "cost": {
+        "value": 3800.0,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Zetar Mold 2026 range $1,000-3,000 (vendor, medium) + thin-wall premium assumption"
+      }
+    },
+    {
+      "name": "Ultrasonic weld fixture",
+      "process": "assembly",
+      "cost": {
+        "value": 500.0,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Aluminium nest + horn tuning, demo assumption"
+      }
+    },
+    {
+      "name": "BLE RF test + programming jig",
+      "process": "assembly",
+      "cost": {
+        "value": 1400.0,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Pogo-pin jig + shield box, demo assumption"
+      }
+    },
+    {
+      "name": "Overlay die-cut tool",
+      "process": "other",
+      "cost": {
+        "value": 250.0,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Steel-rule die, demo assumption"
+      }
+    }
+  ],
+  "tooling_total": {
+    "value": 9750.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Sum of tooling lines"
+  },
+  "certification_total": {
+    "value": 14200.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Sum of certification estimates"
+  },
+  "reference_quantity": 2000,
+  "total_cash_needed": {
+    "value": 36346.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Sum of cash_breakdown"
+  },
+  "cash_breakdown": [
+    {
+      "name": "Tooling",
+      "amount": {
+        "value": 9750.0,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Sum of tooling lines"
+      }
+    },
+    {
+      "name": "Certification",
+      "amount": {
+        "value": 14200.0,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "FCC 15C + CE RED + Bluetooth SIG + UN38.3"
+      }
+    },
+    {
+      "name": "Samples (T0, T1, golden)",
+      "amount": {
+        "value": 450.0,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "3 sample rounds incl. express shipping"
+      }
+    },
+    {
+      "name": "First production order (2,000 × FOB)",
+      "amount": {
+        "value": 8360.0,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "2,000 × $4.18"
+      }
+    },
+    {
+      "name": "Pre-shipment inspection",
+      "amount": {
+        "value": 540.0,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "V-Trust rate (Sourced) × estimated man-days: $268/man-day (V-Trust, https://www.v-trust.com/en/our-network, checked 2026-09-26) × 2 man-days"
+      }
+    },
+    {
+      "name": "Freight + insurance",
+      "amount": {
+        "value": 206.0,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "SEA LCL per stage 11 (Drewry-derived) + insurance, × 2,000"
+      }
+    },
+    {
+      "name": "Duties (HTS + Section 301)",
+      "amount": {
+        "value": 620.0,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "2,000 × FOB × (HTS 8517.62.00.90 0% + Section 301 7.5%) — rates sourced/sourced, see stage 11"
+      }
+    },
+    {
+      "name": "Broker, port, 3PL",
+      "amount": {
+        "value": 1640.0,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Customs entry $350/shipment + port + 3PL per unit × 2,000"
+      }
+    },
+    {
+      "name": "Platform fee",
+      "amount": {
+        "value": 580.0,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "7% of FOB (benchmark 5-10%, Dragon Sourcing)"
+      }
+    }
+  ],
+  "target_retail_price": {
+    "value": 24.99,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Founder target retail price $24.99 (comparable wallet trackers retail in the $20-35 range, not verified)"
+  },
+  "breakeven_units": {
+    "value": 1293.0,
+    "unit": "units",
+    "label": "estimate",
+    "source_or_assumption": "(tooling + certification + samples + QC) / (target price − variable landed cost)"
+  }
+}

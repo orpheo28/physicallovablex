@@ -1,0 +1,55 @@
+{
+ "slug": "espresso_maker",
+ "fetched_on": "2026-09-26",
+ "queries": [
+  "portable espresso maker manual",
+  "hand operated coffee maker"
+ ],
+ "rulings": [
+  {
+   "rulingNumber": "960197",
+   "subject": "PRD 2809-96-101485; French Press Coffee Maker, Carafe of    Heat-Resistant Glass With Handle, Pour Spout, Stainless     Steel Top, and Hand-Operated Plunger With Mesh Filter;     Other Glassware of a Kind Used for Table, Kitchen or Similar     Purposes; Heading 8210, Hand-Operated Mechanical Appliance  Used in the Preparation of Food or Drink; HQ 960669",
+   "rulingDate": "1997-09-17",
+   "tariffs": "8210.00.00",
+   "collection": "hq",
+   "operationallyRevoked": false,
+   "found_by": "hand operated coffee maker"
+  },
+  {
+   "rulingNumber": "N303199",
+   "subject": "The tariff classification of a single serve coffee maker from China.",
+   "rulingDate": "2019-03-01",
+   "tariffs": "8516.71.0020",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "hand operated coffee maker"
+  },
+  {
+   "rulingNumber": "960670",
+   "subject": "NY 894612  Modified; Non-Electric Coffee Maker; Electric     Kettle, Cafetiere, Glass Carafe With Steel Filter Mesh and  Plunger, Plastic Top and Handle, Nuts and Screws; Household      Appliance for Brewing Coffee; Glassware of a Kind Used for  Table, Kitchen or Similar Purposes, Heading 7013; Hand-Operated Mechanical Appliance, Chapter 82, Note 1(a)",
+   "rulingDate": "1997-09-10",
+   "tariffs": "8210.00.00",
+   "collection": "hq",
+   "operationallyRevoked": false,
+   "found_by": "hand operated coffee maker"
+  },
+  {
+   "rulingNumber": "N322754",
+   "subject": "The tariff classification of a French press coffee maker from China.",
+   "rulingDate": "2021-12-03",
+   "tariffs": "8210.00.0000, 9903.88.03",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "hand operated coffee maker"
+  },
+  {
+   "rulingNumber": "960669",
+   "subject": "HQ 087313 Revok ed; Non-Electric Coffee Maker; Glass Carafe,      Steel Filter Mesh and Plunger, Plastic Top and Handle, Nuts      and Screws; Household Appliance for Brewing Coffee;         Glassware of a Kind Used for  Table, Kitchen or Similar  Purposes; Hand-Operated Mechanical Appliance, Chapter 82, Note 1(a); Specificity, GRI 3(a)",
+   "rulingDate": "1997-09-10",
+   "tariffs": "8210.00.00",
+   "collection": "hq",
+   "operationallyRevoked": false,
+   "found_by": "hand operated coffee maker"
+  }
+ ]
+}

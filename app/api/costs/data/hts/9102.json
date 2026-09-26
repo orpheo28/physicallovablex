@@ -1,0 +1,1033 @@
+{
+ "fetched_on": "2026-09-26",
+ "source_url": "https://hts.usitc.gov/reststop/exportList?from=9102&to=9103&format=JSON&styles=false",
+ "rows": [
+  {
+   "htsno": "9102",
+   "indent": "0",
+   "description": "Wrist watches, pocket watches and other watches, including stop watches, other than those of heading 9101:",
+   "superior": null,
+   "units": [],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": "",
+   "additionalDuties": "",
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9102.11",
+   "indent": "2",
+   "description": "With mechanical display only:",
+   "superior": null,
+   "units": [],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": "",
+   "additionalDuties": "",
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9102.11.10",
+   "indent": "5",
+   "description": "With gold- or silver-plated case",
+   "superior": null,
+   "units": [],
+   "general": "44\u00a2 each + 6% on the case + 14% on the strap, band or bracelet + 5.3% on the battery",
+   "special": "Free (AU,BH, CL,CO,D,E,IL,JO,KR,MA,OM,P, PA,PE,R,S,SG)",
+   "other": "$1.90 each + 45% on the case + 110% on the strap, band or bracelet + 35% on the battery",
+   "footnotes": [
+    {
+     "columns": [
+      "stat",
+      "units"
+     ],
+     "value": "See statistical note 1 to this chapter. ",
+     "type": "endnote"
+    }
+   ],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9102.11.25",
+   "indent": "5",
+   "description": "Other",
+   "superior": null,
+   "units": [],
+   "general": "40\u00a2 each + 8.5% on the case + 14% on the strap, band or bracelet + 5.3% on the battery",
+   "special": "Free (AU,BH, CL,CO,D,E,IL,JO,KR,MA,OM,P, PA,PE,R,S,SG)",
+   "other": "$1.70 each + 45% on the case + 110% on the strap, band or bracelet + 35% on the battery",
+   "footnotes": [
+    {
+     "columns": [
+      "stat",
+      "units"
+     ],
+     "value": "See statistical note 1 to this chapter. ",
+     "type": "endnote"
+    }
+   ],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9102.11.30",
+   "indent": "5",
+   "description": "With gold- or silver-plated case",
+   "superior": null,
+   "units": [],
+   "general": "44\u00a2 each + 6% on the case + 2.8% on the strap, band or bracelet + 5.3% on the battery",
+   "special": "Free (AU,BH, CL,CO,D,E,IL,JO,KR,MA,OM,P, PA,PE,R,S,SG)",
+   "other": "$1.90 each + 45% on the case + 35% on the strap, band or bracelet + 35% on the battery",
+   "footnotes": [
+    {
+     "columns": [
+      "stat",
+      "units"
+     ],
+     "value": "See statistical note 1 to this chapter. ",
+     "type": "endnote"
+    }
+   ],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9102.11.45",
+   "indent": "5",
+   "description": "Other",
+   "superior": null,
+   "units": [],
+   "general": "40\u00a2 each + 8.5% on the case + 2.8% on the strap, band or bracelet + 5.3% on the battery",
+   "special": "Free (AU,BH,CL,CO,D,E,IL,JO,KR,MA,OM,P,PA,PE,R,S,SG)",
+   "other": "$1.70 each + 45% on the case + 35% on the strap, band or bracelet + 35% on the battery",
+   "footnotes": [
+    {
+     "columns": [
+      "stat",
+      "units"
+     ],
+     "value": "See statistical note 1 to this chapter. ",
+     "type": "endnote"
+    }
+   ],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9102.11.50",
+   "indent": "5",
+   "description": "With gold- or silver-plated case",
+   "superior": null,
+   "units": [],
+   "general": "80\u00a2 each + 6% on the case + 14% on the strap, band or bracelet + 5.3% on the battery",
+   "special": "Free (AU,BH, CL,CO,D,E,IL,JO,KR,MA,OM,P, PA,PE,R,S,SG)",
+   "other": "$2.90 each + 45% on the case + 110% on the strap, band or bracelet + 35% on the battery",
+   "footnotes": [
+    {
+     "columns": [
+      "stat",
+      "units"
+     ],
+     "value": "See statistical note 1 to this chapter. ",
+     "type": "endnote"
+    }
+   ],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9102.11.65",
+   "indent": "5",
+   "description": "Other",
+   "superior": null,
+   "units": [],
+   "general": "76\u00a2 each + 8.5% on the case + 14% on the strap, band or bracelet + 5.3% on the battery",
+   "special": "Free (AU,BH, CL,CO,D,E,IL,JO,KR,MA,OM,P, PA,PE,R,S,SG)",
+   "other": "$2.70 each + 45% on the case + 110% on the strap, band or bracelet + 35% on the battery",
+   "footnotes": [
+    {
+     "columns": [
+      "stat",
+      "units"
+     ],
+     "value": "See statistical note 1 to this chapter. ",
+     "type": "endnote"
+    }
+   ],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9102.11.70",
+   "indent": "5",
+   "description": "With gold- or silver-plated case",
+   "superior": null,
+   "units": [],
+   "general": "80\u00a2 each + 6% on the case + 2.8% on the strap, band or bracelet + 5.3% on the battery",
+   "special": "Free (AU,BH, CL,CO,D,E,IL,JO,KR,MA, OM,P,PA,PE, R,S,SG)",
+   "other": "$2.90 each + 45% on the case + 35% on the strap, band or bracelet + 35% on the battery",
+   "footnotes": [
+    {
+     "columns": [
+      "stat",
+      "units"
+     ],
+     "value": "See statistical note 1 to this chapter. ",
+     "type": "endnote"
+    }
+   ],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9102.11.95",
+   "indent": "5",
+   "description": "Other",
+   "superior": null,
+   "units": [],
+   "general": "76\u00a2 each + 8.5% on the case + 2.8% on the strap, band or bracelet + 5.3% on the battery",
+   "special": "Free (AU,BH, CL,CO,D,E,IL,JO,KR,MA,OM,P, PA,PE,R,S,SG)",
+   "other": "$2.70 each + 45% on the case + 35% on the strap, band or bracelet + 35% on the battery",
+   "footnotes": [
+    {
+     "columns": [
+      "stat",
+      "units"
+     ],
+     "value": "See statistical note 1 to this chapter. ",
+     "type": "endnote"
+    }
+   ],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9102.12",
+   "indent": "2",
+   "description": "With opto-electronic display only:",
+   "superior": null,
+   "units": [],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": "",
+   "additionalDuties": "",
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9102.12.20.00",
+   "indent": "4",
+   "description": "Of textile material or of base metal, whether or not gold- or silver-plated",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9102.12.40.00",
+   "indent": "4",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9102.12.80.00",
+   "indent": "3",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "Free",
+   "special": "",
+   "other": "35%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9102.19",
+   "indent": "2",
+   "description": "Other:",
+   "superior": null,
+   "units": [],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": "",
+   "additionalDuties": "",
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9102.19.20",
+   "indent": "4",
+   "description": "With strap, band or bracelet of textile material or of base metal, whether or not gold-or silver-plated",
+   "superior": null,
+   "units": [],
+   "general": "32\u00a2 each + 4.8% on the case + 11% on the strap, band or bracelet + 4.2% on the battery",
+   "special": "Free (AU,BH, CL,CO,D,E,IL,JO,KR,MA,OM,P, PA,PE,R,S,SG)",
+   "other": "$1.70 each + 45% on the case + 110% on the strap, band or bracelet + 35% on the battery",
+   "footnotes": [
+    {
+     "columns": [
+      "stat",
+      "units"
+     ],
+     "value": "See statistical note 1 to this chapter. ",
+     "type": "endnote"
+    }
+   ],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9102.19.40",
+   "indent": "4",
+   "description": "Other",
+   "superior": null,
+   "units": [],
+   "general": "32\u00a2 each + 4.8% on the case + 2.2% on the strap, band or bracelet + 4.2% on the battery",
+   "special": "Free (AU,BH, CL,CO,D,E,IL,JO,KR,MA,OM,P, PA,PE,R,S,SG)",
+   "other": "$1.70 each + 45% on the case + 35% on the strap, band or bracelet + 35% on the battery",
+   "footnotes": [
+    {
+     "columns": [
+      "stat",
+      "units"
+     ],
+     "value": "See statistical note 1 to this chapter. ",
+     "type": "endnote"
+    }
+   ],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9102.19.60",
+   "indent": "4",
+   "description": "With strap, band or bracelet of textile material or of base metal, whether or not gold-or silver-plated",
+   "superior": null,
+   "units": [],
+   "general": "57\u00a2 each + 4.5% on the case + 10.6% on the strap, band or bracelet + 4% on the battery",
+   "special": "Free (AU,BH, CL,CO,D,E,IL,JO,KR,MA, OM,P,PA,PE, R,S,SG)",
+   "other": "$2.70 each + 45% on the case + 110% on the strap, band or bracelet + 35% on the battery",
+   "footnotes": [
+    {
+     "columns": [
+      "stat",
+      "units"
+     ],
+     "value": "See statistical note 1 to this chapter. ",
+     "type": "endnote"
+    }
+   ],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9102.19.80",
+   "indent": "4",
+   "description": "Other",
+   "superior": null,
+   "units": [],
+   "general": "57\u00a2 each + 4.5% on the case + 2.1% on the strap, band or bracelet + 4% on the battery",
+   "special": "Free (AU,BH, CL,CO,D,E,IL,JO,KR,MA,OM,P, PA,PE,R,S,SG)",
+   "other": "$2.70 each + 45% on the case + 35% on the strap, band or bracelet + 35% on the battery",
+   "footnotes": [
+    {
+     "columns": [
+      "stat",
+      "units"
+     ],
+     "value": "See statistical note 1 to this chapter. ",
+     "type": "endnote"
+    }
+   ],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9102.21",
+   "indent": "2",
+   "description": "With automatic winding:",
+   "superior": null,
+   "units": [],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": "",
+   "additionalDuties": "",
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9102.21.10",
+   "indent": "4",
+   "description": "With strap, band or bracelet of textile material or of base metal, whether or not gold- or silver-plated",
+   "superior": null,
+   "units": [],
+   "general": "75\u00a2 each + 6% on the case + 14% on the strap, band or bracelet",
+   "special": "Free (AU,BH, CL,CO,D,E,IL,JO,KR,MA,OM,P, PA,PE,R,S,SG)",
+   "other": "$2.70 each + 45% on the case + 110% on the strap, band or bracelet",
+   "footnotes": [
+    {
+     "columns": [
+      "stat",
+      "units"
+     ],
+     "value": "See statistical note 1 to this chapter. ",
+     "type": "endnote"
+    }
+   ],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9102.21.25",
+   "indent": "4",
+   "description": "Other",
+   "superior": null,
+   "units": [],
+   "general": "75\u00a2 each + 6% on the case + 2.8% on the strap, band or bracelet",
+   "special": "Free (AU,BH, CL,CO,D,E,IL,JO,KR,MA,OM,P, PA,PE,R,S,SG)",
+   "other": "$2.70 each + 45% on the case + 35% on the strap, band or bracelet",
+   "footnotes": [
+    {
+     "columns": [
+      "stat",
+      "units"
+     ],
+     "value": "See statistical note 1 to this chapter. ",
+     "type": "endnote"
+    }
+   ],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9102.21.30",
+   "indent": "4",
+   "description": "With strap, band or bracelet of textile material or of base metal, whether or not gold- or silver-plated",
+   "superior": null,
+   "units": [],
+   "general": "$1.75 each + 4.8% on the case + 11.2% on the strap, band or bracelet",
+   "special": "Free (AU,BH, CL,CO,D,E,IL,JO,KR,MA,OM,P, PA,PE,R,S,SG)",
+   "other": "$5.20 each + 45% on the case + 110% on the strap, band or bracelet",
+   "footnotes": [
+    {
+     "columns": [
+      "stat",
+      "units"
+     ],
+     "value": "See statistical note 1 to this chapter. ",
+     "type": "endnote"
+    }
+   ],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9102.21.50",
+   "indent": "4",
+   "description": "Other",
+   "superior": null,
+   "units": [],
+   "general": "$1.75 each + 4.8% on the case + 2.2% on the strap, band or bracelet",
+   "special": "Free (AU,BH, CL,CO,D,E,IL,JO,KR,MA,OM,P, PA,PE,R,S,SG)",
+   "other": "$5.20 each + 45% on the case + 35% on the strap, band or bracelet",
+   "footnotes": [
+    {
+     "columns": [
+      "stat",
+      "units"
+     ],
+     "value": "See statistical note 1 to this chapter. ",
+     "type": "endnote"
+    }
+   ],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9102.21.70",
+   "indent": "4",
+   "description": "With strap, band or bracelet of textile material or of base metal, whether or not gold- or silver-plated",
+   "superior": null,
+   "units": [],
+   "general": "$1.53 each + 4.2% on the case + 9.8% on the strap, band or bracelet",
+   "special": "Free (AU,BH, CL,CO,D,E,IL,JO,KR,MA,OM,P, PA,PE,R,S,SG)",
+   "other": "$10.95 each + 45% on the case + 110% on the strap, band or bracelet",
+   "footnotes": [
+    {
+     "columns": [
+      "stat",
+      "units"
+     ],
+     "value": "See statistical note 1 to this chapter. ",
+     "type": "endnote"
+    }
+   ],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9102.21.90",
+   "indent": "4",
+   "description": "Other",
+   "superior": null,
+   "units": [],
+   "general": "$1.53 each + 4.2% on the case + 2% on the strap, band or bracelet",
+   "special": "Free (AU,BH, CL,CO,D,E,IL,JO,KR,MA,OM,P, PA,PE,R,S,SG)",
+   "other": "$10.95 each + 45% on the case + 35% on the strap, band or bracelet",
+   "footnotes": [
+    {
+     "columns": [
+      "stat",
+      "units"
+     ],
+     "value": "See statistical note 1 to this chapter. ",
+     "type": "endnote"
+    }
+   ],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9102.29",
+   "indent": "2",
+   "description": "Other:",
+   "superior": null,
+   "units": [],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": "",
+   "additionalDuties": "",
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9102.29.02.00",
+   "indent": "5",
+   "description": "Straps, bands or bracelets entered with watches of subheading 9102.29.04 and classifiable therewith pursuant to additional U.S. note 2 to this chapter; all the foregoing whether or not attached to such watches at the time of entry",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "14%",
+   "special": "Free (AU,BH,CL,CO,D,E,IL,JO,KR,MA,OM,P,PA,PE,R,S,SG)",
+   "other": "110%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9102.29.04",
+   "indent": "5",
+   "description": "Other",
+   "superior": null,
+   "units": [],
+   "general": "40\u00a2 each + 6% on the case",
+   "special": "Free (A,AU,BH,CL,CO,D,E,IL,JO,KR,MA,OM,P,PA,PE,R,S,SG)",
+   "other": "$1.70 each + 45% on the case",
+   "footnotes": [
+    {
+     "columns": [
+      "stat",
+      "units"
+     ],
+     "value": "See statistical note 1 to this chapter. ",
+     "type": "endnote"
+    }
+   ],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9102.29.10",
+   "indent": "4",
+   "description": "Other",
+   "superior": null,
+   "units": [],
+   "general": "40\u00a2 each + 6% on the case + 2.8% on the strap, band or bracelet",
+   "special": "Free (A,AU,BH,CL,CO,D,E,IL,JO,KR,MA,OM,P,PA,PE,R,S,SG)",
+   "other": "$1.70 each + 45% on the case + 35% on the strap, band or bracelet",
+   "footnotes": [
+    {
+     "columns": [
+      "stat",
+      "units"
+     ],
+     "value": "See statistical note 1 to this chapter. ",
+     "type": "endnote"
+    }
+   ],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9102.29.15",
+   "indent": "4",
+   "description": "With strap, band or bracelet of textile material or of base metal, whether or not gold- or silver-plated",
+   "superior": null,
+   "units": [],
+   "general": "58\u00a2 each + 4.6% on the case + 10.6% on the strap, band or bracelet",
+   "special": "Free (AU,BH, CL,CO,D,E,IL,JO,KR,MA,OM,P, PA,PE,R,S,SG)",
+   "other": "$2.70 each + 45% on the case + 110% on the strap, band or bracelet",
+   "footnotes": [
+    {
+     "columns": [
+      "stat",
+      "units"
+     ],
+     "value": "See statistical note 1 to this chapter. ",
+     "type": "endnote"
+    }
+   ],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9102.29.20",
+   "indent": "4",
+   "description": "Other",
+   "superior": null,
+   "units": [],
+   "general": "56\u00a2 each + 4.4% on the case + 2% on the strap, band or bracelet",
+   "special": "Free (AU,BH, CL,CO,D,E,IL,JO,KR,MA, OM,P,PA,PE, R,S,SG)",
+   "other": "$2.70 each + 45% on the case + 35% on the strap, band or bracelet",
+   "footnotes": [
+    {
+     "columns": [
+      "stat",
+      "units"
+     ],
+     "value": "See statistical note 1 to this chapter. ",
+     "type": "endnote"
+    }
+   ],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9102.29.25",
+   "indent": "6",
+   "description": "With strap, band or bracelet of textile material or of base metal, whether or not gold- or silver- plated",
+   "superior": null,
+   "units": [],
+   "general": "$2.19 each + 4.8% on the case + 11.2% on the strap, band or bracelet",
+   "special": "Free (AU,BH,CL,CO,D,E,IL,JO,KR,MA,OM,P,PA,PE,R,S,SG)",
+   "other": "$4.20 each + 45% on the case + 110% on the strap, band or bracelet",
+   "footnotes": [
+    {
+     "columns": [
+      "stat",
+      "units"
+     ],
+     "value": "See statistical note 1 to this chapter. ",
+     "type": "endnote"
+    }
+   ],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9102.29.30",
+   "indent": "6",
+   "description": "Other",
+   "superior": null,
+   "units": [],
+   "general": "$2.19 each + 4.8% on the case + 2.2% on the strap, band or bracelet",
+   "special": "Free (AU,BH, CL,CO,D,E,IL,JO,KR,MA,OM,P, PA,PE,R,S,SG)",
+   "other": "$4.20 each + 45% on the case + 35% on the strap, band or bracelet",
+   "footnotes": [
+    {
+     "columns": [
+      "stat",
+      "units"
+     ],
+     "value": "See statistical note 1 to this chapter. ",
+     "type": "endnote"
+    }
+   ],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9102.29.35",
+   "indent": "6",
+   "description": "With strap, band or bracelet of textile material or of base metal, whether or not gold- or silver- plated",
+   "superior": null,
+   "units": [],
+   "general": "$1.61 each + 4.2% on the case + 9.8% on the strap, band or bracelet",
+   "special": "Free (AU,BH, CL,CO,D,E,IL,JO,KR,MA, OM,P,PA,PE, R,S,SG)",
+   "other": "$4.20 each + 45% on the case + 110% on the strap, band or bracelet",
+   "footnotes": [
+    {
+     "columns": [
+      "stat",
+      "units"
+     ],
+     "value": "See statistical note 1 to this chapter. ",
+     "type": "endnote"
+    }
+   ],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9102.29.40",
+   "indent": "6",
+   "description": "Other",
+   "superior": null,
+   "units": [],
+   "general": "$1.83 each + 4.8% on the case + 2.2% on the strap, band or bracelet",
+   "special": "Free (AU,BH,CL,CO,D,E,IL,JO,KR,MA,OM,P,PA,PE,R,S,SG)",
+   "other": "$4.20 each + 45% on the case + 35% on the strap, band or bracelet",
+   "footnotes": [
+    {
+     "columns": [
+      "stat",
+      "units"
+     ],
+     "value": "See statistical note 1 to this chapter. ",
+     "type": "endnote"
+    }
+   ],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9102.29.45",
+   "indent": "5",
+   "description": "With strap, band or bracelet of textile material or of base metal, whether or not gold- or silver-plated",
+   "superior": null,
+   "units": [],
+   "general": "93\u00a2 each + 4.8% on the case + 11.2% on the strap, band or bracelet",
+   "special": "Free (AU,BH, CL,CO,D,E,IL,JO,KR,MA,OM,P, PA,PE,R,S,SG)",
+   "other": "$4.20 each + 45% on the case + 110% on the strap, band or bracelet",
+   "footnotes": [
+    {
+     "columns": [
+      "stat",
+      "units"
+     ],
+     "value": "See statistical note 1 to this chapter. ",
+     "type": "endnote"
+    }
+   ],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9102.29.50",
+   "indent": "5",
+   "description": "Other",
+   "superior": null,
+   "units": [],
+   "general": "93\u00a2 each + 4.8% on the case + 2.2% on the strap, band or bracelet",
+   "special": "Free (AU,BH, CL,CO,D,E,IL,JO,KR,MA,OM,P, PA,PE,R,S,SG)",
+   "other": "$4.20 each + 45% on the case + 35% on the strap, band or bracelet",
+   "footnotes": [
+    {
+     "columns": [
+      "stat",
+      "units"
+     ],
+     "value": "See statistical note 1 to this chapter. ",
+     "type": "endnote"
+    }
+   ],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9102.29.55",
+   "indent": "4",
+   "description": "With strap, band or bracelet of textile material or of base metal, whether or not gold-or silver-plated",
+   "superior": null,
+   "units": [],
+   "general": "$1.55 each + 4.2% on the case + 9.9% on the strap, band or bracelet",
+   "special": "Free (AU,BH, CL,CO,D,E,IL,JO,KR,MA,OM,P, PA,PE,R,S,SG)",
+   "other": "$10.95 each + 45% on the case + 110% on the strap, band or bracelet",
+   "footnotes": [
+    {
+     "columns": [
+      "stat",
+      "units"
+     ],
+     "value": "See statistical note 1 to this chapter. ",
+     "type": "endnote"
+    }
+   ],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9102.29.60",
+   "indent": "4",
+   "description": "Other",
+   "superior": null,
+   "units": [],
+   "general": "$1.75 each + 4.8% on the case + 2.2% on the strap, band or bracelet",
+   "special": "Free (AU,BH, CL,CO,D,E,IL,JO,KR,MA,OM,P, PA,PE,R,S,SG)",
+   "other": "$10.95 each + 45% on the case + 35% on the strap, band or bracelet",
+   "footnotes": [
+    {
+     "columns": [
+      "stat",
+      "units"
+     ],
+     "value": "See statistical note 1 to this chapter. ",
+     "type": "endnote"
+    }
+   ],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9102.91",
+   "indent": "2",
+   "description": "Electrically operated:",
+   "superior": null,
+   "units": [],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": "",
+   "additionalDuties": "",
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9102.91.20",
+   "indent": "3",
+   "description": "With opto-electronic display only",
+   "superior": null,
+   "units": [],
+   "general": "3.9% on the movement and case + 5.3% on the battery",
+   "special": "Free (A,AU,BH,CL,CO,D,E,IL,JO,KR,MA,OM,P,PA,PE,R,S,SG)",
+   "other": "35%",
+   "footnotes": [
+    {
+     "columns": [
+      "stat",
+      "units"
+     ],
+     "value": "See statistical note 1 to this chapter. ",
+     "type": "endnote"
+    }
+   ],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9102.91.40",
+   "indent": "4",
+   "description": "Having no jewels or only one jewel in the movement",
+   "superior": null,
+   "units": [],
+   "general": "40\u00a2 each + 6% on the case + 5.3% on the battery",
+   "special": "Free (AU,BH,CL,CO,D,E,IL,JO,KR,MA,OM,P,PA,PE,R,S,SG)",
+   "other": "$1.70 each + 45% on the case + 35% on the battery",
+   "footnotes": [
+    {
+     "columns": [
+      "stat",
+      "units"
+     ],
+     "value": "See statistical note 1 to this chapter. ",
+     "type": "endnote"
+    }
+   ],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9102.91.80",
+   "indent": "4",
+   "description": "Other",
+   "superior": null,
+   "units": [],
+   "general": "76\u00a2 each + 6% on the case + 5.3% on the battery",
+   "special": "Free (AU,BH,CL,CO,D,E,IL,JO,KR,MA,OM,P, PA,PE,R,S,SG)",
+   "other": "$2.70 each + 45% on the case + 35% on thebattery",
+   "footnotes": [
+    {
+     "columns": [
+      "stat",
+      "units"
+     ],
+     "value": "See statistical note 1 to this chapter. ",
+     "type": "endnote"
+    }
+   ],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9102.99",
+   "indent": "2",
+   "description": "Other:",
+   "superior": null,
+   "units": [],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": "",
+   "additionalDuties": "",
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9102.99.20",
+   "indent": "3",
+   "description": "Having no jewels or not over 7 jewels in the movement",
+   "superior": null,
+   "units": [],
+   "general": "20\u00a2 each + 3% on the case",
+   "special": "Free (A,AU,BH,CL,CO,D,E,IL,JO,KR,MA,OM,P,PA,PE,R,S,SG)",
+   "other": "$1.70 each + 45% on the case",
+   "footnotes": [
+    {
+     "columns": [
+      "stat",
+      "units"
+     ],
+     "value": "See statistical note 1 to this chapter. ",
+     "type": "endnote"
+    }
+   ],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9102.99.40",
+   "indent": "4",
+   "description": "With movement valued not over $15 each",
+   "superior": null,
+   "units": [],
+   "general": "92\u00a2 each + 3% on the case",
+   "special": "Free (A,AU,BH,CL,CO,D,E,IL,JO,KR,MA,OM,P,PA,PE,R,S,SG)",
+   "other": "$4.20 each + 45% on the case",
+   "footnotes": [
+    {
+     "columns": [
+      "stat",
+      "units"
+     ],
+     "value": "See statistical note 1 to this chapter. ",
+     "type": "endnote"
+    }
+   ],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9102.99.60",
+   "indent": "4",
+   "description": "With movement valued over $15 each",
+   "superior": null,
+   "units": [],
+   "general": "$1.16 each + 6% on the case",
+   "special": "Free (A,AU,BH,CL,CO,D,E,IL,JO,KR,MA,OM,P,PA,PE,R,S,SG)",
+   "other": "$4.20 each + 45% on the case",
+   "footnotes": [
+    {
+     "columns": [
+      "stat",
+      "units"
+     ],
+     "value": "See statistical note 1 to this chapter. ",
+     "type": "endnote"
+    }
+   ],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "9102.99.80",
+   "indent": "3",
+   "description": "Having over 17 jewels in the movement",
+   "superior": null,
+   "units": [],
+   "general": "$2.19 each + 6% on the case",
+   "special": "Free (A,AU,BH,CL,CO,D,E,IL,JO,KR,MA,OM,P,PA,PE,R,S,SG)",
+   "other": "$10.95 each + 45% on the case",
+   "footnotes": [
+    {
+     "columns": [
+      "stat",
+      "units"
+     ],
+     "value": "See statistical note 1 to this chapter. ",
+     "type": "endnote"
+    }
+   ],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  }
+ ]
+}

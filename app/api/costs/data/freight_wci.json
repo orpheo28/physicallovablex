@@ -1,0 +1,12 @@
+{
+  "_note": "Drewry World Container Index, assessed weekly; values read by hand from the public Drewry page on 2026-09-26 (research session R1). Snapshot only: never scraped at demo time. Refresh once before freeze. Attribution: Source: Drewry World Container Index.",
+  "as_of": "2026-09-24",
+  "read_on": "2026-09-26",
+  "source_url": "https://www.drewry.co.uk/supply-chain-advisors/supply-chain-expertise/world-container-index-assessed-by-drewry",
+  "unit": "USD per 40ft container (FEU)",
+  "composite_usd_per_40ft": 4468,
+  "lanes": {
+    "Shanghai-Los Angeles": 7838,
+    "Shanghai-New York": 10373
+  }
+}

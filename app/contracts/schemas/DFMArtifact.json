@@ -1,0 +1,401 @@
+{
+  "$defs": {
+    "Assumption": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "label": {
+          "$ref": "#/$defs/Label"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source"
+        },
+        "stage": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Stage that introduced the assumption",
+          "title": "Stage"
+        }
+      },
+      "required": [
+        "id",
+        "text",
+        "label"
+      ],
+      "title": "Assumption",
+      "type": "object"
+    },
+    "Certification": {
+      "additionalProperties": false,
+      "properties": {
+        "market": {
+          "description": "US, EU, UK, ...",
+          "title": "Market",
+          "type": "string"
+        },
+        "standard": {
+          "description": "e.g. FCC Part 15B, CE (LVD/EMC/RED), UKCA, UN38.3",
+          "title": "Standard",
+          "type": "string"
+        },
+        "applies_because": {
+          "title": "Applies Because",
+          "type": "string"
+        },
+        "required": {
+          "default": true,
+          "title": "Required",
+          "type": "boolean"
+        },
+        "cost_est": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "lead_time_weeks": {
+          "$ref": "#/$defs/LabeledValue"
+        }
+      },
+      "required": [
+        "market",
+        "standard",
+        "applies_because",
+        "cost_est",
+        "lead_time_weeks"
+      ],
+      "title": "Certification",
+      "type": "object"
+    },
+    "ComponentRiskItem": {
+      "additionalProperties": false,
+      "properties": {
+        "bom_item_id": {
+          "title": "Bom Item Id",
+          "type": "string"
+        },
+        "part": {
+          "title": "Part",
+          "type": "string"
+        },
+        "level": {
+          "$ref": "#/$defs/RiskLevel"
+        },
+        "reasons": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Reasons",
+          "type": "array"
+        },
+        "alternatives": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Alternatives",
+          "type": "array"
+        },
+        "stock": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/LabeledValue"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "lead_time_weeks": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/LabeledValue"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "bom_item_id",
+        "part",
+        "level",
+        "reasons"
+      ],
+      "title": "ComponentRiskItem",
+      "type": "object"
+    },
+    "DFMIssue": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "severity": {
+          "$ref": "#/$defs/Severity"
+        },
+        "category": {
+          "enum": [
+            "draft",
+            "undercut",
+            "projection",
+            "wall_thickness",
+            "tolerance",
+            "assembly",
+            "material",
+            "other"
+          ],
+          "title": "Category",
+          "type": "string"
+        },
+        "method": {
+          "$ref": "#/$defs/DFMMethod"
+        },
+        "part_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Part Id"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "fix": {
+          "title": "Fix",
+          "type": "string"
+        },
+        "rule_citation": {
+          "description": "The rule the finding is based on, with its source",
+          "title": "Rule Citation",
+          "type": "string"
+        },
+        "measurement": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/LabeledValue"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Required when method == measured"
+        },
+        "resolved": {
+          "default": false,
+          "title": "Resolved",
+          "type": "boolean"
+        },
+        "resolution": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Resolution"
+        }
+      },
+      "required": [
+        "id",
+        "severity",
+        "category",
+        "method",
+        "description",
+        "fix",
+        "rule_citation"
+      ],
+      "title": "DFMIssue",
+      "type": "object"
+    },
+    "DFMMethod": {
+      "enum": [
+        "measured",
+        "ai_reviewed"
+      ],
+      "title": "DFMMethod",
+      "type": "string"
+    },
+    "Label": {
+      "description": "The four honesty labels. UI text: Measured / Sourced / Estimate / Fictional \u2014 demo data.",
+      "enum": [
+        "measured",
+        "sourced",
+        "estimate",
+        "fictional"
+      ],
+      "title": "Label",
+      "type": "string"
+    },
+    "LabeledValue": {
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "title": "Value",
+          "type": "number"
+        },
+        "unit": {
+          "description": "e.g. USD, EUR, mm, g, days, weeks, pct, units, man-days",
+          "title": "Unit",
+          "type": "string"
+        },
+        "label": {
+          "$ref": "#/$defs/Label"
+        },
+        "source_or_assumption": {
+          "description": "Sourced: '<source>, <YYYY-MM-DD>'. Estimate: the assumption. Measured: the check. Fictional: 'demo data'.",
+          "title": "Source Or Assumption",
+          "type": "string"
+        }
+      },
+      "required": [
+        "value",
+        "unit",
+        "label",
+        "source_or_assumption"
+      ],
+      "title": "LabeledValue",
+      "type": "object"
+    },
+    "RiskLevel": {
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "title": "RiskLevel",
+      "type": "string"
+    },
+    "Severity": {
+      "enum": [
+        "critical",
+        "major",
+        "minor"
+      ],
+      "title": "Severity",
+      "type": "string"
+    },
+    "StageStatus": {
+      "enum": [
+        "not_started",
+        "draft",
+        "validated"
+      ],
+      "title": "StageStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "project_id": {
+      "title": "Project Id",
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/$defs/StageStatus",
+      "default": "draft"
+    },
+    "fallback": {
+      "default": false,
+      "description": "True when served from a fixture after an error",
+      "title": "Fallback",
+      "type": "boolean"
+    },
+    "fallback_reason": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Fallback Reason"
+    },
+    "generated_by": {
+      "default": "fixture",
+      "description": "'fixture' | 'code' | 'llm:<model slug>'",
+      "title": "Generated By",
+      "type": "string"
+    },
+    "generated_at": {
+      "format": "date-time",
+      "title": "Generated At",
+      "type": "string"
+    },
+    "assumptions": {
+      "items": {
+        "$ref": "#/$defs/Assumption"
+      },
+      "title": "Assumptions",
+      "type": "array"
+    },
+    "stage": {
+      "const": 4,
+      "default": 4,
+      "title": "Stage",
+      "type": "integer"
+    },
+    "issues": {
+      "items": {
+        "$ref": "#/$defs/DFMIssue"
+      },
+      "title": "Issues",
+      "type": "array"
+    },
+    "component_risks": {
+      "items": {
+        "$ref": "#/$defs/ComponentRiskItem"
+      },
+      "title": "Component Risks",
+      "type": "array"
+    },
+    "certifications": {
+      "items": {
+        "$ref": "#/$defs/Certification"
+      },
+      "title": "Certifications",
+      "type": "array"
+    }
+  },
+  "required": [
+    "project_id",
+    "issues"
+  ],
+  "title": "DFMArtifact",
+  "type": "object"
+}

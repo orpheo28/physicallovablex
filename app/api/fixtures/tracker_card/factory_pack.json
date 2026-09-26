@@ -1,0 +1,1073 @@
+{
+  "id": "fp_tracker_card_v1",
+  "project_id": "demo_tracker_card",
+  "version": 1,
+  "created_at": "2026-09-26T12:00:00Z",
+  "fallback": false,
+  "cached_note": null,
+  "fallback_stages": [],
+  "product_name": "Bluetooth Tracker Card for Wallets",
+  "product_summary": "A wallet-card-sized Bluetooth tracker that rings your phone (and that your phone can ring), powered by a sealed thin primary cell for about two years. Target: 2,000 units first run, US + EU.",
+  "product_summary_cn": "钱包卡片大小的蓝牙防丢追踪卡，可通过手机响铃寻卡，也可按键让手机响铃，采用密封薄型一次性锂电池，无需充电。首批2,000张，目标市场：美国和欧盟。",
+  "target_markets": [
+    "US",
+    "EU"
+  ],
+  "spec": {
+    "overall_dimensions": {
+      "length": {
+        "value": 86.0,
+        "unit": "mm",
+        "label": "measured",
+        "source_or_assumption": "Bounding box of the committed full-product CAD model /files/demo_tracker_card/d3.glb (build123d/OCCT export)"
+      },
+      "width": {
+        "value": 54.0,
+        "unit": "mm",
+        "label": "measured",
+        "source_or_assumption": "Bounding box of the committed full-product CAD model /files/demo_tracker_card/d3.glb (build123d/OCCT export)"
+      },
+      "height": {
+        "value": 2.8,
+        "unit": "mm",
+        "label": "measured",
+        "source_or_assumption": "Bounding box of the committed full-product CAD model /files/demo_tracker_card/d3.glb (build123d/OCCT export)"
+      }
+    },
+    "weight": {
+      "value": 11.0,
+      "unit": "g",
+      "label": "estimate",
+      "source_or_assumption": "Shells 2×2.6 g + PCBA 2 g + cell 3 g + overlay/misc 0.8 g"
+    },
+    "parts": [
+      {
+        "id": "p1",
+        "name": "Top shell",
+        "material": "Polycarbonate (UL94 V-0)",
+        "finish": "VDI 24 matte texture, black",
+        "process_hint": "injection_molding",
+        "tolerance": "±0.05 mm on weld ridge, 2.8 ± 0.15 mm stack",
+        "dimensions": {
+          "length": {
+            "value": 85.6,
+            "unit": "mm",
+            "label": "estimate",
+            "source_or_assumption": "Design parameter"
+          },
+          "width": {
+            "value": 54.0,
+            "unit": "mm",
+            "label": "estimate",
+            "source_or_assumption": "Design parameter"
+          },
+          "height": {
+            "value": 1.4,
+            "unit": "mm",
+            "label": "estimate",
+            "source_or_assumption": "Design parameter"
+          }
+        },
+        "wall_thickness": {
+          "value": 0.5,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        },
+        "quantity": 1
+      },
+      {
+        "id": "p2",
+        "name": "Bottom shell",
+        "material": "Polycarbonate (UL94 V-0)",
+        "finish": "VDI 24 matte texture, black",
+        "process_hint": "injection_molding",
+        "tolerance": "±0.05 mm on weld groove",
+        "dimensions": {
+          "length": {
+            "value": 85.6,
+            "unit": "mm",
+            "label": "estimate",
+            "source_or_assumption": "Design parameter"
+          },
+          "width": {
+            "value": 54.0,
+            "unit": "mm",
+            "label": "estimate",
+            "source_or_assumption": "Design parameter"
+          },
+          "height": {
+            "value": 1.4,
+            "unit": "mm",
+            "label": "estimate",
+            "source_or_assumption": "Design parameter"
+          }
+        },
+        "wall_thickness": {
+          "value": 0.5,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        },
+        "quantity": 1
+      },
+      {
+        "id": "p3",
+        "name": "PCBA (BLE SoC + antenna)",
+        "material": "FR-4 4-layer 0.6 mm",
+        "finish": "ENIG, lead-free reflow",
+        "process_hint": "pcba",
+        "tolerance": "PCB thickness 0.6 ± 0.06 mm",
+        "dimensions": {
+          "length": {
+            "value": 44.0,
+            "unit": "mm",
+            "label": "estimate",
+            "source_or_assumption": "Design parameter"
+          },
+          "width": {
+            "value": 48.0,
+            "unit": "mm",
+            "label": "estimate",
+            "source_or_assumption": "Design parameter"
+          },
+          "height": {
+            "value": 1.0,
+            "unit": "mm",
+            "label": "estimate",
+            "source_or_assumption": "Design parameter"
+          }
+        },
+        "wall_thickness": null,
+        "quantity": 1
+      },
+      {
+        "id": "p4",
+        "name": "Thin lithium primary cell",
+        "material": "Li-MnO2 pouch, foil",
+        "finish": "Laminate",
+        "process_hint": "assembly",
+        "tolerance": "Thickness 1.0 ± 0.1 mm",
+        "dimensions": {
+          "length": {
+            "value": 40.0,
+            "unit": "mm",
+            "label": "estimate",
+            "source_or_assumption": "Design parameter"
+          },
+          "width": {
+            "value": 30.0,
+            "unit": "mm",
+            "label": "estimate",
+            "source_or_assumption": "Design parameter"
+          },
+          "height": {
+            "value": 1.0,
+            "unit": "mm",
+            "label": "estimate",
+            "source_or_assumption": "Design parameter"
+          }
+        },
+        "wall_thickness": null,
+        "quantity": 1
+      },
+      {
+        "id": "p5",
+        "name": "Graphic overlay",
+        "material": "PET 0.05 mm + PSA",
+        "finish": "1-colour print",
+        "process_hint": "other",
+        "tolerance": "±0.3 mm registration",
+        "dimensions": {
+          "length": {
+            "value": 84.0,
+            "unit": "mm",
+            "label": "estimate",
+            "source_or_assumption": "Design parameter"
+          },
+          "width": {
+            "value": 52.0,
+            "unit": "mm",
+            "label": "estimate",
+            "source_or_assumption": "Design parameter"
+          },
+          "height": {
+            "value": 0.1,
+            "unit": "mm",
+            "label": "estimate",
+            "source_or_assumption": "Design parameter"
+          }
+        },
+        "wall_thickness": null,
+        "quantity": 1
+      }
+    ],
+    "tolerances": [
+      "General ISO 2768-f on shells",
+      "Stack thickness 2.8 ± 0.15 mm after welding",
+      "Weld ridge/groove ±0.05 mm"
+    ]
+  },
+  "cad_files": [
+    {
+      "format": "glb",
+      "url": "/files/demo_tracker_card/d3.glb",
+      "description": "Full product — materials (viewer model of direction d3)",
+      "size_bytes": 195972
+    },
+    {
+      "format": "step",
+      "url": "/files/demo_tracker_card/enclosure.step",
+      "description": "Moulded parts (DFM) — Card enclosure B-rep (build123d): top + bottom shell 85.6 × 54 × 2.8 mm, 0.5 mm wall, 1° draft — open in any CAD tool",
+      "size_bytes": 187440
+    },
+    {
+      "format": "stl",
+      "url": "/files/demo_tracker_card/enclosure.stl",
+      "description": "Moulded parts (DFM) — Card enclosure mesh for 3D-printed prototypes",
+      "size_bytes": 282684
+    },
+    {
+      "format": "glb",
+      "url": "/files/demo_tracker_card/enclosure.glb",
+      "description": "Moulded parts (DFM) — Card enclosure model for the 3D viewer",
+      "size_bytes": 191124
+    }
+  ],
+  "bom": [
+    {
+      "id": "e1",
+      "part": "BLE 5 SoC nRF52810 (WLCSP-33, 2.5×2.5 mm)",
+      "category": "electronic",
+      "qty": 1.0,
+      "description": "Real LCSC price at the ≥500-unit break, snapshot 2026-09-26",
+      "manufacturer_pn": null,
+      "lcsc_pn": "C3606661",
+      "unit_cost_est": {
+        "value": 1.5745,
+        "unit": "USD",
+        "label": "sourced",
+        "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C3606661.html"
+      },
+      "risk": {
+        "level": "medium",
+        "reasons": [
+          "Single source (Nordic)",
+          "WLCSP 0.4 mm pitch assembly",
+          "LCSC stock 13.7k"
+        ]
+      },
+      "alternative": "nRF52810 QFN-32 (C519278, stock 1,322) at higher thickness"
+    },
+    {
+      "id": "e2",
+      "part": "Crystal 32.768 kHz SMD3215",
+      "category": "electronic",
+      "qty": 1.0,
+      "description": "Real LCSC price at the ≥500-unit break, snapshot 2026-09-26",
+      "manufacturer_pn": null,
+      "lcsc_pn": "C32346",
+      "unit_cost_est": {
+        "value": 0.1034,
+        "unit": "USD",
+        "label": "sourced",
+        "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C32346.html"
+      },
+      "risk": {
+        "level": "low",
+        "reasons": [
+          "Stock 445k",
+          "Multi-source"
+        ]
+      },
+      "alternative": "Any 32.768 kHz 9 pF SMD3215"
+    },
+    {
+      "id": "e3",
+      "part": "Crystal 32 MHz SMD2016",
+      "category": "electronic",
+      "qty": 1.0,
+      "description": "Real LCSC price at the ≥500-unit break, snapshot 2026-09-26",
+      "manufacturer_pn": null,
+      "lcsc_pn": "C718072",
+      "unit_cost_est": {
+        "value": 0.0668,
+        "unit": "USD",
+        "label": "sourced",
+        "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C718072.html"
+      },
+      "risk": {
+        "level": "low",
+        "reasons": [
+          "Stock 61k",
+          "Multi-source"
+        ]
+      },
+      "alternative": "XL7EL89COI-111YLC-32M (C2965584)"
+    },
+    {
+      "id": "e4",
+      "part": "2.4 GHz chip antenna 3.2×1.6 mm",
+      "category": "electronic",
+      "qty": 1.0,
+      "description": "Real LCSC price at the ≥500-unit break, snapshot 2026-09-26",
+      "manufacturer_pn": null,
+      "lcsc_pn": "C127629",
+      "unit_cost_est": {
+        "value": 0.0894,
+        "unit": "USD",
+        "label": "sourced",
+        "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C127629.html"
+      },
+      "risk": {
+        "level": "low",
+        "reasons": [
+          "Stock 77k",
+          "Detuning by nearby metal to validate"
+        ]
+      },
+      "alternative": "Printed PCB antenna (no BOM cost, larger keep-out)"
+    },
+    {
+      "id": "e5",
+      "part": "Tactile switch SMD 4.6×1.8 mm",
+      "category": "electronic",
+      "qty": 1.0,
+      "description": "Real LCSC price at the ≥500-unit break, snapshot 2026-09-26",
+      "manufacturer_pn": null,
+      "lcsc_pn": "C393942",
+      "unit_cost_est": {
+        "value": 0.0196,
+        "unit": "USD",
+        "label": "sourced",
+        "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C393942.html"
+      },
+      "risk": {
+        "level": "low",
+        "reasons": [
+          "Stock 444k"
+        ]
+      },
+      "alternative": "SH-1806SA-A3DW-04 (C22383476)"
+    },
+    {
+      "id": "e6",
+      "part": "Status LED 0402 white",
+      "category": "electronic",
+      "qty": 1.0,
+      "description": "Real LCSC price at the ≥500-unit break, snapshot 2026-09-26",
+      "manufacturer_pn": null,
+      "lcsc_pn": "C20613596",
+      "unit_cost_est": {
+        "value": 0.0087,
+        "unit": "USD",
+        "label": "sourced",
+        "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C20613596.html"
+      },
+      "risk": {
+        "level": "low",
+        "reasons": [
+          "Stock 603k"
+        ]
+      },
+      "alternative": "XL-1005UGC green (C965793)"
+    },
+    {
+      "id": "e7",
+      "part": "MLCC 100 nF 0402 (decoupling)",
+      "category": "electronic",
+      "qty": 6.0,
+      "description": "Real LCSC price at the ≥500-unit break, snapshot 2026-09-26",
+      "manufacturer_pn": null,
+      "lcsc_pn": "C1525",
+      "unit_cost_est": {
+        "value": 0.0047,
+        "unit": "USD",
+        "label": "sourced",
+        "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C1525.html"
+      },
+      "risk": {
+        "level": "low",
+        "reasons": [
+          "LCSC basic part",
+          "Stock 16.4M"
+        ]
+      },
+      "alternative": "CL05B104KB54PNC (C307331)"
+    },
+    {
+      "id": "e8",
+      "part": "MLCC 1 µF 0402",
+      "category": "electronic",
+      "qty": 2.0,
+      "description": "Real LCSC price at the ≥500-unit break, snapshot 2026-09-26",
+      "manufacturer_pn": null,
+      "lcsc_pn": "C52923",
+      "unit_cost_est": {
+        "value": 0.0122,
+        "unit": "USD",
+        "label": "sourced",
+        "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C52923.html"
+      },
+      "risk": {
+        "level": "low",
+        "reasons": [
+          "LCSC basic part",
+          "Stock 4.5M"
+        ]
+      },
+      "alternative": "TCC0402X5R105M6R3AT (C2887021)"
+    },
+    {
+      "id": "e9",
+      "part": "Antenna matching + RF passives 0402 (6 pcs)",
+      "category": "electronic",
+      "qty": 1.0,
+      "description": null,
+      "manufacturer_pn": null,
+      "lcsc_pn": null,
+      "unit_cost_est": {
+        "value": 0.03,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Six 0402 RF passives (C/L) at ~$0.005 each; values set at RF tuning"
+      },
+      "risk": null,
+      "alternative": null
+    },
+    {
+      "id": "e10",
+      "part": "Piezo disc buzzer Ø12 mm, 0.22 mm brass plate",
+      "category": "electronic",
+      "qty": 1.0,
+      "description": null,
+      "manufacturer_pn": null,
+      "lcsc_pn": null,
+      "unit_cost_est": {
+        "value": 0.1,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Catalogue piezo element, 10k pcs; thin SMD variant not selected"
+      },
+      "risk": {
+        "level": "medium",
+        "reasons": [
+          "Loudness inside sealed shells not validated"
+        ]
+      },
+      "alternative": "Thin SMD magnetic transducer, higher cost"
+    },
+    {
+      "id": "e11",
+      "part": "Thin lithium primary pouch cell 3 V, ~1 mm",
+      "category": "electronic",
+      "qty": 1.0,
+      "description": null,
+      "manufacturer_pn": null,
+      "lcsc_pn": null,
+      "unit_cost_est": {
+        "value": 0.6,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Thin lithium primary cell (3 V pouch, non-replaceable) $0.60 at 2k MOQ, branded supplier with UN38.3 report"
+      },
+      "risk": {
+        "level": "high",
+        "reasons": [
+          "Sealed lithium cell: UN38.3 report required",
+          "Counterfeit/unbranded cell risk",
+          "Air-freight restrictions (UN3090/3091)"
+        ]
+      },
+      "alternative": "Rechargeable thin LiPo + charge IC (adds cost, IEC 62133-2, USB/Qi charge access)"
+    },
+    {
+      "id": "e12",
+      "part": "Control PCB 4-layer 0.6 mm ENIG",
+      "category": "electronic",
+      "qty": 1.0,
+      "description": null,
+      "manufacturer_pn": null,
+      "lcsc_pn": null,
+      "unit_cost_est": {
+        "value": 0.45,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Bare PCB, 2k pcs, 90×55 mm panel share"
+      },
+      "risk": {
+        "level": "low",
+        "reasons": []
+      },
+      "alternative": null
+    },
+    {
+      "id": "m1",
+      "part": "Top shell, PC, 0.5 mm wall, textured",
+      "category": "mechanical",
+      "qty": 1.0,
+      "description": null,
+      "manufacturer_pn": null,
+      "lcsc_pn": null,
+      "unit_cost_est": {
+        "value": 0.14,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Part weight 2.6 g × resin + cycle cost"
+      },
+      "risk": null,
+      "alternative": null
+    },
+    {
+      "id": "m2",
+      "part": "Bottom shell, PC, 0.5 mm wall",
+      "category": "mechanical",
+      "qty": 1.0,
+      "description": null,
+      "manufacturer_pn": null,
+      "lcsc_pn": null,
+      "unit_cost_est": {
+        "value": 0.14,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Part weight 2.6 g × resin + cycle cost"
+      },
+      "risk": null,
+      "alternative": null
+    },
+    {
+      "id": "m3",
+      "part": "Printed PET graphic overlay",
+      "category": "mechanical",
+      "qty": 1.0,
+      "description": null,
+      "manufacturer_pn": null,
+      "lcsc_pn": null,
+      "unit_cost_est": {
+        "value": 0.06,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Die-cut 85 × 54 mm, 1-colour print, PSA back"
+      },
+      "risk": null,
+      "alternative": null
+    },
+    {
+      "id": "m4",
+      "part": "Acoustic mesh + adhesive ring",
+      "category": "mechanical",
+      "qty": 1.0,
+      "description": null,
+      "manufacturer_pn": null,
+      "lcsc_pn": null,
+      "unit_cost_est": {
+        "value": 0.02,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Die-cut, 5 mm"
+      },
+      "risk": null,
+      "alternative": null
+    },
+    {
+      "id": "m5",
+      "part": "Cell tab foil + adhesive tape",
+      "category": "mechanical",
+      "qty": 1.0,
+      "description": null,
+      "manufacturer_pn": null,
+      "lcsc_pn": null,
+      "unit_cost_est": {
+        "value": 0.03,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Nickel tab + Kapton"
+      },
+      "risk": null,
+      "alternative": null
+    },
+    {
+      "id": "k1",
+      "part": "Folding carton (blister-free) 95×62×6 mm",
+      "category": "packaging",
+      "qty": 1.0,
+      "description": null,
+      "manufacturer_pn": null,
+      "lcsc_pn": null,
+      "unit_cost_est": {
+        "value": 0.18,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Paperboard 350 g, 1-colour print"
+      },
+      "risk": null,
+      "alternative": null
+    },
+    {
+      "id": "k2",
+      "part": "Quick-start card",
+      "category": "packaging",
+      "qty": 1.0,
+      "description": null,
+      "manufacturer_pn": null,
+      "lcsc_pn": null,
+      "unit_cost_est": {
+        "value": 0.03,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Single-sheet insert"
+      },
+      "risk": null,
+      "alternative": null
+    }
+  ],
+  "dfm_alerts": [
+    {
+      "id": "m1",
+      "severity": "minor",
+      "category": "draft",
+      "method": "measured",
+      "part_id": "p1",
+      "description": "Minimum wall draft is 1.00°: enough for a polished finish, short of the ~3° a textured finish ('VDI 24 matte texture, black') needs.",
+      "fix": "Increase draft to 3° on textured faces, or specify a lighter texture / polished finish.",
+      "rule_citation": "Draft ≥1° plus 1° per 0.025 mm texture depth — Protolabs injection molding design guidelines; measured with text-to-cad DFM skill (mold_tool.py, MIT) ported to OCCT",
+      "measurement": {
+        "value": 1.0,
+        "unit": "deg",
+        "label": "measured",
+        "source_or_assumption": "Min wall draft vs pull +Z: lowest-draft B-rep wall face ≥ 19.61 mm² (flat, 51.95 mm² at [-42.79, 0.0, 0.85]) — text-to-cad DFM skill (mold_tool.py, MIT) ported to OCCT"
+      },
+      "resolved": false,
+      "resolution": null
+    },
+    {
+      "id": "m2",
+      "severity": "minor",
+      "category": "projection",
+      "method": "measured",
+      "part_id": "p1",
+      "description": "Projected area along +Z: 4606 mm² (part silhouette, per cavity). Estimated clamp force ≈ 23.6 t (Estimate: area in² × 3.0 t/in² for PC/ABS × 1.1 safety) — per cavity; a family tool moulding both shells in one shot roughly doubles it.",
+      "fix": "Quote on a press ≥ 30 t; keep both shells in one family mould only if tonnage allows.",
+      "rule_citation": "Clamp force ≈ projected area × cavity-pressure factor (2-5 t/in²) — Protolabs injection molding design guidelines; silhouette raster from text-to-cad DFM skill (mold_tool.py, MIT) ported to OCCT",
+      "measurement": {
+        "value": 4606.3,
+        "unit": "mm2",
+        "label": "measured",
+        "source_or_assumption": "Silhouette along +Z, raster 0.214 mm — text-to-cad DFM skill (mold_tool.py, MIT) ported to OCCT"
+      },
+      "resolved": false,
+      "resolution": null
+    },
+    {
+      "id": "m3",
+      "severity": "major",
+      "category": "wall_thickness",
+      "method": "measured",
+      "part_id": "p1",
+      "description": "Thin walls: 5% of the surface sits on walls ≤ 0.50 mm.",
+      "fix": "Keep PC/ABS walls ≥ 1.2 mm; thicken local thin sections.",
+      "rule_citation": "PC/ABS wall 1.2-3.5 mm, ribs/bosses ≤ 60% of wall — Protolabs injection molding design guidelines",
+      "measurement": {
+        "value": 0.5,
+        "unit": "mm",
+        "label": "measured",
+        "source_or_assumption": "5th percentile of 3032 ray samples into the material (median 0.5 mm)"
+      },
+      "resolved": false,
+      "resolution": null
+    },
+    {
+      "id": "i4",
+      "severity": "critical",
+      "category": "assembly",
+      "method": "ai_reviewed",
+      "part_id": "p4",
+      "description": "Ultrasonic welding of the shells puts heat and vibration next to a sealed lithium pouch cell; puncture or short-circuit risk.",
+      "fix": "Keep the cell ≥3 mm from the weld line (validate with the cell supplier), add a cell pocket rib, and run a weld-energy test with a dummy cell.",
+      "rule_citation": "IEC 60086-4 (lithium battery safety) and cell supplier handling guideline — to be confirmed with supplier datasheet",
+      "measurement": null,
+      "resolved": false,
+      "resolution": null
+    },
+    {
+      "id": "i5",
+      "severity": "major",
+      "category": "other",
+      "method": "ai_reviewed",
+      "part_id": "p3",
+      "description": "Chip antenna detunes near metal (RFID-shield cards, metal wallets) and near the cell foil; range may drop in a real wallet.",
+      "fix": "Keep a ground-free keep-out under the antenna, place it at the short edge away from the cell, tune matching in a wallet with typical cards.",
+      "rule_citation": "Chip antenna vendor layout guideline (ground keep-out) — RF design practice",
+      "measurement": null,
+      "resolved": false,
+      "resolution": null
+    },
+    {
+      "id": "i6",
+      "severity": "major",
+      "category": "tolerance",
+      "method": "ai_reviewed",
+      "part_id": "p1",
+      "description": "Stack tolerance of shells + PCB + cell + weld collapse can push total thickness above the wallet-slot limit.",
+      "fix": "Specify 2.8 ± 0.15 mm after welding, define weld collapse (0.15 mm) and add a thickness check in QC.",
+      "rule_citation": "Ultrasonic welding energy-director design guide (collapse 0.1-0.2 mm) — Branson/Emerson plastics joining handbook",
+      "measurement": null,
+      "resolved": false,
+      "resolution": null
+    },
+    {
+      "id": "i7",
+      "severity": "minor",
+      "category": "assembly",
+      "method": "ai_reviewed",
+      "part_id": "p2",
+      "description": "Sealed shells attenuate the piezo buzzer; the card may be too quiet to find.",
+      "fix": "Add a 1.5 mm sound port over the buzzer with acoustic mesh (BOM m4) and test SPL on the golden sample.",
+      "rule_citation": "Piezo sounder acoustic-port practice — buzzer vendor application notes",
+      "measurement": null,
+      "resolved": false,
+      "resolution": null
+    }
+  ],
+  "certifications": [
+    {
+      "market": "US",
+      "standard": "FCC Part 15C (intentional radiator, 2.4 GHz BLE) + 15B",
+      "applies_because": "Chip-down BLE radio, no pre-certified module",
+      "required": true,
+      "cost_est": {
+        "value": 4500.0,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Accredited lab quote range, demo assumption"
+      },
+      "lead_time_weeks": {
+        "value": 5.0,
+        "unit": "weeks",
+        "label": "estimate",
+        "source_or_assumption": "Typical lab queue"
+      }
+    },
+    {
+      "market": "EU",
+      "standard": "CE — RED 2014/53/EU (EN 300 328, EN 301 489, EN 62368-1), RoHS",
+      "applies_because": "Radio equipment sold in the EU",
+      "required": true,
+      "cost_est": {
+        "value": 5500.0,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Accredited lab quote range, demo assumption"
+      },
+      "lead_time_weeks": {
+        "value": 6.0,
+        "unit": "weeks",
+        "label": "estimate",
+        "source_or_assumption": "Typical lab queue"
+      }
+    },
+    {
+      "market": "Global",
+      "standard": "Bluetooth SIG qualification / listing (Declaration ID)",
+      "applies_because": "Product is marketed as a Bluetooth device",
+      "required": true,
+      "cost_est": {
+        "value": 3000.0,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Fee depends on SIG membership tier; assumption incl. listing help"
+      },
+      "lead_time_weeks": {
+        "value": 2.0,
+        "unit": "weeks",
+        "label": "estimate",
+        "source_or_assumption": "Listing after test reports"
+      }
+    },
+    {
+      "market": "Global",
+      "standard": "UN38.3 (lithium transport) summary + IEC 60086-4",
+      "applies_because": "Contains a sealed lithium metal (primary) cell",
+      "required": true,
+      "cost_est": {
+        "value": 1200.0,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Cell-level test summary from the cell supplier; assumption"
+      },
+      "lead_time_weeks": {
+        "value": 4.0,
+        "unit": "weeks",
+        "label": "estimate",
+        "source_or_assumption": "Cell supplier test queue"
+      }
+    },
+    {
+      "market": "US",
+      "standard": "16 CFR 1263 (Reese's Law, button/coin cells) — verify applicability",
+      "applies_because": "Applies to consumer products with a button or coin cell; our cell is a sealed flat pouch — to confirm with counsel/lab",
+      "required": false,
+      "cost_est": {
+        "value": 0.0,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "No test cost if the pouch cell is out of scope; assumption"
+      },
+      "lead_time_weeks": {
+        "value": 1.0,
+        "unit": "weeks",
+        "label": "estimate",
+        "source_or_assumption": "Applicability review"
+      }
+    }
+  ],
+  "target_quantities": [
+    500,
+    2000,
+    10000
+  ],
+  "cost_estimate": [
+    {
+      "quantity": 500,
+      "bom_cost": {
+        "value": 3.49,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "BOM at 500 × 0.92^0"
+      },
+      "assembly_cost": {
+        "value": 0.85,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Final assembly (ultrasonic weld, cell attach, flash + RF test) $0.85 per unit at 500"
+      },
+      "packaging_cost": {
+        "value": 0.21,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Packaging BOM lines"
+      },
+      "unit_cost": {
+        "value": 4.54,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "BOM + assembly + packaging (ex-works)"
+      },
+      "tooling_amortisation": {
+        "value": 19.5,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "$9,750 / 500"
+      },
+      "margin_pct": {
+        "value": -7.9,
+        "unit": "pct",
+        "label": "estimate",
+        "source_or_assumption": "($24.99 target − $26.95 landed estimate) / target"
+      }
+    },
+    {
+      "quantity": 2000,
+      "bom_cost": {
+        "value": 3.21,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "BOM at 500 × 0.92^1"
+      },
+      "assembly_cost": {
+        "value": 0.78,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Final assembly (ultrasonic weld, cell attach, flash + RF test) $0.85 per unit at 500"
+      },
+      "packaging_cost": {
+        "value": 0.19,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Packaging BOM lines"
+      },
+      "unit_cost": {
+        "value": 4.18,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "BOM + assembly + packaging (ex-works)"
+      },
+      "tooling_amortisation": {
+        "value": 4.88,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "$9,750 / 2000"
+      },
+      "margin_pct": {
+        "value": 56.6,
+        "unit": "pct",
+        "label": "estimate",
+        "source_or_assumption": "($24.99 target − $10.85 landed estimate) / target"
+      }
+    },
+    {
+      "quantity": 10000,
+      "bom_cost": {
+        "value": 2.95,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "BOM at 500 × 0.92^2"
+      },
+      "assembly_cost": {
+        "value": 0.72,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Final assembly (ultrasonic weld, cell attach, flash + RF test) $0.85 per unit at 500"
+      },
+      "packaging_cost": {
+        "value": 0.18,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Packaging BOM lines"
+      },
+      "unit_cost": {
+        "value": 3.85,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "BOM + assembly + packaging (ex-works)"
+      },
+      "tooling_amortisation": {
+        "value": 0.97,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "$9,750 / 10000"
+      },
+      "margin_pct": {
+        "value": 74.5,
+        "unit": "pct",
+        "label": "estimate",
+        "source_or_assumption": "($24.99 target − $6.36 landed estimate) / target"
+      }
+    }
+  ],
+  "questions": [
+    {
+      "id": "fq1",
+      "en": "Can you mold 0.5 mm nominal-wall PC shells over an 85.6 mm flow length? Please share mold-flow results or similar references.",
+      "cn": "贵司能否注塑名义壁厚0.5 mm、流长85.6 mm的PC外壳？请提供模流分析或类似案例。",
+      "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+    },
+    {
+      "id": "fq2",
+      "en": "Please confirm the thin lithium primary cell supplier and share its UN38.3 test summary and IEC 60086-4 report.",
+      "cn": "请确认薄型锂一次电池供应商，并提供UN38.3测试摘要及IEC 60086-4报告。",
+      "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+    },
+    {
+      "id": "fq3",
+      "en": "For the ultrasonic weld: what energy-director design and cell keep-out do you recommend, and can you hold 2.8 ± 0.15 mm total thickness?",
+      "cn": "超声波焊接方面：贵司建议的熔接线设计和电芯避让距离是多少？能否保证总厚度2.8 ± 0.15 mm？",
+      "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+    },
+    {
+      "id": "fq4",
+      "en": "Does your SMT line handle 0.4 mm-pitch WLCSP, and can you run BLE RF test and firmware flashing on a jig at end of line? Cost per unit?",
+      "cn": "贵司SMT产线能否贴装0.4 mm间距的WLCSP？能否在线尾用治具完成蓝牙射频测试和固件烧录？单件成本是多少？",
+      "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+    },
+    {
+      "id": "fq5",
+      "en": "Quote tooling as single-cavity for both shells, stating steel grade and expected shot life, plus the 2-cavity option.",
+      "cn": "请按两个外壳各单腔模具报价，注明钢材牌号和预期模次寿命，并提供双腔方案价格。",
+      "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+    }
+  ],
+  "assumption_register": [
+    {
+      "id": "a1",
+      "text": "Founder target retail price $24.99 (comparable wallet trackers retail in the $20-35 range, not verified)",
+      "label": "estimate",
+      "source": null,
+      "stage": 1
+    },
+    {
+      "id": "a2",
+      "text": "Volume curve: unit cost × 0.92 per tier step (500 → 2,000 → 10,000)",
+      "label": "estimate",
+      "source": "Demo assumption (PRD §11)",
+      "stage": 5
+    },
+    {
+      "id": "a3",
+      "text": "Final assembly (ultrasonic weld, cell attach, flash + RF test) $0.85 per unit at 500",
+      "label": "estimate",
+      "source": null,
+      "stage": 5
+    },
+    {
+      "id": "a4",
+      "text": "Pre-shipment inspection $268 per man-day",
+      "label": "sourced",
+      "source": "V-Trust, https://www.v-trust.com/en/our-network, checked 2026-09-26",
+      "stage": 10
+    },
+    {
+      "id": "a5",
+      "text": "Platform/agent fee 7% of FOB (benchmark 5-10%)",
+      "label": "estimate",
+      "source": "Dragon Sourcing benchmark 5-10%",
+      "stage": 11
+    },
+    {
+      "id": "a6",
+      "text": "HTS 8517.62.00.90: general duty 0% (Machines for the reception, conversion and transmission or… — Other — precedent CBP ruling N305756 (2019-09-04): The tar)",
+      "label": "sourced",
+      "source": "USITC HTS 8517.62.00.90 general rate Free, https://hts.usitc.gov/search?query=8517.62.00.90, fetched 2026-09-26",
+      "stage": 11
+    },
+    {
+      "id": "a7",
+      "text": "IEEPA duties not collected since 24/02/2026; de minimis suspended; Section 122 surcharge off (toggle)",
+      "label": "sourced",
+      "source": "CBP CSMS 67834313 (https://content.govdelivery.com/accounts/USDHSCBP/bulletins/40b11c9); Federal Register 24/06/2026",
+      "stage": 11
+    },
+    {
+      "id": "a8",
+      "text": "Sea LCL Shenzhen → Los Angeles, $0.12/unit (minimum-charge dominated), 32 days door to 3PL",
+      "label": "fictional",
+      "source": "demo data",
+      "stage": 11
+    },
+    {
+      "id": "a9",
+      "text": "Thin-wall PC single-cavity molds $3,000-4,500 each (small-mold range $1,000-3,000 plus thin-wall premium)",
+      "label": "estimate",
+      "source": "Zetar Mold 2026 range $1,000-3,000 (vendor, medium) + thin-wall premium assumption",
+      "stage": 5
+    },
+    {
+      "id": "a10",
+      "text": "Measured DFM checks assume a straight two-half tool pulling along ±Z (split line in the XY plane)",
+      "label": "estimate",
+      "source": "api/dfm/measure.py on api/cad/prebuilt/demo_tracker_card/enclosure.step",
+      "stage": 4
+    },
+    {
+      "id": "a11",
+      "text": "Certification costs (FCC 15C, CE RED, Bluetooth SIG listing, UN38.3) are lab-quote ranges, not quotes",
+      "label": "estimate",
+      "source": null,
+      "stage": 4
+    },
+    {
+      "id": "a13",
+      "text": "Section 301 China 7.5% on HTS 8517.62.00.90",
+      "label": "sourced",
+      "source": "Section 301 China, heading 9903.88.15 (+7.5%): USITC HTS, https://hts.usitc.gov/search?query=9903.88.15, fetched 2026-09-26; heading cited with HTS 8517.62.0090 in CBP ruling N349122 (2025-05-29). Coverage on the entry date to be confirmed by a customs broker",
+      "stage": 11
+    },
+    {
+      "id": "a12",
+      "text": "Thin lithium primary cell (3 V pouch, non-replaceable) $0.60 at 2k MOQ, branded supplier with UN38.3 report",
+      "label": "estimate",
+      "source": null,
+      "stage": 5
+    }
+  ]
+}

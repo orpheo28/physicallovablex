@@ -1,0 +1,65 @@
+{
+  "$defs": {
+    "ProjectMode": {
+      "enum": [
+        "idea",
+        "prototype"
+      ],
+      "title": "ProjectMode",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "mode": {
+      "$ref": "#/$defs/ProjectMode"
+    },
+    "prompt": {
+      "title": "Prompt",
+      "type": "string"
+    },
+    "name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Name"
+    },
+    "pasted_bom": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Pasted Bom"
+    },
+    "example": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Force a cached example: 'desk_lamp' | 'tracker_card'",
+      "title": "Example"
+    }
+  },
+  "required": [
+    "mode",
+    "prompt"
+  ],
+  "title": "CreateProjectRequest",
+  "type": "object"
+}

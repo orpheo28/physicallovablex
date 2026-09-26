@@ -1,0 +1,673 @@
+{
+  "project_id": "demo_desk_lamp",
+  "status": "validated",
+  "fallback": false,
+  "fallback_reason": null,
+  "generated_by": "fixture",
+  "generated_at": "2026-09-26T12:00:00Z",
+  "assumptions": [],
+  "stage": 3,
+  "product_name": "Magnetic Rechargeable Desk Lamp",
+  "direction_id": "d1",
+  "overall_dimensions": {
+    "length": {
+      "value": 180.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the committed full-product CAD model /files/demo_desk_lamp/d1.glb (build123d/OCCT export)"
+    },
+    "width": {
+      "value": 120.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the committed full-product CAD model /files/demo_desk_lamp/d1.glb (build123d/OCCT export)"
+    },
+    "height": {
+      "value": 341.2,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the committed full-product CAD model /files/demo_desk_lamp/d1.glb (build123d/OCCT export)"
+    }
+  },
+  "weight": {
+    "value": 690.0,
+    "unit": "g",
+    "label": "estimate",
+    "source_or_assumption": "Sum of part weight estimates"
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "name": "Head housing",
+      "material": "PC/ABS (UL94 V-0)",
+      "finish": "MT-11010 texture",
+      "process_hint": "injection_molding",
+      "tolerance": "±0.1 mm on magnet pockets",
+      "dimensions": {
+        "length": {
+          "value": 180.0,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        },
+        "width": {
+          "value": 40.0,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        },
+        "height": {
+          "value": 18.0,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        }
+      },
+      "wall_thickness": {
+        "value": 2.0,
+        "unit": "mm",
+        "label": "estimate",
+        "source_or_assumption": "Design parameter"
+      },
+      "quantity": 1
+    },
+    {
+      "id": "p2",
+      "name": "Diffuser",
+      "material": "Opal PC",
+      "finish": "Frosted",
+      "process_hint": "injection_molding",
+      "tolerance": "±0.15 mm",
+      "dimensions": {
+        "length": {
+          "value": 172.0,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        },
+        "width": {
+          "value": 14.0,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        },
+        "height": {
+          "value": 4.0,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        }
+      },
+      "wall_thickness": {
+        "value": 1.5,
+        "unit": "mm",
+        "label": "estimate",
+        "source_or_assumption": "Design parameter"
+      },
+      "quantity": 1
+    },
+    {
+      "id": "p3",
+      "name": "Stem",
+      "material": "Aluminium 6063-T5",
+      "finish": "Bead-blasted, anodised black",
+      "process_hint": "extrusion",
+      "tolerance": "±0.2 mm length",
+      "dimensions": {
+        "length": {
+          "value": 16.0,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        },
+        "width": {
+          "value": 16.0,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        },
+        "height": {
+          "value": 300.0,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        }
+      },
+      "wall_thickness": {
+        "value": 1.5,
+        "unit": "mm",
+        "label": "estimate",
+        "source_or_assumption": "Design parameter"
+      },
+      "quantity": 1
+    },
+    {
+      "id": "p4",
+      "name": "Base shell",
+      "material": "PC/ABS (UL94 V-0)",
+      "finish": "MT-11010 texture",
+      "process_hint": "injection_molding",
+      "tolerance": "±0.1 mm on USB-C opening",
+      "dimensions": {
+        "length": {
+          "value": 120.0,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        },
+        "width": {
+          "value": 120.0,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        },
+        "height": {
+          "value": 22.0,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        }
+      },
+      "wall_thickness": {
+        "value": 2.2,
+        "unit": "mm",
+        "label": "estimate",
+        "source_or_assumption": "Design parameter"
+      },
+      "quantity": 1
+    },
+    {
+      "id": "p5",
+      "name": "Weight plate",
+      "material": "SPCC steel 3 mm",
+      "finish": "Zinc plated",
+      "process_hint": "sheet_metal",
+      "tolerance": "±0.2 mm",
+      "dimensions": {
+        "length": {
+          "value": 110.0,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        },
+        "width": {
+          "value": 110.0,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        },
+        "height": {
+          "value": 3.0,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        }
+      },
+      "wall_thickness": null,
+      "quantity": 1
+    },
+    {
+      "id": "p6",
+      "name": "PCBA (control + LED bar)",
+      "material": "FR-4 + aluminium MCPCB",
+      "finish": "HASL lead-free",
+      "process_hint": "pcba",
+      "tolerance": null,
+      "dimensions": null,
+      "wall_thickness": null,
+      "quantity": 1
+    }
+  ],
+  "electronics_blocks": [
+    {
+      "id": "b1",
+      "name": "USB-C input",
+      "function": "5 V charging input"
+    },
+    {
+      "id": "b2",
+      "name": "Charger (TP4056)",
+      "function": "CC/CV Li-ion charging, 1 A"
+    },
+    {
+      "id": "b3",
+      "name": "18650 cell",
+      "function": "Energy storage, 3000 mAh"
+    },
+    {
+      "id": "b4",
+      "name": "MCU",
+      "function": "Touch sensing, PWM dimming, colour modes"
+    },
+    {
+      "id": "b5",
+      "name": "LED driver (AO3400A)",
+      "function": "PWM switch for LED bar"
+    },
+    {
+      "id": "b6",
+      "name": "LED bar",
+      "function": "24 × 2835 LEDs on MCPCB"
+    },
+    {
+      "id": "b7",
+      "name": "Pogo contacts + magnets",
+      "function": "Power transfer head ↔ stem"
+    }
+  ],
+  "electronics_edges": [
+    {
+      "source": "b1",
+      "target": "b2",
+      "signal": "VBUS 5 V"
+    },
+    {
+      "source": "b2",
+      "target": "b3",
+      "signal": "Charge 4.2 V"
+    },
+    {
+      "source": "b3",
+      "target": "b4",
+      "signal": "VBAT"
+    },
+    {
+      "source": "b4",
+      "target": "b5",
+      "signal": "PWM"
+    },
+    {
+      "source": "b5",
+      "target": "b7",
+      "signal": "LED power"
+    },
+    {
+      "source": "b7",
+      "target": "b6",
+      "signal": "LED power"
+    }
+  ],
+  "bom": [
+    {
+      "id": "e1",
+      "part": "White LED 2835 4000K 0.3 W",
+      "category": "electronic",
+      "qty": 24.0,
+      "description": null,
+      "manufacturer_pn": null,
+      "lcsc_pn": "C210311",
+      "unit_cost_est": {
+        "value": 0.0077,
+        "unit": "USD",
+        "label": "sourced",
+        "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C210311.html"
+      },
+      "risk": {
+        "level": "low",
+        "reasons": [
+          "Stock 1.09M"
+        ]
+      },
+      "alternative": "Any 2835 4000K CRI>90 bin"
+    },
+    {
+      "id": "e2",
+      "part": "Li-ion charger IC TP4056 (ESOP-8)",
+      "category": "electronic",
+      "qty": 1.0,
+      "description": null,
+      "manufacturer_pn": null,
+      "lcsc_pn": "C725790",
+      "unit_cost_est": {
+        "value": 0.0505,
+        "unit": "USD",
+        "label": "sourced",
+        "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C725790.html"
+      },
+      "risk": {
+        "level": "low",
+        "reasons": [
+          "Stock 288k",
+          "Multi-source"
+        ]
+      },
+      "alternative": "TP4056-MS (C7473158)"
+    },
+    {
+      "id": "e3",
+      "part": "USB-C receptacle 16P SMD",
+      "category": "electronic",
+      "qty": 1.0,
+      "description": null,
+      "manufacturer_pn": null,
+      "lcsc_pn": "C2765186",
+      "unit_cost_est": {
+        "value": 0.0598,
+        "unit": "USD",
+        "label": "sourced",
+        "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C2765186.html"
+      },
+      "risk": {
+        "level": "low",
+        "reasons": [
+          "Stock 1.17M"
+        ]
+      },
+      "alternative": "TYPE-C16PIN (C393939)"
+    },
+    {
+      "id": "e4",
+      "part": "N-MOSFET AO3400A (LED PWM)",
+      "category": "electronic",
+      "qty": 1.0,
+      "description": null,
+      "manufacturer_pn": null,
+      "lcsc_pn": "C20917",
+      "unit_cost_est": {
+        "value": 0.0529,
+        "unit": "USD",
+        "label": "sourced",
+        "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C20917.html"
+      },
+      "risk": {
+        "level": "low",
+        "reasons": [
+          "LCSC basic part"
+        ]
+      },
+      "alternative": "AO3400A (C347475)"
+    },
+    {
+      "id": "e5",
+      "part": "Touch-dimming MCU (8-bit, SOP-8)",
+      "category": "electronic",
+      "qty": 1.0,
+      "description": null,
+      "manufacturer_pn": null,
+      "lcsc_pn": null,
+      "unit_cost_est": {
+        "value": 0.25,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Part not selected yet; typical 8-bit MCU price"
+      },
+      "risk": {
+        "level": "medium",
+        "reasons": [
+          "Part not selected"
+        ]
+      },
+      "alternative": "Pick from LCSC basic parts"
+    },
+    {
+      "id": "e6",
+      "part": "Li-ion cell 18650 3000 mAh",
+      "category": "electronic",
+      "qty": 1.0,
+      "description": null,
+      "manufacturer_pn": null,
+      "lcsc_pn": null,
+      "unit_cost_est": {
+        "value": 2.4,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Branded cell with UN38.3 report, 2k MOQ"
+      },
+      "risk": {
+        "level": "high",
+        "reasons": [
+          "Counterfeit/unbranded cell risk",
+          "UN38.3 report required",
+          "Air-freight restrictions"
+        ]
+      },
+      "alternative": "Tier-1 branded 18650 with UN38.3 + IEC 62133-2 reports"
+    },
+    {
+      "id": "e7",
+      "part": "Aluminium MCPCB for LED bar 170×12 mm",
+      "category": "electronic",
+      "qty": 1.0,
+      "description": null,
+      "manufacturer_pn": null,
+      "lcsc_pn": null,
+      "unit_cost_est": {
+        "value": 0.35,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "JLCPCB aluminium PCB, 2k pcs"
+      },
+      "risk": {
+        "level": "low",
+        "reasons": []
+      },
+      "alternative": null
+    },
+    {
+      "id": "e8",
+      "part": "Control PCB 2-layer + passives, assembled",
+      "category": "electronic",
+      "qty": 1.0,
+      "description": null,
+      "manufacturer_pn": null,
+      "lcsc_pn": null,
+      "unit_cost_est": {
+        "value": 0.6,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "PCBA incl. passives, 2k pcs"
+      },
+      "risk": {
+        "level": "low",
+        "reasons": []
+      },
+      "alternative": null
+    },
+    {
+      "id": "m1",
+      "part": "Head housing, PC/ABS, textured",
+      "category": "mechanical",
+      "qty": 1.0,
+      "description": null,
+      "manufacturer_pn": null,
+      "lcsc_pn": null,
+      "unit_cost_est": {
+        "value": 0.95,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Part weight 28 g × resin + cycle cost"
+      },
+      "risk": null,
+      "alternative": null
+    },
+    {
+      "id": "m2",
+      "part": "Opal PC diffuser",
+      "category": "mechanical",
+      "qty": 1.0,
+      "description": null,
+      "manufacturer_pn": null,
+      "lcsc_pn": null,
+      "unit_cost_est": {
+        "value": 0.3,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Part weight 9 g"
+      },
+      "risk": null,
+      "alternative": null
+    },
+    {
+      "id": "m3",
+      "part": "Stem, aluminium 6063 extrusion, anodised",
+      "category": "mechanical",
+      "qty": 1.0,
+      "description": null,
+      "manufacturer_pn": null,
+      "lcsc_pn": null,
+      "unit_cost_est": {
+        "value": 1.6,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "300 mm cut length + anodising"
+      },
+      "risk": null,
+      "alternative": null
+    },
+    {
+      "id": "m4",
+      "part": "Base shell, PC/ABS",
+      "category": "mechanical",
+      "qty": 1.0,
+      "description": null,
+      "manufacturer_pn": null,
+      "lcsc_pn": null,
+      "unit_cost_est": {
+        "value": 1.1,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Part weight 35 g"
+      },
+      "risk": null,
+      "alternative": null
+    },
+    {
+      "id": "m5",
+      "part": "Steel weight plate, zinc-plated",
+      "category": "mechanical",
+      "qty": 1.0,
+      "description": null,
+      "manufacturer_pn": null,
+      "lcsc_pn": null,
+      "unit_cost_est": {
+        "value": 0.7,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Stamped 3 mm steel, 380 g"
+      },
+      "risk": null,
+      "alternative": null
+    },
+    {
+      "id": "m6",
+      "part": "N52 neodymium magnet Ø10×3 mm",
+      "category": "mechanical",
+      "qty": 4.0,
+      "description": null,
+      "manufacturer_pn": null,
+      "lcsc_pn": null,
+      "unit_cost_est": {
+        "value": 0.08,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Catalogue magnet, 10k pcs"
+      },
+      "risk": {
+        "level": "medium",
+        "reasons": [
+          "Rare-earth price volatility"
+        ]
+      },
+      "alternative": "N45 grade at slightly lower pull force"
+    },
+    {
+      "id": "m7",
+      "part": "Fastener set (M2/M3 screws)",
+      "category": "mechanical",
+      "qty": 1.0,
+      "description": null,
+      "manufacturer_pn": null,
+      "lcsc_pn": null,
+      "unit_cost_est": {
+        "value": 0.1,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Standard fasteners"
+      },
+      "risk": null,
+      "alternative": null
+    },
+    {
+      "id": "m8",
+      "part": "Silicone foot pad",
+      "category": "mechanical",
+      "qty": 1.0,
+      "description": null,
+      "manufacturer_pn": null,
+      "lcsc_pn": null,
+      "unit_cost_est": {
+        "value": 0.12,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Die-cut silicone"
+      },
+      "risk": null,
+      "alternative": null
+    },
+    {
+      "id": "k1",
+      "part": "Retail box + moulded pulp insert",
+      "category": "packaging",
+      "qty": 1.0,
+      "description": null,
+      "manufacturer_pn": null,
+      "lcsc_pn": null,
+      "unit_cost_est": {
+        "value": 0.9,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Rigid 2-piece box, 1-colour print"
+      },
+      "risk": null,
+      "alternative": null
+    },
+    {
+      "id": "k2",
+      "part": "USB-C cable 1 m",
+      "category": "packaging",
+      "qty": 1.0,
+      "description": null,
+      "manufacturer_pn": null,
+      "lcsc_pn": null,
+      "unit_cost_est": {
+        "value": 0.45,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Generic USB-C to USB-C 3 A"
+      },
+      "risk": null,
+      "alternative": null
+    }
+  ],
+  "tolerances": [
+    "General ISO 2768-m",
+    "Magnet pockets ±0.1 mm",
+    "Head/stem air gap 0.3 ± 0.1 mm"
+  ],
+  "cad_files": [
+    {
+      "format": "glb",
+      "url": "/files/demo_desk_lamp/d1.glb",
+      "description": "Full product — materials (viewer model of direction d1)",
+      "size_bytes": 768784
+    },
+    {
+      "format": "step",
+      "url": "/files/demo_desk_lamp/enclosure.step",
+      "description": "Moulded parts (DFM) — Enclosure B-rep (build123d): moulded head housing + base shell, 1.5° draft, M2.5 bosses — open in any CAD tool",
+      "size_bytes": 454039
+    },
+    {
+      "format": "stl",
+      "url": "/files/demo_desk_lamp/enclosure.stl",
+      "description": "Moulded parts (DFM) — Enclosure mesh for 3D-printed prototypes",
+      "size_bytes": 1146884
+    },
+    {
+      "format": "glb",
+      "url": "/files/demo_desk_lamp/enclosure.glb",
+      "description": "Moulded parts (DFM) — Enclosure model for the 3D viewer",
+      "size_bytes": 705824
+    }
+  ]
+}

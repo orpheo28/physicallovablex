@@ -1,0 +1,88 @@
+{
+  "project_id": "demo_tracker_card",
+  "status": "validated",
+  "fallback": false,
+  "fallback_reason": null,
+  "generated_by": "fixture",
+  "generated_at": "2026-09-26T12:00:00Z",
+  "assumptions": [],
+  "stage": 6,
+  "steps": [
+    {
+      "part_id": "p1",
+      "part_name": "Top shell",
+      "process": "injection_molding",
+      "reason": "Thin-wall textured PC part at 2k+ volume; mold pays back vs CNC above ~100 units",
+      "region": "Shenzhen, Guangdong",
+      "lead_time_days": {
+        "value": 28.0,
+        "unit": "days",
+        "label": "estimate",
+        "source_or_assumption": "T0 mold lead time (thin-wall)"
+      }
+    },
+    {
+      "part_id": "p2",
+      "part_name": "Bottom shell",
+      "process": "injection_molding",
+      "reason": "Same resin, same molder, same mold base as the top shell",
+      "region": "Shenzhen, Guangdong",
+      "lead_time_days": {
+        "value": 28.0,
+        "unit": "days",
+        "label": "estimate",
+        "source_or_assumption": "T0 mold lead time (thin-wall)"
+      }
+    },
+    {
+      "part_id": "p3",
+      "part_name": "PCBA",
+      "process": "pcba",
+      "reason": "SMT with WLCSP SoC on LCSC parts; turnkey PCBA with in-line RF test",
+      "region": "Shenzhen, Guangdong",
+      "lead_time_days": {
+        "value": 14.0,
+        "unit": "days",
+        "label": "estimate",
+        "source_or_assumption": "Turnkey PCBA incl. parts"
+      }
+    },
+    {
+      "part_id": "p4",
+      "part_name": "Cell integration + ultrasonic welding",
+      "process": "assembly",
+      "reason": "Cell attach, buzzer bond and weld in one cell of the assembly line with a 100% functional RF check",
+      "region": "Shenzhen, Guangdong",
+      "lead_time_days": {
+        "value": 21.0,
+        "unit": "days",
+        "label": "estimate",
+        "source_or_assumption": "Mass production run for 2,000 units"
+      }
+    },
+    {
+      "part_id": "p5",
+      "part_name": "Graphic overlay",
+      "process": "other",
+      "reason": "Die-cut printed PET from a label converter",
+      "region": "Dongguan, Guangdong",
+      "lead_time_days": {
+        "value": 10.0,
+        "unit": "days",
+        "label": "estimate",
+        "source_or_assumption": "Print + die-cut"
+      }
+    }
+  ],
+  "assembly_notes": [
+    "100% RF/BLE functional test and firmware flash on the jig",
+    "Cells shipped by sea only (UN3090 packed with equipment, UN38.3 summary on file)",
+    "Ultrasonic weld energy validated on golden sample before mass production"
+  ],
+  "total_lead_time_days": {
+    "value": 59.0,
+    "unit": "days",
+    "label": "estimate",
+    "source_or_assumption": "Critical path: molds (28) + T1 (10) + mass production (21)"
+  }
+}

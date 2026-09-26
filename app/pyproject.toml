@@ -1,0 +1,28 @@
+[project]
+name = "physicallovablex-api"
+version = "0.1.0"
+description = "PhysicalLovableX MVP API (FastAPI)"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "build123d>=0.13.0",
+    "fastapi>=0.141.1",
+    "httpx>=0.28.1",
+    "mcp>=2.2.0",
+    "openai>=3.19.2",
+    "pandas>=3.0.6",
+    "pydantic>=2.13.5",
+    "pytest>=9.1.1",
+    "python-dotenv>=1.2.3",
+    "python-multipart>=0.0.32",
+    "reportlab>=5.0.1",
+    "sqlmodel>=0.0.47",
+    "uvicorn[standard]>=0.54.0",
+]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "api", "factory_mcp"]
+python_files = ["test_*.py"]
+pythonpath = ["."]

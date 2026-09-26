@@ -1,0 +1,83 @@
+{
+ "slug": "desk_lamp",
+ "fetched_on": "2026-09-26",
+ "queries": [
+  "rechargeable LED desk lamp",
+  "portable electric lamp battery LED table lamp",
+  "portable lamp China 9903.88.03"
+ ],
+ "rulings": [
+  {
+   "rulingNumber": "N097727",
+   "subject": "The tariff classification of two table lamps and a floating lamp from China.",
+   "rulingDate": "2010-03-31",
+   "tariffs": "9405.20.8010, 9405.40.8000",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "rechargeable LED desk lamp"
+  },
+  {
+   "rulingNumber": "N233030",
+   "subject": "The tariff classification of solar flower stake from China.",
+   "rulingDate": "2012-10-01",
+   "tariffs": "6702.90.3500",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "rechargeable LED desk lamp"
+  },
+  {
+   "rulingNumber": "K87558",
+   "subject": "The tariff classification of flashlights from Taiwan or China.",
+   "rulingDate": "2004-08-09",
+   "tariffs": "8513.10.2000",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "portable electric lamp battery LED table lamp"
+  },
+  {
+   "rulingNumber": "J81265",
+   "subject": "The tariff classification of a portable lamp from Taiwan.",
+   "rulingDate": "2003-03-03",
+   "tariffs": "8513.10.4000",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "portable electric lamp battery LED table lamp"
+  },
+  {
+   "rulingNumber": "N020250",
+   "subject": "The tariff classification of a portable lamp from China.",
+   "rulingDate": "2007-12-14",
+   "tariffs": "8513.10.4000",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "portable electric lamp battery LED table lamp"
+  },
+  {
+   "rulingNumber": "N248128",
+   "subject": "The tariff classification of an LED Table Lamp and Flashlight from China",
+   "rulingDate": "2013-12-12",
+   "tariffs": "8513.10.4000",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "portable electric lamp battery LED table lamp"
+  },
+  {
+   "rulingNumber": "H003863",
+   "subject": "Classification of the Light Emitting Diode (LED) Pumpkin Light; Revocation of New York Ruling Letter (NY) L89316, dated January 11, 2006.",
+   "rulingDate": "2007-10-10",
+   "tariffs": "9405.40.8000",
+   "collection": "hq",
+   "operationallyRevoked": false,
+   "found_by": "portable electric lamp battery LED table lamp"
+  },
+  {
+   "rulingNumber": "N350173",
+   "subject": "The tariff classification of an LED clip-on light from China",
+   "rulingDate": "2025-07-09",
+   "tariffs": "8513.10.4000, 9903.01.24, 9903.01.25, 9903.88.03",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "portable lamp China 9903.88.03"
+  }
+ ]
+}

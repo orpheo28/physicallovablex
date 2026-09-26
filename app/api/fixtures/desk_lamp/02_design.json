@@ -1,0 +1,143 @@
+{
+  "project_id": "demo_desk_lamp",
+  "status": "validated",
+  "fallback": false,
+  "fallback_reason": null,
+  "generated_by": "fixture",
+  "generated_at": "2026-09-26T12:00:00Z",
+  "assumptions": [
+    {
+      "id": "a2_render",
+      "text": "AI concept render — illustrative, not the CAD",
+      "label": "estimate",
+      "source": null,
+      "stage": 2
+    },
+    {
+      "id": "a2_hero",
+      "text": "Rendered from the CAD: /files/demo_desk_lamp/hero_d1.png, /files/demo_desk_lamp/hero_d2.png, /files/demo_desk_lamp/hero_d3.png",
+      "label": "estimate",
+      "source": null,
+      "stage": 2
+    }
+  ],
+  "stage": 2,
+  "directions": [
+    {
+      "id": "d1",
+      "name": "Column",
+      "description": "Slim anodised aluminium column, rectangular LED head snaps on at the top via 4 magnets.",
+      "shape": "Rectilinear column + bar head",
+      "material": "Aluminium 6063 + PC/ABS",
+      "finish": "Bead-blasted natural anodised stem; warm white MT-11010 texture on head and base",
+      "dimensions": {
+        "length": {
+          "value": 180.0,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        },
+        "width": {
+          "value": 120.0,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        },
+        "height": {
+          "value": 340.0,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        }
+      },
+      "cad_parameters": {
+        "head_length": 180.0,
+        "head_width": 40.0,
+        "head_height": 18.0,
+        "stem_height": 300.0,
+        "stem_diameter": 16.0,
+        "base_length": 120.0,
+        "base_width": 120.0,
+        "base_height": 22.0,
+        "wall": 2.0
+      },
+      "render_url": "/files/demo_desk_lamp/d1.png",
+      "glb_url": "/files/demo_desk_lamp/d1.glb"
+    },
+    {
+      "id": "d2",
+      "name": "Arc",
+      "description": "Single moulded arc from base to head, magnetic puck head for handheld use.",
+      "shape": "Continuous arc",
+      "material": "PC/ABS",
+      "finish": "Soft-touch paint, graphite",
+      "dimensions": {
+        "length": {
+          "value": 220.0,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        },
+        "width": {
+          "value": 110.0,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        },
+        "height": {
+          "value": 320.0,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        }
+      },
+      "cad_parameters": {
+        "arc_radius": 180.0,
+        "arc_width": 30.0,
+        "head_diameter": 70.0,
+        "base_diameter": 110.0,
+        "wall": 2.2
+      },
+      "render_url": "/files/demo_desk_lamp/d2.png",
+      "glb_url": "/files/demo_desk_lamp/d2.glb"
+    },
+    {
+      "id": "d3",
+      "name": "Puck",
+      "description": "Low steel base with a magnetic puck lamp that tilts 360°.",
+      "shape": "Disc + hemisphere",
+      "material": "Zinc die-cast + PC",
+      "finish": "Powder coat, charcoal (base); warm white lamp",
+      "dimensions": {
+        "length": {
+          "value": 130.0,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        },
+        "width": {
+          "value": 130.0,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        },
+        "height": {
+          "value": 150.0,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        }
+      },
+      "cad_parameters": {
+        "base_diameter": 130.0,
+        "base_height": 15.0,
+        "puck_diameter": 90.0,
+        "puck_height": 45.0,
+        "wall": 2.0
+      },
+      "render_url": "/files/demo_desk_lamp/d3.png",
+      "glb_url": "/files/demo_desk_lamp/d3.glb"
+    }
+  ],
+  "chosen_direction_id": "d1"
+}

@@ -1,0 +1,78 @@
+{
+  "$defs": {
+    "ProcessType": {
+      "enum": [
+        "injection_molding",
+        "cnc",
+        "sheet_metal",
+        "die_casting",
+        "extrusion",
+        "pcba",
+        "assembly",
+        "other"
+      ],
+      "title": "ProcessType",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Mirrors MCP `register_capacity` input (PRD \u00a710).",
+  "properties": {
+    "processes": {
+      "items": {
+        "$ref": "#/$defs/ProcessType"
+      },
+      "title": "Processes",
+      "type": "array"
+    },
+    "materials": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Materials",
+      "type": "array"
+    },
+    "moq": {
+      "title": "Moq",
+      "type": "integer"
+    },
+    "certifications": {
+      "description": "Factory certifications, e.g. ISO 9001, BSCI",
+      "items": {
+        "type": "string"
+      },
+      "title": "Certifications",
+      "type": "array"
+    },
+    "lead_time_days": {
+      "title": "Lead Time Days",
+      "type": "integer"
+    },
+    "monthly_capacity": {
+      "description": "Units per month",
+      "title": "Monthly Capacity",
+      "type": "integer"
+    },
+    "current_load_pct": {
+      "title": "Current Load Pct",
+      "type": "number"
+    },
+    "label": {
+      "const": "fictional",
+      "default": "fictional",
+      "title": "Label",
+      "type": "string"
+    }
+  },
+  "required": [
+    "processes",
+    "materials",
+    "moq",
+    "certifications",
+    "lead_time_days",
+    "monthly_capacity",
+    "current_load_pct"
+  ],
+  "title": "CapacityProfile",
+  "type": "object"
+}

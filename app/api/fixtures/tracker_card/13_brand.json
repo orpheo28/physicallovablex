@@ -1,0 +1,117 @@
+{
+  "project_id": "demo_tracker_card",
+  "status": "validated",
+  "fallback": false,
+  "fallback_reason": null,
+  "generated_by": "fixture",
+  "generated_at": "2026-09-26T12:00:00Z",
+  "assumptions": [],
+  "stage": 13,
+  "name_options": [
+    {
+      "name": "Plinq",
+      "rationale": "Coined, short and ownable; sounds like the ping that finds your wallet. Trademark search needed before use."
+    },
+    {
+      "name": "Slipfind",
+      "rationale": "Slips in, finds it; descriptive and searchable. Trademark search needed before use."
+    },
+    {
+      "name": "Cardwing",
+      "rationale": "A card that flies back to you; playful. Trademark search needed before use."
+    }
+  ],
+  "chosen_name": null,
+  "packaging": {
+    "box_type": "Paperboard folding carton with tuck flap",
+    "dimensions": {
+      "length": {
+        "value": 95.0,
+        "unit": "mm",
+        "label": "estimate",
+        "source_or_assumption": "Product + 8 mm clearance"
+      },
+      "width": {
+        "value": 62.0,
+        "unit": "mm",
+        "label": "estimate",
+        "source_or_assumption": "Product + 8 mm clearance"
+      },
+      "height": {
+        "value": 6.0,
+        "unit": "mm",
+        "label": "estimate",
+        "source_or_assumption": "Product + 8 mm clearance"
+      }
+    },
+    "materials": [
+      "350 g paperboard",
+      "Soy-ink print"
+    ],
+    "printing": "1-colour black + matte varnish",
+    "contents": [
+      "Tracker card",
+      "Quick-start card"
+    ],
+    "unit_cost": {
+      "value": 0.18,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Packaging BOM line k1"
+    }
+  },
+  "landing_copy": {
+    "headline": "Never lose your wallet again.",
+    "subheadline": "A card-thin Bluetooth tracker that slides in next to your cards and rings your phone in one press.",
+    "bullets": [
+      "Fits any wallet card slot",
+      "Ring your phone from the card, ring the card from your phone",
+      "Sealed cell, nothing to charge"
+    ],
+    "cta": "Reserve yours — $24.99"
+  },
+  "shopify_listing": {
+    "channel": "shopify",
+    "title": "Plinq — Bluetooth Tracker Card for Wallets",
+    "description": "Wallet-card Bluetooth tracker with a sealed battery. Ring it from your phone, ring your phone from the card.",
+    "bullets": [
+      "Wallet-card size",
+      "Bluetooth 5 ring",
+      "No charging"
+    ],
+    "price": {
+      "value": 24.99,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Founder target retail price $24.99 (comparable wallet trackers retail in the $20-35 range, not verified)"
+    },
+    "keywords": [
+      "wallet tracker",
+      "bluetooth tracker card",
+      "item finder"
+    ]
+  },
+  "amazon_listing": {
+    "channel": "amazon",
+    "title": "Plinq Wallet Tracker Card, Bluetooth Item Finder, Ultra-Thin Card Fits Any Wallet",
+    "description": "Ultra-thin Bluetooth tracker card for wallets, passport sleeves and card holders.",
+    "bullets": [
+      "WALLET-CARD SIZE — slides in with your cards",
+      "BLUETOOTH RING — find your wallet from your phone",
+      "PHONE FINDER — press the button to ring your phone",
+      "SEALED BATTERY — no charging"
+    ],
+    "price": {
+      "value": 24.99,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Founder target retail price $24.99 (comparable wallet trackers retail in the $20-35 range, not verified)"
+    },
+    "keywords": [
+      "wallet tracker",
+      "tracker card",
+      "item finder",
+      "bluetooth"
+    ]
+  }
+}

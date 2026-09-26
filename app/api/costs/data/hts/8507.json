@@ -1,0 +1,449 @@
+{
+ "fetched_on": "2026-09-26",
+ "source_url": "https://hts.usitc.gov/reststop/exportList?from=8507&to=8508&format=JSON&styles=false",
+ "rows": [
+  {
+   "htsno": "8507",
+   "indent": "0",
+   "description": "Electric storage batteries, including separators therefor, whether or not rectangular (including square); parts thereof:",
+   "superior": null,
+   "units": [],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": "",
+   "additionalDuties": "",
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8507.10.00",
+   "indent": "1",
+   "description": "Lead-acid storage batteries, of a kind used for starting piston engines",
+   "superior": null,
+   "units": [],
+   "general": "3.5%",
+   "special": "Free (A,AU,B,BH,C,CL,CO,D,E,IL,JO,KR,MA,OM,P,PA,PE,S,SG)",
+   "other": "40%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8507.10.00.30",
+   "indent": "3",
+   "description": "Not exceeding 6 kg in weight",
+   "superior": null,
+   "units": [
+    "No.",
+    "kg"
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8507.10.00.60",
+   "indent": "3",
+   "description": "Exceeding 6 kg in weight",
+   "superior": null,
+   "units": [
+    "No.",
+    "kg"
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8507.10.00.90",
+   "indent": "2",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No.",
+    "kg"
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8507.20",
+   "indent": "1",
+   "description": "Other lead-acid storage batteries:",
+   "superior": null,
+   "units": [],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": "",
+   "additionalDuties": "",
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8507.20.40.00",
+   "indent": "2",
+   "description": "Of a kind used as the primary source of electrical power for electrically powered vehicles of subheadings 8703.40, 8703.50, 8703.60, 8703.70 or 8703.80",
+   "superior": null,
+   "units": [
+    "No.",
+    "kg"
+   ],
+   "general": "3.5%",
+   "special": "Free (A*,AU,B,BH,CL,CO,D,E,IL,JO,KR,MA,OM,P,PA,PE,S,SG)",
+   "other": "40%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8507.20.80",
+   "indent": "2",
+   "description": "Other",
+   "superior": null,
+   "units": [],
+   "general": "3.5%",
+   "special": "Free (A*,AU,B,BH,C,CL,CO,D,E,IL,JO,KR,MA,OM,P,PA,PE,S,SG)",
+   "other": "40%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8507.20.80.31",
+   "indent": "3",
+   "description": "6 V batteries",
+   "superior": null,
+   "units": [
+    "No.",
+    "kg"
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8507.20.80.41",
+   "indent": "3",
+   "description": "12 V batteries",
+   "superior": null,
+   "units": [
+    "No.",
+    "kg"
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8507.20.80.61",
+   "indent": "3",
+   "description": "36 V batteries",
+   "superior": null,
+   "units": [
+    "No.",
+    "kg"
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8507.20.80.92",
+   "indent": "3",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No.",
+    "kg"
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8507.30",
+   "indent": "1",
+   "description": "Nickel-cadmium storage batteries:",
+   "superior": null,
+   "units": [],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": "",
+   "additionalDuties": "",
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8507.30.40.00",
+   "indent": "2",
+   "description": "Of a kind used as the primary source of electrical power for electrically powered vehicles of subheadings 8703.40, 8703.50, 8703.60, 8703.70 or 8703.80",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "2.5%",
+   "special": "Free (A,AU,B,BH,CL,CO,D,E,IL,JO,KR,MA,OM,P,PA,PE,S,SG)",
+   "other": "40%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8507.30.80",
+   "indent": "2",
+   "description": "Other",
+   "superior": null,
+   "units": [],
+   "general": "2.5%",
+   "special": "Free (A,AU,B,BH,C,CL,CO,D,E,IL,JO,KR,MA,OM,P,PA,PE,S,SG)",
+   "other": "40%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8507.30.80.10",
+   "indent": "3",
+   "description": "Sealed",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8507.30.80.90",
+   "indent": "3",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8507.50.00.00",
+   "indent": "1",
+   "description": "Nickel-metal hydride batteries",
+   "superior": null,
+   "units": [
+    "No.",
+    "kg"
+   ],
+   "general": "3.4%",
+   "special": "Free (A,AU,B,BH,C,CL,CO,D,E,IL,JO,KR,MA,OM,P,PA,PE,S,SG)",
+   "other": "40%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8507.60.00",
+   "indent": "1",
+   "description": "Lithium-ion batteries",
+   "superior": null,
+   "units": [],
+   "general": "3.4%",
+   "special": "Free (A,AU,B,BH,C,CL,CO,D,E,IL,JO,KR,MA,OM,P,PA,PE,S,SG)",
+   "other": "40%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8507.60.00.10",
+   "indent": "2",
+   "description": "Of a kind used as the primary source of electrical power for electrically powered vehicles of subheadings 8703.40, 8703.50, 8703.60, 8703.70 or 8703.80",
+   "superior": null,
+   "units": [
+    "No.",
+    "kg"
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8507.60.00.30",
+   "indent": "3",
+   "description": "Battery energy storage systems fully encased within a housing, as described in statistical note 2 to this chapter",
+   "superior": null,
+   "units": [
+    "No.",
+    "kg"
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8507.60.00.90",
+   "indent": "3",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No.",
+    "kg"
+   ],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8507.80",
+   "indent": "1",
+   "description": "Other storage batteries:",
+   "superior": null,
+   "units": [],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": "",
+   "additionalDuties": "",
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8507.80.41.00",
+   "indent": "2",
+   "description": "Of a kind used as the primary source of electrical power for electrically powered vehicles of subheadings 8703.40, 8703.50, 8703.60, 8703.70 or 8703.80",
+   "superior": null,
+   "units": [
+    "No."
+   ],
+   "general": "3.4%",
+   "special": "Free (A,AU,B,BH,CL,CO,D,E,IL,JO,KR,MA,OM,P,PA,PE,S,SG)",
+   "other": "40%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8507.80.82.00",
+   "indent": "2",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "No.",
+    "kg"
+   ],
+   "general": "3.4%",
+   "special": "Free (A,AU,B,BH,C,CL,CO,D,E,IL,JO,JP,KR,MA,OM,P,PA,PE,S,SG)",
+   "other": "40%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8507.90",
+   "indent": "1",
+   "description": "Parts:",
+   "superior": null,
+   "units": [],
+   "general": "",
+   "special": "",
+   "other": "",
+   "footnotes": [],
+   "quotaQuantity": "",
+   "additionalDuties": "",
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8507.90.40.00",
+   "indent": "2",
+   "description": "Of lead-acid storage batteries",
+   "superior": null,
+   "units": [
+    "kg"
+   ],
+   "general": "3.5%",
+   "special": "Free (A,AU,B,BH,C,CL,CO,D,E,IL,JO,KR,MA,OM,P,PA,PE,S,SG)",
+   "other": "40%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  },
+  {
+   "htsno": "8507.90.80.00",
+   "indent": "2",
+   "description": "Other",
+   "superior": null,
+   "units": [
+    "kg"
+   ],
+   "general": "3.4%",
+   "special": "Free (A,AU,B,BH,C,CL,CO,D,E,IL,JO,KR,MA,OM,P,PA,PE,S,SG)",
+   "other": "40%",
+   "footnotes": [],
+   "quotaQuantity": null,
+   "additionalDuties": null,
+   "addiitionalDuties": null
+  }
+ ]
+}

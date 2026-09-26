@@ -1,0 +1,82 @@
+{
+  "$defs": {
+    "AutorunState": {
+      "enum": [
+        "idle",
+        "running",
+        "done",
+        "failed"
+      ],
+      "title": "AutorunState",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Progress of the background autorun (stages 1-7). Poll GET /projects/{id} every ~2 s.",
+  "properties": {
+    "state": {
+      "$ref": "#/$defs/AutorunState",
+      "default": "idle"
+    },
+    "current_stage": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Stage being run while state == running",
+      "title": "Current Stage"
+    },
+    "completed_stages": {
+      "items": {
+        "type": "integer"
+      },
+      "title": "Completed Stages",
+      "type": "array"
+    },
+    "started_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Started At"
+    },
+    "finished_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Finished At"
+    },
+    "error": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Error"
+    }
+  },
+  "title": "AutorunStatus",
+  "type": "object"
+}

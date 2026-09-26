@@ -1,0 +1,209 @@
+{
+  "project_id": "demo_desk_lamp",
+  "status": "validated",
+  "fallback": false,
+  "fallback_reason": null,
+  "generated_by": "fixture",
+  "generated_at": "2026-09-26T12:00:00Z",
+  "assumptions": [
+    {
+      "id": "a10",
+      "text": "Measured DFM checks assume a straight two-half tool pulling along ±Z (split line in the XY plane)",
+      "label": "estimate",
+      "source": "api/dfm/measure.py on api/cad/prebuilt/demo_desk_lamp/enclosure.step",
+      "stage": 4
+    }
+  ],
+  "stage": 4,
+  "issues": [
+    {
+      "id": "m1",
+      "severity": "minor",
+      "category": "draft",
+      "method": "measured",
+      "part_id": "p1",
+      "description": "Minimum wall draft is 1.43°: enough for a polished finish, short of the ~3° a textured finish ('MT-11010 texture') needs.",
+      "fix": "Increase draft to 3° on textured faces, or specify a lighter texture / polished finish.",
+      "rule_citation": "Draft ≥1° plus 1° per 0.025 mm texture depth — Protolabs injection molding design guidelines; measured with text-to-cad DFM skill (mold_tool.py, MIT) ported to OCCT",
+      "measurement": {
+        "value": 1.429,
+        "unit": "deg",
+        "label": "measured",
+        "source_or_assumption": "Min wall draft vs pull +Z: lowest-draft B-rep wall face ≥ 113.37 mm² (curved, 148.02 mm² at [-49.91, -49.91, 7.11]) — text-to-cad DFM skill (mold_tool.py, MIT) ported to OCCT"
+      },
+      "resolved": false,
+      "resolution": null
+    },
+    {
+      "id": "m2",
+      "severity": "minor",
+      "category": "projection",
+      "method": "measured",
+      "part_id": "p1",
+      "description": "Projected area along +Z: 21162 mm² (part silhouette, per cavity). Estimated clamp force ≈ 108.2 t (Estimate: area in² × 3.0 t/in² for PC/ABS × 1.1 safety) — per cavity; a family tool moulding both shells in one shot roughly doubles it.",
+      "fix": "Quote on a press ≥ 130 t; keep both shells in one family mould only if tonnage allows.",
+      "rule_citation": "Clamp force ≈ projected area × cavity-pressure factor (2-5 t/in²) — Protolabs injection molding design guidelines; silhouette raster from text-to-cad DFM skill (mold_tool.py, MIT) ported to OCCT",
+      "measurement": {
+        "value": 21162.1,
+        "unit": "mm2",
+        "label": "measured",
+        "source_or_assumption": "Silhouette along +Z, raster 0.45 mm — text-to-cad DFM skill (mold_tool.py, MIT) ported to OCCT"
+      },
+      "resolved": false,
+      "resolution": null
+    },
+    {
+      "id": "m3",
+      "severity": "minor",
+      "category": "wall_thickness",
+      "method": "measured",
+      "part_id": "p1",
+      "description": "Measured wall 2.00-2.20 mm is within the PC/ABS 1.2-3.5 mm range; keep bosses/ribs ≤ 60% of nominal wall to avoid sink.",
+      "fix": "No change to nominal wall; core bosses and ribs to ≤ 60% of the wall.",
+      "rule_citation": "PC/ABS wall 1.2-3.5 mm, ribs/bosses ≤ 60% of wall — Protolabs injection molding design guidelines",
+      "measurement": {
+        "value": 2.0,
+        "unit": "mm",
+        "label": "measured",
+        "source_or_assumption": "5th percentile of 12120 ray samples into the material (median 2.2 mm)"
+      },
+      "resolved": false,
+      "resolution": null
+    },
+    {
+      "id": "i4",
+      "severity": "major",
+      "category": "tolerance",
+      "method": "ai_reviewed",
+      "part_id": "p3",
+      "description": "Magnetic head/stem coupling needs a controlled air gap; anodising adds ~20 µm per side.",
+      "fix": "Specify 0.3 ± 0.1 mm air gap after finishing and mask pogo contact area before anodising.",
+      "rule_citation": "Type II anodising build-up ~50% outward growth — MIL-A-8625 guidance",
+      "measurement": null,
+      "resolved": false,
+      "resolution": null
+    },
+    {
+      "id": "i5",
+      "severity": "critical",
+      "category": "assembly",
+      "method": "ai_reviewed",
+      "part_id": "p4",
+      "description": "18650 cell sits against the LED driver area; heat and pinch risk during assembly.",
+      "fix": "Add a cell cradle rib with 2 mm clearance and a thermal barrier; cell protection circuit mandatory.",
+      "rule_citation": "IEC 62133-2 cell protection and thermal abuse clauses",
+      "measurement": null,
+      "resolved": false,
+      "resolution": null
+    }
+  ],
+  "component_risks": [
+    {
+      "bom_item_id": "e6",
+      "part": "Li-ion cell 18650 3000 mAh",
+      "level": "high",
+      "reasons": [
+        "Counterfeit/unbranded cell risk",
+        "UN38.3 report required",
+        "Air-freight restrictions"
+      ],
+      "alternatives": [
+        "Tier-1 branded 18650 with UN38.3 + IEC 62133-2 reports"
+      ],
+      "stock": null,
+      "lead_time_weeks": {
+        "value": 6.0,
+        "unit": "weeks",
+        "label": "estimate",
+        "source_or_assumption": "Branded cell lead time"
+      }
+    },
+    {
+      "bom_item_id": "e5",
+      "part": "Touch-dimming MCU",
+      "level": "medium",
+      "reasons": [
+        "Part not selected"
+      ],
+      "alternatives": [
+        "Pick from LCSC basic parts to avoid extended-part fees"
+      ],
+      "stock": null,
+      "lead_time_weeks": null
+    },
+    {
+      "bom_item_id": "e2",
+      "part": "TP4056",
+      "level": "low",
+      "reasons": [
+        "Multi-source"
+      ],
+      "alternatives": [
+        "TP4056-MS (C7473158)"
+      ],
+      "stock": {
+        "value": 288672.0,
+        "unit": "units",
+        "label": "sourced",
+        "source_or_assumption": "LCSC stock via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C725790.html"
+      },
+      "lead_time_weeks": null
+    }
+  ],
+  "certifications": [
+    {
+      "market": "US",
+      "standard": "FCC Part 15B (unintentional radiator)",
+      "applies_because": "MCU clock + PWM LED driver",
+      "required": true,
+      "cost_est": {
+        "value": 2500.0,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Accredited lab quote range, demo assumption"
+      },
+      "lead_time_weeks": {
+        "value": 4.0,
+        "unit": "weeks",
+        "label": "estimate",
+        "source_or_assumption": "Typical lab queue"
+      }
+    },
+    {
+      "market": "EU",
+      "standard": "CE — EMC 2014/30/EU, RoHS, EN 62471 photobiological safety",
+      "applies_because": "Electronic lighting product sold in the EU",
+      "required": true,
+      "cost_est": {
+        "value": 3000.0,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Accredited lab quote range, demo assumption"
+      },
+      "lead_time_weeks": {
+        "value": 5.0,
+        "unit": "weeks",
+        "label": "estimate",
+        "source_or_assumption": "Typical lab queue"
+      }
+    },
+    {
+      "market": "Global",
+      "standard": "UN38.3 (battery transport) + IEC 62133-2",
+      "applies_because": "Contains a Li-ion 18650 cell",
+      "required": true,
+      "cost_est": {
+        "value": 1800.0,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "IEC 62133-2 test at pack level; UN38.3 summary from cell supplier"
+      },
+      "lead_time_weeks": {
+        "value": 4.0,
+        "unit": "weeks",
+        "label": "estimate",
+        "source_or_assumption": "Typical lab queue"
+      }
+    }
+  ]
+}

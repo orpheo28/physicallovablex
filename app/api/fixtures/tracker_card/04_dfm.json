@@ -1,0 +1,301 @@
+{
+  "project_id": "demo_tracker_card",
+  "status": "validated",
+  "fallback": false,
+  "fallback_reason": null,
+  "generated_by": "fixture",
+  "generated_at": "2026-09-26T12:00:00Z",
+  "assumptions": [
+    {
+      "id": "a10",
+      "text": "Measured DFM checks assume a straight two-half tool pulling along ±Z (split line in the XY plane)",
+      "label": "estimate",
+      "source": "api/dfm/measure.py on api/cad/prebuilt/demo_tracker_card/enclosure.step",
+      "stage": 4
+    },
+    {
+      "id": "a11",
+      "text": "Certification costs (FCC 15C, CE RED, Bluetooth SIG listing, UN38.3) are lab-quote ranges, not quotes",
+      "label": "estimate",
+      "source": null,
+      "stage": 4
+    }
+  ],
+  "stage": 4,
+  "issues": [
+    {
+      "id": "m1",
+      "severity": "minor",
+      "category": "draft",
+      "method": "measured",
+      "part_id": "p1",
+      "description": "Minimum wall draft is 1.00°: enough for a polished finish, short of the ~3° a textured finish ('VDI 24 matte texture, black') needs.",
+      "fix": "Increase draft to 3° on textured faces, or specify a lighter texture / polished finish.",
+      "rule_citation": "Draft ≥1° plus 1° per 0.025 mm texture depth — Protolabs injection molding design guidelines; measured with text-to-cad DFM skill (mold_tool.py, MIT) ported to OCCT",
+      "measurement": {
+        "value": 1.0,
+        "unit": "deg",
+        "label": "measured",
+        "source_or_assumption": "Min wall draft vs pull +Z: lowest-draft B-rep wall face ≥ 19.61 mm² (flat, 51.95 mm² at [-42.79, 0.0, 0.85]) — text-to-cad DFM skill (mold_tool.py, MIT) ported to OCCT"
+      },
+      "resolved": false,
+      "resolution": null
+    },
+    {
+      "id": "m2",
+      "severity": "minor",
+      "category": "projection",
+      "method": "measured",
+      "part_id": "p1",
+      "description": "Projected area along +Z: 4606 mm² (part silhouette, per cavity). Estimated clamp force ≈ 23.6 t (Estimate: area in² × 3.0 t/in² for PC/ABS × 1.1 safety) — per cavity; a family tool moulding both shells in one shot roughly doubles it.",
+      "fix": "Quote on a press ≥ 30 t; keep both shells in one family mould only if tonnage allows.",
+      "rule_citation": "Clamp force ≈ projected area × cavity-pressure factor (2-5 t/in²) — Protolabs injection molding design guidelines; silhouette raster from text-to-cad DFM skill (mold_tool.py, MIT) ported to OCCT",
+      "measurement": {
+        "value": 4606.3,
+        "unit": "mm2",
+        "label": "measured",
+        "source_or_assumption": "Silhouette along +Z, raster 0.214 mm — text-to-cad DFM skill (mold_tool.py, MIT) ported to OCCT"
+      },
+      "resolved": false,
+      "resolution": null
+    },
+    {
+      "id": "m3",
+      "severity": "major",
+      "category": "wall_thickness",
+      "method": "measured",
+      "part_id": "p1",
+      "description": "Thin walls: 5% of the surface sits on walls ≤ 0.50 mm.",
+      "fix": "Keep PC/ABS walls ≥ 1.2 mm; thicken local thin sections.",
+      "rule_citation": "PC/ABS wall 1.2-3.5 mm, ribs/bosses ≤ 60% of wall — Protolabs injection molding design guidelines",
+      "measurement": {
+        "value": 0.5,
+        "unit": "mm",
+        "label": "measured",
+        "source_or_assumption": "5th percentile of 3032 ray samples into the material (median 0.5 mm)"
+      },
+      "resolved": false,
+      "resolution": null
+    },
+    {
+      "id": "i4",
+      "severity": "critical",
+      "category": "assembly",
+      "method": "ai_reviewed",
+      "part_id": "p4",
+      "description": "Ultrasonic welding of the shells puts heat and vibration next to a sealed lithium pouch cell; puncture or short-circuit risk.",
+      "fix": "Keep the cell ≥3 mm from the weld line (validate with the cell supplier), add a cell pocket rib, and run a weld-energy test with a dummy cell.",
+      "rule_citation": "IEC 60086-4 (lithium battery safety) and cell supplier handling guideline — to be confirmed with supplier datasheet",
+      "measurement": null,
+      "resolved": false,
+      "resolution": null
+    },
+    {
+      "id": "i5",
+      "severity": "major",
+      "category": "other",
+      "method": "ai_reviewed",
+      "part_id": "p3",
+      "description": "Chip antenna detunes near metal (RFID-shield cards, metal wallets) and near the cell foil; range may drop in a real wallet.",
+      "fix": "Keep a ground-free keep-out under the antenna, place it at the short edge away from the cell, tune matching in a wallet with typical cards.",
+      "rule_citation": "Chip antenna vendor layout guideline (ground keep-out) — RF design practice",
+      "measurement": null,
+      "resolved": false,
+      "resolution": null
+    },
+    {
+      "id": "i6",
+      "severity": "major",
+      "category": "tolerance",
+      "method": "ai_reviewed",
+      "part_id": "p1",
+      "description": "Stack tolerance of shells + PCB + cell + weld collapse can push total thickness above the wallet-slot limit.",
+      "fix": "Specify 2.8 ± 0.15 mm after welding, define weld collapse (0.15 mm) and add a thickness check in QC.",
+      "rule_citation": "Ultrasonic welding energy-director design guide (collapse 0.1-0.2 mm) — Branson/Emerson plastics joining handbook",
+      "measurement": null,
+      "resolved": false,
+      "resolution": null
+    },
+    {
+      "id": "i7",
+      "severity": "minor",
+      "category": "assembly",
+      "method": "ai_reviewed",
+      "part_id": "p2",
+      "description": "Sealed shells attenuate the piezo buzzer; the card may be too quiet to find.",
+      "fix": "Add a 1.5 mm sound port over the buzzer with acoustic mesh (BOM m4) and test SPL on the golden sample.",
+      "rule_citation": "Piezo sounder acoustic-port practice — buzzer vendor application notes",
+      "measurement": null,
+      "resolved": false,
+      "resolution": null
+    }
+  ],
+  "component_risks": [
+    {
+      "bom_item_id": "e11",
+      "part": "Thin lithium primary pouch cell 3 V",
+      "level": "high",
+      "reasons": [
+        "UN38.3 report required",
+        "Counterfeit/unbranded cell risk",
+        "Air-freight restrictions (UN3090/3091)"
+      ],
+      "alternatives": [
+        "Branded thin primary cell with UN38.3 + IEC 60086-4 reports",
+        "Rechargeable thin LiPo (adds charge IC, IEC 62133-2)"
+      ],
+      "stock": null,
+      "lead_time_weeks": {
+        "value": 6.0,
+        "unit": "weeks",
+        "label": "estimate",
+        "source_or_assumption": "Branded cell lead time"
+      }
+    },
+    {
+      "bom_item_id": "e1",
+      "part": "BLE 5 SoC nRF52810 (WLCSP-33)",
+      "level": "medium",
+      "reasons": [
+        "Single source (Nordic)",
+        "WLCSP 0.4 mm pitch assembly",
+        "Stock 13.7k vs 2k order"
+      ],
+      "alternatives": [
+        "nRF52810 QFN-32 (C519278, stock 1,322) at higher thickness",
+        "nRF52805 WLCSP (C3606954, stock 1)"
+      ],
+      "stock": {
+        "value": 13709.0,
+        "unit": "units",
+        "label": "sourced",
+        "source_or_assumption": "LCSC stock via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C3606661.html"
+      },
+      "lead_time_weeks": null
+    },
+    {
+      "bom_item_id": "e10",
+      "part": "Piezo disc buzzer",
+      "level": "medium",
+      "reasons": [
+        "Loudness in sealed shells not validated"
+      ],
+      "alternatives": [
+        "Thin SMD magnetic transducer"
+      ],
+      "stock": null,
+      "lead_time_weeks": null
+    },
+    {
+      "bom_item_id": "e4",
+      "part": "2.4 GHz chip antenna",
+      "level": "low",
+      "reasons": [
+        "Stock 77k",
+        "Detuning to validate in wallet"
+      ],
+      "alternatives": [
+        "Printed PCB antenna"
+      ],
+      "stock": {
+        "value": 77484.0,
+        "unit": "units",
+        "label": "sourced",
+        "source_or_assumption": "LCSC stock via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C127629.html"
+      },
+      "lead_time_weeks": null
+    }
+  ],
+  "certifications": [
+    {
+      "market": "US",
+      "standard": "FCC Part 15C (intentional radiator, 2.4 GHz BLE) + 15B",
+      "applies_because": "Chip-down BLE radio, no pre-certified module",
+      "required": true,
+      "cost_est": {
+        "value": 4500.0,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Accredited lab quote range, demo assumption"
+      },
+      "lead_time_weeks": {
+        "value": 5.0,
+        "unit": "weeks",
+        "label": "estimate",
+        "source_or_assumption": "Typical lab queue"
+      }
+    },
+    {
+      "market": "EU",
+      "standard": "CE — RED 2014/53/EU (EN 300 328, EN 301 489, EN 62368-1), RoHS",
+      "applies_because": "Radio equipment sold in the EU",
+      "required": true,
+      "cost_est": {
+        "value": 5500.0,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Accredited lab quote range, demo assumption"
+      },
+      "lead_time_weeks": {
+        "value": 6.0,
+        "unit": "weeks",
+        "label": "estimate",
+        "source_or_assumption": "Typical lab queue"
+      }
+    },
+    {
+      "market": "Global",
+      "standard": "Bluetooth SIG qualification / listing (Declaration ID)",
+      "applies_because": "Product is marketed as a Bluetooth device",
+      "required": true,
+      "cost_est": {
+        "value": 3000.0,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Fee depends on SIG membership tier; assumption incl. listing help"
+      },
+      "lead_time_weeks": {
+        "value": 2.0,
+        "unit": "weeks",
+        "label": "estimate",
+        "source_or_assumption": "Listing after test reports"
+      }
+    },
+    {
+      "market": "Global",
+      "standard": "UN38.3 (lithium transport) summary + IEC 60086-4",
+      "applies_because": "Contains a sealed lithium metal (primary) cell",
+      "required": true,
+      "cost_est": {
+        "value": 1200.0,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Cell-level test summary from the cell supplier; assumption"
+      },
+      "lead_time_weeks": {
+        "value": 4.0,
+        "unit": "weeks",
+        "label": "estimate",
+        "source_or_assumption": "Cell supplier test queue"
+      }
+    },
+    {
+      "market": "US",
+      "standard": "16 CFR 1263 (Reese's Law, button/coin cells) — verify applicability",
+      "applies_because": "Applies to consumer products with a button or coin cell; our cell is a sealed flat pouch — to confirm with counsel/lab",
+      "required": false,
+      "cost_est": {
+        "value": 0.0,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "No test cost if the pouch cell is out of scope; assumption"
+      },
+      "lead_time_weeks": {
+        "value": 1.0,
+        "unit": "weeks",
+        "label": "estimate",
+        "source_or_assumption": "Applicability review"
+      }
+    }
+  ]
+}

@@ -1,0 +1,696 @@
+{
+  "project_id": "demo_desk_lamp",
+  "status": "validated",
+  "fallback": false,
+  "fallback_reason": null,
+  "generated_by": "fixture",
+  "generated_at": "2026-09-26T12:00:00Z",
+  "assumptions": [
+    {
+      "id": "a1",
+      "text": "EUR→USD at 1.08 for the €89 target price",
+      "label": "estimate",
+      "source": null,
+      "stage": 1
+    },
+    {
+      "id": "a2",
+      "text": "Volume curve: unit cost × 0.92 per tier step (500 → 2,000 → 10,000)",
+      "label": "estimate",
+      "source": "Demo assumption (PRD §11)",
+      "stage": 5
+    },
+    {
+      "id": "a3",
+      "text": "Assembly + factory overhead/margin: $3.10 per unit at 500",
+      "label": "estimate",
+      "source": null,
+      "stage": 5
+    },
+    {
+      "id": "a5",
+      "text": "Platform/agent fee 7% of FOB (benchmark 5-10%)",
+      "label": "estimate",
+      "source": "Dragon Sourcing benchmark 5-10%",
+      "stage": 11
+    },
+    {
+      "id": "a6",
+      "text": "HTS 8513.10.40.00: general duty 3.5% (Lamps — Other — precedent CBP ruling N248128 (2013-12-12): The tariff classification of an LED Table Lamp and Flashlight)",
+      "label": "sourced",
+      "source": "USITC HTS 8513.10.40.00 general rate 3.5%, https://hts.usitc.gov/search?query=8513.10.40.00, fetched 2026-09-26",
+      "stage": 11
+    },
+    {
+      "id": "a9",
+      "text": "Simple single-cavity P20 molds $1,800-3,500 each",
+      "label": "estimate",
+      "source": "Zetar Mold 2026 range $1,000-3,000 (vendor, medium)",
+      "stage": 5
+    },
+    {
+      "id": "a11",
+      "text": "Section 301 China 25% on HTS 8513.10.40.00",
+      "label": "sourced",
+      "source": "Section 301 China, heading 9903.88.03 (+25%): USITC HTS, https://hts.usitc.gov/search?query=9903.88.03, fetched 2026-09-26; heading cited with HTS 8513.10.4000 in CBP ruling N350173 (2025-07-09). Coverage on the entry date to be confirmed by a customs broker",
+      "stage": 11
+    }
+  ],
+  "stage": 5,
+  "currency": "USD",
+  "bom_lines": [
+    {
+      "bom_item_id": "e1",
+      "part": "White LED 2835 4000K 0.3 W",
+      "qty_per_unit": 24.0,
+      "unit_price": {
+        "value": 0.0077,
+        "unit": "USD",
+        "label": "sourced",
+        "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C210311.html"
+      },
+      "lcsc_pn": "C210311",
+      "stock": null,
+      "extended": {
+        "value": 0.1848,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "LCSC unit price (Sourced) × estimated quantity: 24 × 0.0077"
+      }
+    },
+    {
+      "bom_item_id": "e2",
+      "part": "Li-ion charger IC TP4056 (ESOP-8)",
+      "qty_per_unit": 1.0,
+      "unit_price": {
+        "value": 0.0505,
+        "unit": "USD",
+        "label": "sourced",
+        "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C725790.html"
+      },
+      "lcsc_pn": "C725790",
+      "stock": null,
+      "extended": {
+        "value": 0.0505,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "LCSC unit price (Sourced) × estimated quantity: 1 × 0.0505"
+      }
+    },
+    {
+      "bom_item_id": "e3",
+      "part": "USB-C receptacle 16P SMD",
+      "qty_per_unit": 1.0,
+      "unit_price": {
+        "value": 0.0598,
+        "unit": "USD",
+        "label": "sourced",
+        "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C2765186.html"
+      },
+      "lcsc_pn": "C2765186",
+      "stock": null,
+      "extended": {
+        "value": 0.0598,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "LCSC unit price (Sourced) × estimated quantity: 1 × 0.0598"
+      }
+    },
+    {
+      "bom_item_id": "e4",
+      "part": "N-MOSFET AO3400A (LED PWM)",
+      "qty_per_unit": 1.0,
+      "unit_price": {
+        "value": 0.0529,
+        "unit": "USD",
+        "label": "sourced",
+        "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C20917.html"
+      },
+      "lcsc_pn": "C20917",
+      "stock": null,
+      "extended": {
+        "value": 0.0529,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "LCSC unit price (Sourced) × estimated quantity: 1 × 0.0529"
+      }
+    },
+    {
+      "bom_item_id": "e5",
+      "part": "Touch-dimming MCU (8-bit, SOP-8)",
+      "qty_per_unit": 1.0,
+      "unit_price": {
+        "value": 0.25,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Part not selected yet; typical 8-bit MCU price"
+      },
+      "lcsc_pn": null,
+      "stock": null,
+      "extended": {
+        "value": 0.25,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "1 × 0.25"
+      }
+    },
+    {
+      "bom_item_id": "e6",
+      "part": "Li-ion cell 18650 3000 mAh",
+      "qty_per_unit": 1.0,
+      "unit_price": {
+        "value": 2.4,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Branded cell with UN38.3 report, 2k MOQ"
+      },
+      "lcsc_pn": null,
+      "stock": null,
+      "extended": {
+        "value": 2.4,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "1 × 2.4"
+      }
+    },
+    {
+      "bom_item_id": "e7",
+      "part": "Aluminium MCPCB for LED bar 170×12 mm",
+      "qty_per_unit": 1.0,
+      "unit_price": {
+        "value": 0.35,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "JLCPCB aluminium PCB, 2k pcs"
+      },
+      "lcsc_pn": null,
+      "stock": null,
+      "extended": {
+        "value": 0.35,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "1 × 0.35"
+      }
+    },
+    {
+      "bom_item_id": "e8",
+      "part": "Control PCB 2-layer + passives, assembled",
+      "qty_per_unit": 1.0,
+      "unit_price": {
+        "value": 0.6,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "PCBA incl. passives, 2k pcs"
+      },
+      "lcsc_pn": null,
+      "stock": null,
+      "extended": {
+        "value": 0.6,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "1 × 0.6"
+      }
+    },
+    {
+      "bom_item_id": "m1",
+      "part": "Head housing, PC/ABS, textured",
+      "qty_per_unit": 1.0,
+      "unit_price": {
+        "value": 0.95,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Part weight 28 g × resin + cycle cost"
+      },
+      "lcsc_pn": null,
+      "stock": null,
+      "extended": {
+        "value": 0.95,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "1 × 0.95"
+      }
+    },
+    {
+      "bom_item_id": "m2",
+      "part": "Opal PC diffuser",
+      "qty_per_unit": 1.0,
+      "unit_price": {
+        "value": 0.3,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Part weight 9 g"
+      },
+      "lcsc_pn": null,
+      "stock": null,
+      "extended": {
+        "value": 0.3,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "1 × 0.3"
+      }
+    },
+    {
+      "bom_item_id": "m3",
+      "part": "Stem, aluminium 6063 extrusion, anodised",
+      "qty_per_unit": 1.0,
+      "unit_price": {
+        "value": 1.6,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "300 mm cut length + anodising"
+      },
+      "lcsc_pn": null,
+      "stock": null,
+      "extended": {
+        "value": 1.6,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "1 × 1.6"
+      }
+    },
+    {
+      "bom_item_id": "m4",
+      "part": "Base shell, PC/ABS",
+      "qty_per_unit": 1.0,
+      "unit_price": {
+        "value": 1.1,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Part weight 35 g"
+      },
+      "lcsc_pn": null,
+      "stock": null,
+      "extended": {
+        "value": 1.1,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "1 × 1.1"
+      }
+    },
+    {
+      "bom_item_id": "m5",
+      "part": "Steel weight plate, zinc-plated",
+      "qty_per_unit": 1.0,
+      "unit_price": {
+        "value": 0.7,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Stamped 3 mm steel, 380 g"
+      },
+      "lcsc_pn": null,
+      "stock": null,
+      "extended": {
+        "value": 0.7,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "1 × 0.7"
+      }
+    },
+    {
+      "bom_item_id": "m6",
+      "part": "N52 neodymium magnet Ø10×3 mm",
+      "qty_per_unit": 4.0,
+      "unit_price": {
+        "value": 0.08,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Catalogue magnet, 10k pcs"
+      },
+      "lcsc_pn": null,
+      "stock": null,
+      "extended": {
+        "value": 0.32,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "4 × 0.08"
+      }
+    },
+    {
+      "bom_item_id": "m7",
+      "part": "Fastener set (M2/M3 screws)",
+      "qty_per_unit": 1.0,
+      "unit_price": {
+        "value": 0.1,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Standard fasteners"
+      },
+      "lcsc_pn": null,
+      "stock": null,
+      "extended": {
+        "value": 0.1,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "1 × 0.1"
+      }
+    },
+    {
+      "bom_item_id": "m8",
+      "part": "Silicone foot pad",
+      "qty_per_unit": 1.0,
+      "unit_price": {
+        "value": 0.12,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Die-cut silicone"
+      },
+      "lcsc_pn": null,
+      "stock": null,
+      "extended": {
+        "value": 0.12,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "1 × 0.12"
+      }
+    },
+    {
+      "bom_item_id": "k1",
+      "part": "Retail box + moulded pulp insert",
+      "qty_per_unit": 1.0,
+      "unit_price": {
+        "value": 0.9,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Rigid 2-piece box, 1-colour print"
+      },
+      "lcsc_pn": null,
+      "stock": null,
+      "extended": {
+        "value": 0.9,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "1 × 0.9"
+      }
+    },
+    {
+      "bom_item_id": "k2",
+      "part": "USB-C cable 1 m",
+      "qty_per_unit": 1.0,
+      "unit_price": {
+        "value": 0.45,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Generic USB-C to USB-C 3 A"
+      },
+      "lcsc_pn": null,
+      "stock": null,
+      "extended": {
+        "value": 0.45,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "1 × 0.45"
+      }
+    }
+  ],
+  "volume_factor": {
+    "value": 0.92,
+    "unit": "ratio",
+    "label": "estimate",
+    "source_or_assumption": "Volume curve: unit cost × 0.92 per tier step (500 → 2,000 → 10,000)"
+  },
+  "tiers": [
+    {
+      "quantity": 500,
+      "bom_cost": {
+        "value": 9.14,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "BOM at 500 × 0.92^0"
+      },
+      "assembly_cost": {
+        "value": 3.1,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Assembly + factory overhead/margin: $3.10 per unit at 500"
+      },
+      "packaging_cost": {
+        "value": 1.35,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Packaging BOM lines"
+      },
+      "unit_cost": {
+        "value": 13.59,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "BOM + assembly + packaging (ex-works)"
+      },
+      "tooling_amortisation": {
+        "value": 20.2,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "$10,100 / 500"
+      },
+      "margin_pct": {
+        "value": 55.8,
+        "unit": "pct",
+        "label": "estimate",
+        "source_or_assumption": "($96.12 target − $42.49 landed estimate) / target"
+      }
+    },
+    {
+      "quantity": 2000,
+      "bom_cost": {
+        "value": 8.41,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "BOM at 500 × 0.92^1"
+      },
+      "assembly_cost": {
+        "value": 2.85,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Assembly + factory overhead/margin: $3.10 per unit at 500"
+      },
+      "packaging_cost": {
+        "value": 1.24,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Packaging BOM lines"
+      },
+      "unit_cost": {
+        "value": 12.5,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "BOM + assembly + packaging (ex-works)"
+      },
+      "tooling_amortisation": {
+        "value": 5.05,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "$10,100 / 2000"
+      },
+      "margin_pct": {
+        "value": 73.9,
+        "unit": "pct",
+        "label": "estimate",
+        "source_or_assumption": "($96.12 target − $25.06 landed estimate) / target"
+      }
+    },
+    {
+      "quantity": 10000,
+      "bom_cost": {
+        "value": 7.73,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "BOM at 500 × 0.92^2"
+      },
+      "assembly_cost": {
+        "value": 2.62,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Assembly + factory overhead/margin: $3.10 per unit at 500"
+      },
+      "packaging_cost": {
+        "value": 1.14,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Packaging BOM lines"
+      },
+      "unit_cost": {
+        "value": 11.5,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "BOM + assembly + packaging (ex-works)"
+      },
+      "tooling_amortisation": {
+        "value": 1.01,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "$10,100 / 10000"
+      },
+      "margin_pct": {
+        "value": 80.1,
+        "unit": "pct",
+        "label": "estimate",
+        "source_or_assumption": "($96.12 target − $19.08 landed estimate) / target"
+      }
+    }
+  ],
+  "tooling": [
+    {
+      "name": "Head housing mold (1-cavity P20)",
+      "process": "injection_molding",
+      "cost": {
+        "value": 3500.0,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Zetar Mold 2026 range $1,000-3,000 (vendor, medium)"
+      }
+    },
+    {
+      "name": "Diffuser mold (1-cavity)",
+      "process": "injection_molding",
+      "cost": {
+        "value": 1800.0,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Zetar Mold 2026 range $1,000-3,000 (vendor, medium)"
+      }
+    },
+    {
+      "name": "Base shell mold (1-cavity P20)",
+      "process": "injection_molding",
+      "cost": {
+        "value": 3000.0,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Zetar Mold 2026 range $1,000-3,000 (vendor, medium)"
+      }
+    },
+    {
+      "name": "Extrusion die (stem profile)",
+      "process": "extrusion",
+      "cost": {
+        "value": 600.0,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Typical small-profile die"
+      }
+    },
+    {
+      "name": "Weight plate stamping die",
+      "process": "sheet_metal",
+      "cost": {
+        "value": 1200.0,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Single-stage blanking die"
+      }
+    }
+  ],
+  "tooling_total": {
+    "value": 10100.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Sum of tooling lines"
+  },
+  "certification_total": {
+    "value": 7300.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Sum of certification estimates"
+  },
+  "reference_quantity": 2000,
+  "total_cash_needed": {
+    "value": 58014.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Sum of cash_breakdown"
+  },
+  "cash_breakdown": [
+    {
+      "name": "Tooling",
+      "amount": {
+        "value": 10100.0,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Sum of tooling lines"
+      }
+    },
+    {
+      "name": "Certification",
+      "amount": {
+        "value": 7300.0,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "FCC + CE + IEC 62133-2"
+      }
+    },
+    {
+      "name": "Samples (T0, T1, golden)",
+      "amount": {
+        "value": 600.0,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "3 sample rounds incl. express shipping"
+      }
+    },
+    {
+      "name": "First production order (2,000 × FOB)",
+      "amount": {
+        "value": 25000.0,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "2,000 × $12.5"
+      }
+    },
+    {
+      "name": "Pre-shipment inspection",
+      "amount": {
+        "value": 540.0,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "V-Trust rate (Sourced) × estimated man-days: $268/man-day (V-Trust, https://www.v-trust.com/en/our-network, checked 2026-09-26) × 2 man-days"
+      }
+    },
+    {
+      "name": "Freight + insurance",
+      "amount": {
+        "value": 3954.0,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "SEA LCL per stage 11 (Drewry-derived) + insurance, × 2,000"
+      }
+    },
+    {
+      "name": "Duties (HTS + Section 301)",
+      "amount": {
+        "value": 7120.0,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "2,000 × FOB × (HTS 8513.10.40.00 3.5% + Section 301 25%) — rates sourced/sourced, see stage 11"
+      }
+    },
+    {
+      "name": "Broker, port, 3PL",
+      "amount": {
+        "value": 1640.0,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "Customs entry $350/shipment + port + 3PL per unit × 2,000"
+      }
+    },
+    {
+      "name": "Platform fee",
+      "amount": {
+        "value": 1760.0,
+        "unit": "USD",
+        "label": "estimate",
+        "source_or_assumption": "7% of FOB (benchmark 5-10%, Dragon Sourcing)"
+      }
+    }
+  ],
+  "target_retail_price": {
+    "value": 96.12,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "€89 × 1.08"
+  },
+  "breakeven_units": {
+    "value": 243.0,
+    "unit": "units",
+    "label": "estimate",
+    "source_or_assumption": "(tooling + certification + samples + QC) / (target price − variable landed cost)"
+  }
+}

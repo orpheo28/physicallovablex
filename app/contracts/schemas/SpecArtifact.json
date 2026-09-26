@@ -1,0 +1,576 @@
+{
+  "$defs": {
+    "Assumption": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "label": {
+          "$ref": "#/$defs/Label"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source"
+        },
+        "stage": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Stage that introduced the assumption",
+          "title": "Stage"
+        }
+      },
+      "required": [
+        "id",
+        "text",
+        "label"
+      ],
+      "title": "Assumption",
+      "type": "object"
+    },
+    "BOMCategory": {
+      "enum": [
+        "electronic",
+        "mechanical",
+        "packaging"
+      ],
+      "title": "BOMCategory",
+      "type": "string"
+    },
+    "BOMItem": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "part": {
+          "title": "Part",
+          "type": "string"
+        },
+        "category": {
+          "$ref": "#/$defs/BOMCategory"
+        },
+        "qty": {
+          "description": "Quantity per finished unit",
+          "title": "Qty",
+          "type": "number"
+        },
+        "description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Description"
+        },
+        "manufacturer_pn": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Manufacturer Pn"
+        },
+        "lcsc_pn": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "e.g. 'C725790' when matched to the LCSC snapshot",
+          "title": "Lcsc Pn"
+        },
+        "unit_cost_est": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/LabeledValue"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "risk": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ComponentRisk"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "alternative": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Alternative"
+        }
+      },
+      "required": [
+        "id",
+        "part",
+        "category",
+        "qty"
+      ],
+      "title": "BOMItem",
+      "type": "object"
+    },
+    "CadFile": {
+      "additionalProperties": false,
+      "properties": {
+        "format": {
+          "enum": [
+            "step",
+            "stl",
+            "glb",
+            "pdf",
+            "png",
+            "svg"
+          ],
+          "title": "Format",
+          "type": "string"
+        },
+        "url": {
+          "description": "Served by the API, e.g. /files/<project_id>/enclosure.step",
+          "title": "Url",
+          "type": "string"
+        },
+        "description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Description"
+        },
+        "size_bytes": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Size Bytes"
+        }
+      },
+      "required": [
+        "format",
+        "url"
+      ],
+      "title": "CadFile",
+      "type": "object"
+    },
+    "ComponentRisk": {
+      "additionalProperties": false,
+      "properties": {
+        "level": {
+          "$ref": "#/$defs/RiskLevel"
+        },
+        "reasons": {
+          "description": "e.g. EOL, single source, long lead time, low stock",
+          "items": {
+            "type": "string"
+          },
+          "title": "Reasons",
+          "type": "array"
+        }
+      },
+      "required": [
+        "level"
+      ],
+      "title": "ComponentRisk",
+      "type": "object"
+    },
+    "Dimensions": {
+      "additionalProperties": false,
+      "properties": {
+        "length": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "width": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "height": {
+          "$ref": "#/$defs/LabeledValue"
+        }
+      },
+      "required": [
+        "length",
+        "width",
+        "height"
+      ],
+      "title": "Dimensions",
+      "type": "object"
+    },
+    "ElectronicsBlock": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "function": {
+          "title": "Function",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "function"
+      ],
+      "title": "ElectronicsBlock",
+      "type": "object"
+    },
+    "ElectronicsEdge": {
+      "additionalProperties": false,
+      "properties": {
+        "source": {
+          "title": "Source",
+          "type": "string"
+        },
+        "target": {
+          "title": "Target",
+          "type": "string"
+        },
+        "signal": {
+          "title": "Signal",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source",
+        "target",
+        "signal"
+      ],
+      "title": "ElectronicsEdge",
+      "type": "object"
+    },
+    "Label": {
+      "description": "The four honesty labels. UI text: Measured / Sourced / Estimate / Fictional \u2014 demo data.",
+      "enum": [
+        "measured",
+        "sourced",
+        "estimate",
+        "fictional"
+      ],
+      "title": "Label",
+      "type": "string"
+    },
+    "LabeledValue": {
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "title": "Value",
+          "type": "number"
+        },
+        "unit": {
+          "description": "e.g. USD, EUR, mm, g, days, weeks, pct, units, man-days",
+          "title": "Unit",
+          "type": "string"
+        },
+        "label": {
+          "$ref": "#/$defs/Label"
+        },
+        "source_or_assumption": {
+          "description": "Sourced: '<source>, <YYYY-MM-DD>'. Estimate: the assumption. Measured: the check. Fictional: 'demo data'.",
+          "title": "Source Or Assumption",
+          "type": "string"
+        }
+      },
+      "required": [
+        "value",
+        "unit",
+        "label",
+        "source_or_assumption"
+      ],
+      "title": "LabeledValue",
+      "type": "object"
+    },
+    "ProcessType": {
+      "enum": [
+        "injection_molding",
+        "cnc",
+        "sheet_metal",
+        "die_casting",
+        "extrusion",
+        "pcba",
+        "assembly",
+        "other"
+      ],
+      "title": "ProcessType",
+      "type": "string"
+    },
+    "RiskLevel": {
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "title": "RiskLevel",
+      "type": "string"
+    },
+    "SpecPart": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "material": {
+          "title": "Material",
+          "type": "string"
+        },
+        "finish": {
+          "title": "Finish",
+          "type": "string"
+        },
+        "process_hint": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ProcessType"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "tolerance": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "e.g. '\u00b10.1 mm on mating faces'",
+          "title": "Tolerance"
+        },
+        "dimensions": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Dimensions"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "wall_thickness": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/LabeledValue"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "quantity": {
+          "default": 1,
+          "title": "Quantity",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "material",
+        "finish"
+      ],
+      "title": "SpecPart",
+      "type": "object"
+    },
+    "StageStatus": {
+      "enum": [
+        "not_started",
+        "draft",
+        "validated"
+      ],
+      "title": "StageStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "project_id": {
+      "title": "Project Id",
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/$defs/StageStatus",
+      "default": "draft"
+    },
+    "fallback": {
+      "default": false,
+      "description": "True when served from a fixture after an error",
+      "title": "Fallback",
+      "type": "boolean"
+    },
+    "fallback_reason": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Fallback Reason"
+    },
+    "generated_by": {
+      "default": "fixture",
+      "description": "'fixture' | 'code' | 'llm:<model slug>'",
+      "title": "Generated By",
+      "type": "string"
+    },
+    "generated_at": {
+      "format": "date-time",
+      "title": "Generated At",
+      "type": "string"
+    },
+    "assumptions": {
+      "items": {
+        "$ref": "#/$defs/Assumption"
+      },
+      "title": "Assumptions",
+      "type": "array"
+    },
+    "stage": {
+      "const": 3,
+      "default": 3,
+      "title": "Stage",
+      "type": "integer"
+    },
+    "product_name": {
+      "title": "Product Name",
+      "type": "string"
+    },
+    "direction_id": {
+      "title": "Direction Id",
+      "type": "string"
+    },
+    "overall_dimensions": {
+      "$ref": "#/$defs/Dimensions"
+    },
+    "weight": {
+      "$ref": "#/$defs/LabeledValue"
+    },
+    "parts": {
+      "items": {
+        "$ref": "#/$defs/SpecPart"
+      },
+      "title": "Parts",
+      "type": "array"
+    },
+    "electronics_blocks": {
+      "items": {
+        "$ref": "#/$defs/ElectronicsBlock"
+      },
+      "title": "Electronics Blocks",
+      "type": "array"
+    },
+    "electronics_edges": {
+      "items": {
+        "$ref": "#/$defs/ElectronicsEdge"
+      },
+      "title": "Electronics Edges",
+      "type": "array"
+    },
+    "bom": {
+      "items": {
+        "$ref": "#/$defs/BOMItem"
+      },
+      "title": "Bom",
+      "type": "array"
+    },
+    "tolerances": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Tolerances",
+      "type": "array"
+    },
+    "cad_files": {
+      "items": {
+        "$ref": "#/$defs/CadFile"
+      },
+      "title": "Cad Files",
+      "type": "array"
+    }
+  },
+  "required": [
+    "project_id",
+    "product_name",
+    "direction_id",
+    "overall_dimensions",
+    "weight",
+    "parts",
+    "bom"
+  ],
+  "title": "SpecArtifact",
+  "type": "object"
+}

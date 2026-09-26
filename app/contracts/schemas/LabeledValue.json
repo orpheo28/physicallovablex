@@ -1,0 +1,43 @@
+{
+  "$defs": {
+    "Label": {
+      "description": "The four honesty labels. UI text: Measured / Sourced / Estimate / Fictional \u2014 demo data.",
+      "enum": [
+        "measured",
+        "sourced",
+        "estimate",
+        "fictional"
+      ],
+      "title": "Label",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "value": {
+      "title": "Value",
+      "type": "number"
+    },
+    "unit": {
+      "description": "e.g. USD, EUR, mm, g, days, weeks, pct, units, man-days",
+      "title": "Unit",
+      "type": "string"
+    },
+    "label": {
+      "$ref": "#/$defs/Label"
+    },
+    "source_or_assumption": {
+      "description": "Sourced: '<source>, <YYYY-MM-DD>'. Estimate: the assumption. Measured: the check. Fictional: 'demo data'.",
+      "title": "Source Or Assumption",
+      "type": "string"
+    }
+  },
+  "required": [
+    "value",
+    "unit",
+    "label",
+    "source_or_assumption"
+  ],
+  "title": "LabeledValue",
+  "type": "object"
+}

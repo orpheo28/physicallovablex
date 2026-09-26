@@ -1,0 +1,49 @@
+{
+ "fetched_on": "2026-09-26",
+ "text_as_of": "2026-09-22",
+ "source": "eCFR versioner API, https://www.ecfr.gov/",
+ "sections": {
+  "15.19": {
+   "citation": "47 CFR 15.19",
+   "heading": "§ 15.19 Labeling requirements.",
+   "text": "(a) In addition to the requirements in part 2 of this chapter, a device subject to certification, or Supplier's Declaration of Conformity shall be labeled as follows: (1) Receivers associated with the operation of a licensed radio service, e.g., FM broadcast under part 73 of this chapter, land mobile operation under part 90 of this chapter, etc., shall bear the following statement in a conspicuous location on the device: This device complies with part 15 of the FCC Rules. Operation is subject to the condition that this device does not cause harmful interference. (2) A stand-alone cable input…",
+   "url": "https://www.ecfr.gov/current/title-47/section-15.19"
+  },
+  "15.101": {
+   "citation": "47 CFR 15.101",
+   "heading": "§ 15.101 Equipment authorization of unintentional radiators.",
+   "text": "(a) Except as otherwise exempted in §§ 15.23, 15.103, and 15.113, unintentional radiators shall be authorized prior to the initiation of marketing, pursuant to the procedures for certification or Supplier's Declaration of Conformity (SDoC) given in subpart J of part 2 of this chapter, as follows: Table 1 to Paragraph (a) (b) Only those receivers that operate (tune) within the frequency range of 30-960 MHz, CB receivers and radar detectors are subject to the authorizations shown in paragraph (a) of this section. Receivers operating above 960 MHz or below 30 MHz, except for radar detectors and…",
+   "url": "https://www.ecfr.gov/current/title-47/section-15.101"
+  },
+  "15.103": {
+   "citation": "47 CFR 15.103",
+   "heading": "§ 15.103 Exempted devices.",
+   "text": "Except as provided in paragraph (j) of this section, the following devices are subject only to the general conditions of operation in §§ 15.5 and 15.29, and are exempt from the specific technical standards and other requirements contained in this part. The operator of the exempted device shall be required to stop operating the device upon a finding by the Commission or its representative that the device is causing harmful interference. Operation shall not resume until the condition causing the harmful interference has been corrected. Although not mandatory, it is strongly recommended that the…",
+   "url": "https://www.ecfr.gov/current/title-47/section-15.103"
+  },
+  "15.107": {
+   "citation": "47 CFR 15.107",
+   "heading": "§ 15.107 Conducted limits.",
+   "text": "(a) Except for Class A digital devices, for equipment that is designed to be connected to the public utility (AC) power line, the radio frequency voltage that is conducted back onto the AC power line on any frequency or frequencies within the band 150 kHz to 30 MHz shall not exceed the limits in the following table, as measured using a 50 μH/50 ohms line impedance stabilization network (LISN). Compliance with the provisions of this paragraph shall be based on the measurement of the radio frequency voltage between each power line and ground at the power terminal. The lower limit applies at the…",
+   "url": "https://www.ecfr.gov/current/title-47/section-15.107"
+  },
+  "15.109": {
+   "citation": "47 CFR 15.109",
+   "heading": "§ 15.109 Radiated emission limits.",
+   "text": "(a) Except for Class A digital devices, the field strength of radiated emissions from unintentional radiators at a distance of 3 meters shall not exceed the following values: (b) The field strength of radiated emissions from a Class A digital device, as determined at a distance of 10 meters, shall not exceed the following: (c) In the emission tables above, the tighter limit applies at the band edges. Sections 15.33 and 15.35 which specify the frequency range over which radiated emissions are to be measured and the detector functions and other measurement standards apply. (d) For CB receivers,…",
+   "url": "https://www.ecfr.gov/current/title-47/section-15.109"
+  },
+  "15.247": {
+   "citation": "47 CFR 15.247",
+   "heading": "§ 15.247 Operation within the bands 902-928 MHz, 2400-2483.5 MHz, and 5725-5850 MHz.",
+   "text": "(a) Operation under the provisions of this Section is limited to frequency hopping and digitally modulated intentional radiators that comply with the following provisions: (1) Frequency hopping systems shall have hopping channel carrier frequencies separated by a minimum of 25 kHz or the 20 dB bandwidth of the hopping channel, whichever is greater. Alternatively, frequency hopping systems operating in the 2400-2483.5 MHz band may have hopping channel carrier frequencies that are separated by 25 kHz or two-thirds of the 20 dB bandwidth of the hopping channel, whichever is greater, provided the…",
+   "url": "https://www.ecfr.gov/current/title-47/section-15.247"
+  },
+  "15.407": {
+   "citation": "47 CFR 15.407",
+   "heading": "§ 15.407 General technical requirements.",
+   "text": "(a) Power limits: (1) (i) For an outdoor access point operating in the band 5.15-5.25 GHz, the maximum conducted output power over the frequency band of operation shall not exceed 1 W provided the maximum antenna gain does not exceed 6 dBi. In addition, the maximum power spectral density shall not exceed 17 dBm in any 1 megahertz band. If transmitting antennas of directional gain greater than 6 dBi are used, both the maximum conducted output power and the maximum power spectral density shall be reduced by the amount in dB that the directional gain of the antenna exceeds 6 dBi. The maximum…",
+   "url": "https://www.ecfr.gov/current/title-47/section-15.407"
+  }
+ }
+}

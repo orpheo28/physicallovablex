@@ -1,0 +1,201 @@
+{
+  "$defs": {
+    "Quote": {
+      "additionalProperties": false,
+      "description": "Mirrors MCP `submit_quote` (PRD \u00a710). Each counter creates a new version.",
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "rfq_id": {
+          "title": "Rfq Id",
+          "type": "string"
+        },
+        "factory_id": {
+          "title": "Factory Id",
+          "type": "string"
+        },
+        "version": {
+          "default": 1,
+          "title": "Version",
+          "type": "integer"
+        },
+        "tiers": {
+          "items": {
+            "$ref": "#/$defs/QuoteTier"
+          },
+          "title": "Tiers",
+          "type": "array"
+        },
+        "tooling_usd": {
+          "title": "Tooling Usd",
+          "type": "number"
+        },
+        "moq": {
+          "title": "Moq",
+          "type": "integer"
+        },
+        "lead_time_days": {
+          "title": "Lead Time Days",
+          "type": "integer"
+        },
+        "payment_terms": {
+          "description": "e.g. '30% deposit / 70% before shipment'",
+          "title": "Payment Terms",
+          "type": "string"
+        },
+        "exceptions": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Exceptions",
+          "type": "array"
+        },
+        "status": {
+          "$ref": "#/$defs/QuoteStatus",
+          "default": "submitted"
+        },
+        "created_at": {
+          "format": "date-time",
+          "title": "Created At",
+          "type": "string"
+        },
+        "label": {
+          "const": "fictional",
+          "default": "fictional",
+          "title": "Label",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "rfq_id",
+        "factory_id",
+        "tiers",
+        "tooling_usd",
+        "moq",
+        "lead_time_days",
+        "payment_terms"
+      ],
+      "title": "Quote",
+      "type": "object"
+    },
+    "QuoteStatus": {
+      "enum": [
+        "submitted",
+        "countered",
+        "superseded",
+        "accepted",
+        "rejected"
+      ],
+      "title": "QuoteStatus",
+      "type": "string"
+    },
+    "QuoteTier": {
+      "additionalProperties": false,
+      "properties": {
+        "quantity": {
+          "title": "Quantity",
+          "type": "integer"
+        },
+        "unit_price_usd": {
+          "title": "Unit Price Usd",
+          "type": "number"
+        }
+      },
+      "required": [
+        "quantity",
+        "unit_price_usd"
+      ],
+      "title": "QuoteTier",
+      "type": "object"
+    },
+    "RFQ": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "project_id": {
+          "title": "Project Id",
+          "type": "string"
+        },
+        "factory_id": {
+          "title": "Factory Id",
+          "type": "string"
+        },
+        "factory_pack_id": {
+          "title": "Factory Pack Id",
+          "type": "string"
+        },
+        "quantities": {
+          "items": {
+            "type": "integer"
+          },
+          "title": "Quantities",
+          "type": "array"
+        },
+        "status": {
+          "$ref": "#/$defs/RFQStatus",
+          "default": "sent"
+        },
+        "created_at": {
+          "format": "date-time",
+          "title": "Created At",
+          "type": "string"
+        },
+        "label": {
+          "const": "fictional",
+          "default": "fictional",
+          "title": "Label",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "project_id",
+        "factory_id",
+        "factory_pack_id",
+        "quantities"
+      ],
+      "title": "RFQ",
+      "type": "object"
+    },
+    "RFQStatus": {
+      "enum": [
+        "sent",
+        "quoted",
+        "declined",
+        "accepted"
+      ],
+      "title": "RFQStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Factory-portal view of one RFQ.",
+  "properties": {
+    "rfq": {
+      "$ref": "#/$defs/RFQ"
+    },
+    "product_name": {
+      "title": "Product Name",
+      "type": "string"
+    },
+    "quotes": {
+      "items": {
+        "$ref": "#/$defs/Quote"
+      },
+      "title": "Quotes",
+      "type": "array"
+    }
+  },
+  "required": [
+    "rfq",
+    "product_name"
+  ],
+  "title": "RFQWithQuotes",
+  "type": "object"
+}

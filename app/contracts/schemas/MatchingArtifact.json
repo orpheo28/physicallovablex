@@ -1,0 +1,323 @@
+{
+  "$defs": {
+    "Assumption": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "label": {
+          "$ref": "#/$defs/Label"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source"
+        },
+        "stage": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Stage that introduced the assumption",
+          "title": "Stage"
+        }
+      },
+      "required": [
+        "id",
+        "text",
+        "label"
+      ],
+      "title": "Assumption",
+      "type": "object"
+    },
+    "FactoryMatch": {
+      "additionalProperties": false,
+      "properties": {
+        "rank": {
+          "title": "Rank",
+          "type": "integer"
+        },
+        "factory_id": {
+          "title": "Factory Id",
+          "type": "string"
+        },
+        "factory_name": {
+          "title": "Factory Name",
+          "type": "string"
+        },
+        "score": {
+          "$ref": "#/$defs/LabeledValue",
+          "description": "0-100, label fictional (scored on demo data)"
+        },
+        "score_breakdown": {
+          "items": {
+            "$ref": "#/$defs/ScoreComponent"
+          },
+          "title": "Score Breakdown",
+          "type": "array"
+        },
+        "reasons": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Reasons",
+          "type": "array"
+        }
+      },
+      "required": [
+        "rank",
+        "factory_id",
+        "factory_name",
+        "score",
+        "score_breakdown",
+        "reasons"
+      ],
+      "title": "FactoryMatch",
+      "type": "object"
+    },
+    "Label": {
+      "description": "The four honesty labels. UI text: Measured / Sourced / Estimate / Fictional \u2014 demo data.",
+      "enum": [
+        "measured",
+        "sourced",
+        "estimate",
+        "fictional"
+      ],
+      "title": "Label",
+      "type": "string"
+    },
+    "LabeledValue": {
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "title": "Value",
+          "type": "number"
+        },
+        "unit": {
+          "description": "e.g. USD, EUR, mm, g, days, weeks, pct, units, man-days",
+          "title": "Unit",
+          "type": "string"
+        },
+        "label": {
+          "$ref": "#/$defs/Label"
+        },
+        "source_or_assumption": {
+          "description": "Sourced: '<source>, <YYYY-MM-DD>'. Estimate: the assumption. Measured: the check. Fictional: 'demo data'.",
+          "title": "Source Or Assumption",
+          "type": "string"
+        }
+      },
+      "required": [
+        "value",
+        "unit",
+        "label",
+        "source_or_assumption"
+      ],
+      "title": "LabeledValue",
+      "type": "object"
+    },
+    "ProcessType": {
+      "enum": [
+        "injection_molding",
+        "cnc",
+        "sheet_metal",
+        "die_casting",
+        "extrusion",
+        "pcba",
+        "assembly",
+        "other"
+      ],
+      "title": "ProcessType",
+      "type": "string"
+    },
+    "ScoreComponent": {
+      "additionalProperties": false,
+      "properties": {
+        "criterion": {
+          "enum": [
+            "process_fit",
+            "moq",
+            "certifications",
+            "load",
+            "lead_time"
+          ],
+          "title": "Criterion",
+          "type": "string"
+        },
+        "score": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Score",
+          "type": "number"
+        },
+        "weight": {
+          "title": "Weight",
+          "type": "number"
+        },
+        "note": {
+          "title": "Note",
+          "type": "string"
+        }
+      },
+      "required": [
+        "criterion",
+        "score",
+        "weight",
+        "note"
+      ],
+      "title": "ScoreComponent",
+      "type": "object"
+    },
+    "SearchCapacityQuery": {
+      "additionalProperties": false,
+      "description": "Mirrors MCP `search_capacity` input.",
+      "properties": {
+        "process": {
+          "$ref": "#/$defs/ProcessType"
+        },
+        "material": {
+          "title": "Material",
+          "type": "string"
+        },
+        "quantity": {
+          "title": "Quantity",
+          "type": "integer"
+        },
+        "certifications_required": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Certifications Required",
+          "type": "array"
+        },
+        "deadline": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Deadline"
+        }
+      },
+      "required": [
+        "process",
+        "material",
+        "quantity"
+      ],
+      "title": "SearchCapacityQuery",
+      "type": "object"
+    },
+    "StageStatus": {
+      "enum": [
+        "not_started",
+        "draft",
+        "validated"
+      ],
+      "title": "StageStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "project_id": {
+      "title": "Project Id",
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/$defs/StageStatus",
+      "default": "draft"
+    },
+    "fallback": {
+      "default": false,
+      "description": "True when served from a fixture after an error",
+      "title": "Fallback",
+      "type": "boolean"
+    },
+    "fallback_reason": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Fallback Reason"
+    },
+    "generated_by": {
+      "default": "fixture",
+      "description": "'fixture' | 'code' | 'llm:<model slug>'",
+      "title": "Generated By",
+      "type": "string"
+    },
+    "generated_at": {
+      "format": "date-time",
+      "title": "Generated At",
+      "type": "string"
+    },
+    "assumptions": {
+      "items": {
+        "$ref": "#/$defs/Assumption"
+      },
+      "title": "Assumptions",
+      "type": "array"
+    },
+    "stage": {
+      "const": 7,
+      "default": 7,
+      "title": "Stage",
+      "type": "integer"
+    },
+    "factory_pack_id": {
+      "title": "Factory Pack Id",
+      "type": "string"
+    },
+    "queries": {
+      "items": {
+        "$ref": "#/$defs/SearchCapacityQuery"
+      },
+      "title": "Queries",
+      "type": "array"
+    },
+    "shortlist": {
+      "items": {
+        "$ref": "#/$defs/FactoryMatch"
+      },
+      "minItems": 3,
+      "title": "Shortlist",
+      "type": "array"
+    }
+  },
+  "required": [
+    "project_id",
+    "factory_pack_id",
+    "queries",
+    "shortlist"
+  ],
+  "title": "MatchingArtifact",
+  "type": "object"
+}

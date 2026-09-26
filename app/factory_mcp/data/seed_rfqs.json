@@ -1,0 +1,176 @@
+[
+  {
+    "rfq": {
+      "id": "rfq_orchid",
+      "project_id": "demo_desk_lamp",
+      "factory_id": "f_orchid",
+      "factory_pack_id": "fp_desk_lamp_v1",
+      "quantities": [
+        500,
+        2000,
+        10000
+      ],
+      "status": "accepted",
+      "created_at": "2026-09-26T12:00:00Z",
+      "label": "fictional"
+    },
+    "product_name": "Magnetic Rechargeable Desk Lamp",
+    "quotes": [
+      {
+        "id": "qt_orchid_v1",
+        "rfq_id": "rfq_orchid",
+        "factory_id": "f_orchid",
+        "version": 1,
+        "tiers": [
+          {
+            "quantity": 500,
+            "unit_price_usd": 14.95
+          },
+          {
+            "quantity": 2000,
+            "unit_price_usd": 13.75
+          },
+          {
+            "quantity": 10000,
+            "unit_price_usd": 12.65
+          }
+        ],
+        "tooling_usd": 9900.0,
+        "moq": 1000,
+        "lead_time_days": 35,
+        "payment_terms": "30% deposit / 70% before shipment",
+        "exceptions": [],
+        "status": "superseded",
+        "created_at": "2026-09-26T12:00:00Z",
+        "label": "fictional"
+      },
+      {
+        "id": "qt_orchid_v2",
+        "rfq_id": "rfq_orchid",
+        "factory_id": "f_orchid",
+        "version": 2,
+        "tiers": [
+          {
+            "quantity": 500,
+            "unit_price_usd": 14.13
+          },
+          {
+            "quantity": 2000,
+            "unit_price_usd": 13.0
+          },
+          {
+            "quantity": 10000,
+            "unit_price_usd": 11.96
+          }
+        ],
+        "tooling_usd": 9400.0,
+        "moq": 1000,
+        "lead_time_days": 35,
+        "payment_terms": "30% deposit / 70% before shipment",
+        "exceptions": [],
+        "status": "accepted",
+        "created_at": "2026-09-26T12:00:00Z",
+        "label": "fictional"
+      }
+    ]
+  },
+  {
+    "rfq": {
+      "id": "rfq_silverfern",
+      "project_id": "demo_desk_lamp",
+      "factory_id": "f_silverfern",
+      "factory_pack_id": "fp_desk_lamp_v1",
+      "quantities": [
+        500,
+        2000,
+        10000
+      ],
+      "status": "quoted",
+      "created_at": "2026-09-26T12:00:00Z",
+      "label": "fictional"
+    },
+    "product_name": "Magnetic Rechargeable Desk Lamp",
+    "quotes": [
+      {
+        "id": "qt_silverfern_v1",
+        "rfq_id": "rfq_silverfern",
+        "factory_id": "f_silverfern",
+        "version": 1,
+        "tiers": [
+          {
+            "quantity": 500,
+            "unit_price_usd": 16.58
+          },
+          {
+            "quantity": 2000,
+            "unit_price_usd": 15.25
+          },
+          {
+            "quantity": 10000,
+            "unit_price_usd": 14.03
+          }
+        ],
+        "tooling_usd": 11500.0,
+        "moq": 500,
+        "lead_time_days": 25,
+        "payment_terms": "50% deposit / 50% before shipment",
+        "exceptions": [
+          "Price valid 15 days"
+        ],
+        "status": "rejected",
+        "created_at": "2026-09-26T12:00:00Z",
+        "label": "fictional"
+      }
+    ]
+  },
+  {
+    "rfq": {
+      "id": "rfq_kestrel",
+      "project_id": "demo_desk_lamp",
+      "factory_id": "f_kestrel",
+      "factory_pack_id": "fp_desk_lamp_v1",
+      "quantities": [
+        500,
+        2000,
+        10000
+      ],
+      "status": "quoted",
+      "created_at": "2026-09-26T12:00:00Z",
+      "label": "fictional"
+    },
+    "product_name": "Magnetic Rechargeable Desk Lamp",
+    "quotes": [
+      {
+        "id": "qt_kestrel_v1",
+        "rfq_id": "rfq_kestrel",
+        "factory_id": "f_kestrel",
+        "version": 1,
+        "tiers": [
+          {
+            "quantity": 500,
+            "unit_price_usd": 13.32
+          },
+          {
+            "quantity": 2000,
+            "unit_price_usd": 12.25
+          },
+          {
+            "quantity": 10000,
+            "unit_price_usd": 11.27
+          }
+        ],
+        "tooling_usd": 8800.0,
+        "moq": 2000,
+        "lead_time_days": 45,
+        "payment_terms": "30% deposit / 70% before shipment",
+        "exceptions": [
+          "Anodising outsourced (+5 days)",
+          "PCBA subcontracted"
+        ],
+        "status": "rejected",
+        "created_at": "2026-09-26T12:00:00Z",
+        "label": "fictional"
+      }
+    ]
+  }
+]

@@ -1,0 +1,32 @@
+{
+  "_note": "HTS general rates read from the official USITC REST API (hts.usitc.gov/reststop) on 2026-09-26. Section 301 list membership could not be verified against the USTR annexes from this environment: rates are Estimates until a customs broker confirms.",
+  "verified_date": "2026-09-26",
+  "lines": {
+    "desk_lamp": {
+      "code": "8513.10.40.00",
+      "description": "Portable electric lamps designed to function by their own source of energy — lamps, other than flashlights (8513.10.20 flashlights are 12.5%)",
+      "general_rate_pct": 3.5,
+      "general_label": "sourced",
+      "general_source": "USITC HTS 8513.10.40.00 general rate 3.5%, hts.usitc.gov, 2026-09-26",
+      "section_301_rate_pct": 25.0,
+      "section_301_label": "estimate",
+      "section_301_source": "Section 301 China: 25% on Lists 1-3 (Chapter 99 headings 9903.88.01/.02/.03, hts.usitc.gov, 2026-09-26); whether 8513.10.40 sits on a covered list is to be confirmed by a customs broker",
+      "source_url": "https://hts.usitc.gov/search?query=8513.10.40"
+    },
+    "tracker_card": {
+      "code": "8517.62.00.90",
+      "description": "Machines for the reception, conversion and transmission of data (Bluetooth tracker) — other",
+      "general_rate_pct": 0.0,
+      "general_label": "sourced",
+      "general_source": "USITC HTS 8517.62.00 general rate Free, hts.usitc.gov, 2026-09-26",
+      "section_301_rate_pct": 25.0,
+      "section_301_label": "estimate",
+      "section_301_source": "Section 301 China rate assumed 25% (Lists 1-3); classification of a BLE tracker under 8517.62.00 and its Section 301 coverage are to be confirmed by a customs broker",
+      "source_url": "https://hts.usitc.gov/search?query=8517.62.00"
+    }
+  },
+  "keywords": {
+    "desk_lamp": ["lamp", "lampe", "light", "flashlight"],
+    "tracker_card": ["tracker", "wallet", "tag", "bluetooth", "finder"]
+  }
+}

@@ -1,0 +1,165 @@
+[
+  {
+    "id": "f_orchid",
+    "name": "Orchid Line Electronics (fictional)",
+    "region": "Zhongshan, Guangdong",
+    "archetype": "balanced",
+    "personality": "Balanced: fair first quote, concedes on price if volume is firm, protects lead time.",
+    "capacity": {
+      "processes": [
+        "injection_molding",
+        "pcba",
+        "assembly"
+      ],
+      "materials": [
+        "PC/ABS",
+        "PC",
+        "ABS"
+      ],
+      "moq": 1000,
+      "certifications": [
+        "ISO 9001",
+        "BSCI"
+      ],
+      "lead_time_days": 35,
+      "monthly_capacity": 40000,
+      "current_load_pct": 62.0,
+      "label": "fictional"
+    },
+    "audit_notes": [
+      "Lighting specialist, in-house SMT line",
+      "2 prior US crowdfunding projects shipped"
+    ],
+    "past_performance": {
+      "orders_completed": 48,
+      "on_time_rate_pct": 88.0,
+      "defect_rate_pct": 1.4,
+      "no_data": false,
+      "label": "fictional"
+    },
+    "label": "fictional",
+    "fictional": true
+  },
+  {
+    "id": "f_silverfern",
+    "name": "Silverfern Lighting Works (fictional)",
+    "region": "Shenzhen, Guangdong",
+    "archetype": "fast/expensive",
+    "personality": "Fast and premium: low MOQ, short lead time, rarely moves on price.",
+    "capacity": {
+      "processes": [
+        "injection_molding",
+        "cnc",
+        "pcba",
+        "assembly"
+      ],
+      "materials": [
+        "PC/ABS",
+        "PC",
+        "Aluminium 6063"
+      ],
+      "moq": 500,
+      "certifications": [
+        "ISO 9001",
+        "ISO 14001"
+      ],
+      "lead_time_days": 25,
+      "monthly_capacity": 20000,
+      "current_load_pct": 78.0,
+      "label": "fictional"
+    },
+    "audit_notes": [
+      "Prototype-to-production shop",
+      "Strong in anodised aluminium"
+    ],
+    "past_performance": {
+      "orders_completed": 71,
+      "on_time_rate_pct": 94.0,
+      "defect_rate_pct": 0.9,
+      "no_data": false,
+      "label": "fictional"
+    },
+    "label": "fictional",
+    "fictional": true
+  },
+  {
+    "id": "f_kestrel",
+    "name": "Kestrel Bay Manufacturing (fictional)",
+    "region": "Dongguan, Guangdong",
+    "archetype": "cheap/slow",
+    "personality": "Cheapest, high MOQ, long lead time, outsources finishing.",
+    "capacity": {
+      "processes": [
+        "injection_molding",
+        "sheet_metal",
+        "assembly"
+      ],
+      "materials": [
+        "PC/ABS",
+        "ABS",
+        "SPCC steel"
+      ],
+      "moq": 2000,
+      "certifications": [
+        "ISO 9001"
+      ],
+      "lead_time_days": 45,
+      "monthly_capacity": 80000,
+      "current_load_pct": 55.0,
+      "label": "fictional"
+    },
+    "audit_notes": [
+      "High-volume consumer goods",
+      "Anodising outsourced"
+    ],
+    "past_performance": {
+      "orders_completed": 120,
+      "on_time_rate_pct": 76.0,
+      "defect_rate_pct": 2.3,
+      "no_data": false,
+      "label": "fictional"
+    },
+    "label": "fictional",
+    "fictional": true
+  },
+  {
+    "id": "f_basalt",
+    "name": "Basalt Precision Metal (fictional)",
+    "region": "Suzhou, Jiangsu",
+    "archetype": "specialist (CNC metal)",
+    "personality": "Metal specialist; declines plastic-heavy projects.",
+    "capacity": {
+      "processes": [
+        "cnc",
+        "die_casting",
+        "sheet_metal"
+      ],
+      "materials": [
+        "Aluminium 6061",
+        "Zinc alloy",
+        "Stainless steel"
+      ],
+      "moq": 300,
+      "certifications": [
+        "ISO 9001",
+        "IATF 16949"
+      ],
+      "lead_time_days": 30,
+      "monthly_capacity": 15000,
+      "current_load_pct": 70.0,
+      "label": "fictional"
+    },
+    "audit_notes": [
+      "Automotive-grade QA"
+    ],
+    "past_performance": {
+      "orders_completed": 35,
+      "on_time_rate_pct": 91.0,
+      "defect_rate_pct": 0.7,
+      "no_data": false,
+      "label": "fictional"
+    },
+    "label": "fictional",
+    "fictional": true
+  }
+]

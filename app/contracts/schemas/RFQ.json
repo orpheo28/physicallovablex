@@ -1,0 +1,64 @@
+{
+  "$defs": {
+    "RFQStatus": {
+      "enum": [
+        "sent",
+        "quoted",
+        "declined",
+        "accepted"
+      ],
+      "title": "RFQStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "project_id": {
+      "title": "Project Id",
+      "type": "string"
+    },
+    "factory_id": {
+      "title": "Factory Id",
+      "type": "string"
+    },
+    "factory_pack_id": {
+      "title": "Factory Pack Id",
+      "type": "string"
+    },
+    "quantities": {
+      "items": {
+        "type": "integer"
+      },
+      "title": "Quantities",
+      "type": "array"
+    },
+    "status": {
+      "$ref": "#/$defs/RFQStatus",
+      "default": "sent"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "label": {
+      "const": "fictional",
+      "default": "fictional",
+      "title": "Label",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "project_id",
+    "factory_id",
+    "factory_pack_id",
+    "quantities"
+  ],
+  "title": "RFQ",
+  "type": "object"
+}

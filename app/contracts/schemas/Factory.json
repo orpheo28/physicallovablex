@@ -1,0 +1,201 @@
+{
+  "$defs": {
+    "CapacityProfile": {
+      "additionalProperties": false,
+      "description": "Mirrors MCP `register_capacity` input (PRD \u00a710).",
+      "properties": {
+        "processes": {
+          "items": {
+            "$ref": "#/$defs/ProcessType"
+          },
+          "title": "Processes",
+          "type": "array"
+        },
+        "materials": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Materials",
+          "type": "array"
+        },
+        "moq": {
+          "title": "Moq",
+          "type": "integer"
+        },
+        "certifications": {
+          "description": "Factory certifications, e.g. ISO 9001, BSCI",
+          "items": {
+            "type": "string"
+          },
+          "title": "Certifications",
+          "type": "array"
+        },
+        "lead_time_days": {
+          "title": "Lead Time Days",
+          "type": "integer"
+        },
+        "monthly_capacity": {
+          "description": "Units per month",
+          "title": "Monthly Capacity",
+          "type": "integer"
+        },
+        "current_load_pct": {
+          "title": "Current Load Pct",
+          "type": "number"
+        },
+        "label": {
+          "const": "fictional",
+          "default": "fictional",
+          "title": "Label",
+          "type": "string"
+        }
+      },
+      "required": [
+        "processes",
+        "materials",
+        "moq",
+        "certifications",
+        "lead_time_days",
+        "monthly_capacity",
+        "current_load_pct"
+      ],
+      "title": "CapacityProfile",
+      "type": "object"
+    },
+    "PastPerformance": {
+      "additionalProperties": false,
+      "properties": {
+        "orders_completed": {
+          "title": "Orders Completed",
+          "type": "integer"
+        },
+        "on_time_rate_pct": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "None = no data yet (self-registered factory, no order on the network)",
+          "title": "On Time Rate Pct"
+        },
+        "defect_rate_pct": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "None = no data yet",
+          "title": "Defect Rate Pct"
+        },
+        "no_data": {
+          "default": false,
+          "description": "True for a factory with no completed order on the network: show 'no data yet'",
+          "title": "No Data",
+          "type": "boolean"
+        },
+        "label": {
+          "const": "fictional",
+          "default": "fictional",
+          "title": "Label",
+          "type": "string"
+        }
+      },
+      "required": [
+        "orders_completed",
+        "on_time_rate_pct",
+        "defect_rate_pct"
+      ],
+      "title": "PastPerformance",
+      "type": "object"
+    },
+    "ProcessType": {
+      "enum": [
+        "injection_molding",
+        "cnc",
+        "sheet_metal",
+        "die_casting",
+        "extrusion",
+        "pcba",
+        "assembly",
+        "other"
+      ],
+      "title": "ProcessType",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "name": {
+      "description": "Fictional name \u2014 never a real factory",
+      "title": "Name",
+      "type": "string"
+    },
+    "region": {
+      "title": "Region",
+      "type": "string"
+    },
+    "archetype": {
+      "description": "e.g. 'cheap/slow', 'fast/expensive', 'balanced' (E_usines.md)",
+      "title": "Archetype",
+      "type": "string"
+    },
+    "personality": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Behaviour of its negotiation agent",
+      "title": "Personality"
+    },
+    "capacity": {
+      "$ref": "#/$defs/CapacityProfile"
+    },
+    "audit_notes": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Audit Notes",
+      "type": "array"
+    },
+    "past_performance": {
+      "$ref": "#/$defs/PastPerformance"
+    },
+    "label": {
+      "const": "fictional",
+      "default": "fictional",
+      "title": "Label",
+      "type": "string"
+    },
+    "fictional": {
+      "const": true,
+      "default": true,
+      "title": "Fictional",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "region",
+    "archetype",
+    "capacity",
+    "past_performance"
+  ],
+  "title": "Factory",
+  "type": "object"
+}

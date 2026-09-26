@@ -1,0 +1,55 @@
+{
+ "slug": "kids_audio",
+ "fetched_on": "2026-09-26",
+ "queries": [
+  "children audio player figurine NFC",
+  "toy music player speaker"
+ ],
+ "rulings": [
+  {
+   "rulingNumber": "N056075",
+   "subject": "The tariff classification of the i-Dog Plush Puppy from China",
+   "rulingDate": "2009-04-20",
+   "tariffs": "9503.00.0080",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "toy music player speaker"
+  },
+  {
+   "rulingNumber": "N021788",
+   "subject": "The tariff classification of MP3 players with accessories from China.",
+   "rulingDate": "2008-01-29",
+   "tariffs": "8519.81.4050",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "toy music player speaker"
+  },
+  {
+   "rulingNumber": "M86122",
+   "subject": "The tariff classification of toy musical instruments from China.",
+   "rulingDate": "2006-08-28",
+   "tariffs": "9503.50.0000",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "toy music player speaker"
+  },
+  {
+   "rulingNumber": "N073621",
+   "subject": "The tariff classification of the \"Moxie Girlz More 2 Me Boombox/Vanity Playset\" from China",
+   "rulingDate": "2009-09-15",
+   "tariffs": "9503.00.0080",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "toy music player speaker"
+  },
+  {
+   "rulingNumber": "N041413",
+   "subject": "The tariff classification of a CCTV video camera set from China.",
+   "rulingDate": "2008-11-07",
+   "tariffs": "8525.80.3010",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "toy music player speaker"
+  }
+ ]
+}

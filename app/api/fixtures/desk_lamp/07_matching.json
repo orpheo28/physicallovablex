@@ -1,0 +1,175 @@
+{
+  "project_id": "demo_desk_lamp",
+  "status": "validated",
+  "fallback": false,
+  "fallback_reason": null,
+  "generated_by": "fixture",
+  "generated_at": "2026-09-26T12:00:00Z",
+  "assumptions": [],
+  "stage": 7,
+  "factory_pack_id": "fp_desk_lamp_v1",
+  "queries": [
+    {
+      "process": "injection_molding",
+      "material": "PC/ABS",
+      "quantity": 2000,
+      "certifications_required": [
+        "ISO 9001"
+      ],
+      "deadline": "2027-01-05"
+    },
+    {
+      "process": "pcba",
+      "material": "FR-4",
+      "quantity": 2000,
+      "certifications_required": [],
+      "deadline": "2027-01-05"
+    }
+  ],
+  "shortlist": [
+    {
+      "rank": 1,
+      "factory_id": "f_orchid",
+      "factory_name": "Orchid Line Electronics (fictional)",
+      "score": {
+        "value": 86.0,
+        "unit": "score/100",
+        "label": "fictional",
+        "source_or_assumption": "Scored on demo data"
+      },
+      "score_breakdown": [
+        {
+          "criterion": "process_fit",
+          "score": 1.0,
+          "weight": 0.35,
+          "note": "Molding + SMT + assembly under one roof"
+        },
+        {
+          "criterion": "moq",
+          "score": 1.0,
+          "weight": 0.15,
+          "note": "MOQ 1,000 ≤ 2,000"
+        },
+        {
+          "criterion": "certifications",
+          "score": 1.0,
+          "weight": 0.15,
+          "note": "ISO 9001 + BSCI"
+        },
+        {
+          "criterion": "load",
+          "score": 0.7,
+          "weight": 0.15,
+          "note": "62% loaded"
+        },
+        {
+          "criterion": "lead_time",
+          "score": 0.5,
+          "weight": 0.2,
+          "note": "35 days"
+        }
+      ],
+      "reasons": [
+        "Only candidate doing molding, PCBA and assembly in-house",
+        "Lighting track record",
+        "Capacity available (62% load)"
+      ]
+    },
+    {
+      "rank": 2,
+      "factory_id": "f_silverfern",
+      "factory_name": "Silverfern Lighting Works (fictional)",
+      "score": {
+        "value": 78.0,
+        "unit": "score/100",
+        "label": "fictional",
+        "source_or_assumption": "Scored on demo data"
+      },
+      "score_breakdown": [
+        {
+          "criterion": "process_fit",
+          "score": 1.0,
+          "weight": 0.35,
+          "note": "Molding + CNC + PCBA"
+        },
+        {
+          "criterion": "moq",
+          "score": 1.0,
+          "weight": 0.15,
+          "note": "MOQ 500"
+        },
+        {
+          "criterion": "certifications",
+          "score": 1.0,
+          "weight": 0.15,
+          "note": "ISO 9001 + 14001"
+        },
+        {
+          "criterion": "load",
+          "score": 0.3,
+          "weight": 0.15,
+          "note": "78% loaded"
+        },
+        {
+          "criterion": "lead_time",
+          "score": 0.9,
+          "weight": 0.2,
+          "note": "25 days"
+        }
+      ],
+      "reasons": [
+        "Fastest lead time",
+        "In-house anodising",
+        "Busy: 78% load"
+      ]
+    },
+    {
+      "rank": 3,
+      "factory_id": "f_kestrel",
+      "factory_name": "Kestrel Bay Manufacturing (fictional)",
+      "score": {
+        "value": 71.0,
+        "unit": "score/100",
+        "label": "fictional",
+        "source_or_assumption": "Scored on demo data"
+      },
+      "score_breakdown": [
+        {
+          "criterion": "process_fit",
+          "score": 0.6,
+          "weight": 0.35,
+          "note": "No PCBA in-house"
+        },
+        {
+          "criterion": "moq",
+          "score": 1.0,
+          "weight": 0.15,
+          "note": "MOQ 2,000 = order size"
+        },
+        {
+          "criterion": "certifications",
+          "score": 0.7,
+          "weight": 0.15,
+          "note": "ISO 9001 only"
+        },
+        {
+          "criterion": "load",
+          "score": 0.8,
+          "weight": 0.15,
+          "note": "55% loaded"
+        },
+        {
+          "criterion": "lead_time",
+          "score": 0.2,
+          "weight": 0.2,
+          "note": "45 days"
+        }
+      ],
+      "reasons": [
+        "Lowest expected price",
+        "Long lead time",
+        "PCBA must be subcontracted"
+      ]
+    }
+  ]
+}

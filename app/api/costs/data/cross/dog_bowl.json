@@ -1,0 +1,101 @@
+{
+ "slug": "dog_bowl",
+ "fetched_on": "2026-09-26",
+ "queries": [
+  "pet feeder",
+  "electronic kitchen scale",
+  "pet food bowl electronic"
+ ],
+ "rulings": [
+  {
+   "rulingNumber": "N322068",
+   "subject": "The tariff classification of a pet feeder from China",
+   "rulingDate": "2021-10-27",
+   "tariffs": "8509.80.5095",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "pet feeder"
+  },
+  {
+   "rulingNumber": "N300735",
+   "subject": "The tariff classification of a Pet Feeder from China",
+   "rulingDate": "2018-10-10",
+   "tariffs": "8509.80.5095",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "pet feeder"
+  },
+  {
+   "rulingNumber": "N249370",
+   "subject": "The tariff classification of pet feeder cabinets from China.",
+   "rulingDate": "2014-01-31",
+   "tariffs": "9403.60.8081",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "pet feeder"
+  },
+  {
+   "rulingNumber": "N267827",
+   "subject": "The tariff classification of an electronic pet feeder from China",
+   "rulingDate": "2015-09-16",
+   "tariffs": "8509.80.5095",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "pet feeder"
+  },
+  {
+   "rulingNumber": "N322067",
+   "subject": "The tariff classification of a pet food feeder from China",
+   "rulingDate": "2021-10-25",
+   "tariffs": "8509.80.5095",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "pet feeder"
+  },
+  {
+   "rulingNumber": "N061927",
+   "subject": "The tariff classification of a digital kitchen scale from China.",
+   "rulingDate": "2009-06-07",
+   "tariffs": "8423.10.0010",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "electronic kitchen scale"
+  },
+  {
+   "rulingNumber": "N017314",
+   "subject": "The tariff classification of a digital kitchen scale from China.",
+   "rulingDate": "2007-10-11",
+   "tariffs": "8423.10.0010",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "electronic kitchen scale"
+  },
+  {
+   "rulingNumber": "N017145",
+   "subject": "The tariff classification of a digital kitchen scale from China.",
+   "rulingDate": "2007-10-11",
+   "tariffs": "8423.10.0010",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "electronic kitchen scale"
+  },
+  {
+   "rulingNumber": "N017315",
+   "subject": "The tariff classification of a digital kitchen scale from China.",
+   "rulingDate": "2007-10-11",
+   "tariffs": "8423.10.0010",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "electronic kitchen scale"
+  },
+  {
+   "rulingNumber": "N257597",
+   "subject": "The tariff classification of an automatic pet food dispenser from China",
+   "rulingDate": "2014-10-24",
+   "tariffs": "8509.80.5095",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "electronic kitchen scale"
+  }
+ ]
+}

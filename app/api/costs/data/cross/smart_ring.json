@@ -1,0 +1,119 @@
+{
+ "slug": "smart_ring",
+ "fetched_on": "2026-09-26",
+ "queries": [
+  "smart ring sleep tracking",
+  "wearable fitness tracker sensor",
+  "smartwatch China 9903.88.15"
+ ],
+ "rulings": [
+  {
+   "rulingNumber": "N340510",
+   "subject": "The tariff classification of the Samsung Galaxy Smart Ring from Korea",
+   "rulingDate": "2024-06-10",
+   "tariffs": "9031.80.8085",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "smart ring sleep tracking"
+  },
+  {
+   "rulingNumber": "N348181",
+   "subject": "The tariff classification of a smart ring from China",
+   "rulingDate": "2025-04-30",
+   "tariffs": "9031.80.8085, 9903.01.24, 9903.01.63, 9903.88.01",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "smart ring sleep tracking"
+  },
+  {
+   "rulingNumber": "H282905",
+   "subject": "Tariff classification of Fossil Q Hybrid Smartwatches",
+   "rulingDate": "2018-04-30",
+   "tariffs": "8517.62.00",
+   "collection": "hq",
+   "operationallyRevoked": false,
+   "found_by": "smart ring sleep tracking"
+  },
+  {
+   "rulingNumber": "H338253",
+   "subject": "Ruling Request; U.S. International Trade Commission; Limited Exclusion Order; Investigation No. 337-TA-1266; Certain Wearable Devices with ECG Functionality and Components Thereof",
+   "rulingDate": "2024-06-20",
+   "tariffs": "",
+   "collection": "hq",
+   "operationallyRevoked": false,
+   "found_by": "smart ring sleep tracking"
+  },
+  {
+   "rulingNumber": "H286610",
+   "subject": "Tariff classification of the Garmin v\u00edvofit\u00ae 3 and v\u00edvofit\u00ae jr. wearable electronic fitness trackers",
+   "rulingDate": "2017-08-08",
+   "tariffs": "8517.62.00",
+   "collection": "hq",
+   "operationallyRevoked": false,
+   "found_by": "wearable fitness tracker sensor"
+  },
+  {
+   "rulingNumber": "H279898",
+   "subject": "Protest No. 4101-2016-100262 ; Tariff Classification of various Fitbit wearable fitness   trackers",
+   "rulingDate": "2017-04-05",
+   "tariffs": "8517.62.00",
+   "collection": "hq",
+   "operationallyRevoked": false,
+   "found_by": "wearable fitness tracker sensor"
+  },
+  {
+   "rulingNumber": "H300873",
+   "subject": "Tariff classification of Globalstar SPOT TRACE\u00ae, STINGR, STX3-S, and SmartOne\u2122 tracking devices from China.",
+   "rulingDate": "2019-09-30",
+   "tariffs": "8517.62.00, 8526.91.11",
+   "collection": "hq",
+   "operationallyRevoked": false,
+   "found_by": "wearable fitness tracker sensor"
+  },
+  {
+   "rulingNumber": "H315264",
+   "subject": "Tariff classification of a Pet Collar with Health and Location Tracking",
+   "rulingDate": "2021-09-24",
+   "tariffs": "9031.80.80",
+   "collection": "hq",
+   "operationallyRevoked": false,
+   "found_by": "wearable fitness tracker sensor"
+  },
+  {
+   "rulingNumber": "H303881",
+   "subject": "Tariff classification of the Nike Adapt BB basketball shoe",
+   "rulingDate": "2021-04-30",
+   "tariffs": "6404.11.90",
+   "collection": "hq",
+   "operationallyRevoked": false,
+   "found_by": "wearable fitness tracker sensor"
+  },
+  {
+   "rulingNumber": "N349122",
+   "subject": "The tariff classification of Smart Watches from China",
+   "rulingDate": "2025-05-29",
+   "tariffs": "8517.62.0090, 9903.01.24, 9903.01.32, 9903.88.15",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "smartwatch China 9903.88.15"
+  },
+  {
+   "rulingNumber": "H325450",
+   "subject": "Country of Origin; Stud Finders; Section 301 Measures",
+   "rulingDate": "2022-11-17",
+   "tariffs": "",
+   "collection": "hq",
+   "operationallyRevoked": false,
+   "found_by": "smartwatch China 9903.88.15"
+  },
+  {
+   "rulingNumber": "H338596",
+   "subject": "Application for Further Review of Protest No. 280923110395; [ ]; Country of Origin of Imported Electrical Inverters and Battery Chargers; Section 301 Trade Remedy",
+   "rulingDate": "2026-02-27",
+   "tariffs": "",
+   "collection": "hq",
+   "operationallyRevoked": false,
+   "found_by": "smartwatch China 9903.88.15"
+  }
+ ]
+}

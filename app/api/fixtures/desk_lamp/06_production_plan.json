@@ -1,0 +1,100 @@
+{
+  "project_id": "demo_desk_lamp",
+  "status": "validated",
+  "fallback": false,
+  "fallback_reason": null,
+  "generated_by": "fixture",
+  "generated_at": "2026-09-26T12:00:00Z",
+  "assumptions": [],
+  "stage": 6,
+  "steps": [
+    {
+      "part_id": "p1",
+      "part_name": "Head housing",
+      "process": "injection_molding",
+      "reason": "Textured cosmetic PC/ABS part at 2k+ volume; mold pays back vs CNC above ~300 units",
+      "region": "Dongguan, Guangdong",
+      "lead_time_days": {
+        "value": 35.0,
+        "unit": "days",
+        "label": "estimate",
+        "source_or_assumption": "T0 mold lead time"
+      }
+    },
+    {
+      "part_id": "p2",
+      "part_name": "Diffuser",
+      "process": "injection_molding",
+      "reason": "Thin optical PC part, uniform wall",
+      "region": "Dongguan, Guangdong",
+      "lead_time_days": {
+        "value": 30.0,
+        "unit": "days",
+        "label": "estimate",
+        "source_or_assumption": "T0 mold lead time"
+      }
+    },
+    {
+      "part_id": "p3",
+      "part_name": "Stem",
+      "process": "extrusion",
+      "reason": "Constant 16 mm profile; extrusion + cut + anodise is cheapest",
+      "region": "Foshan, Guangdong",
+      "lead_time_days": {
+        "value": 20.0,
+        "unit": "days",
+        "label": "estimate",
+        "source_or_assumption": "Die + first extrusion run"
+      }
+    },
+    {
+      "part_id": "p4",
+      "part_name": "Base shell",
+      "process": "injection_molding",
+      "reason": "Same resin and supplier as head housing",
+      "region": "Dongguan, Guangdong",
+      "lead_time_days": {
+        "value": 35.0,
+        "unit": "days",
+        "label": "estimate",
+        "source_or_assumption": "T0 mold lead time"
+      }
+    },
+    {
+      "part_id": "p5",
+      "part_name": "Weight plate",
+      "process": "sheet_metal",
+      "reason": "Flat 3 mm blank; stamping is fastest and cheapest",
+      "region": "Dongguan, Guangdong",
+      "lead_time_days": {
+        "value": 15.0,
+        "unit": "days",
+        "label": "estimate",
+        "source_or_assumption": "Die + first run"
+      }
+    },
+    {
+      "part_id": "p6",
+      "part_name": "PCBA",
+      "process": "pcba",
+      "reason": "SMT on LCSC parts; turnkey PCBA",
+      "region": "Shenzhen, Guangdong",
+      "lead_time_days": {
+        "value": 12.0,
+        "unit": "days",
+        "label": "estimate",
+        "source_or_assumption": "Turnkey PCBA incl. parts"
+      }
+    }
+  ],
+  "assembly_notes": [
+    "Final assembly, charge test and burn-in (2 h) at the molding supplier",
+    "Cells shipped by sea only (UN3481, packed with equipment)"
+  ],
+  "total_lead_time_days": {
+    "value": 63.0,
+    "unit": "days",
+    "label": "estimate",
+    "source_or_assumption": "Critical path: molds (35) + T1 (14) + mass production (28) − overlap"
+  }
+}

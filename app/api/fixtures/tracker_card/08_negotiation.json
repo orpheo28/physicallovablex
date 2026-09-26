@@ -1,0 +1,352 @@
+{
+  "project_id": "demo_tracker_card",
+  "status": "validated",
+  "fallback": false,
+  "fallback_reason": null,
+  "generated_by": "fixture",
+  "generated_at": "2026-09-26T12:00:00Z",
+  "assumptions": [],
+  "stage": 8,
+  "rfqs": [
+    {
+      "id": "rfq_tc_silverfern",
+      "project_id": "demo_tracker_card",
+      "factory_id": "f_silverfern",
+      "factory_pack_id": "fp_tracker_card_v1",
+      "quantities": [
+        500,
+        2000,
+        10000
+      ],
+      "status": "accepted",
+      "created_at": "2026-09-26T12:00:00Z",
+      "label": "fictional"
+    },
+    {
+      "id": "rfq_tc_orchid",
+      "project_id": "demo_tracker_card",
+      "factory_id": "f_orchid",
+      "factory_pack_id": "fp_tracker_card_v1",
+      "quantities": [
+        500,
+        2000,
+        10000
+      ],
+      "status": "quoted",
+      "created_at": "2026-09-26T12:00:00Z",
+      "label": "fictional"
+    },
+    {
+      "id": "rfq_tc_kestrel",
+      "project_id": "demo_tracker_card",
+      "factory_id": "f_kestrel",
+      "factory_pack_id": "fp_tracker_card_v1",
+      "quantities": [
+        500,
+        2000,
+        10000
+      ],
+      "status": "quoted",
+      "created_at": "2026-09-26T12:00:00Z",
+      "label": "fictional"
+    }
+  ],
+  "quotes": [
+    {
+      "id": "qt_tc_silverfern_v1",
+      "rfq_id": "rfq_tc_silverfern",
+      "factory_id": "f_silverfern",
+      "version": 1,
+      "tiers": [
+        {
+          "quantity": 500,
+          "unit_price_usd": 5.22
+        },
+        {
+          "quantity": 2000,
+          "unit_price_usd": 4.81
+        },
+        {
+          "quantity": 10000,
+          "unit_price_usd": 4.43
+        }
+      ],
+      "tooling_usd": 10400.0,
+      "moq": 500,
+      "lead_time_days": 25,
+      "payment_terms": "50% deposit / 50% before shipment",
+      "exceptions": [
+        "Price valid 15 days"
+      ],
+      "status": "superseded",
+      "created_at": "2026-09-26T12:00:00Z",
+      "label": "fictional"
+    },
+    {
+      "id": "qt_tc_orchid_v1",
+      "rfq_id": "rfq_tc_orchid",
+      "factory_id": "f_orchid",
+      "version": 1,
+      "tiers": [
+        {
+          "quantity": 500,
+          "unit_price_usd": 4.9
+        },
+        {
+          "quantity": 2000,
+          "unit_price_usd": 4.51
+        },
+        {
+          "quantity": 10000,
+          "unit_price_usd": 4.16
+        }
+      ],
+      "tooling_usd": 9800.0,
+      "moq": 1000,
+      "lead_time_days": 35,
+      "payment_terms": "30% deposit / 70% before shipment",
+      "exceptions": [],
+      "status": "rejected",
+      "created_at": "2026-09-26T12:00:00Z",
+      "label": "fictional"
+    },
+    {
+      "id": "qt_tc_kestrel_v1",
+      "rfq_id": "rfq_tc_kestrel",
+      "factory_id": "f_kestrel",
+      "version": 1,
+      "tiers": [
+        {
+          "quantity": 500,
+          "unit_price_usd": 4.4
+        },
+        {
+          "quantity": 2000,
+          "unit_price_usd": 4.05
+        },
+        {
+          "quantity": 10000,
+          "unit_price_usd": 3.73
+        }
+      ],
+      "tooling_usd": 8600.0,
+      "moq": 2000,
+      "lead_time_days": 45,
+      "payment_terms": "30% deposit / 70% before shipment",
+      "exceptions": [
+        "PCBA subcontracted",
+        "Thin-wall PC not yet run at this flow length"
+      ],
+      "status": "rejected",
+      "created_at": "2026-09-26T12:00:00Z",
+      "label": "fictional"
+    },
+    {
+      "id": "qt_tc_silverfern_v2",
+      "rfq_id": "rfq_tc_silverfern",
+      "factory_id": "f_silverfern",
+      "version": 2,
+      "tiers": [
+        {
+          "quantity": 500,
+          "unit_price_usd": 4.77
+        },
+        {
+          "quantity": 2000,
+          "unit_price_usd": 4.39
+        },
+        {
+          "quantity": 10000,
+          "unit_price_usd": 4.04
+        }
+      ],
+      "tooling_usd": 9600.0,
+      "moq": 500,
+      "lead_time_days": 25,
+      "payment_terms": "30% deposit / 70% before shipment",
+      "exceptions": [
+        "Price valid 15 days"
+      ],
+      "status": "accepted",
+      "created_at": "2026-09-26T12:00:00Z",
+      "label": "fictional"
+    }
+  ],
+  "transcript": [
+    {
+      "id": "t1",
+      "rfq_id": "rfq_tc_silverfern",
+      "factory_id": "f_silverfern",
+      "turn": 1,
+      "speaker": "platform_agent",
+      "message": "RFQ sent with Factory Pack fp_tracker_card_v1: 500 / 2,000 / 10,000 units, FCC + CE, thin-wall PC shells.",
+      "message_cn": "已发送询价及工厂资料包 fp_tracker_card_v1：500 / 2,000 / 10,000 张，需FCC及CE认证，薄壁PC外壳。",
+      "quote_id": null,
+      "proposed_changes": {},
+      "rationale": null,
+      "created_at": "2026-09-26T12:01:00Z",
+      "label": "fictional"
+    },
+    {
+      "id": "t2",
+      "rfq_id": "rfq_tc_orchid",
+      "factory_id": "f_orchid",
+      "turn": 2,
+      "speaker": "platform_agent",
+      "message": "RFQ sent with Factory Pack fp_tracker_card_v1.",
+      "message_cn": "已发送询价及工厂资料包 fp_tracker_card_v1。",
+      "quote_id": null,
+      "proposed_changes": {},
+      "rationale": null,
+      "created_at": "2026-09-26T12:02:00Z",
+      "label": "fictional"
+    },
+    {
+      "id": "t3",
+      "rfq_id": "rfq_tc_kestrel",
+      "factory_id": "f_kestrel",
+      "turn": 3,
+      "speaker": "platform_agent",
+      "message": "RFQ sent with Factory Pack fp_tracker_card_v1.",
+      "message_cn": "已发送询价及工厂资料包 fp_tracker_card_v1。",
+      "quote_id": null,
+      "proposed_changes": {},
+      "rationale": null,
+      "created_at": "2026-09-26T12:03:00Z",
+      "label": "fictional"
+    },
+    {
+      "id": "t4",
+      "rfq_id": "rfq_tc_silverfern",
+      "factory_id": "f_silverfern",
+      "turn": 4,
+      "speaker": "factory_agent",
+      "message": "Quote v1: $4.81 at 2,000, tooling $10,400, 25 days, 50/50.",
+      "message_cn": null,
+      "quote_id": "qt_tc_silverfern_v1",
+      "proposed_changes": {},
+      "rationale": null,
+      "created_at": "2026-09-26T12:04:00Z",
+      "label": "fictional"
+    },
+    {
+      "id": "t5",
+      "rfq_id": "rfq_tc_orchid",
+      "factory_id": "f_orchid",
+      "turn": 5,
+      "speaker": "factory_agent",
+      "message": "Quote: $4.51 at 2,000, tooling $9,800, 35 days, 30/70.",
+      "message_cn": null,
+      "quote_id": "qt_tc_orchid_v1",
+      "proposed_changes": {},
+      "rationale": null,
+      "created_at": "2026-09-26T12:05:00Z",
+      "label": "fictional"
+    },
+    {
+      "id": "t6",
+      "rfq_id": "rfq_tc_kestrel",
+      "factory_id": "f_kestrel",
+      "turn": 6,
+      "speaker": "factory_agent",
+      "message": "Quote: $4.05 at 2,000, tooling $8,600, 45 days. PCBA subcontracted; no thin-wall PC reference at 0.5 mm.",
+      "message_cn": null,
+      "quote_id": "qt_tc_kestrel_v1",
+      "proposed_changes": {},
+      "rationale": null,
+      "created_at": "2026-09-26T12:06:00Z",
+      "label": "fictional"
+    },
+    {
+      "id": "t7",
+      "rfq_id": "rfq_tc_silverfern",
+      "factory_id": "f_silverfern",
+      "turn": 7,
+      "speaker": "platform_agent",
+      "message": "Counter: firm 2,000-unit PO and 30/70 terms if unit price moves to $4.38 and tooling to $9,600.",
+      "message_cn": "还价：若单价降至相应水平、模具费9,600美元并采用30/70付款，我们确认2,000张订单。",
+      "quote_id": "qt_tc_silverfern_v1",
+      "proposed_changes": {
+        "unit_price_2000": 4.38,
+        "tooling_usd": 9600,
+        "payment_terms": "30/70"
+      },
+      "rationale": "Best process fit and shortest lead time; use the other quotes as anchors and remove the 50% deposit.",
+      "created_at": "2026-09-26T12:07:00Z",
+      "label": "fictional"
+    },
+    {
+      "id": "t8",
+      "rfq_id": "rfq_tc_silverfern",
+      "factory_id": "f_silverfern",
+      "turn": 8,
+      "speaker": "factory_agent",
+      "message": "Revised v2: $4.39 at 2,000, tooling $9,600, lead time 25 days, 30/70.",
+      "message_cn": null,
+      "quote_id": "qt_tc_silverfern_v2",
+      "proposed_changes": {},
+      "rationale": null,
+      "created_at": "2026-09-26T12:08:00Z",
+      "label": "fictional"
+    },
+    {
+      "id": "t9",
+      "rfq_id": "rfq_tc_silverfern",
+      "factory_id": "f_silverfern",
+      "turn": 9,
+      "speaker": "platform_agent",
+      "message": "Recommendation sent to founder: accept v2.",
+      "message_cn": null,
+      "quote_id": null,
+      "proposed_changes": {},
+      "rationale": "Only candidate with thin-wall molding, SMT and RF test on one site, shortest lead time; price about 8% above the cheapest quote.",
+      "created_at": "2026-09-26T12:09:00Z",
+      "label": "fictional"
+    },
+    {
+      "id": "t10",
+      "rfq_id": "rfq_tc_silverfern",
+      "factory_id": "f_silverfern",
+      "turn": 10,
+      "speaker": "user",
+      "message": "Approved.",
+      "message_cn": null,
+      "quote_id": null,
+      "proposed_changes": {},
+      "rationale": null,
+      "created_at": "2026-09-26T12:10:00Z",
+      "label": "fictional"
+    }
+  ],
+  "recommendation": {
+    "factory_id": "f_silverfern",
+    "quote_id": "qt_tc_silverfern_v2",
+    "rationale": "Best process fit (thin-wall molding + SMT + RF test in one site) and the shortest lead time; v2 is 8.7% below its first quote. Kestrel Bay Manufacturing (fictional) is cheaper but subcontracts PCBA and has no thin-wall reference."
+  },
+  "user_approved": true,
+  "final_terms": {
+    "factory_id": "f_silverfern",
+    "quote_id": "qt_tc_silverfern_v2",
+    "quantity": 2000,
+    "unit_price": {
+      "value": 4.39,
+      "unit": "USD",
+      "label": "fictional",
+      "source_or_assumption": "Negotiated quote v2 — demo data"
+    },
+    "tooling": {
+      "value": 9600.0,
+      "unit": "USD",
+      "label": "fictional",
+      "source_or_assumption": "Negotiated quote v2 — demo data"
+    },
+    "moq": 500,
+    "lead_time_days": {
+      "value": 25.0,
+      "unit": "days",
+      "label": "fictional",
+      "source_or_assumption": "Quote v2 — demo data"
+    },
+    "payment_terms": "30% deposit / 70% before shipment"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "inputs": {
+      "additionalProperties": true,
+      "description": "Stage-specific user inputs, e.g. {'answers': {...}} for 1, {'direction_id': 'd1'} for 3, {'approve': true} for 8",
+      "title": "Inputs",
+      "type": "object"
+    }
+  },
+  "title": "RunStageRequest",
+  "type": "object"
+}

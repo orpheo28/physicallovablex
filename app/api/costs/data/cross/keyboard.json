@@ -1,0 +1,146 @@
+{
+ "slug": "keyboard",
+ "fetched_on": "2026-09-26",
+ "queries": [
+  "mechanical keyboard",
+  "wireless keyboard USB",
+  "keyboard China 9903.88.15"
+ ],
+ "rulings": [
+  {
+   "rulingNumber": "N353885",
+   "subject": "The country of origin of a mechanical keyboard module",
+   "rulingDate": "2025-10-15",
+   "tariffs": "",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "mechanical keyboard"
+  },
+  {
+   "rulingNumber": "N356462",
+   "subject": "The country of origin of a Mechanical Keyboard (finished product version)",
+   "rulingDate": "2025-12-12",
+   "tariffs": "",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "mechanical keyboard"
+  },
+  {
+   "rulingNumber": "L88636",
+   "subject": "The tariff classification of medical carts from Canada.",
+   "rulingDate": "2005-11-21",
+   "tariffs": "9402.90.0020",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "mechanical keyboard"
+  },
+  {
+   "rulingNumber": "859358",
+   "subject": "The tariff classification of a key storage machine fromCanada",
+   "rulingDate": "1991-02-01",
+   "tariffs": "8479.89.9090",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "mechanical keyboard"
+  },
+  {
+   "rulingNumber": "c88238",
+   "subject": "The tariff classification of the HaystackTM Automated CompoundManagement System from the United Kingdom and Switzerland",
+   "rulingDate": "1998-07-14",
+   "tariffs": "",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "mechanical keyboard"
+  },
+  {
+   "rulingNumber": "N230145",
+   "subject": "The tariff classification of a remote switch and a wireless keyboard",
+   "rulingDate": "2012-09-03",
+   "tariffs": "8537.10.9070, 8471.60.2000",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "wireless keyboard USB"
+  },
+  {
+   "rulingNumber": "R03578",
+   "subject": "The tariff classification of a wireless optical mouse and keyboard set from China",
+   "rulingDate": "2006-04-11",
+   "tariffs": "8471.60.2000",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "wireless keyboard USB"
+  },
+  {
+   "rulingNumber": "N145655",
+   "subject": "The tariff classification of a Bluetooth Wireless Laptop Keyboard from China",
+   "rulingDate": "2011-02-27",
+   "tariffs": "8471.60.2000",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "wireless keyboard USB"
+  },
+  {
+   "rulingNumber": "N073358",
+   "subject": "The tariff classification of USB Number Pads from China.",
+   "rulingDate": "2009-09-21",
+   "tariffs": "8471.60.9050",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "wireless keyboard USB"
+  },
+  {
+   "rulingNumber": "h85030",
+   "subject": "The tariff classification of portable automatic data processing machines from Taiwan.",
+   "rulingDate": "2001-08-30",
+   "tariffs": "8471.30.0000, 8471.49.1095, 8471.49.2100, 8524.39.4000",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "wireless keyboard USB"
+  },
+  {
+   "rulingNumber": "N313869",
+   "subject": "The tariff classification of a two-tier keyboard stand from China.",
+   "rulingDate": "2020-08-18",
+   "tariffs": "3926.90.9985, 9903.88.15",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "keyboard China 9903.88.15"
+  },
+  {
+   "rulingNumber": "N339885",
+   "subject": "The tariff classification of the Argo from China",
+   "rulingDate": "2024-05-24",
+   "tariffs": "8471.41.0150, 9903.88.15",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "keyboard China 9903.88.15"
+  },
+  {
+   "rulingNumber": "N352641",
+   "subject": "The tariff classification of dummy electronics from China.",
+   "rulingDate": "2025-09-11",
+   "tariffs": "3926.90.9989, 9903.01.24, 9903.01.25, 9903.88.15",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "keyboard China 9903.88.15"
+  },
+  {
+   "rulingNumber": "N351198",
+   "subject": "The tariff classification of piano overlays from China",
+   "rulingDate": "2025-07-29",
+   "tariffs": "4911.99.6000, 9903.01.22, 9903.01.31, 9903.88.15",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "keyboard China 9903.88.15"
+  },
+  {
+   "rulingNumber": "H326071",
+   "subject": "Tariff classification of HP Presence Small Space Solutions",
+   "rulingDate": "2023-07-25",
+   "tariffs": "8517.62.00",
+   "collection": "hq",
+   "operationallyRevoked": false,
+   "found_by": "keyboard China 9903.88.15"
+  }
+ ]
+}

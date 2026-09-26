@@ -1,0 +1,146 @@
+{
+  "project_id": "demo_tracker_card",
+  "status": "validated",
+  "fallback": false,
+  "fallback_reason": null,
+  "generated_by": "fixture",
+  "generated_at": "2026-09-26T12:00:00Z",
+  "assumptions": [
+    {
+      "id": "a2_render",
+      "text": "AI concept render — illustrative, not the CAD",
+      "label": "estimate",
+      "source": null,
+      "stage": 2
+    },
+    {
+      "id": "a2_hero",
+      "text": "Rendered from the CAD: /files/demo_tracker_card/hero_d1.png, /files/demo_tracker_card/hero_d2.png, /files/demo_tracker_card/hero_d3.png",
+      "label": "estimate",
+      "source": null,
+      "stage": 2
+    }
+  ],
+  "stage": 2,
+  "directions": [
+    {
+      "id": "d1",
+      "name": "Tag",
+      "description": "Soft rounded tag with a keyring loop option — easier antenna layout, but too thick for a card slot.",
+      "shape": "Rounded box, R10 corners",
+      "material": "Polycarbonate (UL94 V-0)",
+      "finish": "Matte VDI 24 texture, warm white",
+      "dimensions": {
+        "length": {
+          "value": 60.0,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        },
+        "width": {
+          "value": 40.0,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        },
+        "height": {
+          "value": 14.0,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        }
+      },
+      "cad_parameters": {
+        "family": 0.0,
+        "length": 60.0,
+        "width": 40.0,
+        "height": 14.0,
+        "fillet": 10.0,
+        "edge_fillet": 2.5,
+        "wall": 2.0
+      },
+      "render_url": "/files/demo_tracker_card/d1.png",
+      "glb_url": "/files/demo_tracker_card/d1.glb"
+    },
+    {
+      "id": "d2",
+      "name": "Puck",
+      "description": "42 mm round puck for bags and keys; coin-cell friendly, not wallet-thin.",
+      "shape": "Disc",
+      "material": "Polycarbonate (UL94 V-0)",
+      "finish": "Soft-touch paint, graphite",
+      "dimensions": {
+        "length": {
+          "value": 42.0,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        },
+        "width": {
+          "value": 42.0,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        },
+        "height": {
+          "value": 11.0,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        }
+      },
+      "cad_parameters": {
+        "family": 1.0,
+        "length": 42.0,
+        "width": 42.0,
+        "height": 11.0,
+        "edge_fillet": 2.5,
+        "wall": 2.0
+      },
+      "render_url": "/files/demo_tracker_card/d2.png",
+      "glb_url": "/files/demo_tracker_card/d2.glb"
+    },
+    {
+      "id": "d3",
+      "name": "Card",
+      "description": "Flat ID-1 footprint card, 2.8 mm thick, two ultrasonic-welded 0.5 mm polycarbonate shells, button on the short edge.",
+      "shape": "Rounded rectangle slab, R3.5 corners",
+      "material": "Polycarbonate (UL94 V-0)",
+      "finish": "Matte VDI 24 texture, black",
+      "dimensions": {
+        "length": {
+          "value": 85.6,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        },
+        "width": {
+          "value": 54.0,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        },
+        "height": {
+          "value": 2.8,
+          "unit": "mm",
+          "label": "estimate",
+          "source_or_assumption": "Design parameter"
+        }
+      },
+      "cad_parameters": {
+        "family": 2.0,
+        "length": 85.6,
+        "width": 54.0,
+        "height": 2.8,
+        "fillet": 3.5,
+        "edge_fillet": 0.3,
+        "wall": 0.5,
+        "draft_deg": 1.0,
+        "boss_count": 0.0
+      },
+      "render_url": "/files/demo_tracker_card/d3.png",
+      "glb_url": "/files/demo_tracker_card/d3.glb"
+    }
+  ],
+  "chosen_direction_id": "d3"
+}

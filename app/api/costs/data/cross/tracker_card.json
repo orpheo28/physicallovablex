@@ -1,0 +1,121 @@
+{
+ "slug": "tracker_card",
+ "fetched_on": "2026-09-26",
+ "queries": [
+  "bluetooth tracking tag",
+  "bluetooth key finder",
+  "GPS tracker device from China",
+  "bluetooth tag China 9903.88.15",
+  "wireless transmitter China 9903.88.03"
+ ],
+ "rulings": [
+  {
+   "rulingNumber": "N305756",
+   "subject": "The tariff classification of a smart pet tag from China",
+   "rulingDate": "2019-09-04",
+   "tariffs": "8517.62.0090",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "bluetooth tracking tag"
+  },
+  {
+   "rulingNumber": "N176296",
+   "subject": "The tariff classification of a cobra tag from China",
+   "rulingDate": "2011-08-18",
+   "tariffs": "8517.62.0050",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "bluetooth key finder"
+  },
+  {
+   "rulingNumber": "N339485",
+   "subject": "The country of origin of dog trackers",
+   "rulingDate": "2024-05-03",
+   "tariffs": "",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "GPS tracker device from China"
+  },
+  {
+   "rulingNumber": "H300872",
+   "subject": "Tariff classification of Globalstar SPOT X\u00ae and GEN3\u00ae personal locator beacons from China.",
+   "rulingDate": "2019-09-30",
+   "tariffs": "8526.91.11",
+   "collection": "hq",
+   "operationallyRevoked": false,
+   "found_by": "GPS tracker device from China"
+  },
+  {
+   "rulingNumber": "H300873",
+   "subject": "Tariff classification of Globalstar SPOT TRACE\u00ae, STINGR, STX3-S, and SmartOne\u2122 tracking devices from China.",
+   "rulingDate": "2019-09-30",
+   "tariffs": "8517.62.00, 8526.91.11",
+   "collection": "hq",
+   "operationallyRevoked": false,
+   "found_by": "GPS tracker device from China"
+  },
+  {
+   "rulingNumber": "H320247",
+   "subject": "Tariff classification of Globalstar SPOT X\u00ae Bluetooth\u00ae from China.",
+   "rulingDate": "2022-06-27",
+   "tariffs": "8526.91.00",
+   "collection": "hq",
+   "operationallyRevoked": false,
+   "found_by": "GPS tracker device from China"
+  },
+  {
+   "rulingNumber": "N300507",
+   "subject": "The tariff classification of printed circuit board assemblies for avalanche beacons from China",
+   "rulingDate": "2018-10-01",
+   "tariffs": "8531.80.9051",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "GPS tracker device from China"
+  },
+  {
+   "rulingNumber": "N307877",
+   "subject": "The tariff classification of the ScripTalk Station from China",
+   "rulingDate": "2019-12-13",
+   "tariffs": "8518.21.0000, 9903.88.15, 9817.00.94",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "bluetooth tag China 9903.88.15"
+  },
+  {
+   "rulingNumber": "N307575",
+   "subject": "The tariff classification of pet training products from China",
+   "rulingDate": "2019-12-03",
+   "tariffs": "8543.70.9960, 8517.69.0000, 9903.88.02, 9903.88.03",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "wireless transmitter China 9903.88.03"
+  },
+  {
+   "rulingNumber": "H341609",
+   "subject": "Application for Further Review of Protest No. 3901-24-131277; Classification of Certain Direct Attach Copper Cable Assemblies from China",
+   "rulingDate": "2024-10-21",
+   "tariffs": "8517.62.00, 9903.88.15",
+   "collection": "hq",
+   "operationallyRevoked": false,
+   "found_by": "wireless transmitter China 9903.88.03"
+  },
+  {
+   "rulingNumber": "N301462",
+   "subject": "The tariff classification of network devices from China",
+   "rulingDate": "2018-11-20",
+   "tariffs": "8517.62.0090, 8517.62.0020",
+   "collection": "ny",
+   "operationallyRevoked": false,
+   "found_by": "wireless transmitter China 9903.88.03"
+  },
+  {
+   "rulingNumber": "H301558",
+   "subject": "Binding ruling request on the tariff classification of certain transmitter modules",
+   "rulingDate": "2019-09-18",
+   "tariffs": "8525.60.2000",
+   "collection": "hq",
+   "operationallyRevoked": false,
+   "found_by": "wireless transmitter China 9903.88.03"
+  }
+ ]
+}

@@ -1,0 +1,161 @@
+{
+ "project_id": "demo_drone_follow",
+ "status": "validated",
+ "fallback": false,
+ "fallback_reason": null,
+ "generated_by": "llm:openai/gpt-6-luna",
+ "generated_at": "2026-09-27T00:08:44.169253Z",
+ "assumptions": [
+  {
+   "id": "a1",
+   "text": "Amazon price in USD: Founder target retail price (USD); no conversion applied. Marketplace fees and VAT are not included.",
+   "label": "estimate",
+   "source": null,
+   "stage": 13
+  },
+  {
+   "id": "a2",
+   "text": "Name options are not trademark-searched; run a clearance search before committing.",
+   "label": "estimate",
+   "source": null,
+   "stage": 13
+  },
+  {
+   "id": "a3",
+   "text": "Listing copy uses only facts from the brief and spec; no certification claims until testing is complete (stage 4).",
+   "label": "estimate",
+   "source": null,
+   "stage": 13
+  }
+ ],
+ "stage": 13,
+ "name_options": [
+  {
+   "name": "Kitevo",
+   "rationale": "A short coined name that connects the product to kite sessions and video capture. Trademark search needed before use."
+  },
+  {
+   "name": "Survilo",
+   "rationale": "A distinct, easy-to-spell name that suggests filming while following a moving surfer. Trademark search needed before use."
+  },
+  {
+   "name": "Aervik",
+   "rationale": "A compact coined name with an airborne feel suited to a foldable follow-me drone. Trademark search needed before use."
+  }
+ ],
+ "chosen_name": null,
+ "packaging": {
+  "box_type": "Folding carton with a fitted pulp insert",
+  "dimensions": {
+   "length": {
+    "value": 271.9,
+    "unit": "mm",
+    "label": "estimate",
+    "source_or_assumption": "Product overall size + 10 mm clearance (rule; insert design at packaging RFQ)"
+   },
+   "width": {
+    "value": 244.2,
+    "unit": "mm",
+    "label": "estimate",
+    "source_or_assumption": "Product overall size + 10 mm clearance (rule; insert design at packaging RFQ)"
+   },
+   "height": {
+    "value": 101.5,
+    "unit": "mm",
+    "label": "estimate",
+    "source_or_assumption": "Product overall size + 10 mm clearance (rule; insert design at packaging RFQ)"
+   }
+  },
+  "materials": [
+   "Paperboard carton",
+   "Molded-pulp insert"
+  ],
+  "printing": "Printed product name and simple product information on the carton.",
+  "contents": [
+   "Foldable kitesurf follow-me drone with onboard video recording",
+   "Battery"
+  ],
+  "unit_cost": {
+   "value": 1.2,
+   "unit": "USD",
+   "label": "estimate",
+   "source_or_assumption": "Default retail-box + insert allowance (no packaging cost in the BOM)"
+  }
+ },
+ "landing_copy": {
+  "headline": "Film Your Ride From the Air",
+  "subheadline": "A foldable, battery-powered drone that follows a kitesurfer and records video onboard.",
+  "bullets": [
+   "Follows a moving kitesurfer for hands-free filming.",
+   "Records video onboard.",
+   "Foldable airframe for compact storage.",
+   "Wi-Fi connectivity."
+  ],
+  "cta": "Shop now for $999"
+ },
+ "shopify_listing": {
+  "channel": "shopify",
+  "title": "Kitevo Foldable Kitesurf Follow-Me Drone",
+  "description": "Capture video of a kitesurf session with a battery-powered drone designed to follow a moving kitesurfer. Its foldable airframe and onboard video recording keep the setup focused on filming from the air.",
+  "bullets": [
+   "Autonomous follow-me filming suited to a moving kitesurfer.",
+   "Records video onboard.",
+   "Foldable airframe.",
+   "Battery-powered with Wi-Fi connectivity.",
+   "Measures 234.25 × 261.87 × 91.5 mm."
+  ],
+  "price": {
+   "value": 999.0,
+   "unit": "USD",
+   "label": "estimate",
+   "source_or_assumption": "Brief target price 999 USD (retail price incl. VAT where applicable)"
+  },
+  "keywords": [
+   "kitesurf follow-me drone",
+   "kitesurf filming drone",
+   "foldable video drone",
+   "autonomous follow-me drone",
+   "drone for kitesurfing",
+   "onboard video recording drone"
+  ]
+ },
+ "amazon_listing": {
+  "channel": "amazon",
+  "title": "Kitevo Foldable Kitesurf Follow-Me Drone, Autonomous Filming, Onboard Video Recording, Wi-Fi",
+  "description": "Record video of a kitesurf session with a battery-powered drone that follows a moving kitesurfer. The foldable airframe is designed for compact storage, with video recorded onboard.",
+  "bullets": [
+   "FOLLOW-ME FILMING: Tracks suited to following a moving kitesurfer.",
+   "ONBOARD RECORDING: Records video on the drone.",
+   "FOLDABLE AIRFRAME: Folds for compact storage.",
+   "BATTERY POWERED: A battery-powered drone for kitesurf filming.",
+   "WI-FI CONNECTIVITY: Includes Wi-Fi."
+  ],
+  "price": {
+   "value": 999.0,
+   "unit": "USD",
+   "label": "estimate",
+   "source_or_assumption": "Brief target price 999 USD (retail price incl. VAT where applicable)"
+  },
+  "keywords": [
+   "kitesurf drone",
+   "follow me drone",
+   "kitesurf video filming",
+   "foldable drone",
+   "onboard recording drone",
+   "autonomous filming drone"
+  ]
+ },
+ "listing_photos": [
+  {
+   "shot": "lifestyle",
+   "url": "/files/demo_drone_follow/photo_v2_lifestyle.png",
+   "label": "Photo-styled from the CAD (AI image, geometry from our CAD) · Staged scene — illustrative",
+   "reference": "cad_render",
+   "aspect_ratio": "4:5",
+   "staged": true,
+   "model": "google/gemini-3.1-flash-image",
+   "version": 2,
+   "created_at": "2026-09-27T12:00:00Z"
+  }
+ ]
+}

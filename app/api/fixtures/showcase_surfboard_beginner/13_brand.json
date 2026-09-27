@@ -1,0 +1,163 @@
+{
+ "project_id": "demo_surfboard_beginner",
+ "status": "validated",
+ "fallback": false,
+ "fallback_reason": null,
+ "generated_by": "llm:openai/gpt-6-luna",
+ "generated_at": "2026-09-27T00:16:27.691617Z",
+ "assumptions": [
+  {
+   "id": "a1",
+   "text": "Amazon price in USD: Founder target retail price (USD); no conversion applied. Marketplace fees and VAT are not included.",
+   "label": "estimate",
+   "source": null,
+   "stage": 13
+  },
+  {
+   "id": "a2",
+   "text": "Name options are not trademark-searched; run a clearance search before committing.",
+   "label": "estimate",
+   "source": null,
+   "stage": 13
+  },
+  {
+   "id": "a3",
+   "text": "Listing copy uses only facts from the brief and spec; no certification claims until testing is complete (stage 4).",
+   "label": "estimate",
+   "source": null,
+   "stage": 13
+  }
+ ],
+ "stage": 13,
+ "name_options": [
+  {
+   "name": "Paddora",
+   "rationale": "A coined, easy-to-spell name that suggests paddling and a beginner-oriented board. Trademark search needed before use."
+  },
+  {
+   "name": "Stabaro",
+   "rationale": "A coined name with a steady sound that reflects the board’s stable outline. Trademark search needed before use."
+  },
+  {
+   "name": "Buoylo",
+   "rationale": "A short coined name that hints at the buoyant shape for easier paddling. Trademark search needed before use."
+  }
+ ],
+ "chosen_name": null,
+ "packaging": {
+  "box_type": "Long corrugated shipper with protective inserts",
+  "dimensions": {
+   "length": {
+    "value": 2296.0,
+    "unit": "mm",
+    "label": "estimate",
+    "source_or_assumption": "Product overall size + 10 mm clearance (rule; insert design at packaging RFQ)"
+   },
+   "width": {
+    "value": 570.0,
+    "unit": "mm",
+    "label": "estimate",
+    "source_or_assumption": "Product overall size + 10 mm clearance (rule; insert design at packaging RFQ)"
+   },
+   "height": {
+    "value": 220.0,
+    "unit": "mm",
+    "label": "estimate",
+    "source_or_assumption": "Product overall size + 10 mm clearance (rule; insert design at packaging RFQ)"
+   }
+  },
+  "materials": [
+   "Corrugated cardboard",
+   "Molded pulp",
+   "Paperboard"
+  ],
+  "printing": "One-color exterior printing with product name and handling information.",
+  "contents": [
+   "7'6\" surfboard with PU foam core and fibreglass/polyester laminate",
+   "EVA foam traction pad",
+   "Glass-filled nylon fins"
+  ],
+  "unit_cost": {
+   "value": 1.2,
+   "unit": "USD",
+   "label": "estimate",
+   "source_or_assumption": "Default retail-box + insert allowance (no packaging cost in the BOM)"
+  }
+ },
+ "landing_copy": {
+  "headline": "A Steady Start to Surfing",
+  "subheadline": "A 7'6\" beginner-oriented board with a stable outline and buoyant shape for easier paddling.",
+  "bullets": [
+   "7'6\" length for a beginner-oriented ride",
+   "Stable outline designed with beginners in mind",
+   "Buoyant shape helps make paddling easier",
+   "Hydrodynamic hull and rails"
+  ],
+  "cta": "Shop the board for $450"
+ },
+ "shopify_listing": {
+  "channel": "shopify",
+  "title": "7'6\" Beginner Surfboard with Stable Outline",
+  "description": "This 7'6\" surfboard has a beginner-oriented stable outline and buoyant shape for easier paddling. Its hydrodynamic hull and rails pair with a PU foam core, fibreglass/polyester laminate, EVA traction pad, and glass-filled nylon fins.",
+  "bullets": [
+   "7'6\" board length",
+   "Beginner-oriented stable outline",
+   "Buoyant shape for easier paddling",
+   "Hydrodynamic hull and rails",
+   "PU foam and fibreglass/polyester construction with gloss polish"
+  ],
+  "price": {
+   "value": 549.0,
+   "unit": "USD",
+   "label": "estimate",
+   "source_or_assumption": "No founder price and the assumed brief target price 450 usd is below 1.6× landed cost $356.40: retail derived as 2.4× ex-works unit cost $224.55 at 2,000 units (category retail multiplier, comparables to confirm)"
+  },
+  "keywords": [
+   "7'6 beginner surfboard",
+   "beginner surfboard",
+   "stable surfboard",
+   "surfboard for beginners",
+   "buoyant surfboard",
+   "surfboard with fins"
+  ]
+ },
+ "amazon_listing": {
+  "channel": "amazon",
+  "title": "Paddora 7'6\" Beginner Surfboard, Stable Outline, Buoyant Shape, EVA Traction Pad and Glass-Filled Nylon Fins",
+  "description": "The Paddora 7'6\" surfboard features a beginner-oriented stable outline and buoyant shape for easier paddling. It has a hydrodynamic hull and rails, a PU foam core with fibreglass/polyester laminate, an EVA foam traction pad, and glass-filled nylon fins.",
+  "bullets": [
+   "BEGINNER-ORIENTED: Stable outline shaped with beginners in mind",
+   "EASIER PADDLING: Buoyant shape supports easier paddling",
+   "7'6\" LENGTH: Board measures 7'6\" long",
+   "HYDRODYNAMIC DESIGN: Hull and rails are shaped for hydrodynamics",
+   "BOARD MATERIALS: PU foam core with fibreglass/polyester laminate; includes EVA foam traction pad and glass-filled nylon fins"
+  ],
+  "price": {
+   "value": 549.0,
+   "unit": "USD",
+   "label": "estimate",
+   "source_or_assumption": "No founder price and the assumed brief target price 450 usd is below 1.6× landed cost $356.40: retail derived as 2.4× ex-works unit cost $224.55 at 2,000 units (category retail multiplier, comparables to confirm)"
+  },
+  "keywords": [
+   "7'6 surfboard",
+   "beginner surfboard",
+   "stable outline surfboard",
+   "buoyant surfboard",
+   "surfboard traction pad",
+   "glass filled nylon fins"
+  ]
+ },
+ "listing_photos": [
+  {
+   "shot": "lifestyle",
+   "url": "/files/demo_surfboard_beginner/photo_v2_lifestyle.png",
+   "label": "Photo-styled from the CAD (AI image, geometry from our CAD) · Staged scene — illustrative",
+   "reference": "cad_render",
+   "aspect_ratio": "4:5",
+   "staged": true,
+   "model": "google/gemini-3.1-flash-image",
+   "version": 2,
+   "created_at": "2026-09-27T12:00:00Z"
+  }
+ ]
+}

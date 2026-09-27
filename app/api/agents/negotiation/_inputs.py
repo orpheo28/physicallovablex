@@ -49,9 +49,31 @@ def reference_quantity(ctx: StageContext, pack: FactoryPack | None = None) -> in
     return qs[len(qs) // 2]
 
 
+def product_category(ctx: StageContext) -> str | None:
+    """W21: engineering category of the product (wearable, drone, lighting…) → specialist-aware factory scoring."""
+    try:
+        from api.cad.family_mode import family_of
+        from api.engineering.category import FALLBACK, detect_category
+        from api.engineering.site_install import project_text
+
+        design, brief = ctx.artifact(2), ctx.artifact(1)
+        d = next((x for x in design.directions if x.id == design.chosen_direction_id), design.directions[0]) if design else None
+        key = detect_category(project_text(ctx), getattr(brief, "category", None), family_of(d) if d else None)
+        return None if key == FALLBACK else key
+    except Exception:  # noqa: BLE001 — scoring without a category is the W5 behaviour
+        return None
+
+
 def build_queries(ctx: StageContext, pack: FactoryPack) -> tuple[list[SearchCapacityQuery], list[float]]:
     """One search_capacity query per process (process per part from stage 6, else the spec's process_hint),
     weighted by the number of parts using it, plus final assembly for multi-part products."""
+    try:  # W20 site-install mode: a rooftop-solar project is matched with certified installers (process "other")
+        from api.engineering.site_install import installer_queries
+
+        if (site := installer_queries(ctx)) is not None:
+            return site, [1.0] * len(site)
+    except Exception:  # noqa: BLE001 — never block factory matching
+        pass
     plan = ctx.artifact(6)
     by_part = {s.part_id: s.process for s in plan.steps} if plan is not None else {}
     groups: OrderedDict[str, list] = OrderedDict()
@@ -63,17 +85,20 @@ def build_queries(ctx: StageContext, pack: FactoryPack) -> tuple[list[SearchCapa
     if not groups:
         raise ValueError("Factory Pack has no part with a manufacturing process")
     qty = reference_quantity(ctx, pack)
+    category = product_category(ctx)
     queries, weights = [], []
     for proc, parts in groups.items():
         queries.append(
             SearchCapacityQuery(
-                process=ProcessType(proc), material=parts[0].material, quantity=qty, certifications_required=FACTORY_CERTS
+                process=ProcessType(proc), material=parts[0].material, quantity=qty, certifications_required=FACTORY_CERTS,
+                category=category,
             )
         )
         weights.append(float(len(parts)))
     if len(pack.spec.parts) > 1 and "assembly" not in groups:
         queries.append(
-            SearchCapacityQuery(process=ProcessType.assembly, material="any", quantity=qty, certifications_required=FACTORY_CERTS)
+            SearchCapacityQuery(process=ProcessType.assembly, material="any", quantity=qty, certifications_required=FACTORY_CERTS,
+                                category=category)
         )
         weights.append(1.0)
     return queries, weights

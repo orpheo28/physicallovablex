@@ -1,0 +1,344 @@
+{
+ "project_id": "demo_changing_table",
+ "status": "validated",
+ "fallback": false,
+ "fallback_reason": null,
+ "generated_by": "llm:openai/gpt-6-luna",
+ "generated_at": "2026-09-27T00:16:44.059562Z",
+ "assumptions": [
+  {
+   "id": "a3_1",
+   "text": "Weight from the measured solid volume × per-part densities (birch plywood 0.68 g/cm³, foam pad 0.04, plastic 1.15)",
+   "label": "estimate",
+   "source": null,
+   "stage": 3
+  },
+  {
+   "id": "a3_2",
+   "text": "Direction d1 ('Nordic'): solid product from the 'furniture' family — no moulded enclosure; enclosure.* files are the product itself",
+   "label": "estimate",
+   "source": null,
+   "stage": 3
+  }
+ ],
+ "stage": 3,
+ "product_name": "Safe baby changing table",
+ "direction_id": "d1",
+ "overall_dimensions": {
+  "length": {
+   "value": 900.0,
+   "unit": "mm",
+   "label": "measured",
+   "source_or_assumption": "Bounding box of the full product (family CAD, build123d/OCCT)"
+  },
+  "width": {
+   "value": 560.0,
+   "unit": "mm",
+   "label": "measured",
+   "source_or_assumption": "Bounding box of the full product (family CAD, build123d/OCCT)"
+  },
+  "height": {
+   "value": 1010.0,
+   "unit": "mm",
+   "label": "measured",
+   "source_or_assumption": "Bounding box of the full product (family CAD, build123d/OCCT)"
+  }
+ },
+ "weight": {
+  "value": 24661.1,
+  "unit": "g",
+  "label": "estimate",
+  "source_or_assumption": "Solid volume 51841.3 cm³ (measured) × densities per part (birch plywood 0.68 g/cm³, foam pad 0.04, plastic 1.15)"
+ },
+ "parts": [
+  {
+   "id": "p1",
+   "name": "Birch plywood panels and legs",
+   "material": "Birch plywood 18 mm",
+   "finish": "Satin lacquer",
+   "process_hint": "cnc",
+   "tolerance": "±1 mm (shaped / routed parts)",
+   "dimensions": {
+    "length": {
+     "value": 900.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Bounding box of the largest part of this group, built family CAD (build123d/OCCT)"
+    },
+    "width": {
+     "value": 560.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Bounding box of the largest part of this group, built family CAD (build123d/OCCT)"
+    },
+    "height": {
+     "value": 24.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Bounding box of the largest part of this group, built family CAD (build123d/OCCT)"
+    }
+   },
+   "wall_thickness": null,
+   "quantity": 6
+  },
+  {
+   "id": "p2",
+   "name": "Changing pad (wipe-clean foam)",
+   "material": "PU foam, PVC-free cover",
+   "finish": "Satin lacquer",
+   "process_hint": "other",
+   "tolerance": "±1 mm (shaped / routed parts)",
+   "dimensions": {
+    "length": {
+     "value": 834.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Bounding box of the largest part of this group, built family CAD (build123d/OCCT)"
+    },
+    "width": {
+     "value": 512.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Bounding box of the largest part of this group, built family CAD (build123d/OCCT)"
+    },
+    "height": {
+     "value": 45.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Bounding box of the largest part of this group, built family CAD (build123d/OCCT)"
+    }
+   },
+   "wall_thickness": null,
+   "quantity": 3
+  },
+  {
+   "id": "p3",
+   "name": "Guard rails / trims",
+   "material": "Birch plywood / HPL",
+   "finish": "Satin lacquer",
+   "process_hint": "cnc",
+   "tolerance": "±1 mm (shaped / routed parts)",
+   "dimensions": {
+    "length": {
+     "value": 876.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Bounding box of the largest part of this group, built family CAD (build123d/OCCT)"
+    },
+    "width": {
+     "value": 18.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Bounding box of the largest part of this group, built family CAD (build123d/OCCT)"
+    },
+    "height": {
+     "value": 110.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Bounding box of the largest part of this group, built family CAD (build123d/OCCT)"
+    }
+   },
+   "wall_thickness": null,
+   "quantity": 7
+  }
+ ],
+ "electronics_blocks": [
+  {
+   "id": "b1",
+   "name": "Freestanding plywood frame",
+   "function": "Supports the table and transfers loads through the legs and rails to the floor."
+  },
+  {
+   "id": "b2",
+   "name": "Changing deck and raised guards",
+   "function": "Provides the wipe-clean changing area and raised perimeter."
+  },
+  {
+   "id": "b3",
+   "name": "Lower storage shelf",
+   "function": "Stores changing supplies within reach."
+  },
+  {
+   "id": "b4",
+   "name": "Anti-tip anchoring provision",
+   "function": "Provides a connection point for securing the table to a suitable wall."
+  }
+ ],
+ "electronics_edges": [
+  {
+   "source": "b1",
+   "target": "b2",
+   "signal": "Mechanical support via assembled joints"
+  },
+  {
+   "source": "b1",
+   "target": "b3",
+   "signal": "Mechanical support via assembled joints"
+  },
+  {
+   "source": "b1",
+   "target": "b4",
+   "signal": "Anchor attachment point"
+  }
+ ],
+ "bom": [
+  {
+   "id": "m1",
+   "part": "CNC-cut birch plywood frame panels, 18 mm",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Set of legs, rails and structural side panels for freestanding 900 × 560 × 1010 mm table; water-based lacquer finish",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m2",
+   "part": "CNC-cut birch plywood changing-surface deck and raised safety guards, 18 mm",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Deck and perimeter guards; edges rounded and finished with water-based lacquer",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m3",
+   "part": "CNC-cut birch plywood lower shelf, 18 mm",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Accessible storage shelf; water-based lacquer finish",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m4",
+   "part": "Wipe-clean changing pad",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Cleanable, non-powered pad sized to fit the changing surface; material and dimensions to be verified for intended use",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m5",
+   "part": "Furniture assembly fastener set",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Set of screws, bolts, washers and locking nuts sized for the plywood joints; select lengths to avoid exposed points",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m6",
+   "part": "Anti-tip wall anchor kit",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Wall attachment strap or bracket and suitable fasteners; wall-side anchors must match the installation substrate",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m7",
+   "part": "Water-based wood lacquer",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Consumable quantity sufficient for the specified plywood surfaces and edges",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "k1",
+   "part": "Corrugated shipping carton and protective packing",
+   "category": "packaging",
+   "qty": 1.0,
+   "description": "One-unit carton with corner protection and packing to prevent finish damage in transit",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m8",
+   "part": "Storage basket",
+   "category": "mechanical",
+   "qty": 2.0,
+   "description": "Two baskets for storage.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  }
+ ],
+ "tolerances": [
+  "General ISO 2768-c",
+  "CNC-routed panels ±0.3 mm",
+  "Hole positions for fittings ±0.2 mm",
+  "All accessible edges rounded r ≥ 2 mm"
+ ],
+ "cad_files": [
+  {
+   "format": "glb",
+   "url": "/files/demo_changing_table/model_v2.glb",
+   "description": "AI-generated CAD (concept level) — geometry measured on the result — bbox 900 × 564 × 1010 mm",
+   "size_bytes": 484516
+  },
+  {
+   "format": "step",
+   "url": "/files/demo_changing_table/model_v2.step",
+   "description": "AI-generated CAD (concept level) — geometry measured on the result — STEP AP214",
+   "size_bytes": 645488
+  },
+  {
+   "format": "py",
+   "url": "/projects/demo_changing_table/cad/code/2",
+   "description": "AI-generated CAD (concept level) — geometry measured on the result — build123d program v2 (llm:openai/gpt-6-sol)",
+   "size_bytes": 4153
+  },
+  {
+   "format": "glb",
+   "url": "/files/demo_changing_table/v2.glb",
+   "description": "Full product — materials",
+   "size_bytes": 441500
+  },
+  {
+   "format": "step",
+   "url": "/files/demo_changing_table/v2_enclosure.step",
+   "description": "Product — all parts (solid bodies), STEP AP214",
+   "size_bytes": 586202
+  },
+  {
+   "format": "stl",
+   "url": "/files/demo_changing_table/v2_enclosure.stl",
+   "description": "Product — mesh",
+   "size_bytes": 574484
+  },
+  {
+   "format": "glb",
+   "url": "/files/demo_changing_table/v2_enclosure.glb",
+   "description": "Product — viewer model",
+   "size_bytes": 441500
+  }
+ ]
+}

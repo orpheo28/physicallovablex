@@ -6,7 +6,8 @@ description: For one physical product, estimate its real landed manufacturing co
 # PVP teardown
 
 **Input:** a product, as a campaign or product URL, a spec sheet, photos or a BOM if the founder shares one.
-**Output:** one page with three blocks: **Sourced**, **Estimated**, and **Risks**. Each line is tagged `[S]` (sourced, with a URL) or `[E]` (estimated, with its method). An `[E]` line is never presented as a fact.
+**Output:** one page saved as `outputs/pvp/YYYY-MM-DD-pvp-<product>.md` (teardowns from 26/09 keep their old names), with three blocks: **Sourced**, **Estimated**, and **Risks**. Add one line to `outputs/RUN_LOG.md`.
+**Reads:** `context/positioning.md` (pillar 2, guardrails), `context/competitors.md` (reference prices), `playbooks/founder-replied.md` (when it may be offered). Each line is tagged `[S]` (sourced, with a URL) or `[E]` (estimated, with its method). An `[E]` line is never presented as a fact.
 
 ## Steps
 1. **Break the product down.**
@@ -51,4 +52,5 @@ Confidence: low / medium. What would make it high: <BOM, factory quote>
 
 ## Rules
 - Do not publish a single-point cost. Always give a range, with its method.
-- Do not send the teardown cold. Offer it after a call, or when the founder asks for it (`03_DISCOVERY/messages.md`: sell nothing, promise nothing).
+- Do not send the teardown cold. Offer it after a call, or when the founder asks for it (`03_DISCOVERY/messages.md`: sell nothing, promise nothing; `playbooks/founder-replied.md` step 5).
+- A founder's BOM or files shared in a call are confidential: never commit them to this repo (`README.md`, privacy rules).

@@ -1,0 +1,710 @@
+{
+ "project_id": "demo_drone_follow",
+ "status": "validated",
+ "fallback": false,
+ "fallback_reason": null,
+ "generated_by": "code",
+ "generated_at": "2026-09-27T08:58:58.324855Z",
+ "assumptions": [
+  {
+   "id": "a8_network",
+   "text": "Factories, quotes, counters and replies are simulated (production MCP demo network).",
+   "label": "fictional",
+   "source": "factory_mcp (demo data)",
+   "stage": 8
+  },
+  {
+   "id": "a8_anchor",
+   "text": "Factory quotes are anchored on stage 5 cost tiers + tooling total × each factory's personality margin; subcontracted processes add 3% each.",
+   "label": "estimate",
+   "source": null,
+   "stage": 8
+  },
+  {
+   "id": "a8_policy",
+   "text": "Negotiation policy: max 2 rounds; price, tooling, MOQ ≤ 2,000, lead time, 30% deposit / 70% before shipment; pick = lowest risk-adjusted cost incl. tooling.",
+   "label": "estimate",
+   "source": null,
+   "stage": 8
+  },
+  {
+   "id": "a8_scripted",
+   "text": "No LLM key: agents ran the deterministic scripted policy (same numbers, template messages).",
+   "label": "estimate",
+   "source": null,
+   "stage": 8
+  },
+  {
+   "id": "a8_autofill",
+   "text": "Auto-approved in autofill mode — review and change the selected factory before any real order",
+   "label": "estimate",
+   "source": null,
+   "stage": 8
+  }
+ ],
+ "stage": 8,
+ "rfqs": [
+  {
+   "id": "rfq_5a2a9eb499",
+   "project_id": "demo_drone_follow",
+   "factory_id": "f_skyforge",
+   "factory_pack_id": "fp_demo_drone_follow_v2",
+   "quantities": [
+    500,
+    2000,
+    10000
+   ],
+   "status": "accepted",
+   "created_at": "2026-09-27T08:58:58.303022Z",
+   "label": "fictional"
+  },
+  {
+   "id": "rfq_f7ef805b4d",
+   "project_id": "demo_drone_follow",
+   "factory_id": "f_cobaltriver",
+   "factory_pack_id": "fp_demo_drone_follow_v2",
+   "quantities": [
+    500,
+    2000,
+    10000
+   ],
+   "status": "quoted",
+   "created_at": "2026-09-27T08:58:58.303793Z",
+   "label": "fictional"
+  },
+  {
+   "id": "rfq_6c2d76519b",
+   "project_id": "demo_drone_follow",
+   "factory_id": "f_lumenpeak",
+   "factory_pack_id": "fp_demo_drone_follow_v2",
+   "quantities": [
+    500,
+    2000,
+    10000
+   ],
+   "status": "quoted",
+   "created_at": "2026-09-27T08:58:58.304554Z",
+   "label": "fictional"
+  }
+ ],
+ "quotes": [
+  {
+   "id": "qt_f3c73104a6",
+   "rfq_id": "rfq_5a2a9eb499",
+   "factory_id": "f_skyforge",
+   "version": 1,
+   "tiers": [
+    {
+     "quantity": 500,
+     "unit_price_usd": 226.12
+    },
+    {
+     "quantity": 2000,
+     "unit_price_usd": 208.03
+    },
+    {
+     "quantity": 10000,
+     "unit_price_usd": 191.39
+    }
+   ],
+   "tooling_usd": 3050.0,
+   "moq": 300,
+   "lead_time_days": 41,
+   "payment_terms": "30% deposit / 70% before shipment",
+   "exceptions": [
+    "other subcontracted to a partner shop"
+   ],
+   "status": "superseded",
+   "created_at": "2026-09-27T08:58:58.306081Z",
+   "label": "fictional"
+  },
+  {
+   "id": "qt_973954cec8",
+   "rfq_id": "rfq_5a2a9eb499",
+   "factory_id": "f_skyforge",
+   "version": 2,
+   "tiers": [
+    {
+     "quantity": 500,
+     "unit_price_usd": 219.34
+    },
+    {
+     "quantity": 2000,
+     "unit_price_usd": 201.79
+    },
+    {
+     "quantity": 10000,
+     "unit_price_usd": 185.65
+    }
+   ],
+   "tooling_usd": 2750.0,
+   "moq": 300,
+   "lead_time_days": 36,
+   "payment_terms": "30% deposit / 70% before shipment",
+   "exceptions": [
+    "other subcontracted to a partner shop"
+   ],
+   "status": "superseded",
+   "created_at": "2026-09-27T08:58:58.311332Z",
+   "label": "fictional"
+  },
+  {
+   "id": "qt_b250684bc1",
+   "rfq_id": "rfq_5a2a9eb499",
+   "factory_id": "f_skyforge",
+   "version": 3,
+   "tiers": [
+    {
+     "quantity": 500,
+     "unit_price_usd": 219.34
+    },
+    {
+     "quantity": 2000,
+     "unit_price_usd": 201.79
+    },
+    {
+     "quantity": 10000,
+     "unit_price_usd": 185.65
+    }
+   ],
+   "tooling_usd": 2900.0,
+   "moq": 300,
+   "lead_time_days": 38,
+   "payment_terms": "30% deposit / 70% before shipment",
+   "exceptions": [
+    "other subcontracted to a partner shop"
+   ],
+   "status": "superseded",
+   "created_at": "2026-09-27T08:58:58.313183Z",
+   "label": "fictional"
+  },
+  {
+   "id": "qt_0aa624e7e7",
+   "rfq_id": "rfq_5a2a9eb499",
+   "factory_id": "f_skyforge",
+   "version": 4,
+   "tiers": [
+    {
+     "quantity": 500,
+     "unit_price_usd": 214.95
+    },
+    {
+     "quantity": 2000,
+     "unit_price_usd": 197.75
+    },
+    {
+     "quantity": 10000,
+     "unit_price_usd": 181.94
+    }
+   ],
+   "tooling_usd": 2800.0,
+   "moq": 300,
+   "lead_time_days": 33,
+   "payment_terms": "30% deposit / 70% before shipment",
+   "exceptions": [
+    "other subcontracted to a partner shop"
+   ],
+   "status": "superseded",
+   "created_at": "2026-09-27T08:58:58.320942Z",
+   "label": "fictional"
+  },
+  {
+   "id": "qt_a8423d1784",
+   "rfq_id": "rfq_5a2a9eb499",
+   "factory_id": "f_skyforge",
+   "version": 5,
+   "tiers": [
+    {
+     "quantity": 500,
+     "unit_price_usd": 218.21
+    },
+    {
+     "quantity": 2000,
+     "unit_price_usd": 200.75
+    },
+    {
+     "quantity": 10000,
+     "unit_price_usd": 184.69
+    }
+   ],
+   "tooling_usd": 2900.0,
+   "moq": 300,
+   "lead_time_days": 38,
+   "payment_terms": "30% deposit / 70% before shipment",
+   "exceptions": [
+    "other subcontracted to a partner shop"
+   ],
+   "status": "accepted",
+   "created_at": "2026-09-27T08:58:58.322154Z",
+   "label": "fictional"
+  },
+  {
+   "id": "qt_e6b0b81b2e",
+   "rfq_id": "rfq_f7ef805b4d",
+   "factory_id": "f_cobaltriver",
+   "version": 1,
+   "tiers": [
+    {
+     "quantity": 500,
+     "unit_price_usd": 243.19
+    },
+    {
+     "quantity": 2000,
+     "unit_price_usd": 223.73
+    },
+    {
+     "quantity": 10000,
+     "unit_price_usd": 205.84
+    }
+   ],
+   "tooling_usd": 3550.0,
+   "moq": 1500,
+   "lead_time_days": 40,
+   "payment_terms": "40% deposit / 60% before shipment",
+   "exceptions": [
+    "other subcontracted to a partner shop"
+   ],
+   "status": "superseded",
+   "created_at": "2026-09-27T08:58:58.307645Z",
+   "label": "fictional"
+  },
+  {
+   "id": "qt_1aff3069b6",
+   "rfq_id": "rfq_f7ef805b4d",
+   "factory_id": "f_cobaltriver",
+   "version": 2,
+   "tiers": [
+    {
+     "quantity": 500,
+     "unit_price_usd": 223.73
+    },
+    {
+     "quantity": 2000,
+     "unit_price_usd": 205.83
+    },
+    {
+     "quantity": 10000,
+     "unit_price_usd": 189.37
+    }
+   ],
+   "tooling_usd": 3200.0,
+   "moq": 1500,
+   "lead_time_days": 35,
+   "payment_terms": "30% deposit / 70% before shipment",
+   "exceptions": [
+    "other subcontracted to a partner shop"
+   ],
+   "status": "superseded",
+   "created_at": "2026-09-27T08:58:58.315036Z",
+   "label": "fictional"
+  },
+  {
+   "id": "qt_06e3458515",
+   "rfq_id": "rfq_f7ef805b4d",
+   "factory_id": "f_cobaltriver",
+   "version": 3,
+   "tiers": [
+    {
+     "quantity": 500,
+     "unit_price_usd": 238.33
+    },
+    {
+     "quantity": 2000,
+     "unit_price_usd": 219.26
+    },
+    {
+     "quantity": 10000,
+     "unit_price_usd": 201.72
+    }
+   ],
+   "tooling_usd": 3450.0,
+   "moq": 1500,
+   "lead_time_days": 37,
+   "payment_terms": "40% deposit / 60% before shipment",
+   "exceptions": [
+    "other subcontracted to a partner shop"
+   ],
+   "status": "submitted",
+   "created_at": "2026-09-27T08:58:58.316406Z",
+   "label": "fictional"
+  },
+  {
+   "id": "qt_f65e068572",
+   "rfq_id": "rfq_6c2d76519b",
+   "factory_id": "f_lumenpeak",
+   "version": 1,
+   "tiers": [
+    {
+     "quantity": 500,
+     "unit_price_usd": 251.72
+    },
+    {
+     "quantity": 2000,
+     "unit_price_usd": 231.58
+    },
+    {
+     "quantity": 10000,
+     "unit_price_usd": 213.06
+    }
+   ],
+   "tooling_usd": 3600.0,
+   "moq": 500,
+   "lead_time_days": 27,
+   "payment_terms": "50% deposit / 50% before shipment",
+   "exceptions": [
+    "other subcontracted to a partner shop"
+   ],
+   "status": "superseded",
+   "created_at": "2026-09-27T08:58:58.309315Z",
+   "label": "fictional"
+  },
+  {
+   "id": "qt_5c43185e05",
+   "rfq_id": "rfq_6c2d76519b",
+   "factory_id": "f_lumenpeak",
+   "version": 2,
+   "tiers": [
+    {
+     "quantity": 500,
+     "unit_price_usd": 231.58
+    },
+    {
+     "quantity": 2000,
+     "unit_price_usd": 213.05
+    },
+    {
+     "quantity": 10000,
+     "unit_price_usd": 196.02
+    }
+   ],
+   "tooling_usd": 3250.0,
+   "moq": 500,
+   "lead_time_days": 27,
+   "payment_terms": "30% deposit / 70% before shipment",
+   "exceptions": [
+    "other subcontracted to a partner shop"
+   ],
+   "status": "superseded",
+   "created_at": "2026-09-27T08:58:58.317974Z",
+   "label": "fictional"
+  },
+  {
+   "id": "qt_27d58a69dc",
+   "rfq_id": "rfq_6c2d76519b",
+   "factory_id": "f_lumenpeak",
+   "version": 3,
+   "tiers": [
+    {
+     "quantity": 500,
+     "unit_price_usd": 247.94
+    },
+    {
+     "quantity": 2000,
+     "unit_price_usd": 228.11
+    },
+    {
+     "quantity": 10000,
+     "unit_price_usd": 209.86
+    }
+   ],
+   "tooling_usd": 3500.0,
+   "moq": 500,
+   "lead_time_days": 27,
+   "payment_terms": "40% deposit / 60% before shipment",
+   "exceptions": [
+    "other subcontracted to a partner shop"
+   ],
+   "status": "submitted",
+   "created_at": "2026-09-27T08:58:58.319276Z",
+   "label": "fictional"
+  }
+ ],
+ "transcript": [
+  {
+   "id": "t1",
+   "rfq_id": "rfq_5a2a9eb499",
+   "factory_id": "f_skyforge",
+   "turn": 1,
+   "speaker": "platform_agent",
+   "message": "RFQ sent with Factory Pack fp_demo_drone_follow_v2: Kitesurf follow-me drone, 500 / 2,000 / 10,000 units, markets US. Please quote unit price per tier, tooling, MOQ, lead time and terms.",
+   "message_cn": null,
+   "quote_id": null,
+   "proposed_changes": {},
+   "rationale": null,
+   "created_at": "2026-09-27T08:58:58.303493Z",
+   "label": "fictional"
+  },
+  {
+   "id": "t2",
+   "rfq_id": "rfq_f7ef805b4d",
+   "factory_id": "f_cobaltriver",
+   "turn": 2,
+   "speaker": "platform_agent",
+   "message": "RFQ sent with Factory Pack fp_demo_drone_follow_v2: Kitesurf follow-me drone, 500 / 2,000 / 10,000 units, markets US. Please quote unit price per tier, tooling, MOQ, lead time and terms.",
+   "message_cn": null,
+   "quote_id": null,
+   "proposed_changes": {},
+   "rationale": null,
+   "created_at": "2026-09-27T08:58:58.304248Z",
+   "label": "fictional"
+  },
+  {
+   "id": "t3",
+   "rfq_id": "rfq_6c2d76519b",
+   "factory_id": "f_lumenpeak",
+   "turn": 3,
+   "speaker": "platform_agent",
+   "message": "RFQ sent with Factory Pack fp_demo_drone_follow_v2: Kitesurf follow-me drone, 500 / 2,000 / 10,000 units, markets US. Please quote unit price per tier, tooling, MOQ, lead time and terms.",
+   "message_cn": null,
+   "quote_id": null,
+   "proposed_changes": {},
+   "rationale": null,
+   "created_at": "2026-09-27T08:58:58.304972Z",
+   "label": "fictional"
+  },
+  {
+   "id": "t4",
+   "rfq_id": "rfq_5a2a9eb499",
+   "factory_id": "f_skyforge",
+   "turn": 4,
+   "speaker": "factory_agent",
+   "message": "Quote v1: $208.03 at 2,000, tooling $3,050, MOQ 300, 41 days, 30% deposit / 70% before shipment. Note: other subcontracted to a partner shop.",
+   "message_cn": null,
+   "quote_id": "qt_f3c73104a6",
+   "proposed_changes": {},
+   "rationale": null,
+   "created_at": "2026-09-27T08:58:58.307029Z",
+   "label": "fictional"
+  },
+  {
+   "id": "t5",
+   "rfq_id": "rfq_f7ef805b4d",
+   "factory_id": "f_cobaltriver",
+   "turn": 5,
+   "speaker": "factory_agent",
+   "message": "Quote v1: $223.73 at 2,000, tooling $3,550, MOQ 1,500, 40 days, 40% deposit / 60% before shipment. Note: other subcontracted to a partner shop.",
+   "message_cn": null,
+   "quote_id": "qt_e6b0b81b2e",
+   "proposed_changes": {},
+   "rationale": null,
+   "created_at": "2026-09-27T08:58:58.308507Z",
+   "label": "fictional"
+  },
+  {
+   "id": "t6",
+   "rfq_id": "rfq_6c2d76519b",
+   "factory_id": "f_lumenpeak",
+   "turn": 6,
+   "speaker": "factory_agent",
+   "message": "Quote v1: $231.58 at 2,000, tooling $3,600, MOQ 500, 27 days, 50% deposit / 50% before shipment. Note: other subcontracted to a partner shop.",
+   "message_cn": null,
+   "quote_id": "qt_f65e068572",
+   "proposed_changes": {},
+   "rationale": null,
+   "created_at": "2026-09-27T08:58:58.310434Z",
+   "label": "fictional"
+  },
+  {
+   "id": "t7",
+   "rfq_id": "rfq_5a2a9eb499",
+   "factory_id": "f_skyforge",
+   "turn": 7,
+   "speaker": "platform_agent",
+   "message": "Counter: firm 2,000-unit PO if we get unit price -3.0% (to $201.79 at 2,000), tooling $2,750, lead time 36 days.",
+   "message_cn": null,
+   "quote_id": "qt_973954cec8",
+   "proposed_changes": {
+    "unit_price_pct": -3.0,
+    "tooling_usd": 2750,
+    "lead_time_days": 36
+   },
+   "rationale": "Cheapest competing quote is $223.73 at 2,000 units; Skyforge Robotics Integrators (fictional) is at $208.03. Fastest competitor ships in 27 days. Policy: price, tooling, MOQ ≤ first order, 30/70 terms.",
+   "created_at": "2026-09-27T08:58:58.312227Z",
+   "label": "fictional"
+  },
+  {
+   "id": "t8",
+   "rfq_id": "rfq_5a2a9eb499",
+   "factory_id": "f_skyforge",
+   "turn": 8,
+   "speaker": "factory_agent",
+   "message": "Revised v3: $201.79 at 2,000, tooling $2,900, MOQ 300, 38 days, 30% deposit / 70% before shipment — accepted your price.",
+   "message_cn": null,
+   "quote_id": "qt_b250684bc1",
+   "proposed_changes": {},
+   "rationale": null,
+   "created_at": "2026-09-27T08:58:58.314245Z",
+   "label": "fictional"
+  },
+  {
+   "id": "t9",
+   "rfq_id": "rfq_f7ef805b4d",
+   "factory_id": "f_cobaltriver",
+   "turn": 9,
+   "speaker": "platform_agent",
+   "message": "Counter: firm 2,000-unit PO if we get unit price -8.0% (to $205.83 at 2,000), tooling $3,200, lead time 35 days, 30/70 payment terms.",
+   "message_cn": null,
+   "quote_id": "qt_1aff3069b6",
+   "proposed_changes": {
+    "unit_price_pct": -8.0,
+    "tooling_usd": 3200,
+    "lead_time_days": 35,
+    "payment_terms": "30% deposit / 70% before shipment"
+   },
+   "rationale": "Cheapest competing quote is $201.79 at 2,000 units; Cobalt River Box-Build EMS (fictional) is at $223.73. Fastest competitor ships in 27 days. Policy: price, tooling, MOQ ≤ first order, 30/70 terms.",
+   "created_at": "2026-09-27T08:58:58.315669Z",
+   "label": "fictional"
+  },
+  {
+   "id": "t10",
+   "rfq_id": "rfq_f7ef805b4d",
+   "factory_id": "f_cobaltriver",
+   "turn": 10,
+   "speaker": "factory_agent",
+   "message": "Revised v3: $219.26 at 2,000, tooling $3,450, MOQ 1,500, 37 days, 40% deposit / 60% before shipment — 2.0% off, that is our floor.",
+   "message_cn": null,
+   "quote_id": "qt_06e3458515",
+   "proposed_changes": {},
+   "rationale": null,
+   "created_at": "2026-09-27T08:58:58.317277Z",
+   "label": "fictional"
+  },
+  {
+   "id": "t11",
+   "rfq_id": "rfq_6c2d76519b",
+   "factory_id": "f_lumenpeak",
+   "turn": 11,
+   "speaker": "platform_agent",
+   "message": "Counter: firm 2,000-unit PO if we get unit price -8.0% (to $213.05 at 2,000), tooling $3,250, 30/70 payment terms.",
+   "message_cn": null,
+   "quote_id": "qt_5c43185e05",
+   "proposed_changes": {
+    "unit_price_pct": -8.0,
+    "tooling_usd": 3250,
+    "payment_terms": "30% deposit / 70% before shipment"
+   },
+   "rationale": "Cheapest competing quote is $201.79 at 2,000 units; Lumen Peak Micro-Electronics (fictional) is at $231.58. Fastest competitor ships in 37 days. Policy: price, tooling, MOQ ≤ first order, 30/70 terms.",
+   "created_at": "2026-09-27T08:58:58.318608Z",
+   "label": "fictional"
+  },
+  {
+   "id": "t12",
+   "rfq_id": "rfq_6c2d76519b",
+   "factory_id": "f_lumenpeak",
+   "turn": 12,
+   "speaker": "factory_agent",
+   "message": "Revised v3: $228.11 at 2,000, tooling $3,500, MOQ 500, 27 days, 40% deposit / 60% before shipment — 1.5% off, that is our floor.",
+   "message_cn": null,
+   "quote_id": "qt_27d58a69dc",
+   "proposed_changes": {},
+   "rationale": null,
+   "created_at": "2026-09-27T08:58:58.320100Z",
+   "label": "fictional"
+  },
+  {
+   "id": "t13",
+   "rfq_id": "rfq_5a2a9eb499",
+   "factory_id": "f_skyforge",
+   "turn": 13,
+   "speaker": "platform_agent",
+   "message": "Final ask: firm 2,000-unit PO if we get unit price -2.0% (to $197.75 at 2,000), tooling $2,800, lead time 33 days.",
+   "message_cn": null,
+   "quote_id": "qt_0aa624e7e7",
+   "proposed_changes": {
+    "unit_price_pct": -2.0,
+    "tooling_usd": 2800,
+    "lead_time_days": 33
+   },
+   "rationale": "Cheapest competing quote is $219.26 at 2,000 units; Skyforge Robotics Integrators (fictional) is at $201.79. Fastest competitor ships in 27 days. Policy: price, tooling, MOQ ≤ first order, 30/70 terms.",
+   "created_at": "2026-09-27T08:58:58.321518Z",
+   "label": "fictional"
+  },
+  {
+   "id": "t14",
+   "rfq_id": "rfq_5a2a9eb499",
+   "factory_id": "f_skyforge",
+   "turn": 14,
+   "speaker": "factory_agent",
+   "message": "Revised v5: $200.75 at 2,000, tooling $2,900, MOQ 300, 38 days, 30% deposit / 70% before shipment — 0.5% off, that is our floor.",
+   "message_cn": null,
+   "quote_id": "qt_a8423d1784",
+   "proposed_changes": {},
+   "rationale": null,
+   "created_at": "2026-09-27T08:58:58.322963Z",
+   "label": "fictional"
+  },
+  {
+   "id": "t15",
+   "rfq_id": "rfq_5a2a9eb499",
+   "factory_id": "f_skyforge",
+   "turn": 15,
+   "speaker": "platform_agent",
+   "message": "Recommendation to founder: accept Skyforge Robotics Integrators (fictional) v5: $200.75 at 2,000, tooling $2,900, MOQ 300, 38 days, 30% deposit / 70% before shipment. Awaiting approval.",
+   "message_cn": null,
+   "quote_id": "qt_a8423d1784",
+   "proposed_changes": {},
+   "rationale": "Skyforge Robotics Integrators (fictional): lowest risk-adjusted cost, $227.07/unit risk-adjusted ($202.20 incl. tooling at 2,000); 91% on-time, 1.1% defects, 38 days, 30% deposit / 70% before shipment. Runner-up Cobalt River Box-Build EMS (fictional): $245.51/unit risk-adjusted ($220.98 incl. tooling at 2,000) — other subcontracted to a partner shop.",
+   "created_at": "2026-09-27T08:58:58.323002Z",
+   "label": "fictional"
+  },
+  {
+   "id": "t16",
+   "rfq_id": "rfq_5a2a9eb499",
+   "factory_id": "f_skyforge",
+   "turn": 16,
+   "speaker": "user",
+   "message": "Approved quote v5.",
+   "message_cn": null,
+   "quote_id": "qt_a8423d1784",
+   "proposed_changes": {},
+   "rationale": null,
+   "created_at": "2026-09-27T08:58:58.332515Z",
+   "label": "fictional"
+  },
+  {
+   "id": "t17",
+   "rfq_id": "rfq_5a2a9eb499",
+   "factory_id": "f_skyforge",
+   "turn": 17,
+   "speaker": "platform_agent",
+   "message": "Quote accepted — order draft po_2334cc8c1b for 2,000 units at $200.75, tooling $2,900, 30% deposit / 70% before shipment.",
+   "message_cn": null,
+   "quote_id": "qt_a8423d1784",
+   "proposed_changes": {},
+   "rationale": null,
+   "created_at": "2026-09-27T08:58:58.332518Z",
+   "label": "fictional"
+  }
+ ],
+ "recommendation": {
+  "factory_id": "f_skyforge",
+  "quote_id": "qt_a8423d1784",
+  "rationale": "Skyforge Robotics Integrators (fictional): lowest risk-adjusted cost, $227.07/unit risk-adjusted ($202.20 incl. tooling at 2,000); 91% on-time, 1.1% defects, 38 days, 30% deposit / 70% before shipment. Runner-up Cobalt River Box-Build EMS (fictional): $245.51/unit risk-adjusted ($220.98 incl. tooling at 2,000) — other subcontracted to a partner shop."
+ },
+ "user_approved": true,
+ "final_terms": {
+  "factory_id": "f_skyforge",
+  "quote_id": "qt_a8423d1784",
+  "quantity": 2000,
+  "unit_price": {
+   "value": 200.75,
+   "unit": "USD",
+   "label": "fictional",
+   "source_or_assumption": "Accepted quote v5 (po_2334cc8c1b) — demo data"
+  },
+  "tooling": {
+   "value": 2900.0,
+   "unit": "USD",
+   "label": "fictional",
+   "source_or_assumption": "Accepted quote v5 (po_2334cc8c1b) — demo data"
+  },
+  "moq": 300,
+  "lead_time_days": {
+   "value": 38.0,
+   "unit": "days",
+   "label": "fictional",
+   "source_or_assumption": "Accepted quote v5 (po_2334cc8c1b) — demo data"
+  },
+  "payment_terms": "30% deposit / 70% before shipment"
+ }
+}

@@ -5,7 +5,7 @@ No MCP import here: `factory_mcp.server` exposes these functions over MCP, and
 
 Everything in this network is **Fictional — demo data** (record-level `label: "fictional"`).
 Capacity data does not exist publicly (E_usines.md): the network *creates* it through
-`register_capacity`; the 8 seed factories stand in for onboarded factories.
+`register_capacity`; the seed partners (factories, integrator, installers) stand in for onboarded factories.
 
 Storage: SQLite (stdlib), one JSON document per record, path resolved at every call:
   1. $FACTORY_MCP_DB
@@ -117,6 +117,9 @@ def _conn() -> Iterator[sqlite3.Connection]:
         con.executescript(_SCHEMA)
         if con.execute("SELECT COUNT(*) FROM factory").fetchone()[0] == 0:
             _seed(con)
+        elif str(path) not in _SEEDED:  # W20: seed records added later (the 3 installers) reach stores created before them
+            _seed_missing_factories(con)
+        _SEEDED.add(str(path))
         yield con
         con.commit()
     finally:
@@ -138,6 +141,16 @@ def _seed(con: sqlite3.Connection) -> None:
                 con.execute("INSERT OR IGNORE INTO quote VALUES (?, ?, ?, ?)", (q.id, q.rfq_id, q.version, q.model_dump_json()))
 
 
+_SEEDED: set[str] = set()
+
+
+def _seed_missing_factories(con: sqlite3.Connection) -> None:
+    seq = con.execute("SELECT COALESCE(MAX(seq), 0) + 1 FROM factory").fetchone()[0]
+    for i, raw in enumerate(json.loads(SEED_FACTORIES.read_text())):
+        f = Factory.model_validate(raw)
+        con.execute("INSERT OR IGNORE INTO factory VALUES (?, ?, ?)", (f.id, f.model_dump_json(), seq + i))
+
+
 def reset() -> None:
     """Drop all runtime state (registered factories, RFQs, quotes, orders) and re-seed."""
     path = db_path()
@@ -154,16 +167,31 @@ def _new_id(prefix: str) -> str:
 # --------------------------------------------------------------------------- reads
 
 
+def partner_kind(factory_id: str, archetype: str) -> str:
+    """W21b: factory | installer | integrator (records stored before the field existed get it inferred)."""
+    a = (archetype or "").lower()
+    if factory_id.startswith("i_") or "installer" in a:
+        return "installer"
+    return "integrator" if "integrator" in a else "factory"
+
+
+def _load(raw: str) -> Factory:
+    f = Factory.model_validate_json(raw)
+    if '"kind"' not in raw:
+        f.kind = partner_kind(f.id, f.archetype)
+    return f
+
+
 def list_factories() -> list[Factory]:
     with _conn() as con:
         rows = con.execute("SELECT data FROM factory ORDER BY seq, id").fetchall()
-    return [Factory.model_validate_json(r[0]) for r in rows]
+    return [_load(r[0]) for r in rows]
 
 
 def get_factory(factory_id: str) -> Factory | None:
     with _conn() as con:
         row = con.execute("SELECT data FROM factory WHERE id = ?", (factory_id,)).fetchone()
-    return Factory.model_validate_json(row[0]) if row else None
+    return _load(row[0]) if row else None
 
 
 def _require_factory(factory_id: str) -> Factory:
@@ -239,8 +267,10 @@ def register_capacity(
     """Factory onboarding: creates the capacity record the market lacks. Returns factory_id."""
     if not name.endswith("(fictional)"):
         name = f"{name} (fictional)"
+    fid = _new_id("f")
     factory = Factory(
-        id=_new_id("f"),
+        id=fid,
+        kind=partner_kind(fid, archetype),
         name=name,
         region=region,
         archetype=archetype,
@@ -299,6 +329,14 @@ def score_factory(factory: Factory, query: SearchCapacityQuery, today: date | No
         pf, pf_note = 0.6, f"Runs {process_label(query.process)}, but {query.material} is not in its material list"
     else:
         pf, pf_note = 0.0, f"Does not run {process_label(query.process)}"
+    # W21: a category specialist (lighting, wearables, drones…) is a weaker fit for another category
+    cats = [c.lower() for c in getattr(cap, "categories", None) or []]
+    if pf > 0 and query.category and cats:
+        if query.category.lower() in cats:
+            pf_note += f" — {query.category.replace('_', ' ')} specialist"
+        else:
+            pf = round(pf * 0.5, 2)
+            pf_note += f" — specialises in {', '.join(c.replace('_', ' ') for c in cats)}, not {query.category.replace('_', ' ')}"
     # moq
     if cap.moq <= query.quantity:
         mq, mq_note = 1.0, f"MOQ {cap.moq:,} ≤ {query.quantity:,} units"

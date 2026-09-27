@@ -1,6 +1,11 @@
 # PhysicalLovableX — MVP
 
-Idea or prototype → 13 stages → Factory Pack → Launch Dossier. Specs: `../PRD.md`, `../PLAN.md`, `../MONITOR.md`.
+## What it is
+The Lovable of physical products, built as a **Studio**: describe a product in a sentence, see it in 3D with its cost and top factories (first version in 18-24 s over several live runs), then refine it by prompting: colour and feature changes take 4-7 s, geometry edits 11-24 s, and each creates a restorable version with a diff (CAD, real LCSC parts, costs, measured DFM, certifications, shortlist).
+In software the AI writes code; in hardware **CAD is code**: the AI writes build123d code, it runs in a sandbox, is measured and self-repaired on error (visible in the "CAD code" tab); physics checks then run on the measured model. Concept-level geometry: about 80% of the translation is automated, humans and real factories cover the last 20%.
+**Make it** autofills the rest (factories via the production MCP, agent negotiation with auto-approvals flagged, tooling, QC, logistics and duties, cash plan, brand) to the Launch Dossier (EN + CN), 13 steps in 54-88 s live, or instantly on the 11 recorded showcases; the 13 stages stay as the detailed view, in 4 phases. The primitive is the **Factory Pack**.
+Real: AI-written CAD, measured DFM and physics checks, LCSC prices, HTS/duties, PVGIS, Drewry freight index. Fictional and labeled: the 15 fictional partners (11 factories, 1 integrator, 3 installers), their quotes, carrier freight; firmware skeletons are generated, not compiled or tested. The production MCP is served over HTTP at `/mcp` (`docs/MCP_DEMO.md`). The build strategy (full design / module assembly / ODM customisation) is chosen per product, and 11 recorded showcases are included.
+Specs: `../PRD.md` (§8.2-8.5), `../PLAN.md`, `../MONITOR.md`; demo: `docs/DEMO_SCRIPT.md`.
 
 ## Run
 ```bash
@@ -83,7 +88,7 @@ date + URL), **Estimate** (assumption shown), **Fictional — demo data**. Facto
 | 4 DFM | **Measured** draft, undercut, projected area, wall thickness on the STEP (port of text-to-cad DFM, MIT); AI-reviewed alerts with cited rules (never contradict a measurement); rule-based certification map by market; component risk from the LCSC snapshot | Certification costs/lead times; clamp tonnage formula | Measured / Sourced / Estimate |
 | 5 Investment | **Real LCSC/JLCPCB prices + stock** (snapshot 2026-09-26) for matched electronic lines; deterministic cost engine, 3 volumes, tooling, cash, margin, break-even | Mechanical parts, assembly, tooling ranges, unmatched parts | Sourced / Estimate |
 | 6 Production plan | Process per part with reason | Lead times | Estimate |
-| 7 Matching | Deterministic scoring via the production MCP (`search_capacity`) | **The 8 factories and their capacity** | Fictional — demo data |
+| 7 Matching | Deterministic scoring via the production MCP (`search_capacity`) | **The 15 fictional partners (11 factories, 1 integrator, 3 installers) and their capacity** | Fictional — demo data |
 | 8 RFQ + negotiation | Real agent loop over the MCP tools (`request_quote` → `submit_quote` → `counter_offer` → `accept_quote`), LLM factory agents with distinct personalities, clamped by policy | **Quotes, replies, final terms** | Fictional — demo data |
 | 9 Tooling + samples | Milestones computed from the negotiated lead time; payment split follows the approved quote's terms; date checks | Durations beyond the quote | Estimate / Fictional |
 | 10 QC | ISO 2859-1 sample size (General II), defects mapped to spec lines, $268/man-day benchmark | Inspection days | Sourced / Estimate |

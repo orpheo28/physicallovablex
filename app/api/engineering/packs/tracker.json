@@ -1,0 +1,36 @@
+{
+  "key": "tracker",
+  "title": "BLE tracker / tag",
+  "match": ["tracker", "tag", "finder", "wallet", "key finder", "item finder", "airtag", "tile"],
+  "families": [],
+  "brief_categories": ["ble_accessory"],
+  "partner_word": "factories",
+  "standards": [
+    {"code": "47 CFR Part 15", "applies_because": "BLE intentional radiator (FCC 15C) and digital device (15B)"},
+    {"code": "Directive 2014/53/EU", "applies_because": "BLE radio sold in the EU (RED)"},
+    {"code": "IEC 62368-1", "applies_because": "Electrical safety of the ICT device"},
+    {"code": "UN 38.3", "applies_because": "Lithium cell shipped inside the product"},
+    {"code": "16 CFR 1263", "applies_because": "US button/coin cell battery safety (Reese's Law) if a coin cell is used"},
+    {"code": "IEC 60529", "applies_because": "Splash/immersion claim (IP67 target) for a pocket device"}
+  ],
+  "risks": [
+    {"risk": "Thin primary cell limits life (non-replaceable)", "mitigation": "Tune the advertising interval, measure sleep current on the first PCBA", "severity": "major"},
+    {"risk": "Antenna detuned by the wallet / body", "mitigation": "Antenna matching network tuned in the enclosure, not on the bare board", "severity": "major"},
+    {"risk": "Card flexes and cracks the PCB or cell", "mitigation": "Stiff 0.6 mm board with components away from the flex line, flex test", "severity": "major"},
+    {"risk": "Unwanted tracking (privacy)", "mitigation": "Implement anti-stalking behaviour (sound alert, platform unwanted-tracking spec)", "severity": "major"}
+  ],
+  "tests": [
+    {"name": "Card flex / torsion", "kind": "mechanical", "method": "ISO/IEC 10373-1-style bending and torsion cycles", "standard": null},
+    {"name": "IP67 immersion", "kind": "ingress", "method": "1 m / 30 min", "standard": "IEC 60529"},
+    {"name": "Drop 1.2 m", "kind": "drop", "method": "6 faces, functional check", "standard": null},
+    {"name": "Radio conformity", "kind": "radio", "method": "Accredited lab", "standard": "47 CFR Part 15 / Directive 2014/53/EU"}
+  ],
+  "checks": ["battery_life", "mass", "ip_rating"],
+  "params": {"mass_max_g": 15, "battery_target_h": 8760, "battery_mah_default": 60, "battery_v_default": 3.0,
+    "ip_target": 67, "ip_detail": "IP67 (1 m / 30 min)",
+    "duty": {"mcu": 0.15, "radio": 0.15, "led": 0.001, "buzzer": 0.002, "imu": 100},
+    "default_family": "nrf52", "connectivity": "BLE GATT service (find-me, battery)",
+    "typical_electronics": []},
+  "prototype": {"method": "SLA resin 3D print (thin-wall, tough resin)", "usd_per_cm3": 0.35, "setup_usd": 20, "units": 5,
+    "steps": ["Flash the firmware on an nRF52 dev kit, measure sleep current with a power profiler", "Print the card shells in tough SLA resin", "Assemble the quick-turn PCBA with the thin cell", "Tune the antenna match inside the closed card", "Flex and drop test, then a 2-week battery soak"]}
+}

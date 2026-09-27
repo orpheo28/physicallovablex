@@ -319,13 +319,23 @@
       "description": "Editable unit-cost decay per tier step"
     },
     "tiers": {
-      "description": "500 / 2,000 / 10,000 by default",
+      "description": "500 / 2,000 / 10,000 by default; a site install (unit_basis per_installation, W21c) has ONE tier: the pilot quantity of installations, with per-installation figures",
       "items": {
         "$ref": "#/$defs/CostTier"
       },
-      "minItems": 3,
+      "minItems": 1,
       "title": "Tiers",
       "type": "array"
+    },
+    "unit_basis": {
+      "default": "per_unit",
+      "description": "W21c: per_installation = rooftop solar etc.: unit_cost = installer cost of one installation, target_retail_price = turnkey installed price, cash for a pilot of reference_quantity installations",
+      "enum": [
+        "per_unit",
+        "per_installation"
+      ],
+      "title": "Unit Basis",
+      "type": "string"
     },
     "tooling": {
       "items": {

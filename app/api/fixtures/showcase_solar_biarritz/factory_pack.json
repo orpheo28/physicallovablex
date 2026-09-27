@@ -1,0 +1,1608 @@
+{
+ "id": "fp_demo_solar_biarritz_v2",
+ "project_id": "demo_solar_biarritz",
+ "version": 2,
+ "created_at": "2026-09-27T00:24:24.142763Z",
+ "fallback": false,
+ "cached_note": null,
+ "fallback_stages": [],
+ "product_name": "Rooftop solar, Biarritz",
+ "product_summary": "A roof-mounted solar electricity system designed for a 35 m² roof in Biarritz. Target volumes: 500 / 2,000 / 10,000 units; markets: EU.",
+ "product_summary_cn": "为比亚里茨（Biarritz）35 m²屋顶设计的屋顶光伏发电系统。目标产量：500 / 2,000 / 10,000 台；目标市场：欧盟。",
+ "target_markets": [
+  "EU"
+ ],
+ "spec": {
+  "overall_dimensions": {
+   "length": {
+    "value": 8258.0,
+    "unit": "mm",
+    "label": "measured",
+    "source_or_assumption": "Bounding box of the full product (family CAD, build123d/OCCT)"
+   },
+   "width": {
+    "value": 3014.91,
+    "unit": "mm",
+    "label": "measured",
+    "source_or_assumption": "Bounding box of the full product (family CAD, build123d/OCCT)"
+   },
+   "height": {
+    "value": 1757.98,
+    "unit": "mm",
+    "label": "measured",
+    "source_or_assumption": "Bounding box of the full product (family CAD, build123d/OCCT)"
+   }
+  },
+  "weight": {
+   "value": 182047.5,
+   "unit": "g",
+   "label": "estimate",
+   "source_or_assumption": "Solid volume 424266.9 cm³ (measured) × densities per part (PV module effective density 0.36 g/cm³ (≈ 21 kg per 1722 × 1134 × 30 mm module), hollow aluminium rails 0.45 effective)"
+  },
+  "parts": [
+   {
+    "id": "p1",
+    "name": "Mounting rails and clamps",
+    "material": "Anodised aluminium 6063",
+    "finish": "Black frame",
+    "process_hint": "extrusion",
+    "tolerance": "Per module datasheet",
+    "dimensions": {
+     "length": {
+      "value": 8258.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the largest part of this group, built family CAD (build123d/OCCT)"
+     },
+     "width": {
+      "value": 89.6,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the largest part of this group, built family CAD (build123d/OCCT)"
+     },
+     "height": {
+      "value": 115.3,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the largest part of this group, built family CAD (build123d/OCCT)"
+     }
+    },
+    "wall_thickness": null,
+    "quantity": 18
+   },
+   {
+    "id": "p2",
+    "name": "PV modules",
+    "material": "Monocrystalline glass-glass module",
+    "finish": "Black frame",
+    "process_hint": "other",
+    "tolerance": "Per module datasheet",
+    "dimensions": {
+     "length": {
+      "value": 1065.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the largest part of this group, built family CAD (build123d/OCCT)"
+     },
+     "width": {
+      "value": 1433.5,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the largest part of this group, built family CAD (build123d/OCCT)"
+     },
+     "height": {
+      "value": 830.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the largest part of this group, built family CAD (build123d/OCCT)"
+     }
+    },
+    "wall_thickness": null,
+    "quantity": 14
+   }
+  ],
+  "tolerances": [
+   "Rail alignment ±5 mm",
+   "Module gap 20 mm ±3 mm",
+   "Roof-edge margin ≥ 450 mm"
+  ]
+ },
+ "cad_files": [
+  {
+   "format": "glb",
+   "url": "/files/demo_solar_biarritz/model_v1.glb",
+   "description": "AI-generated CAD (concept level) — geometry measured on the result — bbox 8258 × 3471 × 1722 mm",
+   "size_bytes": 254104
+  },
+  {
+   "format": "step",
+   "url": "/files/demo_solar_biarritz/model_v1.step",
+   "description": "AI-generated CAD (concept level) — geometry measured on the result — STEP AP214",
+   "size_bytes": 958451
+  },
+  {
+   "format": "py",
+   "url": "/projects/demo_solar_biarritz/cad/code/1",
+   "description": "AI-generated CAD (concept level) — geometry measured on the result — build123d program v1 (llm:openai/gpt-6-sol)",
+   "size_bytes": 4806
+  },
+  {
+   "format": "glb",
+   "url": "/files/demo_solar_biarritz/v2.glb",
+   "description": "Full product — materials",
+   "size_bytes": 205752
+  },
+  {
+   "format": "step",
+   "url": "/files/demo_solar_biarritz/v2_enclosure.step",
+   "description": "Product — all parts (solid bodies), STEP AP214",
+   "size_bytes": 752342
+  },
+  {
+   "format": "stl",
+   "url": "/files/demo_solar_biarritz/v2_enclosure.stl",
+   "description": "Product — mesh",
+   "size_bytes": 30484
+  },
+  {
+   "format": "glb",
+   "url": "/files/demo_solar_biarritz/v2_enclosure.glb",
+   "description": "Product — viewer model",
+   "size_bytes": 197264
+  }
+ ],
+ "bom": [
+  {
+   "id": "e1",
+   "part": "Monocrystalline PV module, approx. 450 W, framed",
+   "category": "electronic",
+   "qty": 10.0,
+   "description": "Approx. 4.5 kWp array; final module count and rating depend on usable roof layout.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 110.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: 430-450 W monocrystalline module ≈ USD 110 (typical 2026 trade price, not a quote)"
+   },
+   "risk": {
+    "level": "medium",
+    "reasons": [
+     "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+    ]
+   },
+   "alternative": null
+  },
+  {
+   "id": "e2",
+   "part": "Single-phase grid-tie string inverter, approx. 5 kW, MPPT",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Grid-connected inverter sized for the array; installation and grid settings must suit the site.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 850.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: 5-6 kW single-phase string inverter ≈ USD 850 (typical 2026 trade price, not a quote)"
+   },
+   "risk": {
+    "level": "medium",
+    "reasons": [
+     "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+    ]
+   },
+   "alternative": null
+  },
+  {
+   "id": "e3",
+   "part": "PV DC isolator, voltage/current rated for array",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "DC-side disconnect; confirm ratings and whether integrated isolator in inverter makes this separate part unnecessary.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 40.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: DC isolator ≈ USD 40 (typical 2026 trade price, not a quote)"
+   },
+   "risk": {
+    "level": "medium",
+    "reasons": [
+     "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+    ]
+   },
+   "alternative": null
+  },
+  {
+   "id": "e4",
+   "part": "AC protection and disconnect assembly",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Grid-side breaker/disconnect and required protection, selected to local electrical code and inverter rating.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 40.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: DC isolator ≈ USD 40 (typical 2026 trade price, not a quote)"
+   },
+   "risk": {
+    "level": "medium",
+    "reasons": [
+     "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+    ]
+   },
+   "alternative": null
+  },
+  {
+   "id": "e5",
+   "part": "PV-rated DC cable and compatible module connectors",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Set of UV-resistant solar cable, connectors and terminations; length determined by array and inverter placement.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 2.5,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: connector / splice ≈ USD 2.5 (typical 2026 trade price, not a quote)"
+   },
+   "risk": {
+    "level": "medium",
+    "reasons": [
+     "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+    ]
+   },
+   "alternative": null
+  },
+  {
+   "id": "m1",
+   "part": "Anodised aluminium mounting rails",
+   "category": "mechanical",
+   "qty": 20.0,
+   "description": "Approximate rail set for flush-mounted array; lengths, spans and quantity require roof-specific structural design.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 25.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: aluminium mounting rail ≈ 4 m ≈ USD 25 (typical 2026 trade price, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m2",
+   "part": "Roof attachment feet or hooks, roof-type compatible",
+   "category": "mechanical",
+   "qty": 30.0,
+   "description": "Indicative quantity; attachment type and spacing must be determined for the actual roof construction and wind loads.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 4.5,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: roof hook ≈ USD 4.5 (typical 2026 trade price, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m3",
+   "part": "PV module mid-clamps",
+   "category": "mechanical",
+   "qty": 18.0,
+   "description": "For adjoining modules in array; compatible with module frame and rail profile.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 1.5,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: module clamp ≈ USD 1.5 (typical 2026 trade price, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m4",
+   "part": "PV module end-clamps",
+   "category": "mechanical",
+   "qty": 8.0,
+   "description": "For array perimeter; compatible with module frame and rail profile.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 1.5,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: module clamp ≈ USD 1.5 (typical 2026 trade price, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m5",
+   "part": "Stainless-steel mounting fastener set",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Roof attachment and rail fasteners, sized and selected for the roof substrate and corrosion environment.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 20.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: stainless fastener set ≈ USD 20 (typical 2026 trade price, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m6",
+   "part": "Cable clips, UV-resistant ties and roof-entry gland",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Cable management and weatherproof roof entry; final quantities depend on routing.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 1.2,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: PV cable / earthing / clips, per metre or piece ≈ USD 1.2 (typical 2026 trade price, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m7",
+   "part": "Roof flashing and sealing consumables",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Roof-compatible flashing/sealant for penetrations, where required by the selected attachment system.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 1.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: cable glands + seals ≈ USD 1 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "k1",
+   "part": "Protective shipping packaging set",
+   "category": "packaging",
+   "qty": 1.0,
+   "description": "Pallet/crate, module edge protection, inverter carton and shipment restraints for one system.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 60.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: packaging and delivery protection per installation ≈ USD 60 (typical 2026 trade price, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "e6",
+   "part": "Stationary solar battery pack with integrated battery management system",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Provides battery storage; capacity to be specified.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 3400.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: home battery ≈ 10 kWh (LFP), installed-equipment price ≈ USD 3400 (typical 2026 trade price, not a quote)"
+   },
+   "risk": {
+    "level": "medium",
+    "reasons": [
+     "Li-ion cell: UN38.3 transport test, air-freight restrictions, protection circuit required"
+    ]
+   },
+   "alternative": null
+  },
+  {
+   "id": "e7",
+   "part": "Battery inverter/charger compatible with the existing grid-tie system",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Enables charging and discharging without assuming the existing inverter supports batteries.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 950.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: battery / hybrid inverter-charger ≈ USD 950 (typical 2026 trade price, not a quote)"
+   },
+   "risk": {
+    "level": "medium",
+    "reasons": [
+     "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+    ]
+   },
+   "alternative": null
+  }
+ ],
+ "dfm_alerts": [
+  {
+   "id": "a1",
+   "severity": "major",
+   "category": "assembly",
+   "method": "ai_reviewed",
+   "part_id": null,
+   "description": "The BOM specifies 10 modules, but the CAD layout contains 14. Rail, clamp, attachment and electrical quantities cannot be released against conflicting array sizes.",
+   "fix": "Choose the intended layout, then reconcile the module count and recalculate all mounting and electrical quantities.",
+   "rule_citation": "BOM quantities must match the released assembly drawing — standard manufacturing BOM control practice.",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a2",
+   "severity": "major",
+   "category": "tolerance",
+   "method": "ai_reviewed",
+   "part_id": "p1",
+   "description": "Rail alignment, module gaps and roof-edge margin lack a common datum and an installation inspection method. The specified gaps may conflict with the selected module's clamp zones.",
+   "fix": "Issue a dimensioned roof layout with datums, measurement points, rail spans and the selected module's permitted clamp zones.",
+   "rule_citation": "Module mounting must follow the manufacturer's installation instructions — IEC 61730-1 (PV module construction requirements).",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a3",
+   "severity": "major",
+   "category": "other",
+   "method": "ai_reviewed",
+   "part_id": null,
+   "description": "Module, inverter, isolator and cable ratings are approximate or unspecified; string voltage, current and connector compatibility cannot be checked.",
+   "fix": "Select exact manufacturer part numbers and issue a string diagram with temperature-corrected voltage, current, cable, isolator and connector checks.",
+   "rule_citation": "PV array electrical design must account for component ratings and string configuration — IEC 62548-1 (PV array design requirements).",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a4",
+   "severity": "major",
+   "category": "assembly",
+   "method": "ai_reviewed",
+   "part_id": null,
+   "description": "The battery pack and battery inverter/charger have no defined electrical interface or operating architecture with the grid-tie inverter.",
+   "fix": "Specify an approved AC- or DC-coupled architecture, compatible equipment models, protection scheme and commissioning tests.",
+   "rule_citation": "Power conversion equipment safety and installation interfaces require verification — IEC 62109-1 (PV power-converter safety).",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a5",
+   "severity": "major",
+   "category": "material",
+   "method": "ai_reviewed",
+   "part_id": null,
+   "description": "The stationary battery has no specified installation location, enclosure, thermal clearance or ventilation provisions.",
+   "fix": "Specify a certified battery system and its installation location; document required clearances, ventilation, protection and compliance with the battery manufacturer's instructions.",
+   "rule_citation": "Safety requirements for industrial lithium batteries — IEC 62619.",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "m1",
+   "severity": "minor",
+   "category": "other",
+   "method": "measured",
+   "part_id": "p1",
+   "description": "Solid product (424.3 L of material): not an injection-moulded shell, so draft, undercut, wall thickness and clamp tonnage do not apply. Process: on-site installation of bought-in modules, rails and inverter.",
+   "fix": "Quote the listed process; send the STEP as the shaping / routing / layout file.",
+   "rule_citation": "Moulded-shell DFM rules apply to injection moulding only (Protolabs design guide)",
+   "measurement": {
+    "value": 424.3,
+    "unit": "L",
+    "label": "measured",
+    "source_or_assumption": "Solid volume of all parts, measured on the product CAD (build123d/OCCT)"
+   },
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "m2",
+   "severity": "minor",
+   "category": "assembly",
+   "method": "measured",
+   "part_id": "p1",
+   "description": "14 modules on the layout (projected module area ≈ 21.4 m²): standard 1722 × 1134 mm class, bought in.",
+   "fix": "Keep the 45 cm roof-edge margin; check rafter spacing against the roof-hook pitch on site.",
+   "rule_citation": "Installer practice: edge margins for wind uplift zones (EN 1991-1-4) — Estimate",
+   "measurement": {
+    "value": 14.0,
+    "unit": "modules",
+    "label": "measured",
+    "source_or_assumption": "Modules counted in the layout CAD, measured on the product CAD (build123d/OCCT)"
+   },
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "m3",
+   "severity": "minor",
+   "category": "other",
+   "method": "measured",
+   "part_id": "p1",
+   "description": "Array footprint 8.3 × 3.0 m incl. rails.",
+   "fix": "Survey the roof (area, orientation, shading) before ordering.",
+   "rule_citation": "Site survey before PV design — installer practice",
+   "measurement": {
+    "value": 8258.0,
+    "unit": "mm",
+    "label": "measured",
+    "source_or_assumption": "Array footprint, measured on the product CAD (build123d/OCCT)"
+   },
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a6",
+   "severity": "minor",
+   "category": "material",
+   "method": "ai_reviewed",
+   "part_id": "p1",
+   "description": "Anodised aluminium rails and stainless-steel fasteners are specified without an isolation or corrosion-control detail for exposed rooftop joints.",
+   "fix": "Define compatible fastener grades, isolating washers where needed and a documented corrosion-protection detail for the coastal installation.",
+   "rule_citation": "Atmospheric corrosivity classification guides material and coating selection — ISO 9223.",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  }
+ ],
+ "certifications": [
+  {
+   "market": "EU",
+   "standard": "CE — EMC 2014/30/EU (EN 55032 / EN 55035)",
+   "applies_because": "Electronic product without a radio: EMC directive applies. Reference: Directive 2014/30/EU (EMC), https://eur-lex.europa.eu/eli/dir/2014/30/oj",
+   "required": true,
+   "cost_est": {
+    "value": 3000.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Accredited-lab range, demo assumption"
+   },
+   "lead_time_weeks": {
+    "value": 5.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Typical lab queue + report, demo assumption"
+   }
+  },
+  {
+   "market": "EU",
+   "standard": "RoHS 2011/65/EU",
+   "applies_because": "Electronic product placed on the EU market must restrict hazardous substances (test report + declaration). Reference: Directive 2011/65/EU (RoHS), https://eur-lex.europa.eu/eli/dir/2011/65/oj",
+   "required": true,
+   "cost_est": {
+    "value": 600.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Accredited-lab range, demo assumption"
+   },
+   "lead_time_weeks": {
+    "value": 2.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Typical lab queue + report, demo assumption"
+   }
+  },
+  {
+   "market": "Global",
+   "standard": "UN38.3 (lithium battery transport tests)",
+   "applies_because": "Lithium cells must pass UN Manual of Tests and Criteria 38.3 to ship by sea/air; ask the cell supplier for the test summary. Reference: UN Manual of Tests and Criteria, section 38.3; IATA Lithium Battery Guidance Document 2026, https://www.iata.org/contentassets/05e6d8742b0047259bf3a700bc9d42b9/lithium-battery-guidance-document.pdf",
+   "required": true,
+   "cost_est": {
+    "value": 1000.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Accredited-lab range, demo assumption"
+   },
+   "lead_time_weeks": {
+    "value": 4.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Typical lab queue + report, demo assumption"
+   }
+  },
+  {
+   "market": "Global",
+   "standard": "IEC 62133-2 (secondary lithium cell/battery safety)",
+   "applies_because": "Rechargeable lithium cell inside the product; also required by many retailers and by EU/UK market surveillance",
+   "required": true,
+   "cost_est": {
+    "value": 2500.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Accredited-lab range, demo assumption"
+   },
+   "lead_time_weeks": {
+    "value": 4.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Typical lab queue + report, demo assumption"
+   }
+  },
+  {
+   "market": "EU",
+   "standard": "EN IEC 62109-1:2010 and EN IEC 62109-2:2011",
+   "applies_because": "These power-converter safety standards apply to the photovoltaic inverter used to connect the rooftop system to household electricity.",
+   "required": true,
+   "cost_est": {
+    "value": 18000.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "LLM-proposed rough estimate — get a lab quote to confirm"
+   },
+   "lead_time_weeks": {
+    "value": 10.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "LLM-proposed rough estimate — get a lab quote to confirm"
+   }
+  },
+  {
+   "market": "France",
+   "standard": "NF EN 50549-1:2019",
+   "applies_because": "The inverter must satisfy French distribution-network connection requirements for a grid-connected generating plant connected to a low-voltage network.",
+   "required": true,
+   "cost_est": {
+    "value": 15000.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "LLM-proposed rough estimate — get a lab quote to confirm"
+   },
+   "lead_time_weeks": {
+    "value": 8.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "LLM-proposed rough estimate — get a lab quote to confirm"
+   }
+  }
+ ],
+ "target_quantities": [
+  10
+ ],
+ "cost_estimate": [
+  {
+   "quantity": 10,
+   "bom_cost": {
+    "value": 7138.7,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Equipment from the BOM per installation (5.59 kWp + battery): modules, inverter, mounting, cabling, battery"
+   },
+   "assembly_cost": {
+    "value": 2459.16,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Installation labour 5.59 kWp × 0.3 EUR/Wp + site admin 600 EUR (scaffolding, permit, grid request, commissioning) × 1.08 USD/EUR"
+   },
+   "packaging_cost": {
+    "value": 0.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Not applicable: equipment delivered to the site by the distributor"
+   },
+   "unit_cost": {
+    "value": 9597.86,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Installer cost per installation (5.59 kWp + battery) = equipment + labour + site admin (what the installer pays — not the customer price)"
+   },
+   "tooling_amortisation": {
+    "value": 0.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "No tooling: bought-in certified equipment"
+   },
+   "margin_pct": {
+    "value": 44.7,
+    "unit": "pct",
+    "label": "estimate",
+    "source_or_assumption": "(installed price $17,344 − installer cost $9,598) ÷ installed price"
+   }
+  }
+ ],
+ "questions": [
+  {
+   "id": "fq1",
+   "en": "DFM major — The BOM specifies 10 modules, but the CAD layout contains 14. Rail, clamp, attachment and electrical quantities cannot be released against conflicting array sizes. Proposed fix: Choose the intended layout, then reconcile the module count and recalculate all mounting and electrical quantities. Can you accommodate this, and at what cost or lead-time impact?",
+   "cn": "DFM 问题（主要，assembly，编号 a1）：详见资料包第 5 节英文说明。请评估可行性、修改方案及对成本和交期的影响。",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  },
+  {
+   "id": "fq2",
+   "en": "DFM major — Rail alignment, module gaps and roof-edge margin lack a common datum and an installation inspection method. The specified gaps may conflict with the selected module's clamp zones. Proposed fix: Issue a dimensioned roof layout with datums, measurement points, rail spans and the selected module's permitted clamp zones. Can you accommodate this, and at what cost or lead-time impact?",
+   "cn": "DFM 问题（主要，tolerance，编号 a2）：详见资料包第 5 节英文说明。请评估可行性、修改方案及对成本和交期的影响。",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  },
+  {
+   "id": "fq3",
+   "en": "DFM major — Module, inverter, isolator and cable ratings are approximate or unspecified; string voltage, current and connector compatibility cannot be checked. Proposed fix: Select exact manufacturer part numbers and issue a string diagram with temperature-corrected voltage, current, cable, isolator and connector checks. Can you accommodate this, and at what cost or lead-time impact?",
+   "cn": "DFM 问题（主要，other，编号 a3）：详见资料包第 5 节英文说明。请评估可行性、修改方案及对成本和交期的影响。",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  },
+  {
+   "id": "fq4",
+   "en": "What are your MOQ and lead time for 500 units, and how do they change at 2,000 and 10,000 units?",
+   "cn": "贵司 500 件的最小起订量（MOQ）和交期是多少？在 2,000 件和 10,000 件时如何变化？",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  },
+  {
+   "id": "fq5",
+   "en": "What payment terms and sample rounds (T0, T1, golden sample) do you propose, with dates?",
+   "cn": "贵司建议的付款条件和样品轮次（T0、T1、黄金样件）是什么？请附日期。",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  },
+  {
+   "id": "fq6",
+   "en": "Please confirm the tolerances in the spec and flag any tolerance or finish you cannot hold.",
+   "cn": "请确认规格书中的公差，并指出任何贵司无法保证的公差或表面处理。",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  },
+  {
+   "id": "fq7",
+   "en": "Which BOM components do you source yourselves, and do you accept the listed alternatives for high-risk parts?",
+   "cn": "BOM 中哪些物料由贵司自行采购？对于高风险物料，贵司是否接受清单中列出的替代料？",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  }
+ ],
+ "assumption_register": [
+  {
+   "id": "a1",
+   "text": "Skipped clarifying questions use their defaults: markets=EU; volume=One home; target_price=€8,000–€15,000; battery=No battery; wireless=No wireless monitoring. Re-run stage 1 with answers to change them.",
+   "label": "estimate",
+   "source": null,
+   "stage": 1
+  },
+  {
+   "id": "a2",
+   "text": "Target retail price proposed by the spec copilot (not stated by the founder); confirm before costing.",
+   "label": "estimate",
+   "source": null,
+   "stage": 1
+  },
+  {
+   "id": "a2_1",
+   "text": "Directions from the parametric 'solar_array' product family (category 'solar_roof', preset 'roof'): built with build123d, dimensions measured on the CAD",
+   "label": "estimate",
+   "source": null,
+   "stage": 2
+  },
+  {
+   "id": "a2_3",
+   "text": "13 modules sized from the roof area (same rule as the engineering layer)",
+   "label": "estimate",
+   "source": null,
+   "stage": 2
+  },
+  {
+   "id": "a2_render",
+   "text": "AI concept render — illustrative, not the CAD. Generated by an AI image model from the direction's shape, dimensions, material, finish and colour; the 3D model is the CAD.",
+   "label": "estimate",
+   "source": null,
+   "stage": 2
+  },
+  {
+   "id": "a2_studio",
+   "text": "Direction d1 refined in Studio (version 2); dimensions are design parameters, the spec measures the built CAD",
+   "label": "estimate",
+   "source": null,
+   "stage": 2
+  },
+  {
+   "id": "a3_1",
+   "text": "Weight from the measured solid volume × per-part densities (PV module effective density 0.36 g/cm³ (≈ 21 kg per 1722 × 1134 × 30 mm module), hollow aluminium rails 0.45 effective)",
+   "label": "estimate",
+   "source": null,
+   "stage": 3
+  },
+  {
+   "id": "a3_2",
+   "text": "Direction d1 ('Flush mount'): solid product from the 'solar_array' family — no moulded enclosure; enclosure.* files are the product itself",
+   "label": "estimate",
+   "source": null,
+   "stage": 3
+  },
+  {
+   "id": "a4_1",
+   "text": "Solid product ('solar_array' family): moulded-shell checks (draft, undercut, wall thickness, clamp tonnage) do not apply; the measured checks are process fit, stock size and thinnest section on the product CAD",
+   "label": "estimate",
+   "source": null,
+   "stage": 4
+  },
+  {
+   "id": "s5_a1",
+   "text": "Volume curve: non-LCSC lines and assembly × 0.92 per tier step (500 → 2,000 → 10,000)",
+   "label": "estimate",
+   "source": "Demo assumption (PRD §11), editable",
+   "stage": 5
+  },
+  {
+   "id": "s5_a2",
+   "text": "Assembly 14.4 min = 6 base + 0.6 × 14 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials",
+   "label": "estimate",
+   "source": null,
+   "stage": 5
+  },
+  {
+   "id": "a3",
+   "text": "Electronic lines matched to the JLCPCB/LCSC parts snapshot of 2026-09-26 (CDFER/jlcpcb-parts-database, MIT); unmatched lines are estimates",
+   "label": "sourced",
+   "source": "https://github.com/CDFER/jlcpcb-parts-database",
+   "stage": 5
+  },
+  {
+   "id": "a4",
+   "text": "Simple 1-cavity injection mold $1,000-3,000; complex multi-cavity steel mold $30,000-100,000",
+   "label": "estimate",
+   "source": "Zetar Mold 2026 price list (vendor, medium confidence), https://zetarmold.com/injection-mold-price-list-2026",
+   "stage": 5
+  },
+  {
+   "id": "a5",
+   "text": "Sum of 6 required certifications from stage 4 (their own cost estimates)",
+   "label": "estimate",
+   "source": null,
+   "stage": 5
+  },
+  {
+   "id": "a6",
+   "text": "Landed-cost basis for margin and cash: sea freight (fictional rates), HTS 8541.43.0010 (general 0%, Section 301 25%), IEEPA 0, Section 122 off",
+   "label": "estimate",
+   "source": "https://hts.usitc.gov/",
+   "stage": 5
+  },
+  {
+   "id": "a7",
+   "text": "Brief target price 12000 EUR × 1.08 (assumed FX) (retail price incl. VAT where applicable)",
+   "label": "estimate",
+   "source": null,
+   "stage": 5
+  },
+  {
+   "id": "b1",
+   "text": "BOM from stage 3 spec",
+   "label": "estimate",
+   "source": null,
+   "stage": 5
+  },
+  {
+   "id": "s6_a1",
+   "text": "Lead times are typical values per process (tooling + first shots), not factory quotes; refined at stages 7-9 with the negotiated quote.",
+   "label": "estimate",
+   "source": null,
+   "stage": 6
+  },
+  {
+   "id": "s6_a2",
+   "text": "Mass production duration assumes 90 units/day on one line for a 2,000-unit order.",
+   "label": "estimate",
+   "source": null,
+   "stage": 6
+  },
+  {
+   "id": "a7_network",
+   "text": "Factories, capacity, load and past performance come from the simulated production network.",
+   "label": "fictional",
+   "source": "factory_mcp (demo data)",
+   "stage": 7
+  },
+  {
+   "id": "a7_weights",
+   "text": "Score = 35% process fit + 15% MOQ + 15% certifications + 15% load + 20% lead time; product-level criteria are part-weighted means over the queries (Other ×1).",
+   "label": "estimate",
+   "source": null,
+   "stage": 7
+  },
+  {
+   "id": "a8_network",
+   "text": "Factories, quotes, counters and replies are simulated (production MCP demo network).",
+   "label": "fictional",
+   "source": "factory_mcp (demo data)",
+   "stage": 8
+  },
+  {
+   "id": "a8_anchor",
+   "text": "Factory quotes are anchored on stage 5 cost tiers + tooling total × each factory's personality margin; subcontracted processes add 3% each.",
+   "label": "estimate",
+   "source": null,
+   "stage": 8
+  },
+  {
+   "id": "a8_policy",
+   "text": "Negotiation policy: max 2 rounds; price, tooling, MOQ ≤ 2,000, lead time, 30% deposit / 70% before shipment; pick = lowest risk-adjusted cost incl. tooling.",
+   "label": "estimate",
+   "source": null,
+   "stage": 8
+  },
+  {
+   "id": "a8_autofill",
+   "text": "Auto-approved in autofill mode — review and change the selected factory before any real order",
+   "label": "estimate",
+   "source": null,
+   "stage": 8
+  },
+  {
+   "id": "s9_a1",
+   "text": "Quote lead time (43 d) is used as the tooling T0 duration; T1, golden sample and mass production use planning assumptions.",
+   "label": "estimate",
+   "source": null,
+   "stage": 9
+  },
+  {
+   "id": "s9_a2",
+   "text": "Date check: lead time differs from the stage 6 plan by +23 d (stage 6: 64 d, this plan: 87 d) — the negotiated quote governs",
+   "label": "estimate",
+   "source": null,
+   "stage": 9
+  },
+  {
+   "id": "s9_a3",
+   "text": "Kickoff date 2026-09-28 (next Monday after today unless start_date is passed in inputs); durations are planning assumptions except the quote lead time.",
+   "label": "estimate",
+   "source": null,
+   "stage": 9
+  },
+  {
+   "id": "s9_a4",
+   "text": "Sample rounds cost is an assumption; production payments follow the 30/70 term (deposit / before shipment) unless the quote states another deposit.",
+   "label": "estimate",
+   "source": null,
+   "stage": 9
+  },
+  {
+   "id": "s10_a1",
+   "text": "Pre-shipment inspection priced at $268 per man-day.",
+   "label": "sourced",
+   "source": "V-Trust, https://www.v-trust.com/en/our-network, checked 2026-09-26",
+   "stage": 10
+  },
+  {
+   "id": "s10_a2",
+   "text": "AQL 0 / 2.5 / 4.0 for critical / major / minor is the usual consumer-goods setting; agree it with the buyer and factory.",
+   "label": "estimate",
+   "source": null,
+   "stage": 10
+  },
+  {
+   "id": "s10_a3",
+   "text": "One inspector checks about 100 units per day including functional tests.",
+   "label": "estimate",
+   "source": null,
+   "stage": 10
+  },
+  {
+   "id": "s11_a1",
+   "text": "HTS 8541.43.0010: Same heading and rate as stage 5 (LLM-suggested) — to be confirmed by a customs broker",
+   "label": "estimate",
+   "source": "https://hts.usitc.gov/",
+   "stage": 11
+  },
+  {
+   "id": "s11_a2",
+   "text": "Assumed Section 301 rate of stage 5 — to be confirmed by a customs broker",
+   "label": "estimate",
+   "source": "https://hts.usitc.gov/",
+   "stage": 11
+  },
+  {
+   "id": "s11_a3",
+   "text": "IEEPA duties not collected since 24/02/2026; de minimis suspended; Section 122 is a user toggle (status to verify)",
+   "label": "sourced",
+   "source": "CBP CSMS 67834313 (https://content.govdelivery.com/accounts/USDHSCBP/bulletins/40b11c9); CBP CSMS 67844987; Federal Register 2026-06-24",
+   "stage": 11
+  },
+  {
+   "id": "s11_a4",
+   "text": "Freight sea fcl: 35 days transit (simulated); cost per unit derived from the Drewry lane rate, see a8-a10",
+   "label": "fictional",
+   "source": "demo data",
+   "stage": 11
+  },
+  {
+   "id": "s11_a5",
+   "text": "Platform/agent fee 7% of FOB (benchmark 5-10%)",
+   "label": "estimate",
+   "source": "https://www.dragonsourcing.com/top-10-cost-insights-for-hiring-a-china-sourcing-agent/",
+   "stage": 11
+  },
+  {
+   "id": "s11_a6",
+   "text": "FOB basis: Approved final terms, quote qt_d6039f708b — demo data",
+   "label": "fictional",
+   "source": "stage8_final_terms",
+   "stage": 11
+  },
+  {
+   "id": "s11_a7",
+   "text": "No CBP CROSS precedent in the cached set for this product: HTS 8541.43.0010 and its rates are an estimate — to be confirmed by a customs broker",
+   "label": "estimate",
+   "source": "https://rulings.cbp.gov/",
+   "stage": 11
+  },
+  {
+   "id": "a8",
+   "text": "Sea container rate Drewry World Container Index, 24 Sep 2026: Shanghai–Los Angeles $7,838/40ft (Drewry-assessed spot benchmark, snapshot; the quote you get will differ)",
+   "label": "sourced",
+   "source": "https://www.drewry.co.uk/supply-chain-advisors/supply-chain-expertise/world-container-index-assessed-by-drewry",
+   "stage": 11
+  },
+  {
+   "id": "a9",
+   "text": "Sea freight derived from the Drewry lane rate, cheaper of LCL and FCL chosen automatically: packed unit 65.6530 m³ (bounding box × 1.5 packaging, min 0.5 L) = 1 units per 40ft (67 m³ usable); 20ft container ≈ 0.55 × the 40ft rate, 33 m³. Air = max(gross kg, m³ × 167) × $6.00/kg, min $150 per shipment; express = 1.8× air (Estimate: typical China→US air cargo range $4-8/kg, to be confirmed by a forwarder); air and express are never auto-chosen",
+   "label": "estimate",
+   "source": "demo assumption",
+   "stage": 11
+  },
+  {
+   "id": "a10",
+   "text": "LCL consolidation premium vs FCL, typical 1.3–2.0×: 1.5× applied to lane rate ÷ 67 m³, minimum charge 1 m³ per shipment (derived from Drewry WCI 24 Sep 2026)",
+   "label": "estimate",
+   "source": "https://www.drewry.co.uk/supply-chain-advisors/supply-chain-expertise/world-container-index-assessed-by-drewry",
+   "stage": 11
+  },
+  {
+   "id": "s12_a1",
+   "text": "Dates from stage 9 milestones; amounts from the stage 5 cash breakdown with the approved stage 8 quote applied (unit price, tooling; duties, platform fee, insurance recomputed) (tooling 50/50 at T0/T1, samples at golden sample, 30% deposit + 70% before shipment (payment terms of stage 9), logistics at shipment/delivery)",
+   "label": "estimate",
+   "source": null,
+   "stage": 12
+  },
+  {
+   "id": "s12_a2",
+   "text": "Peak cash need $40,709,763; 550 of it falls in the first 60 days.",
+   "label": "estimate",
+   "source": null,
+   "stage": 12
+  },
+  {
+   "id": "s12_a3",
+   "text": "Financing costs are typical ranges, not quotes: verify with each provider",
+   "label": "estimate",
+   "source": null,
+   "stage": 12
+  },
+  {
+   "id": "s13_a1",
+   "text": "Amazon price in USD: 12000 EUR × 1.08 (demo EUR→USD assumption). Marketplace fees and VAT are not included.",
+   "label": "estimate",
+   "source": null,
+   "stage": 13
+  },
+  {
+   "id": "s13_a2",
+   "text": "Name options are not trademark-searched; run a clearance search before committing.",
+   "label": "estimate",
+   "source": null,
+   "stage": 13
+  },
+  {
+   "id": "s13_a3",
+   "text": "Listing copy uses only facts from the brief and spec; no certification claims until testing is complete (stage 4).",
+   "label": "estimate",
+   "source": null,
+   "stage": 13
+  },
+  {
+   "id": "cn1",
+   "text": "Chinese text in this pack is machine-translated — to be reviewed by a native speaker.",
+   "label": "estimate",
+   "source": null,
+   "stage": null
+  }
+ ],
+ "engineering": {
+  "project_id": "demo_solar_biarritz",
+  "status": "draft",
+  "fallback": false,
+  "fallback_reason": null,
+  "generated_by": "code",
+  "generated_at": "2026-09-27T00:23:05.746585Z",
+  "assumptions": [
+   {
+    "id": "e1",
+    "text": "Engineering category 'Rooftop solar array (site install)' detected from the product description and the 'solar_array' shape family",
+    "label": "estimate",
+    "source": null,
+    "stage": null
+   },
+   {
+    "id": "e4",
+    "text": "Physics checks are concept-level (rigid-body statics, rules of thumb): validate with the listed tests",
+    "label": "estimate",
+    "source": null,
+    "stage": null
+   }
+  ],
+  "stage": "engineering",
+  "category": "solar_roof",
+  "category_title": "Rooftop solar array (site install)",
+  "partner_word": "installers",
+  "site_install": true,
+  "product_name": "Rooftop solar, Biarritz",
+  "inputs_digest": "370c3fc7c1bbc58d",
+  "standards": [
+   {
+    "code": "IEC 61215-1",
+    "title": "Terrestrial photovoltaic (PV) modules — Design qualification and type approval — Part 1: Test requirements",
+    "applies_because": "Design qualification of the PV modules (buy certified modules)",
+    "url": "https://webstore.iec.ch/en/publication/61345",
+    "citation_label": "sourced",
+    "citation_note": "https://webstore.iec.ch/en/publication/61345, page checked 2026-09-27"
+   },
+   {
+    "code": "IEC 61730-1",
+    "title": "Photovoltaic (PV) module safety qualification — Part 1: Requirements for construction",
+    "applies_because": "Safety qualification of the PV modules",
+    "url": "https://webstore.iec.ch/en/publication/59803",
+    "citation_label": "sourced",
+    "citation_note": "https://webstore.iec.ch/en/publication/59803, page checked 2026-09-27"
+   },
+   {
+    "code": "IEC 62446-1",
+    "title": "Photovoltaic (PV) systems — Requirements for testing, documentation and maintenance — Part 1: Grid connected systems",
+    "applies_because": "Commissioning tests and documentation of the grid-connected system",
+    "url": "https://webstore.iec.ch/en/publication/24057",
+    "citation_label": "sourced",
+    "citation_note": "https://webstore.iec.ch/en/publication/24057, page checked 2026-09-27"
+   },
+   {
+    "code": "IEC 62109-1",
+    "title": "Safety of power converters for use in photovoltaic power systems — Part 1: General requirements",
+    "applies_because": "Safety of the inverter (power converter)",
+    "url": null,
+    "citation_label": "estimate",
+    "citation_note": "Standard to be confirmed (edition and applicability) — no verified citation URL"
+   },
+   {
+    "code": "IEC 60364-7-712",
+    "title": "Low-voltage electrical installations — Part 7-712: Solar photovoltaic (PV) power supply systems",
+    "applies_because": "Low-voltage electrical installation rules for PV systems",
+    "url": null,
+    "citation_label": "estimate",
+    "citation_note": "Standard to be confirmed (edition and applicability) — no verified citation URL"
+   },
+   {
+    "code": "EN 50549-1",
+    "title": "Requirements for generating plants to be connected in parallel with distribution networks — Part 1: LV",
+    "applies_because": "Grid connection of generating plants to the low-voltage network (EU)",
+    "url": null,
+    "citation_label": "estimate",
+    "citation_note": "Standard to be confirmed (edition and applicability) — no verified citation URL"
+   }
+  ],
+  "risks": [
+   {
+    "id": "r1",
+    "risk": "Roof structure cannot take the added load or wind uplift",
+    "mitigation": "Structural check by the installer's engineer (Eurocode EN 1991), ballast/anchor design",
+    "severity": "critical"
+   },
+   {
+    "id": "r2",
+    "risk": "DC arc fault / fire",
+    "mitigation": "Certified connectors from one maker, torque-checked, rapid shutdown / optimisers where required",
+    "severity": "critical"
+   },
+   {
+    "id": "r3",
+    "risk": "Grid connection delay",
+    "mitigation": "Submit the network operator request at design freeze (Enedis / REE)",
+    "severity": "major"
+   },
+   {
+    "id": "r4",
+    "risk": "Shading from chimney, trees or neighbours",
+    "mitigation": "Site survey with a shade analysis; optimisers on shaded strings",
+    "severity": "major"
+   },
+   {
+    "id": "r5",
+    "risk": "Roof leaks at the fixings",
+    "mitigation": "Manufacturer-approved hooks and flashing, installer warranty on waterproofing",
+    "severity": "major"
+   }
+  ],
+  "tests": [
+   {
+    "id": "t1",
+    "name": "Commissioning: continuity, polarity, Voc/Isc, insulation resistance",
+    "kind": "electrical",
+    "method": "Per string with a PV tester, report to the owner",
+    "standard": "IEC 62446-1"
+   },
+   {
+    "id": "t2",
+    "name": "Thermal imaging of the array under load",
+    "kind": "thermal",
+    "method": "IR camera, irradiance > 600 W/m²",
+    "standard": "IEC 62446-1 (category 2)"
+   },
+   {
+    "id": "t3",
+    "name": "Inverter grid-protection settings check",
+    "kind": "electrical",
+    "method": "Compare with the network operator's required settings",
+    "standard": "EN 50549-1"
+   }
+  ],
+  "checks": [
+   {
+    "id": "solar_yield",
+    "name": "Annual energy yield",
+    "domain": "solar",
+    "value": {
+     "value": 6860.0,
+     "unit": "kWh/yr",
+     "label": "estimate",
+     "source_or_assumption": "5.59 kWp (Estimate) × 1227 kWh/kWp/yr (Sourced, PVGIS)"
+    },
+    "threshold": "Specific yield ≥ 1,000 kWh/kWp/yr pass; ≥ 800 warn",
+    "verdict": "pass",
+    "formula": "E = kWp × E_y(PVGIS, 1 kWp, 30°, south, 14% loss)",
+    "inputs": [
+     {
+      "value": 5.59,
+      "unit": "kWp",
+      "label": "estimate",
+      "source_or_assumption": "13 modules × 430 W"
+     },
+     {
+      "value": 1227.2,
+      "unit": "kWh/kWp/yr",
+      "label": "sourced",
+      "source_or_assumption": "PVGIS (EU JRC), fetched 2026-09-27, https://re.jrc.ec.europa.eu/api/v5_3/PVcalc?lat=43.4832&lon=-1.5586&peakpower=1&loss=14&angle=30&aspect=0&outputformat=json — 30° tilt, due south, 14% system loss"
+     }
+    ],
+    "notes": []
+   },
+   {
+    "id": "solar_payback",
+    "name": "Simple payback",
+    "domain": "solar",
+    "value": {
+     "value": 8.6,
+     "unit": "years",
+     "label": "estimate",
+     "source_or_assumption": "install cost 10,621 EUR / savings 1,235 EUR/yr, no subsidy, no tariff inflation"
+    },
+    "threshold": "≤ 12 years pass; ≤ 18 warn; else fail",
+    "verdict": "pass",
+    "formula": "payback = install cost / (annual kWh × blended EUR/kWh)",
+    "inputs": [
+     {
+      "value": 10621.0,
+      "unit": "EUR",
+      "label": "estimate",
+      "source_or_assumption": "5.59 kWp × 1.9 EUR/Wp turnkey residential (EU 2026 range 1.5-2.5 EUR/Wp)"
+     },
+     {
+      "value": 1235.0,
+      "unit": "EUR/yr",
+      "label": "estimate",
+      "source_or_assumption": "6860 kWh/yr × 0.18 EUR/kWh (60% self-consumed at 0.25 + 40% exported at 0.075)"
+     }
+    ],
+    "notes": []
+   },
+   {
+    "id": "solar_roof_load",
+    "name": "Added dead load on the roof",
+    "domain": "stability",
+    "value": {
+     "value": 14.0,
+     "unit": "kg/m²",
+     "label": "estimate",
+     "source_or_assumption": "module 21.5 kg / 1.95 m² + racking 3.0 kg/m²"
+    },
+    "threshold": "≤ 20 kg/m² typical allowance — structural engineer to confirm",
+    "verdict": "pass",
+    "formula": "q = module mass / module area + racking",
+    "inputs": [
+     {
+      "value": 430.0,
+      "unit": "W",
+      "label": "estimate",
+      "source_or_assumption": "Generic 430 W monocrystalline module (1722 × 1134 mm class), not a specific product"
+     }
+    ],
+    "notes": [
+     "Check wind uplift and snow load per Eurocode EN 1991-1-4 / 1991-1-3 with the installer"
+    ]
+   }
+  ],
+  "electronics": null,
+  "firmware": null,
+  "prototype": {
+   "enclosure_method": "Pilot installation on one roof (site survey → permit → install → commissioning)",
+   "enclosure_volume": {
+    "value": 0.0,
+    "unit": "cm³",
+    "label": "estimate",
+    "source_or_assumption": "Not applicable (site install)"
+   },
+   "units": 1,
+   "cost_lines": [
+    {
+     "item": "Pilot installation 5.59 kWp",
+     "amount": {
+      "value": 10621.0,
+      "unit": "EUR",
+      "label": "estimate",
+      "source_or_assumption": "5.59 kWp × 1.9 EUR/Wp turnkey residential (EU 2026 range 1.5-2.5 EUR/Wp)"
+     }
+    },
+    {
+     "item": "Site survey + structural check",
+     "amount": {
+      "value": 450.0,
+      "unit": "EUR",
+      "label": "estimate",
+      "source_or_assumption": "Installer survey visit + engineer note (typical, Estimate)"
+     }
+    }
+   ],
+   "devkit_bom": [],
+   "assembly_steps": [
+    "Site survey: roof pitch, azimuth, shading, structure photos",
+    "Design: module layout, strings, inverter sizing; PVGIS yield check",
+    "Permits: planning declaration + grid connection request",
+    "Install (1-2 days): mounting, modules, DC/AC wiring, inverter",
+    "Commissioning tests (IEC 62446-1) and monitoring set-up"
+   ],
+   "timeline_weeks": {
+    "value": 6.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Survey 1 + permits/grid request 3-4 (runs in parallel with procurement) + install 1 + commissioning 1"
+   },
+   "total_cost": {
+    "value": 11071.0,
+    "unit": "EUR",
+    "label": "estimate",
+    "source_or_assumption": "Pilot installation + survey"
+   }
+  },
+  "solar": {
+   "location": "Biarritz, France",
+   "latitude": 43.4832,
+   "longitude": -1.5586,
+   "location_assumed": false,
+   "roof_area": {
+    "value": 35.0,
+    "unit": "m²",
+    "label": "estimate",
+    "source_or_assumption": "Roof area stated in the prompt (not surveyed)"
+   },
+   "module_power": {
+    "value": 430.0,
+    "unit": "W",
+    "label": "estimate",
+    "source_or_assumption": "Generic 430 W monocrystalline module (1722 × 1134 mm class), not a specific product"
+   },
+   "module_count": {
+    "value": 13.0,
+    "unit": "modules",
+    "label": "estimate",
+    "source_or_assumption": "floor(roof 35 m² × 75% usable / 1.95 m² per module)"
+   },
+   "peak_power": {
+    "value": 5.59,
+    "unit": "kWp",
+    "label": "estimate",
+    "source_or_assumption": "13 modules × 430 W"
+   },
+   "specific_yield": {
+    "value": 1227.2,
+    "unit": "kWh/kWp/yr",
+    "label": "sourced",
+    "source_or_assumption": "PVGIS (EU JRC), fetched 2026-09-27, https://re.jrc.ec.europa.eu/api/v5_3/PVcalc?lat=43.4832&lon=-1.5586&peakpower=1&loss=14&angle=30&aspect=0&outputformat=json — 30° tilt, due south, 14% system loss"
+   },
+   "annual_energy": {
+    "value": 6860.0,
+    "unit": "kWh/yr",
+    "label": "estimate",
+    "source_or_assumption": "5.59 kWp (Estimate) × 1227 kWh/kWp/yr (Sourced, PVGIS)"
+   },
+   "monthly_energy": [
+    {
+     "value": 348.0,
+     "unit": "kWh",
+     "label": "estimate",
+     "source_or_assumption": "Jan: PVGIS E_m 62.3 kWh/kWp (Sourced) × 5.59 kWp"
+    },
+    {
+     "value": 455.0,
+     "unit": "kWh",
+     "label": "estimate",
+     "source_or_assumption": "Feb: PVGIS E_m 81.3 kWh/kWp (Sourced) × 5.59 kWp"
+    },
+    {
+     "value": 606.0,
+     "unit": "kWh",
+     "label": "estimate",
+     "source_or_assumption": "Mar: PVGIS E_m 108.4 kWh/kWp (Sourced) × 5.59 kWp"
+    },
+    {
+     "value": 650.0,
+     "unit": "kWh",
+     "label": "estimate",
+     "source_or_assumption": "Apr: PVGIS E_m 116.3 kWh/kWp (Sourced) × 5.59 kWp"
+    },
+    {
+     "value": 717.0,
+     "unit": "kWh",
+     "label": "estimate",
+     "source_or_assumption": "May: PVGIS E_m 128.3 kWh/kWp (Sourced) × 5.59 kWp"
+    },
+    {
+     "value": 701.0,
+     "unit": "kWh",
+     "label": "estimate",
+     "source_or_assumption": "Jun: PVGIS E_m 125.3 kWh/kWp (Sourced) × 5.59 kWp"
+    },
+    {
+     "value": 746.0,
+     "unit": "kWh",
+     "label": "estimate",
+     "source_or_assumption": "Jul: PVGIS E_m 133.4 kWh/kWp (Sourced) × 5.59 kWp"
+    },
+    {
+     "value": 741.0,
+     "unit": "kWh",
+     "label": "estimate",
+     "source_or_assumption": "Aug: PVGIS E_m 132.5 kWh/kWp (Sourced) × 5.59 kWp"
+    },
+    {
+     "value": 666.0,
+     "unit": "kWh",
+     "label": "estimate",
+     "source_or_assumption": "Sep: PVGIS E_m 119.2 kWh/kWp (Sourced) × 5.59 kWp"
+    },
+    {
+     "value": 525.0,
+     "unit": "kWh",
+     "label": "estimate",
+     "source_or_assumption": "Oct: PVGIS E_m 93.9 kWh/kWp (Sourced) × 5.59 kWp"
+    },
+    {
+     "value": 366.0,
+     "unit": "kWh",
+     "label": "estimate",
+     "source_or_assumption": "Nov: PVGIS E_m 65.4 kWh/kWp (Sourced) × 5.59 kWp"
+    },
+    {
+     "value": 340.0,
+     "unit": "kWh",
+     "label": "estimate",
+     "source_or_assumption": "Dec: PVGIS E_m 60.8 kWh/kWp (Sourced) × 5.59 kWp"
+    }
+   ],
+   "install_cost": {
+    "value": 10621.0,
+    "unit": "EUR",
+    "label": "estimate",
+    "source_or_assumption": "5.59 kWp × 1.9 EUR/Wp turnkey residential (EU 2026 range 1.5-2.5 EUR/Wp)"
+   },
+   "annual_savings": {
+    "value": 1235.0,
+    "unit": "EUR/yr",
+    "label": "estimate",
+    "source_or_assumption": "6860 kWh/yr × 0.18 EUR/kWh (60% self-consumed at 0.25 + 40% exported at 0.075)"
+   },
+   "payback": {
+    "value": 8.6,
+    "unit": "years",
+    "label": "estimate",
+    "source_or_assumption": "install cost 10,621 EUR / savings 1,235 EUR/yr, no subsidy, no tariff inflation"
+   },
+   "pvgis_url": "https://re.jrc.ec.europa.eu/api/v5_3/PVcalc?lat=43.4832&lon=-1.5586&peakpower=1&loss=14&angle=30&aspect=0&outputformat=json"
+  },
+  "installers": [
+   {
+    "factory_id": "i_soleilatlantique",
+    "name": "Soleil Atlantique Installations (fictional)",
+    "region": "Bayonne, Nouvelle-Aquitaine, France",
+    "certifications": [
+     "ISO 9001",
+     "RGE QualiPV"
+    ],
+    "lead_time_days": 21,
+    "label": "fictional"
+   },
+   {
+    "factory_id": "i_lumiereparis",
+    "name": "Lumière Toits Paris (fictional)",
+    "region": "Île-de-France, France",
+    "certifications": [
+     "ISO 9001",
+     "RGE QualiPV",
+     "Qualifelec"
+    ],
+    "lead_time_days": 14,
+    "label": "fictional"
+   },
+   {
+    "factory_id": "i_estrecho",
+    "name": "Estrecho Solar Montajes (fictional)",
+    "region": "Tarifa, Andalucía, Spain",
+    "certifications": [
+     "ISO 9001"
+    ],
+    "lead_time_days": 38,
+    "label": "fictional"
+   }
+  ],
+  "build_strategy": {
+   "strategy": "module_assembly",
+   "title": "Module assembly",
+   "explanation": "You design the product around bought-in, pre-certified modules (e.g. motor + driver, battery pack, radio module, heater + fan): your work is the architecture, the enclosure, the integration and the software; the factory assembles the modules into your parts. Faster and cheaper than designing every sub-system, and the modules' certifications carry part of the compliance.",
+   "customisable": [
+    "Array layout, module choice, inverter and battery option"
+   ],
+   "not_customisable": [
+    "Certified PV modules, inverter, mounting system"
+   ],
+   "moq": {
+    "value": 1.0,
+    "unit": "installation",
+    "label": "estimate",
+    "source_or_assumption": "Typical minimum order for a first run in this category — per site"
+   },
+   "entry_cost": {
+    "value": 10621.0,
+    "unit": "EUR",
+    "label": "estimate",
+    "source_or_assumption": "Turnkey install cost of the solar design (5.59 kWp × 1.9 EUR/Wp turnkey residential (EU 2026 range 1.5-2.5 EUR/Wp))"
+   },
+   "lead_time": {
+    "value": 6.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Frozen design → first production units (tooling, samples, certification), typical"
+   },
+   "path": [
+    "Roof survey (area, orientation, shading, structure)",
+    "Design + grid-connection request",
+    "Installation by a certified installer",
+    "Commissioning and grid inspection"
+   ],
+   "certifications_note": "Components carry their certifications; the installation follows national electrical rules (installer certification).",
+   "assumptions": [
+    "Estimates for a first production run; real MOQs and NRE come from quotes",
+    "Module figures assume catalogue modules with their own certifications"
+   ]
+  },
+  "unit_basis": "per_unit",
+  "installation_cost": null
+ }
+}

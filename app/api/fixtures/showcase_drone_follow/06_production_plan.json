@@ -1,0 +1,91 @@
+{
+ "project_id": "demo_drone_follow",
+ "status": "validated",
+ "fallback": false,
+ "fallback_reason": null,
+ "generated_by": "llm:openai/gpt-6-luna",
+ "generated_at": "2026-09-27T00:08:06.074947Z",
+ "assumptions": [
+  {
+   "id": "a1",
+   "text": "Lead times are typical values per process (tooling + first shots), not factory quotes; refined at stages 7-9 with the negotiated quote.",
+   "label": "estimate",
+   "source": null,
+   "stage": 6
+  },
+  {
+   "id": "a2",
+   "text": "Mass production duration assumes 90 units/day on one line for a 2,000-unit order.",
+   "label": "estimate",
+   "source": null,
+   "stage": 6
+  }
+ ],
+ "stage": 6,
+ "steps": [
+  {
+   "part_id": "p1",
+   "part_name": "Bottom shell",
+   "process": "injection_molding",
+   "reason": "Injection molding suits the 2.0 mm PA12-GF shell geometry and ±0.1 mm mating features, with tooling amortized across 2,000 units and a matte graphite finish achievable in the molded part or secondary finishing.",
+   "region": "Dongguan, Guangdong",
+   "lead_time_days": {
+    "value": 35.0,
+    "unit": "days",
+    "label": "estimate",
+    "source_or_assumption": "Typical injection molding lead time incl. tooling and first shots — planning assumption"
+   }
+  },
+  {
+   "part_id": "p2",
+   "part_name": "Top shell",
+   "process": "injection_molding",
+   "reason": "Injection molding efficiently produces the 2.0 mm PA12-GF shell and precise mating faces at 2,000 units, while supporting a matte graphite finish.",
+   "region": "Dongguan, Guangdong",
+   "lead_time_days": {
+    "value": 35.0,
+    "unit": "days",
+    "label": "estimate",
+    "source_or_assumption": "Typical injection molding lead time incl. tooling and first shots — planning assumption"
+   }
+  },
+  {
+   "part_id": "p3",
+   "part_name": "Main PCB assembly",
+   "process": "pcba",
+   "reason": "PCBA is appropriate for assembling the FR-4 board and electronic components, providing repeatable placement and soldering for a 2,000-unit production run.",
+   "region": "Shenzhen, Guangdong",
+   "lead_time_days": {
+    "value": 12.0,
+    "unit": "days",
+    "label": "estimate",
+    "source_or_assumption": "Typical pcba lead time incl. setup and first article — planning assumption"
+   }
+  },
+  {
+   "part_id": "p4",
+   "part_name": "Screws M2.5 × 6 self-tapping",
+   "process": "other",
+   "reason": "Standard steel self-tapping screws are economical at 2,000 units, and black zinc plating provides corrosion protection and the specified finish.",
+   "region": "Shenzhen, Guangdong",
+   "lead_time_days": {
+    "value": 14.0,
+    "unit": "days",
+    "label": "estimate",
+    "source_or_assumption": "Typical other lead time incl. setup and first article — planning assumption"
+   }
+  }
+ ],
+ "assembly_notes": [
+  "Install and secure the PCBA and wiring before joining the shells; verify mating faces and boss pilots are free of debris.",
+  "Use controlled screw-driving torque to avoid stripping plastic bosses, and confirm the shell seam is uniformly closed.",
+  "Perform flight-controller, ESC, motor, camera/gimbal, Wi-Fi, and power-system functional tests, followed by a documented burn-in.",
+  "Protect battery leads against short circuits, prevent accidental activation, and ship LiPo cells by sea only as UN3481 packed with equipment."
+ ],
+ "total_lead_time_days": {
+  "value": 79.0,
+  "unit": "days",
+  "label": "estimate",
+  "source_or_assumption": "Critical path from PO: slowest tooling/first article (35) + tooling correction T1 (14) + golden sample (7) + mass production (23) for 2,000 units"
+ }
+}

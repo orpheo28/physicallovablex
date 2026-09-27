@@ -1,0 +1,91 @@
+{
+ "project_id": "demo_home_robot",
+ "status": "validated",
+ "fallback": false,
+ "fallback_reason": null,
+ "generated_by": "llm:openai/gpt-6-luna",
+ "generated_at": "2026-09-27T00:09:40.199782Z",
+ "assumptions": [
+  {
+   "id": "a1",
+   "text": "Lead times are typical values per process (tooling + first shots), not factory quotes; refined at stages 7-9 with the negotiated quote.",
+   "label": "estimate",
+   "source": null,
+   "stage": 6
+  },
+  {
+   "id": "a2",
+   "text": "Mass production duration assumes 90 units/day on one line for a 2,000-unit order.",
+   "label": "estimate",
+   "source": null,
+   "stage": 6
+  }
+ ],
+ "stage": 6,
+ "steps": [
+  {
+   "part_id": "p1",
+   "part_name": "Bottom shell",
+   "process": "injection_molding",
+   "reason": "Injection molding suits the thin-walled PC/ABS shell and its integrated bosses, while 2,000 units amortize tooling and provide a consistent substrate for soft-touch paint.",
+   "region": "Dongguan, Guangdong",
+   "lead_time_days": {
+    "value": 35.0,
+    "unit": "days",
+    "label": "estimate",
+    "source_or_assumption": "Typical injection molding lead time incl. tooling and first shots — planning assumption"
+   }
+  },
+  {
+   "part_id": "p2",
+   "part_name": "Top shell",
+   "process": "injection_molding",
+   "reason": "Injection molding efficiently produces the thin-walled PC/ABS top shell with repeatable mating faces and bosses, and supports the specified soft-touch painted finish at this volume.",
+   "region": "Dongguan, Guangdong",
+   "lead_time_days": {
+    "value": 35.0,
+    "unit": "days",
+    "label": "estimate",
+    "source_or_assumption": "Typical injection molding lead time incl. tooling and first shots — planning assumption"
+   }
+  },
+  {
+   "part_id": "p3",
+   "part_name": "Main PCB assembly",
+   "process": "pcba",
+   "reason": "PCBA is appropriate for the populated FR-4 electronics assembly, enabling repeatable placement and soldering of the controller and sensor interfaces at 2,000 units.",
+   "region": "Shenzhen, Guangdong",
+   "lead_time_days": {
+    "value": 12.0,
+    "unit": "days",
+    "label": "estimate",
+    "source_or_assumption": "Typical pcba lead time incl. setup and first article — planning assumption"
+   }
+  },
+  {
+   "part_id": "p4",
+   "part_name": "Screws M2.5 × 6 self-tapping",
+   "process": "other",
+   "reason": "Standard steel self-tapping screws are economical to source at this quantity, and black zinc provides the specified corrosion-resistant finish.",
+   "region": "Shenzhen, Guangdong",
+   "lead_time_days": {
+    "value": 14.0,
+    "unit": "days",
+    "label": "estimate",
+    "source_or_assumption": "Typical other lead time incl. setup and first article — planning assumption"
+   }
+  }
+ ],
+ "assembly_notes": [
+  "Fit and fasten the PCB and internal modules, then verify shell mating-face alignment and screw engagement without over-torquing.",
+  "Route and secure wiring clear of motors, moving joints, and shell edges; confirm sensor alignment and charging-interface fit.",
+  "Perform functional checks of compute, camera, lidar, ToF, IMU, motor drives, servo, battery protection, and dock charging; run a motor and charging burn-in.",
+  "Handle and protect lithium-ion cells against short circuit and damage; ship by sea only as UN3481 packed with equipment."
+ ],
+ "total_lead_time_days": {
+  "value": 79.0,
+  "unit": "days",
+  "label": "estimate",
+  "source_or_assumption": "Critical path from PO: slowest tooling/first article (35) + tooling correction T1 (14) + golden sample (7) + mass production (23) for 2,000 units"
+ }
+}

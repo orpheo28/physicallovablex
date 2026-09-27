@@ -19,7 +19,7 @@ export function Still({
   caption?: string;
   fallback?: React.ReactNode;
   className?: string;
-  height?: number;
+  height?: number | string;
 }) {
   const src = fileUrl(url);
   const { checking, ok } = useFileExists(src);

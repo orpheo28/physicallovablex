@@ -1,0 +1,93 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "state": {
+      "default": "idle",
+      "enum": [
+        "idle",
+        "running",
+        "done",
+        "failed"
+      ],
+      "title": "State",
+      "type": "string"
+    },
+    "version": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Version"
+    },
+    "shots": {
+      "description": "Shots requested by this job",
+      "items": {
+        "type": "string"
+      },
+      "title": "Shots",
+      "type": "array"
+    },
+    "done": {
+      "description": "Shots generated so far",
+      "items": {
+        "type": "string"
+      },
+      "title": "Done",
+      "type": "array"
+    },
+    "failed": {
+      "description": "Shots that failed (the previous photo, if any, is kept)",
+      "items": {
+        "type": "string"
+      },
+      "title": "Failed",
+      "type": "array"
+    },
+    "error": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Plain-language reason when a shot failed (e.g. image credits exhausted)",
+      "title": "Error"
+    },
+    "started_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Started At"
+    },
+    "finished_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Finished At"
+    }
+  },
+  "title": "PhotoJob",
+  "type": "object"
+}

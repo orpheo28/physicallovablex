@@ -161,13 +161,15 @@
       "additionalProperties": false,
       "properties": {
         "format": {
+          "description": "py (W21): the build123d program of the model, served by GET /projects/<pid>/cad/code/<n>",
           "enum": [
             "step",
             "stl",
             "glb",
             "pdf",
             "png",
-            "svg"
+            "svg",
+            "py"
           ],
           "title": "Format",
           "type": "string"

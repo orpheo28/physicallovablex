@@ -1,0 +1,344 @@
+{
+ "project_id": "demo_surfboard_beginner",
+ "status": "validated",
+ "fallback": false,
+ "fallback_reason": null,
+ "generated_by": "llm:openai/gpt-6-luna",
+ "generated_at": "2026-09-27T00:14:17.551237Z",
+ "assumptions": [
+  {
+   "id": "a3_1",
+   "text": "Weight from the measured solid volume × per-part densities (PU foam + fibreglass laminate effective density 0.065 g/cm³ (a 60 L board ≈ 4 kg))",
+   "label": "estimate",
+   "source": null,
+   "stage": 3
+  },
+  {
+   "id": "a3_2",
+   "text": "Direction d1 ('Classic'): solid product from the 'board' family — no moulded enclosure; enclosure.* files are the product itself",
+   "label": "estimate",
+   "source": null,
+   "stage": 3
+  }
+ ],
+ "stage": 3,
+ "product_name": "Beginner surfboard 7'6\"",
+ "direction_id": "d1",
+ "overall_dimensions": {
+  "length": {
+   "value": 2286.0,
+   "unit": "mm",
+   "label": "measured",
+   "source_or_assumption": "Bounding box of the full product (family CAD, build123d/OCCT)"
+  },
+  "width": {
+   "value": 560.03,
+   "unit": "mm",
+   "label": "measured",
+   "source_or_assumption": "Bounding box of the full product (family CAD, build123d/OCCT)"
+  },
+  "height": {
+   "value": 210.02,
+   "unit": "mm",
+   "label": "measured",
+   "source_or_assumption": "Bounding box of the full product (family CAD, build123d/OCCT)"
+  }
+ },
+ "weight": {
+  "value": 4598.5,
+  "unit": "g",
+  "label": "estimate",
+  "source_or_assumption": "Solid volume 60181.4 cm³ (measured) × densities per part (PU foam + fibreglass laminate effective density 0.065 g/cm³ (a 60 L board ≈ 4 kg))"
+ },
+ "parts": [
+  {
+   "id": "p1",
+   "name": "Board blank (shaped core + laminate)",
+   "material": "PU foam + fibreglass/polyester",
+   "finish": "Gloss polish",
+   "process_hint": "other",
+   "tolerance": "±1 mm (shaped / routed parts)",
+   "dimensions": {
+    "length": {
+     "value": 2286.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Bounding box of the largest part of this group, built family CAD (build123d/OCCT)"
+    },
+    "width": {
+     "value": 560.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Bounding box of the largest part of this group, built family CAD (build123d/OCCT)"
+    },
+    "height": {
+     "value": 127.9,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Bounding box of the largest part of this group, built family CAD (build123d/OCCT)"
+    }
+   },
+   "wall_thickness": null,
+   "quantity": 1
+  },
+  {
+   "id": "p2",
+   "name": "Traction pad",
+   "material": "EVA foam",
+   "finish": "Gloss polish",
+   "process_hint": "other",
+   "tolerance": "±1 mm (shaped / routed parts)",
+   "dimensions": {
+    "length": {
+     "value": 300.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Bounding box of the largest part of this group, built family CAD (build123d/OCCT)"
+    },
+    "width": {
+     "value": 246.8,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Bounding box of the largest part of this group, built family CAD (build123d/OCCT)"
+    },
+    "height": {
+     "value": 8.5,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Bounding box of the largest part of this group, built family CAD (build123d/OCCT)"
+    }
+   },
+   "wall_thickness": null,
+   "quantity": 4
+  },
+  {
+   "id": "p3",
+   "name": "Fins",
+   "material": "Glass-filled nylon",
+   "finish": "Gloss polish",
+   "process_hint": "injection_molding",
+   "tolerance": "±1 mm (shaped / routed parts)",
+   "dimensions": {
+    "length": {
+     "value": 110.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Bounding box of the largest part of this group, built family CAD (build123d/OCCT)"
+    },
+    "width": {
+     "value": 7.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Bounding box of the largest part of this group, built family CAD (build123d/OCCT)"
+    },
+    "height": {
+     "value": 115.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Bounding box of the largest part of this group, built family CAD (build123d/OCCT)"
+    }
+   },
+   "wall_thickness": null,
+   "quantity": 3
+  }
+ ],
+ "electronics_blocks": [
+  {
+   "id": "b1",
+   "name": "Shaped foam core and stringer",
+   "function": "Provide buoyancy, board outline, rocker, and structural support."
+  },
+  {
+   "id": "b2",
+   "name": "Fibreglass laminate and finish",
+   "function": "Seal and reinforce the shaped core while forming the hydrodynamic hull and rails."
+  },
+  {
+   "id": "b3",
+   "name": "Thruster fin system",
+   "function": "Provide removable fins and their structural mounting interfaces for directional control."
+  },
+  {
+   "id": "b4",
+   "name": "Leash attachment",
+   "function": "Provide a tail-mounted attachment point for a surfboard leash."
+  }
+ ],
+ "electronics_edges": [
+  {
+   "source": "b1",
+   "target": "b2",
+   "signal": "Structural bond and hull load transfer"
+  },
+  {
+   "source": "b1",
+   "target": "b3",
+   "signal": "Fin-box installation and load transfer"
+  },
+  {
+   "source": "b1",
+   "target": "b4",
+   "signal": "Embedded leash-plug attachment"
+  }
+ ],
+ "bom": [
+  {
+   "id": "m1",
+   "part": "PU surfboard foam blank with wood stringer",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Shaped 7'6\" (2286 mm) beginner-stability outline with rocker and soft rails; finished board dimensions approximately 2286 × 560 × 210 mm.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m2",
+   "part": "Fibreglass cloth",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Fibreglass reinforcement cloth for the board laminate; cut and applied during glassing.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m3",
+   "part": "Polyester laminating resin and catalyst",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Resin system for laminating and sealing the PU foam and fibreglass; quantity sufficient for one board.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m4",
+   "part": "Thruster fin box set",
+   "category": "mechanical",
+   "qty": 3.0,
+   "description": "Compatible fin boxes installed in the tail for a thruster setup.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m5",
+   "part": "Thruster surfboard fins",
+   "category": "mechanical",
+   "qty": 3.0,
+   "description": "Removable fins compatible with the installed fin boxes; one center and two side fins.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m6",
+   "part": "Surfboard leash plug",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Embedded tail leash attachment plug.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m7",
+   "part": "Surfboard sanding and finishing consumables",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Abrasives and finishing supplies used to sand and finish one glassed board.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "k1",
+   "part": "Protective surfboard shipping carton",
+   "category": "packaging",
+   "qty": 1.0,
+   "description": "Long carton sized to protect one 7'6\" surfboard during shipping.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "k2",
+   "part": "Protective packaging materials",
+   "category": "packaging",
+   "qty": 1.0,
+   "description": "Board wrap and cushioning for protection inside the shipping carton.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  }
+ ],
+ "tolerances": [
+  "Outline ±2 mm",
+  "Thickness ±1 mm",
+  "Rocker ±3 mm at nose / tail",
+  "Fin box position ±1 mm"
+ ],
+ "cad_files": [
+  {
+   "format": "glb",
+   "url": "/files/demo_surfboard_beginner/model_v2.glb",
+   "description": "AI-generated CAD (concept level) — geometry measured on the result — bbox 2286 × 573 × 203 mm",
+   "size_bytes": 241816
+  },
+  {
+   "format": "step",
+   "url": "/files/demo_surfboard_beginner/model_v2.step",
+   "description": "AI-generated CAD (concept level) — geometry measured on the result — STEP AP214",
+   "size_bytes": 593528
+  },
+  {
+   "format": "py",
+   "url": "/projects/demo_surfboard_beginner/cad/code/2",
+   "description": "AI-generated CAD (concept level) — geometry measured on the result — build123d program v2 (llm:openai/gpt-6-sol)",
+   "size_bytes": 4065
+  },
+  {
+   "format": "glb",
+   "url": "/files/demo_surfboard_beginner/v2.glb",
+   "description": "Full product — materials",
+   "size_bytes": 228620
+  },
+  {
+   "format": "step",
+   "url": "/files/demo_surfboard_beginner/v2_enclosure.step",
+   "description": "Product — all parts (solid bodies), STEP AP214",
+   "size_bytes": 567367
+  },
+  {
+   "format": "stl",
+   "url": "/files/demo_surfboard_beginner/v2_enclosure.stl",
+   "description": "Product — mesh",
+   "size_bytes": 325684
+  },
+  {
+   "format": "glb",
+   "url": "/files/demo_surfboard_beginner/v2_enclosure.glb",
+   "description": "Product — viewer model",
+   "size_bytes": 228620
+  }
+ ]
+}

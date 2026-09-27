@@ -1,0 +1,88 @@
+{
+  "additionalProperties": false,
+  "description": "W27: one AI product photo. With a reference the model only restyles light, surface, lens and framing around OUR\nCAD image (viewer capture or Blender render of the CAD); without one it is a text-only concept image.",
+  "properties": {
+    "shot": {
+      "enum": [
+        "hero_studio",
+        "packshot_white",
+        "lifestyle",
+        "in_hand_scale",
+        "detail_macro"
+      ],
+      "title": "Shot",
+      "type": "string"
+    },
+    "url": {
+      "description": "/files/<pid>/photo_v<n>_<shot>.png",
+      "title": "Url",
+      "type": "string"
+    },
+    "label": {
+      "description": "Honesty caption shown under the image: 'Photo-styled from the CAD (AI image, geometry from our CAD)' or 'AI concept image (no CAD reference)'; lifestyle adds ' \u00b7 Staged scene \u2014 illustrative'",
+      "title": "Label",
+      "type": "string"
+    },
+    "reference": {
+      "description": "viewer = PNG captured from the 3D viewer by the client; cad_render = Blender render of the CAD; none = text only",
+      "enum": [
+        "viewer",
+        "cad_render",
+        "none"
+      ],
+      "title": "Reference",
+      "type": "string"
+    },
+    "aspect_ratio": {
+      "description": "4:5 or 1:1",
+      "title": "Aspect Ratio",
+      "type": "string"
+    },
+    "staged": {
+      "default": false,
+      "description": "Lifestyle / in-hand scene: illustrative staging, not a real photo shoot",
+      "title": "Staged",
+      "type": "boolean"
+    },
+    "model": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Image model slug (OpenRouter)",
+      "title": "Model"
+    },
+    "version": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Studio version the photo was made from",
+      "title": "Version"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    }
+  },
+  "required": [
+    "shot",
+    "url",
+    "label",
+    "reference",
+    "aspect_ratio"
+  ],
+  "title": "ProductPhoto",
+  "type": "object"
+}

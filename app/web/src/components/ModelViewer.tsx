@@ -31,7 +31,7 @@ export function ModelViewer({
 }: {
   url: string | null | undefined;
   alt: string;
-  height?: number;
+  height?: number | string;
   tone?: "page" | "surface" | "studio";
   interactive?: boolean;
 }) {

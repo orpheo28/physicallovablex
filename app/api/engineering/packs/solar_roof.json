@@ -1,0 +1,33 @@
+{
+  "key": "solar_roof",
+  "title": "Rooftop solar array (site install)",
+  "match": ["solar roof", "rooftop solar", "solar array", "solar panel", "solar panels", "photovoltaic", "pv array", "pv system", "pv install", "panneaux solaires", "solar install", "solar kit", "kwp"],
+  "families": ["solar_array"],
+  "brief_categories": [],
+  "partner_word": "installers",
+  "site_install": true,
+  "standards": [
+    {"code": "IEC 61215-1", "applies_because": "Design qualification of the PV modules (buy certified modules)"},
+    {"code": "IEC 61730-1", "applies_because": "Safety qualification of the PV modules"},
+    {"code": "IEC 62446-1", "applies_because": "Commissioning tests and documentation of the grid-connected system"},
+    {"code": "IEC 62109-1", "applies_because": "Safety of the inverter (power converter)"},
+    {"code": "IEC 60364-7-712", "applies_because": "Low-voltage electrical installation rules for PV systems"},
+    {"code": "EN 50549-1", "applies_because": "Grid connection of generating plants to the low-voltage network (EU)"}
+  ],
+  "risks": [
+    {"risk": "Roof structure cannot take the added load or wind uplift", "mitigation": "Structural check by the installer's engineer (Eurocode EN 1991), ballast/anchor design", "severity": "critical"},
+    {"risk": "DC arc fault / fire", "mitigation": "Certified connectors from one maker, torque-checked, rapid shutdown / optimisers where required", "severity": "critical"},
+    {"risk": "Grid connection delay", "mitigation": "Submit the network operator request at design freeze (Enedis / REE)", "severity": "major"},
+    {"risk": "Shading from chimney, trees or neighbours", "mitigation": "Site survey with a shade analysis; optimisers on shaded strings", "severity": "major"},
+    {"risk": "Roof leaks at the fixings", "mitigation": "Manufacturer-approved hooks and flashing, installer warranty on waterproofing", "severity": "major"}
+  ],
+  "tests": [
+    {"name": "Commissioning: continuity, polarity, Voc/Isc, insulation resistance", "kind": "electrical", "method": "Per string with a PV tester, report to the owner", "standard": "IEC 62446-1"},
+    {"name": "Thermal imaging of the array under load", "kind": "thermal", "method": "IR camera, irradiance > 600 W/m²", "standard": "IEC 62446-1 (category 2)"},
+    {"name": "Inverter grid-protection settings check", "kind": "electrical", "method": "Compare with the network operator's required settings", "standard": "EN 50549-1"}
+  ],
+  "checks": ["solar"],
+  "params": {"default_family": "esp32", "connectivity": "Wi-Fi + MQTT (inverter monitoring)", "typical_electronics": []},
+  "prototype": {"method": "Pilot installation on one roof (site survey → permit → install → commissioning)", "usd_per_cm3": 0, "setup_usd": 0, "units": 1,
+    "steps": ["Site survey: roof pitch, azimuth, shading, structure photos", "Design: module layout, strings, inverter sizing; PVGIS yield check", "Permits: planning declaration + grid connection request", "Install (1-2 days): mounting, modules, DC/AC wiring, inverter", "Commissioning tests (IEC 62446-1) and monitoring set-up"]}
+}

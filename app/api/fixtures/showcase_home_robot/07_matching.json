@@ -1,0 +1,320 @@
+{
+ "project_id": "demo_home_robot",
+ "status": "validated",
+ "fallback": false,
+ "fallback_reason": null,
+ "generated_by": "code",
+ "generated_at": "2026-09-27T00:09:40.211248Z",
+ "assumptions": [
+  {
+   "id": "a7_network",
+   "text": "Factories, capacity, load and past performance come from the simulated production network.",
+   "label": "fictional",
+   "source": "factory_mcp (demo data)",
+   "stage": 7
+  },
+  {
+   "id": "a7_weights",
+   "text": "Score = 35% process fit + 15% MOQ + 15% certifications + 15% load + 20% lead time; product-level criteria are part-weighted means over the queries (Injection molding ×2, PCBA ×1, Other ×1, Assembly ×1).",
+   "label": "estimate",
+   "source": null,
+   "stage": 7
+  }
+ ],
+ "stage": 7,
+ "factory_pack_id": "fp_demo_home_robot_studio",
+ "queries": [
+  {
+   "process": "injection_molding",
+   "material": "PC/ABS (UL94 V-0)",
+   "quantity": 2000,
+   "certifications_required": [
+    "ISO 9001"
+   ],
+   "deadline": null,
+   "category": "home_robot"
+  },
+  {
+   "process": "pcba",
+   "material": "FR-4 1.6 mm",
+   "quantity": 2000,
+   "certifications_required": [
+    "ISO 9001"
+   ],
+   "deadline": null,
+   "category": "home_robot"
+  },
+  {
+   "process": "other",
+   "material": "Steel",
+   "quantity": 2000,
+   "certifications_required": [
+    "ISO 9001"
+   ],
+   "deadline": null,
+   "category": "home_robot"
+  },
+  {
+   "process": "assembly",
+   "material": "any",
+   "quantity": 2000,
+   "certifications_required": [
+    "ISO 9001"
+   ],
+   "deadline": null,
+   "category": "home_robot"
+  }
+ ],
+ "shortlist": [
+  {
+   "rank": 1,
+   "factory_id": "f_skyforge",
+   "factory_name": "Skyforge Robotics Integrators (fictional)",
+   "score": {
+    "value": 81.9,
+    "unit": "score/100",
+    "label": "fictional",
+    "source_or_assumption": "Scored on demo data (fictional network)"
+   },
+   "score_breakdown": [
+    {
+     "criterion": "process_fit",
+     "score": 0.8,
+     "weight": 0.35,
+     "note": "Covers 3/4 processes in-house (Injection molding, PCBA, Assembly); would subcontract Other"
+    },
+    {
+     "criterion": "moq",
+     "score": 1.0,
+     "weight": 0.15,
+     "note": "MOQ 300 ≤ 2,000 units"
+    },
+    {
+     "criterion": "certifications",
+     "score": 1.0,
+     "weight": 0.15,
+     "note": "Holds ISO 9001 of ISO 9001"
+    },
+    {
+     "criterion": "load",
+     "score": 0.86,
+     "weight": 0.15,
+     "note": "52% loaded, ~3,840 units/month free"
+    },
+    {
+     "criterion": "lead_time",
+     "score": 0.55,
+     "weight": 0.2,
+     "note": "38-day lead time"
+    }
+   ],
+   "reasons": [
+    "Covers 3/4 processes in-house (Injection molding, PCBA, Assembly); would subcontract Other",
+    "Capacity available: 52% loaded, ~3,840 units/month free",
+    "38-day lead time",
+    "91% on-time over 27 orders, 1.1% defects",
+    "Profile: specialist (drone & robotics integrator)"
+   ]
+  },
+  {
+   "rank": 2,
+   "factory_id": "f_cobaltriver",
+   "factory_name": "Cobalt River Box-Build EMS (fictional)",
+   "score": {
+    "value": 75.3,
+    "unit": "score/100",
+    "label": "fictional",
+    "source_or_assumption": "Scored on demo data (fictional network)"
+   },
+   "score_breakdown": [
+    {
+     "criterion": "process_fit",
+     "score": 0.8,
+     "weight": 0.35,
+     "note": "Covers 3/4 processes in-house (Injection molding, PCBA, Assembly); would subcontract Other"
+    },
+    {
+     "criterion": "moq",
+     "score": 1.0,
+     "weight": 0.15,
+     "note": "MOQ 1,500 ≤ 2,000 units"
+    },
+    {
+     "criterion": "certifications",
+     "score": 1.0,
+     "weight": 0.15,
+     "note": "Holds ISO 9001 of ISO 9001"
+    },
+    {
+     "criterion": "load",
+     "score": 0.22,
+     "weight": 0.15,
+     "note": "84% loaded, ~8,000 units/month free"
+    },
+    {
+     "criterion": "lead_time",
+     "score": 0.7,
+     "weight": 0.2,
+     "note": "32-day lead time"
+    }
+   ],
+   "reasons": [
+    "Covers 3/4 processes in-house (Injection molding, PCBA, Assembly); would subcontract Other",
+    "Busy: 84% loaded, ~8,000 units/month free",
+    "Fast: 32-day lead time",
+    "95% on-time over 150 orders, 0.6% defects",
+    "Profile: full box-build (premium)"
+   ]
+  },
+  {
+   "rank": 3,
+   "factory_id": "f_lumenpeak",
+   "factory_name": "Lumen Peak Micro-Electronics (fictional)",
+   "score": {
+    "value": 70.7,
+    "unit": "score/100",
+    "label": "fictional",
+    "source_or_assumption": "Scored on demo data (fictional network)"
+   },
+   "score_breakdown": [
+    {
+     "criterion": "process_fit",
+     "score": 0.4,
+     "weight": 0.35,
+     "note": "Covers 3/4 processes in-house (Injection molding, PCBA, Assembly); would subcontract Other"
+    },
+    {
+     "criterion": "moq",
+     "score": 1.0,
+     "weight": 0.15,
+     "note": "MOQ 500 ≤ 2,000 units"
+    },
+    {
+     "criterion": "certifications",
+     "score": 1.0,
+     "weight": 0.15,
+     "note": "Holds ISO 9001 of ISO 9001"
+    },
+    {
+     "criterion": "load",
+     "score": 0.58,
+     "weight": 0.15,
+     "note": "66% loaded, ~8,500 units/month free"
+    },
+    {
+     "criterion": "lead_time",
+     "score": 0.9,
+     "weight": 0.2,
+     "note": "24-day lead time"
+    }
+   ],
+   "reasons": [
+    "Covers 3/4 processes in-house (Injection molding, PCBA, Assembly); would subcontract Other",
+    "Capacity available: 66% loaded, ~8,500 units/month free",
+    "Fast: 24-day lead time",
+    "95% on-time over 39 orders, 0.7% defects",
+    "Profile: fast/expensive"
+   ]
+  },
+  {
+   "rank": 4,
+   "factory_id": "f_kestrel",
+   "factory_name": "Kestrel Bay Manufacturing (fictional)",
+   "score": {
+    "value": 70.6,
+    "unit": "score/100",
+    "label": "fictional",
+    "source_or_assumption": "Scored on demo data (fictional network)"
+   },
+   "score_breakdown": [
+    {
+     "criterion": "process_fit",
+     "score": 0.6,
+     "weight": 0.35,
+     "note": "Covers 2/4 processes in-house (Injection molding, Assembly); would subcontract PCBA, Other"
+    },
+    {
+     "criterion": "moq",
+     "score": 1.0,
+     "weight": 0.15,
+     "note": "MOQ 2,000 ≤ 2,000 units"
+    },
+    {
+     "criterion": "certifications",
+     "score": 1.0,
+     "weight": 0.15,
+     "note": "Holds ISO 9001 of ISO 9001"
+    },
+    {
+     "criterion": "load",
+     "score": 0.8,
+     "weight": 0.15,
+     "note": "55% loaded, ~36,000 units/month free"
+    },
+    {
+     "criterion": "lead_time",
+     "score": 0.38,
+     "weight": 0.2,
+     "note": "45-day lead time"
+    }
+   ],
+   "reasons": [
+    "Covers 2/4 processes in-house (Injection molding, Assembly); would subcontract PCBA, Other",
+    "Capacity available: 55% loaded, ~36,000 units/month free",
+    "Slow: 45-day lead time",
+    "76% on-time over 120 orders, 2.3% defects",
+    "Profile: cheap/slow"
+   ]
+  },
+  {
+   "rank": 5,
+   "factory_id": "f_harborlight",
+   "factory_name": "Harborlight Wearables EMS (fictional)",
+   "score": {
+    "value": 70.1,
+    "unit": "score/100",
+    "label": "fictional",
+    "source_or_assumption": "Scored on demo data (fictional network)"
+   },
+   "score_breakdown": [
+    {
+     "criterion": "process_fit",
+     "score": 0.4,
+     "weight": 0.35,
+     "note": "Covers 3/4 processes in-house (Injection molding, PCBA, Assembly); would subcontract Other"
+    },
+    {
+     "criterion": "moq",
+     "score": 1.0,
+     "weight": 0.15,
+     "note": "MOQ 1,000 ≤ 2,000 units"
+    },
+    {
+     "criterion": "certifications",
+     "score": 1.0,
+     "weight": 0.15,
+     "note": "Holds ISO 9001 of ISO 9001"
+    },
+    {
+     "criterion": "load",
+     "score": 0.74,
+     "weight": 0.15,
+     "note": "58% loaded, ~25,200 units/month free"
+    },
+    {
+     "criterion": "lead_time",
+     "score": 0.75,
+     "weight": 0.2,
+     "note": "30-day lead time"
+    }
+   ],
+   "reasons": [
+    "Covers 3/4 processes in-house (Injection molding, PCBA, Assembly); would subcontract Other",
+    "Capacity available: 58% loaded, ~25,200 units/month free",
+    "Fast: 30-day lead time",
+    "93% on-time over 64 orders, 0.9% defects",
+    "Profile: balanced"
+   ]
+  }
+ ]
+}

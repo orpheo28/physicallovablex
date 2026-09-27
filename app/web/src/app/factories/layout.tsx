@@ -5,9 +5,9 @@ export const metadata: Metadata = { title: { default: "Factory portal", template
 
 export default function FactoriesLayout({ children }: LayoutProps<"/factories">) {
   return (
-    <>
+    <div className="flex h-full min-h-0 flex-col">
       <FictionalBanner />
-      {children}
-    </>
+      <div className="min-h-0 flex-1">{children}</div>
+    </div>
   );
 }

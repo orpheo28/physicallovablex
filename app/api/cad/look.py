@@ -273,11 +273,16 @@ def build_assembly(params: dict[str, Any], path: Path | str, look: dict[str, dic
     cache = path.parent / "_cache" / f"asm_{key}.glb"
     cache.parent.mkdir(parents=True, exist_ok=True)
     if not (cache.exists() and cache.stat().st_size > 0):
-        parts = shells_labelled(p)
-        try:
-            parts += details(p, features)
-        except Exception as e:  # noqa: BLE001 — details are cosmetic; the shells are never dropped
-            log.info("assembly details dropped: %s", e)
+        if int(p["family"]) >= 3:  # wearables (W17): moulded parts + strap, no desk-product details
+            from api.cad.wearables import assembly_parts
+
+            parts = assembly_parts(p)
+        else:
+            parts = shells_labelled(p)
+            try:
+                parts += details(p, features)
+            except Exception as e:  # noqa: BLE001 — details are cosmetic; the shells are never dropped
+                log.info("assembly details dropped: %s", e)
         export_look(parts, cache, look)
     publish(cache, path)
     return path

@@ -1,43 +1,65 @@
 "use client";
 
 import Link from "next/link";
+import { useState } from "react";
 import type { Factory } from "@/types/contracts";
 import { useApi } from "@/lib/useApi";
 import { hasTrackRecord, humanize } from "@/lib/meta";
-import { Empty, ErrorBox, LabelBadge, Loading, Table, Td, Th } from "@/components/ui";
+import { Empty, ErrorBox, LabelBadge, Loading, Segmented, Table, Td, Th } from "@/components/ui";
 import { OfferCapacity } from "@/components/OfferCapacity";
+import { ScrollArea } from "@/components/ScrollArea";
+import { ConnectAgent } from "@/components/ConnectAgent";
 
 function Load({ pct }: { pct: number }) {
   return (
     <span className="inline-flex items-center gap-2.5">
       <span className="h-[3px] w-16 overflow-hidden rounded-full bg-paper-2">
-        <span className={`block h-full ${pct >= 80 ? "bg-accent" : "bg-ink"}`} style={{ width: `${Math.min(100, pct)}%` }} />
+        <span className={`block h-full rounded-full ${pct >= 80 ? "bg-estimate" : "bg-ink-3"}`} style={{ width: `${Math.min(100, pct)}%` }} />
       </span>
       <span className="w-9 text-right font-mono">{Math.round(pct)}%</span>
     </span>
   );
 }
 
+type Kind = "all" | "factory" | "installer" | "integrator";
+const KIND_TEXT: Record<Exclude<Kind, "all">, string> = { factory: "Factories", installer: "Installers", integrator: "Integrators" };
+
 export default function FactoriesPage() {
-  const { data, error, loading, reload } = useApi<Factory[]>("/factories");
+  const { data: all, error, loading, reload } = useApi<Factory[]>("/factories");
+  // Factory.kind (W21b): factory · installer (site install, e.g. rooftop PV) · integrator (bought-in modules: drones, robots).
+  const [kind, setKind] = useState<Kind>("all");
+  const kinds = (["factory", "installer", "integrator"] as const).filter((k) => all?.some((f) => (f.kind ?? "factory") === k));
+  const data = all?.filter((f) => kind === "all" || (f.kind ?? "factory") === kind);
   return (
-    <div className="mx-auto max-w-[1320px] px-6 pt-10 lg:px-10">
-      <div className="flex flex-wrap items-end justify-between gap-4">
+    <div className="grid h-full min-h-0 grid-rows-[auto_minmax(0,1fr)]">
+      <div className="flex flex-wrap items-end justify-between gap-4 px-10 pb-4 pt-6">
         <div>
-          <h1 className="font-display text-[34px] font-semibold uppercase leading-[36px]">Factory portal</h1>
-          <p className="mt-2 max-w-[72ch] text-md text-ink-2">
+          <h1 className="title text-[28px] leading-[34px]">Factory portal</h1>
+          <p className="mt-2 max-w-[860px] text-md text-ink-2 text-pretty">
             The factory side of the network: each factory registers its capacity through the production MCP and receives RFQs built from
             Factory Packs. Pick a factory to see its profile and the RFQs it received.
           </p>
         </div>
-        {data && (
-          <p className="text-sm text-ink-2">
-            <span className="font-mono text-ink">{data.length}</span> factories
-          </p>
-        )}
+        <div className="flex items-center gap-3">
+          {kinds.length > 1 && (
+            <Segmented
+              label="Partner type"
+              value={kind}
+              onChange={setKind}
+              options={[{ value: "all" as Kind, label: "All" }, ...kinds.map((k) => ({ value: k as Kind, label: KIND_TEXT[k] }))]}
+            />
+          )}
+          {data && (
+            <p className="text-sm text-ink-2">
+              <span className="font-mono text-ink">{data.length}</span> {kind === "all" ? (kinds.length > 1 ? "partners" : "factories") : KIND_TEXT[kind].toLowerCase()}
+            </p>
+          )}
+        </div>
       </div>
 
-      <div className="mt-8 rounded-md border border-line bg-surface px-6 py-4">
+      <ScrollArea className="h-full px-10 pb-10 pt-2" label="Factories">
+      <ConnectAgent />
+      <div className="rounded-lg bg-surface px-6 py-4">
         {error && <ErrorBox message={`Could not load factories: ${error}`} onRetry={reload} />}
         {loading && !data && <Loading text="Loading factories…" rows={6} />}
         {data && data.length === 0 && <Empty title="No factories in the network yet." />}
@@ -89,6 +111,7 @@ export default function FactoriesPage() {
       <div className="mt-10">
         <OfferCapacity onCreated={reload} />
       </div>
+      </ScrollArea>
     </div>
   );
 }

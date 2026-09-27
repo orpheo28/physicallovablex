@@ -7,14 +7,18 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "gen:types": "json2ts -i ../contracts/schemas/_bundle.json -o src/types/contracts.ts --unreachableDefinitions --additionalProperties false --bannerComment \"/* AUTO-GENERATED from contracts/schemas/_bundle.json — do not edit. Regenerate: uv run python -m contracts.export_schemas && npm run gen:types */\""
+    "gen:types": "json2ts -i ../contracts/schemas/_bundle.json -o src/types/contracts.ts --unreachableDefinitions --additionalProperties false --bannerComment \"/* AUTO-GENERATED from contracts/schemas/_bundle.json — do not edit. Regenerate: uv run python -m contracts.export_schemas && npm run gen:types */\"",
+    "sync-docs": "node scripts/sync-docs.mjs"
   },
   "dependencies": {
     "@google/model-viewer": "^4.3.1",
+    "animejs": "^4.5.0",
     "next": "16.3.6",
     "react": "19.2.8",
     "react-dom": "19.2.8",
-    "recharts": "^3.10.1"
+    "react-markdown": "^10.1.0",
+    "recharts": "^3.10.1",
+    "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

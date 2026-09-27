@@ -1,0 +1,2318 @@
+{
+ "id": "fp_demo_drone_follow_v2",
+ "project_id": "demo_drone_follow",
+ "version": 2,
+ "created_at": "2026-09-27T00:08:48.057734Z",
+ "fallback": false,
+ "cached_note": null,
+ "fallback_stages": [],
+ "product_name": "Kitesurf follow-me drone",
+ "product_summary": "A foldable battery-powered drone that follows a kitesurfer to record video. Target volumes: 500 / 2,000 / 10,000 units; markets: US.",
+ "product_summary_cn": "一款可折叠的电池动力无人机,可跟随风筝冲浪者进行视频拍摄。目标产量:500 / 2,000 / 10,000 台;目标市场:美国。",
+ "target_markets": [
+  "US"
+ ],
+ "spec": {
+  "overall_dimensions": {
+   "length": {
+    "value": 234.25,
+    "unit": "mm",
+    "label": "measured",
+    "source_or_assumption": "Bounding box of the full product (family CAD, build123d/OCCT)"
+   },
+   "width": {
+    "value": 261.87,
+    "unit": "mm",
+    "label": "measured",
+    "source_or_assumption": "Bounding box of the full product (family CAD, build123d/OCCT)"
+   },
+   "height": {
+    "value": 91.5,
+    "unit": "mm",
+    "label": "measured",
+    "source_or_assumption": "Bounding box of the full product (family CAD, build123d/OCCT)"
+   }
+  },
+  "weight": {
+   "value": 53.6,
+   "unit": "g",
+   "label": "estimate",
+   "source_or_assumption": "Enclosure volume 46.6 cm³ (measured) × PA12-GF body, carbon-fibre arms 1.15 g/cm³; electronics and battery not included"
+  },
+  "parts": [
+   {
+    "id": "p1",
+    "name": "Bottom shell",
+    "material": "PA12-GF body, carbon-fibre arms",
+    "finish": "Matte · Graphite #3A3D42",
+    "process_hint": "injection_molding",
+    "tolerance": "±0.1 mm on mating faces and boss pilots",
+    "dimensions": {
+     "length": {
+      "value": 110.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the built STEP (build123d/OCCT), this part"
+     },
+     "width": {
+      "value": 62.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the built STEP (build123d/OCCT), this part"
+     },
+     "height": {
+      "value": 19.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the built STEP (build123d/OCCT), this part"
+     }
+    },
+    "wall_thickness": {
+     "value": 2.0,
+     "unit": "mm",
+     "label": "estimate",
+     "source_or_assumption": "Design parameter (nominal wall); measured in DFM stage 4"
+    },
+    "quantity": 1
+   },
+   {
+    "id": "p2",
+    "name": "Top shell",
+    "material": "PA12-GF body, carbon-fibre arms",
+    "finish": "Matte · Graphite #3A3D42",
+    "process_hint": "injection_molding",
+    "tolerance": "±0.1 mm on mating faces and boss pilots",
+    "dimensions": {
+     "length": {
+      "value": 110.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the built STEP (build123d/OCCT), this part"
+     },
+     "width": {
+      "value": 62.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the built STEP (build123d/OCCT), this part"
+     },
+     "height": {
+      "value": 19.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the built STEP (build123d/OCCT), this part"
+     }
+    },
+    "wall_thickness": {
+     "value": 2.0,
+     "unit": "mm",
+     "label": "estimate",
+     "source_or_assumption": "Design parameter (nominal wall); measured in DFM stage 4"
+    },
+    "quantity": 1
+   },
+   {
+    "id": "p3",
+    "name": "Main PCB assembly",
+    "material": "FR-4 1.6 mm",
+    "finish": "HASL lead-free, green mask",
+    "process_hint": "pcba",
+    "tolerance": "±0.2 mm outline",
+    "dimensions": {
+     "length": {
+      "value": 92.0,
+      "unit": "mm",
+      "label": "estimate",
+      "source_or_assumption": "PCB length: fits the inner cavity with 1 mm clearance"
+     },
+     "width": {
+      "value": 44.0,
+      "unit": "mm",
+      "label": "estimate",
+      "source_or_assumption": "PCB width: fits the inner cavity with 1 mm clearance"
+     },
+     "height": {
+      "value": 1.6,
+      "unit": "mm",
+      "label": "estimate",
+      "source_or_assumption": "PCB thickness: fits the inner cavity with 1 mm clearance"
+     }
+    },
+    "wall_thickness": null,
+    "quantity": 1
+   },
+   {
+    "id": "p4",
+    "name": "Screws M2.5 × 6 self-tapping",
+    "material": "Steel",
+    "finish": "Black zinc",
+    "process_hint": "other",
+    "tolerance": null,
+    "dimensions": null,
+    "wall_thickness": null,
+    "quantity": 4
+   }
+  ],
+  "tolerances": [
+   "General ISO 2768-m",
+   "Shell mating faces ±0.1 mm",
+   "Boss pilot Ø2.2 +0.05/0 mm",
+   "Split-line step ≤ 0.1 mm"
+  ]
+ },
+ "cad_files": [
+  {
+   "format": "glb",
+   "url": "/files/demo_drone_follow/model_v1.glb",
+   "description": "AI-generated CAD (concept level) — geometry measured on the result — bbox 172 × 260 × 79 mm",
+   "size_bytes": 798592
+  },
+  {
+   "format": "step",
+   "url": "/files/demo_drone_follow/model_v1.step",
+   "description": "AI-generated CAD (concept level) — geometry measured on the result — STEP AP214",
+   "size_bytes": 500415
+  },
+  {
+   "format": "py",
+   "url": "/projects/demo_drone_follow/cad/code/1",
+   "description": "AI-generated CAD (concept level) — geometry measured on the result — build123d program v1 (llm:openai/gpt-6-sol)",
+   "size_bytes": 5142
+  },
+  {
+   "format": "glb",
+   "url": "/files/demo_drone_follow/v2.glb",
+   "description": "Full product — materials",
+   "size_bytes": 683856
+  },
+  {
+   "format": "step",
+   "url": "/files/demo_drone_follow/v2_enclosure.step",
+   "description": "Moulded parts (DFM) — both shells, STEP AP214",
+   "size_bytes": 289840
+  },
+  {
+   "format": "stl",
+   "url": "/files/demo_drone_follow/v2_enclosure.stl",
+   "description": "Moulded parts (DFM) — mesh for 3D printing",
+   "size_bytes": 956684
+  },
+  {
+   "format": "glb",
+   "url": "/files/demo_drone_follow/v2_enclosure.glb",
+   "description": "Moulded parts (DFM) — viewer model",
+   "size_bytes": 558184
+  },
+  {
+   "format": "step",
+   "url": "/files/demo_drone_follow/v2.step",
+   "description": "Full product — all parts, STEP AP214",
+   "size_bytes": 366583
+  }
+ ],
+ "bom": [
+  {
+   "id": "e1",
+   "part": "Flight controller PCB, STM32F405-class MCU with IMU and barometer",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Quadcopter flight stabilization and motor-control interface",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 16.56,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: flight-controller board (STM32F4/F7 + IMU + baro) ≈ USD 18 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "risk": {
+    "level": "medium",
+    "reasons": [
+     "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+    ]
+   },
+   "alternative": null
+  },
+  {
+   "id": "e2",
+   "part": "4-in-1 brushless ESC, 4-channel",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Drives four propulsion motors",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 20.24,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: 4-in-1 ESC, 20-35 A ≈ USD 22 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "risk": {
+    "level": "medium",
+    "reasons": [
+     "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+    ]
+   },
+   "alternative": null
+  },
+  {
+   "id": "e3",
+   "part": "Brushless outrunner motor",
+   "category": "electronic",
+   "qty": 4.0,
+   "description": "Propulsion motor; one per arm",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 6.44,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: small brushless outrunner motor ≈ USD 7 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "risk": {
+    "level": "medium",
+    "reasons": [
+     "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+    ]
+   },
+   "alternative": null
+  },
+  {
+   "id": "e4",
+   "part": "Propeller set",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Four matched propellers for quadcopter",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 2.3,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: propeller set ≈ USD 2.5 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "risk": {
+    "level": "medium",
+    "reasons": [
+     "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+    ]
+   },
+   "alternative": null
+  },
+  {
+   "id": "e5",
+   "part": "LiPo flight battery, 4S",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Rechargeable top-mounted power source",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 8.9884,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Battery priced by energy: 1500 mAh × 14.8 V = 22.2 Wh (flight pack) × $0.35/Wh + pack overhead"
+   },
+   "risk": {
+    "level": "medium",
+    "reasons": [
+     "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+    ]
+   },
+   "alternative": null
+  },
+  {
+   "id": "e6",
+   "part": "Wi-Fi vision compute module",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Processes camera imagery for follow-me tracking and video recording; integrated Wi-Fi",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 32.2,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: embedded Linux / vision compute module ≈ USD 35 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "risk": {
+    "level": "medium",
+    "reasons": [
+     "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+    ]
+   },
+   "alternative": null
+  },
+  {
+   "id": "e7",
+   "part": "2-axis gimbal camera module",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Video capture and stabilized camera assembly under nose",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 41.4,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: 2-axis gimbal + 4K camera module ≈ USD 45 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "risk": {
+    "level": "medium",
+    "reasons": [
+     "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+    ]
+   },
+   "alternative": null
+  },
+  {
+   "id": "e8",
+   "part": "MicroSD card",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Onboard video storage",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 2.76,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: microSD card ≈ USD 3 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "risk": {
+    "level": "medium",
+    "reasons": [
+     "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+    ]
+   },
+   "alternative": null
+  },
+  {
+   "id": "e9",
+   "part": "Power regulation and passives group",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "DC-DC regulation, filtering, connectors, and grouped resistors/capacitors",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.736,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: passives group ≈ USD 0.8 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "risk": {
+    "level": "medium",
+    "reasons": [
+     "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+    ]
+   },
+   "alternative": null
+  },
+  {
+   "id": "m1",
+   "part": "Top shell",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "PA12-GF moulded upper body shell",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.5862,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Top shell: Moulded shell 110×62×19 mm, wall 2 mm ≈ 24.2 cm³ × 1.14 g/cm³ = 28 g × $3.5/kg + $0.54 moulding/finish conversion"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m2",
+   "part": "Bottom shell",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "PA12-GF moulded lower body shell",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.5862,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Bottom shell: Moulded shell 110×62×19 mm, wall 2 mm ≈ 24.2 cm³ × 1.14 g/cm³ = 28 g × $3.5/kg + $0.54 moulding/finish conversion"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m3",
+   "part": "Carbon-fibre folding arms",
+   "category": "mechanical",
+   "qty": 4.0,
+   "description": "Folding arm assemblies",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 1.84,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: carbon-fibre arm ≈ USD 2 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m4",
+   "part": "Propeller guards and landing feet",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Protective and ground-contact components",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 2.3,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: propeller set ≈ USD 2.5 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m5",
+   "part": "Fastener set",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Screws for shells, arms, and assemblies",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.92,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: fastener set ≈ USD 1 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "k1",
+   "part": "Retail carton with protective insert",
+   "category": "packaging",
+   "qty": 1.0,
+   "description": "Packaging for one finished unit",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 1.38,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: retail carton + insert ≈ USD 1.5 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  }
+ ],
+ "dfm_alerts": [
+  {
+   "id": "a4",
+   "severity": "critical",
+   "category": "other",
+   "method": "ai_reviewed",
+   "part_id": null,
+   "description": "The flight battery has no specified restraint, electrical protection, venting or clearance from the ESC and other heat sources; a loose or damaged pack is a safety risk.",
+   "fix": "Define a positive-retention battery compartment, protected pack and connector, insulated routing, thermal clearance and a safe vent path; validate against the applicable battery safety requirements.",
+   "rule_citation": "Lithium battery safety testing — IEC 62133-2",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a1",
+   "severity": "major",
+   "category": "assembly",
+   "method": "ai_reviewed",
+   "part_id": "p1",
+   "description": "The shell specification combines an injection-moulded PA12-GF body with carbon-fibre arms, while the BOM lists folding arms separately. The arm-to-shell joint and assembly sequence are undefined.",
+   "fix": "Specify the arms as separate parts and define hinge inserts, retention, load path, assembly access and inspection criteria.",
+   "rule_citation": "Define inserts and assembly interfaces before tooling — Protolabs injection molding design guide",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a2",
+   "severity": "major",
+   "category": "assembly",
+   "method": "ai_reviewed",
+   "part_id": "p4",
+   "description": "The self-tapping screw type is unspecified, so the stated boss pilot cannot be verified for installation torque, stripping or repeated battery-service cycles.",
+   "fix": "Select a specific screw for plastics; validate pilot diameter, engagement, boss outside diameter and installation torque in moulded samples. Use inserts where repeated removal is required.",
+   "rule_citation": "Size screw bosses and pilot holes to the selected fastener — Protolabs injection molding design guide",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a3",
+   "severity": "major",
+   "category": "tolerance",
+   "method": "ai_reviewed",
+   "part_id": null,
+   "description": "Shell mating-face tolerances and the split-line step limit lack datum references and an assembled stack-up. Independent part inspection cannot establish whether assembled shells will meet the step limit.",
+   "fix": "Define locating datums and alignment features, then tolerance the assembled interface using a stack-up and inspection fixture.",
+   "rule_citation": "Establish datums and control features in relation to assembly function — ISO 1101",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a5",
+   "severity": "major",
+   "category": "material",
+   "method": "ai_reviewed",
+   "part_id": null,
+   "description": "The PA12-GF enclosure has no flame-rating requirement despite housing a LiPo battery and power electronics. Its UV and saltwater resistance are also unspecified for kitesurf use.",
+   "fix": "Specify a qualified enclosure grade and required flame rating; validate UV, salt-spray and moisture exposure on finished assemblies.",
+   "rule_citation": "Plastic-material flammability classification — UL 94; salt-spray testing — ISO 9227",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a6",
+   "severity": "major",
+   "category": "assembly",
+   "method": "ai_reviewed",
+   "part_id": null,
+   "description": "No sealing scheme is specified for the shell split, camera, card access, wiring exits or fasteners. Spray and saltwater ingress could damage the electronics.",
+   "fix": "Set an ingress-protection target and define gaskets, connector seals, drain strategy and production leak-test criteria.",
+   "rule_citation": "Degrees of protection provided by enclosures — IEC 60529",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "m1",
+   "severity": "minor",
+   "category": "draft",
+   "method": "measured",
+   "part_id": "p1",
+   "description": "Minimum wall draft is 1.46°: enough for a polished finish, short of the ~3° a textured finish ('Matte · Graphite #3A3D42') needs.",
+   "fix": "Increase draft to 3° on textured faces, or specify a lighter texture / polished finish.",
+   "rule_citation": "Draft ≥1° plus 1° per 0.025 mm texture depth — Protolabs injection molding design guidelines; measured with text-to-cad DFM skill (mold_tool.py, MIT) ported to OCCT",
+   "measurement": {
+    "value": 1.455,
+    "unit": "deg",
+    "label": "measured",
+    "source_or_assumption": "Min wall draft vs pull +Z: lowest-draft B-rep wall face ≥ 48.52 mm² (curved, 228.92 mm² at [-46.26, 22.26, 9.76]) — text-to-cad DFM skill (mold_tool.py, MIT) ported to OCCT"
+   },
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "m2",
+   "severity": "minor",
+   "category": "projection",
+   "method": "measured",
+   "part_id": "p1",
+   "description": "Projected area along +Z: 6602 mm² (part silhouette, per cavity). Estimated clamp force ≈ 33.8 t (Estimate: area in² × 3.0 t/in² for PC/ABS × 1.1 safety) — per cavity; a family tool moulding both shells in one shot roughly doubles it.",
+   "fix": "Quote on a press ≥ 50 t; keep both shells in one family mould only if tonnage allows.",
+   "rule_citation": "Clamp force ≈ projected area × cavity-pressure factor (2-5 t/in²) — Protolabs injection molding design guidelines; silhouette raster from text-to-cad DFM skill (mold_tool.py, MIT) ported to OCCT",
+   "measurement": {
+    "value": 6601.5,
+    "unit": "mm2",
+    "label": "measured",
+    "source_or_assumption": "Silhouette along +Z, raster 0.275 mm — text-to-cad DFM skill (mold_tool.py, MIT) ported to OCCT"
+   },
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "m3",
+   "severity": "minor",
+   "category": "wall_thickness",
+   "method": "measured",
+   "part_id": "p1",
+   "description": "Measured wall 2.00-2.00 mm is within the PC/ABS 1.2-3.5 mm range; keep bosses/ribs ≤ 60% of nominal wall to avoid sink.",
+   "fix": "No change to nominal wall; core bosses and ribs to ≤ 60% of the wall.",
+   "rule_citation": "PC/ABS wall 1.2-3.5 mm, ribs/bosses ≤ 60% of wall — Protolabs injection molding design guidelines",
+   "measurement": {
+    "value": 2.0,
+    "unit": "mm",
+    "label": "measured",
+    "source_or_assumption": "5th percentile of 10400 ray samples into the material (median 2.0 mm)"
+   },
+   "resolved": false,
+   "resolution": null
+  }
+ ],
+ "certifications": [
+  {
+   "market": "US",
+   "standard": "FCC Part 15C (intentional radiator; 15B digital-device emissions tested with it)",
+   "applies_because": "Contains an intentional radiator (Wi-Fi); needs an FCC ID via a TCB unless a fully pre-certified module is used unmodified. Sourced: 47 CFR 15.247 (Operation within the bands 902-928 MHz, 2400-2483.5 MHz, and 5725-5850 MHz): “(a) Operation under the provisions of this Section is limited to frequency hopping and digitally modulated intentional radiators that comply with the following provisions: (1) Frequency hopping systems shall have hopping channel…” — eCFR text as of 2026-09-22, retrieved 2026-09-26, https://www.ecfr.gov/current/title-47/section-15.247. See also 47 CFR 15.407, 47 CFR 15.19, 47 CFR 15.101, 47 CFR 15.109.",
+   "required": true,
+   "cost_est": {
+    "value": 6000.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Accredited-lab range, demo assumption — lower if a pre-certified module is integrated"
+   },
+   "lead_time_weeks": {
+    "value": 6.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Typical lab queue + report, demo assumption"
+   }
+  },
+  {
+   "market": "Global",
+   "standard": "UN38.3 (lithium battery transport tests)",
+   "applies_because": "Lithium cells must pass UN Manual of Tests and Criteria 38.3 to ship by sea/air; ask the cell supplier for the test summary. Reference: UN Manual of Tests and Criteria, section 38.3; IATA Lithium Battery Guidance Document 2026, https://www.iata.org/contentassets/05e6d8742b0047259bf3a700bc9d42b9/lithium-battery-guidance-document.pdf",
+   "required": true,
+   "cost_est": {
+    "value": 1000.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Accredited-lab range, demo assumption"
+   },
+   "lead_time_weeks": {
+    "value": 4.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Typical lab queue + report, demo assumption"
+   }
+  },
+  {
+   "market": "Global",
+   "standard": "IEC 62133-2 (secondary lithium cell/battery safety)",
+   "applies_because": "Rechargeable lithium cell inside the product; also required by many retailers and by EU/UK market surveillance",
+   "required": true,
+   "cost_est": {
+    "value": 2500.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Accredited-lab range, demo assumption"
+   },
+   "lead_time_weeks": {
+    "value": 4.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Typical lab queue + report, demo assumption"
+   }
+  }
+ ],
+ "target_quantities": [
+  500,
+  2000,
+  10000
+ ],
+ "cost_estimate": [
+  {
+   "quantity": 500,
+   "bom_cost": {
+    "value": 176.84,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Electronics at LCSC price breaks (LCSC price, 2026-09-26); other lines base × 0.92^0"
+   },
+   "assembly_cost": {
+    "value": 28.77,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Assembly + factory overhead/margin: 14.4 min = 6 base + 0.6 × 14 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^0"
+   },
+   "packaging_cost": {
+    "value": 1.5,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Packaging BOM lines × 0.92^0"
+   },
+   "unit_cost": {
+    "value": 207.11,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
+   },
+   "tooling_amortisation": {
+    "value": 6.44,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "$3,220 tooling ÷ 500"
+   },
+   "margin_pct": {
+    "value": 71.0,
+    "unit": "pct",
+    "label": "estimate",
+    "source_or_assumption": "($999.00 target − $290.03 landed estimate) ÷ target; before retailer margin, VAT and marketing"
+   }
+  },
+  {
+   "quantity": 2000,
+   "bom_cost": {
+    "value": 162.7,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Electronics at LCSC price breaks (LCSC price, 2026-09-26); other lines base × 0.92^1"
+   },
+   "assembly_cost": {
+    "value": 26.47,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Assembly + factory overhead/margin: 14.4 min = 6 base + 0.6 × 14 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^1"
+   },
+   "packaging_cost": {
+    "value": 1.38,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Packaging BOM lines × 0.92^1"
+   },
+   "unit_cost": {
+    "value": 190.54,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
+   },
+   "tooling_amortisation": {
+    "value": 1.61,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "$3,220 tooling ÷ 2,000"
+   },
+   "margin_pct": {
+    "value": 73.8,
+    "unit": "pct",
+    "label": "estimate",
+    "source_or_assumption": "($999.00 target − $261.99 landed estimate) ÷ target; before retailer margin, VAT and marketing"
+   }
+  },
+  {
+   "quantity": 10000,
+   "bom_cost": {
+    "value": 149.68,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Electronics at LCSC price breaks (LCSC price, 2026-09-26); other lines base × 0.92^2"
+   },
+   "assembly_cost": {
+    "value": 24.35,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Assembly + factory overhead/margin: 14.4 min = 6 base + 0.6 × 14 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^2"
+   },
+   "packaging_cost": {
+    "value": 1.27,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Packaging BOM lines × 0.92^2"
+   },
+   "unit_cost": {
+    "value": 175.3,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
+   },
+   "tooling_amortisation": {
+    "value": 0.32,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "$3,220 tooling ÷ 10,000"
+   },
+   "margin_pct": {
+    "value": 76.0,
+    "unit": "pct",
+    "label": "estimate",
+    "source_or_assumption": "($999.00 target − $239.67 landed estimate) ÷ target; before retailer margin, VAT and marketing"
+   }
+  }
+ ],
+ "questions": [
+  {
+   "id": "fq1",
+   "en": "DFM critical — The flight battery has no specified restraint, electrical protection, venting or clearance from the ESC and other heat sources; a loose or damaged pack is a safety risk. Proposed fix: Define a positive-retention battery compartment, protected pack and connector, insulated routing, thermal clearance and a safe vent path; validate against the applicable battery safety requirements. Can you accommodate this, and at what cost or lead-time impact?",
+   "cn": "DFM 关键问题 — 飞行电池未规定固定方式、电气保护、排气通道以及与电调(ESC)及其他热源的间距;电池包松动或损坏属于安全风险。建议方案:定义具有可靠固定的电池仓、受保护的电池包及连接器、绝缘走线、热间距和安全排气路径;并依据适用的电池安全要求进行验证。贵司能否满足此要求?对成本和交期有何影响?",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  },
+  {
+   "id": "fq2",
+   "en": "DFM major — The shell specification combines an injection-moulded PA12-GF body with carbon-fibre arms, while the BOM lists folding arms separately. The arm-to-shell joint and assembly sequence are undefined. Proposed fix: Specify the arms as separate parts and define hinge inserts, retention, load path, assembly access and inspection criteria. Can you accommodate this, and at what cost or lead-time impact?",
+   "cn": "DFM 主要问题 — 外壳规格将注塑成型的 PA12-GF 机身与碳纤维机臂组合,而 BOM 中又将折叠机臂单列。机臂与外壳的连接结构及装配顺序未定义。建议方案:将机臂指定为独立零件,并定义铰链嵌件、固定方式、载荷路径、装配操作空间及检验标准。贵司能否满足此要求?对成本和交期有何影响?",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  },
+  {
+   "id": "fq3",
+   "en": "DFM major — The self-tapping screw type is unspecified, so the stated boss pilot cannot be verified for installation torque, stripping or repeated battery-service cycles. Proposed fix: Select a specific screw for plastics; validate pilot diameter, engagement, boss outside diameter and installation torque in moulded samples. Use inserts where repeated removal is required. Can you accommodate this, and at what cost or lead-time impact?",
+   "cn": "DFM 主要问题 — 自攻螺钉型号未指定,因此所述的螺丝柱底孔无法针对安装扭矩、滑牙或反复更换电池的使用循环进行验证。建议方案:选定一款专用于塑料的螺钉;在注塑样品上验证底孔直径、啮合长度、螺丝柱外径及安装扭矩。对于需要反复拆装的部位,使用螺纹嵌件。贵司能否满足此要求?对成本和交期有何影响?",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  },
+  {
+   "id": "fq4",
+   "en": "What are your MOQ and lead time for 500 units, and how do they change at 2,000 and 10,000 units?",
+   "cn": "贵司 500 台的 MOQ 和交期是多少?在 2,000 台和 10,000 台时会有何变化?",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  },
+  {
+   "id": "fq5",
+   "en": "What payment terms and sample rounds (T0, T1, golden sample) do you propose, with dates?",
+   "cn": "贵司建议的付款条件及样机轮次(T0、T1、golden sample)是什么?相应日期为何时?",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  },
+  {
+   "id": "fq6",
+   "en": "Please confirm the tolerances in the spec and flag any tolerance or finish you cannot hold.",
+   "cn": "请确认规格书中的公差,并指出任何贵司无法保证的公差或表面处理。",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  },
+  {
+   "id": "fq7",
+   "en": "Which BOM components do you source yourselves, and do you accept the listed alternatives for high-risk parts?",
+   "cn": "BOM 中哪些物料由贵司自行采购?对于高风险零件,贵司是否接受清单中列出的替代料?",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  }
+ ],
+ "assumption_register": [
+  {
+   "id": "a1",
+   "text": "Skipped clarifying questions use their defaults: markets=US; volume=100–1,000 units; target_price=$500–$999; battery=Rechargeable Li-ion; wireless=Both Wi-Fi and dedicated radio. Re-run stage 1 with answers to change them.",
+   "label": "estimate",
+   "source": null,
+   "stage": 1
+  },
+  {
+   "id": "a2",
+   "text": "Target retail price proposed by the spec copilot (not stated by the founder); confirm before costing.",
+   "label": "estimate",
+   "source": null,
+   "stage": 1
+  },
+  {
+   "id": "a2_1",
+   "text": "Directions from the parametric 'drone' product family (category 'drone', preset 'mini'): built with build123d, dimensions measured on the CAD",
+   "label": "estimate",
+   "source": null,
+   "stage": 2
+  },
+  {
+   "id": "a2_render",
+   "text": "AI concept render — illustrative, not the CAD. Generated by an AI image model from the direction's shape, dimensions, material, finish and colour; the 3D model is the CAD.",
+   "label": "estimate",
+   "source": null,
+   "stage": 2
+  },
+  {
+   "id": "a2_studio",
+   "text": "Direction d1 refined in Studio (version 2); dimensions are design parameters, the spec measures the built CAD",
+   "label": "estimate",
+   "source": null,
+   "stage": 2
+  },
+  {
+   "id": "a3_1",
+   "text": "PC/ABS density 1.15 g/cm³ for the weight estimate",
+   "label": "estimate",
+   "source": null,
+   "stage": 3
+  },
+  {
+   "id": "a3_2",
+   "text": "Direction d1 ('Pocket'): full product from the 'drone' family (overall size measured on it); its main moulded housing is modelled as a two-shell enclosure 110 × 62 × 38 mm, wall 2.0 mm, draft 1.5° (DFM, weight)",
+   "label": "estimate",
+   "source": null,
+   "stage": 3
+  },
+  {
+   "id": "a4_1",
+   "text": "Measured checks assume a straight two-half tool pulling along ±Z (split line in the XY plane)",
+   "label": "estimate",
+   "source": null,
+   "stage": 4
+  },
+  {
+   "id": "a4_2",
+   "text": "Clamp tonnage = projected area (in²) × 3 t/in² (PC/ABS) × 1.1 safety",
+   "label": "estimate",
+   "source": null,
+   "stage": 4
+  },
+  {
+   "id": "s5_a1",
+   "text": "Volume curve: non-LCSC lines and assembly × 0.92 per tier step (500 → 2,000 → 10,000)",
+   "label": "estimate",
+   "source": "Demo assumption (PRD §11), editable",
+   "stage": 5
+  },
+  {
+   "id": "s5_a2",
+   "text": "Assembly 14.4 min = 6 base + 0.6 × 14 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials",
+   "label": "estimate",
+   "source": null,
+   "stage": 5
+  },
+  {
+   "id": "a3",
+   "text": "Electronic lines matched to the JLCPCB/LCSC parts snapshot of 2026-09-26 (CDFER/jlcpcb-parts-database, MIT); unmatched lines are estimates",
+   "label": "sourced",
+   "source": "https://github.com/CDFER/jlcpcb-parts-database",
+   "stage": 5
+  },
+  {
+   "id": "a4",
+   "text": "Simple 1-cavity injection mold $1,000-3,000; complex multi-cavity steel mold $30,000-100,000",
+   "label": "estimate",
+   "source": "Zetar Mold 2026 price list (vendor, medium confidence), https://zetarmold.com/injection-mold-price-list-2026",
+   "stage": 5
+  },
+  {
+   "id": "a5",
+   "text": "Sum of 3 required certifications from stage 4 (their own cost estimates)",
+   "label": "estimate",
+   "source": null,
+   "stage": 5
+  },
+  {
+   "id": "a6",
+   "text": "Landed-cost basis for margin and cash: sea freight (fictional rates), HTS 8806.22.0000 (general 0%, Section 301 25%), IEEPA 0, Section 122 off",
+   "label": "estimate",
+   "source": "https://hts.usitc.gov/",
+   "stage": 5
+  },
+  {
+   "id": "a7",
+   "text": "Brief target price 999 USD (retail price incl. VAT where applicable)",
+   "label": "estimate",
+   "source": null,
+   "stage": 5
+  },
+  {
+   "id": "b1",
+   "text": "BOM from stage 3 spec",
+   "label": "estimate",
+   "source": null,
+   "stage": 5
+  },
+  {
+   "id": "s6_a1",
+   "text": "Lead times are typical values per process (tooling + first shots), not factory quotes; refined at stages 7-9 with the negotiated quote.",
+   "label": "estimate",
+   "source": null,
+   "stage": 6
+  },
+  {
+   "id": "s6_a2",
+   "text": "Mass production duration assumes 90 units/day on one line for a 2,000-unit order.",
+   "label": "estimate",
+   "source": null,
+   "stage": 6
+  },
+  {
+   "id": "a7_network",
+   "text": "Factories, capacity, load and past performance come from the simulated production network.",
+   "label": "fictional",
+   "source": "factory_mcp (demo data)",
+   "stage": 7
+  },
+  {
+   "id": "a7_weights",
+   "text": "Score = 35% process fit + 15% MOQ + 15% certifications + 15% load + 20% lead time; product-level criteria are part-weighted means over the queries (Injection molding ×2, PCBA ×1, Other ×1, Assembly ×1).",
+   "label": "estimate",
+   "source": null,
+   "stage": 7
+  },
+  {
+   "id": "a8_network",
+   "text": "Factories, quotes, counters and replies are simulated (production MCP demo network).",
+   "label": "fictional",
+   "source": "factory_mcp (demo data)",
+   "stage": 8
+  },
+  {
+   "id": "a8_anchor",
+   "text": "Factory quotes are anchored on stage 5 cost tiers + tooling total × each factory's personality margin; subcontracted processes add 3% each.",
+   "label": "estimate",
+   "source": null,
+   "stage": 8
+  },
+  {
+   "id": "a8_policy",
+   "text": "Negotiation policy: max 2 rounds; price, tooling, MOQ ≤ 2,000, lead time, 30% deposit / 70% before shipment; pick = lowest risk-adjusted cost incl. tooling.",
+   "label": "estimate",
+   "source": null,
+   "stage": 8
+  },
+  {
+   "id": "a8_autofill",
+   "text": "Auto-approved in autofill mode — review and change the selected factory before any real order",
+   "label": "estimate",
+   "source": null,
+   "stage": 8
+  },
+  {
+   "id": "s9_a1",
+   "text": "Quote lead time (42 d) is used as the tooling T0 duration; T1, golden sample and mass production use planning assumptions.",
+   "label": "estimate",
+   "source": null,
+   "stage": 9
+  },
+  {
+   "id": "s9_a2",
+   "text": "Date check: lead time differs from the stage 6 plan by +7 d (stage 6: 79 d, this plan: 86 d) — the negotiated quote governs",
+   "label": "estimate",
+   "source": null,
+   "stage": 9
+  },
+  {
+   "id": "s9_a3",
+   "text": "Kickoff date 2026-09-28 (next Monday after today unless start_date is passed in inputs); durations are planning assumptions except the quote lead time.",
+   "label": "estimate",
+   "source": null,
+   "stage": 9
+  },
+  {
+   "id": "s9_a4",
+   "text": "Sample rounds cost is an assumption; production payments follow the 30/70 term (deposit / before shipment) unless the quote states another deposit.",
+   "label": "estimate",
+   "source": null,
+   "stage": 9
+  },
+  {
+   "id": "s10_a1",
+   "text": "Pre-shipment inspection priced at $268 per man-day.",
+   "label": "sourced",
+   "source": "V-Trust, https://www.v-trust.com/en/our-network, checked 2026-09-26",
+   "stage": 10
+  },
+  {
+   "id": "s10_a2",
+   "text": "AQL 0 / 2.5 / 4.0 for critical / major / minor is the usual consumer-goods setting; agree it with the buyer and factory.",
+   "label": "estimate",
+   "source": null,
+   "stage": 10
+  },
+  {
+   "id": "s10_a3",
+   "text": "One inspector checks about 100 units per day including functional tests.",
+   "label": "estimate",
+   "source": null,
+   "stage": 10
+  },
+  {
+   "id": "s11_a1",
+   "text": "HTS 8806.22.0000: Same heading and rate as stage 5 (LLM-suggested) — to be confirmed by a customs broker",
+   "label": "estimate",
+   "source": "https://hts.usitc.gov/",
+   "stage": 11
+  },
+  {
+   "id": "s11_a2",
+   "text": "Assumed Section 301 rate of stage 5 — to be confirmed by a customs broker",
+   "label": "estimate",
+   "source": "https://hts.usitc.gov/",
+   "stage": 11
+  },
+  {
+   "id": "s11_a3",
+   "text": "IEEPA duties not collected since 24/02/2026; de minimis suspended; Section 122 is a user toggle (status to verify)",
+   "label": "sourced",
+   "source": "CBP CSMS 67834313 (https://content.govdelivery.com/accounts/USDHSCBP/bulletins/40b11c9); CBP CSMS 67844987; Federal Register 2026-06-24",
+   "stage": 11
+  },
+  {
+   "id": "s11_a4",
+   "text": "Freight sea lcl: 32 days transit (simulated); cost per unit derived from the Drewry lane rate, see a8-a10",
+   "label": "fictional",
+   "source": "demo data",
+   "stage": 11
+  },
+  {
+   "id": "s11_a5",
+   "text": "Platform/agent fee 7% of FOB (benchmark 5-10%)",
+   "label": "estimate",
+   "source": "https://www.dragonsourcing.com/top-10-cost-insights-for-hiring-a-china-sourcing-agent/",
+   "stage": 11
+  },
+  {
+   "id": "s11_a6",
+   "text": "FOB basis: Approved final terms, quote qt_cce6242ce2 — demo data",
+   "label": "fictional",
+   "source": "stage8_final_terms",
+   "stage": 11
+  },
+  {
+   "id": "s11_a7",
+   "text": "No CBP CROSS precedent in the cached set for this product: HTS 8806.22.0000 and its rates are an estimate — to be confirmed by a customs broker",
+   "label": "estimate",
+   "source": "https://rulings.cbp.gov/",
+   "stage": 11
+  },
+  {
+   "id": "a8",
+   "text": "Sea container rate Drewry World Container Index, 24 Sep 2026: Shanghai–Los Angeles $7,838/40ft (Drewry-assessed spot benchmark, snapshot; the quote you get will differ)",
+   "label": "sourced",
+   "source": "https://www.drewry.co.uk/supply-chain-advisors/supply-chain-expertise/world-container-index-assessed-by-drewry",
+   "stage": 11
+  },
+  {
+   "id": "a9",
+   "text": "Sea freight derived from the Drewry lane rate, cheaper of LCL and FCL chosen automatically: packed unit 0.0084 m³ (bounding box × 1.5 packaging, min 0.5 L) = 7,957 units per 40ft (67 m³ usable); 20ft container ≈ 0.55 × the 40ft rate, 33 m³. Air = max(gross kg, m³ × 167) × $6.00/kg, min $150 per shipment; express = 1.8× air (Estimate: typical China→US air cargo range $4-8/kg, to be confirmed by a forwarder); air and express are never auto-chosen",
+   "label": "estimate",
+   "source": "demo assumption",
+   "stage": 11
+  },
+  {
+   "id": "a10",
+   "text": "LCL consolidation premium vs FCL, typical 1.3–2.0×: 1.5× applied to lane rate ÷ 67 m³, minimum charge 1 m³ per shipment (derived from Drewry WCI 24 Sep 2026)",
+   "label": "estimate",
+   "source": "https://www.drewry.co.uk/supply-chain-advisors/supply-chain-expertise/world-container-index-assessed-by-drewry",
+   "stage": 11
+  },
+  {
+   "id": "s12_a1",
+   "text": "Dates from stage 9 milestones; amounts from the stage 5 cash breakdown with the approved stage 8 quote applied (unit price, tooling; duties, platform fee, insurance recomputed) (tooling 50/50 at T0/T1, samples at golden sample, 30% deposit + 70% before shipment (payment terms of stage 9), logistics at shipment/delivery)",
+   "label": "estimate",
+   "source": null,
+   "stage": 12
+  },
+  {
+   "id": "s12_a2",
+   "text": "Peak cash need $73,387; 2,900 of it falls in the first 60 days.",
+   "label": "estimate",
+   "source": null,
+   "stage": 12
+  },
+  {
+   "id": "s12_a3",
+   "text": "Financing costs are typical ranges, not quotes: verify with each provider",
+   "label": "estimate",
+   "source": null,
+   "stage": 12
+  },
+  {
+   "id": "s13_a1",
+   "text": "Amazon price in USD: Founder target retail price (USD); no conversion applied. Marketplace fees and VAT are not included.",
+   "label": "estimate",
+   "source": null,
+   "stage": 13
+  },
+  {
+   "id": "s13_a2",
+   "text": "Name options are not trademark-searched; run a clearance search before committing.",
+   "label": "estimate",
+   "source": null,
+   "stage": 13
+  },
+  {
+   "id": "s13_a3",
+   "text": "Listing copy uses only facts from the brief and spec; no certification claims until testing is complete (stage 4).",
+   "label": "estimate",
+   "source": null,
+   "stage": 13
+  },
+  {
+   "id": "cn1",
+   "text": "Chinese text in this pack is machine-translated — to be reviewed by a native speaker.",
+   "label": "estimate",
+   "source": null,
+   "stage": null
+  }
+ ],
+ "engineering": {
+  "project_id": "demo_drone_follow",
+  "status": "draft",
+  "fallback": false,
+  "fallback_reason": null,
+  "generated_by": "code",
+  "generated_at": "2026-09-27T00:07:42.295441Z",
+  "assumptions": [
+   {
+    "id": "e1",
+    "text": "Engineering category 'Camera drone (quadcopter)' detected from the product description and the 'drone' shape family",
+    "label": "estimate",
+    "source": null,
+    "stage": null
+   },
+   {
+    "id": "e2",
+    "text": "Electronics architecture completed with the category's typical blocks (the BOM has no MCU)",
+    "label": "estimate",
+    "source": null,
+    "stage": null
+   },
+   {
+    "id": "e4",
+    "text": "Physics checks are concept-level (rigid-body statics, rules of thumb): validate with the listed tests",
+    "label": "estimate",
+    "source": null,
+    "stage": null
+   }
+  ],
+  "stage": "engineering",
+  "category": "drone",
+  "category_title": "Camera drone (quadcopter)",
+  "partner_word": "factories",
+  "site_install": false,
+  "product_name": "Kitesurf follow-me drone",
+  "inputs_digest": "38f5d5589d71f2ae",
+  "standards": [
+   {
+    "code": "Regulation (EU) 2019/945",
+    "title": "Commission Delegated Regulation (EU) 2019/945 on unmanned aircraft systems (class marks C0-C6)",
+    "applies_because": "EU market: the drone must carry a class mark (C0 < 250 g, C1 < 900 g, C2 < 4 kg MTOM) with the class requirements (speed, geo-awareness, remote ID)",
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32019R0945",
+    "citation_label": "sourced",
+    "citation_note": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32019R0945, page checked 2026-09-27"
+   },
+   {
+    "code": "Regulation (EU) 2019/947",
+    "title": "Commission Implementing Regulation (EU) 2019/947 on the rules and procedures for the operation of unmanned aircraft",
+    "applies_because": "EU operating rules the class mark unlocks (open category A1/A2/A3) — what the buyer may do with it",
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32019R0947",
+    "citation_label": "sourced",
+    "citation_note": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32019R0947, page checked 2026-09-27"
+   },
+   {
+    "code": "14 CFR Part 107",
+    "title": "Small Unmanned Aircraft Systems (FAA)",
+    "applies_because": "US small UAS operating rules (commercial use, < 55 lb)",
+    "url": "https://www.ecfr.gov/api/renderer/v1/content/enhanced/current/title-14?part=107",
+    "citation_label": "sourced",
+    "citation_note": "https://www.ecfr.gov/api/renderer/v1/content/enhanced/current/title-14?part=107, page checked 2026-09-27"
+   },
+   {
+    "code": "14 CFR Part 48",
+    "title": "Registration and Marking Requirements for Small Unmanned Aircraft (FAA)",
+    "applies_because": "US registration of small unmanned aircraft above the weight threshold",
+    "url": "https://www.ecfr.gov/api/renderer/v1/content/enhanced/current/title-14?part=48",
+    "citation_label": "sourced",
+    "citation_note": "https://www.ecfr.gov/api/renderer/v1/content/enhanced/current/title-14?part=48, page checked 2026-09-27"
+   },
+   {
+    "code": "14 CFR Part 89",
+    "title": "Remote Identification of Unmanned Aircraft (FAA)",
+    "applies_because": "US Remote ID broadcast requirement for registered drones",
+    "url": "https://www.ecfr.gov/api/renderer/v1/content/enhanced/current/title-14?part=89",
+    "citation_label": "sourced",
+    "citation_note": "https://www.ecfr.gov/api/renderer/v1/content/enhanced/current/title-14?part=89, page checked 2026-09-27"
+   },
+   {
+    "code": "47 CFR Part 15",
+    "title": "FCC Part 15 — Radio Frequency Devices",
+    "applies_because": "2.4 / 5.8 GHz control and video link (FCC 15C) + digital device (15B)",
+    "url": "https://www.ecfr.gov/current/title-47/chapter-I/subchapter-A/part-15",
+    "citation_label": "sourced",
+    "citation_note": "https://www.ecfr.gov/current/title-47/chapter-I/subchapter-A/part-15, page checked 2026-09-27"
+   },
+   {
+    "code": "Directive 2014/53/EU",
+    "title": "Radio Equipment Directive (RED)",
+    "applies_because": "Radio link sold in the EU (RED)",
+    "url": "https://eur-lex.europa.eu/eli/dir/2014/53/oj/eng",
+    "citation_label": "sourced",
+    "citation_note": "https://eur-lex.europa.eu/eli/dir/2014/53/oj/eng, page checked 2026-09-27"
+   },
+   {
+    "code": "IEC 62133-2",
+    "title": "Secondary cells and batteries containing alkaline or other non-acid electrolytes — Safety — Part 2: Lithium systems",
+    "applies_because": "Li-ion / Li-Po flight battery",
+    "url": "https://webstore.iec.ch/en/publication/32662",
+    "citation_label": "sourced",
+    "citation_note": "https://webstore.iec.ch/en/publication/32662, page checked 2026-09-27"
+   },
+   {
+    "code": "UN 38.3",
+    "title": "UN Manual of Tests and Criteria, section 38.3 (lithium batteries)",
+    "applies_because": "Lithium battery shipped with the product",
+    "url": "https://unece.org/transport/dangerous-goods/rev8-files",
+    "citation_label": "sourced",
+    "citation_note": "https://unece.org/transport/dangerous-goods/rev8-files, page checked 2026-09-27"
+   }
+  ],
+  "risks": [
+   {
+    "id": "r1",
+    "risk": "All-up weight creeps over the class limit (C0 250 g / C1 900 g) with the battery and gimbal",
+    "mitigation": "Weight budget per part from day one; weigh every prototype; two battery options per class",
+    "severity": "critical"
+   },
+   {
+    "id": "r2",
+    "risk": "Flight-controller / ESC failure → fly-away or crash over people",
+    "mitigation": "Certified flight-controller module with geofence, return-to-home and low-battery landing; ESC current telemetry",
+    "severity": "critical"
+   },
+   {
+    "id": "r3",
+    "risk": "Salt spray and sand at the beach (kitesurf use) corrode motors and gimbal",
+    "mitigation": "Sealed bearings, conformal-coated PCBA, IP43 target on the body, rinse guidance",
+    "severity": "major"
+   },
+   {
+    "id": "r4",
+    "risk": "Wind: gusts above 10 m/s exceed the hover margin of a light drone",
+    "mitigation": "Thrust-to-weight ≥ 2, wind-speed warning in the app, EASA C-class wind rating on the label",
+    "severity": "major"
+   },
+   {
+    "id": "r5",
+    "risk": "Video link drops over water at distance",
+    "mitigation": "Dual-band link with diversity antennas; follow-me distance cap",
+    "severity": "minor"
+   }
+  ],
+  "tests": [
+   {
+    "id": "t1",
+    "name": "Class-mark conformity (MTOM, max speed, geo-awareness, remote ID)",
+    "kind": "other",
+    "method": "Notified body assessment of the C-class requirements",
+    "standard": "Regulation (EU) 2019/945"
+   },
+   {
+    "id": "t2",
+    "name": "Hover endurance and thrust stand",
+    "kind": "other",
+    "method": "Thrust stand per motor/prop, then hover to 20% battery at sea level",
+    "standard": null
+   },
+   {
+    "id": "t3",
+    "name": "Drop / crash test of arms and gimbal",
+    "kind": "drop",
+    "method": "Drop from 1.5 m on each arm; hinge and gimbal functional check",
+    "standard": null
+   },
+   {
+    "id": "t4",
+    "name": "Salt mist on motors and fasteners",
+    "kind": "salt_spray",
+    "method": "48 h 5% NaCl fog, bearing and contact inspection",
+    "standard": "IEC 60068-2-11"
+   },
+   {
+    "id": "t5",
+    "name": "Radio conformity (control + video link)",
+    "kind": "radio",
+    "method": "Accredited lab",
+    "standard": "47 CFR Part 15 / Directive 2014/53/EU"
+   },
+   {
+    "id": "t6",
+    "name": "Battery safety",
+    "kind": "battery",
+    "method": "Accredited lab",
+    "standard": "IEC 62133-2 / UN 38.3"
+   }
+  ],
+  "checks": [
+   {
+    "id": "thrust_to_weight",
+    "name": "Thrust-to-weight ratio",
+    "domain": "flight",
+    "value": {
+     "value": 3.7,
+     "unit": "ratio",
+     "label": "estimate",
+     "source_or_assumption": "4 × 300 g max static thrust per motor/prop (category default unless in the BOM) / 324 g all-up weight"
+    },
+    "threshold": "≥ 2 pass (control margin in gusts), ≥ 1.6 warn",
+    "verdict": "pass",
+    "formula": "TWR = n × T_max / (m g)",
+    "inputs": [
+     {
+      "value": 324.0,
+      "unit": "g",
+      "label": "estimate",
+      "source_or_assumption": "Body shells 54 g (estimate) + battery 101 g (18.1 Wh at 180 Wh/kg) + 4 × (motor + prop + arm) + gimbal camera + electronics = 170 g (category part weights, Estimate)"
+     }
+    ],
+    "notes": [
+     "Confirm on a thrust stand with the final motor/prop pair"
+    ]
+   },
+   {
+    "id": "hover_time",
+    "name": "Hover flight time from battery energy and hover power",
+    "domain": "power",
+    "value": {
+     "value": 24.1,
+     "unit": "min",
+     "label": "estimate",
+     "source_or_assumption": "18.1 Wh × 80% usable / 36 W hover (electrical)"
+    },
+    "threshold": "≥ 25 min pass, ≥ 15 min warn (category target, Estimate)",
+    "verdict": "warn",
+    "formula": "P_hover = n T^1.5 / √(2ρA) / FoM / η_drive; T = m g / n, A = π d²/4 (d = 127 mm), FoM = 0.6, η = 0.75; t = E × usable / P",
+    "inputs": [
+     {
+      "value": 324.0,
+      "unit": "g",
+      "label": "estimate",
+      "source_or_assumption": "Body shells 54 g (estimate) + battery 101 g (18.1 Wh at 180 Wh/kg) + 4 × (motor + prop + arm) + gimbal camera + electronics = 170 g (category part weights, Estimate)"
+     },
+     {
+      "value": 18.1,
+      "unit": "Wh",
+      "label": "estimate",
+      "source_or_assumption": "2450 mAh × 2S × 3.7 V (category default pack (no capacity in the BOM))"
+     }
+    ],
+    "notes": [
+     "Hover shaft power 27 W (momentum theory); forward flight and wind add 10-30 %"
+    ]
+   },
+   {
+    "id": "drone_class",
+    "name": "Regulatory class by take-off mass",
+    "domain": "regulatory",
+    "value": {
+     "value": 324.0,
+     "unit": "g",
+     "label": "estimate",
+     "source_or_assumption": "All-up weight → EU class C1"
+    },
+    "threshold": "EU: C0 < 250 g, C1 < 900 g, C2 < 4 kg (Sourced: Regulation (EU) 2019/945, Annex Parts 1-4 (class C0: MTOM < 250 g; C1: < 900 g; C2: < 4 kg), eur-lex.europa.eu CELEX:32019R0945, checked 2026-09-27). US: FAA registration and Remote ID above 250 g (0.55 lb), Part 107 for commercial use (to be confirmed per use)",
+    "verdict": "info",
+    "formula": "Class = lowest EU class whose MTOM limit the all-up weight is below",
+    "inputs": [
+     {
+      "value": 324.0,
+      "unit": "g",
+      "label": "estimate",
+      "source_or_assumption": "Body shells 54 g (estimate) + battery 101 g (18.1 Wh at 180 Wh/kg) + 4 × (motor + prop + arm) + gimbal camera + electronics = 170 g (category part weights, Estimate)"
+     }
+    ],
+    "notes": [
+     "EU class C1 — pilot registration + online training (A1/A3), see Regulation (EU) 2019/947",
+     "Class C0/C1 also need speed, geo-awareness and remote-ID features — keep the weight margin: every gram of battery counts"
+    ]
+   },
+   {
+    "id": "mass",
+    "name": "Product mass",
+    "domain": "mass",
+    "value": {
+     "value": 53.6,
+     "unit": "g",
+     "label": "estimate",
+     "source_or_assumption": "Enclosure volume 46.6 cm³ (measured) × PA12-GF body, carbon-fibre arms 1.15 g/cm³; electronics and battery not included"
+    },
+    "threshold": "≤ 900 g pass, ≤ 1125 g warn (category comfort target, Estimate)",
+    "verdict": "pass",
+    "formula": "Stage 3 weight (measured enclosure volume × density + parts)",
+    "inputs": [
+     {
+      "value": 53.6,
+      "unit": "g",
+      "label": "estimate",
+      "source_or_assumption": "Enclosure volume 46.6 cm³ (measured) × PA12-GF body, carbon-fibre arms 1.15 g/cm³; electronics and battery not included"
+     },
+     {
+      "value": 46.6,
+      "unit": "cm³",
+      "label": "measured",
+      "source_or_assumption": "Enclosure solid volume measured on the STEP (stage 3)"
+     }
+    ],
+    "notes": []
+   },
+   {
+    "id": "ip_rating",
+    "name": "Ingress protection target",
+    "domain": "ingress",
+    "value": {
+     "value": 43.0,
+     "unit": "IP code (IEC 60529)",
+     "label": "estimate",
+     "source_or_assumption": "Category target: IP43 target (beach spray and sand), manufacturer-declared"
+    },
+    "threshold": "IP43 to be proven by test (IEC 60529) — design only at this stage",
+    "verdict": "warn",
+    "formula": "Target from the use environment; every opening in the BOM gets a sealing measure",
+    "inputs": [],
+    "notes": [
+     "Housing seam: compressed gasket (25-30% squeeze) or ultrasonic weld; fasteners outside the sealed volume"
+    ]
+   }
+  ],
+  "electronics": {
+   "mcu_family": "stm32",
+   "mcu_part": "Flight controller STM32F7 with IMU (implied)",
+   "radio": [
+    "GNSS (receive)"
+   ],
+   "power_tree": [
+    {
+     "id": "p_bat",
+     "name": "LiPo flight battery, 4S",
+     "kind": "storage",
+     "parent": null,
+     "voltage": {
+      "value": 14.4,
+      "unit": "V",
+      "label": "estimate",
+      "source_or_assumption": "4S Li-ion × 3.6 V nominal"
+     }
+    },
+    {
+     "id": "p_reg",
+     "name": "3.3 V regulator (implied, VBAT 14.4 V)",
+     "kind": "regulator",
+     "parent": "p_bat",
+     "voltage": {
+      "value": 3.3,
+      "unit": "V",
+      "label": "estimate",
+      "source_or_assumption": "Logic rail for MCU and sensors"
+     }
+    },
+    {
+     "id": "p_b1",
+     "name": "4-in-1 brushless ESC, 4-channel",
+     "kind": "load",
+     "parent": "p_bat",
+     "voltage": {
+      "value": 14.4,
+      "unit": "V",
+      "label": "estimate",
+      "source_or_assumption": "VBAT (through its driver)"
+     }
+    },
+    {
+     "id": "p_b2",
+     "name": "Brushless outrunner motor",
+     "kind": "load",
+     "parent": "p_bat",
+     "voltage": {
+      "value": 14.4,
+      "unit": "V",
+      "label": "estimate",
+      "source_or_assumption": "VBAT (through its driver)"
+     }
+    },
+    {
+     "id": "p_b4",
+     "name": "Wi-Fi vision compute module",
+     "kind": "load",
+     "parent": "p_reg",
+     "voltage": {
+      "value": 3.3,
+      "unit": "V",
+      "label": "estimate",
+      "source_or_assumption": "Logic rail"
+     }
+    },
+    {
+     "id": "p_b5",
+     "name": "2-axis gimbal camera module",
+     "kind": "load",
+     "parent": "p_reg",
+     "voltage": {
+      "value": 3.3,
+      "unit": "V",
+      "label": "estimate",
+      "source_or_assumption": "Logic rail"
+     }
+    },
+    {
+     "id": "p_b6",
+     "name": "Flight controller STM32F7 with IMU",
+     "kind": "load",
+     "parent": "p_reg",
+     "voltage": {
+      "value": 3.3,
+      "unit": "V",
+      "label": "estimate",
+      "source_or_assumption": "Logic rail"
+     }
+    },
+    {
+     "id": "p_b7",
+     "name": "4-in-1 ESC 20A",
+     "kind": "load",
+     "parent": "p_bat",
+     "voltage": {
+      "value": 14.4,
+      "unit": "V",
+      "label": "estimate",
+      "source_or_assumption": "VBAT (through its driver)"
+     }
+    },
+    {
+     "id": "p_b8",
+     "name": "BLDC motor 1404",
+     "kind": "load",
+     "parent": "p_bat",
+     "voltage": {
+      "value": 14.4,
+      "unit": "V",
+      "label": "estimate",
+      "source_or_assumption": "VBAT (through its driver)"
+     }
+    },
+    {
+     "id": "p_b9",
+     "name": "GNSS receiver module",
+     "kind": "load",
+     "parent": "p_reg",
+     "voltage": {
+      "value": 3.3,
+      "unit": "V",
+      "label": "estimate",
+      "source_or_assumption": "Logic rail"
+     }
+    },
+    {
+     "id": "p_b10",
+     "name": "Camera module 4K with 2-axis gimbal",
+     "kind": "load",
+     "parent": "p_reg",
+     "voltage": {
+      "value": 3.3,
+      "unit": "V",
+      "label": "estimate",
+      "source_or_assumption": "Logic rail"
+     }
+    }
+   ],
+   "connections": [
+    {
+     "source": "LiPo flight battery, 4S",
+     "target": "3.3 V regulator (implied, VBAT 14.4 V)",
+     "bus": "power",
+     "signals": "3.3 V"
+    },
+    {
+     "source": "LiPo flight battery, 4S",
+     "target": "4-in-1 brushless ESC, 4-channel",
+     "bus": "power",
+     "signals": "14.4 V"
+    },
+    {
+     "source": "LiPo flight battery, 4S",
+     "target": "Brushless outrunner motor",
+     "bus": "power",
+     "signals": "14.4 V"
+    },
+    {
+     "source": "3.3 V regulator (implied, VBAT 14.4 V)",
+     "target": "Wi-Fi vision compute module",
+     "bus": "power",
+     "signals": "3.3 V"
+    },
+    {
+     "source": "3.3 V regulator (implied, VBAT 14.4 V)",
+     "target": "2-axis gimbal camera module",
+     "bus": "power",
+     "signals": "3.3 V"
+    },
+    {
+     "source": "3.3 V regulator (implied, VBAT 14.4 V)",
+     "target": "Flight controller STM32F7 with IMU",
+     "bus": "power",
+     "signals": "3.3 V"
+    },
+    {
+     "source": "LiPo flight battery, 4S",
+     "target": "4-in-1 ESC 20A",
+     "bus": "power",
+     "signals": "14.4 V"
+    },
+    {
+     "source": "LiPo flight battery, 4S",
+     "target": "BLDC motor 1404",
+     "bus": "power",
+     "signals": "14.4 V"
+    },
+    {
+     "source": "3.3 V regulator (implied, VBAT 14.4 V)",
+     "target": "GNSS receiver module",
+     "bus": "power",
+     "signals": "3.3 V"
+    },
+    {
+     "source": "3.3 V regulator (implied, VBAT 14.4 V)",
+     "target": "Camera module 4K with 2-axis gimbal",
+     "bus": "power",
+     "signals": "3.3 V"
+    },
+    {
+     "source": "Flight controller STM32F7 with IMU",
+     "target": "4-in-1 brushless ESC, 4-channel",
+     "bus": "pwm",
+     "signals": "PWM, DIR"
+    },
+    {
+     "source": "4-in-1 brushless ESC, 4-channel",
+     "target": "Brushless outrunner motor",
+     "bus": "power",
+     "signals": "Motor phases / OUT1, OUT2"
+    },
+    {
+     "source": "Flight controller STM32F7 with IMU",
+     "target": "Wi-Fi vision compute module",
+     "bus": "spi",
+     "signals": "SCK, MOSI, MISO, CS"
+    },
+    {
+     "source": "Flight controller STM32F7 with IMU",
+     "target": "2-axis gimbal camera module",
+     "bus": "spi",
+     "signals": "SCK, MOSI, MISO, CS"
+    },
+    {
+     "source": "Flight controller STM32F7 with IMU",
+     "target": "4-in-1 ESC 20A",
+     "bus": "pwm",
+     "signals": "PWM, DIR"
+    },
+    {
+     "source": "4-in-1 brushless ESC, 4-channel",
+     "target": "BLDC motor 1404",
+     "bus": "power",
+     "signals": "Motor phases / OUT1, OUT2"
+    },
+    {
+     "source": "Flight controller STM32F7 with IMU",
+     "target": "GNSS receiver module",
+     "bus": "uart",
+     "signals": "TX, RX, 1PPS"
+    },
+    {
+     "source": "Flight controller STM32F7 with IMU",
+     "target": "Camera module 4K with 2-axis gimbal",
+     "bus": "spi",
+     "signals": "SCK, MOSI, MISO, CS"
+    },
+    {
+     "source": "Flight controller STM32F7 with IMU",
+     "target": "Battery voltage divider",
+     "bus": "adc",
+     "signals": "VBAT_SENSE (fuel estimate)"
+    }
+   ],
+   "power_budget": [
+    {
+     "block": "driver",
+     "part": "4-in-1 brushless ESC, 4-channel",
+     "active_current": {
+      "value": 0.0,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "Typical active current of a driver (assumed typical architecture for the category (not in the BOM))"
+     },
+     "sleep_current": {
+      "value": 1.0,
+      "unit": "µA",
+      "label": "estimate",
+      "source_or_assumption": "Typical sleep/standby current"
+     },
+     "duty_cycle": {
+      "value": 100.0,
+      "unit": "pct",
+      "label": "estimate",
+      "source_or_assumption": "Category duty cycle for 'driver' (Camera drone (quadcopter))"
+     },
+     "average_current": {
+      "value": 0.0,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "active × duty + sleep × (1 − duty)"
+     }
+    },
+    {
+     "block": "motor",
+     "part": "Brushless outrunner motor",
+     "active_current": {
+      "value": 925.926,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "4 × 3 W (category default) / 14.4 V / 90% driver"
+     },
+     "sleep_current": {
+      "value": 0.0,
+      "unit": "µA",
+      "label": "estimate",
+      "source_or_assumption": "Typical sleep/standby current"
+     },
+     "duty_cycle": {
+      "value": 100.0,
+      "unit": "pct",
+      "label": "estimate",
+      "source_or_assumption": "Category duty cycle for 'motor' (Camera drone (quadcopter))"
+     },
+     "average_current": {
+      "value": 925.9259,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "active × duty + sleep × (1 − duty)"
+     }
+    },
+    {
+     "block": "camera",
+     "part": "Wi-Fi vision compute module",
+     "active_current": {
+      "value": 150.0,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "Typical active current of a camera (assumed typical architecture for the category (not in the BOM))"
+     },
+     "sleep_current": {
+      "value": 0.0,
+      "unit": "µA",
+      "label": "estimate",
+      "source_or_assumption": "Typical sleep/standby current"
+     },
+     "duty_cycle": {
+      "value": 100.0,
+      "unit": "pct",
+      "label": "estimate",
+      "source_or_assumption": "Category duty cycle for 'camera' (Camera drone (quadcopter))"
+     },
+     "average_current": {
+      "value": 150.0,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "active × duty + sleep × (1 − duty)"
+     }
+    },
+    {
+     "block": "camera",
+     "part": "2-axis gimbal camera module",
+     "active_current": {
+      "value": 150.0,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "Typical active current of a camera (assumed typical architecture for the category (not in the BOM))"
+     },
+     "sleep_current": {
+      "value": 0.0,
+      "unit": "µA",
+      "label": "estimate",
+      "source_or_assumption": "Typical sleep/standby current"
+     },
+     "duty_cycle": {
+      "value": 100.0,
+      "unit": "pct",
+      "label": "estimate",
+      "source_or_assumption": "Category duty cycle for 'camera' (Camera drone (quadcopter))"
+     },
+     "average_current": {
+      "value": 150.0,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "active × duty + sleep × (1 − duty)"
+     }
+    },
+    {
+     "block": "mcu",
+     "part": "Flight controller STM32F7 with IMU",
+     "active_current": {
+      "value": 6.0,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "Typical active current of a MCU (assumed typical architecture for the category (not in the BOM))"
+     },
+     "sleep_current": {
+      "value": 2.0,
+      "unit": "µA",
+      "label": "estimate",
+      "source_or_assumption": "Typical sleep/standby current"
+     },
+     "duty_cycle": {
+      "value": 100.0,
+      "unit": "pct",
+      "label": "estimate",
+      "source_or_assumption": "Category duty cycle for 'mcu' (Camera drone (quadcopter))"
+     },
+     "average_current": {
+      "value": 6.0,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "active × duty + sleep × (1 − duty)"
+     }
+    },
+    {
+     "block": "driver",
+     "part": "4-in-1 ESC 20A",
+     "active_current": {
+      "value": 0.0,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "Typical active current of a driver (assumed typical architecture for the category (not in the BOM))"
+     },
+     "sleep_current": {
+      "value": 1.0,
+      "unit": "µA",
+      "label": "estimate",
+      "source_or_assumption": "Typical sleep/standby current"
+     },
+     "duty_cycle": {
+      "value": 100.0,
+      "unit": "pct",
+      "label": "estimate",
+      "source_or_assumption": "Category duty cycle for 'driver' (Camera drone (quadcopter))"
+     },
+     "average_current": {
+      "value": 0.0,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "active × duty + sleep × (1 − duty)"
+     }
+    },
+    {
+     "block": "motor",
+     "part": "BLDC motor 1404",
+     "active_current": {
+      "value": 231.481,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "1 × 3 W (category default) / 14.4 V / 90% driver"
+     },
+     "sleep_current": {
+      "value": 0.0,
+      "unit": "µA",
+      "label": "estimate",
+      "source_or_assumption": "Typical sleep/standby current"
+     },
+     "duty_cycle": {
+      "value": 100.0,
+      "unit": "pct",
+      "label": "estimate",
+      "source_or_assumption": "Category duty cycle for 'motor' (Camera drone (quadcopter))"
+     },
+     "average_current": {
+      "value": 231.4815,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "active × duty + sleep × (1 − duty)"
+     }
+    },
+    {
+     "block": "gnss",
+     "part": "GNSS receiver module",
+     "active_current": {
+      "value": 25.0,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "Typical active current of a GNSS (assumed typical architecture for the category (not in the BOM))"
+     },
+     "sleep_current": {
+      "value": 15.0,
+      "unit": "µA",
+      "label": "estimate",
+      "source_or_assumption": "Typical sleep/standby current"
+     },
+     "duty_cycle": {
+      "value": 100.0,
+      "unit": "pct",
+      "label": "estimate",
+      "source_or_assumption": "Category duty cycle for 'gnss' (Camera drone (quadcopter))"
+     },
+     "average_current": {
+      "value": 25.0,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "active × duty + sleep × (1 − duty)"
+     }
+    },
+    {
+     "block": "camera",
+     "part": "Camera module 4K with 2-axis gimbal",
+     "active_current": {
+      "value": 150.0,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "Typical active current of a camera (assumed typical architecture for the category (not in the BOM))"
+     },
+     "sleep_current": {
+      "value": 0.0,
+      "unit": "µA",
+      "label": "estimate",
+      "source_or_assumption": "Typical sleep/standby current"
+     },
+     "duty_cycle": {
+      "value": 100.0,
+      "unit": "pct",
+      "label": "estimate",
+      "source_or_assumption": "Category duty cycle for 'camera' (Camera drone (quadcopter))"
+     },
+     "average_current": {
+      "value": 150.0,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "active × duty + sleep × (1 − duty)"
+     }
+    }
+   ],
+   "average_current": {
+    "value": 1638.4074,
+    "unit": "mA",
+    "label": "estimate",
+    "source_or_assumption": "Sum of the power-budget lines"
+   },
+   "battery_voltage": {
+    "value": 14.4,
+    "unit": "V",
+    "label": "estimate",
+    "source_or_assumption": "4S Li-ion × 3.6 V nominal"
+   },
+   "battery_capacity": {
+    "value": 2450.0,
+    "unit": "mAh",
+    "label": "estimate",
+    "source_or_assumption": "Category default 2450 mAh (no capacity in the BOM) — confirm with the cell datasheet"
+   },
+   "battery_life": {
+    "value": 1.27,
+    "unit": "h",
+    "label": "estimate",
+    "source_or_assumption": "2450 mAh × 85% usable / 1638 mA average"
+   },
+   "pcb_note": "PCB layout: next step (human or text-to-PCB)"
+  },
+  "firmware": {
+   "framework": "arduino",
+   "mcu_family": "stm32",
+   "connectivity": "2.4 GHz control link + Wi-Fi video, follow-me via phone GNSS",
+   "url": "/files/demo_drone_follow/firmware.zip",
+   "files": [
+    "README.md",
+    "platformio.ini",
+    "src/connectivity.cpp",
+    "src/connectivity.h",
+    "src/main.cpp",
+    "src/pins.h",
+    "src/sensors.cpp",
+    "src/sensors.h"
+   ],
+   "generated_by": "llm:openai/gpt-6-luna",
+   "note": "Generated code — not compiled or tested",
+   "pending_llm": false
+  },
+  "prototype": {
+   "enclosure_method": "MJF PA12-GF body + carbon-fibre arm tubes, bought-in flight controller, ESC, motors and gimbal",
+   "enclosure_volume": {
+    "value": 46.6,
+    "unit": "cm³",
+    "label": "measured",
+    "source_or_assumption": "Enclosure solid volume measured on the STEP (stage 3)"
+   },
+   "units": 2,
+   "cost_lines": [
+    {
+     "item": "Enclosure: MJF PA12-GF body + carbon-fibre arm tubes, bought-in flight controller, ESC, motors and gimbal",
+     "amount": {
+      "value": 153.0,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "2 × (60 USD setup + 0.35 USD/cm³ × 46.6 cm³ measured volume)"
+     }
+    },
+    {
+     "item": "PCBA quick-turn (5 boards, 9 BOM lines)",
+     "amount": {
+      "value": 218.0,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "5 boards: setup/stencil 25 + 2-layer fab 5 + parts 168.08 (LCSC price at 5× qty where matched, else BOM estimate × 3) + shipping 20 USD"
+     }
+    },
+    {
+     "item": "Dev-kit bring-up set (firmware before the PCBA arrives)",
+     "amount": {
+      "value": 79.0,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Sum of the dev-kit BOM lines"
+     }
+    },
+    {
+     "item": "Batteries, cables, fasteners, consumables",
+     "amount": {
+      "value": 40.0,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Flat allowance"
+     }
+    }
+   ],
+   "devkit_bom": [
+    {
+     "part": "STM32 Nucleo-64 dev board",
+     "role": "MCU + radio dev board",
+     "qty": 1,
+     "lcsc_pn": null,
+     "unit_price": {
+      "value": 15.0,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Typical distributor price for this dev board class"
+     }
+    },
+    {
+     "part": "4-in-1 brushless ESC, 4-channel (module / breakout)",
+     "role": "driver",
+     "qty": 1,
+     "lcsc_pn": null,
+     "unit_price": {
+      "value": 8.0,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Typical hobby breakout/module price, not in the LCSC snapshot"
+     }
+    },
+    {
+     "part": "Brushless outrunner motor (module / breakout)",
+     "role": "motor",
+     "qty": 1,
+     "lcsc_pn": null,
+     "unit_price": {
+      "value": 8.0,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Typical hobby breakout/module price, not in the LCSC snapshot"
+     }
+    },
+    {
+     "part": "Wi-Fi vision compute module (module / breakout)",
+     "role": "camera",
+     "qty": 1,
+     "lcsc_pn": null,
+     "unit_price": {
+      "value": 8.0,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Typical hobby breakout/module price, not in the LCSC snapshot"
+     }
+    },
+    {
+     "part": "2-axis gimbal camera module (module / breakout)",
+     "role": "camera",
+     "qty": 1,
+     "lcsc_pn": null,
+     "unit_price": {
+      "value": 8.0,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Typical hobby breakout/module price, not in the LCSC snapshot"
+     }
+    },
+    {
+     "part": "4-in-1 ESC 20A (module / breakout)",
+     "role": "driver",
+     "qty": 1,
+     "lcsc_pn": null,
+     "unit_price": {
+      "value": 8.0,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Typical hobby breakout/module price, not in the LCSC snapshot"
+     }
+    },
+    {
+     "part": "BLDC motor 1404 (module / breakout)",
+     "role": "motor",
+     "qty": 1,
+     "lcsc_pn": null,
+     "unit_price": {
+      "value": 8.0,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Typical hobby breakout/module price, not in the LCSC snapshot"
+     }
+    },
+    {
+     "part": "GNSS receiver module (module / breakout)",
+     "role": "gnss",
+     "qty": 1,
+     "lcsc_pn": null,
+     "unit_price": {
+      "value": 8.0,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Typical hobby breakout/module price, not in the LCSC snapshot"
+     }
+    },
+    {
+     "part": "Camera module 4K with 2-axis gimbal (module / breakout)",
+     "role": "camera",
+     "qty": 1,
+     "lcsc_pn": null,
+     "unit_price": {
+      "value": 8.0,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Typical hobby breakout/module price, not in the LCSC snapshot"
+     }
+    }
+   ],
+   "assembly_steps": [
+    "Fly an off-the-shelf flight controller + ESC stack on a test frame first (PID tune, failsafes)",
+    "Print the body in MJF PA12-GF, fit folding arm hinges",
+    "Integrate the gimbal camera and GNSS, verify follow-me in an open field",
+    "Weigh the full aircraft against the C-class budget",
+    "Thrust stand + hover endurance test, then wind test",
+    "PCB layout: next step (human or text-to-PCB) — the schematic follows the power tree and connection list above"
+   ],
+   "timeline_weeks": {
+    "value": 4.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Design freeze 0.5 + PCBA quick-turn incl. shipping 2 + integration 1 + test 0.5 (enclosure and firmware on the dev kit run in parallel)"
+   },
+   "total_cost": {
+    "value": 490.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Sum of the prototype cost lines"
+   }
+  },
+  "solar": null,
+  "installers": [],
+  "build_strategy": {
+   "strategy": "module_assembly",
+   "title": "Module assembly",
+   "explanation": "You design the product around bought-in, pre-certified modules (e.g. motor + driver, battery pack, radio module, heater + fan): your work is the architecture, the enclosure, the integration and the software; the factory assembles the modules into your parts. Faster and cheaper than designing every sub-system, and the modules' certifications carry part of the compliance.",
+   "customisable": [
+    "Airframe, arms, fold mechanism, CMF",
+    "Camera / gimbal choice, follow-me software, app"
+   ],
+   "not_customisable": [
+    "Flight controller + ESC stack",
+    "Motors and propellers",
+    "Battery pack (IEC 62133-2 certified)",
+    "Gimbal camera module",
+    "Radio link module"
+   ],
+   "moq": {
+    "value": 500.0,
+    "unit": "units",
+    "label": "estimate",
+    "source_or_assumption": "Typical minimum order for a first run in this category — factory MOQ range"
+   },
+   "entry_cost": {
+    "value": 80000.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Typical first production run for this category (Airframe moulds ≈ $25k, integration engineering ≈ $25k, C-class + radio ≈ $20k, pilot run) — industry range, not a quote"
+   },
+   "lead_time": {
+    "value": 26.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Frozen design → first production units (tooling, samples, certification), typical"
+   },
+   "path": [
+    "Integrate an off-the-shelf flight controller + ESC + gimbal on your airframe",
+    "Weight budget against the C-class limit",
+    "C-class conformity (notified body) + radio tests",
+    "Pilot run of 50, then 500"
+   ],
+   "certifications_note": "EU class mark (Regulation (EU) 2019/945) by a notified body on the full aircraft; radio approvals of the link module reused.",
+   "assumptions": [
+    "Estimates for a first production run; real MOQs and NRE come from quotes",
+    "Module figures assume catalogue modules with their own certifications"
+   ]
+  },
+  "unit_basis": "per_unit",
+  "installation_cost": null
+ }
+}

@@ -1,0 +1,196 @@
+{
+ "project_id": "demo_whoop_kitesurf",
+ "status": "validated",
+ "fallback": false,
+ "fallback_reason": null,
+ "generated_by": "llm:openai/gpt-6-luna",
+ "generated_at": "2026-09-26T23:54:31.569019Z",
+ "assumptions": [
+  {
+   "id": "a1",
+   "text": "Amazon price in USD: Founder target retail price (USD); no conversion applied. Marketplace fees and VAT are not included.",
+   "label": "estimate",
+   "source": null,
+   "stage": 13
+  },
+  {
+   "id": "a2",
+   "text": "Name options are not trademark-searched; run a clearance search before committing.",
+   "label": "estimate",
+   "source": null,
+   "stage": 13
+  },
+  {
+   "id": "a3",
+   "text": "Listing copy uses only facts from the brief and spec; no certification claims until testing is complete (stage 4).",
+   "label": "estimate",
+   "source": null,
+   "stage": 13
+  }
+ ],
+ "stage": 13,
+ "name_options": [
+  {
+   "name": "Kivora",
+   "rationale": "A short coined name that feels suited to a wrist-worn activity and recovery tracker. Trademark search needed before use."
+  },
+  {
+   "name": "Tidevia",
+   "rationale": "A coined name with a subtle water association for a band designed for kitesurfers. Trademark search needed before use."
+  },
+  {
+   "name": "Veylo",
+   "rationale": "A simple, easy-to-spell coined name for a screenless wearable. Trademark search needed before use."
+  }
+ ],
+ "chosen_name": null,
+ "packaging": {
+  "box_type": "Folding carton box with a formed insert",
+  "dimensions": {
+   "length": {
+    "value": 54.0,
+    "unit": "mm",
+    "label": "estimate",
+    "source_or_assumption": "Product overall size + 10 mm clearance (rule; insert design at packaging RFQ)"
+   },
+   "width": {
+    "value": 40.0,
+    "unit": "mm",
+    "label": "estimate",
+    "source_or_assumption": "Product overall size + 10 mm clearance (rule; insert design at packaging RFQ)"
+   },
+   "height": {
+    "value": 18.0,
+    "unit": "mm",
+    "label": "estimate",
+    "source_or_assumption": "Product overall size + 10 mm clearance (rule; insert design at packaging RFQ)"
+   }
+  },
+  "materials": [
+   "Paperboard carton",
+   "Paperboard insert"
+  ],
+  "printing": "One-color product name and essential product information on the carton.",
+  "contents": [
+   "Kitesurf recovery band with pink LSR strap",
+   "Quick-start card"
+  ],
+  "unit_cost": {
+   "value": 1.2,
+   "unit": "USD",
+   "label": "estimate",
+   "source_or_assumption": "Default retail-box + insert allowance (no packaging cost in the BOM)"
+  }
+ },
+ "landing_copy": {
+  "headline": "Track Your Time on the Water",
+  "subheadline": "A screenless wrist-worn band for kitesurf activity and recovery tracking, with heart-rate and HRV sensing.",
+  "bullets": [
+   "Track activity and recovery without a screen.",
+   "Capture heart-rate and HRV data.",
+   "Sync band data to a mobile app over BLE.",
+   "Go up to five days between charges."
+  ],
+  "cta": "Shop the band for $199"
+ },
+ "shopify_listing": {
+  "channel": "shopify",
+  "title": "Kitesurf Recovery Band – Screenless Activity and Recovery Tracker",
+  "description": "Track activity and recovery with a screenless wrist-worn band designed for kitesurfers. Heart-rate and HRV sensing, mobile app data sync, and up to five days of battery life help keep your data close at hand.",
+  "bullets": [
+   "Screenless wrist-worn design for kitesurfers.",
+   "Tracks activity and recovery.",
+   "Heart-rate and HRV sensing.",
+   "Syncs data to a mobile app over BLE.",
+   "Up to five days of battery life."
+  ],
+  "price": {
+   "value": 199.0,
+   "unit": "USD",
+   "label": "estimate",
+   "source_or_assumption": "Brief target price 199 USD (retail price incl. VAT where applicable)"
+  },
+  "keywords": [
+   "kitesurf activity tracker",
+   "kitesurf recovery band",
+   "screenless fitness band",
+   "wrist-worn recovery tracker",
+   "heart rate wearable",
+   "HRV sensing band",
+   "BLE wearable band"
+  ]
+ },
+ "amazon_listing": {
+  "channel": "amazon",
+  "title": "Kivora Kitesurf Recovery Band, Screenless Wrist-Worn Activity and Recovery Tracker with Heart-Rate and HRV Sensing, Mobile App Sync, Five-Day Battery",
+  "description": "Track activity and recovery with a screenless wrist-worn band designed for kitesurfers. It senses heart rate and HRV, syncs data to a mobile app over BLE, and has up to five days of battery life.",
+  "bullets": [
+   "SCREENLESS DESIGN — Wear the band on your wrist without a screen.",
+   "ACTIVITY AND RECOVERY — Track activity and recovery for kitesurfing.",
+   "HEART-RATE SENSING — Capture heart-rate data from the wrist-worn band.",
+   "HRV SENSING — Track HRV with the band.",
+   "FIVE-DAY BATTERY — Get up to five days of battery life and sync data to a mobile app over BLE."
+  ],
+  "price": {
+   "value": 199.0,
+   "unit": "USD",
+   "label": "estimate",
+   "source_or_assumption": "Brief target price 199 USD (retail price incl. VAT where applicable)"
+  },
+  "keywords": [
+   "kitesurf recovery tracker",
+   "kitesurf wearable band",
+   "screenless activity tracker",
+   "heart rate wrist band",
+   "HRV sensing wearable",
+   "recovery tracking band",
+   "BLE activity band"
+  ]
+ },
+ "listing_photos": [
+  {
+   "shot": "packshot_white",
+   "url": "/files/demo_whoop_kitesurf/photo_v4_packshot_white.png",
+   "label": "Photo-styled from the CAD (AI image, geometry from our CAD)",
+   "reference": "cad_render",
+   "aspect_ratio": "1:1",
+   "staged": false,
+   "model": "google/gemini-3.1-flash-image",
+   "version": 4,
+   "created_at": "2026-09-27T16:00:00Z"
+  },
+  {
+   "shot": "lifestyle",
+   "url": "/files/demo_whoop_kitesurf/photo_v4_lifestyle.png",
+   "label": "Photo-styled from the CAD (AI image, geometry from our CAD) · Staged scene — illustrative",
+   "reference": "cad_render",
+   "aspect_ratio": "4:5",
+   "staged": true,
+   "model": "google/gemini-3.1-flash-image",
+   "version": 4,
+   "created_at": "2026-09-27T12:00:00Z"
+  },
+  {
+   "shot": "in_hand_scale",
+   "url": "/files/demo_whoop_kitesurf/photo_v4_in_hand_scale.png",
+   "label": "Photo-styled from the CAD (AI image, geometry from our CAD) · Staged scene — illustrative",
+   "reference": "cad_render",
+   "aspect_ratio": "4:5",
+   "staged": true,
+   "model": "google/gemini-3.1-flash-image",
+   "version": 4,
+   "created_at": "2026-09-27T16:00:00Z"
+  },
+  {
+   "shot": "detail_macro",
+   "url": "/files/demo_whoop_kitesurf/photo_v4_detail_macro.png",
+   "label": "Photo-styled from the CAD (AI image, geometry from our CAD)",
+   "reference": "cad_render",
+   "aspect_ratio": "1:1",
+   "staged": false,
+   "model": "google/gemini-3.1-flash-image",
+   "version": 4,
+   "created_at": "2026-09-27T16:00:00Z"
+  }
+ ]
+}

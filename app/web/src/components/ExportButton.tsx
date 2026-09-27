@@ -4,7 +4,7 @@ import { useState } from "react";
 import { API_BASE } from "@/lib/api";
 import { Btn, Spinner } from "./ui";
 
-export function ExportButton({ projectId, variant = "primary" }: { projectId: string; variant?: "primary" | "secondary" | "ink" | "ghost" }) {
+export function ExportButton({ projectId, variant = "primary", label = "Export Launch Dossier" }: { projectId: string; variant?: "primary" | "secondary" | "ink" | "ghost"; label?: string }) {
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState<string | null>(null);
   async function download() {
@@ -38,7 +38,7 @@ export function ExportButton({ projectId, variant = "primary" }: { projectId: st
             <path d="M8 2v8.5M4.5 7 8 10.5 11.5 7M3 13.5h10" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         )}
-        {busy ? "Preparing PDF…" : "Export Launch Dossier"}
+        {busy ? "Preparing PDF…" : label}
       </Btn>
       {err && <span className="text-sm text-danger">Export failed: {err}</span>}
     </span>

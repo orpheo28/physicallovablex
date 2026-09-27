@@ -1,0 +1,1146 @@
+{
+  "$defs": {
+    "Assumption": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "label": {
+          "$ref": "#/$defs/Label"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source"
+        },
+        "stage": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Stage that introduced the assumption",
+          "title": "Stage"
+        }
+      },
+      "required": [
+        "id",
+        "text",
+        "label"
+      ],
+      "title": "Assumption",
+      "type": "object"
+    },
+    "BuildStrategy": {
+      "additionalProperties": false,
+      "description": "W21: how this product realistically gets built \u2014 design everything, assemble bought-in modules, or customise an\nODM reference platform. Figures are Estimates with their assumptions.",
+      "properties": {
+        "strategy": {
+          "enum": [
+            "full_design",
+            "module_assembly",
+            "odm_customization"
+          ],
+          "title": "Strategy",
+          "type": "string"
+        },
+        "title": {
+          "description": "e.g. 'Full design', 'Module assembly', 'ODM customisation'",
+          "title": "Title",
+          "type": "string"
+        },
+        "explanation": {
+          "title": "Explanation",
+          "type": "string"
+        },
+        "customisable": {
+          "description": "What the founder designs / chooses",
+          "items": {
+            "type": "string"
+          },
+          "title": "Customisable",
+          "type": "array"
+        },
+        "not_customisable": {
+          "description": "What comes from the modules / the ODM platform",
+          "items": {
+            "type": "string"
+          },
+          "title": "Not Customisable",
+          "type": "array"
+        },
+        "moq": {
+          "$ref": "#/$defs/LabeledValue",
+          "description": "Typical minimum order quantity (units), Estimate"
+        },
+        "entry_cost": {
+          "$ref": "#/$defs/LabeledValue",
+          "description": "Typical entry cost (NRE, tooling, certification) before the first order, Estimate"
+        },
+        "lead_time": {
+          "$ref": "#/$defs/LabeledValue",
+          "description": "Typical time from frozen design to first production units (weeks), Estimate"
+        },
+        "path": {
+          "description": "Realistic steps (for ODM: find a close reference platform\u2026)",
+          "items": {
+            "type": "string"
+          },
+          "title": "Path",
+          "type": "array"
+        },
+        "certifications_note": {
+          "default": "",
+          "title": "Certifications Note",
+          "type": "string"
+        },
+        "assumptions": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Assumptions",
+          "type": "array"
+        }
+      },
+      "required": [
+        "strategy",
+        "title",
+        "explanation",
+        "customisable",
+        "moq",
+        "entry_cost",
+        "lead_time"
+      ],
+      "title": "BuildStrategy",
+      "type": "object"
+    },
+    "CheckVerdict": {
+      "enum": [
+        "pass",
+        "warn",
+        "fail",
+        "info"
+      ],
+      "title": "CheckVerdict",
+      "type": "string"
+    },
+    "DesignRisk": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "risk": {
+          "title": "Risk",
+          "type": "string"
+        },
+        "mitigation": {
+          "title": "Mitigation",
+          "type": "string"
+        },
+        "severity": {
+          "$ref": "#/$defs/Severity",
+          "default": "major"
+        }
+      },
+      "required": [
+        "id",
+        "risk",
+        "mitigation"
+      ],
+      "title": "DesignRisk",
+      "type": "object"
+    },
+    "DevKitLine": {
+      "additionalProperties": false,
+      "properties": {
+        "part": {
+          "title": "Part",
+          "type": "string"
+        },
+        "role": {
+          "title": "Role",
+          "type": "string"
+        },
+        "qty": {
+          "default": 1,
+          "title": "Qty",
+          "type": "integer"
+        },
+        "lcsc_pn": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Lcsc Pn"
+        },
+        "unit_price": {
+          "$ref": "#/$defs/LabeledValue"
+        }
+      },
+      "required": [
+        "part",
+        "role",
+        "unit_price"
+      ],
+      "title": "DevKitLine",
+      "type": "object"
+    },
+    "ElectronicsArchitecture": {
+      "additionalProperties": false,
+      "properties": {
+        "mcu_family": {
+          "enum": [
+            "nrf52",
+            "esp32",
+            "stm32",
+            "avr",
+            "generic"
+          ],
+          "title": "Mcu Family",
+          "type": "string"
+        },
+        "mcu_part": {
+          "title": "Mcu Part",
+          "type": "string"
+        },
+        "radio": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Radio",
+          "type": "array"
+        },
+        "power_tree": {
+          "items": {
+            "$ref": "#/$defs/PowerNode"
+          },
+          "title": "Power Tree",
+          "type": "array"
+        },
+        "connections": {
+          "items": {
+            "$ref": "#/$defs/NetConnection"
+          },
+          "title": "Connections",
+          "type": "array"
+        },
+        "power_budget": {
+          "items": {
+            "$ref": "#/$defs/PowerBudgetLine"
+          },
+          "title": "Power Budget",
+          "type": "array"
+        },
+        "average_current": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "battery_voltage": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/LabeledValue"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "battery_capacity": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/LabeledValue"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "battery_life": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/LabeledValue"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "pcb_note": {
+          "default": "PCB layout: next step (human or text-to-PCB)",
+          "title": "Pcb Note",
+          "type": "string"
+        }
+      },
+      "required": [
+        "mcu_family",
+        "mcu_part",
+        "power_tree",
+        "connections",
+        "power_budget",
+        "average_current"
+      ],
+      "title": "ElectronicsArchitecture",
+      "type": "object"
+    },
+    "EngineeringCheck": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "domain": {
+          "enum": [
+            "stability",
+            "hydrodynamics",
+            "power",
+            "ingress",
+            "airflow",
+            "fluid",
+            "solar",
+            "thermal",
+            "mass",
+            "geometry",
+            "flight",
+            "regulatory"
+          ],
+          "title": "Domain",
+          "type": "string"
+        },
+        "value": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "threshold": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Human wording of the pass/warn/fail rule, e.g. '\u2265 15\u00b0 (design target)'",
+          "title": "Threshold"
+        },
+        "verdict": {
+          "$ref": "#/$defs/CheckVerdict"
+        },
+        "formula": {
+          "description": "Formula and assumptions, with the inputs' labels",
+          "title": "Formula",
+          "type": "string"
+        },
+        "inputs": {
+          "description": "Inputs of the formula (each labeled)",
+          "items": {
+            "$ref": "#/$defs/LabeledValue"
+          },
+          "title": "Inputs",
+          "type": "array"
+        },
+        "notes": {
+          "description": "e.g. the sealing checklist of an IP check",
+          "items": {
+            "type": "string"
+          },
+          "title": "Notes",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "domain",
+        "value",
+        "verdict",
+        "formula"
+      ],
+      "title": "EngineeringCheck",
+      "type": "object"
+    },
+    "FirmwareProject": {
+      "additionalProperties": false,
+      "properties": {
+        "framework": {
+          "enum": [
+            "zephyr",
+            "arduino"
+          ],
+          "title": "Framework",
+          "type": "string"
+        },
+        "mcu_family": {
+          "title": "Mcu Family",
+          "type": "string"
+        },
+        "connectivity": {
+          "description": "e.g. 'BLE GATT service', 'Wi-Fi + MQTT'",
+          "title": "Connectivity",
+          "type": "string"
+        },
+        "url": {
+          "description": "/files/<project_id>/firmware.zip",
+          "title": "Url",
+          "type": "string"
+        },
+        "files": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Files",
+          "type": "array"
+        },
+        "generated_by": {
+          "description": "'template' | 'llm:<model slug>'",
+          "title": "Generated By",
+          "type": "string"
+        },
+        "note": {
+          "default": "Generated code \u2014 not compiled or tested",
+          "title": "Note",
+          "type": "string"
+        },
+        "pending_llm": {
+          "default": false,
+          "description": "An LLM version is being generated in the background; re-GET to pick it up",
+          "title": "Pending Llm",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "framework",
+        "mcu_family",
+        "connectivity",
+        "url",
+        "files",
+        "generated_by"
+      ],
+      "title": "FirmwareProject",
+      "type": "object"
+    },
+    "InstallerMatch": {
+      "additionalProperties": false,
+      "properties": {
+        "factory_id": {
+          "title": "Factory Id",
+          "type": "string"
+        },
+        "name": {
+          "description": "Fictional installer name \u2014 ends with '(fictional)'",
+          "title": "Name",
+          "type": "string"
+        },
+        "region": {
+          "title": "Region",
+          "type": "string"
+        },
+        "certifications": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Certifications",
+          "type": "array"
+        },
+        "lead_time_days": {
+          "title": "Lead Time Days",
+          "type": "integer"
+        },
+        "label": {
+          "const": "fictional",
+          "default": "fictional",
+          "title": "Label",
+          "type": "string"
+        }
+      },
+      "required": [
+        "factory_id",
+        "name",
+        "region",
+        "certifications",
+        "lead_time_days"
+      ],
+      "title": "InstallerMatch",
+      "type": "object"
+    },
+    "Label": {
+      "description": "The four honesty labels. UI text: Measured / Sourced / Estimate / Fictional \u2014 demo data.",
+      "enum": [
+        "measured",
+        "sourced",
+        "estimate",
+        "fictional"
+      ],
+      "title": "Label",
+      "type": "string"
+    },
+    "LabeledValue": {
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "title": "Value",
+          "type": "number"
+        },
+        "unit": {
+          "description": "e.g. USD, EUR, mm, g, days, weeks, pct, units, man-days",
+          "title": "Unit",
+          "type": "string"
+        },
+        "label": {
+          "$ref": "#/$defs/Label"
+        },
+        "source_or_assumption": {
+          "description": "Sourced: '<source>, <YYYY-MM-DD>'. Estimate: the assumption. Measured: the check. Fictional: 'demo data'.",
+          "title": "Source Or Assumption",
+          "type": "string"
+        }
+      },
+      "required": [
+        "value",
+        "unit",
+        "label",
+        "source_or_assumption"
+      ],
+      "title": "LabeledValue",
+      "type": "object"
+    },
+    "NetConnection": {
+      "additionalProperties": false,
+      "properties": {
+        "source": {
+          "title": "Source",
+          "type": "string"
+        },
+        "target": {
+          "title": "Target",
+          "type": "string"
+        },
+        "bus": {
+          "enum": [
+            "power",
+            "i2c",
+            "spi",
+            "uart",
+            "gpio",
+            "pwm",
+            "adc",
+            "rf",
+            "usb",
+            "analog",
+            "can"
+          ],
+          "title": "Bus",
+          "type": "string"
+        },
+        "signals": {
+          "description": "Net names, e.g. 'SDA, SCL, INT1'",
+          "title": "Signals",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source",
+        "target",
+        "bus",
+        "signals"
+      ],
+      "title": "NetConnection",
+      "type": "object"
+    },
+    "PowerBudgetLine": {
+      "additionalProperties": false,
+      "properties": {
+        "block": {
+          "title": "Block",
+          "type": "string"
+        },
+        "part": {
+          "title": "Part",
+          "type": "string"
+        },
+        "active_current": {
+          "$ref": "#/$defs/LabeledValue",
+          "description": "mA while active"
+        },
+        "sleep_current": {
+          "$ref": "#/$defs/LabeledValue",
+          "description": "\u00b5A while idle"
+        },
+        "duty_cycle": {
+          "$ref": "#/$defs/LabeledValue",
+          "description": "pct of time active"
+        },
+        "average_current": {
+          "$ref": "#/$defs/LabeledValue",
+          "description": "mA, duty-weighted"
+        }
+      },
+      "required": [
+        "block",
+        "part",
+        "active_current",
+        "sleep_current",
+        "duty_cycle",
+        "average_current"
+      ],
+      "title": "PowerBudgetLine",
+      "type": "object"
+    },
+    "PowerNode": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "source",
+            "charger",
+            "storage",
+            "regulator",
+            "load"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "parent": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Upstream node id (None for a source)",
+          "title": "Parent"
+        },
+        "voltage": {
+          "$ref": "#/$defs/LabeledValue"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "kind",
+        "voltage"
+      ],
+      "title": "PowerNode",
+      "type": "object"
+    },
+    "PrototypeCostLine": {
+      "additionalProperties": false,
+      "properties": {
+        "item": {
+          "title": "Item",
+          "type": "string"
+        },
+        "amount": {
+          "$ref": "#/$defs/LabeledValue"
+        }
+      },
+      "required": [
+        "item",
+        "amount"
+      ],
+      "title": "PrototypeCostLine",
+      "type": "object"
+    },
+    "PrototypePath": {
+      "additionalProperties": false,
+      "properties": {
+        "enclosure_method": {
+          "title": "Enclosure Method",
+          "type": "string"
+        },
+        "enclosure_volume": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "units": {
+          "description": "Prototype quantity (input)",
+          "title": "Units",
+          "type": "integer"
+        },
+        "cost_lines": {
+          "items": {
+            "$ref": "#/$defs/PrototypeCostLine"
+          },
+          "title": "Cost Lines",
+          "type": "array"
+        },
+        "devkit_bom": {
+          "items": {
+            "$ref": "#/$defs/DevKitLine"
+          },
+          "title": "Devkit Bom",
+          "type": "array"
+        },
+        "assembly_steps": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Assembly Steps",
+          "type": "array"
+        },
+        "timeline_weeks": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "total_cost": {
+          "$ref": "#/$defs/LabeledValue"
+        }
+      },
+      "required": [
+        "enclosure_method",
+        "enclosure_volume",
+        "units",
+        "cost_lines",
+        "assembly_steps",
+        "timeline_weeks",
+        "total_cost"
+      ],
+      "title": "PrototypePath",
+      "type": "object"
+    },
+    "RequiredTest": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "name": {
+          "description": "e.g. 'Drop test 1.5 m', 'IPX7 immersion', 'Salt spray 96 h', 'Tip-over'",
+          "title": "Name",
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "drop",
+            "ingress",
+            "salt_spray",
+            "tip_over",
+            "thermal",
+            "electrical",
+            "radio",
+            "mechanical",
+            "battery",
+            "chemical",
+            "other"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "method": {
+          "title": "Method",
+          "type": "string"
+        },
+        "standard": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Standard"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "kind",
+        "method"
+      ],
+      "title": "RequiredTest",
+      "type": "object"
+    },
+    "Severity": {
+      "enum": [
+        "critical",
+        "major",
+        "minor"
+      ],
+      "title": "Severity",
+      "type": "string"
+    },
+    "SolarDesign": {
+      "additionalProperties": false,
+      "properties": {
+        "location": {
+          "title": "Location",
+          "type": "string"
+        },
+        "latitude": {
+          "title": "Latitude",
+          "type": "number"
+        },
+        "longitude": {
+          "title": "Longitude",
+          "type": "number"
+        },
+        "location_assumed": {
+          "description": "True when the location was not in the prompt (default demo site)",
+          "title": "Location Assumed",
+          "type": "boolean"
+        },
+        "roof_area": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "module_power": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "module_count": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "peak_power": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "specific_yield": {
+          "$ref": "#/$defs/LabeledValue",
+          "description": "kWh/kWp/year from PVGIS (Sourced)"
+        },
+        "annual_energy": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "monthly_energy": {
+          "description": "12 values, kWh",
+          "items": {
+            "$ref": "#/$defs/LabeledValue"
+          },
+          "title": "Monthly Energy",
+          "type": "array"
+        },
+        "install_cost": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "annual_savings": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "payback": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "pvgis_url": {
+          "title": "Pvgis Url",
+          "type": "string"
+        }
+      },
+      "required": [
+        "location",
+        "latitude",
+        "longitude",
+        "location_assumed",
+        "roof_area",
+        "module_power",
+        "module_count",
+        "peak_power",
+        "specific_yield",
+        "annual_energy",
+        "install_cost",
+        "annual_savings",
+        "payback",
+        "pvgis_url"
+      ],
+      "title": "SolarDesign",
+      "type": "object"
+    },
+    "StageStatus": {
+      "enum": [
+        "not_started",
+        "draft",
+        "validated"
+      ],
+      "title": "StageStatus",
+      "type": "string"
+    },
+    "StandardRef": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "description": "e.g. 'IEC 60335-2-2', 'EN 12221-1', 'IEC 60529'",
+          "title": "Code",
+          "type": "string"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "applies_because": {
+          "title": "Applies Because",
+          "type": "string"
+        },
+        "url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Url"
+        },
+        "citation_label": {
+          "$ref": "#/$defs/Label",
+          "description": "sourced = the URL was checked to load (date in citation_note); estimate = standard to be confirmed"
+        },
+        "citation_note": {
+          "title": "Citation Note",
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "title",
+        "applies_because",
+        "citation_label",
+        "citation_note"
+      ],
+      "title": "StandardRef",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "project_id": {
+      "title": "Project Id",
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/$defs/StageStatus",
+      "default": "draft"
+    },
+    "fallback": {
+      "default": false,
+      "description": "True when served from a fixture after an error",
+      "title": "Fallback",
+      "type": "boolean"
+    },
+    "fallback_reason": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Fallback Reason"
+    },
+    "generated_by": {
+      "default": "fixture",
+      "description": "'fixture' | 'code' | 'llm:<model slug>'",
+      "title": "Generated By",
+      "type": "string"
+    },
+    "generated_at": {
+      "format": "date-time",
+      "title": "Generated At",
+      "type": "string"
+    },
+    "assumptions": {
+      "items": {
+        "$ref": "#/$defs/Assumption"
+      },
+      "title": "Assumptions",
+      "type": "array"
+    },
+    "stage": {
+      "const": "engineering",
+      "default": "engineering",
+      "title": "Stage",
+      "type": "string"
+    },
+    "category": {
+      "description": "Engineering category key, e.g. wearable, furniture_baby, home_robot, vacuum, irrigation, solar_roof, surfboard, lighting, tracker, generic",
+      "title": "Category",
+      "type": "string"
+    },
+    "category_title": {
+      "title": "Category Title",
+      "type": "string"
+    },
+    "partner_word": {
+      "default": "factories",
+      "enum": [
+        "factories",
+        "installers"
+      ],
+      "title": "Partner Word",
+      "type": "string"
+    },
+    "site_install": {
+      "default": false,
+      "title": "Site Install",
+      "type": "boolean"
+    },
+    "product_name": {
+      "title": "Product Name",
+      "type": "string"
+    },
+    "inputs_digest": {
+      "description": "Hash of the project state this was computed from",
+      "title": "Inputs Digest",
+      "type": "string"
+    },
+    "standards": {
+      "items": {
+        "$ref": "#/$defs/StandardRef"
+      },
+      "title": "Standards",
+      "type": "array"
+    },
+    "risks": {
+      "items": {
+        "$ref": "#/$defs/DesignRisk"
+      },
+      "title": "Risks",
+      "type": "array"
+    },
+    "tests": {
+      "items": {
+        "$ref": "#/$defs/RequiredTest"
+      },
+      "title": "Tests",
+      "type": "array"
+    },
+    "checks": {
+      "items": {
+        "$ref": "#/$defs/EngineeringCheck"
+      },
+      "title": "Checks",
+      "type": "array"
+    },
+    "electronics": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ElectronicsArchitecture"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "firmware": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/FirmwareProject"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "prototype": {
+      "$ref": "#/$defs/PrototypePath"
+    },
+    "solar": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/SolarDesign"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "installers": {
+      "description": "Site-install mode: fictional certified installers",
+      "items": {
+        "$ref": "#/$defs/InstallerMatch"
+      },
+      "title": "Installers",
+      "type": "array"
+    },
+    "build_strategy": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/BuildStrategy"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "W21: full design / module assembly / ODM customisation"
+    },
+    "unit_basis": {
+      "default": "per_unit",
+      "description": "W21b: what one 'unit' is for this product \u2014 per_installation for site installs (rooftop solar): costs are per site",
+      "enum": [
+        "per_unit",
+        "per_installation"
+      ],
+      "title": "Unit Basis",
+      "type": "string"
+    },
+    "installation_cost": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "W21b: turnkey cost of one installation (per_installation only; = solar.install_cost)"
+    }
+  },
+  "required": [
+    "project_id",
+    "category",
+    "category_title",
+    "product_name",
+    "inputs_digest",
+    "standards",
+    "risks",
+    "tests",
+    "checks",
+    "prototype"
+  ],
+  "title": "EngineeringArtifact",
+  "type": "object"
+}

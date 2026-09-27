@@ -1,0 +1,36 @@
+{
+  "key": "lighting",
+  "title": "Portable / desk luminaire",
+  "match": ["lamp", "lampe", "luminaire", "light", "lantern", "led bar", "night light", "lighting"],
+  "families": [],
+  "brief_categories": ["lighting"],
+  "partner_word": "factories",
+  "standards": [
+    {"code": "IEC 60598-1", "applies_because": "Luminaire safety, general requirements (incl. stability of portable luminaires)"},
+    {"code": "IEC 62471", "applies_because": "Photobiological safety (blue-light hazard) of the LED source"},
+    {"code": "IEC 62133-2", "applies_because": "Rechargeable Li-ion cell"},
+    {"code": "UN 38.3", "applies_because": "Li-ion cell shipped inside the product"},
+    {"code": "47 CFR Part 15", "applies_because": "Digital device / PWM driver emissions (FCC 15B)"},
+    {"code": "IEC 61000-6-3", "applies_because": "EMC emissions, residential"}
+  ],
+  "risks": [
+    {"risk": "Lamp tips over when the arm is extended", "mitigation": "Steel weight plate in the base, low centre of mass, anti-slip feet", "severity": "major"},
+    {"risk": "LED board runs hot in a closed head", "mitigation": "Aluminium MCPCB on the metal stem as heat spreader, thermal derating in firmware", "severity": "major"},
+    {"risk": "Visible PWM flicker", "mitigation": "PWM ≥ 20 kHz or constant-current dimming", "severity": "minor"},
+    {"risk": "Charging while in use overheats the cell", "mitigation": "Charger IC thermal regulation, NTC on the cell", "severity": "major"}
+  ],
+  "tests": [
+    {"name": "Stability on an inclined plane", "kind": "tip_over", "method": "Luminaire on the inclined plane in its least favourable position", "standard": "IEC 60598-1"},
+    {"name": "Temperature rise of LED head and cell", "kind": "thermal", "method": "Full brightness until steady state, thermocouples", "standard": "IEC 60598-1"},
+    {"name": "Photobiological risk group", "kind": "other", "method": "Spectroradiometer measurement", "standard": "IEC 62471"},
+    {"name": "Drop 0.75 m", "kind": "drop", "method": "Portable luminaire drop, functional check", "standard": null},
+    {"name": "EMC emissions", "kind": "electrical", "method": "Accredited lab", "standard": "47 CFR Part 15 / IEC 61000-6-3"}
+  ],
+  "checks": ["tip_over", "battery_life", "thermal", "mass"],
+  "params": {"com_ratio": 0.3, "tip_min_deg": 10, "tip_warn_deg": 6, "push_min_n": 5, "mass_max_g": 1500,
+    "battery_target_h": 3, "battery_mah_default": 3000, "battery_v_default": 3.7,
+    "duty": {"led_power": 50, "mcu": 100, "led": 100, "radio": 0},
+    "default_family": "avr", "connectivity": "none (touch dimming)", "typical_electronics": []},
+  "prototype": {"method": "SLA resin head + FDM base, aluminium stem from stock tube", "usd_per_cm3": 0.30, "setup_usd": 25, "units": 2,
+    "steps": ["Bench the LED bar + driver with a lab supply, check flicker and temperature", "Print head and base; cut the stem from stock aluminium tube", "Assemble the quick-turn PCBA and the 18650 cell holder", "Inclined-plane stability check with the arm in the worst position", "Thermal run at full brightness for 1 h"]}
+}

@@ -1,0 +1,445 @@
+{
+ "status": "ok",
+ "version": 1,
+ "source": "llm:openai/gpt-6-sol",
+ "label": "AI-generated CAD (concept level) \u2014 geometry measured on the result",
+ "category": "solar_roof",
+ "seed_family": "irrigation",
+ "variant": "roof",
+ "files": {
+  "step": "api/data/files_w21/p_63cd2bceed/model_v1.step",
+  "stl": "api/data/files_w21/p_63cd2bceed/model_v1.stl",
+  "glb": "api/data/files_w21/p_63cd2bceed/model_v1.glb"
+ },
+ "urls": {
+  "step": "/files/p_63cd2bceed/model_v1.step",
+  "stl": "/files/p_63cd2bceed/model_v1.stl",
+  "glb": "/files/p_63cd2bceed/model_v1.glb"
+ },
+ "code_path": "api/data/files_w21/p_63cd2bceed/model_v1.py",
+ "code_url": "/projects/p_63cd2bceed/cad/code/1",
+ "bbox_mm": [
+  554.0,
+  74.42,
+  221.5
+ ],
+ "volume_mm3": 2318679.5,
+ "parts": [
+  {
+   "label": "body.1",
+   "role": "body",
+   "volume_mm3": 1677357.9,
+   "valid": true,
+   "bbox_mm": [
+    150.0,
+    60.0,
+    190.0
+   ]
+  },
+  {
+   "label": "glass.1",
+   "role": "glass",
+   "volume_mm3": 12722.4,
+   "valid": true,
+   "bbox_mm": [
+    93.0,
+    3.0,
+    45.6
+   ]
+  },
+  {
+   "label": "button.1",
+   "role": "button",
+   "volume_mm3": 1272.3,
+   "valid": true,
+   "bbox_mm": [
+    18.0,
+    5.0,
+    18.0
+   ]
+  },
+  {
+   "label": "button.2",
+   "role": "button",
+   "volume_mm3": 1272.3,
+   "valid": true,
+   "bbox_mm": [
+    18.0,
+    5.0,
+    18.0
+   ]
+  },
+  {
+   "label": "button.3",
+   "role": "button",
+   "volume_mm3": 1272.3,
+   "valid": true,
+   "bbox_mm": [
+    18.0,
+    5.0,
+    18.0
+   ]
+  },
+  {
+   "label": "led.1",
+   "role": "led",
+   "volume_mm3": 84.8,
+   "valid": true,
+   "bbox_mm": [
+    6.0,
+    3.0,
+    6.0
+   ]
+  },
+  {
+   "label": "accent.1",
+   "role": "accent",
+   "volume_mm3": 97715.8,
+   "valid": true,
+   "bbox_mm": [
+    166.0,
+    74.42,
+    16.96
+   ]
+  },
+  {
+   "label": "coat.1",
+   "role": "coat",
+   "volume_mm3": 18178.0,
+   "valid": true,
+   "bbox_mm": [
+    149.0,
+    60.79,
+    9.42
+   ]
+  },
+  {
+   "label": "cell.1",
+   "role": "cell",
+   "volume_mm3": 422.4,
+   "valid": true,
+   "bbox_mm": [
+    33.0,
+    15.98,
+    2.74
+   ]
+  },
+  {
+   "label": "cell.2",
+   "role": "cell",
+   "volume_mm3": 422.4,
+   "valid": true,
+   "bbox_mm": [
+    33.0,
+    15.98,
+    2.74
+   ]
+  },
+  {
+   "label": "cell.3",
+   "role": "cell",
+   "volume_mm3": 422.4,
+   "valid": true,
+   "bbox_mm": [
+    33.0,
+    15.98,
+    2.74
+   ]
+  },
+  {
+   "label": "cell.4",
+   "role": "cell",
+   "volume_mm3": 422.4,
+   "valid": true,
+   "bbox_mm": [
+    33.0,
+    15.98,
+    2.74
+   ]
+  },
+  {
+   "label": "cell.5",
+   "role": "cell",
+   "volume_mm3": 422.4,
+   "valid": true,
+   "bbox_mm": [
+    33.0,
+    15.98,
+    2.74
+   ]
+  },
+  {
+   "label": "cell.6",
+   "role": "cell",
+   "volume_mm3": 422.4,
+   "valid": true,
+   "bbox_mm": [
+    33.0,
+    15.98,
+    2.74
+   ]
+  },
+  {
+   "label": "cell.7",
+   "role": "cell",
+   "volume_mm3": 422.4,
+   "valid": true,
+   "bbox_mm": [
+    33.0,
+    15.98,
+    2.74
+   ]
+  },
+  {
+   "label": "cell.8",
+   "role": "cell",
+   "volume_mm3": 422.4,
+   "valid": true,
+   "bbox_mm": [
+    33.0,
+    15.98,
+    2.74
+   ]
+  },
+  {
+   "label": "cell.9",
+   "role": "cell",
+   "volume_mm3": 422.4,
+   "valid": true,
+   "bbox_mm": [
+    33.0,
+    15.98,
+    2.74
+   ]
+  },
+  {
+   "label": "cell.10",
+   "role": "cell",
+   "volume_mm3": 422.4,
+   "valid": true,
+   "bbox_mm": [
+    33.0,
+    15.98,
+    2.74
+   ]
+  },
+  {
+   "label": "cell.11",
+   "role": "cell",
+   "volume_mm3": 422.4,
+   "valid": true,
+   "bbox_mm": [
+    33.0,
+    15.98,
+    2.74
+   ]
+  },
+  {
+   "label": "cell.12",
+   "role": "cell",
+   "volume_mm3": 422.4,
+   "valid": true,
+   "bbox_mm": [
+    33.0,
+    15.98,
+    2.74
+   ]
+  },
+  {
+   "label": "rubber.1",
+   "role": "rubber",
+   "volume_mm3": 2155.1,
+   "valid": true,
+   "bbox_mm": [
+    14.0,
+    14.0,
+    14.0
+   ]
+  },
+  {
+   "label": "rubber.2",
+   "role": "rubber",
+   "volume_mm3": 2155.1,
+   "valid": true,
+   "bbox_mm": [
+    14.0,
+    14.0,
+    14.0
+   ]
+  },
+  {
+   "label": "coat.2",
+   "role": "coat",
+   "volume_mm3": 164214.1,
+   "valid": true,
+   "bbox_mm": [
+    170.0,
+    35.07,
+    35.07
+   ]
+  },
+  {
+   "label": "metal.1",
+   "role": "metal",
+   "volume_mm3": 33219.5,
+   "valid": true,
+   "bbox_mm": [
+    26.0,
+    38.41,
+    44.35
+   ]
+  },
+  {
+   "label": "metal.2",
+   "role": "metal",
+   "volume_mm3": 33219.5,
+   "valid": true,
+   "bbox_mm": [
+    26.0,
+    38.41,
+    44.35
+   ]
+  },
+  {
+   "label": "coat.3",
+   "role": "coat",
+   "volume_mm3": 119980.3,
+   "valid": true,
+   "bbox_mm": [
+    71.4,
+    43.42,
+    40.08
+   ]
+  },
+  {
+   "label": "coat.4",
+   "role": "coat",
+   "volume_mm3": 23220.7,
+   "valid": true,
+   "bbox_mm": [
+    38.41,
+    38.41,
+    20.04
+   ]
+  },
+  {
+   "label": "rubber.3",
+   "role": "rubber",
+   "volume_mm3": 23355.1,
+   "valid": true,
+   "bbox_mm": [
+    30.06,
+    30.06,
+    33.4
+   ]
+  },
+  {
+   "label": "rubber.4",
+   "role": "rubber",
+   "volume_mm3": 1508.0,
+   "valid": true,
+   "bbox_mm": [
+    30.0,
+    8.0,
+    8.0
+   ]
+  },
+  {
+   "label": "accent.2",
+   "role": "accent",
+   "volume_mm3": 23629.3,
+   "valid": true,
+   "bbox_mm": [
+    19.8,
+    9.0,
+    132.6
+   ]
+  },
+  {
+   "label": "accent.3",
+   "role": "accent",
+   "volume_mm3": 5732.1,
+   "valid": true,
+   "bbox_mm": [
+    22.88,
+    22.88,
+    40.0
+   ]
+  },
+  {
+   "label": "steel.1",
+   "role": "steel",
+   "volume_mm3": 347.5,
+   "valid": true,
+   "bbox_mm": [
+    3.0,
+    1.5,
+    77.22
+   ]
+  },
+  {
+   "label": "steel.2",
+   "role": "steel",
+   "volume_mm3": 347.5,
+   "valid": true,
+   "bbox_mm": [
+    3.0,
+    1.5,
+    77.22
+   ]
+  },
+  {
+   "label": "body.2",
+   "role": "body",
+   "volume_mm3": 69409.8,
+   "valid": true,
+   "bbox_mm": [
+    44.0,
+    44.0,
+    48.4
+   ]
+  },
+  {
+   "label": "cell.13",
+   "role": "cell",
+   "volume_mm3": 1182.4,
+   "valid": true,
+   "bbox_mm": [
+    31.68,
+    31.68,
+    1.5
+   ]
+  },
+  {
+   "label": "led.2",
+   "role": "led",
+   "volume_mm3": 58.9,
+   "valid": true,
+   "bbox_mm": [
+    5.0,
+    3.0,
+    5.0
+   ]
+  }
+ ],
+ "target_dims_mm": [
+  544.0,
+  74.0,
+  221.5
+ ],
+ "attempts": [
+  {
+   "n": 1,
+   "kind": "generate",
+   "llm_seconds": 20.62,
+   "run_seconds": 2.48,
+   "error": null,
+   "error_kind": null
+  }
+ ],
+ "notes": [],
+ "instruction": null,
+ "parent_version": null,
+ "seconds": 23.26,
+ "brief": "product_name: Smart garden irrigation; one_liner: An irrigation controller for a 30 m\u00b2 garden in Biarritz that adjusts watering schedules based on weather and soil conditions.; category: other; key_features: Scheduled watering; Weather-based schedule adjustments; Soil moisture monitoring; Manual watering override; prompt: Smart irrigation for a 30 m\u00b2 garden in Biarritz"
+}

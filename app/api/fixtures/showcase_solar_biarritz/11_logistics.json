@@ -1,0 +1,94 @@
+{
+ "project_id": "demo_solar_biarritz",
+ "status": "validated",
+ "fallback": false,
+ "fallback_reason": null,
+ "generated_by": "code",
+ "generated_at": "2026-09-27T11:59:53.448512Z",
+ "assumptions": [
+  {
+   "id": "a1",
+   "text": "Site install: the kit is bought from an EU distributor and delivered to the site; no customs or ocean freight for the installer",
+   "label": "estimate",
+   "source": null,
+   "stage": 11
+  }
+ ],
+ "stage": 11,
+ "incoterm": "DDP",
+ "destination": "Installer depot → customer roof (local delivery, EU)",
+ "quantity": 10,
+ "freight_options": [
+  {
+   "mode": "sea_fcl",
+   "transit_days": {
+    "value": 0.0,
+    "unit": "days",
+    "label": "estimate",
+    "source_or_assumption": "Stock at the EU distributor: no ocean leg for the installer"
+   },
+   "cost_per_unit": {
+    "value": 0.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Delivery included in the distributor's equipment price"
+   }
+  }
+ ],
+ "chosen_mode": "sea_fcl",
+ "hts": {
+  "code": "8541.43",
+  "description": "Photovoltaic modules — bought in the EU, no import by the installer",
+  "general_rate": {
+   "value": 0.0,
+   "unit": "pct",
+   "label": "estimate",
+   "source_or_assumption": "EU conventional duty on PV modules 0% (to be confirmed); not paid by the installer"
+  },
+  "section_301_rate": {
+   "value": 0.0,
+   "unit": "pct",
+   "label": "estimate",
+   "source_or_assumption": "Not applicable: EU site, no US import"
+  },
+  "source_url": "https://ec.europa.eu/taxation_customs/dds2/taric/"
+ },
+ "section_122_applied": false,
+ "landed_cost_breakdown": [
+  {
+   "name": "Equipment (delivered to the installer's depot)",
+   "amount": {
+    "value": 7138.7,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Equipment from the BOM per installation (5.59 kWp + battery): modules, inverter, mounting, cabling, battery"
+   }
+  },
+  {
+   "name": "Installation labour + site admin",
+   "amount": {
+    "value": 2459.16,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Installation labour 5.59 kWp × 0.3 EUR/Wp + site admin 600 EUR (scaffolding, permit, grid request, commissioning) × 1.08 USD/EUR"
+   }
+  },
+  {
+   "name": "Import duties",
+   "amount": {
+    "value": 0.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "None paid by the installer: equipment bought from an EU distributor (PV modules CN 8541 43: 0% EU conventional duty, to be confirmed)"
+   }
+  }
+ ],
+ "landed_cost_per_unit": {
+  "value": 9597.86,
+  "unit": "USD",
+  "label": "estimate",
+  "source_or_assumption": "Installer cost per installation (stage 5)"
+ },
+ "reconciles_with_stage5": true,
+ "reconciliation_note": "Site install: landed cost = stage 5 installer cost per installation (no import, no freight leg)."
+}

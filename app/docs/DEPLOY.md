@@ -14,8 +14,9 @@ Two different secrets — do not mix them up:
 |---|---|---|
 | `API_SHARED_KEY` | Railway **and** Vercel (same value, random 32+ chars) | the API refuses every request without header `X-App-Key: <value>` (except `GET /health`). The Vercel proxy adds it; browsers never see it. Empty = API open (local dev) |
 | `APP_PASSWORD` | Vercel only (server-only) | the password a visitor types on the web app's password screen (cookie 7 days). Never reaches the API |
+| `MCP_TOKEN` | Railway only (+ the MCP client: Claude / ChatGPT connector) | Bearer token of the production MCP at `/mcp`. **Separate from `API_SHARED_KEY`**: `/mcp` is exempt from the X-App-Key gate and checks `Authorization: Bearer <MCP_TOKEN>` itself (falls back to `API_SHARED_KEY` only if `MCP_TOKEN` is empty) |
 
-Generate the key: `openssl rand -hex 24`.
+Generate each key separately: `openssl rand -hex 24` (one for `API_SHARED_KEY`, another for `MCP_TOKEN`).
 
 ---
 
@@ -52,7 +53,8 @@ OPENROUTER_API_KEY=<your key>
 LLM_MAIN_MODEL=<slug>
 LLM_FAST_MODEL=<slug>
 LLM_CN_MODEL=<slug>
-LLM_IMAGE_MODEL=<slug>          # empty = no concept renders
+LLM_IMAGE_MODEL=google/gemini-3.1-flash-image     # stage-2 concept renders + Studio photos; empty = no renders/photos
+LLM_IMAGE_MAX_RENDERS=1         # stage-2 auto-renders only the first N directions (images are the priciest call)
 LLM_MAX_REQUESTS=300            # global cap per API process (resets on restart): the hard cost ceiling
 LLM_MAX_TOKENS=8000
 LLM_TIMEOUT_S=60
@@ -62,11 +64,24 @@ DB_PATH=/data/app.db
 FILES_DIR=/data/files
 FACTORY_MCP_DB=/data/network.db
 API_SHARED_KEY=<the openssl value>
+MCP_TOKEN=<a second openssl rand -hex 24>     # Bearer token for POST /mcp (the production MCP endpoint); falls back to API_SHARED_KEY if unset — set its own so you can hand it to an MCP client without also handing out the web/API key
 CORS_ORIGINS=https://placeholder.invalid     # replaced in step 5.4 by the Vercel origin
 ```
    The three `/data` paths are also the image defaults (listed so a wrong volume mount is obvious); `SEED_DEMO_ON_EMPTY=1` is baked in. Do not set `PORT`.
 5. Wait for the deploy (first build ≈ 10 min). Check: `https://<api>/health` → `"status":"ok"`, `"llm_configured":true`. Then
    `curl -s -o /dev/null -w "%{http_code}\n" https://<api>/projects` → **401**, and with `-H "X-App-Key: <API_SHARED_KEY>"` → **200** (two demo projects).
+
+**W21 additions (Studio + AI CAD + engineering):**
+```
+CODEGEN_ENABLED=1               # 0 = no AI-written CAD: parametric families only (labelled "Parametric family CAD"), no codegen LLM calls
+CODEGEN_MEM_MB=1280             # address-space cap of the CAD sandbox child (OCP needs ~1.1 GB of address space; 900 segfaults)
+CODEGEN_DATA_MB=640             # data-segment cap of the sandbox child: what stops a runaway model from OOM-ing the 1 GB container
+STUDIO_RATE_LIMIT_PER_DAY=100   # Studio prompts per visitor IP per 24 h (start, refine, restore, engineering recompute); 0 = off
+PHOTO_RATE_LIMIT_PER_DAY=30     # Studio photo (image-model) jobs per visitor IP per 24 h, own bucket, only counted with a live key; 0 = off
+```
+`CODEGEN_*`, `STUDIO_RATE_LIMIT_PER_DAY` and `PHOTO_RATE_LIMIT_PER_DAY` have safe defaults: nothing to set on Railway unless you want to change them. All five are baked into the image with these defaults (plus `MALLOC_ARENA_MAX=2`, `OPENBLAS_NUM_THREADS=1`); set them on Railway only to change them.
+Memory check (W21, `docker run --memory=1g`, one Studio start with AI CAD running in the API process + its sandbox child, three product families in a row, fake LLM endpoint): **container peak 810 MB** (cgroup `memory.peak`, incl. page cache), anonymous memory peak 678 MB, API peak RSS 649 MB, sandbox child ≈ 450 MB RSS of which most is shared OCP libraries; `oom_kill 0`. Idle API: 496 MB RSS.
+Showcase gallery: after `POST /demo/reset` (or a fresh volume with `SEED_DEMO_ON_EMPTY=1`), `GET /examples` lists the recorded showcases (`demo_<slug>`); opening them costs nothing (every stage, version, AI CAD program and engineering result is cached in the image).
 
 **Zero-cost public mode:** add `DEMO_READONLY=1` (live AI runs → 403 "Read-only demo"; cached demos, factory portal, PDF and 3D keep working; key not needed).
 
@@ -88,17 +103,65 @@ Server-only means **no `NEXT_PUBLIC_` prefix**: the Next build was checked (dumm
 4. Railway → service → Variables → set `CORS_ORIGINS=https://<vercel-project>.vercel.app` (scheme + host, no path; comma-separate a custom domain too). It redeploys in ~1 min.
 
 ## 6. Test (3 min)
+0. **Before the demo: `curl -X POST -H "X-App-Key: <API_SHARED_KEY>" https://<api>/demo/reset`** — clean DB, the 2 cached examples + the 11 showcases (`GET /examples`), fresh factory network (15 fictional partners).
+   MCP smoke test (7 tools; the endpoint is stateless, no session id needed):
+   ```bash
+   # without the token → 401
+   curl -s -o /dev/null -w "%{http_code}\n" -X POST https://<api>/mcp -H "Content-Type: application/json" \
+     -H "Accept: application/json, text/event-stream" -d '{"jsonrpc":"2.0","id":1,"method":"tools/list"}'
+   # with the token → 200 and 7 tool names
+   curl -s -X POST https://<api>/mcp -H "Authorization: Bearer $MCP_TOKEN" -H "Content-Type: application/json" \
+     -H "Accept: application/json, text/event-stream" -d '{"jsonrpc":"2.0","id":1,"method":"tools/list"}' \
+     | grep -o '"name":"[a-z_]*"' | sort -u        # 7 lines
+   ```
 1. Open the Web URL → password screen → password → home.
 2. Open the desk-lamp example: 3D model loads, 13 stages, **Export** downloads the PDF.
 3. New project with the desk-lamp prompt → autorun ≈ 1 min → stages turn green; no "Cached example" banner when the key is valid.
 4. `/factories` → every card says "Fictional — demo data".
 5. Wrong password → stays on the password screen. `curl https://<api>/projects` without the header → 401.
+6. `https://<vercel-project>.vercel.app/docs` and `/agents.md` load with **no password prompt** (public, served from the web build — no `X-App-Key` involved).
+7. Open the `whoop_kitesurf` showcase (`/projects/demo_whoop_kitesurf/wow` behind the password screen, or from the gallery on the home page): 3D model, engineering and firmware load instantly (recorded in the image — no LLM call).
 
 ## 7. Framer
 Framer → the **Get Started** button → Link → web page → `https://<vercel-project>.vercel.app/?mode=idea` → **Publish**. (Prototype flow: `/?mode=prototype`.)
 
 ## 8. Cleanup (optional)
 Delete the old repo: github.com/orpheo28/physicallovablex-mvp → Settings → Danger Zone → Delete this repository. Only after Railway and Vercel point at `physicallovablex`.
+
+## Redeploy after changes
+The pushed clone at `~/physicallovablex-export` is separate from this working tree (`mvp/`). To ship a later change:
+1. `cd ~/Desktop/Hexa_Case/04_LIVRABLE && ./export_repo.sh --update` — builds the export fresh into a temp folder with the
+   same checks as the first export (aborts before touching anything on a planted key, a forbidden path, a file over 50 MB, or a
+   discovery email), then syncs it into `~/physicallovablex-export` and makes **one** commit `Update: <label>` (label defaults to
+   `mvp`'s current tag or short hash, e.g. `pass-5`; pass your own: `./export_repo.sh --update ~/physicallovablex-export my-label`).
+   It prints `git status --short | wc -l` and a diff stat before committing, and says "nothing to commit" if the export is
+   unchanged. It never pushes.
+2. `cd ~/physicallovablex-export && git push` — Railway and Vercel are both connected to this GitHub repo's `main` branch, so
+   each auto-deploys from the push (watch their Deployments tab).
+3. **Before this first push after the W21/W22/W23 additions**, add these Railway variables (Vercel needs no new ones):
+
+| Variable | Value | Why |
+|---|---|---|
+| `MCP_TOKEN` | `openssl rand -hex 24` | gates `POST /mcp` (falls back to `API_SHARED_KEY` if left unset — set it so the MCP token can be handed out separately from the web/API key) |
+| `CODEGEN_ENABLED` *(optional)* | `1` (default, already in the image) | AI-written CAD in Studio; `0` = parametric families only |
+| `CODEGEN_MEM_MB` *(optional)* | `1280` (default) | AI CAD sandbox address-space cap |
+| `CODEGEN_DATA_MB` *(optional)* | `640` (default) | AI CAD sandbox data-segment cap |
+| `STUDIO_RATE_LIMIT_PER_DAY` *(optional)* | `100` (default) | Studio prompts per visitor IP per 24 h |
+| `PHOTO_RATE_LIMIT_PER_DAY` *(optional)* | `30` (default) | Studio photo jobs per visitor IP per 24 h |
+
+   Also confirm (already set from §3, re-check after the redeploy): `LLM_IMAGE_MODEL=google/gemini-3.1-flash-image` and
+   `LLM_IMAGE_MAX_RENDERS=1`.
+4. **Smoke test** after both deployments finish:
+   ```bash
+   curl -s https://<api>/health                                                       # "status":"ok"
+   curl -s -o /dev/null -w "%{http_code}\n" -X POST https://<api>/mcp -H "Content-Type: application/json" \
+     -H "Accept: application/json, text/event-stream" -d '{"jsonrpc":"2.0","id":1,"method":"tools/list"}'   # 401
+   curl -s -X POST https://<api>/mcp -H "Authorization: Bearer $MCP_TOKEN" -H "Content-Type: application/json" \
+     -H "Accept: application/json, text/event-stream" -d '{"jsonrpc":"2.0","id":1,"method":"tools/list"}' \
+     | grep -o '"name":"[a-z_]*"' | sort -u                                           # 200, 7 tool names
+   ```
+   Then in a browser: `https://<vercel-project>.vercel.app/docs` and `/agents.md` open with no password prompt; the password
+   screen still gates everything else; log in and open the `whoop_kitesurf` showcase (loads instantly, no LLM call).
 
 ---
 

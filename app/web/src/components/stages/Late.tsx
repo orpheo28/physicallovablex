@@ -1,237 +1,17 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useState } from "react";
-import type {
-  BrandArtifact,
-  Factory,
-  FinancingArtifact,
-  ListingDraft,
-  LogisticsArtifact,
-  NegotiationArtifact,
-  QCArtifact,
-  Quote,
-  ToolingArtifact,
-} from "@/types/contracts";
-import { useApi } from "@/lib/useApi";
+import type { BrandArtifact, FinancingArtifact, ListingDraft, LogisticsArtifact, QCArtifact, ToolingArtifact } from "@/types/contracts";
 import { fmtDate, humanize } from "@/lib/meta";
 import { DimsView, StackedBar } from "../blocks";
-import { Btn, Card, KV, LabelBadge, LV, Pill, Segmented, Severity, Spinner, StatStrip, Table, Td, Th } from "../ui";
+import { Card, KV, LabelBadge, LV, Pill, Severity, Spinner, StatStrip, Table, Td, Th } from "../ui";
 import type { StageViewProps } from "./types";
+import { ListingKit } from "../ListingKit";
 
 const CashChart = dynamic(() => import("./CashChart"), {
   ssr: false,
   loading: () => <div className="flex h-[300px] items-center justify-center text-sm text-ink-3">Loading chart…</div>,
 });
-
-function useFactoryNames() {
-  const { data } = useApi<Factory[]>("/factories");
-  return (id: string) => data?.find((f) => f.id === id)?.name ?? id;
-}
-
-// ---------------------------------------------------------------- Stage 8
-const usd = (n: number, d = 2) => `$${n.toLocaleString("en-US", { minimumFractionDigits: d, maximumFractionDigits: d })}`;
-
-function QuoteMatrix({ factories, quotes, name, recommended }: { factories: string[]; quotes: Quote[]; name: (id: string) => string; recommended?: string }) {
-  const latest = factories
-    .map((f) => [...quotes.filter((q) => q.factory_id === f)].sort((a, b) => b.version - a.version))
-    .map((qs) => ({ latest: qs[0], earlier: qs.slice(1) }))
-    .filter((x) => x.latest);
-  const qtys = Array.from(new Set(latest.flatMap((x) => x.latest.tiers.map((t) => t.quantity)))).sort((a, b) => a - b);
-  const isRec = (x: (typeof latest)[number]) => x.latest.id === recommended || x.earlier.some((q) => q.id === recommended);
-  const row = (label: string, cell: (q: Quote) => React.ReactNode, mono = true) => (
-    <tr key={label}>
-      <Td className="text-ink-2">{label}</Td>
-      {latest.map((x) => (
-        <Td key={x.latest.id} right className={`${mono ? "font-mono" : "text-sm"} ${isRec(x) ? "bg-accent-soft shadow-[inset_1px_0_0_#FF4F00,inset_-1px_0_0_#FF4F00]" : ""}`}>
-          {cell(x.latest)}
-        </Td>
-      ))}
-    </tr>
-  );
-  return (
-    <Table>
-      <thead>
-        <tr>
-          <Th>Latest quote</Th>
-          {latest.map((x) => (
-            <Th key={x.latest.id} right className={`relative normal-case tracking-normal ${isRec(x) ? "bg-accent-soft shadow-[inset_1px_0_0_#FF4F00,inset_-1px_0_0_#FF4F00]" : ""}`}>
-              {isRec(x) && <span className="absolute left-0 right-0 top-0 h-[3px] bg-accent" aria-hidden />}
-              {isRec(x) && (
-                <span className="mb-1.5 mt-2 flex justify-end">
-                  <Pill tone="accent" dot>
-                    Recommended
-                  </Pill>
-                </span>
-              )}
-              <span className={`block whitespace-normal text-base font-medium normal-case tracking-normal text-ink ${isRec(x) ? "" : "pt-2"}`}>{name(x.latest.factory_id)}</span>
-              <span className="mt-0.5 flex items-center justify-end gap-2 text-sm font-normal normal-case tracking-normal text-ink-3">
-                v{x.latest.version} · {x.latest.status}
-              </span>
-            </Th>
-          ))}
-        </tr>
-      </thead>
-      <tbody>
-        {qtys.map((qty) => row(`${qty.toLocaleString("en-US")} units`, (q) => {
-          const t = q.tiers.find((t) => t.quantity === qty);
-          return t ? usd(t.unit_price_usd) : "—";
-        }))}
-        {row("Tooling", (q) => usd(q.tooling_usd, 0))}
-        {row("MOQ", (q) => q.moq.toLocaleString("en-US"))}
-        {row("Lead time", (q) => `${q.lead_time_days} d`)}
-        {row("Payment", (q) => q.payment_terms, false)}
-        {row("Exceptions", (q) => (q.exceptions.length ? <span className="text-estimate-ink">{q.exceptions.join("; ")}</span> : "—"), false)}
-        <tr>
-          <Td className="text-ink-2">Earlier versions</Td>
-          {latest.map((x) => (
-            <Td key={x.latest.id} right className={`text-sm text-ink-3 ${isRec(x) ? "bg-accent-soft shadow-[inset_1px_0_0_#FF4F00,inset_-1px_0_0_#FF4F00]" : ""}`}>
-              {x.earlier.length === 0
-                ? "—"
-                : x.earlier.map((q) => (
-                    <div key={q.id}>
-                      v{q.version} {q.status}: {q.tiers.map((t) => usd(t.unit_price_usd)).join(" / ")}
-                    </div>
-                  ))}
-            </Td>
-          ))}
-        </tr>
-      </tbody>
-    </Table>
-  );
-}
-
-export function NegotiationView({ artifact: a, busy, run }: StageViewProps<NegotiationArtifact>) {
-  const name = useFactoryNames();
-  const [lang, setLang] = useState<"en" | "cn">("en");
-  const [filter, setFilter] = useState<string>("all");
-  const factories = Array.from(new Set([...a.rfqs.map((r) => r.factory_id), ...a.quotes.map((q) => q.factory_id)]));
-  const turns = [...a.transcript].sort((x, y) => x.turn - y.turn).filter((t) => filter === "all" || t.factory_id === filter);
-  const rec = a.recommendation;
-  const hasCn = a.transcript.some((t) => t.message_cn);
-
-  return (
-    <div className="flex flex-col gap-6">
-      <Card
-        title="Recommendation"
-        right={a.user_approved ? <Pill tone="green" dot>Approved by you</Pill> : <Pill tone="amber" dot>Awaiting your approval</Pill>}
-      >
-        <p className="text-lg font-medium tracking-[-0.01em]">
-          {name(rec.factory_id)} <span className="ml-1 font-mono text-sm font-normal text-ink-3">{rec.quote_id}</span>
-        </p>
-        <p className="mt-1.5 max-w-[72ch] text-base text-ink-2">{rec.rationale}</p>
-        {a.final_terms ? (
-          <div className="mt-5 grid gap-x-6 gap-y-4 border-t border-line pt-5 sm:grid-cols-3 lg:grid-cols-6">
-            <KV k="Quantity">
-              <span className="font-mono">{a.final_terms.quantity.toLocaleString("en-US")}</span>
-            </KV>
-            <KV k="Unit price">
-              <LV v={a.final_terms.unit_price} />
-            </KV>
-            <KV k="Tooling">
-              <LV v={a.final_terms.tooling} />
-            </KV>
-            <KV k="MOQ">
-              <span className="font-mono">{a.final_terms.moq.toLocaleString("en-US")}</span>
-            </KV>
-            <KV k="Lead time">
-              <LV v={a.final_terms.lead_time_days} />
-            </KV>
-            <KV k="Payment">{a.final_terms.payment_terms}</KV>
-          </div>
-        ) : null}
-        {!a.user_approved && (
-          <div className="mt-5">
-            <Btn variant="primary" disabled={busy} onClick={() => run({ approve: true, quote_id: rec.quote_id })}>
-              {busy && <Spinner />} Approve recommended quote
-            </Btn>
-          </div>
-        )}
-      </Card>
-
-      <Card fictional title="Quotes side by side">
-        <QuoteMatrix factories={factories} quotes={a.quotes} name={name} recommended={rec.quote_id} />
-      </Card>
-
-      <Card
-        fictional
-        flush
-        title={
-          <>
-            Negotiation transcript <span className="font-mono text-ink-3">{a.transcript.length}</span>
-          </>
-        }
-        right={
-          <>
-            <select
-              aria-label="Filter by factory"
-              value={filter}
-              onChange={(e) => setFilter(e.target.value)}
-              className="field !h-7 !w-52 !py-0 !text-sm"
-            >
-              <option value="all">All factories</option>
-              {factories.map((f) => (
-                <option key={f} value={f}>
-                  {name(f)}
-                </option>
-              ))}
-            </select>
-            <Segmented
-              label="Transcript language"
-              value={lang}
-              onChange={setLang}
-              options={[
-                { value: "en", label: "EN" },
-                { value: "cn", label: "中文", disabled: !hasCn },
-              ]}
-            />
-          </>
-        }
-      >
-        {lang === "cn" && (
-          <p className="border-b border-line bg-estimate-soft px-5 py-2 text-sm text-estimate-ink">Chinese is machine-translated — to be reviewed by a native speaker.</p>
-        )}
-        <ol>
-          {turns.map((t) => {
-            const factory = t.speaker === "factory_agent";
-            const user = t.speaker === "user";
-            const text = lang === "cn" && t.message_cn ? t.message_cn : t.message;
-            const who = factory ? `${name(t.factory_id)} agent` : user ? "You" : "Platform agent";
-            return (
-              <li key={t.id} className="grid grid-cols-[44px_176px_minmax(0,1fr)] gap-x-4 border-b border-line px-5 py-4 last:border-b-0">
-                <span className="pt-0.5 font-mono text-sm text-ink-3">{String(t.turn).padStart(2, "0")}</span>
-                <div className="flex flex-col gap-1 pt-0.5">
-                  <span className="flex items-center gap-2 text-sm font-medium">
-                    <span
-                      className={`h-2 w-2 shrink-0 ${factory ? "rounded-full bg-fictional" : user ? "rounded-full bg-accent" : "rounded-[1px] bg-ink"}`}
-                      aria-hidden
-                    />
-                    {who}
-                  </span>
-                  {!factory && !user && <span className="pl-4 text-sm text-ink-3">to {name(t.factory_id)}</span>}
-                  {t.quote_id && <span className="pl-4 font-mono text-2xs text-ink-3">{t.quote_id}</span>}
-                </div>
-                <div className="min-w-0">
-                  <p className="max-w-[72ch] whitespace-pre-wrap text-base">{text}</p>
-                  {Object.keys(t.proposed_changes ?? {}).length > 0 && (
-                    <p className="mt-2 flex flex-wrap gap-1.5">
-                      {Object.entries(t.proposed_changes).map(([k, v]) => (
-                        <span key={k} className="rounded-sm bg-paper-2 px-1.5 py-0.5 font-mono text-2xs text-ink-2">
-                          {k} = {typeof v === "object" ? JSON.stringify(v) : String(v)}
-                        </span>
-                      ))}
-                    </p>
-                  )}
-                  {t.rationale && <p className="mt-2 text-sm text-ink-3">Why: {t.rationale}</p>}
-                </div>
-              </li>
-            );
-          })}
-        </ol>
-      </Card>
-    </div>
-  );
-}
 
 // ---------------------------------------------------------------- Stage 9
 export function ToolingView({ artifact: a }: StageViewProps<ToolingArtifact>) {
@@ -440,7 +220,7 @@ export function LogisticsView({ artifact: a, busy, run }: StageViewProps<Logisti
               <span className="font-mono text-lg">{a.hts.code}</span>
               <span className="mt-1 block text-ink-2">{a.hts.description}</span>
             </p>
-            <div className="grid grid-cols-2 gap-4 border-t border-line pt-4">
+            <div className="grid grid-cols-2 gap-4 pt-2">
               <KV k="General rate">
                 <LV v={a.hts.general_rate} />
               </KV>
@@ -471,7 +251,7 @@ export function FinancingView({ artifact: a }: StageViewProps<FinancingArtifact>
         }
       >
         <div className="grid gap-8 lg:grid-cols-[220px_minmax(0,1fr)]">
-          <div className="flex flex-col gap-4 lg:border-r lg:border-line lg:pr-8">
+          <div className="flex flex-col gap-4 lg:pr-8">
             <div className="flex flex-col gap-1.5">
               <span className="micro">Total cash</span>
               <LV v={a.total_cash} big />
@@ -536,7 +316,7 @@ export function FinancingView({ artifact: a }: StageViewProps<FinancingArtifact>
                 <span className="text-ink-2">Cost</span> <LV v={o.cost} />
               </p>
             )}
-            <div className="mt-4 grid grid-cols-2 gap-4 border-t border-line pt-4 text-sm">
+            <div className="mt-5 grid grid-cols-2 gap-4 text-sm">
               <div>
                 <p className="micro !text-measured-ink">For</p>
                 <ul className="mt-1.5 flex flex-col gap-1">
@@ -583,13 +363,14 @@ function Listing({ l }: { l: ListingDraft }) {
   );
 }
 
-export function BrandView({ artifact: a }: StageViewProps<BrandArtifact>) {
+export function BrandView({ artifact: a, project }: StageViewProps<BrandArtifact>) {
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-8">
+      <ListingKit projectId={project.id} fallback={a.listing_photos ?? []} />
       <Card title="Name options">
         <div className="grid gap-3 md:grid-cols-3">
           {a.name_options.map((n) => (
-            <div key={n.name} className={`flex flex-col gap-2 rounded-md border p-4 ${a.chosen_name === n.name ? "border-ink" : "border-line"}`}>
+            <div key={n.name} className={`flex flex-col gap-2 rounded-md bg-paper p-4 ${a.chosen_name === n.name ? "shadow-[0_0_0_2px_var(--color-ink)]" : ""}`}>
               <div className="flex items-center justify-between gap-2">
                 <p className="text-xl font-semibold tracking-[-0.025em]">{n.name}</p>
                 {a.chosen_name === n.name && <Pill tone="accent" dot>Chosen</Pill>}

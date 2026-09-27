@@ -1,0 +1,91 @@
+{
+ "project_id": "demo_hair_dryer",
+ "status": "validated",
+ "fallback": false,
+ "fallback_reason": null,
+ "generated_by": "llm:openai/gpt-6-luna",
+ "generated_at": "2026-09-27T00:10:22.101079Z",
+ "assumptions": [
+  {
+   "id": "a1",
+   "text": "Lead times are typical values per process (tooling + first shots), not factory quotes; refined at stages 7-9 with the negotiated quote.",
+   "label": "estimate",
+   "source": null,
+   "stage": 6
+  },
+  {
+   "id": "a2",
+   "text": "Mass production duration assumes 90 units/day on one line for a 2,000-unit order.",
+   "label": "estimate",
+   "source": null,
+   "stage": 6
+  }
+ ],
+ "stage": 6,
+ "steps": [
+  {
+   "part_id": "p1",
+   "part_name": "Bottom shell",
+   "process": "injection_molding",
+   "reason": "At 2,000 units, injection molding suits the thin-walled PC shell geometry and mating features, while enabling consistent fit and a smooth substrate for soft-touch paint.",
+   "region": "Dongguan, Guangdong",
+   "lead_time_days": {
+    "value": 35.0,
+    "unit": "days",
+    "label": "estimate",
+    "source_or_assumption": "Typical injection molding lead time incl. tooling and first shots — planning assumption"
+   }
+  },
+  {
+   "part_id": "p2",
+   "part_name": "Top shell",
+   "process": "injection_molding",
+   "reason": "At 2,000 units, injection molding efficiently forms the thin-walled PC shell and precise mating features, with a smooth substrate for soft-touch paint.",
+   "region": "Dongguan, Guangdong",
+   "lead_time_days": {
+    "value": 35.0,
+    "unit": "days",
+    "label": "estimate",
+    "source_or_assumption": "Typical injection molding lead time incl. tooling and first shots — planning assumption"
+   }
+  },
+  {
+   "part_id": "p3",
+   "part_name": "Main PCB assembly",
+   "process": "pcba",
+   "reason": "PCBA is appropriate for the FR-4 board carrying the control electronics, with lead-free HASL providing a standard solderable finish at this volume.",
+   "region": "Shenzhen, Guangdong",
+   "lead_time_days": {
+    "value": 12.0,
+    "unit": "days",
+    "label": "estimate",
+    "source_or_assumption": "Typical pcba lead time incl. setup and first article — planning assumption"
+   }
+  },
+  {
+   "part_id": "p4",
+   "part_name": "Screws M2.5 × 6 self-tapping",
+   "process": "other",
+   "reason": "Standard black-zinc steel self-tapping screws are economical at this volume and provide durable corrosion protection for fastening the molded shells.",
+   "region": "Shenzhen, Guangdong",
+   "lead_time_days": {
+    "value": 14.0,
+    "unit": "days",
+    "label": "estimate",
+    "source_or_assumption": "Typical other lead time incl. setup and first article — planning assumption"
+   }
+  }
+ ],
+ "assembly_notes": [
+  "Fit and inspect shell mating faces, boss pilots, and screw engagement; avoid overtightening to prevent boss damage.",
+  "Route and secure mains wiring clear of the fan, heater, and sharp edges; verify strain relief and thermal-cutout placement.",
+  "Perform electrical safety, airflow, heater-control, and thermal-cutout functional tests on each assembled unit.",
+  "Run a controlled burn-in under load and check for abnormal noise, vibration, overheating, or finish damage."
+ ],
+ "total_lead_time_days": {
+  "value": 79.0,
+  "unit": "days",
+  "label": "estimate",
+  "source_or_assumption": "Critical path from PO: slowest tooling/first article (35) + tooling correction T1 (14) + golden sample (7) + mass production (23) for 2,000 units"
+ }
+}

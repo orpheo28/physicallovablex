@@ -1,0 +1,2001 @@
+{
+ "id": "fp_demo_irrigation_biarritz_v2",
+ "project_id": "demo_irrigation_biarritz",
+ "version": 2,
+ "created_at": "2026-09-27T00:01:51.568344Z",
+ "fallback": false,
+ "cached_note": null,
+ "fallback_stages": [],
+ "product_name": "Smart garden irrigation",
+ "product_summary": "An irrigation controller for a 30 m² garden in Biarritz that adjusts watering schedules based on weather and soil conditions. Target volumes: 500 / 2,000 / 10,000 units; markets: EU.",
+ "product_summary_cn": "一款面向比亚里茨30 m²花园的灌溉控制器，可根据天气和土壤状况调整浇水计划。目标产量：500 / 2,000 / 10,000 台；目标市场：欧盟。",
+ "target_markets": [
+  "EU"
+ ],
+ "spec": {
+  "overall_dimensions": {
+   "length": {
+    "value": 544.0,
+    "unit": "mm",
+    "label": "measured",
+    "source_or_assumption": "Bounding box of the full product (family CAD, build123d/OCCT)"
+   },
+   "width": {
+    "value": 74.0,
+    "unit": "mm",
+    "label": "measured",
+    "source_or_assumption": "Bounding box of the full product (family CAD, build123d/OCCT)"
+   },
+   "height": {
+    "value": 221.5,
+    "unit": "mm",
+    "label": "measured",
+    "source_or_assumption": "Bounding box of the full product (family CAD, build123d/OCCT)"
+   }
+  },
+  "weight": {
+   "value": 197.1,
+   "unit": "g",
+   "label": "estimate",
+   "source_or_assumption": "Enclosure volume 171.4 cm³ (measured) × ASA 1.15 g/cm³; electronics and battery not included"
+  },
+  "parts": [
+   {
+    "id": "p1",
+    "name": "Bottom shell",
+    "material": "ASA (UV-stable) housing",
+    "finish": "Matte texture · Warm white #EDEBE6",
+    "process_hint": "injection_molding",
+    "tolerance": "±0.1 mm on mating faces and boss pilots",
+    "dimensions": {
+     "length": {
+      "value": 150.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the built STEP (build123d/OCCT), this part"
+     },
+     "width": {
+      "value": 60.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the built STEP (build123d/OCCT), this part"
+     },
+     "height": {
+      "value": 95.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the built STEP (build123d/OCCT), this part"
+     }
+    },
+    "wall_thickness": {
+     "value": 2.0,
+     "unit": "mm",
+     "label": "estimate",
+     "source_or_assumption": "Design parameter (nominal wall); measured in DFM stage 4"
+    },
+    "quantity": 1
+   },
+   {
+    "id": "p2",
+    "name": "Top shell",
+    "material": "ASA (UV-stable) housing",
+    "finish": "Matte texture · Warm white #EDEBE6",
+    "process_hint": "injection_molding",
+    "tolerance": "±0.1 mm on mating faces and boss pilots",
+    "dimensions": {
+     "length": {
+      "value": 150.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the built STEP (build123d/OCCT), this part"
+     },
+     "width": {
+      "value": 60.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the built STEP (build123d/OCCT), this part"
+     },
+     "height": {
+      "value": 95.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the built STEP (build123d/OCCT), this part"
+     }
+    },
+    "wall_thickness": {
+     "value": 2.0,
+     "unit": "mm",
+     "label": "estimate",
+     "source_or_assumption": "Design parameter (nominal wall); measured in DFM stage 4"
+    },
+    "quantity": 1
+   },
+   {
+    "id": "p3",
+    "name": "Main PCB assembly",
+    "material": "FR-4 1.6 mm",
+    "finish": "HASL lead-free, green mask",
+    "process_hint": "pcba",
+    "tolerance": "±0.2 mm outline",
+    "dimensions": {
+     "length": {
+      "value": 132.0,
+      "unit": "mm",
+      "label": "estimate",
+      "source_or_assumption": "PCB length: fits the inner cavity with 1 mm clearance"
+     },
+     "width": {
+      "value": 42.0,
+      "unit": "mm",
+      "label": "estimate",
+      "source_or_assumption": "PCB width: fits the inner cavity with 1 mm clearance"
+     },
+     "height": {
+      "value": 1.6,
+      "unit": "mm",
+      "label": "estimate",
+      "source_or_assumption": "PCB thickness: fits the inner cavity with 1 mm clearance"
+     }
+    },
+    "wall_thickness": null,
+    "quantity": 1
+   },
+   {
+    "id": "p4",
+    "name": "Screws M2.5 × 6 self-tapping",
+    "material": "Steel",
+    "finish": "Black zinc",
+    "process_hint": "other",
+    "tolerance": null,
+    "dimensions": null,
+    "wall_thickness": null,
+    "quantity": 4
+   }
+  ],
+  "tolerances": [
+   "General ISO 2768-m",
+   "Shell mating faces ±0.1 mm",
+   "Boss pilot Ø2.2 +0.05/0 mm",
+   "Split-line step ≤ 0.1 mm"
+  ]
+ },
+ "cad_files": [
+  {
+   "format": "glb",
+   "url": "/files/demo_irrigation_biarritz/model_v1.glb",
+   "description": "AI-generated CAD (concept level) — geometry measured on the result — bbox 554 × 74 × 222 mm",
+   "size_bytes": 698224
+  },
+  {
+   "format": "step",
+   "url": "/files/demo_irrigation_biarritz/model_v1.step",
+   "description": "AI-generated CAD (concept level) — geometry measured on the result — STEP AP214",
+   "size_bytes": 611512
+  },
+  {
+   "format": "py",
+   "url": "/projects/demo_irrigation_biarritz/cad/code/1",
+   "description": "AI-generated CAD (concept level) — geometry measured on the result — build123d program v1 (llm:openai/gpt-6-sol)",
+   "size_bytes": 5194
+  },
+  {
+   "format": "glb",
+   "url": "/files/demo_irrigation_biarritz/v2.glb",
+   "description": "Full product — materials",
+   "size_bytes": 774184
+  },
+  {
+   "format": "step",
+   "url": "/files/demo_irrigation_biarritz/v2_enclosure.step",
+   "description": "Moulded parts (DFM) — both shells, STEP AP214",
+   "size_bytes": 345207
+  },
+  {
+   "format": "stl",
+   "url": "/files/demo_irrigation_biarritz/v2_enclosure.stl",
+   "description": "Moulded parts (DFM) — mesh for 3D printing",
+   "size_bytes": 1111284
+  },
+  {
+   "format": "glb",
+   "url": "/files/demo_irrigation_biarritz/v2_enclosure.glb",
+   "description": "Moulded parts (DFM) — viewer model",
+   "size_bytes": 626492
+  },
+  {
+   "format": "step",
+   "url": "/files/demo_irrigation_biarritz/v2.step",
+   "description": "Full product — all parts, STEP AP214",
+   "size_bytes": 503048
+  }
+ ],
+ "bom": [
+  {
+   "id": "e1",
+   "part": "Solar panel, 6 V nominal, approximately 5 W",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Panel supplies controller and valve; no battery included.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 5.52,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: small 5 W PV panel ≈ USD 6 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "risk": {
+    "level": "medium",
+    "reasons": [
+     "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+    ]
+   },
+   "alternative": null
+  },
+  {
+   "id": "e2",
+   "part": "Microcontroller, ATmega328P-AU",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Runs scheduled watering and weather/soil-based adjustments; weather data requires an external source or user configuration because wireless is not specified.",
+   "manufacturer_pn": "ATmega328P-AU",
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.828,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: microcontroller ≈ USD 0.9 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "risk": {
+    "level": "medium",
+    "reasons": [
+     "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+    ]
+   },
+   "alternative": null
+  },
+  {
+   "id": "e3",
+   "part": "Capacitive soil-moisture probe module, analog output",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Probe assembly with analog output for soil moisture measurement.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 2.3,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: capacitive soil-moisture probe ≈ USD 2.5 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "risk": {
+    "level": "medium",
+    "reasons": [
+     "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+    ]
+   },
+   "alternative": null
+  },
+  {
+   "id": "e4",
+   "part": "DC-DC regulator, 5 V output",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Regulates solar-panel supply for the controller and sensor.",
+   "manufacturer_pn": null,
+   "lcsc_pn": "C6653519",
+   "unit_cost_est": {
+    "value": 0.48,
+    "unit": "USD",
+    "label": "sourced",
+    "source_or_assumption": "LCSC price, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C6653519.html"
+   },
+   "risk": {
+    "level": "low",
+    "reasons": [
+     "JLCPCB extended part (per-part-type feeder fee at assembly)"
+    ]
+   },
+   "alternative": null
+  },
+  {
+   "id": "e5",
+   "part": "Logic-level N-channel MOSFET, AO3400A",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Low-side valve-driver switch; verify voltage/current rating against selected valve coil.",
+   "manufacturer_pn": "AO3400A",
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 6.9,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: 1-inch solenoid valve ≈ USD 7.5 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "risk": {
+    "level": "medium",
+    "reasons": [
+     "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+    ]
+   },
+   "alternative": null
+  },
+  {
+   "id": "e6",
+   "part": "Flyback diode, SS14",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Across solenoid coil for inductive transient suppression.",
+   "manufacturer_pn": "SS14",
+   "lcsc_pn": "C7420316",
+   "unit_cost_est": {
+    "value": 0.0136,
+    "unit": "USD",
+    "label": "sourced",
+    "source_or_assumption": "LCSC price, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C7420316.html"
+   },
+   "risk": {
+    "level": "medium",
+    "reasons": [
+     "single source: no same-package alternative in the snapshot"
+    ]
+   },
+   "alternative": null
+  },
+  {
+   "id": "e7",
+   "part": "Resistors, capacitors, connectors, and manual override switch",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Grouped passive and interconnect set, including MCU timing/bypass components, sensor connector, and momentary manual-watering input.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.276,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: printed guide ≈ USD 0.3 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "risk": {
+    "level": "medium",
+    "reasons": [
+     "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+    ]
+   },
+   "alternative": null
+  },
+  {
+   "id": "m1",
+   "part": "Top shell",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Moulded ASA, UV-stable; approximately 150 × 60 × 190 mm.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 1.1447,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Top shell: Moulded shell 150×60×95 mm, wall 2 mm ≈ 69.5 cm³ × 1.05 g/cm³ = 73 g × $2.2/kg + $1.08 moulding/finish conversion"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m2",
+   "part": "Bottom shell",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Moulded ASA, UV-stable; mates with top shell; approximately 150 × 60 × 190 mm.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 1.1447,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Bottom shell: Moulded shell 150×60×95 mm, wall 2 mm ≈ 69.5 cm³ × 1.05 g/cm³ = 73 g × $2.2/kg + $1.08 moulding/finish conversion"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m3",
+   "part": "1-inch solenoid irrigation valve",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Normally closed valve assembly compatible with the intended pipe and solar supply; confirm coil voltage/current during design verification.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 6.9,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: 1-inch solenoid valve ≈ USD 7.5 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m4",
+   "part": "Enclosure screws",
+   "category": "mechanical",
+   "qty": 4.0,
+   "description": "Corrosion-resistant screws sized to secure the two housing shells.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.0276,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: screw ≈ USD 0.03 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m5",
+   "part": "Cable glands and weather seals",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Seals for probe, panel, and valve wiring penetrations.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.92,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: cable glands + seals ≈ USD 1 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "k1",
+   "part": "Retail carton and protective inserts",
+   "category": "packaging",
+   "qty": 1.0,
+   "description": "Packaging set for one finished controller kit.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 1.38,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: retail carton + insert ≈ USD 1.5 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "e8",
+   "part": "Rechargeable battery",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Stores solar energy to power the controller when sunlight is unavailable.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 4.2228,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Battery priced by energy: 2000 mAh × 3.7 V = 7.4 Wh (generic pack) × $0.35/Wh + pack overhead"
+   },
+   "risk": {
+    "level": "medium",
+    "reasons": [
+     "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+    ]
+   },
+   "alternative": null
+  },
+  {
+   "id": "e9",
+   "part": "Solar battery charge controller",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Charges the battery from the existing solar panel.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 4.6,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: charger / dock ≈ USD 5 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "risk": {
+    "level": "medium",
+    "reasons": [
+     "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+    ]
+   },
+   "alternative": null
+  }
+ ],
+ "dfm_alerts": [
+  {
+   "id": "a1",
+   "severity": "major",
+   "category": "assembly",
+   "method": "ai_reviewed",
+   "part_id": null,
+   "description": "Weather seals and cable glands are listed, but the shell joint has no gasket groove, compression stops, or leak-test requirement. Outdoor water ingress could reach the PCB and battery.",
+   "fix": "Define the gasket profile, gland interfaces, compression stops, target ingress rating, and assembled leak test.",
+   "rule_citation": "Verify enclosure ingress protection by test — IEC 60529.",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a2",
+   "severity": "major",
+   "category": "other",
+   "method": "ai_reviewed",
+   "part_id": null,
+   "description": "The rechargeable battery and solar charge controller have no specified cell chemistry, protection, charging limits, or temperature limits.",
+   "fix": "Specify the cell and a compatible charge controller, protection functions, temperature sensing, and charging verification.",
+   "rule_citation": "Safety requirements for portable sealed secondary cells and batteries — IEC 62133-2 (if lithium-based).",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a3",
+   "severity": "major",
+   "category": "assembly",
+   "method": "ai_reviewed",
+   "part_id": null,
+   "description": "Battery retention and routing are undefined; the cell or leads could move or be pinched when the shells are closed.",
+   "fix": "Add a restrained battery pocket, insulating barriers, wire channels, and assembly clearance checks.",
+   "rule_citation": "Prevent mechanical damage and short circuits in battery installations — IEC 62133-2 (if lithium-based).",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a4",
+   "severity": "major",
+   "category": "other",
+   "method": "ai_reviewed",
+   "part_id": null,
+   "description": "The valve drive is not specified beyond the valve, MOSFET, and diode. Coil voltage, current, startup demand, and solar/battery power budget cannot be checked.",
+   "fix": "Specify the valve coil and duty cycle; verify the regulator, battery, MOSFET, diode, wiring, and connectors across the operating range.",
+   "rule_citation": "Select semiconductor operating conditions within rated limits — AO3400A and SS14 manufacturer datasheets.",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a5",
+   "severity": "major",
+   "category": "assembly",
+   "method": "ai_reviewed",
+   "part_id": "p1",
+   "description": "The specified boss pilot and self-tapping screws lack a boss outer diameter, engagement depth, screw type, and torque limit; cracking or stripped bosses may result.",
+   "fix": "Dimension the bosses and engagement for the selected screw, then validate installation and strip torque in molded ASA samples.",
+   "rule_citation": "Size pilot holes and bosses for the selected thread-forming screw and plastic — STANLEY Engineered Fastening plastics fastening design guide.",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a7",
+   "severity": "major",
+   "category": "material",
+   "method": "ai_reviewed",
+   "part_id": null,
+   "description": "The ASA housing has no declared flammability grade despite enclosing a rechargeable battery and electronics.",
+   "fix": "Specify and qualify an ASA grade with a flammability classification appropriate to the completed product's safety assessment.",
+   "rule_citation": "Classify plastic material flammability using standardized burning tests — UL 94.",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "m1",
+   "severity": "minor",
+   "category": "draft",
+   "method": "measured",
+   "part_id": "p1",
+   "description": "Minimum wall draft is 1.46°: enough for a polished finish, short of the ~3° a textured finish ('Matte texture · Warm white #EDEBE6') needs.",
+   "fix": "Increase draft to 3° on textured faces, or specify a lighter texture / polished finish.",
+   "rule_citation": "Draft ≥1° plus 1° per 0.025 mm texture depth — Protolabs injection molding design guidelines; measured with text-to-cad DFM skill (mold_tool.py, MIT) ported to OCCT",
+   "measurement": {
+    "value": 1.463,
+    "unit": "deg",
+    "label": "measured",
+    "source_or_assumption": "Min wall draft vs pull +Z: lowest-draft B-rep wall face ≥ 173.84 mm² (curved, 277.52 mm² at [-64.98, 19.98, 11.69]) — text-to-cad DFM skill (mold_tool.py, MIT) ported to OCCT"
+   },
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "m2",
+   "severity": "minor",
+   "category": "projection",
+   "method": "measured",
+   "part_id": "p1",
+   "description": "Projected area along +Z: 8805 mm² (part silhouette, per cavity). Estimated clamp force ≈ 45.0 t (Estimate: area in² × 3.0 t/in² for PC/ABS × 1.1 safety) — per cavity; a family tool moulding both shells in one shot roughly doubles it.",
+   "fix": "Quote on a press ≥ 60 t; keep both shells in one family mould only if tonnage allows.",
+   "rule_citation": "Clamp force ≈ projected area × cavity-pressure factor (2-5 t/in²) — Protolabs injection molding design guidelines; silhouette raster from text-to-cad DFM skill (mold_tool.py, MIT) ported to OCCT",
+   "measurement": {
+    "value": 8805.4,
+    "unit": "mm2",
+    "label": "measured",
+    "source_or_assumption": "Silhouette along +Z, raster 0.375 mm — text-to-cad DFM skill (mold_tool.py, MIT) ported to OCCT"
+   },
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "m3",
+   "severity": "minor",
+   "category": "wall_thickness",
+   "method": "measured",
+   "part_id": "p1",
+   "description": "Measured wall 2.00-2.00 mm is within the PC/ABS 1.2-3.5 mm range; keep bosses/ribs ≤ 60% of nominal wall to avoid sink.",
+   "fix": "No change to nominal wall; core bosses and ribs to ≤ 60% of the wall.",
+   "rule_citation": "PC/ABS wall 1.2-3.5 mm, ribs/bosses ≤ 60% of wall — Protolabs injection molding design guidelines",
+   "measurement": {
+    "value": 2.0,
+    "unit": "mm",
+    "label": "measured",
+    "source_or_assumption": "5th percentile of 11860 ray samples into the material (median 2.0 mm)"
+   },
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a6",
+   "severity": "minor",
+   "category": "tolerance",
+   "method": "ai_reviewed",
+   "part_id": "p2",
+   "description": "Tight shell mating-face and split-line requirements are specified without a datum scheme, warpage allowance, or inspection method.",
+   "fix": "Define functional datums and inspection locations; confirm the tolerance stack on molded samples before tooling sign-off.",
+   "rule_citation": "Specify datums and geometrical tolerances for functional features — ISO 1101 and ISO 5459.",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  }
+ ],
+ "certifications": [
+  {
+   "market": "EU",
+   "standard": "CE — EMC 2014/30/EU (EN 55032 / EN 55035)",
+   "applies_because": "Electronic product without a radio: EMC directive applies. Reference: Directive 2014/30/EU (EMC), https://eur-lex.europa.eu/eli/dir/2014/30/oj",
+   "required": true,
+   "cost_est": {
+    "value": 3000.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Accredited-lab range, demo assumption"
+   },
+   "lead_time_weeks": {
+    "value": 5.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Typical lab queue + report, demo assumption"
+   }
+  },
+  {
+   "market": "EU",
+   "standard": "RoHS 2011/65/EU",
+   "applies_because": "Electronic product placed on the EU market must restrict hazardous substances (test report + declaration). Reference: Directive 2011/65/EU (RoHS), https://eur-lex.europa.eu/eli/dir/2011/65/oj",
+   "required": true,
+   "cost_est": {
+    "value": 600.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Accredited-lab range, demo assumption"
+   },
+   "lead_time_weeks": {
+    "value": 2.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Typical lab queue + report, demo assumption"
+   }
+  },
+  {
+   "market": "Global",
+   "standard": "UN38.3 (lithium battery transport tests)",
+   "applies_because": "Lithium cells must pass UN Manual of Tests and Criteria 38.3 to ship by sea/air; ask the cell supplier for the test summary. Reference: UN Manual of Tests and Criteria, section 38.3; IATA Lithium Battery Guidance Document 2026, https://www.iata.org/contentassets/05e6d8742b0047259bf3a700bc9d42b9/lithium-battery-guidance-document.pdf",
+   "required": true,
+   "cost_est": {
+    "value": 1000.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Accredited-lab range, demo assumption"
+   },
+   "lead_time_weeks": {
+    "value": 4.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Typical lab queue + report, demo assumption"
+   }
+  },
+  {
+   "market": "Global",
+   "standard": "IEC 62133-2 (secondary lithium cell/battery safety)",
+   "applies_because": "Rechargeable lithium cell inside the product; also required by many retailers and by EU/UK market surveillance",
+   "required": true,
+   "cost_est": {
+    "value": 2500.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Accredited-lab range, demo assumption"
+   },
+   "lead_time_weeks": {
+    "value": 4.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Typical lab queue + report, demo assumption"
+   }
+  },
+  {
+   "market": "EU",
+   "standard": "Directive 2012/19/EU (WEEE)",
+   "applies_because": "As electrical and electronic equipment sold in the EU, the controller is subject to applicable producer registration, reporting, and take-back obligations.",
+   "required": true,
+   "cost_est": {
+    "value": 0.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "LLM-proposed rough estimate — get a lab quote to confirm"
+   },
+   "lead_time_weeks": {
+    "value": 2.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "LLM-proposed rough estimate — get a lab quote to confirm"
+   }
+  }
+ ],
+ "target_quantities": [
+  500,
+  2000,
+  10000
+ ],
+ "cost_estimate": [
+  {
+   "quantity": 500,
+   "bom_cost": {
+    "value": 38.42,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Electronics at LCSC price breaks (LCSC price, 2026-09-26); other lines base × 0.92^0"
+   },
+   "assembly_cost": {
+    "value": 8.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Assembly + factory overhead/margin: 14.4 min = 6 base + 0.6 × 14 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^0"
+   },
+   "packaging_cost": {
+    "value": 1.5,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Packaging BOM lines × 0.92^0"
+   },
+   "unit_cost": {
+    "value": 47.93,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
+   },
+   "tooling_amortisation": {
+    "value": 7.2,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "$3,600 tooling ÷ 500"
+   },
+   "margin_pct": {
+    "value": 45.2,
+    "unit": "pct",
+    "label": "estimate",
+    "source_or_assumption": "($139.32 target − $76.28 landed estimate) ÷ target; before retailer margin, VAT and marketing"
+   }
+  },
+  {
+   "quantity": 2000,
+   "bom_cost": {
+    "value": 35.36,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Electronics at LCSC price breaks (LCSC price, 2026-09-26); other lines base × 0.92^1"
+   },
+   "assembly_cost": {
+    "value": 7.37,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Assembly + factory overhead/margin: 14.4 min = 6 base + 0.6 × 14 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^1"
+   },
+   "packaging_cost": {
+    "value": 1.38,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Packaging BOM lines × 0.92^1"
+   },
+   "unit_cost": {
+    "value": 44.11,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
+   },
+   "tooling_amortisation": {
+    "value": 1.8,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "$3,600 tooling ÷ 2,000"
+   },
+   "margin_pct": {
+    "value": 53.5,
+    "unit": "pct",
+    "label": "estimate",
+    "source_or_assumption": "($139.32 target − $64.73 landed estimate) ÷ target; before retailer margin, VAT and marketing"
+   }
+  },
+  {
+   "quantity": 10000,
+   "bom_cost": {
+    "value": 32.57,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Electronics at LCSC price breaks (LCSC price, 2026-09-26); other lines base × 0.92^2"
+   },
+   "assembly_cost": {
+    "value": 6.78,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Assembly + factory overhead/margin: 14.4 min = 6 base + 0.6 × 14 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^2"
+   },
+   "packaging_cost": {
+    "value": 1.27,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Packaging BOM lines × 0.92^2"
+   },
+   "unit_cost": {
+    "value": 40.62,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
+   },
+   "tooling_amortisation": {
+    "value": 0.36,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "$3,600 tooling ÷ 10,000"
+   },
+   "margin_pct": {
+    "value": 58.5,
+    "unit": "pct",
+    "label": "estimate",
+    "source_or_assumption": "($139.32 target − $57.76 landed estimate) ÷ target; before retailer margin, VAT and marketing"
+   }
+  }
+ ],
+ "questions": [
+  {
+   "id": "fq1",
+   "en": "DFM major — Weather seals and cable glands are listed, but the shell joint has no gasket groove, compression stops, or leak-test requirement. Outdoor water ingress could reach the PCB and battery. Proposed fix: Define the gasket profile, gland interfaces, compression stops, target ingress rating, and assembled leak test. Can you accommodate this, and at what cost or lead-time impact?",
+   "cn": "DFM重大问题 — 清单中列出了防水密封圈和电缆防水接头，但外壳接合处没有密封圈槽、压缩限位结构或泄漏测试要求。户外进水可能到达PCB和电池。建议方案：定义密封圈截面形状、防水接头接口、压缩限位结构、目标防护等级以及成品泄漏测试。贵方能否满足此要求？对成本和交期有何影响？",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  },
+  {
+   "id": "fq2",
+   "en": "DFM major — The rechargeable battery and solar charge controller have no specified cell chemistry, protection, charging limits, or temperature limits. Proposed fix: Specify the cell and a compatible charge controller, protection functions, temperature sensing, and charging verification. Can you accommodate this, and at what cost or lead-time impact?",
+   "cn": "DFM重大问题 — 可充电电池和太阳能充电控制器未规定电芯化学体系、保护功能、充电限值或温度限值。建议方案：规定电芯型号及兼容的充电控制器、保护功能、温度检测和充电验证。贵方能否满足此要求？对成本和交期有何影响？",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  },
+  {
+   "id": "fq3",
+   "en": "DFM major — Battery retention and routing are undefined; the cell or leads could move or be pinched when the shells are closed. Proposed fix: Add a restrained battery pocket, insulating barriers, wire channels, and assembly clearance checks. Can you accommodate this, and at what cost or lead-time impact?",
+   "cn": "DFM重大问题 — 电池固定和走线未定义；合壳时电芯或引线可能移位或被夹伤。建议方案：增加带限位的电池仓、绝缘隔板、走线槽，并进行装配间隙检查。贵方能否满足此要求？对成本和交期有何影响？",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  },
+  {
+   "id": "fq4",
+   "en": "What are your MOQ and lead time for 500 units, and how do they change at 2,000 and 10,000 units?",
+   "cn": "500台的MOQ和交期是多少？在2,000台和10,000台时如何变化？",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  },
+  {
+   "id": "fq5",
+   "en": "What payment terms and sample rounds (T0, T1, golden sample) do you propose, with dates?",
+   "cn": "贵方提出何种付款条件及样品轮次（T0、T1、golden sample）？请附日期。",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  },
+  {
+   "id": "fq6",
+   "en": "Please confirm the tolerances in the spec and flag any tolerance or finish you cannot hold.",
+   "cn": "请确认规格书中的公差，并指出任何无法保证的公差或表面处理。",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  },
+  {
+   "id": "fq7",
+   "en": "Which BOM components do you source yourselves, and do you accept the listed alternatives for high-risk parts?",
+   "cn": "哪些BOM物料由贵方自行采购？对于高风险物料，贵方是否接受清单中列出的替代料？",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  }
+ ],
+ "assumption_register": [
+  {
+   "id": "a1",
+   "text": "Skipped clarifying questions use their defaults: markets=EU; volume=100–1,000 units; target_price=€100–€149; battery=Mains power; wireless=Wi-Fi. Re-run stage 1 with answers to change them.",
+   "label": "estimate",
+   "source": null,
+   "stage": 1
+  },
+  {
+   "id": "a2",
+   "text": "Target retail price proposed by the spec copilot (not stated by the founder); confirm before costing.",
+   "label": "estimate",
+   "source": null,
+   "stage": 1
+  },
+  {
+   "id": "a2_1",
+   "text": "Directions from the parametric 'irrigation' product family (category 'irrigation', preset 'kit'): built with build123d, dimensions measured on the CAD",
+   "label": "estimate",
+   "source": null,
+   "stage": 2
+  },
+  {
+   "id": "a2_render",
+   "text": "AI concept render — illustrative, not the CAD. Generated by an AI image model from the direction's shape, dimensions, material, finish and colour; the 3D model is the CAD.",
+   "label": "estimate",
+   "source": null,
+   "stage": 2
+  },
+  {
+   "id": "a2_studio",
+   "text": "Direction d1 refined in Studio (version 2); dimensions are design parameters, the spec measures the built CAD",
+   "label": "estimate",
+   "source": null,
+   "stage": 2
+  },
+  {
+   "id": "a3_1",
+   "text": "PC/ABS density 1.15 g/cm³ for the weight estimate",
+   "label": "estimate",
+   "source": null,
+   "stage": 3
+  },
+  {
+   "id": "a3_2",
+   "text": "Direction d1 ('Solar kit'): full product from the 'irrigation' family (overall size measured on it); its main moulded housing is modelled as a two-shell enclosure 150 × 60 × 190 mm, wall 2.0 mm, draft 1.5° (DFM, weight)",
+   "label": "estimate",
+   "source": null,
+   "stage": 3
+  },
+  {
+   "id": "a4_1",
+   "text": "Measured checks assume a straight two-half tool pulling along ±Z (split line in the XY plane)",
+   "label": "estimate",
+   "source": null,
+   "stage": 4
+  },
+  {
+   "id": "a4_2",
+   "text": "Clamp tonnage = projected area (in²) × 3 t/in² (PC/ABS) × 1.1 safety",
+   "label": "estimate",
+   "source": null,
+   "stage": 4
+  },
+  {
+   "id": "s5_a1",
+   "text": "Volume curve: non-LCSC lines and assembly × 0.92 per tier step (500 → 2,000 → 10,000)",
+   "label": "estimate",
+   "source": "Demo assumption (PRD §11), editable",
+   "stage": 5
+  },
+  {
+   "id": "s5_a2",
+   "text": "Assembly 14.4 min = 6 base + 0.6 × 14 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials",
+   "label": "estimate",
+   "source": null,
+   "stage": 5
+  },
+  {
+   "id": "a3",
+   "text": "Electronic lines matched to the JLCPCB/LCSC parts snapshot of 2026-09-26 (CDFER/jlcpcb-parts-database, MIT); unmatched lines are estimates",
+   "label": "sourced",
+   "source": "https://github.com/CDFER/jlcpcb-parts-database",
+   "stage": 5
+  },
+  {
+   "id": "a4",
+   "text": "Simple 1-cavity injection mold $1,000-3,000; complex multi-cavity steel mold $30,000-100,000",
+   "label": "estimate",
+   "source": "Zetar Mold 2026 price list (vendor, medium confidence), https://zetarmold.com/injection-mold-price-list-2026",
+   "stage": 5
+  },
+  {
+   "id": "a5",
+   "text": "Sum of 5 required certifications from stage 4 (their own cost estimates)",
+   "label": "estimate",
+   "source": null,
+   "stage": 5
+  },
+  {
+   "id": "a6",
+   "text": "Landed-cost basis for margin and cash: sea freight (fictional rates), HTS 8424.82.0090 (general 2.4%, Section 301 25%), IEEPA 0, Section 122 off",
+   "label": "estimate",
+   "source": "https://hts.usitc.gov/",
+   "stage": 5
+  },
+  {
+   "id": "a7",
+   "text": "Brief target price 129 EUR × 1.08 (assumed FX) (retail price incl. VAT where applicable)",
+   "label": "estimate",
+   "source": null,
+   "stage": 5
+  },
+  {
+   "id": "b1",
+   "text": "BOM from stage 3 spec",
+   "label": "estimate",
+   "source": null,
+   "stage": 5
+  },
+  {
+   "id": "s6_a1",
+   "text": "Lead times are typical values per process (tooling + first shots), not factory quotes; refined at stages 7-9 with the negotiated quote.",
+   "label": "estimate",
+   "source": null,
+   "stage": 6
+  },
+  {
+   "id": "s6_a2",
+   "text": "Mass production duration assumes 90 units/day on one line for a 2,000-unit order.",
+   "label": "estimate",
+   "source": null,
+   "stage": 6
+  },
+  {
+   "id": "a7_network",
+   "text": "Factories, capacity, load and past performance come from the simulated production network.",
+   "label": "fictional",
+   "source": "factory_mcp (demo data)",
+   "stage": 7
+  },
+  {
+   "id": "a7_weights",
+   "text": "Score = 35% process fit + 15% MOQ + 15% certifications + 15% load + 20% lead time; product-level criteria are part-weighted means over the queries (Injection molding ×2, PCBA ×1, Other ×1, Assembly ×1).",
+   "label": "estimate",
+   "source": null,
+   "stage": 7
+  },
+  {
+   "id": "a8_network",
+   "text": "Factories, quotes, counters and replies are simulated (production MCP demo network).",
+   "label": "fictional",
+   "source": "factory_mcp (demo data)",
+   "stage": 8
+  },
+  {
+   "id": "a8_anchor",
+   "text": "Factory quotes are anchored on stage 5 cost tiers + tooling total × each factory's personality margin; subcontracted processes add 3% each.",
+   "label": "estimate",
+   "source": null,
+   "stage": 8
+  },
+  {
+   "id": "a8_policy",
+   "text": "Negotiation policy: max 2 rounds; price, tooling, MOQ ≤ 2,000, lead time, 30% deposit / 70% before shipment; pick = lowest risk-adjusted cost incl. tooling.",
+   "label": "estimate",
+   "source": null,
+   "stage": 8
+  },
+  {
+   "id": "a8_autofill",
+   "text": "Auto-approved in autofill mode — review and change the selected factory before any real order",
+   "label": "estimate",
+   "source": null,
+   "stage": 8
+  },
+  {
+   "id": "s9_a1",
+   "text": "Quote lead time (30 d) is used as the tooling T0 duration; T1, golden sample and mass production use planning assumptions.",
+   "label": "estimate",
+   "source": null,
+   "stage": 9
+  },
+  {
+   "id": "s9_a2",
+   "text": "Date check: lead time differs from the stage 6 plan by -5 d (stage 6: 79 d, this plan: 74 d) — the negotiated quote governs",
+   "label": "estimate",
+   "source": null,
+   "stage": 9
+  },
+  {
+   "id": "s9_a3",
+   "text": "Kickoff date 2026-09-28 (next Monday after today unless start_date is passed in inputs); durations are planning assumptions except the quote lead time.",
+   "label": "estimate",
+   "source": null,
+   "stage": 9
+  },
+  {
+   "id": "s9_a4",
+   "text": "Sample rounds cost is an assumption; production payments follow the 30/70 term (deposit / before shipment) unless the quote states another deposit.",
+   "label": "estimate",
+   "source": null,
+   "stage": 9
+  },
+  {
+   "id": "s10_a1",
+   "text": "Pre-shipment inspection priced at $268 per man-day.",
+   "label": "sourced",
+   "source": "V-Trust, https://www.v-trust.com/en/our-network, checked 2026-09-26",
+   "stage": 10
+  },
+  {
+   "id": "s10_a2",
+   "text": "AQL 0 / 2.5 / 4.0 for critical / major / minor is the usual consumer-goods setting; agree it with the buyer and factory.",
+   "label": "estimate",
+   "source": null,
+   "stage": 10
+  },
+  {
+   "id": "s10_a3",
+   "text": "One inspector checks about 100 units per day including functional tests.",
+   "label": "estimate",
+   "source": null,
+   "stage": 10
+  },
+  {
+   "id": "s11_a1",
+   "text": "HTS 8424.82.0090: Same heading and rate as stage 5 (LLM-suggested) — to be confirmed by a customs broker",
+   "label": "estimate",
+   "source": "https://hts.usitc.gov/",
+   "stage": 11
+  },
+  {
+   "id": "s11_a2",
+   "text": "Assumed Section 301 rate of stage 5 — to be confirmed by a customs broker",
+   "label": "estimate",
+   "source": "https://hts.usitc.gov/",
+   "stage": 11
+  },
+  {
+   "id": "s11_a3",
+   "text": "IEEPA duties not collected since 24/02/2026; de minimis suspended; Section 122 is a user toggle (status to verify)",
+   "label": "sourced",
+   "source": "CBP CSMS 67834313 (https://content.govdelivery.com/accounts/USDHSCBP/bulletins/40b11c9); CBP CSMS 67844987; Federal Register 2026-06-24",
+   "stage": 11
+  },
+  {
+   "id": "s11_a4",
+   "text": "Freight sea fcl: 35 days transit (simulated); cost per unit derived from the Drewry lane rate, see a8-a10",
+   "label": "fictional",
+   "source": "demo data",
+   "stage": 11
+  },
+  {
+   "id": "s11_a5",
+   "text": "Platform/agent fee 7% of FOB (benchmark 5-10%)",
+   "label": "estimate",
+   "source": "https://www.dragonsourcing.com/top-10-cost-insights-for-hiring-a-china-sourcing-agent/",
+   "stage": 11
+  },
+  {
+   "id": "s11_a6",
+   "text": "FOB basis: Approved final terms, quote qt_15730f1cf9 — demo data",
+   "label": "fictional",
+   "source": "stage8_final_terms",
+   "stage": 11
+  },
+  {
+   "id": "s11_a7",
+   "text": "No CBP CROSS precedent in the cached set for this product: HTS 8424.82.0090 and its rates are an estimate — to be confirmed by a customs broker",
+   "label": "estimate",
+   "source": "https://rulings.cbp.gov/",
+   "stage": 11
+  },
+  {
+   "id": "a8",
+   "text": "Sea container rate Drewry World Container Index, 24 Sep 2026: Shanghai–Los Angeles $7,838/40ft (Drewry-assessed spot benchmark, snapshot; the quote you get will differ)",
+   "label": "sourced",
+   "source": "https://www.drewry.co.uk/supply-chain-advisors/supply-chain-expertise/world-container-index-assessed-by-drewry",
+   "stage": 11
+  },
+  {
+   "id": "a9",
+   "text": "Sea freight derived from the Drewry lane rate, cheaper of LCL and FCL chosen automatically: packed unit 0.0134 m³ (bounding box × 1.5 packaging, min 0.5 L) = 5,009 units per 40ft (67 m³ usable); 20ft container ≈ 0.55 × the 40ft rate, 33 m³. Air = max(gross kg, m³ × 167) × $6.00/kg, min $150 per shipment; express = 1.8× air (Estimate: typical China→US air cargo range $4-8/kg, to be confirmed by a forwarder); air and express are never auto-chosen",
+   "label": "estimate",
+   "source": "demo assumption",
+   "stage": 11
+  },
+  {
+   "id": "a10",
+   "text": "LCL consolidation premium vs FCL, typical 1.3–2.0×: 1.5× applied to lane rate ÷ 67 m³, minimum charge 1 m³ per shipment (derived from Drewry WCI 24 Sep 2026)",
+   "label": "estimate",
+   "source": "https://www.drewry.co.uk/supply-chain-advisors/supply-chain-expertise/world-container-index-assessed-by-drewry",
+   "stage": 11
+  },
+  {
+   "id": "s12_a1",
+   "text": "Dates from stage 9 milestones; amounts from the stage 5 cash breakdown with the approved stage 8 quote applied (unit price, tooling; duties, platform fee, insurance recomputed) (tooling 50/50 at T0/T1, samples at golden sample, 30% deposit + 70% before shipment (payment terms of stage 9), logistics at shipment/delivery)",
+   "label": "estimate",
+   "source": null,
+   "stage": 12
+  },
+  {
+   "id": "s12_a2",
+   "text": "Peak cash need $51,634; 11,596 of it falls in the first 60 days.",
+   "label": "estimate",
+   "source": null,
+   "stage": 12
+  },
+  {
+   "id": "s12_a3",
+   "text": "Financing costs are typical ranges, not quotes: verify with each provider",
+   "label": "estimate",
+   "source": null,
+   "stage": 12
+  },
+  {
+   "id": "s13_a1",
+   "text": "Amazon price in USD: 129 EUR × 1.08 (demo EUR→USD assumption). Marketplace fees and VAT are not included.",
+   "label": "estimate",
+   "source": null,
+   "stage": 13
+  },
+  {
+   "id": "s13_a2",
+   "text": "Name options are not trademark-searched; run a clearance search before committing.",
+   "label": "estimate",
+   "source": null,
+   "stage": 13
+  },
+  {
+   "id": "s13_a3",
+   "text": "Listing copy uses only facts from the brief and spec; no certification claims until testing is complete (stage 4).",
+   "label": "estimate",
+   "source": null,
+   "stage": 13
+  },
+  {
+   "id": "cn1",
+   "text": "Chinese text in this pack is machine-translated — to be reviewed by a native speaker.",
+   "label": "estimate",
+   "source": null,
+   "stage": null
+  }
+ ],
+ "engineering": {
+  "project_id": "demo_irrigation_biarritz",
+  "status": "draft",
+  "fallback": false,
+  "fallback_reason": null,
+  "generated_by": "code",
+  "generated_at": "2026-09-27T00:00:31.767174Z",
+  "assumptions": [
+   {
+    "id": "e1",
+    "text": "Engineering category 'Smart irrigation controller (outdoor, water)' detected from the product description and the 'irrigation' shape family",
+    "label": "estimate",
+    "source": null,
+    "stage": null
+   },
+   {
+    "id": "e4",
+    "text": "Physics checks are concept-level (rigid-body statics, rules of thumb): validate with the listed tests",
+    "label": "estimate",
+    "source": null,
+    "stage": null
+   }
+  ],
+  "stage": "engineering",
+  "category": "irrigation",
+  "category_title": "Smart irrigation controller (outdoor, water)",
+  "partner_word": "factories",
+  "site_install": false,
+  "product_name": "Smart garden irrigation",
+  "inputs_digest": "234b9d602cf54881",
+  "standards": [
+   {
+    "code": "IEC 60529",
+    "title": "Degrees of protection provided by enclosures (IP Code)",
+    "applies_because": "Outdoor enclosure next to water: IP67 target",
+    "url": "https://webstore.iec.ch/en/publication/2452",
+    "citation_label": "sourced",
+    "citation_note": "https://webstore.iec.ch/en/publication/2452, page checked 2026-09-27"
+   },
+   {
+    "code": "IEC 60730-1",
+    "title": "Automatic electrical controls — Part 1: General requirements",
+    "applies_because": "Automatic electrical control (valve timer / controller)",
+    "url": null,
+    "citation_label": "estimate",
+    "citation_note": "Standard to be confirmed (edition and applicability) — no verified citation URL"
+   },
+   {
+    "code": "EN 1717",
+    "title": "Protection against pollution of potable water in water installations and general requirements of devices to prevent pollution by backflow",
+    "applies_because": "Protection of potable water against backflow from the irrigation line",
+    "url": null,
+    "citation_label": "estimate",
+    "citation_note": "Standard to be confirmed (edition and applicability) — no verified citation URL"
+   },
+   {
+    "code": "IEC 62368-1",
+    "title": "Audio/video, information and communication technology equipment — Part 1: Safety requirements",
+    "applies_because": "Electrical safety of the controller and its power supply",
+    "url": "https://webstore.iec.ch/en/publication/69308",
+    "citation_label": "sourced",
+    "citation_note": "https://webstore.iec.ch/en/publication/69308, page checked 2026-09-27"
+   },
+   {
+    "code": "47 CFR Part 15",
+    "title": "FCC Part 15 — Radio Frequency Devices",
+    "applies_because": "Wi-Fi radio (US)",
+    "url": "https://www.ecfr.gov/current/title-47/chapter-I/subchapter-A/part-15",
+    "citation_label": "sourced",
+    "citation_note": "https://www.ecfr.gov/current/title-47/chapter-I/subchapter-A/part-15, page checked 2026-09-27"
+   },
+   {
+    "code": "Directive 2014/53/EU",
+    "title": "Radio Equipment Directive (RED)",
+    "applies_because": "Wi-Fi radio (EU)",
+    "url": "https://eur-lex.europa.eu/eli/dir/2014/53/oj/eng",
+    "citation_label": "sourced",
+    "citation_note": "https://eur-lex.europa.eu/eli/dir/2014/53/oj/eng, page checked 2026-09-27"
+   }
+  ],
+  "risks": [
+   {
+    "id": "r1",
+    "risk": "Valve fails open → flooding and water bill",
+    "mitigation": "Normally-closed valves, flow sensor with leak alarm, max run time in firmware",
+    "severity": "critical"
+   },
+   {
+    "id": "r2",
+    "risk": "Backflow contaminates drinking water",
+    "mitigation": "Backflow preventer (EN 1717 category per fluid) at the tap connection",
+    "severity": "critical"
+   },
+   {
+    "id": "r3",
+    "risk": "Frost bursts valves and housing",
+    "mitigation": "Drain function, winter mode, frost-tolerant valve bodies",
+    "severity": "major"
+   },
+   {
+    "id": "r4",
+    "risk": "UV and heat degrade the enclosure",
+    "mitigation": "UV-stabilised ASA/PC, light colour, sunshade",
+    "severity": "minor"
+   },
+   {
+    "id": "r5",
+    "risk": "Weak Wi-Fi at the garden edge",
+    "mitigation": "External antenna or LoRa/BLE bridge option",
+    "severity": "minor"
+   }
+  ],
+  "tests": [
+   {
+    "id": "t1",
+    "name": "IPX7 immersion + IP6X dust",
+    "kind": "ingress",
+    "method": "30 min at 1 m, inspection",
+    "standard": "IEC 60529"
+   },
+   {
+    "id": "t2",
+    "name": "UV ageing 500 h",
+    "kind": "other",
+    "method": "Xenon-arc chamber, colour and impact after exposure",
+    "standard": null
+   },
+   {
+    "id": "t3",
+    "name": "Pressure / burst of valve manifold (1.5 × max supply)",
+    "kind": "mechanical",
+    "method": "Hydrostatic test",
+    "standard": null
+   },
+   {
+    "id": "t4",
+    "name": "Thermal cycling -10 °C / +60 °C",
+    "kind": "thermal",
+    "method": "Operating cycles with water",
+    "standard": null
+   },
+   {
+    "id": "t5",
+    "name": "Radio + EMC",
+    "kind": "radio",
+    "method": "Accredited lab",
+    "standard": "47 CFR Part 15 / Directive 2014/53/EU"
+   }
+  ],
+  "checks": [
+   {
+    "id": "flow_per_zone",
+    "name": "Flow per zone (4 zones, one open at a time)",
+    "domain": "fluid",
+    "value": {
+     "value": 1.5,
+     "unit": "L/min",
+     "label": "estimate",
+     "source_or_assumption": "Typical drip zone (≈ 45 emitters × 2 L/h)"
+    },
+    "threshold": "≤ supply 20 L/min pass, ≤ 1.2 × supply warn",
+    "verdict": "pass",
+    "formula": "Zone demand = emitters × emitter flow; sequential zones never add up",
+    "inputs": [
+     {
+      "value": 1.5,
+      "unit": "L/min",
+      "label": "estimate",
+      "source_or_assumption": "Typical drip zone (≈ 45 emitters × 2 L/h)"
+     },
+     {
+      "value": 20.0,
+      "unit": "L/min",
+      "label": "estimate",
+      "source_or_assumption": "Garden tap supply assumption at 3 bar"
+     }
+    ],
+    "notes": [
+     "Daily water per zone at 20 min: 30 L"
+    ]
+   },
+   {
+    "id": "pressure_at_emitter",
+    "name": "Pressure at the last emitter",
+    "domain": "fluid",
+    "value": {
+     "value": 2.69,
+     "unit": "bar",
+     "label": "estimate",
+     "source_or_assumption": "3 bar − Hazen-Williams loss over 30 m of Ø13.6 mm PE (C = 140) − valve 0.3 bar"
+    },
+    "threshold": "≥ 1 bar pass (drip minimum), ≥ 0.7 warn",
+    "verdict": "pass",
+    "formula": "p = p_supply − 10.67 L Q^1.852 / (C^1.852 d^4.87) × ρg − Δp_valve",
+    "inputs": [
+     {
+      "value": 1.5,
+      "unit": "L/min",
+      "label": "estimate",
+      "source_or_assumption": "Typical drip zone (≈ 45 emitters × 2 L/h)"
+     },
+     {
+      "value": 20.0,
+      "unit": "L/min",
+      "label": "estimate",
+      "source_or_assumption": "Garden tap supply assumption at 3 bar"
+     }
+    ],
+    "notes": []
+   },
+   {
+    "id": "ip_rating",
+    "name": "Ingress protection target",
+    "domain": "ingress",
+    "value": {
+     "value": 67.0,
+     "unit": "IP code (IEC 60529)",
+     "label": "estimate",
+     "source_or_assumption": "Category target: IP67 (1 m / 30 min), outdoor"
+    },
+    "threshold": "IP67 to be proven by test (IEC 60529) — design only at this stage",
+    "verdict": "warn",
+    "formula": "Target from the use environment; every opening in the BOM gets a sealing measure",
+    "inputs": [],
+    "notes": [
+     "Buttons: over-moulded membrane or sealed tact switch (IP67 part), no open plunger",
+     "Housing seam: compressed gasket (25-30% squeeze) or ultrasonic weld; fasteners outside the sealed volume",
+     "Windows (LED/sensor/display): bonded with a continuous adhesive gasket, no press fit",
+     "Pressure-equalisation vent to avoid seal pumping with temperature cycles",
+     "Salt water: gold-plated or stainless contacts, no dissimilar metals in the wet area"
+    ]
+   },
+   {
+    "id": "battery_life",
+    "name": "Battery life / runtime from the power budget",
+    "domain": "power",
+    "value": {
+     "value": 218.8,
+     "unit": "days",
+     "label": "estimate",
+     "source_or_assumption": "2600 mAh × 85% usable / 0.4209 mA average"
+    },
+    "threshold": "≥ 182.5 days pass, ≥ 50% of it warn (category target, Estimate)",
+    "verdict": "pass",
+    "formula": "t = capacity × 85% usable / Σ(active × duty + sleep × (1 − duty))",
+    "inputs": [
+     {
+      "value": 2600.0,
+      "unit": "mAh",
+      "label": "estimate",
+      "source_or_assumption": "Category default 2600 mAh (no capacity in the BOM) — confirm with the cell datasheet"
+     },
+     {
+      "value": 0.4209,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "Sum of the power-budget lines"
+     }
+    ],
+    "notes": []
+   }
+  ],
+  "electronics": {
+   "mcu_family": "avr",
+   "mcu_part": "Microcontroller, ATmega328P-AU",
+   "radio": [],
+   "power_tree": [
+    {
+     "id": "p_bat",
+     "name": "Rechargeable battery",
+     "kind": "storage",
+     "parent": null,
+     "voltage": {
+      "value": 3.0,
+      "unit": "V",
+      "label": "estimate",
+      "source_or_assumption": "Category default 3 V"
+     }
+    },
+    {
+     "id": "p_reg",
+     "name": "DC-DC regulator, 5 V output",
+     "kind": "regulator",
+     "parent": "p_bat",
+     "voltage": {
+      "value": 3.3,
+      "unit": "V",
+      "label": "estimate",
+      "source_or_assumption": "Logic rail for MCU and sensors"
+     }
+    },
+    {
+     "id": "p_b1",
+     "name": "Solar panel, 6 V nominal, approximately 5 W",
+     "kind": "load",
+     "parent": "p_bat",
+     "voltage": {
+      "value": 3.0,
+      "unit": "V",
+      "label": "estimate",
+      "source_or_assumption": "VBAT (through its driver)"
+     }
+    },
+    {
+     "id": "p_b2",
+     "name": "Microcontroller, ATmega328P-AU",
+     "kind": "load",
+     "parent": "p_reg",
+     "voltage": {
+      "value": 3.3,
+      "unit": "V",
+      "label": "estimate",
+      "source_or_assumption": "Logic rail"
+     }
+    },
+    {
+     "id": "p_b3",
+     "name": "Capacitive soil-moisture probe module, analog output",
+     "kind": "load",
+     "parent": "p_reg",
+     "voltage": {
+      "value": 3.3,
+      "unit": "V",
+      "label": "estimate",
+      "source_or_assumption": "Logic rail"
+     }
+    },
+    {
+     "id": "p_b5",
+     "name": "Resistors, capacitors, connectors, and manual override switch",
+     "kind": "load",
+     "parent": "p_reg",
+     "voltage": {
+      "value": 3.3,
+      "unit": "V",
+      "label": "estimate",
+      "source_or_assumption": "Logic rail"
+     }
+    }
+   ],
+   "connections": [
+    {
+     "source": "Rechargeable battery",
+     "target": "DC-DC regulator, 5 V output",
+     "bus": "power",
+     "signals": "3.3 V"
+    },
+    {
+     "source": "Rechargeable battery",
+     "target": "Solar panel, 6 V nominal, approximately 5 W",
+     "bus": "power",
+     "signals": "3 V"
+    },
+    {
+     "source": "DC-DC regulator, 5 V output",
+     "target": "Microcontroller, ATmega328P-AU",
+     "bus": "power",
+     "signals": "3.3 V"
+    },
+    {
+     "source": "DC-DC regulator, 5 V output",
+     "target": "Capacitive soil-moisture probe module, analog output",
+     "bus": "power",
+     "signals": "3.3 V"
+    },
+    {
+     "source": "DC-DC regulator, 5 V output",
+     "target": "Resistors, capacitors, connectors, and manual override switch",
+     "bus": "power",
+     "signals": "3.3 V"
+    },
+    {
+     "source": "Microcontroller, ATmega328P-AU",
+     "target": "Solar panel, 6 V nominal, approximately 5 W",
+     "bus": "gpio",
+     "signals": "IN1, IN2 (H-bridge)"
+    },
+    {
+     "source": "Microcontroller, ATmega328P-AU",
+     "target": "Capacitive soil-moisture probe module, analog output",
+     "bus": "adc",
+     "signals": "AIN, EN"
+    },
+    {
+     "source": "Microcontroller, ATmega328P-AU",
+     "target": "Resistors, capacitors, connectors, and manual override switch",
+     "bus": "gpio",
+     "signals": "GPIO"
+    },
+    {
+     "source": "Microcontroller, ATmega328P-AU",
+     "target": "Battery voltage divider",
+     "bus": "adc",
+     "signals": "VBAT_SENSE (fuel estimate)"
+    }
+   ],
+   "power_budget": [
+    {
+     "block": "valve",
+     "part": "Solar panel, 6 V nominal, approximately 5 W",
+     "active_current": {
+      "value": 1851.852,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "1 × 5 W / 3 V / 90% driver"
+     },
+     "sleep_current": {
+      "value": 0.0,
+      "unit": "µA",
+      "label": "estimate",
+      "source_or_assumption": "Typical sleep/standby current"
+     },
+     "duty_cycle": {
+      "value": 0.02,
+      "unit": "pct",
+      "label": "estimate",
+      "source_or_assumption": "Category duty cycle for 'valve' (Smart irrigation controller (outdoor, water))"
+     },
+     "average_current": {
+      "value": 0.3704,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "active × duty + sleep × (1 − duty)"
+     }
+    },
+    {
+     "block": "mcu",
+     "part": "Microcontroller, ATmega328P-AU",
+     "active_current": {
+      "value": 1.5,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "Typical active current of a MCU (from the BOM)"
+     },
+     "sleep_current": {
+      "value": 1.0,
+      "unit": "µA",
+      "label": "estimate",
+      "source_or_assumption": "Typical sleep/standby current"
+     },
+     "duty_cycle": {
+      "value": 0.5,
+      "unit": "pct",
+      "label": "estimate",
+      "source_or_assumption": "Category duty cycle for 'mcu' (Smart irrigation controller (outdoor, water))"
+     },
+     "average_current": {
+      "value": 0.0085,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "active × duty + sleep × (1 − duty)"
+     }
+    },
+    {
+     "block": "moisture",
+     "part": "Capacitive soil-moisture probe module, analog output",
+     "active_current": {
+      "value": 5.0,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "Typical active current of a moisture (from the BOM)"
+     },
+     "sleep_current": {
+      "value": 0.0,
+      "unit": "µA",
+      "label": "estimate",
+      "source_or_assumption": "Typical sleep/standby current"
+     },
+     "duty_cycle": {
+      "value": 0.1,
+      "unit": "pct",
+      "label": "estimate",
+      "source_or_assumption": "Category duty cycle for 'moisture' (Smart irrigation controller (outdoor, water))"
+     },
+     "average_current": {
+      "value": 0.005,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "active × duty + sleep × (1 − duty)"
+     }
+    },
+    {
+     "block": "mcu",
+     "part": "Resistors, capacitors, connectors, and manual override switch",
+     "active_current": {
+      "value": 6.0,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "Typical active current of a MCU (from the BOM)"
+     },
+     "sleep_current": {
+      "value": 2.0,
+      "unit": "µA",
+      "label": "estimate",
+      "source_or_assumption": "Typical sleep/standby current"
+     },
+     "duty_cycle": {
+      "value": 0.5,
+      "unit": "pct",
+      "label": "estimate",
+      "source_or_assumption": "Category duty cycle for 'mcu' (Smart irrigation controller (outdoor, water))"
+     },
+     "average_current": {
+      "value": 0.032,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "active × duty + sleep × (1 − duty)"
+     }
+    },
+    {
+     "block": "regulator",
+     "part": "DC-DC regulator, 5 V output",
+     "active_current": {
+      "value": 0.0,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "Pass-through part"
+     },
+     "sleep_current": {
+      "value": 5.0,
+      "unit": "µA",
+      "label": "estimate",
+      "source_or_assumption": "Typical quiescent current"
+     },
+     "duty_cycle": {
+      "value": 100.0,
+      "unit": "pct",
+      "label": "estimate",
+      "source_or_assumption": "Always on"
+     },
+     "average_current": {
+      "value": 0.005,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "Quiescent current"
+     }
+    }
+   ],
+   "average_current": {
+    "value": 0.4209,
+    "unit": "mA",
+    "label": "estimate",
+    "source_or_assumption": "Sum of the power-budget lines"
+   },
+   "battery_voltage": {
+    "value": 3.0,
+    "unit": "V",
+    "label": "estimate",
+    "source_or_assumption": "Category default 3 V"
+   },
+   "battery_capacity": {
+    "value": 2600.0,
+    "unit": "mAh",
+    "label": "estimate",
+    "source_or_assumption": "Category default 2600 mAh (no capacity in the BOM) — confirm with the cell datasheet"
+   },
+   "battery_life": {
+    "value": 218.8,
+    "unit": "days",
+    "label": "estimate",
+    "source_or_assumption": "2600 mAh × 85% usable / 0.4209 mA average"
+   },
+   "pcb_note": "PCB layout: next step (human or text-to-PCB)"
+  },
+  "firmware": {
+   "framework": "arduino",
+   "mcu_family": "avr",
+   "connectivity": "Wi-Fi + MQTT (schedules, soil moisture, flow)",
+   "url": "/files/demo_irrigation_biarritz/firmware.zip",
+   "files": [
+    "README.md",
+    "platformio.ini",
+    "src/connectivity.cpp",
+    "src/connectivity.h",
+    "src/main.cpp",
+    "src/pins.h",
+    "src/sensors.cpp",
+    "src/sensors.h"
+   ],
+   "generated_by": "llm:openai/gpt-6-luna",
+   "note": "Generated code — not compiled or tested",
+   "pending_llm": false
+  },
+  "prototype": {
+   "enclosure_method": "FDM ASA 3D print (outdoor-stable) with an O-ring groove",
+   "enclosure_volume": {
+    "value": 171.4,
+    "unit": "cm³",
+    "label": "measured",
+    "source_or_assumption": "Enclosure solid volume measured on the STEP (stage 3)"
+   },
+   "units": 2,
+   "cost_lines": [
+    {
+     "item": "Enclosure: FDM ASA 3D print (outdoor-stable) with an O-ring groove",
+     "amount": {
+      "value": 71.0,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "2 × (15 USD setup + 0.12 USD/cm³ × 171.4 cm³ measured volume)"
+     }
+    },
+    {
+     "item": "PCBA quick-turn (5 boards, 9 BOM lines)",
+     "amount": {
+      "value": 100.0,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "5 boards: setup/stencil 25 + 2-layer fab 5 + parts 49.86 (LCSC price at 5× qty where matched, else BOM estimate × 3) + shipping 20 USD"
+     }
+    },
+    {
+     "item": "Dev-kit bring-up set (firmware before the PCBA arrives)",
+     "amount": {
+      "value": 22.0,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Sum of the dev-kit BOM lines"
+     }
+    },
+    {
+     "item": "Batteries, cables, fasteners, consumables",
+     "amount": {
+      "value": 40.0,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Flat allowance"
+     }
+    }
+   ],
+   "devkit_bom": [
+    {
+     "part": "ATtiny/ATmega Arduino-compatible board",
+     "role": "MCU + radio dev board",
+     "qty": 1,
+     "lcsc_pn": null,
+     "unit_price": {
+      "value": 6.0,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Typical distributor price for this dev board class"
+     }
+    },
+    {
+     "part": "Solar panel, 6 V nominal, approximately 5 W (module / breakout)",
+     "role": "valve",
+     "qty": 1,
+     "lcsc_pn": null,
+     "unit_price": {
+      "value": 8.0,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Typical hobby breakout/module price, not in the LCSC snapshot"
+     }
+    },
+    {
+     "part": "Capacitive soil-moisture probe module, analog output (module / breakout)",
+     "role": "moisture",
+     "qty": 1,
+     "lcsc_pn": null,
+     "unit_price": {
+      "value": 8.0,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Typical hobby breakout/module price, not in the LCSC snapshot"
+     }
+    }
+   ],
+   "assembly_steps": [
+    "Bench the valve driver on a dev kit with a real latching valve",
+    "Print the housing in ASA with an O-ring lid",
+    "Assemble the quick-turn PCBA, pot the valve connector",
+    "Dunk test the closed housing (bench IPX7)",
+    "Run one real garden zone for a week with the flow sensor logging",
+    "PCB layout: next step (human or text-to-PCB) — the schematic follows the power tree and connection list above"
+   ],
+   "timeline_weeks": {
+    "value": 4.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Design freeze 0.5 + PCBA quick-turn incl. shipping 2 + integration 1 + test 0.5 (enclosure and firmware on the dev kit run in parallel)"
+   },
+   "total_cost": {
+    "value": 233.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Sum of the prototype cost lines"
+   }
+  },
+  "solar": null,
+  "installers": [],
+  "build_strategy": {
+   "strategy": "module_assembly",
+   "title": "Module assembly",
+   "explanation": "You design the product around bought-in, pre-certified modules (e.g. motor + driver, battery pack, radio module, heater + fan): your work is the architecture, the enclosure, the integration and the software; the factory assembles the modules into your parts. Faster and cheaper than designing every sub-system, and the modules' certifications carry part of the compliance.",
+   "customisable": [
+    "Controller enclosure, UX, app and watering logic",
+    "Kit composition (valves, probes)"
+   ],
+   "not_customisable": [
+    "Solenoid valves, soil probes, Wi-Fi/BLE module"
+   ],
+   "moq": {
+    "value": 1000.0,
+    "unit": "units",
+    "label": "estimate",
+    "source_or_assumption": "Typical minimum order for a first run in this category — factory MOQ range"
+   },
+   "entry_cost": {
+    "value": 35000.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Typical first production run for this category (Controller moulds ≈ $15k, PCBA NRE, IP + radio ≈ $8k) — industry range, not a quote"
+   },
+   "lead_time": {
+    "value": 18.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Frozen design → first production units (tooling, samples, certification), typical"
+   },
+   "path": [
+    "Choose valve + probe suppliers",
+    "Controller enclosure moulds + PCBA around a certified radio module",
+    "IP and radio tests",
+    "First run"
+   ],
+   "certifications_note": "Radio module approvals reused; IP rating and EMC on the controller.",
+   "assumptions": [
+    "Estimates for a first production run; real MOQs and NRE come from quotes",
+    "Module figures assume catalogue modules with their own certifications"
+   ]
+  },
+  "unit_basis": "per_unit",
+  "installation_cost": null
+ }
+}

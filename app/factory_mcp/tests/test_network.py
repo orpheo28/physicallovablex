@@ -14,8 +14,11 @@ def fresh_store():
 
 def test_eight_fictional_factories():
     fs = network.list_factories()
-    assert len(fs) == 8
-    assert len({f.id for f in fs}) == 8
+    assert len(fs) == 15  # 8 factories + 3 installers (W20, ids i_*) + 3 specialists (W21) + LSR overmolder (W21b)
+    assert len({f.id for f in fs}) == 15
+    assert {f.kind for f in fs if f.id.startswith("i_")} == {"installer"} and network.get_factory("f_skyforge").kind == "integrator"
+    assert network.get_factory("f_orchid").kind == "factory"
+    assert sum(1 for f in fs if f.id.startswith("i_")) == 3
     for f in fs:
         Factory.model_validate(f.model_dump())
         assert f.name.endswith("(fictional)"), f.name

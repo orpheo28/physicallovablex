@@ -1,0 +1,123 @@
+{
+ "project_id": "demo_irrigation_biarritz",
+ "status": "validated",
+ "fallback": false,
+ "fallback_reason": null,
+ "generated_by": "llm:openai/gpt-6-sol",
+ "generated_at": "2026-09-26T23:59:46.013081Z",
+ "assumptions": [
+  {
+   "id": "a1",
+   "text": "Skipped clarifying questions use their defaults: markets=EU; volume=100–1,000 units; target_price=€100–€149; battery=Mains power; wireless=Wi-Fi. Re-run stage 1 with answers to change them.",
+   "label": "estimate",
+   "source": null,
+   "stage": 1
+  },
+  {
+   "id": "a2",
+   "text": "Target retail price proposed by the spec copilot (not stated by the founder); confirm before costing.",
+   "label": "estimate",
+   "source": null,
+   "stage": 1
+  }
+ ],
+ "stage": 1,
+ "mode": "idea",
+ "prompt": "Smart irrigation for a 30 m² garden in Biarritz",
+ "product_name": "Smart garden irrigation",
+ "one_liner": "An irrigation controller for a 30 m² garden in Biarritz that adjusts watering schedules based on weather and soil conditions.",
+ "category": "other",
+ "target_markets": [
+  "EU"
+ ],
+ "target_retail_price": {
+  "value": 129.0,
+  "unit": "EUR",
+  "label": "estimate",
+  "source_or_assumption": "Assumed by the spec copilot from category comparables — confirm with the founder"
+ },
+ "target_volumes": [
+  500,
+  2000,
+  10000
+ ],
+ "key_features": [
+  "Scheduled watering",
+  "Weather-based schedule adjustments",
+  "Soil moisture monitoring",
+  "Manual watering override",
+  "Solar power"
+ ],
+ "constraints": [
+  "Designed for a 30 m² garden in Biarritz"
+ ],
+ "has_battery": false,
+ "wireless": [],
+ "pasted_bom": [],
+ "clarifying_questions": [
+  {
+   "id": "q1",
+   "topic": "markets",
+   "question": "Where will you sell it?",
+   "options": [
+    "EU",
+    "EU and UK",
+    "US",
+    "Other"
+   ],
+   "answer": "EU",
+   "skipped": true
+  },
+  {
+   "id": "q2",
+   "topic": "volume",
+   "question": "What is your initial production volume?",
+   "options": [
+    "Under 100 units",
+    "100–1,000 units",
+    "Over 1,000 units"
+   ],
+   "answer": "100–1,000 units",
+   "skipped": true
+  },
+  {
+   "id": "q3",
+   "topic": "target_price",
+   "question": "What retail price are you targeting?",
+   "options": [
+    "Under €100",
+    "€100–€149",
+    "€150–€249",
+    "€250 or more"
+   ],
+   "answer": "€100–€149",
+   "skipped": true
+  },
+  {
+   "id": "q4",
+   "topic": "battery",
+   "question": "How should it be powered?",
+   "options": [
+    "Mains power",
+    "Replaceable batteries",
+    "Rechargeable battery",
+    "Solar power"
+   ],
+   "answer": "Mains power",
+   "skipped": true
+  },
+  {
+   "id": "q5",
+   "topic": "wireless",
+   "question": "What connectivity should it use?",
+   "options": [
+    "Wi-Fi",
+    "BLE",
+    "Zigbee",
+    "No wireless"
+   ],
+   "answer": "Wi-Fi",
+   "skipped": true
+  }
+ ]
+}

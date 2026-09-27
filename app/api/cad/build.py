@@ -7,6 +7,7 @@ the height. Each half is a tapered extrusion (draft on every vertical wall, wide
 halves release along ±Z), hollowed to a real `wall`, with drafted screw bosses in the bottom half.
 
     family 0 = soft rounded box · 1 = puck (cylinder) · 2 = slim slab
+    family 3 = wearable_band · 4 = ring (W17, api/cad/wearables.py: own ranges, extra strap_width/strap_length)
 
 Parameters (mm / deg, all floats so they fit DesignDirection.cad_parameters):
     family, length, width, height, fillet (footprint corner radius), edge_fillet (outer floor/roof edge),
@@ -30,7 +31,7 @@ from typing import Any
 
 log = logging.getLogger("cad.build")
 
-FAMILIES = {0: "rounded_box", 1: "puck", 2: "slab"}
+FAMILIES = {0: "rounded_box", 1: "puck", 2: "slab", 3: "wearable_band", 4: "ring"}
 FAMILY_CODES = {v: k for k, v in FAMILIES.items()}
 
 DEFAULTS: dict[str, float] = {
@@ -70,6 +71,10 @@ def normalize(params: dict[str, Any]) -> dict[str, float]:
     p = {**DEFAULTS, **{k: float(v) for k, v in params.items() if k in DEFAULTS and v is not None}}
     fam = int(round(p["family"]))
     p["family"] = float(fam if fam in FAMILIES else 0)
+    if fam >= 3 and fam in FAMILIES:  # wearables: own plausible ranges + extra parameters
+        from api.cad.wearables import normalize_family
+
+        return {k: round(v, 3) for k, v in normalize_family(p, params).items()}
     p["wall"] = _clamp(p["wall"], 1.2, 4.0)
     p["draft_deg"] = _clamp(p["draft_deg"], 0.0, 5.0)
     p["length"] = _clamp(p["length"], 20.0, 400.0)
@@ -171,6 +176,10 @@ def build_shape(params: dict[str, Any]):
 
     p = normalize(params)
     fam = int(p["family"])
+    if fam >= 3:
+        from api.cad import wearables
+
+        return wearables.build_shape(p)
     L, W, H, wall, d = p["length"], p["width"], p["height"], p["wall"], p["draft_deg"]
     hb = round(H * p["split_ratio"], 3)
     ht = H - hb

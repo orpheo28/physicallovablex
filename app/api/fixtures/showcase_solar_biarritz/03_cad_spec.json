@@ -1,0 +1,405 @@
+{
+ "project_id": "demo_solar_biarritz",
+ "status": "validated",
+ "fallback": false,
+ "fallback_reason": null,
+ "generated_by": "llm:openai/gpt-6-luna",
+ "generated_at": "2026-09-27T00:22:21.075936Z",
+ "assumptions": [
+  {
+   "id": "a3_1",
+   "text": "Weight from the measured solid volume × per-part densities (PV module effective density 0.36 g/cm³ (≈ 21 kg per 1722 × 1134 × 30 mm module), hollow aluminium rails 0.45 effective)",
+   "label": "estimate",
+   "source": null,
+   "stage": 3
+  },
+  {
+   "id": "a3_2",
+   "text": "Direction d1 ('Flush mount'): solid product from the 'solar_array' family — no moulded enclosure; enclosure.* files are the product itself",
+   "label": "estimate",
+   "source": null,
+   "stage": 3
+  }
+ ],
+ "stage": 3,
+ "product_name": "Rooftop solar, Biarritz",
+ "direction_id": "d1",
+ "overall_dimensions": {
+  "length": {
+   "value": 8258.0,
+   "unit": "mm",
+   "label": "measured",
+   "source_or_assumption": "Bounding box of the full product (family CAD, build123d/OCCT)"
+  },
+  "width": {
+   "value": 3014.91,
+   "unit": "mm",
+   "label": "measured",
+   "source_or_assumption": "Bounding box of the full product (family CAD, build123d/OCCT)"
+  },
+  "height": {
+   "value": 1757.98,
+   "unit": "mm",
+   "label": "measured",
+   "source_or_assumption": "Bounding box of the full product (family CAD, build123d/OCCT)"
+  }
+ },
+ "weight": {
+  "value": 182047.5,
+  "unit": "g",
+  "label": "estimate",
+  "source_or_assumption": "Solid volume 424266.9 cm³ (measured) × densities per part (PV module effective density 0.36 g/cm³ (≈ 21 kg per 1722 × 1134 × 30 mm module), hollow aluminium rails 0.45 effective)"
+ },
+ "parts": [
+  {
+   "id": "p1",
+   "name": "Mounting rails and clamps",
+   "material": "Anodised aluminium 6063",
+   "finish": "Black frame",
+   "process_hint": "extrusion",
+   "tolerance": "Per module datasheet",
+   "dimensions": {
+    "length": {
+     "value": 8258.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Bounding box of the largest part of this group, built family CAD (build123d/OCCT)"
+    },
+    "width": {
+     "value": 89.6,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Bounding box of the largest part of this group, built family CAD (build123d/OCCT)"
+    },
+    "height": {
+     "value": 115.3,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Bounding box of the largest part of this group, built family CAD (build123d/OCCT)"
+    }
+   },
+   "wall_thickness": null,
+   "quantity": 18
+  },
+  {
+   "id": "p2",
+   "name": "PV modules",
+   "material": "Monocrystalline glass-glass module",
+   "finish": "Black frame",
+   "process_hint": "other",
+   "tolerance": "Per module datasheet",
+   "dimensions": {
+    "length": {
+     "value": 1065.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Bounding box of the largest part of this group, built family CAD (build123d/OCCT)"
+    },
+    "width": {
+     "value": 1433.5,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Bounding box of the largest part of this group, built family CAD (build123d/OCCT)"
+    },
+    "height": {
+     "value": 830.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Bounding box of the largest part of this group, built family CAD (build123d/OCCT)"
+    }
+   },
+   "wall_thickness": null,
+   "quantity": 14
+  }
+ ],
+ "electronics_blocks": [
+  {
+   "id": "b1",
+   "name": "PV module array",
+   "function": "Converts sunlight into DC electrical power."
+  },
+  {
+   "id": "b2",
+   "name": "DC isolation and cabling",
+   "function": "Routes and disconnects array DC power for the inverter."
+  },
+  {
+   "id": "b3",
+   "name": "Grid-tie inverter",
+   "function": "Converts PV DC power to grid-synchronised household AC."
+  },
+  {
+   "id": "b4",
+   "name": "AC protection and grid connection",
+   "function": "Provides AC-side protection and connection to the household electrical installation and utility grid."
+  },
+  {
+   "id": "b5",
+   "name": "Stationary solar battery pack with integ",
+   "function": "Provides battery storage; capacity to be specified."
+  },
+  {
+   "id": "b6",
+   "name": "Battery inverter/charger compatible with",
+   "function": "Enables charging and discharging without assuming the existing inverter supports"
+  }
+ ],
+ "electronics_edges": [
+  {
+   "source": "b1",
+   "target": "b2",
+   "signal": "PV DC power"
+  },
+  {
+   "source": "b2",
+   "target": "b3",
+   "signal": "Isolated PV DC power"
+  },
+  {
+   "source": "b3",
+   "target": "b4",
+   "signal": "Grid-synchronised AC power"
+  }
+ ],
+ "bom": [
+  {
+   "id": "e1",
+   "part": "Monocrystalline PV module, approx. 450 W, framed",
+   "category": "electronic",
+   "qty": 10.0,
+   "description": "Approx. 4.5 kWp array; final module count and rating depend on usable roof layout.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "e2",
+   "part": "Single-phase grid-tie string inverter, approx. 5 kW, MPPT",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Grid-connected inverter sized for the array; installation and grid settings must suit the site.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "e3",
+   "part": "PV DC isolator, voltage/current rated for array",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "DC-side disconnect; confirm ratings and whether integrated isolator in inverter makes this separate part unnecessary.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "e4",
+   "part": "AC protection and disconnect assembly",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Grid-side breaker/disconnect and required protection, selected to local electrical code and inverter rating.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "e5",
+   "part": "PV-rated DC cable and compatible module connectors",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Set of UV-resistant solar cable, connectors and terminations; length determined by array and inverter placement.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m1",
+   "part": "Anodised aluminium mounting rails",
+   "category": "mechanical",
+   "qty": 20.0,
+   "description": "Approximate rail set for flush-mounted array; lengths, spans and quantity require roof-specific structural design.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m2",
+   "part": "Roof attachment feet or hooks, roof-type compatible",
+   "category": "mechanical",
+   "qty": 30.0,
+   "description": "Indicative quantity; attachment type and spacing must be determined for the actual roof construction and wind loads.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m3",
+   "part": "PV module mid-clamps",
+   "category": "mechanical",
+   "qty": 18.0,
+   "description": "For adjoining modules in array; compatible with module frame and rail profile.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m4",
+   "part": "PV module end-clamps",
+   "category": "mechanical",
+   "qty": 8.0,
+   "description": "For array perimeter; compatible with module frame and rail profile.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m5",
+   "part": "Stainless-steel mounting fastener set",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Roof attachment and rail fasteners, sized and selected for the roof substrate and corrosion environment.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m6",
+   "part": "Cable clips, UV-resistant ties and roof-entry gland",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Cable management and weatherproof roof entry; final quantities depend on routing.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m7",
+   "part": "Roof flashing and sealing consumables",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Roof-compatible flashing/sealant for penetrations, where required by the selected attachment system.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "k1",
+   "part": "Protective shipping packaging set",
+   "category": "packaging",
+   "qty": 1.0,
+   "description": "Pallet/crate, module edge protection, inverter carton and shipment restraints for one system.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "e6",
+   "part": "Stationary solar battery pack with integrated battery management system",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Provides battery storage; capacity to be specified.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.3,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "No match in LCSC snapshot 2026-09-26. Placeholder estimate: USD 0.30 per unit for an electronic line without catalogue match"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "e7",
+   "part": "Battery inverter/charger compatible with the existing grid-tie system",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Enables charging and discharging without assuming the existing inverter supports batteries.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.3,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "No match in LCSC snapshot 2026-09-26. Placeholder estimate: USD 0.30 per unit for an electronic line without catalogue match"
+   },
+   "risk": null,
+   "alternative": null
+  }
+ ],
+ "tolerances": [
+  "Rail alignment ±5 mm",
+  "Module gap 20 mm ±3 mm",
+  "Roof-edge margin ≥ 450 mm"
+ ],
+ "cad_files": [
+  {
+   "format": "glb",
+   "url": "/files/demo_solar_biarritz/model_v1.glb",
+   "description": "AI-generated CAD (concept level) — geometry measured on the result — bbox 8258 × 3471 × 1722 mm",
+   "size_bytes": 254104
+  },
+  {
+   "format": "step",
+   "url": "/files/demo_solar_biarritz/model_v1.step",
+   "description": "AI-generated CAD (concept level) — geometry measured on the result — STEP AP214",
+   "size_bytes": 958451
+  },
+  {
+   "format": "py",
+   "url": "/projects/demo_solar_biarritz/cad/code/1",
+   "description": "AI-generated CAD (concept level) — geometry measured on the result — build123d program v1 (llm:openai/gpt-6-sol)",
+   "size_bytes": 4806
+  },
+  {
+   "format": "glb",
+   "url": "/files/demo_solar_biarritz/v2.glb",
+   "description": "Full product — materials",
+   "size_bytes": 205752
+  },
+  {
+   "format": "step",
+   "url": "/files/demo_solar_biarritz/v2_enclosure.step",
+   "description": "Product — all parts (solid bodies), STEP AP214",
+   "size_bytes": 752342
+  },
+  {
+   "format": "stl",
+   "url": "/files/demo_solar_biarritz/v2_enclosure.stl",
+   "description": "Product — mesh",
+   "size_bytes": 30484
+  },
+  {
+   "format": "glb",
+   "url": "/files/demo_solar_biarritz/v2_enclosure.glb",
+   "description": "Product — viewer model",
+   "size_bytes": 197264
+  }
+ ]
+}

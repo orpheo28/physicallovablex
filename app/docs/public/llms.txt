@@ -1,0 +1,17 @@
+# PhysicalLovableX
+
+> Describe any physical product in plain language, see it in 3D with costs and factories, refine it by prompting (the AI writes the CAD as code, measures it and fixes it), then "Make it" runs factory matching (production MCP), negotiation, tooling, QC, shipping and duties, cash plan and brand to a Launch Dossier. Concept-level; the factory network is fictional demo data. Every number is labeled Measured, Sourced, Estimate or Fictional.
+
+## Docs
+
+- [Overview](https://physicallovablex.vercel.app/docs/overview): what it is, the Describe/See/Refine/Make it loop, real vs demo, how to connect an agent.
+- [Quickstart](https://physicallovablex.vercel.app/docs/quickstart): first product in the app and through the REST API with curl.
+- [Concepts](https://physicallovablex.vercel.app/docs/concepts): Factory Pack, versions and diffs, the 13 steps, honesty labels, build strategies, categories.
+- [Studio API](https://physicallovablex.vercel.app/docs/studio-api): reference for projects, Studio, showcase gallery (/examples), CAD code, stages, autorun, export, engineering and factory routes.
+- [Production MCP](https://physicallovablex.vercel.app/docs/production-mcp): the 7 MCP tools over Streamable HTTP at /mcp, auth, buyer and factory flows.
+- [Engineering](https://physicallovablex.vercel.app/docs/engineering): category packs (incl. drone, hair dryer, camera, smartphone), physics checks, PVGIS, electronics, firmware, prototype path, build strategy.
+- [Limits](https://physicallovablex.vercel.app/docs/limits): honest scope, what is fictional, what humans sign off, what is coming.
+
+## For agents
+
+- [agents.md](https://physicallovablex.vercel.app/agents.md): step-by-step instructions for AI agents (connect, authenticate, create, refine, engineer, Make it, rules).

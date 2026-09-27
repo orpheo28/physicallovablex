@@ -112,6 +112,18 @@ def _find_spec_part(item: BOMItem, parts: list[SpecPart]) -> SpecPart | None:
     return best if score else None
 
 
+def _solid_family(ctx: StageContext) -> str | None:
+    try:
+        from api.cad.family_mode import SOLID, family_of
+
+        design, spec = ctx.artifact(2), ctx.artifact(3)
+        d = next((x for x in design.directions if x.id == (spec.direction_id if spec else design.chosen_direction_id)), None)
+        fam = family_of(d) if d is not None else None
+        return fam if fam in SOLID else None
+    except Exception:  # noqa: BLE001
+        return None
+
+
 def part_cost(p: SpecPart) -> tuple[float, str] | None:
     """Unit cost of a spec part from its geometry × material price + conversion. None when there is no geometry."""
     mk = _material_key(p.material)
@@ -273,6 +285,7 @@ class CostModel:
         ref = int(inp.get("reference_quantity", DEFAULT_REF))
         bom, _, _ = load_bom(ctx, ref)
         spec = ctx.artifact(3)
+        solid = _solid_family(ctx)  # W21: board / furniture / PV array — priced per category, not from CNC billets
         lines: list[Line] = []
         for it in bom:
             if it.lcsc_pn and it.unit_cost_est is not None and label_of(it.unit_cost_est) == "sourced":
@@ -280,11 +293,21 @@ class CostModel:
                 continue
             base = it.unit_cost_est.value if it.unit_cost_est else None
             note = it.unit_cost_est.source_or_assumption if it.unit_cost_est else ""
-            if str(getattr(it.category, "value", it.category)) == "mechanical" and spec is not None:
+            if solid and (base is None or "Placeholder" in note or "No match in LCSC" in note):
+                from api.costs.family_prices import estimate
+
+                if (hit := estimate(solid, it.part, it.qty) or estimate(solid, f"{it.part} {it.description or ''}", it.qty)) is not None:
+                    base, note = hit
+            if str(getattr(it.category, "value", it.category)) == "mechanical" and spec is not None and not solid:
                 sp = _find_spec_part(it, spec.parts)
                 pc = part_cost(sp) if sp else None
                 if pc:
                     base, note = pc[0] * (sp.quantity if sp.quantity and sp.quantity > 1 else 1), f"{sp.name}: {pc[1]}"
+            if base is None or "Placeholder" in note or "No match in LCSC" in note:  # W21c: modules priced as modules
+                from api.costs.modules import estimate as module_price
+
+                if (hit := module_price(it.part, it.qty) or module_price(f"{it.part} {it.description or ''}", it.qty)) is not None:
+                    base, note = hit
             if base is None and it.qty > 20:  # many identical small parts (switches, sockets, fasteners): per-piece placeholder
                 base, note = 0.12, f"Placeholder USD 0.12 per piece for a small part used {it.qty:g}× per unit: no price in the BOM and no geometry"
             if base is None:
@@ -310,11 +333,27 @@ def target_price(ctx: StageContext) -> tuple[float, str, str] | None:
     return p.value * fx, note, label_of(p)
 
 
+RETAIL_MULT = 3.0  # W21c: ex-works → retail for consumer electronics sold D2C / retail (category multiplier, before VAT)
+RETAIL_MULT_SOLID = 2.4  # furniture, boards: bulky, lower multiplier
+RETAIL_MIN_MULT = 1.6  # an assumed retail below 1.6 × landed cost is replaced
+
+
+def retail_from_cost(unit: float, mult: float = RETAIL_MULT) -> float:
+    """Retail price point from the ex-works unit cost × category multiplier, rounded to a …9 price ($149, $289, $1,249)."""
+    raw = mult * unit
+    step = 10 if raw < 500 else 50
+    return float(max(9, round(raw / step) * step - 1))
+
+
 def _round2(x: float) -> float:
     return round(x + 1e-12, 2)
 
 
 def build_costs(ctx: StageContext) -> CostsArtifact:
+    from api.costs import site
+
+    if site.is_site(ctx):  # W21c: rooftop solar — one installation, pilot cash plan, one currency
+        return site.site_costs(ctx)
     model = CostModel.from_ctx(ctx)
     inp = ctx.inputs or {}
     vols = model.volumes
@@ -357,6 +396,14 @@ def build_costs(ctx: StageContext) -> CostsArtifact:
     if tp is not None:
         target, tp_note, tp_label = tp
         target_lv = usd(target, "estimate", tp_note + " (retail price incl. VAT where applicable)")
+        brief = ctx.artifact(1)
+        assumed = "assumed" in (brief.target_retail_price.source_or_assumption or "").lower() if brief is not None else False
+        if assumed and target < RETAIL_MIN_MULT * ref_landed:  # W21c: an assumed retail below cost is not a market price
+            mult = RETAIL_MULT_SOLID if _solid_family(ctx) else RETAIL_MULT
+            target = retail_from_cost(ref_unit.unit, mult)
+            target_lv = usd(target, "estimate", f"No founder price and the assumed {tp_note.lower()} is below {RETAIL_MIN_MULT:g}× landed cost "
+                            f"${ref_landed:.2f}: retail derived as {mult:g}× ex-works unit cost ${ref_unit.unit:.2f} at {ref:,} units "
+                            "(category retail multiplier, comparables to confirm)")
     else:
         target = round(3.0 * ref_landed, 2)
         target_lv = usd(target, "estimate", f"No target price in the brief: assumed 3 × landed cost at {ref:,} units")

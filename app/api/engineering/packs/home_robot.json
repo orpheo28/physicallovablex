@@ -1,0 +1,43 @@
+{
+  "key": "home_robot",
+  "title": "Home robot (mobile, battery powered)",
+  "match": ["robot", "robotic", "humanoid", "companion bot", "home assistant robot", "rover", "mobile manipulator"],
+  "families": ["home_robot"],
+  "brief_categories": [],
+  "partner_word": "factories",
+  "standards": [
+    {"code": "ISO 13482", "applies_because": "Safety of personal care robots (mobile servant robot in the home)"},
+    {"code": "IEC 62368-1", "applies_because": "Electrical safety of the ICT/electronics part (camera, compute, charger)"},
+    {"code": "IEC 60335-1", "applies_because": "Household appliance safety if marketed as an appliance (general requirements)"},
+    {"code": "IEC 60825-1", "applies_because": "Laser safety of the lidar / ToF emitters"},
+    {"code": "IEC 62133-2", "applies_because": "Li-ion battery pack"},
+    {"code": "UN 38.3", "applies_because": "Li-ion pack shipped inside the product"},
+    {"code": "47 CFR Part 15", "applies_because": "Wi-Fi / BLE radios and digital electronics (US)"},
+    {"code": "Directive 2014/53/EU", "applies_because": "Wi-Fi / BLE radios (EU), incl. the cybersecurity delegated act for connected devices"}
+  ],
+  "risks": [
+    {"risk": "Pinch and crush points in wheels, arms and joints", "mitigation": "Torque/current limiting, compliant covers, finger-safe gaps, force limits per ISO 13482", "severity": "critical"},
+    {"risk": "Falls down stairs or tips on thresholds and rugs", "mitigation": "Cliff sensors (IR ToF) facing down, low centre of mass, max-slope limit in firmware", "severity": "critical"},
+    {"risk": "Battery thermal runaway in a closed home", "mitigation": "BMS with cell-level protection, fused pack, IEC 62133-2 cells, charging only on the dock", "severity": "critical"},
+    {"risk": "Camera/microphone privacy", "mitigation": "Hardware privacy shutter, on-device processing, GDPR data map", "severity": "major"},
+    {"risk": "Wi-Fi dead zones break autonomy", "mitigation": "Local autonomy (no cloud in the control loop), offline map", "severity": "minor"}
+  ],
+  "tests": [
+    {"name": "Stability on 10° slope and 20 mm threshold", "kind": "tip_over", "method": "Drive over the obstacle course loaded and unloaded", "standard": "ISO 13482"},
+    {"name": "Collision force / pinch measurement", "kind": "mechanical", "method": "Force gauge at contact points at max speed", "standard": "ISO 13482"},
+    {"name": "Drop from 0.5 m (stairs step) and bump test", "kind": "drop", "method": "Free fall on each edge, functional check", "standard": null},
+    {"name": "Battery abuse and charging fault tests", "kind": "battery", "method": "Accredited lab", "standard": "IEC 62133-2 / UN 38.3"},
+    {"name": "Temperature rise of accessible surfaces", "kind": "thermal", "method": "Thermocouples, max duty cycle, 25 °C ambient", "standard": "IEC 62368-1"},
+    {"name": "Radio + EMC", "kind": "radio", "method": "Accredited lab", "standard": "47 CFR Part 15 / Directive 2014/53/EU"}
+  ],
+  "checks": ["tip_over", "tip_push", "battery_life", "thermal", "mass"],
+  "params": {
+    "com_ratio": 0.4, "tip_min_deg": 12, "tip_warn_deg": 8, "push_min_n": 20, "mass_max_g": 25000,
+    "battery_target_h": 2, "battery_mah_default": 5000, "battery_v_default": 14.4,
+    "duty": {"mcu": 80, "radio": 20, "imu": 100, "camera": 60, "lidar": 60, "motor": 35, "led": 20, "buzzer": 1, "display": 50, "env": 5},
+    "default_family": "esp32", "connectivity": "Wi-Fi + MQTT (telemetry, commands)",
+    "typical_electronics": ["ESP32-S3 Wi-Fi module", "6-axis IMU accelerometer gyroscope", "ToF distance sensor VL53L1X (cliff)", "Drive motor 5W", "Drive motor 5W", "Motor driver DRV8833", "Li-ion pack 4S 5000 mAh 14.4V", "BMS 4S", "Buck converter 3.3V"]
+  },
+  "prototype": {"method": "MJF PA12 nylon 3D print (shell) + aluminium profile chassis", "usd_per_cm3": 0.30, "setup_usd": 60, "units": 1,
+    "steps": ["Build the drive base on a dev kit + motor driver breakout, tune odometry", "Print the shell in MJF PA12, fit the aluminium chassis", "Assemble the quick-turn PCBA (power + sensors), BMS on a bought-in pack", "Bring up cliff sensors and bump stops before any autonomy", "Run the slope / threshold / stairs-edge course"]}
+}

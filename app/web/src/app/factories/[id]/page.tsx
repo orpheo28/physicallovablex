@@ -5,6 +5,7 @@ import { useParams } from "next/navigation";
 import type { Factory, RFQWithQuotes } from "@/types/contracts";
 import { useApi } from "@/lib/useApi";
 import { fmtDate, hasTrackRecord, humanize } from "@/lib/meta";
+import { ScrollArea } from "@/components/ScrollArea";
 import { Card, Empty, ErrorBox, KV, LabelBadge, Loading, Pill, StatStrip, Table, Td, Th } from "@/components/ui";
 
 export default function FactoryPage() {
@@ -14,7 +15,7 @@ export default function FactoryPage() {
   const fac = f.data;
 
   return (
-    <div className="mx-auto max-w-[1320px] px-6 pt-8 lg:px-10">
+    <ScrollArea className="h-full px-10 pb-10 pt-6" label="Factory profile">
       <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-sm text-ink-3">
         <Link href="/factories" className="transition-colors hover:text-ink">
           Factory portal
@@ -32,13 +33,13 @@ export default function FactoryPage() {
         <div className="mt-4 flex flex-col gap-6">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
-              <h1 className="font-display text-[34px] font-semibold uppercase leading-[36px]">{fac.name}</h1>
+              <h1 className="title text-[28px] leading-[34px]">{fac.name}</h1>
               <p className="mt-1.5 flex flex-wrap items-center gap-2 text-base text-ink-2">
                 {fac.region} <Pill>{fac.archetype}</Pill>
               </p>
               {fac.personality && <p className="mt-2 max-w-[72ch] text-base text-ink-2">Negotiation agent: {fac.personality}</p>}
             </div>
-            <LabelBadge label="fictional" tip="Simulated factory — demo data" />
+            <LabelBadge label="fictional" tip="Simulated factory — demo data" text />
           </div>
 
           <StatStrip
@@ -166,6 +167,6 @@ export default function FactoryPage() {
           ))}
         </div>
       )}
-    </div>
+    </ScrollArea>
   );
 }

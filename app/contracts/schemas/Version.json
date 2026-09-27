@@ -1,0 +1,741 @@
+{
+  "$defs": {
+    "ComponentRiskSummary": {
+      "additionalProperties": false,
+      "description": "W21b: structured risk of one part: level, reasons and the proposed alternative (None when the snapshot has none).",
+      "properties": {
+        "level": {
+          "$ref": "#/$defs/RiskLevel"
+        },
+        "reasons": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Reasons",
+          "type": "array"
+        },
+        "alternative": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/PartAlternative"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "level"
+      ],
+      "title": "ComponentRiskSummary",
+      "type": "object"
+    },
+    "Dimensions": {
+      "additionalProperties": false,
+      "properties": {
+        "length": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "width": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "height": {
+          "$ref": "#/$defs/LabeledValue"
+        }
+      },
+      "required": [
+        "length",
+        "width",
+        "height"
+      ],
+      "title": "Dimensions",
+      "type": "object"
+    },
+    "Label": {
+      "description": "The four honesty labels. UI text: Measured / Sourced / Estimate / Fictional \u2014 demo data.",
+      "enum": [
+        "measured",
+        "sourced",
+        "estimate",
+        "fictional"
+      ],
+      "title": "Label",
+      "type": "string"
+    },
+    "LabeledValue": {
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "title": "Value",
+          "type": "number"
+        },
+        "unit": {
+          "description": "e.g. USD, EUR, mm, g, days, weeks, pct, units, man-days",
+          "title": "Unit",
+          "type": "string"
+        },
+        "label": {
+          "$ref": "#/$defs/Label"
+        },
+        "source_or_assumption": {
+          "description": "Sourced: '<source>, <YYYY-MM-DD>'. Estimate: the assumption. Measured: the check. Fictional: 'demo data'.",
+          "title": "Source Or Assumption",
+          "type": "string"
+        }
+      },
+      "required": [
+        "value",
+        "unit",
+        "label",
+        "source_or_assumption"
+      ],
+      "title": "LabeledValue",
+      "type": "object"
+    },
+    "PartAlternative": {
+      "additionalProperties": false,
+      "description": "W21b: a cheaper / better-stocked catalogue part proposed for a risky BOM line (structured, no text parsing).",
+      "properties": {
+        "part": {
+          "description": "Manufacturer part number + package",
+          "title": "Part",
+          "type": "string"
+        },
+        "lcsc_pn": {
+          "title": "Lcsc Pn",
+          "type": "string"
+        },
+        "price": {
+          "$ref": "#/$defs/LabeledValue",
+          "description": "Unit price at the order quantity (Sourced: LCSC snapshot)"
+        },
+        "stock": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/LabeledValue"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "label": {
+          "$ref": "#/$defs/Label",
+          "default": "sourced"
+        }
+      },
+      "required": [
+        "part",
+        "lcsc_pn",
+        "price"
+      ],
+      "title": "PartAlternative",
+      "type": "object"
+    },
+    "ProductPhoto": {
+      "additionalProperties": false,
+      "description": "W27: one AI product photo. With a reference the model only restyles light, surface, lens and framing around OUR\nCAD image (viewer capture or Blender render of the CAD); without one it is a text-only concept image.",
+      "properties": {
+        "shot": {
+          "enum": [
+            "hero_studio",
+            "packshot_white",
+            "lifestyle",
+            "in_hand_scale",
+            "detail_macro"
+          ],
+          "title": "Shot",
+          "type": "string"
+        },
+        "url": {
+          "description": "/files/<pid>/photo_v<n>_<shot>.png",
+          "title": "Url",
+          "type": "string"
+        },
+        "label": {
+          "description": "Honesty caption shown under the image: 'Photo-styled from the CAD (AI image, geometry from our CAD)' or 'AI concept image (no CAD reference)'; lifestyle adds ' \u00b7 Staged scene \u2014 illustrative'",
+          "title": "Label",
+          "type": "string"
+        },
+        "reference": {
+          "description": "viewer = PNG captured from the 3D viewer by the client; cad_render = Blender render of the CAD; none = text only",
+          "enum": [
+            "viewer",
+            "cad_render",
+            "none"
+          ],
+          "title": "Reference",
+          "type": "string"
+        },
+        "aspect_ratio": {
+          "description": "4:5 or 1:1",
+          "title": "Aspect Ratio",
+          "type": "string"
+        },
+        "staged": {
+          "default": false,
+          "description": "Lifestyle / in-hand scene: illustrative staging, not a real photo shoot",
+          "title": "Staged",
+          "type": "boolean"
+        },
+        "model": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Image model slug (OpenRouter)",
+          "title": "Model"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Studio version the photo was made from",
+          "title": "Version"
+        },
+        "created_at": {
+          "format": "date-time",
+          "title": "Created At",
+          "type": "string"
+        }
+      },
+      "required": [
+        "shot",
+        "url",
+        "label",
+        "reference",
+        "aspect_ratio"
+      ],
+      "title": "ProductPhoto",
+      "type": "object"
+    },
+    "RiskLevel": {
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "title": "RiskLevel",
+      "type": "string"
+    },
+    "VersionChange": {
+      "additionalProperties": false,
+      "properties": {
+        "area": {
+          "enum": [
+            "color",
+            "material",
+            "shape",
+            "dimensions",
+            "feature",
+            "component",
+            "price",
+            "markets",
+            "requirement",
+            "certification",
+            "cost",
+            "performance"
+          ],
+          "title": "Area",
+          "type": "string"
+        },
+        "label": {
+          "description": "Human wording, e.g. 'Colour', 'Pod height', 'Optical heart-rate sensor'",
+          "title": "Label",
+          "type": "string"
+        },
+        "before": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Before"
+        },
+        "after": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "After"
+        },
+        "label_kind": {
+          "$ref": "#/$defs/Label",
+          "description": "Honesty label of the new value: measured (CAD), sourced (LCSC), estimate, fictional"
+        },
+        "risk": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ComponentRiskSummary"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "W21b: on a 'Component added' change \u2014 structured supply risk + proposed cheaper in-stock alternative"
+        }
+      },
+      "required": [
+        "area",
+        "label",
+        "label_kind"
+      ],
+      "title": "VersionChange",
+      "type": "object"
+    },
+    "VersionFactory": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "description": "Fictional factory name",
+          "title": "Name",
+          "type": "string"
+        },
+        "score": {
+          "description": "0-100 match score on demo data",
+          "title": "Score",
+          "type": "number"
+        },
+        "label": {
+          "const": "fictional",
+          "default": "fictional",
+          "title": "Label",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "score"
+      ],
+      "title": "VersionFactory",
+      "type": "object"
+    },
+    "VersionPreview": {
+      "additionalProperties": false,
+      "properties": {
+        "glb_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Full-product GLB of this version (/files/<pid>/v<n>.glb)",
+          "title": "Glb Url"
+        },
+        "render_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "AI concept render (illustrative, not the CAD); patched in later",
+          "title": "Render Url"
+        },
+        "unit_basis": {
+          "default": "per_unit",
+          "description": "W21e: see CostsArtifact.unit_basis",
+          "enum": [
+            "per_unit",
+            "per_installation"
+          ],
+          "title": "Unit Basis",
+          "type": "string"
+        },
+        "installed_price": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/LabeledValue"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "W21e, per_installation only: THE customer price of one installation for this version (turnkey, battery included when the BOM has one) \u2014 the single source for the Studio strip, Overview and gallery card"
+        },
+        "installer_cost": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/LabeledValue"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "W21e, per_installation only: what one installation costs the installer (equipment + labour + site admin)"
+        },
+        "dimensions": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Dimensions"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Measured on the built STEP (moulded parts)"
+        },
+        "color_hex": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Color Hex"
+        },
+        "color_name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Color Name"
+        },
+        "material": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Material"
+        },
+        "finish": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Finish"
+        },
+        "shape_family": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "rounded_box | puck | slab | wearable_band | ring, or a W21 product family (board, furniture, stick_vacuum, home_robot, irrigation, solar_array, drone, hair_dryer, camera, smartphone)",
+          "title": "Shape Family"
+        },
+        "unit_costs": {
+          "items": {
+            "$ref": "#/$defs/VersionUnitCost"
+          },
+          "title": "Unit Costs",
+          "type": "array"
+        },
+        "top_factories": {
+          "items": {
+            "$ref": "#/$defs/VersionFactory"
+          },
+          "title": "Top Factories",
+          "type": "array"
+        },
+        "certifications": {
+          "description": "'<market> <standard>' of the required certifications",
+          "items": {
+            "type": "string"
+          },
+          "title": "Certifications",
+          "type": "array"
+        },
+        "bom_count": {
+          "default": 0,
+          "title": "Bom Count",
+          "type": "integer"
+        },
+        "code_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "W21: the build123d program of this version's model (/projects/<pid>/cad/code/<k>): AI-written, or the parametric family seed when AI CAD is off / failed (see cad_label)",
+          "title": "Code Url"
+        },
+        "step_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "W21: STEP of the model shown in glb_url (AI model when present)",
+          "title": "Step Url"
+        },
+        "cad_label": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "W21: 'AI-generated CAD (concept level) \u2014 geometry measured on the result' or 'Parametric family CAD (concept level) \u2014 \u2026'",
+          "title": "Cad Label"
+        },
+        "cad_source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "W21: llm:<model> | seed:<family> | previous_version | family:<name>",
+          "title": "Cad Source"
+        },
+        "photos": {
+          "description": "W27: AI product photos of this version (one per shot, newest wins). hero_studio, when present, is also render_url",
+          "items": {
+            "$ref": "#/$defs/ProductPhoto"
+          },
+          "title": "Photos",
+          "type": "array"
+        }
+      },
+      "title": "VersionPreview",
+      "type": "object"
+    },
+    "VersionStatus": {
+      "enum": [
+        "running",
+        "done",
+        "failed"
+      ],
+      "title": "VersionStatus",
+      "type": "string"
+    },
+    "VersionUnitCost": {
+      "additionalProperties": false,
+      "properties": {
+        "quantity": {
+          "title": "Quantity",
+          "type": "integer"
+        },
+        "value": {
+          "description": "Ex-works unit cost, USD",
+          "title": "Value",
+          "type": "number"
+        },
+        "label": {
+          "$ref": "#/$defs/Label",
+          "default": "estimate"
+        },
+        "source_or_assumption": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Or Assumption"
+        }
+      },
+      "required": [
+        "quantity",
+        "value"
+      ],
+      "title": "VersionUnitCost",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "n": {
+      "title": "N",
+      "type": "integer"
+    },
+    "message": {
+      "description": "The founder's prompt ('Studio start' for version 1)",
+      "title": "Message",
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/$defs/VersionStatus",
+      "default": "running"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "finished_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Finished At"
+    },
+    "summary": {
+      "default": "",
+      "title": "Summary",
+      "type": "string"
+    },
+    "changes": {
+      "items": {
+        "$ref": "#/$defs/VersionChange"
+      },
+      "title": "Changes",
+      "type": "array"
+    },
+    "preview": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/VersionPreview"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "error": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Plain-language reason when status == failed",
+      "title": "Error"
+    },
+    "is_current": {
+      "default": false,
+      "description": "Stage artifacts reflect this version",
+      "title": "Is Current",
+      "type": "boolean"
+    },
+    "render_pending": {
+      "default": false,
+      "description": "An AI concept render for this version is still running",
+      "title": "Render Pending",
+      "type": "boolean"
+    },
+    "background_pending": {
+      "default": false,
+      "description": "AI DFM review / production plan still refreshing in the background",
+      "title": "Background Pending",
+      "type": "boolean"
+    },
+    "cad_pending": {
+      "default": false,
+      "description": "W21: the AI CAD model (text-to-CAD) of this version is still being generated; preview.glb_url / code_url are patched in when done",
+      "title": "Cad Pending",
+      "type": "boolean"
+    },
+    "cad_note": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "W21: plain-language note on the AI CAD (e.g. fell back to the family)",
+      "title": "Cad Note"
+    },
+    "cad_attempts": {
+      "default": 0,
+      "description": "W21c: LLM attempts the AI CAD program of this version took (0 = no AI CAD run)",
+      "title": "Cad Attempts",
+      "type": "integer"
+    },
+    "cad_repairs": {
+      "default": 0,
+      "description": "W21c: self-repair rounds (attempts \u2212 1 when it ended ok) \u2014 'self-repaired N\u00d7'",
+      "title": "Cad Repairs",
+      "type": "integer"
+    },
+    "look_changed": {
+      "default": true,
+      "description": "W21e: colour, material, finish, shape or dimensions changed vs the previous version. False \u2192 the previous version's photos are carried over (copied, same labels) and no new photo is generated",
+      "title": "Look Changed",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "n",
+    "message"
+  ],
+  "title": "Version",
+  "type": "object"
+}

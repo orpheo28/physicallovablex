@@ -6,7 +6,8 @@ const API_URL = (process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000").rep
 
 export async function GET(request: Request) {
   const path = new URL(request.url).searchParams.get("path") ?? "";
-  if (!/^\/files\/[\w.\-/]+$/.test(path) || path.includes("..")) return Response.json({ exists: false });
+  const allowed = /^\/files\/[\w.\-/]+$/.test(path) || /^\/projects\/[\w-]+\/cad\/code\/\d+$/.test(path); // + the Studio's CAD program (W19)
+  if (!allowed || path.includes("..")) return Response.json({ exists: false });
   try {
     // The API file route only answers GET (HEAD → 405): read the status, drop the body.
     const res = await fetch(`${API_URL}${path}`, {

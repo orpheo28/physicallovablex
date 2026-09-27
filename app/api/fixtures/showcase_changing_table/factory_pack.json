@@ -1,0 +1,1374 @@
+{
+ "id": "fp_demo_changing_table_v2",
+ "project_id": "demo_changing_table",
+ "version": 2,
+ "created_at": "2026-09-27T00:18:37.872511Z",
+ "fallback": false,
+ "cached_note": null,
+ "fallback_stages": [],
+ "product_name": "Safe baby changing table",
+ "product_summary": "A freestanding baby changing table with a stable frame, raised edges, and a wipe-clean changing surface. Target volumes: 500 / 2,000 / 10,000 units; markets: US.",
+ "product_summary_cn": "一款带稳定支架、凸起边缘和易擦拭换尿布台面的独立式婴儿护理台。目标产量：500 / 2,000 / 10,000 件；目标市场：美国。",
+ "target_markets": [
+  "US"
+ ],
+ "spec": {
+  "overall_dimensions": {
+   "length": {
+    "value": 900.0,
+    "unit": "mm",
+    "label": "measured",
+    "source_or_assumption": "Bounding box of the full product (family CAD, build123d/OCCT)"
+   },
+   "width": {
+    "value": 560.0,
+    "unit": "mm",
+    "label": "measured",
+    "source_or_assumption": "Bounding box of the full product (family CAD, build123d/OCCT)"
+   },
+   "height": {
+    "value": 1010.0,
+    "unit": "mm",
+    "label": "measured",
+    "source_or_assumption": "Bounding box of the full product (family CAD, build123d/OCCT)"
+   }
+  },
+  "weight": {
+   "value": 24661.1,
+   "unit": "g",
+   "label": "estimate",
+   "source_or_assumption": "Solid volume 51841.3 cm³ (measured) × densities per part (birch plywood 0.68 g/cm³, foam pad 0.04, plastic 1.15)"
+  },
+  "parts": [
+   {
+    "id": "p1",
+    "name": "Birch plywood panels and legs",
+    "material": "Birch plywood 18 mm",
+    "finish": "Satin lacquer",
+    "process_hint": "cnc",
+    "tolerance": "±1 mm (shaped / routed parts)",
+    "dimensions": {
+     "length": {
+      "value": 900.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the largest part of this group, built family CAD (build123d/OCCT)"
+     },
+     "width": {
+      "value": 560.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the largest part of this group, built family CAD (build123d/OCCT)"
+     },
+     "height": {
+      "value": 24.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the largest part of this group, built family CAD (build123d/OCCT)"
+     }
+    },
+    "wall_thickness": null,
+    "quantity": 6
+   },
+   {
+    "id": "p2",
+    "name": "Changing pad (wipe-clean foam)",
+    "material": "PU foam, PVC-free cover",
+    "finish": "Satin lacquer",
+    "process_hint": "other",
+    "tolerance": "±1 mm (shaped / routed parts)",
+    "dimensions": {
+     "length": {
+      "value": 834.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the largest part of this group, built family CAD (build123d/OCCT)"
+     },
+     "width": {
+      "value": 512.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the largest part of this group, built family CAD (build123d/OCCT)"
+     },
+     "height": {
+      "value": 45.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the largest part of this group, built family CAD (build123d/OCCT)"
+     }
+    },
+    "wall_thickness": null,
+    "quantity": 3
+   },
+   {
+    "id": "p3",
+    "name": "Guard rails / trims",
+    "material": "Birch plywood / HPL",
+    "finish": "Satin lacquer",
+    "process_hint": "cnc",
+    "tolerance": "±1 mm (shaped / routed parts)",
+    "dimensions": {
+     "length": {
+      "value": 876.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the largest part of this group, built family CAD (build123d/OCCT)"
+     },
+     "width": {
+      "value": 18.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the largest part of this group, built family CAD (build123d/OCCT)"
+     },
+     "height": {
+      "value": 110.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the largest part of this group, built family CAD (build123d/OCCT)"
+     }
+    },
+    "wall_thickness": null,
+    "quantity": 7
+   }
+  ],
+  "tolerances": [
+   "General ISO 2768-c",
+   "CNC-routed panels ±0.3 mm",
+   "Hole positions for fittings ±0.2 mm",
+   "All accessible edges rounded r ≥ 2 mm"
+  ]
+ },
+ "cad_files": [
+  {
+   "format": "glb",
+   "url": "/files/demo_changing_table/model_v2.glb",
+   "description": "AI-generated CAD (concept level) — geometry measured on the result — bbox 900 × 564 × 1010 mm",
+   "size_bytes": 484516
+  },
+  {
+   "format": "step",
+   "url": "/files/demo_changing_table/model_v2.step",
+   "description": "AI-generated CAD (concept level) — geometry measured on the result — STEP AP214",
+   "size_bytes": 645488
+  },
+  {
+   "format": "py",
+   "url": "/projects/demo_changing_table/cad/code/2",
+   "description": "AI-generated CAD (concept level) — geometry measured on the result — build123d program v2 (llm:openai/gpt-6-sol)",
+   "size_bytes": 4153
+  },
+  {
+   "format": "glb",
+   "url": "/files/demo_changing_table/v2.glb",
+   "description": "Full product — materials",
+   "size_bytes": 441500
+  },
+  {
+   "format": "step",
+   "url": "/files/demo_changing_table/v2_enclosure.step",
+   "description": "Product — all parts (solid bodies), STEP AP214",
+   "size_bytes": 586202
+  },
+  {
+   "format": "stl",
+   "url": "/files/demo_changing_table/v2_enclosure.stl",
+   "description": "Product — mesh",
+   "size_bytes": 574484
+  },
+  {
+   "format": "glb",
+   "url": "/files/demo_changing_table/v2_enclosure.glb",
+   "description": "Product — viewer model",
+   "size_bytes": 441500
+  }
+ ],
+ "bom": [
+  {
+   "id": "m1",
+   "part": "CNC-cut birch plywood frame panels, 18 mm",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Set of legs, rails and structural side panels for freestanding 900 × 560 × 1010 mm table; water-based lacquer finish",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 20.24,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: CNC-cut birch plywood part(s) from 2440 × 1220 mm sheet (≈ $55 per 18 mm sheet, nested) ≈ USD 22 (typical 2026 trade price, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m2",
+   "part": "CNC-cut birch plywood changing-surface deck and raised safety guards, 18 mm",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Deck and perimeter guards; edges rounded and finished with water-based lacquer",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 20.24,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: CNC-cut birch plywood part(s) from 2440 × 1220 mm sheet (≈ $55 per 18 mm sheet, nested) ≈ USD 22 (typical 2026 trade price, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m3",
+   "part": "CNC-cut birch plywood lower shelf, 18 mm",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Accessible storage shelf; water-based lacquer finish",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 20.24,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: CNC-cut birch plywood part(s) from 2440 × 1220 mm sheet (≈ $55 per 18 mm sheet, nested) ≈ USD 22 (typical 2026 trade price, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m4",
+   "part": "Wipe-clean changing pad",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Cleanable, non-powered pad sized to fit the changing surface; material and dimensions to be verified for intended use",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 13.8,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: wipe-clean changing pad ≈ USD 15 (typical 2026 trade price, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m5",
+   "part": "Furniture assembly fastener set",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Set of screws, bolts, washers and locking nuts sized for the plywood joints; select lengths to avoid exposed points",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 3.68,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: fitting kit ≈ USD 4 (typical 2026 trade price, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m6",
+   "part": "Anti-tip wall anchor kit",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Wall attachment strap or bracket and suitable fasteners; wall-side anchors must match the installation substrate",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 1.38,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: anti-tip wall strap ≈ USD 1.5 (typical 2026 trade price, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m7",
+   "part": "Water-based wood lacquer",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Consumable quantity sufficient for the specified plywood surfaces and edges",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 2.76,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: water-based finish per unit ≈ USD 3 (typical 2026 trade price, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "k1",
+   "part": "Corrugated shipping carton and protective packing",
+   "category": "packaging",
+   "qty": 1.0,
+   "description": "One-unit carton with corner protection and packing to prevent finish damage in transit",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 6.44,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: flat-pack carton + protection ≈ USD 7 (typical 2026 trade price, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m8",
+   "part": "Storage basket",
+   "category": "mechanical",
+   "qty": 2.0,
+   "description": "Two baskets for storage.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 8.28,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: fabric / wicker storage basket ≈ USD 9 (typical 2026 trade price, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  }
+ ],
+ "dfm_alerts": [
+  {
+   "id": "a1",
+   "severity": "major",
+   "category": "tolerance",
+   "method": "ai_reviewed",
+   "part_id": "p1",
+   "description": "The part tolerance conflicts with the tighter CNC-panel tolerance, leaving the factory without a clear acceptance limit.",
+   "fix": "Issue dimensioned drawings that identify which features use the CNC tolerance and which use the general tolerance; define inspection datums.",
+   "rule_citation": "Specify feature-specific tolerances and datums on production drawings — ISO 1101.",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a2",
+   "severity": "major",
+   "category": "assembly",
+   "method": "ai_reviewed",
+   "part_id": "p1",
+   "description": "The fastener set lacks hole sizes, edge distances, insertion depths and an assembly sequence. Plywood joints may split or loosen if these are selected on the line.",
+   "fix": "Specify the hardware and pilot-hole pattern, verify edge distances and pull-out strength, and provide an assembly drawing.",
+   "rule_citation": "Verify structural strength and stability of changing units — EN 12221-1.",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a3",
+   "severity": "major",
+   "category": "assembly",
+   "method": "ai_reviewed",
+   "part_id": "p3",
+   "description": "The guard specification does not define installed height, continuity, attachment or gaps at joints, so the assembled unit cannot be checked for containment and entrapment.",
+   "fix": "Dimension the assembled guards and joint gaps; test the production assembly against the target-market changing-unit requirements.",
+   "rule_citation": "Changing-unit safety requirements and test methods — EN 12221-1 and EN 12221-2.",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a4",
+   "severity": "major",
+   "category": "assembly",
+   "method": "ai_reviewed",
+   "part_id": "p2",
+   "description": "The changing pad has no specified retention method and may shift during use.",
+   "fix": "Define a positive pad-retention method and verify it with the intended pad and finished deck.",
+   "rule_citation": "Changing-unit safety requirements and test methods — EN 12221-1 and EN 12221-2.",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a5",
+   "severity": "major",
+   "category": "material",
+   "method": "ai_reviewed",
+   "part_id": "p2",
+   "description": "Satin lacquer is listed as the foam pad's finish, but the wipe-clean cover material, seam construction and cleaning-chemical resistance are undefined.",
+   "fix": "Remove the lacquer callout from the pad; specify cover material, sealed-seam construction and a cleaning-resistance test.",
+   "rule_citation": "Define materials and finishes appropriate to foreseeable use and cleaning — ISO 12100 risk assessment principles.",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a6",
+   "severity": "major",
+   "category": "assembly",
+   "method": "ai_reviewed",
+   "part_id": null,
+   "description": "The anti-tip kit does not specify compatible wall types, fixing selection or installation instructions; supplying anchors alone does not ensure a secure installation.",
+   "fix": "Specify approved wall substrates and fixings, installation instructions and an assembled stability verification.",
+   "rule_citation": "Changing-unit stability and instructions — EN 12221-1 and EN 12221-2.",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "m1",
+   "severity": "minor",
+   "category": "other",
+   "method": "measured",
+   "part_id": "p1",
+   "description": "Solid product (51.8 L of material): not an injection-moulded shell, so draft, undercut, wall thickness and clamp tonnage do not apply. Process: CNC routing of plywood sheet + edge finishing + flat-pack assembly.",
+   "fix": "Quote the listed process; send the STEP as the shaping / routing / layout file.",
+   "rule_citation": "Moulded-shell DFM rules apply to injection moulding only (Protolabs design guide)",
+   "measurement": {
+    "value": 51.8,
+    "unit": "L",
+    "label": "measured",
+    "source_or_assumption": "Solid volume of all parts, measured on the product CAD (build123d/OCCT)"
+   },
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "m2",
+   "severity": "minor",
+   "category": "material",
+   "method": "measured",
+   "part_id": "p1",
+   "description": "Largest panel 900 × 560 mm fits a 2440 × 1220 mm plywood sheet; nest all panels on as few sheets as possible.",
+   "fix": "Nest the CNC programme on full sheets; grain along the longest side.",
+   "rule_citation": "Standard plywood sheet 2440 × 1220 mm (8 × 4 ft)",
+   "measurement": {
+    "value": 900.0,
+    "unit": "mm",
+    "label": "measured",
+    "source_or_assumption": "Largest panel length, measured on the product CAD (build123d/OCCT)"
+   },
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "m3",
+   "severity": "minor",
+   "category": "wall_thickness",
+   "method": "measured",
+   "part_id": "p1",
+   "description": "Thinnest wooden part 16 mm: OK for screws and cam locks.",
+   "fix": "Keep structural panels ≥ 15 mm (18 mm birch ply); round every accessible edge r ≥ 2 mm (child safety).",
+   "rule_citation": "Cam-lock fittings need ≥ 15 mm board; EN 12221 asks for rounded accessible edges — Estimate",
+   "measurement": {
+    "value": 16.0,
+    "unit": "mm",
+    "label": "measured",
+    "source_or_assumption": "Smallest extent of the wooden parts, measured on the product CAD (build123d/OCCT)"
+   },
+   "resolved": false,
+   "resolution": null
+  }
+ ],
+ "certifications": [
+  {
+   "market": "US",
+   "standard": "CPSIA — ASTM F963 toy safety + Children's Product Certificate",
+   "applies_because": "Children's product: third-party testing at a CPSC-accepted lab, lead/phthalate limits and a CPC are mandatory",
+   "required": true,
+   "cost_est": {
+    "value": 3500.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Accredited-lab range, demo assumption"
+   },
+   "lead_time_weeks": {
+    "value": 4.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Typical lab queue + report, demo assumption"
+   }
+  },
+  {
+   "market": "US",
+   "standard": "16 CFR Part 1235 — Safety Standard for Changing Tables (incorporating ASTM F2388-21)",
+   "applies_because": "This is a freestanding changing table intended for infants, so it must meet the US changing-table safety requirements, including applicable stability, structural-integrity, and restraint requirements.",
+   "required": true,
+   "cost_est": {
+    "value": 2500.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "LLM-proposed rough estimate — get a lab quote to confirm"
+   },
+   "lead_time_weeks": {
+    "value": 3.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "LLM-proposed rough estimate — get a lab quote to confirm"
+   }
+  }
+ ],
+ "target_quantities": [
+  500,
+  2000,
+  10000
+ ],
+ "cost_estimate": [
+  {
+   "quantity": 500,
+   "bom_cost": {
+    "value": 107.5,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Electronics at LCSC price breaks (LCSC price, 2026-09-26); other lines base × 0.92^0"
+   },
+   "assembly_cost": {
+    "value": 18.69,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Assembly + factory overhead/margin: 10.8 min = 6 base + 0.6 × 8 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^0"
+   },
+   "packaging_cost": {
+    "value": 7.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Packaging BOM lines × 0.92^0"
+   },
+   "unit_cost": {
+    "value": 133.19,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
+   },
+   "tooling_amortisation": {
+    "value": 0.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "$0 tooling ÷ 500"
+   },
+   "margin_pct": {
+    "value": 4.4,
+    "unit": "pct",
+    "label": "estimate",
+    "source_or_assumption": "($289.00 target − $276.16 landed estimate) ÷ target; before retailer margin, VAT and marketing"
+   }
+  },
+  {
+   "quantity": 2000,
+   "bom_cost": {
+    "value": 98.9,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Electronics at LCSC price breaks (LCSC price, 2026-09-26); other lines base × 0.92^1"
+   },
+   "assembly_cost": {
+    "value": 17.19,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Assembly + factory overhead/margin: 10.8 min = 6 base + 0.6 × 8 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^1"
+   },
+   "packaging_cost": {
+    "value": 6.44,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Packaging BOM lines × 0.92^1"
+   },
+   "unit_cost": {
+    "value": 122.53,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
+   },
+   "tooling_amortisation": {
+    "value": 0.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "$0 tooling ÷ 2,000"
+   },
+   "margin_pct": {
+    "value": 11.1,
+    "unit": "pct",
+    "label": "estimate",
+    "source_or_assumption": "($289.00 target − $257.02 landed estimate) ÷ target; before retailer margin, VAT and marketing"
+   }
+  },
+  {
+   "quantity": 10000,
+   "bom_cost": {
+    "value": 90.99,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Electronics at LCSC price breaks (LCSC price, 2026-09-26); other lines base × 0.92^2"
+   },
+   "assembly_cost": {
+    "value": 15.82,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Assembly + factory overhead/margin: 10.8 min = 6 base + 0.6 × 8 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^2"
+   },
+   "packaging_cost": {
+    "value": 5.92,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Packaging BOM lines × 0.92^2"
+   },
+   "unit_cost": {
+    "value": 112.73,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
+   },
+   "tooling_amortisation": {
+    "value": 0.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "$0 tooling ÷ 10,000"
+   },
+   "margin_pct": {
+    "value": 16.0,
+    "unit": "pct",
+    "label": "estimate",
+    "source_or_assumption": "($289.00 target − $242.75 landed estimate) ÷ target; before retailer margin, VAT and marketing"
+   }
+  }
+ ],
+ "questions": [
+  {
+   "id": "fq1",
+   "en": "DFM major — The part tolerance conflicts with the tighter CNC-panel tolerance, leaving the factory without a clear acceptance limit. Proposed fix: Issue dimensioned drawings that identify which features use the CNC tolerance and which use the general tolerance; define inspection datums. Can you accommodate this, and at what cost or lead-time impact?",
+   "cn": "DFM 问题（主要，tolerance，编号 a1）：详见资料包第 5 节英文说明。请评估可行性、修改方案及对成本和交期的影响。",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  },
+  {
+   "id": "fq2",
+   "en": "DFM major — The fastener set lacks hole sizes, edge distances, insertion depths and an assembly sequence. Plywood joints may split or loosen if these are selected on the line. Proposed fix: Specify the hardware and pilot-hole pattern, verify edge distances and pull-out strength, and provide an assembly drawing. Can you accommodate this, and at what cost or lead-time impact?",
+   "cn": "DFM 问题（主要，assembly，编号 a2）：详见资料包第 5 节英文说明。请评估可行性、修改方案及对成本和交期的影响。",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  },
+  {
+   "id": "fq3",
+   "en": "DFM major — The guard specification does not define installed height, continuity, attachment or gaps at joints, so the assembled unit cannot be checked for containment and entrapment. Proposed fix: Dimension the assembled guards and joint gaps; test the production assembly against the target-market changing-unit requirements. Can you accommodate this, and at what cost or lead-time impact?",
+   "cn": "DFM 问题（主要，assembly，编号 a3）：详见资料包第 5 节英文说明。请评估可行性、修改方案及对成本和交期的影响。",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  },
+  {
+   "id": "fq4",
+   "en": "What are your MOQ and lead time for 500 units, and how do they change at 2,000 and 10,000 units?",
+   "cn": "贵司 500 件的最小起订量（MOQ）和交期是多少？在 2,000 件和 10,000 件时如何变化？",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  },
+  {
+   "id": "fq5",
+   "en": "What payment terms and sample rounds (T0, T1, golden sample) do you propose, with dates?",
+   "cn": "贵司建议的付款条件和样品轮次（T0、T1、黄金样件）是什么？请附日期。",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  },
+  {
+   "id": "fq6",
+   "en": "Please confirm the tolerances in the spec and flag any tolerance or finish you cannot hold.",
+   "cn": "请确认规格书中的公差，并指出任何贵司无法保证的公差或表面处理。",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  },
+  {
+   "id": "fq7",
+   "en": "Which BOM components do you source yourselves, and do you accept the listed alternatives for high-risk parts?",
+   "cn": "BOM 中哪些物料由贵司自行采购？对于高风险物料，贵司是否接受清单中列出的替代料？",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  }
+ ],
+ "assumption_register": [
+  {
+   "id": "a1",
+   "text": "Skipped clarifying questions use their defaults: markets=US; volume=100–1,000 units; target_price=$100–$199; battery=No battery; wireless=No wireless. Re-run stage 1 with answers to change them.",
+   "label": "estimate",
+   "source": null,
+   "stage": 1
+  },
+  {
+   "id": "a2",
+   "text": "Target retail price proposed by the spec copilot (not stated by the founder); confirm before costing.",
+   "label": "estimate",
+   "source": null,
+   "stage": 1
+  },
+  {
+   "id": "a2_1",
+   "text": "Directions from the parametric 'furniture' product family (category 'furniture_child', preset 'changing_table'): built with build123d, dimensions measured on the CAD",
+   "label": "estimate",
+   "source": null,
+   "stage": 2
+  },
+  {
+   "id": "a2_render",
+   "text": "AI concept render — illustrative, not the CAD. Generated by an AI image model from the direction's shape, dimensions, material, finish and colour; the 3D model is the CAD.",
+   "label": "estimate",
+   "source": null,
+   "stage": 2
+  },
+  {
+   "id": "a2_studio",
+   "text": "Direction d1 refined in Studio (version 2); dimensions are design parameters, the spec measures the built CAD",
+   "label": "estimate",
+   "source": null,
+   "stage": 2
+  },
+  {
+   "id": "a3_1",
+   "text": "Weight from the measured solid volume × per-part densities (birch plywood 0.68 g/cm³, foam pad 0.04, plastic 1.15)",
+   "label": "estimate",
+   "source": null,
+   "stage": 3
+  },
+  {
+   "id": "a3_2",
+   "text": "Direction d1 ('Nordic'): solid product from the 'furniture' family — no moulded enclosure; enclosure.* files are the product itself",
+   "label": "estimate",
+   "source": null,
+   "stage": 3
+  },
+  {
+   "id": "a4_1",
+   "text": "Solid product ('furniture' family): moulded-shell checks (draft, undercut, wall thickness, clamp tonnage) do not apply; the measured checks are process fit, stock size and thinnest section on the product CAD",
+   "label": "estimate",
+   "source": null,
+   "stage": 4
+  },
+  {
+   "id": "s5_a1",
+   "text": "Volume curve: non-LCSC lines and assembly × 0.92 per tier step (500 → 2,000 → 10,000)",
+   "label": "estimate",
+   "source": "Demo assumption (PRD §11), editable",
+   "stage": 5
+  },
+  {
+   "id": "s5_a2",
+   "text": "Assembly 10.8 min = 6 base + 0.6 × 8 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials",
+   "label": "estimate",
+   "source": null,
+   "stage": 5
+  },
+  {
+   "id": "a3",
+   "text": "Electronic lines matched to the JLCPCB/LCSC parts snapshot of 2026-09-26 (CDFER/jlcpcb-parts-database, MIT); unmatched lines are estimates",
+   "label": "sourced",
+   "source": "https://github.com/CDFER/jlcpcb-parts-database",
+   "stage": 5
+  },
+  {
+   "id": "a4",
+   "text": "Simple 1-cavity injection mold $1,000-3,000; complex multi-cavity steel mold $30,000-100,000",
+   "label": "estimate",
+   "source": "Zetar Mold 2026 price list (vendor, medium confidence), https://zetarmold.com/injection-mold-price-list-2026",
+   "stage": 5
+  },
+  {
+   "id": "a5",
+   "text": "Sum of 2 required certifications from stage 4 (their own cost estimates)",
+   "label": "estimate",
+   "source": null,
+   "stage": 5
+  },
+  {
+   "id": "a6",
+   "text": "Landed-cost basis for margin and cash: sea freight (fictional rates), HTS 9403.60.8081 (general 0%, Section 301 25%), IEEPA 0, Section 122 off",
+   "label": "estimate",
+   "source": "https://hts.usitc.gov/",
+   "stage": 5
+  },
+  {
+   "id": "a7",
+   "text": "Brief target price 149 USD (retail price incl. VAT where applicable)",
+   "label": "estimate",
+   "source": null,
+   "stage": 5
+  },
+  {
+   "id": "b1",
+   "text": "BOM from stage 3 spec",
+   "label": "estimate",
+   "source": null,
+   "stage": 5
+  },
+  {
+   "id": "s6_a1",
+   "text": "Lead times are typical values per process (tooling + first shots), not factory quotes; refined at stages 7-9 with the negotiated quote.",
+   "label": "estimate",
+   "source": null,
+   "stage": 6
+  },
+  {
+   "id": "s6_a2",
+   "text": "Mass production duration assumes 90 units/day on one line for a 2,000-unit order.",
+   "label": "estimate",
+   "source": null,
+   "stage": 6
+  },
+  {
+   "id": "a7_network",
+   "text": "Factories, capacity, load and past performance come from the simulated production network.",
+   "label": "fictional",
+   "source": "factory_mcp (demo data)",
+   "stage": 7
+  },
+  {
+   "id": "a7_weights",
+   "text": "Score = 35% process fit + 15% MOQ + 15% certifications + 15% load + 20% lead time; product-level criteria are part-weighted means over the queries (CNC machining ×2, Other ×1, Assembly ×1).",
+   "label": "estimate",
+   "source": null,
+   "stage": 7
+  },
+  {
+   "id": "a8_network",
+   "text": "Factories, quotes, counters and replies are simulated (production MCP demo network).",
+   "label": "fictional",
+   "source": "factory_mcp (demo data)",
+   "stage": 8
+  },
+  {
+   "id": "a8_anchor",
+   "text": "Factory quotes are anchored on stage 5 cost tiers + tooling total × each factory's personality margin; subcontracted processes add 3% each.",
+   "label": "estimate",
+   "source": null,
+   "stage": 8
+  },
+  {
+   "id": "a8_policy",
+   "text": "Negotiation policy: max 2 rounds; price, tooling, MOQ ≤ 2,000, lead time, 30% deposit / 70% before shipment; pick = lowest risk-adjusted cost incl. tooling.",
+   "label": "estimate",
+   "source": null,
+   "stage": 8
+  },
+  {
+   "id": "a8_autofill",
+   "text": "Auto-approved in autofill mode — review and change the selected factory before any real order",
+   "label": "estimate",
+   "source": null,
+   "stage": 8
+  },
+  {
+   "id": "s9_a1",
+   "text": "Quote lead time (27 d) is used as the tooling T0 duration; T1, golden sample and mass production use planning assumptions.",
+   "label": "estimate",
+   "source": null,
+   "stage": 9
+  },
+  {
+   "id": "s9_a2",
+   "text": "Date check: lead time differs from the stage 6 plan by +13 d (stage 6: 51 d, this plan: 64 d) — the negotiated quote governs",
+   "label": "estimate",
+   "source": null,
+   "stage": 9
+  },
+  {
+   "id": "s9_a3",
+   "text": "Kickoff date 2026-09-28 (next Monday after today unless start_date is passed in inputs); durations are planning assumptions except the quote lead time.",
+   "label": "estimate",
+   "source": null,
+   "stage": 9
+  },
+  {
+   "id": "s9_a4",
+   "text": "Sample rounds cost is an assumption; production payments follow the 30/70 term (deposit / before shipment) unless the quote states another deposit.",
+   "label": "estimate",
+   "source": null,
+   "stage": 9
+  },
+  {
+   "id": "s10_a1",
+   "text": "Pre-shipment inspection priced at $268 per man-day.",
+   "label": "sourced",
+   "source": "V-Trust, https://www.v-trust.com/en/our-network, checked 2026-09-26",
+   "stage": 10
+  },
+  {
+   "id": "s10_a2",
+   "text": "AQL 0 / 2.5 / 4.0 for critical / major / minor is the usual consumer-goods setting; agree it with the buyer and factory.",
+   "label": "estimate",
+   "source": null,
+   "stage": 10
+  },
+  {
+   "id": "s10_a3",
+   "text": "One inspector checks about 100 units per day including functional tests.",
+   "label": "estimate",
+   "source": null,
+   "stage": 10
+  },
+  {
+   "id": "s11_a1",
+   "text": "HTS 9403.60.8081: Same heading and rate as stage 5 (LLM-suggested) — to be confirmed by a customs broker",
+   "label": "estimate",
+   "source": "https://hts.usitc.gov/",
+   "stage": 11
+  },
+  {
+   "id": "s11_a2",
+   "text": "Assumed Section 301 rate of stage 5 — to be confirmed by a customs broker",
+   "label": "estimate",
+   "source": "https://hts.usitc.gov/",
+   "stage": 11
+  },
+  {
+   "id": "s11_a3",
+   "text": "IEEPA duties not collected since 24/02/2026; de minimis suspended; Section 122 is a user toggle (status to verify)",
+   "label": "sourced",
+   "source": "CBP CSMS 67834313 (https://content.govdelivery.com/accounts/USDHSCBP/bulletins/40b11c9); CBP CSMS 67844987; Federal Register 2026-06-24",
+   "stage": 11
+  },
+  {
+   "id": "s11_a4",
+   "text": "Freight sea fcl: 35 days transit (simulated); cost per unit derived from the Drewry lane rate, see a8-a10",
+   "label": "fictional",
+   "source": "demo data",
+   "stage": 11
+  },
+  {
+   "id": "s11_a5",
+   "text": "Platform/agent fee 7% of FOB (benchmark 5-10%)",
+   "label": "estimate",
+   "source": "https://www.dragonsourcing.com/top-10-cost-insights-for-hiring-a-china-sourcing-agent/",
+   "stage": 11
+  },
+  {
+   "id": "s11_a6",
+   "text": "FOB basis: Approved final terms, quote qt_bfdd96a506 — demo data",
+   "label": "fictional",
+   "source": "stage8_final_terms",
+   "stage": 11
+  },
+  {
+   "id": "s11_a7",
+   "text": "No CBP CROSS precedent in the cached set for this product: HTS 9403.60.8081 and its rates are an estimate — to be confirmed by a customs broker",
+   "label": "estimate",
+   "source": "https://rulings.cbp.gov/",
+   "stage": 11
+  },
+  {
+   "id": "a8",
+   "text": "Sea container rate Drewry World Container Index, 24 Sep 2026: Shanghai–Los Angeles $7,838/40ft (Drewry-assessed spot benchmark, snapshot; the quote you get will differ)",
+   "label": "sourced",
+   "source": "https://www.drewry.co.uk/supply-chain-advisors/supply-chain-expertise/world-container-index-assessed-by-drewry",
+   "stage": 11
+  },
+  {
+   "id": "a9",
+   "text": "Sea freight derived from the Drewry lane rate, cheaper of LCL and FCL chosen automatically: packed unit 0.7636 m³ (bounding box × 1.5 packaging, min 0.5 L) = 87 units per 40ft (67 m³ usable); 20ft container ≈ 0.55 × the 40ft rate, 33 m³. Air = max(gross kg, m³ × 167) × $6.00/kg, min $150 per shipment; express = 1.8× air (Estimate: typical China→US air cargo range $4-8/kg, to be confirmed by a forwarder); air and express are never auto-chosen",
+   "label": "estimate",
+   "source": "demo assumption",
+   "stage": 11
+  },
+  {
+   "id": "a10",
+   "text": "LCL consolidation premium vs FCL, typical 1.3–2.0×: 1.5× applied to lane rate ÷ 67 m³, minimum charge 1 m³ per shipment (derived from Drewry WCI 24 Sep 2026)",
+   "label": "estimate",
+   "source": "https://www.drewry.co.uk/supply-chain-advisors/supply-chain-expertise/world-container-index-assessed-by-drewry",
+   "stage": 11
+  },
+  {
+   "id": "s12_a1",
+   "text": "Dates from stage 9 milestones; amounts from the stage 5 cash breakdown with the approved stage 8 quote applied (unit price, tooling; duties, platform fee, insurance recomputed) (tooling 50/50 at T0/T1, samples at golden sample, 30% deposit + 70% before shipment (payment terms of stage 9), logistics at shipment/delivery)",
+   "label": "estimate",
+   "source": null,
+   "stage": 12
+  },
+  {
+   "id": "s12_a2",
+   "text": "Peak cash need $670,001; 670,001 of it falls in the first 60 days.",
+   "label": "estimate",
+   "source": null,
+   "stage": 12
+  },
+  {
+   "id": "s12_a3",
+   "text": "Financing costs are typical ranges, not quotes: verify with each provider",
+   "label": "estimate",
+   "source": null,
+   "stage": 12
+  },
+  {
+   "id": "s13_a1",
+   "text": "Amazon price in USD: Founder target retail price (USD); no conversion applied. Marketplace fees and VAT are not included.",
+   "label": "estimate",
+   "source": null,
+   "stage": 13
+  },
+  {
+   "id": "s13_a2",
+   "text": "Name options are not trademark-searched; run a clearance search before committing.",
+   "label": "estimate",
+   "source": null,
+   "stage": 13
+  },
+  {
+   "id": "s13_a3",
+   "text": "Listing copy uses only facts from the brief and spec; no certification claims until testing is complete (stage 4).",
+   "label": "estimate",
+   "source": null,
+   "stage": 13
+  },
+  {
+   "id": "cn1",
+   "text": "Chinese text in this pack is machine-translated — to be reviewed by a native speaker.",
+   "label": "estimate",
+   "source": null,
+   "stage": null
+  }
+ ],
+ "engineering": {
+  "project_id": "demo_changing_table",
+  "status": "draft",
+  "fallback": false,
+  "fallback_reason": null,
+  "generated_by": "code",
+  "generated_at": "2026-09-27T00:17:33.137085Z",
+  "assumptions": [
+   {
+    "id": "e1",
+    "text": "Engineering category 'Nursery furniture (changing / activity table)' detected from the product description and the 'furniture' shape family",
+    "label": "estimate",
+    "source": null,
+    "stage": null
+   },
+   {
+    "id": "e4",
+    "text": "Physics checks are concept-level (rigid-body statics, rules of thumb): validate with the listed tests",
+    "label": "estimate",
+    "source": null,
+    "stage": null
+   }
+  ],
+  "stage": "engineering",
+  "category": "furniture_baby",
+  "category_title": "Nursery furniture (changing / activity table)",
+  "partner_word": "factories",
+  "site_install": false,
+  "product_name": "Safe baby changing table",
+  "inputs_digest": "f7eb60bf11b31d1a",
+  "standards": [
+   {
+    "code": "EN 12221-1",
+    "title": "Changing units for domestic use — Part 1: Safety requirements (superseded by EN 12221:2026 per CEN catalogue — confirm edition)",
+    "applies_because": "Changing units for domestic use: safety requirements (EU)",
+    "url": "https://knowledge.bsigroup.com/products/child-use-and-care-articles-changing-units-for-domestic-use-safety-requirements",
+    "citation_label": "sourced",
+    "citation_note": "https://knowledge.bsigroup.com/products/child-use-and-care-articles-changing-units-for-domestic-use-safety-requirements, page checked 2026-09-27"
+   },
+   {
+    "code": "EN 12221-2",
+    "title": "Changing units for domestic use — Part 2: Test methods (superseded by EN 12221:2026 per CEN catalogue — confirm edition)",
+    "applies_because": "Changing units: test methods (stability, strength, barriers)",
+    "url": "https://www.boutique.afnor.org/en-gb/standard/nf-en-122212/changing-units-for-domestic-use-part-2-test-methods/fa041908/50873",
+    "citation_label": "sourced",
+    "citation_note": "https://www.boutique.afnor.org/en-gb/standard/nf-en-122212/changing-units-for-domestic-use-part-2-test-methods/fa041908/50873, page checked 2026-09-27"
+   },
+   {
+    "code": "16 CFR 1235",
+    "title": "Safety Standard for Baby Changing Products (CPSC, incorporates ASTM F2388)",
+    "applies_because": "US mandatory safety standard for baby changing products (CPSC, incorporates ASTM F2388)",
+    "url": "https://www.ecfr.gov/api/renderer/v1/content/enhanced/current/title-16?part=1235",
+    "citation_label": "sourced",
+    "citation_note": "https://www.ecfr.gov/api/renderer/v1/content/enhanced/current/title-16?part=1235, page checked 2026-09-27"
+   },
+   {
+    "code": "CPSIA",
+    "title": "Consumer Product Safety Improvement Act of 2008 (US)",
+    "applies_because": "US children's product: lead / phthalates limits, third-party testing, tracking labels",
+    "url": "https://www.cpsc.gov/Regulations-Laws--Standards/Statutes/The-Consumer-Product-Safety-Improvement-Act",
+    "citation_label": "sourced",
+    "citation_note": "https://www.cpsc.gov/Regulations-Laws--Standards/Statutes/The-Consumer-Product-Safety-Improvement-Act, page checked 2026-09-27"
+   },
+   {
+    "code": "EN 71-1",
+    "title": "Safety of toys — Part 1: Mechanical and physical properties",
+    "applies_because": "Activity parts or toys attached to the table (mechanical and physical properties, small parts)",
+    "url": "https://knowledge.bsigroup.com/products/safety-of-toys-mechanical-and-physical-properties-1",
+    "citation_label": "sourced",
+    "citation_note": "https://knowledge.bsigroup.com/products/safety-of-toys-mechanical-and-physical-properties-1, page checked 2026-09-27"
+   },
+   {
+    "code": "EN 71-3",
+    "title": "Safety of toys — Part 3: Migration of certain elements",
+    "applies_because": "Migration of heavy metals from paints and coatings a child can mouth",
+    "url": null,
+    "citation_label": "estimate",
+    "citation_note": "Standard to be confirmed (edition and applicability) — no verified citation URL"
+   },
+   {
+    "code": "Regulation (EU) 2023/988",
+    "title": "General Product Safety Regulation (GPSR)",
+    "applies_because": "General Product Safety Regulation covers any consumer product placed on the EU market",
+    "url": "https://eur-lex.europa.eu/eli/reg/2023/988/oj/eng",
+    "citation_label": "sourced",
+    "citation_note": "https://eur-lex.europa.eu/eli/reg/2023/988/oj/eng, page checked 2026-09-27"
+   }
+  ],
+  "risks": [
+   {
+    "id": "r1",
+    "risk": "Tip-over when a child climbs or pulls on the top",
+    "mitigation": "Wide base, low centre of mass, wall anti-tip strap supplied and required in the manual",
+    "severity": "critical"
+   },
+   {
+    "id": "r2",
+    "risk": "Baby rolls off the changing surface",
+    "mitigation": "Raised barriers on all sides of the changing area (height per EN 12221-1 / ASTM F2388, to be confirmed)",
+    "severity": "critical"
+   },
+   {
+    "id": "r3",
+    "risk": "Finger and head entrapment in gaps and hinges",
+    "mitigation": "Keep gaps < 5 mm or > 12 mm (fingers); no V-shaped openings; soft-close hinges",
+    "severity": "major"
+   },
+   {
+    "id": "r4",
+    "risk": "Small parts and choking (knobs, activity beads)",
+    "mitigation": "Small-parts cylinder test; captive fasteners; no detachable caps",
+    "severity": "major"
+   },
+   {
+    "id": "r5",
+    "risk": "Coatings with lead or heavy metals",
+    "mitigation": "EN 71-3 / CPSIA compliant water-based finishes, lab reports per colour",
+    "severity": "major"
+   }
+  ],
+  "tests": [
+   {
+    "id": "t1",
+    "name": "Stability / tip-over (loaded and unloaded, drawers open)",
+    "kind": "tip_over",
+    "method": "Tilt and horizontal-force tests per the standard",
+    "standard": "EN 12221-2 / 16 CFR 1235"
+   },
+   {
+    "id": "t2",
+    "name": "Static load on the changing surface and barriers",
+    "kind": "mechanical",
+    "method": "Apply the specified masses for the specified time, check deformation",
+    "standard": "EN 12221-2"
+   },
+   {
+    "id": "t3",
+    "name": "Durability (fatigue of hinges, drawers, fold mechanism)",
+    "kind": "mechanical",
+    "method": "Cycle test",
+    "standard": "EN 12221-2"
+   },
+   {
+    "id": "t4",
+    "name": "Small parts, sharp edges and points",
+    "kind": "mechanical",
+    "method": "Small-parts cylinder, sharp edge / point tester",
+    "standard": "EN 71-1 / CPSIA"
+   },
+   {
+    "id": "t5",
+    "name": "Heavy metals and phthalates in coatings",
+    "kind": "chemical",
+    "method": "Accredited lab, each colour and material",
+    "standard": "EN 71-3 / CPSIA"
+   }
+  ],
+  "checks": [
+   {
+    "id": "tip_over",
+    "name": "Static tip-over angle (narrowest side)",
+    "domain": "stability",
+    "value": {
+     "value": 26.8,
+     "unit": "deg",
+     "label": "estimate",
+     "source_or_assumption": "atan(b / h): b = min(L, W)/2 = 280 mm (Measured), h = 0.55 × H = 556 mm (centre-of-mass height ratio is an Estimate)"
+    },
+    "threshold": "≥ 15° pass, ≥ 10° warn (design target, Estimate)",
+    "verdict": "pass",
+    "formula": "θ = atan(b / h_COM), rigid body on its base, least favourable direction",
+    "inputs": [
+     {
+      "value": 900.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the full product (family CAD, build123d/OCCT)"
+     },
+     {
+      "value": 560.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the full product (family CAD, build123d/OCCT)"
+     },
+     {
+      "value": 1010.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the full product (family CAD, build123d/OCCT)"
+     }
+    ],
+    "notes": []
+   },
+   {
+    "id": "tip_push",
+    "name": "Max horizontal load at the top edge before tipping (static)",
+    "domain": "stability",
+    "value": {
+     "value": 67.07,
+     "unit": "N",
+     "label": "estimate",
+     "source_or_assumption": "m g b / H = 24.66 kg × 9.81 × 280 mm / 1010 mm"
+    },
+    "threshold": "≥ 50 N pass, ≥ 25 N warn (child pull, design target — confirm against the standard)",
+    "verdict": "pass",
+    "formula": "F = m g b / H (tipping about the base edge, no wall anchor)",
+    "inputs": [
+     {
+      "value": 24661.1,
+      "unit": "g",
+      "label": "estimate",
+      "source_or_assumption": "Solid volume 51841.3 cm³ (measured) × densities per part (birch plywood 0.68 g/cm³, foam pad 0.04, plastic 1.15)"
+     },
+     {
+      "value": 900.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the full product (family CAD, build123d/OCCT)"
+     },
+     {
+      "value": 560.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the full product (family CAD, build123d/OCCT)"
+     },
+     {
+      "value": 1010.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the full product (family CAD, build123d/OCCT)"
+     }
+    ],
+    "notes": [
+     "Supply a wall anti-tip strap whatever the result"
+    ]
+   },
+   {
+    "id": "mass",
+    "name": "Product mass",
+    "domain": "mass",
+    "value": {
+     "value": 24661.1,
+     "unit": "g",
+     "label": "estimate",
+     "source_or_assumption": "Solid volume 51841.3 cm³ (measured) × densities per part (birch plywood 0.68 g/cm³, foam pad 0.04, plastic 1.15)"
+    },
+    "threshold": "≤ 40000 g pass, ≤ 50000 g warn (category comfort target, Estimate)",
+    "verdict": "pass",
+    "formula": "Stage 3 weight (measured enclosure volume × density + parts)",
+    "inputs": [
+     {
+      "value": 24661.1,
+      "unit": "g",
+      "label": "estimate",
+      "source_or_assumption": "Solid volume 51841.3 cm³ (measured) × densities per part (birch plywood 0.68 g/cm³, foam pad 0.04, plastic 1.15)"
+     },
+     {
+      "value": 51841.3,
+      "unit": "cm³",
+      "label": "measured",
+      "source_or_assumption": "Enclosure solid volume measured on the STEP (stage 3)"
+     }
+    ],
+    "notes": []
+   }
+  ],
+  "electronics": null,
+  "firmware": null,
+  "prototype": {
+   "enclosure_method": "CNC-cut birch plywood panels, hand-finished (1:1 prototype)",
+   "enclosure_volume": {
+    "value": 51841.3,
+    "unit": "cm³",
+    "label": "measured",
+    "source_or_assumption": "Enclosure solid volume measured on the STEP (stage 3)"
+   },
+   "units": 1,
+   "cost_lines": [
+    {
+     "item": "Enclosure: CNC-cut birch plywood panels, hand-finished (1:1 prototype)",
+     "amount": {
+      "value": 1187.0,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "1 × (150 USD setup + 0.02 USD/cm³ × 51841.3 cm³ measured volume)"
+     }
+    }
+   ],
+   "devkit_bom": [],
+   "assembly_steps": [
+    "Cut plywood panels on a CNC router from the CAD outlines",
+    "Dry-fit, then glue and screw with the production fasteners",
+    "Apply an EN 71-3 compliant water-based finish",
+    "Run an in-house tip test: incline and horizontal push at the top edge",
+    "Book a pre-test at an accredited nursery-furniture lab"
+   ],
+   "timeline_weeks": {
+    "value": 3.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Design freeze 0.5 + build 1.5 + test 1"
+   },
+   "total_cost": {
+    "value": 1187.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Sum of the prototype cost lines"
+   }
+  },
+  "solar": null,
+  "installers": [],
+  "build_strategy": {
+   "strategy": "full_design",
+   "title": "Full design",
+   "explanation": "You design the whole product: every part, the BOM and (if any) the simple electronics are yours, and a factory builds to your CAD and drawings. This is how mechanical products and simple electronics are made.",
+   "customisable": [
+    "Every panel, joint and dimension",
+    "Wood species, lacquer, colours",
+    "Pad, storage, accessories"
+   ],
+   "not_customisable": [
+    "Fittings (cam locks, dowels) from catalogues"
+   ],
+   "moq": {
+    "value": 300.0,
+    "unit": "units",
+    "label": "estimate",
+    "source_or_assumption": "Typical minimum order for a first run in this category — factory MOQ range"
+   },
+   "entry_cost": {
+    "value": 12000.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Typical first production run for this category (CNC programmes + samples ≈ $4k, child-safety lab tests ≈ $5k, packaging dielines ≈ $1k, margin) — industry range, not a quote"
+   },
+   "lead_time": {
+    "value": 12.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Frozen design → first production units (tooling, samples, certification), typical"
+   },
+   "path": [
+    "Freeze the CAD and nest the panels on 2440 × 1220 mm sheets",
+    "Make 3 samples on a CNC router, test to EN 12221 / 16 CFR 1235",
+    "Flat-pack packaging drop test",
+    "First run of 300 units"
+   ],
+   "certifications_note": "Child-care article testing (EN 12221, 16 CFR 1235) is on the full product: budget it once per design.",
+   "assumptions": [
+    "Estimates for a first production run; real MOQs and NRE come from quotes",
+    "Full-design figures assume tooling sized for the first run"
+   ]
+  },
+  "unit_basis": "per_unit",
+  "installation_cost": null
+ }
+}

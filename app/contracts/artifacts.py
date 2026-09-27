@@ -136,6 +136,7 @@ class Project(Model):
     stage_status: dict[str, StageStatus] = Field(
         default_factory=dict, description="Keys are stage numbers as strings ('1'..'13')"
     )
+    tags: list[str] = Field(default_factory=list, description="W21: e.g. ['Example'] for the showcase gallery projects")
 
 
 # ---------------------------------------------------------------------------
@@ -180,7 +181,8 @@ class BOMItem(Model):
 
 
 class CadFile(Model):
-    format: Literal["step", "stl", "glb", "pdf", "png", "svg"]
+    format: Literal["step", "stl", "glb", "pdf", "png", "svg", "py"] = Field(description=(
+        "py (W21): the build123d program of the model, served by GET /projects/<pid>/cad/code/<n>"))
     url: str = Field(description="Served by the API, e.g. /files/<project_id>/enclosure.step")
     description: str | None = None
     size_bytes: int | None = None
@@ -354,6 +356,24 @@ class DFMIssue(Model):
     resolution: str | None = None
 
 
+class PartAlternative(Model):
+    """W21b: a cheaper / better-stocked catalogue part proposed for a risky BOM line (structured, no text parsing)."""
+
+    part: str = Field(description="Manufacturer part number + package")
+    lcsc_pn: str
+    price: LabeledValue = Field(description="Unit price at the order quantity (Sourced: LCSC snapshot)")
+    stock: LabeledValue | None = None
+    label: Label = Label.sourced
+
+
+class ComponentRiskSummary(Model):
+    """W21b: structured risk of one part: level, reasons and the proposed alternative (None when the snapshot has none)."""
+
+    level: RiskLevel
+    reasons: list[str] = Field(default_factory=list)
+    alternative: PartAlternative | None = None
+
+
 class ComponentRiskItem(Model):
     bom_item_id: str
     part: str
@@ -362,6 +382,8 @@ class ComponentRiskItem(Model):
     alternatives: list[str] = Field(default_factory=list)
     stock: LabeledValue | None = None
     lead_time_weeks: LabeledValue | None = None
+    alternative: PartAlternative | None = Field(default=None, description=(
+        "W21b: cheapest in-stock same-kind part when this one is expensive or low-stock (None: no alternative in the snapshot)"))
 
 
 class DFMArtifact(ArtifactBase):
@@ -407,7 +429,12 @@ class CostsArtifact(ArtifactBase):
     currency: str = "USD"
     bom_lines: list[CostLine]
     volume_factor: LabeledValue = Field(description="Editable unit-cost decay per tier step")
-    tiers: list[CostTier] = Field(min_length=3, description="500 / 2,000 / 10,000 by default")
+    tiers: list[CostTier] = Field(min_length=1, description=(
+        "500 / 2,000 / 10,000 by default; a site install (unit_basis per_installation, W21c) has ONE tier: the pilot "
+        "quantity of installations, with per-installation figures"))
+    unit_basis: Literal["per_unit", "per_installation"] = Field(default="per_unit", description=(
+        "W21c: per_installation = rooftop solar etc.: unit_cost = installer cost of one installation, target_retail_price = "
+        "turnkey installed price, cash for a pilot of reference_quantity installations"))
     tooling: list[ToolingItem]
     tooling_total: LabeledValue
     certification_total: LabeledValue
@@ -457,6 +484,9 @@ class CapacityProfile(Model):
     monthly_capacity: int = Field(description="Units per month")
     current_load_pct: float
     label: Literal["fictional"] = "fictional"
+    categories: list[str] = Field(default_factory=list, description=(
+        "W21: product categories the factory specialises in (engineering category keys, e.g. lighting, wearable, drone); "
+        "empty = generalist. A specialist scores lower on process fit for other categories"))
 
 
 class PastPerformance(Model):
@@ -478,6 +508,9 @@ class Factory(Model):
     past_performance: PastPerformance
     label: Literal["fictional"] = "fictional"
     fictional: Literal[True] = True
+    kind: Literal["factory", "installer", "integrator"] = Field(default="factory", description=(
+        "W21b: partner kind for the portal filter — factory (makes parts / assembles), installer (site install, e.g. rooftop "
+        "PV), integrator (integrates bought-in modules, e.g. drones / robots)"))
 
 
 class RFQStatus(str, Enum):
@@ -571,6 +604,7 @@ class SearchCapacityQuery(Model):
     quantity: int
     certifications_required: list[str] = Field(default_factory=list)
     deadline: date | None = None
+    category: str | None = Field(default=None, description="W21: product category (engineering key) for specialist scoring")
 
 
 class ScoreComponent(Model):
@@ -805,6 +839,24 @@ class ListingDraft(Model):
     keywords: list[str] = Field(default_factory=list)
 
 
+class ProductPhoto(Model):
+    """W27: one AI product photo. With a reference the model only restyles light, surface, lens and framing around OUR
+    CAD image (viewer capture or Blender render of the CAD); without one it is a text-only concept image."""
+
+    shot: Literal["hero_studio", "packshot_white", "lifestyle", "in_hand_scale", "detail_macro"]
+    url: str = Field(description="/files/<pid>/photo_v<n>_<shot>.png")
+    label: str = Field(description=(
+        "Honesty caption shown under the image: 'Photo-styled from the CAD (AI image, geometry from our CAD)' or "
+        "'AI concept image (no CAD reference)'; lifestyle adds ' · Staged scene — illustrative'"))
+    reference: Literal["viewer", "cad_render", "none"] = Field(description=(
+        "viewer = PNG captured from the 3D viewer by the client; cad_render = Blender render of the CAD; none = text only"))
+    aspect_ratio: str = Field(description="4:5 or 1:1")
+    staged: bool = Field(default=False, description="Lifestyle / in-hand scene: illustrative staging, not a real photo shoot")
+    model: str | None = Field(default=None, description="Image model slug (OpenRouter)")
+    version: int | None = Field(default=None, description="Studio version the photo was made from")
+    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+
+
 class BrandArtifact(ArtifactBase):
     stage: Literal[13] = 13
     name_options: list[NameOption] = Field(min_length=1)
@@ -813,6 +865,8 @@ class BrandArtifact(ArtifactBase):
     landing_copy: LandingCopy
     shopify_listing: ListingDraft
     amazon_listing: ListingDraft
+    listing_photos: list[ProductPhoto] = Field(default_factory=list, description=(
+        "W27: e-commerce listing photo kit (packshot_white, lifestyle, in_hand_scale, detail_macro) of the current version"))
 
 
 # ---------------------------------------------------------------------------
@@ -865,6 +919,8 @@ class FactoryPack(Model):
     questions: list[FactoryQuestion]
     # 9. Assumption register
     assumption_register: list[Assumption]
+    # 10. Engineering & prototype path (W20, additive): checks, standards, power budget, prototype path, firmware note
+    engineering: EngineeringArtifact | None = None
 
 
 # ---------------------------------------------------------------------------
@@ -954,9 +1010,10 @@ class AutorunState(str, Enum):
 
 
 class AutorunStatus(Model):
-    """Progress of the background autorun (stages 1-7). Poll GET /projects/{id} every ~2 s."""
+    """Progress of the background autorun (stages 1-7, or 1-13 + Factory Pack in autofill mode). Poll GET /projects/{id} every ~2 s."""
 
     state: AutorunState = AutorunState.idle
+    through: Literal[7, 13] = Field(default=7, description="Last stage the run goes to: 7 (default) or 13 (autofill: also auto-approves the recommended quote at stage 8 and builds the Factory Pack)")
     current_stage: int | None = Field(default=None, description="Stage being run while state == running")
     completed_stages: list[int] = Field(default_factory=list)
     started_at: datetime | None = None
@@ -1010,4 +1067,348 @@ class ErrorResponse(Model):
     detail: str
 
 
+# ---------------------------------------------------------------------------
+# Engineering layer (W20) — GET /projects/{id}/engineering, computed from the current project state
+# ---------------------------------------------------------------------------
+
+
+class CheckVerdict(str, Enum):
+    pass_ = "pass"
+    warn = "warn"
+    fail = "fail"
+    info = "info"  # no threshold: a figure to know (e.g. annual yield)
+
+
+class StandardRef(Model):
+    code: str = Field(description="e.g. 'IEC 60335-2-2', 'EN 12221-1', 'IEC 60529'")
+    title: str
+    applies_because: str
+    url: str | None = None
+    citation_label: Label = Field(description="sourced = the URL was checked to load (date in citation_note); estimate = standard to be confirmed")
+    citation_note: str
+
+
+class DesignRisk(Model):
+    id: str
+    risk: str
+    mitigation: str
+    severity: Severity = Severity.major
+
+
+class RequiredTest(Model):
+    id: str
+    name: str = Field(description="e.g. 'Drop test 1.5 m', 'IPX7 immersion', 'Salt spray 96 h', 'Tip-over'")
+    kind: Literal["drop", "ingress", "salt_spray", "tip_over", "thermal", "electrical", "radio", "mechanical", "battery", "chemical", "other"]
+    method: str
+    standard: str | None = None
+
+
+class EngineeringCheck(Model):
+    id: str
+    name: str
+    domain: Literal["stability", "hydrodynamics", "power", "ingress", "airflow", "fluid", "solar", "thermal", "mass", "geometry",
+                    "flight", "regulatory"]
+    value: LabeledValue
+    threshold: str | None = Field(default=None, description="Human wording of the pass/warn/fail rule, e.g. '≥ 15° (design target)'")
+    verdict: CheckVerdict
+    formula: str = Field(description="Formula and assumptions, with the inputs' labels")
+    inputs: list[LabeledValue] = Field(default_factory=list, description="Inputs of the formula (each labeled)")
+    notes: list[str] = Field(default_factory=list, description="e.g. the sealing checklist of an IP check")
+
+
+class PowerNode(Model):
+    id: str
+    name: str
+    kind: Literal["source", "charger", "storage", "regulator", "load"]
+    parent: str | None = Field(default=None, description="Upstream node id (None for a source)")
+    voltage: LabeledValue
+
+
+class NetConnection(Model):
+    source: str
+    target: str
+    bus: Literal["power", "i2c", "spi", "uart", "gpio", "pwm", "adc", "rf", "usb", "analog", "can"]
+    signals: str = Field(description="Net names, e.g. 'SDA, SCL, INT1'")
+
+
+class PowerBudgetLine(Model):
+    block: str
+    part: str
+    active_current: LabeledValue = Field(description="mA while active")
+    sleep_current: LabeledValue = Field(description="µA while idle")
+    duty_cycle: LabeledValue = Field(description="pct of time active")
+    average_current: LabeledValue = Field(description="mA, duty-weighted")
+
+
+class ElectronicsArchitecture(Model):
+    mcu_family: Literal["nrf52", "esp32", "stm32", "avr", "generic"]
+    mcu_part: str
+    radio: list[str] = Field(default_factory=list)
+    power_tree: list[PowerNode]
+    connections: list[NetConnection]
+    power_budget: list[PowerBudgetLine]
+    average_current: LabeledValue
+    battery_voltage: LabeledValue | None = None
+    battery_capacity: LabeledValue | None = None
+    battery_life: LabeledValue | None = None
+    pcb_note: str = "PCB layout: next step (human or text-to-PCB)"
+
+
+class FirmwareProject(Model):
+    framework: Literal["zephyr", "arduino"]
+    mcu_family: str
+    connectivity: str = Field(description="e.g. 'BLE GATT service', 'Wi-Fi + MQTT'")
+    url: str = Field(description="/files/<project_id>/firmware.zip")
+    files: list[str]
+    generated_by: str = Field(description="'template' | 'llm:<model slug>'")
+    note: str = "Generated code — not compiled or tested"
+    pending_llm: bool = Field(default=False, description="An LLM version is being generated in the background; re-GET to pick it up")
+
+
+class PrototypeCostLine(Model):
+    item: str
+    amount: LabeledValue
+
+
+class DevKitLine(Model):
+    part: str
+    role: str
+    qty: int = 1
+    lcsc_pn: str | None = None
+    unit_price: LabeledValue
+
+
+class PrototypePath(Model):
+    enclosure_method: str
+    enclosure_volume: LabeledValue
+    units: int = Field(description="Prototype quantity (input)")
+    cost_lines: list[PrototypeCostLine]
+    devkit_bom: list[DevKitLine] = Field(default_factory=list)
+    assembly_steps: list[str]
+    timeline_weeks: LabeledValue
+    total_cost: LabeledValue
+
+
+class SolarDesign(Model):
+    location: str
+    latitude: float
+    longitude: float
+    location_assumed: bool = Field(description="True when the location was not in the prompt (default demo site)")
+    roof_area: LabeledValue
+    module_power: LabeledValue
+    module_count: LabeledValue
+    peak_power: LabeledValue
+    specific_yield: LabeledValue = Field(description="kWh/kWp/year from PVGIS (Sourced)")
+    annual_energy: LabeledValue
+    monthly_energy: list[LabeledValue] = Field(default_factory=list, description="12 values, kWh")
+    install_cost: LabeledValue
+    annual_savings: LabeledValue
+    payback: LabeledValue
+    pvgis_url: str
+
+
+class InstallerMatch(Model):
+    factory_id: str
+    name: str = Field(description="Fictional installer name — ends with '(fictional)'")
+    region: str
+    certifications: list[str]
+    lead_time_days: int
+    label: Literal["fictional"] = "fictional"
+
+
+class BuildStrategy(Model):
+    """W21: how this product realistically gets built — design everything, assemble bought-in modules, or customise an
+    ODM reference platform. Figures are Estimates with their assumptions."""
+
+    strategy: Literal["full_design", "module_assembly", "odm_customization"]
+    title: str = Field(description="e.g. 'Full design', 'Module assembly', 'ODM customisation'")
+    explanation: str
+    customisable: list[str] = Field(description="What the founder designs / chooses")
+    not_customisable: list[str] = Field(default_factory=list, description="What comes from the modules / the ODM platform")
+    moq: LabeledValue = Field(description="Typical minimum order quantity (units), Estimate")
+    entry_cost: LabeledValue = Field(description="Typical entry cost (NRE, tooling, certification) before the first order, Estimate")
+    lead_time: LabeledValue = Field(description="Typical time from frozen design to first production units (weeks), Estimate")
+    path: list[str] = Field(default_factory=list, description="Realistic steps (for ODM: find a close reference platform…)")
+    certifications_note: str = ""
+    assumptions: list[str] = Field(default_factory=list)
+
+
+class EngineeringArtifact(ArtifactBase):
+    stage: Literal["engineering"] = "engineering"
+    category: str = Field(description="Engineering category key, e.g. wearable, furniture_baby, home_robot, vacuum, irrigation, solar_roof, surfboard, lighting, tracker, generic")
+    category_title: str
+    partner_word: Literal["factories", "installers"] = "factories"
+    site_install: bool = False
+    product_name: str
+    inputs_digest: str = Field(description="Hash of the project state this was computed from")
+    standards: list[StandardRef]
+    risks: list[DesignRisk]
+    tests: list[RequiredTest]
+    checks: list[EngineeringCheck]
+    electronics: ElectronicsArchitecture | None = None
+    firmware: FirmwareProject | None = None
+    prototype: PrototypePath
+    solar: SolarDesign | None = None
+    installers: list[InstallerMatch] = Field(default_factory=list, description="Site-install mode: fictional certified installers")
+    build_strategy: BuildStrategy | None = Field(default=None, description="W21: full design / module assembly / ODM customisation")
+    unit_basis: Literal["per_unit", "per_installation"] = Field(default="per_unit", description=(
+        "W21b: what one 'unit' is for this product — per_installation for site installs (rooftop solar): costs are per site"))
+    installation_cost: LabeledValue | None = Field(default=None, description=(
+        "W21b: turnkey cost of one installation (per_installation only; = solar.install_cost)"))
+
+
+# ---------------------------------------------------------------------------
+# Studio (W17) — refine the product by prompting; every prompt = a new Version
+# ---------------------------------------------------------------------------
+
+
+class VersionStatus(str, Enum):
+    running = "running"
+    done = "done"
+    failed = "failed"
+
+
+class VersionChange(Model):
+    area: Literal["color", "material", "shape", "dimensions", "feature", "component", "price", "markets", "requirement",
+                  "certification", "cost", "performance"]
+    label: str = Field(description="Human wording, e.g. 'Colour', 'Pod height', 'Optical heart-rate sensor'")
+    before: str | None = None
+    after: str | None = None
+    label_kind: Label = Field(description="Honesty label of the new value: measured (CAD), sourced (LCSC), estimate, fictional")
+    risk: ComponentRiskSummary | None = Field(default=None, description=(
+        "W21b: on a 'Component added' change — structured supply risk + proposed cheaper in-stock alternative"))
+
+
+class VersionUnitCost(Model):
+    quantity: int
+    value: float = Field(description="Ex-works unit cost, USD")
+    label: Label = Label.estimate
+    source_or_assumption: str | None = None
+
+
+class VersionFactory(Model):
+    name: str = Field(description="Fictional factory name")
+    score: float = Field(description="0-100 match score on demo data")
+    label: Literal["fictional"] = "fictional"
+
+
+class VersionPreview(Model):
+    glb_url: str | None = Field(default=None, description="Full-product GLB of this version (/files/<pid>/v<n>.glb)")
+    render_url: str | None = Field(default=None, description="AI concept render (illustrative, not the CAD); patched in later")
+    unit_basis: Literal["per_unit", "per_installation"] = Field(default="per_unit", description="W21e: see CostsArtifact.unit_basis")
+    installed_price: LabeledValue | None = Field(default=None, description=(
+        "W21e, per_installation only: THE customer price of one installation for this version (turnkey, battery included "
+        "when the BOM has one) — the single source for the Studio strip, Overview and gallery card"))
+    installer_cost: LabeledValue | None = Field(default=None, description=(
+        "W21e, per_installation only: what one installation costs the installer (equipment + labour + site admin)"))
+    dimensions: Dimensions | None = Field(default=None, description="Measured on the built STEP (moulded parts)")
+    color_hex: str | None = None
+    color_name: str | None = None
+    material: str | None = None
+    finish: str | None = None
+    shape_family: str | None = Field(default=None, description=(
+        "rounded_box | puck | slab | wearable_band | ring, or a W21 product family (board, furniture, stick_vacuum, home_robot, "
+        "irrigation, solar_array, drone, hair_dryer, camera, smartphone)"))
+    unit_costs: list[VersionUnitCost] = Field(default_factory=list)
+    top_factories: list[VersionFactory] = Field(default_factory=list)
+    certifications: list[str] = Field(default_factory=list, description="'<market> <standard>' of the required certifications")
+    bom_count: int = 0
+    code_url: str | None = Field(default=None, description=(
+        "W21: the build123d program of this version's model (/projects/<pid>/cad/code/<k>): AI-written, or the parametric "
+        "family seed when AI CAD is off / failed (see cad_label)"))
+    step_url: str | None = Field(default=None, description="W21: STEP of the model shown in glb_url (AI model when present)")
+    cad_label: str | None = Field(default=None, description=(
+        "W21: 'AI-generated CAD (concept level) — geometry measured on the result' or 'Parametric family CAD (concept level) — …'"))
+    cad_source: str | None = Field(default=None, description="W21: llm:<model> | seed:<family> | previous_version | family:<name>")
+    photos: list[ProductPhoto] = Field(default_factory=list, description=(
+        "W27: AI product photos of this version (one per shot, newest wins). hero_studio, when present, is also render_url"))
+
+
+class Version(Model):
+    n: int
+    message: str = Field(description="The founder's prompt ('Studio start' for version 1)")
+    status: VersionStatus = VersionStatus.running
+    created_at: datetime = Field(default_factory=utcnow)
+    finished_at: datetime | None = None
+    summary: str = ""
+    changes: list[VersionChange] = Field(default_factory=list)
+    preview: VersionPreview | None = None
+    error: str | None = Field(default=None, description="Plain-language reason when status == failed")
+    is_current: bool = Field(default=False, description="Stage artifacts reflect this version")
+    render_pending: bool = Field(default=False, description="An AI concept render for this version is still running")
+    background_pending: bool = Field(default=False, description="AI DFM review / production plan still refreshing in the background")
+    cad_pending: bool = Field(default=False, description=(
+        "W21: the AI CAD model (text-to-CAD) of this version is still being generated; preview.glb_url / code_url are "
+        "patched in when done"))
+    cad_note: str | None = Field(default=None, description="W21: plain-language note on the AI CAD (e.g. fell back to the family)")
+    cad_attempts: int = Field(default=0, description="W21c: LLM attempts the AI CAD program of this version took (0 = no AI CAD run)")
+    cad_repairs: int = Field(default=0, description="W21c: self-repair rounds (attempts − 1 when it ended ok) — 'self-repaired N×'")
+    look_changed: bool = Field(default=True, description=(
+        "W21e: colour, material, finish, shape or dimensions changed vs the previous version. False → the previous version's "
+        "photos are carried over (copied, same labels) and no new photo is generated"))
+
+
+class ExampleSummary(Model):
+    """W21: one showcase project of the gallery (GET /examples). Opening it costs nothing: every stage is cached."""
+
+    id: str = Field(description="Project id, e.g. demo_whoop_kitesurf")
+    slug: str
+    name: str
+    prompt: str
+    category: str = Field(description="Engineering category key")
+    strategy: Literal["full_design", "module_assembly", "odm_customization"] | None = None
+    hero_image_url: str | None = Field(default=None, description="Concept render (illustrative) or None")
+    glb_url: str | None = Field(default=None, description="3D model of the current version")
+    one_line_result: str
+    unit_basis: Literal["per_unit", "per_installation"] = "per_unit"
+    unit_cost: LabeledValue | None = Field(default=None, description=(
+        "W21b: headline cost — ex-works unit cost at the reference quantity (per_unit) or turnkey cost per installation"))
+    versions: int = 0
+    stages_done: int = 0
+    tags: list[str] = Field(default_factory=list)
+    seeded: bool = Field(default=False, description="The project exists in the database (after POST /demo/reset)")
+    hero_image_label: str | None = Field(default=None, description="W27: honesty caption of hero_image_url")
+    photos: list[ProductPhoto] = Field(default_factory=list, description="W27: hero_studio + lifestyle photos of the current version")
+
+
+class RefineRequest(Model):
+    message: str = Field(min_length=1, max_length=1000)
+
+
+class StudioAccepted(Model):
+    version: int
+
+
 CostsArtifact.model_rebuild()
+FactoryPack.model_rebuild()
+
+
+# ---------------------------------------------------------------------------
+# W27 — product photography (reference-based AI photos + listing kit)
+# ---------------------------------------------------------------------------
+
+
+class PhotoJob(Model):
+    state: Literal["idle", "running", "done", "failed"] = "idle"
+    version: int | None = None
+    shots: list[str] = Field(default_factory=list, description="Shots requested by this job")
+    done: list[str] = Field(default_factory=list, description="Shots generated so far")
+    failed: list[str] = Field(default_factory=list, description="Shots that failed (the previous photo, if any, is kept)")
+    error: str | None = Field(default=None, description="Plain-language reason when a shot failed (e.g. image credits exhausted)")
+    started_at: datetime | None = None
+    finished_at: datetime | None = None
+
+
+class ProjectPhotos(Model):
+    """GET /projects/{id}/photos — photos of the current version + the running / last photo job (poll every ~2 s)."""
+
+    project_id: str
+    version: int | None = Field(default=None, description="Current Studio version (None: not a Studio project)")
+    photos: list[ProductPhoto] = Field(default_factory=list)
+    job: PhotoJob = Field(default_factory=PhotoJob)
+    configured: bool = Field(default=False, description="An image model + key are configured (else POSTs return 503)")
+
+
+class PhotoAccepted(Model):
+    version: int
+    shots: list[str]

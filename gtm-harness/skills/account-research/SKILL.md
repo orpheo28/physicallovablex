@@ -6,7 +6,8 @@ description: For one hardware account, find its precise, sourced production prob
 # Account research
 
 **Input:** one account, either a row of `outputs/accounts.csv` or a name plus URL.
-**Output:** a card of about 15 lines, in the format below. Every fact has its URL and date. Anything without a source is labelled **Hypothesis**.
+**Output:** a card of about 15 lines, in the format below, saved as `outputs/research/YYYY-MM-DD-research-<account>.md` (cards from 26/09 keep their old names). Every fact has its URL and date. Anything without a source is labelled **Hypothesis**. Add one line to `outputs/RUN_LOG.md`.
+**Reads:** `context/icp.md` (tiers, anti-ICP), `context/signals.md` (points, decay), `context/personas/hardware-founder.md` (objections, hooks), `workflows/enrichment.md` (allowed sources, 403 handling).
 
 ## Steps
 1. **Start from what we know.** Read the account's row in `outputs/accounts.csv`: `signal`, `notes`, sources and confidence.
@@ -23,7 +24,7 @@ description: For one hardware account, find its precise, sourced production prob
    - `factory`: process, language, capacity
    - `logistics`
    This is the variable campaign 01 must settle (`outputs/campaign-01-discovery/brief.md`).
-5. **Map the people.** Name the founder and CEO, the engineering co-founder if there is one, and the public channel. A LinkedIn profile or email must come from a public page.
+5. **Map the people.** Name the founder and CEO, the engineering co-founder if there is one, and the public channel. A LinkedIn profile or email must come from a public page. Write the channel *type* in the card (email, LinkedIn, platform message); the address itself stays in `03_DISCOVERY/`, never in the harness.
 6. **Check what is next.** Look for a next product or new campaign. An unverified rumour stays **Hypothesis**; see the Minimal Phone 2 in `02_RECHERCHE/parallel/00_SYNTHESE.md`.
 7. **Derive the angle.** Pick the question from `brief.md` that fits the root cause. Examples:
    - components: "How did you choose and qualify that component?"
@@ -31,7 +32,7 @@ description: For one hardware account, find its precise, sourced production prob
 
 ## Output format
 ```
-## <Account>: score <n> (<rubric reason>)
+## <Account>: score <n> (<rubric reason>) | Priority <points> (<HOT/WARM/COLD/SKIP>) | Tier <1-4>
 Problem: <what failed, when, units>. "<exact quote>" (<URL>, <date>)
 Root cause: <bucket> | Confidence: high/medium
 People: <founder, role> (<URL>); engineering co-founder: <name or "none found">

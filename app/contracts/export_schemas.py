@@ -53,6 +53,20 @@ EXPORTED: list[type[BaseModel]] = [
     a.ResetResult,
     a.HealthResponse,
     a.ErrorResponse,
+    a.EngineeringArtifact,
+    a.Version,
+    a.VersionChange,
+    a.VersionPreview,
+    a.RefineRequest,
+    a.ExampleSummary,
+    a.BuildStrategy,
+    a.ComponentRiskSummary,
+    a.PartAlternative,
+    a.StudioAccepted,
+    a.ProductPhoto,
+    a.PhotoJob,
+    a.ProjectPhotos,
+    a.PhotoAccepted,
 ]
 
 

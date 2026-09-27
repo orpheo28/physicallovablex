@@ -1,0 +1,47 @@
+{
+  "key": "drone",
+  "title": "Camera drone (quadcopter)",
+  "match": ["drone", "drones", "quadcopter", "quad-copter", "multicopter", "uav", "fpv", "follow-me", "follow me drone"],
+  "families": ["drone"],
+  "brief_categories": ["drone"],
+  "partner_word": "factories",
+  "standards": [
+    {"code": "Regulation (EU) 2019/945", "applies_because": "EU market: the drone must carry a class mark (C0 < 250 g, C1 < 900 g, C2 < 4 kg MTOM) with the class requirements (speed, geo-awareness, remote ID)"},
+    {"code": "Regulation (EU) 2019/947", "applies_because": "EU operating rules the class mark unlocks (open category A1/A2/A3) — what the buyer may do with it"},
+    {"code": "14 CFR Part 107", "applies_because": "US small UAS operating rules (commercial use, < 55 lb)"},
+    {"code": "14 CFR Part 48", "applies_because": "US registration of small unmanned aircraft above the weight threshold"},
+    {"code": "14 CFR Part 89", "applies_because": "US Remote ID broadcast requirement for registered drones"},
+    {"code": "47 CFR Part 15", "applies_because": "2.4 / 5.8 GHz control and video link (FCC 15C) + digital device (15B)"},
+    {"code": "Directive 2014/53/EU", "applies_because": "Radio link sold in the EU (RED)"},
+    {"code": "IEC 62133-2", "applies_because": "Li-ion / Li-Po flight battery"},
+    {"code": "UN 38.3", "applies_because": "Lithium battery shipped with the product"}
+  ],
+  "risks": [
+    {"risk": "All-up weight creeps over the class limit (C0 250 g / C1 900 g) with the battery and gimbal", "mitigation": "Weight budget per part from day one; weigh every prototype; two battery options per class", "severity": "critical"},
+    {"risk": "Flight-controller / ESC failure → fly-away or crash over people", "mitigation": "Certified flight-controller module with geofence, return-to-home and low-battery landing; ESC current telemetry", "severity": "critical"},
+    {"risk": "Salt spray and sand at the beach (kitesurf use) corrode motors and gimbal", "mitigation": "Sealed bearings, conformal-coated PCBA, IP43 target on the body, rinse guidance", "severity": "major"},
+    {"risk": "Wind: gusts above 10 m/s exceed the hover margin of a light drone", "mitigation": "Thrust-to-weight ≥ 2, wind-speed warning in the app, EASA C-class wind rating on the label", "severity": "major"},
+    {"risk": "Video link drops over water at distance", "mitigation": "Dual-band link with diversity antennas; follow-me distance cap", "severity": "minor"}
+  ],
+  "tests": [
+    {"name": "Class-mark conformity (MTOM, max speed, geo-awareness, remote ID)", "kind": "other", "method": "Notified body assessment of the C-class requirements", "standard": "Regulation (EU) 2019/945"},
+    {"name": "Hover endurance and thrust stand", "kind": "other", "method": "Thrust stand per motor/prop, then hover to 20% battery at sea level", "standard": null},
+    {"name": "Drop / crash test of arms and gimbal", "kind": "drop", "method": "Drop from 1.5 m on each arm; hinge and gimbal functional check", "standard": null},
+    {"name": "Salt mist on motors and fasteners", "kind": "salt_spray", "method": "48 h 5% NaCl fog, bearing and contact inspection", "standard": "IEC 60068-2-11"},
+    {"name": "Radio conformity (control + video link)", "kind": "radio", "method": "Accredited lab", "standard": "47 CFR Part 15 / Directive 2014/53/EU"},
+    {"name": "Battery safety", "kind": "battery", "method": "Accredited lab", "standard": "IEC 62133-2 / UN 38.3"}
+  ],
+  "checks": ["drone", "mass", "ip_rating"],
+  "params": {
+    "mass_max_g": 900, "battery_target_h": 0.33, "battery_mah_default": 2450, "battery_cells_default": 2, "battery_v_default": 7.4,
+    "battery_wh_per_kg": 180, "motor_g": 16, "prop_g": 4, "arm_g": 7, "gimbal_camera_g": 38, "electronics_g": 24,
+    "motor_thrust_g": 300, "rotors": 4, "prop_d_mm": 152, "figure_of_merit": 0.6, "drive_eff": 0.75, "usable_battery": 0.8,
+    "flight_target_min": 25, "flight_warn_min": 15, "twr_min": 2.0, "twr_warn": 1.6,
+    "ip_target": 43, "ip_detail": "IP43 target (beach spray and sand), manufacturer-declared",
+    "duty": {"mcu": 100, "radio": 100, "imu": 100, "camera": 100, "motor": 100, "gnss": 100, "led": 50},
+    "default_family": "esp32", "connectivity": "2.4 GHz control link + Wi-Fi video, follow-me via phone GNSS",
+    "typical_electronics": ["Flight controller STM32F7 with IMU", "4-in-1 ESC 20A", "BLDC motor 1404", "GNSS receiver module", "Camera module 4K with 2-axis gimbal", "Li-Po pack 2S 2450 mAh 7.4V", "Wi-Fi video transmitter"]
+  },
+  "prototype": {"method": "MJF PA12-GF body + carbon-fibre arm tubes, bought-in flight controller, ESC, motors and gimbal", "usd_per_cm3": 0.35, "setup_usd": 60, "units": 2,
+    "steps": ["Fly an off-the-shelf flight controller + ESC stack on a test frame first (PID tune, failsafes)", "Print the body in MJF PA12-GF, fit folding arm hinges", "Integrate the gimbal camera and GNSS, verify follow-me in an open field", "Weigh the full aircraft against the C-class budget", "Thrust stand + hover endurance test, then wind test"]}
+}

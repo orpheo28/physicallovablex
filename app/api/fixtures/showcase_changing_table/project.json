@@ -1,0 +1,14 @@
+{
+ "id": "demo_changing_table",
+ "name": "Safe baby changing table",
+ "mode": "idea",
+ "prompt": "A simple, safe changing table for babies",
+ "pasted_bom": null,
+ "example": "showcase_changing_table",
+ "status": "active",
+ "created_at": "2026-09-27T00:16:31.815692Z",
+ "stage_status": {},
+ "tags": [
+  "Example"
+ ]
+}

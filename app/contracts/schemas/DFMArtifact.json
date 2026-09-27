@@ -136,6 +136,18 @@
             }
           ],
           "default": null
+        },
+        "alternative": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/PartAlternative"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "W21b: cheapest in-stock same-kind part when this one is expensive or low-stock (None: no alternative in the snapshot)"
         }
       },
       "required": [
@@ -288,6 +300,47 @@
         "source_or_assumption"
       ],
       "title": "LabeledValue",
+      "type": "object"
+    },
+    "PartAlternative": {
+      "additionalProperties": false,
+      "description": "W21b: a cheaper / better-stocked catalogue part proposed for a risky BOM line (structured, no text parsing).",
+      "properties": {
+        "part": {
+          "description": "Manufacturer part number + package",
+          "title": "Part",
+          "type": "string"
+        },
+        "lcsc_pn": {
+          "title": "Lcsc Pn",
+          "type": "string"
+        },
+        "price": {
+          "$ref": "#/$defs/LabeledValue",
+          "description": "Unit price at the order quantity (Sourced: LCSC snapshot)"
+        },
+        "stock": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/LabeledValue"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "label": {
+          "$ref": "#/$defs/Label",
+          "default": "sourced"
+        }
+      },
+      "required": [
+        "part",
+        "lcsc_pn",
+        "price"
+      ],
+      "title": "PartAlternative",
       "type": "object"
     },
     "RiskLevel": {

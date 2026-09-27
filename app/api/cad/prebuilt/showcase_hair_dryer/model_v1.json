@@ -1,0 +1,181 @@
+{
+ "status": "ok",
+ "version": 1,
+ "source": "llm:openai/gpt-6-sol",
+ "label": "AI-generated CAD (concept level) \u2014 geometry measured on the result",
+ "category": "hair_dryer",
+ "seed_family": "hair_dryer",
+ "variant": "compact",
+ "files": {
+  "step": "api/data/files_w21/p_4162ebd14d/model_v1.step",
+  "stl": "api/data/files_w21/p_4162ebd14d/model_v1.stl",
+  "glb": "api/data/files_w21/p_4162ebd14d/model_v1.glb"
+ },
+ "urls": {
+  "step": "/files/p_4162ebd14d/model_v1.step",
+  "stl": "/files/p_4162ebd14d/model_v1.stl",
+  "glb": "/files/p_4162ebd14d/model_v1.glb"
+ },
+ "code_path": "api/data/files_w21/p_4162ebd14d/model_v1.py",
+ "code_url": "/projects/p_4162ebd14d/cad/code/1",
+ "bbox_mm": [
+  201.8,
+  64.0,
+  175.0
+ ],
+ "volume_mm3": 610858.9,
+ "parts": [
+  {
+   "label": "body.1",
+   "role": "body",
+   "volume_mm3": 415609.8,
+   "valid": true,
+   "bbox_mm": [
+    142.0,
+    62.0,
+    62.0
+   ]
+  },
+  {
+   "label": "accent.1",
+   "role": "accent",
+   "volume_mm3": 22482.1,
+   "valid": true,
+   "bbox_mm": [
+    40.0,
+    52.0,
+    52.0
+   ]
+  },
+  {
+   "label": "coat.1",
+   "role": "coat",
+   "volume_mm3": 7926.2,
+   "valid": true,
+   "bbox_mm": [
+    3.0,
+    58.0,
+    58.0
+   ]
+  },
+  {
+   "label": "accent.2",
+   "role": "accent",
+   "volume_mm3": 14828.3,
+   "valid": true,
+   "bbox_mm": [
+    16.0,
+    64.0,
+    64.0
+   ]
+  },
+  {
+   "label": "coat.2",
+   "role": "coat",
+   "volume_mm3": 1150.5,
+   "valid": true,
+   "bbox_mm": [
+    2.0,
+    51.38,
+    42.2
+   ]
+  },
+  {
+   "label": "body.2",
+   "role": "body",
+   "volume_mm3": 111148.7,
+   "valid": true,
+   "bbox_mm": [
+    54.56,
+    34.0,
+    129.28
+   ]
+  },
+  {
+   "label": "rubber.1",
+   "role": "rubber",
+   "volume_mm3": 32168.5,
+   "valid": true,
+   "bbox_mm": [
+    36.41,
+    35.0,
+    39.49
+   ]
+  },
+  {
+   "label": "rubber.2",
+   "role": "rubber",
+   "volume_mm3": 1385.4,
+   "valid": true,
+   "bbox_mm": [
+    14.0,
+    14.0,
+    9.0
+   ]
+  },
+  {
+   "label": "button.1",
+   "role": "button",
+   "volume_mm3": 2210.0,
+   "valid": true,
+   "bbox_mm": [
+    5.0,
+    17.0,
+    26.0
+   ]
+  },
+  {
+   "label": "button.2",
+   "role": "button",
+   "volume_mm3": 1445.0,
+   "valid": true,
+   "bbox_mm": [
+    5.0,
+    17.0,
+    17.0
+   ]
+  },
+  {
+   "label": "button.3",
+   "role": "button",
+   "volume_mm3": 480.0,
+   "valid": true,
+   "bbox_mm": [
+    5.0,
+    12.0,
+    8.0
+   ]
+  },
+  {
+   "label": "led.1",
+   "role": "led",
+   "volume_mm3": 24.4,
+   "valid": true,
+   "bbox_mm": [
+    3.6,
+    3.6,
+    3.6
+   ]
+  }
+ ],
+ "target_dims_mm": [
+  209.6,
+  68.0,
+  178.61
+ ],
+ "attempts": [
+  {
+   "n": 1,
+   "kind": "generate",
+   "llm_seconds": 22.5,
+   "run_seconds": 2.13,
+   "error": null,
+   "error_kind": null
+  }
+ ],
+ "notes": [],
+ "instruction": null,
+ "parent_version": null,
+ "seconds": 24.73,
+ "brief": "product_name: Quiet compact hair dryer; one_liner: A compact hair dryer designed to reduce operating noise.; category: other; key_features: Compact handheld form; Reduced operating noise; Adjustable airflow; Multiple heat settings; Removable air-intake filter; prompt: A quiet, compact hair dryer"
+}

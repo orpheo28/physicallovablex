@@ -1,0 +1,235 @@
+{
+ "_note": "url + verified_on = page loaded (HTTP 200, standard number in the page) on that date → citation Sourced; url null → Estimate 'standard to be confirmed'. Browser-checked (curl blocked): iso.org, unece.org, cpsc.gov, ecfr.gov/current.",
+ "standards": {
+  "IEC 60335-1": {
+   "title": "Household and similar electrical appliances — Safety — Part 1: General requirements",
+   "url": "https://webstore.iec.ch/en/publication/61880",
+   "verified_on": "2026-09-27"
+  },
+  "IEC 60335-2-2": {
+   "title": "Household appliances — Safety — Part 2-2: Particular requirements for vacuum cleaners and water-suction cleaning appliances",
+   "url": "https://webstore.iec.ch/en/publication/61319",
+   "verified_on": "2026-09-27"
+  },
+  "EN 12221-1": {
+   "title": "Changing units for domestic use — Part 1: Safety requirements (superseded by EN 12221:2026 per CEN catalogue — confirm edition)",
+   "url": "https://knowledge.bsigroup.com/products/child-use-and-care-articles-changing-units-for-domestic-use-safety-requirements",
+   "verified_on": "2026-09-27"
+  },
+  "EN 12221-2": {
+   "title": "Changing units for domestic use — Part 2: Test methods (superseded by EN 12221:2026 per CEN catalogue — confirm edition)",
+   "url": "https://www.boutique.afnor.org/en-gb/standard/nf-en-122212/changing-units-for-domestic-use-part-2-test-methods/fa041908/50873",
+   "verified_on": "2026-09-27"
+  },
+  "EN 71-1": {
+   "title": "Safety of toys — Part 1: Mechanical and physical properties",
+   "url": "https://knowledge.bsigroup.com/products/safety-of-toys-mechanical-and-physical-properties-1",
+   "verified_on": "2026-09-27"
+  },
+  "EN 71-3": {
+   "title": "Safety of toys — Part 3: Migration of certain elements",
+   "url": null,
+   "verified_on": null
+  },
+  "CPSIA": {
+   "title": "Consumer Product Safety Improvement Act of 2008 (US)",
+   "url": "https://www.cpsc.gov/Regulations-Laws--Standards/Statutes/The-Consumer-Product-Safety-Improvement-Act",
+   "verified_on": "2026-09-27"
+  },
+  "16 CFR 1235": {
+   "title": "Safety Standard for Baby Changing Products (CPSC, incorporates ASTM F2388)",
+   "url": "https://www.ecfr.gov/api/renderer/v1/content/enhanced/current/title-16?part=1235",
+   "verified_on": "2026-09-27"
+  },
+  "16 CFR 1263": {
+   "title": "Safety Standard for Button Cell or Coin Batteries and Consumer Products Containing Such Batteries (Reese's Law)",
+   "url": "https://www.ecfr.gov/api/renderer/v1/content/enhanced/current/title-16?part=1263",
+   "verified_on": "2026-09-27"
+  },
+  "IEC 60529": {
+   "title": "Degrees of protection provided by enclosures (IP Code)",
+   "url": "https://webstore.iec.ch/en/publication/2452",
+   "verified_on": "2026-09-27"
+  },
+  "ISO 22810": {
+   "title": "Horology — Water-resistant watches",
+   "url": null,
+   "verified_on": null
+  },
+  "IEC 60068-2-11": {
+   "title": "Environmental testing — Part 2-11: Tests — Test Ka: Salt mist",
+   "url": "https://webstore.iec.ch/en/publication/64484",
+   "verified_on": "2026-09-27"
+  },
+  "IEC 61215-1": {
+   "title": "Terrestrial photovoltaic (PV) modules — Design qualification and type approval — Part 1: Test requirements",
+   "url": "https://webstore.iec.ch/en/publication/61345",
+   "verified_on": "2026-09-27"
+  },
+  "IEC 61730-1": {
+   "title": "Photovoltaic (PV) module safety qualification — Part 1: Requirements for construction",
+   "url": "https://webstore.iec.ch/en/publication/59803",
+   "verified_on": "2026-09-27"
+  },
+  "IEC 62446-1": {
+   "title": "Photovoltaic (PV) systems — Requirements for testing, documentation and maintenance — Part 1: Grid connected systems",
+   "url": "https://webstore.iec.ch/en/publication/24057",
+   "verified_on": "2026-09-27"
+  },
+  "IEC 62109-1": {
+   "title": "Safety of power converters for use in photovoltaic power systems — Part 1: General requirements",
+   "url": null,
+   "verified_on": null
+  },
+  "IEC 60364-7-712": {
+   "title": "Low-voltage electrical installations — Part 7-712: Solar photovoltaic (PV) power supply systems",
+   "url": null,
+   "verified_on": null
+  },
+  "EN 50549-1": {
+   "title": "Requirements for generating plants to be connected in parallel with distribution networks — Part 1: LV",
+   "url": null,
+   "verified_on": null
+  },
+  "IEC 62133-2": {
+   "title": "Secondary cells and batteries containing alkaline or other non-acid electrolytes — Safety — Part 2: Lithium systems",
+   "url": "https://webstore.iec.ch/en/publication/32662",
+   "verified_on": "2026-09-27"
+  },
+  "UN 38.3": {
+   "title": "UN Manual of Tests and Criteria, section 38.3 (lithium batteries)",
+   "url": "https://unece.org/transport/dangerous-goods/rev8-files",
+   "verified_on": "2026-09-27"
+  },
+  "47 CFR Part 15": {
+   "title": "FCC Part 15 — Radio Frequency Devices",
+   "url": "https://www.ecfr.gov/current/title-47/chapter-I/subchapter-A/part-15",
+   "verified_on": "2026-09-27"
+  },
+  "Directive 2014/53/EU": {
+   "title": "Radio Equipment Directive (RED)",
+   "url": "https://eur-lex.europa.eu/eli/dir/2014/53/oj/eng",
+   "verified_on": "2026-09-27"
+  },
+  "IEC 62368-1": {
+   "title": "Audio/video, information and communication technology equipment — Part 1: Safety requirements",
+   "url": "https://webstore.iec.ch/en/publication/69308",
+   "verified_on": "2026-09-27"
+  },
+  "ISO 13482": {
+   "title": "Robots and robotic devices — Safety requirements for personal care robots",
+   "url": "https://www.iso.org/standard/53820.html",
+   "verified_on": "2026-09-27"
+  },
+  "IEC 60825-1": {
+   "title": "Safety of laser products — Part 1: Equipment classification and requirements",
+   "url": null,
+   "verified_on": null
+  },
+  "IEC 60598-1": {
+   "title": "Luminaires — Part 1: General requirements and tests",
+   "url": "https://webstore.iec.ch/en/publication/66620",
+   "verified_on": "2026-09-27"
+  },
+  "IEC 62471": {
+   "title": "Photobiological safety of lamps and lamp systems",
+   "url": null,
+   "verified_on": null
+  },
+  "IEC 61000-6-3": {
+   "title": "Electromagnetic compatibility (EMC) — Part 6-3: Generic standards — Emission standard for residential environments",
+   "url": "https://webstore.iec.ch/en/publication/71262",
+   "verified_on": "2026-09-27"
+  },
+  "IEC 60730-1": {
+   "title": "Automatic electrical controls — Part 1: General requirements",
+   "url": null,
+   "verified_on": null
+  },
+  "EN 1717": {
+   "title": "Protection against pollution of potable water in water installations and general requirements of devices to prevent pollution by backflow",
+   "url": null,
+   "verified_on": null
+  },
+  "ISO 10993-1": {
+   "title": "Biological evaluation of medical devices — Part 1 (used here for skin-contact materials)",
+   "url": null,
+   "verified_on": null
+  },
+  "Regulation (EU) 2023/988": {
+   "title": "General Product Safety Regulation (GPSR)",
+   "url": "https://eur-lex.europa.eu/eli/reg/2023/988/oj/eng",
+   "verified_on": "2026-09-27"
+  },
+  "Regulation (EC) 1907/2006": {
+   "title": "REACH — Registration, Evaluation, Authorisation and Restriction of Chemicals",
+   "url": "https://eur-lex.europa.eu/eli/reg/2006/1907/oj/eng",
+   "verified_on": "2026-09-27"
+  },
+  "ISO 178": {
+   "title": "Plastics — Determination of flexural properties",
+   "url": null,
+   "verified_on": null
+  },
+  "Regulation (EU) 2019/945": {
+   "title": "Commission Delegated Regulation (EU) 2019/945 on unmanned aircraft systems (class marks C0-C6)",
+   "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32019R0945",
+   "verified_on": "2026-09-27"
+  },
+  "Regulation (EU) 2019/947": {
+   "title": "Commission Implementing Regulation (EU) 2019/947 on the rules and procedures for the operation of unmanned aircraft",
+   "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32019R0947",
+   "verified_on": "2026-09-27"
+  },
+  "14 CFR Part 107": {
+   "title": "Small Unmanned Aircraft Systems (FAA)",
+   "url": "https://www.ecfr.gov/api/renderer/v1/content/enhanced/current/title-14?part=107",
+   "verified_on": "2026-09-27"
+  },
+  "14 CFR Part 48": {
+   "title": "Registration and Marking Requirements for Small Unmanned Aircraft (FAA)",
+   "url": "https://www.ecfr.gov/api/renderer/v1/content/enhanced/current/title-14?part=48",
+   "verified_on": "2026-09-27"
+  },
+  "14 CFR Part 89": {
+   "title": "Remote Identification of Unmanned Aircraft (FAA)",
+   "url": "https://www.ecfr.gov/api/renderer/v1/content/enhanced/current/title-14?part=89",
+   "verified_on": "2026-09-27"
+  },
+  "47 CFR Part 2": {
+   "title": "Frequency allocations and radio treaty matters; general rules (equipment authorisation, RF exposure)",
+   "url": "https://www.ecfr.gov/api/renderer/v1/content/enhanced/current/title-47?part=2",
+   "verified_on": "2026-09-27"
+  },
+  "47 CFR Part 22": {
+   "title": "Public Mobile Services (cellular, 800 MHz)",
+   "url": "https://www.ecfr.gov/api/renderer/v1/content/enhanced/current/title-47?part=22",
+   "verified_on": "2026-09-27"
+  },
+  "47 CFR Part 24": {
+   "title": "Personal Communications Services (PCS)",
+   "url": "https://www.ecfr.gov/api/renderer/v1/content/enhanced/current/title-47?part=24",
+   "verified_on": "2026-09-27"
+  },
+  "47 CFR Part 27": {
+   "title": "Miscellaneous Wireless Communications Services (AWS, 700 MHz, 2.5 GHz …)",
+   "url": "https://www.ecfr.gov/api/renderer/v1/content/enhanced/current/title-47?part=27",
+   "verified_on": "2026-09-27"
+  },
+  "IEC 60335-2-23": {
+   "title": "Household appliances — Safety — Part 2-23: Particular requirements for appliances for skin or hair care",
+   "url": null,
+   "verified_on": null
+  },
+  "UL 859": {
+   "title": "Household Electric Personal Grooming Appliances (US)",
+   "url": null,
+   "verified_on": null
+  },
+  "PTCRB / GCF": {
+   "title": "Cellular device certification programmes (PTCRB, North America; GCF, global) — industry schemes, not standards",
+   "url": null,
+   "verified_on": null
+  }
+ }
+}

@@ -1,0 +1,104 @@
+{
+ "project_id": "demo_whoop_kitesurf",
+ "status": "validated",
+ "fallback": false,
+ "fallback_reason": null,
+ "generated_by": "llm:openai/gpt-6-luna",
+ "generated_at": "2026-09-26T23:53:37.880451Z",
+ "assumptions": [
+  {
+   "id": "a1",
+   "text": "Lead times are typical values per process (tooling + first shots), not factory quotes; refined at stages 7-9 with the negotiated quote.",
+   "label": "estimate",
+   "source": null,
+   "stage": 6
+  },
+  {
+   "id": "a2",
+   "text": "Mass production duration assumes 90 units/day on one line for a 2,000-unit order.",
+   "label": "estimate",
+   "source": null,
+   "stage": 6
+  }
+ ],
+ "stage": 6,
+ "steps": [
+  {
+   "part_id": "p1",
+   "part_name": "Bottom shell",
+   "process": "injection_molding",
+   "reason": "At 2,000 units, injection molding suits the thin-wall PC/ABS shell geometry and produces the repeatable mating faces, boss pilots, and MT-11010 texture with molded-in pink color.",
+   "region": "Dongguan, Guangdong",
+   "lead_time_days": {
+    "value": 35.0,
+    "unit": "days",
+    "label": "estimate",
+    "source_or_assumption": "Typical injection molding lead time incl. tooling and first shots — planning assumption"
+   }
+  },
+  {
+   "part_id": "p2",
+   "part_name": "Top shell",
+   "process": "injection_molding",
+   "reason": "At 2,000 units, injection molding suits the thin-wall PC/ABS shell geometry and produces the repeatable mating faces, boss pilots, and MT-11010 texture with molded-in pink color.",
+   "region": "Dongguan, Guangdong",
+   "lead_time_days": {
+    "value": 35.0,
+    "unit": "days",
+    "label": "estimate",
+    "source_or_assumption": "Typical injection molding lead time incl. tooling and first shots — planning assumption"
+   }
+  },
+  {
+   "part_id": "p3",
+   "part_name": "Main PCB assembly",
+   "process": "pcba",
+   "reason": "PCBA is the economical process for assembling the FR-4 board’s compact BLE, sensor, power, and charging circuitry, with lead-free HASL and solder mask suited to the electrical interfaces.",
+   "region": "Shenzhen, Guangdong",
+   "lead_time_days": {
+    "value": 12.0,
+    "unit": "days",
+    "label": "estimate",
+    "source_or_assumption": "Typical pcba lead time incl. setup and first article — planning assumption"
+   }
+  },
+  {
+   "part_id": "p4",
+   "part_name": "Screws M2.5 × 6 self-tapping",
+   "process": "other",
+   "reason": "Standard steel M2.5 self-tapping screws are the economical choice at this quantity and provide reliable shell fastening with a black-zinc finish.",
+   "region": "Shenzhen, Guangdong",
+   "lead_time_days": {
+    "value": 14.0,
+    "unit": "days",
+    "label": "estimate",
+    "source_or_assumption": "Typical other lead time incl. setup and first article — planning assumption"
+   }
+  },
+  {
+   "part_id": "p5",
+   "part_name": "Strap",
+   "process": "injection_molding",
+   "reason": "LSR injection molding suits the flexible strap geometry and pin holes, supports consistent dimensions at 2,000 units, and achieves a matte pink finish.",
+   "region": "Dongguan, Guangdong",
+   "lead_time_days": {
+    "value": 35.0,
+    "unit": "days",
+    "label": "estimate",
+    "source_or_assumption": "Typical injection molding lead time incl. tooling and first shots — planning assumption"
+   }
+  }
+ ],
+ "assembly_notes": [
+  "Fit the PCB and optical sensor in their intended locations; keep the BLE antenna clear of metal and verify charging-contact alignment.",
+  "Close the shells with M2.5 screws, controlling torque to avoid stripping the plastic bosses; install the strap and check pin-hole fit.",
+  "Perform a functional test of BLE pairing, heart-rate sensing, IMU response, charging, and battery protection; run a brief burn-in and recheck operation.",
+  "Handle and protect LiPo cells against puncture, short circuit, and overheating; ship cells by sea only as UN3481 packed with equipment."
+ ],
+ "total_lead_time_days": {
+  "value": 79.0,
+  "unit": "days",
+  "label": "estimate",
+  "source_or_assumption": "Critical path from PO: slowest tooling/first article (35) + tooling correction T1 (14) + golden sample (7) + mass production (23) for 2,000 units"
+ }
+}

@@ -1,0 +1,49 @@
+{
+ "id": "demo_whoop_kitesurf",
+ "slug": "whoop_kitesurf",
+ "name": "Kitesurf recovery band",
+ "prompt": "A Whoop competitor for kitesurfers, screenless, 5-day battery",
+ "category": "wearable",
+ "strategy": "module_assembly",
+ "hero_image_url": "/files/demo_whoop_kitesurf/photo_v4_hero_studio.png",
+ "glb_url": "/files/demo_whoop_kitesurf/model_v2.glb",
+ "one_line_result": "4 versions · AI-written CAD · $27.64/unit @ 2,000 (Estimate) · Module assembly · 13/13 stages",
+ "unit_basis": "per_unit",
+ "unit_cost": {
+  "value": 27.64,
+  "unit": "USD",
+  "label": "estimate",
+  "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
+ },
+ "versions": 4,
+ "stages_done": 13,
+ "tags": [
+  "Example"
+ ],
+ "seeded": false,
+ "hero_image_label": "Photo-styled from the CAD (AI image, geometry from our CAD)",
+ "photos": [
+  {
+   "shot": "hero_studio",
+   "url": "/files/demo_whoop_kitesurf/photo_v4_hero_studio.png",
+   "label": "Photo-styled from the CAD (AI image, geometry from our CAD)",
+   "reference": "cad_render",
+   "aspect_ratio": "4:5",
+   "staged": false,
+   "model": "google/gemini-3.1-flash-image",
+   "version": 4,
+   "created_at": "2026-09-27T12:00:00Z"
+  },
+  {
+   "shot": "lifestyle",
+   "url": "/files/demo_whoop_kitesurf/photo_v4_lifestyle.png",
+   "label": "Photo-styled from the CAD (AI image, geometry from our CAD) · Staged scene — illustrative",
+   "reference": "cad_render",
+   "aspect_ratio": "4:5",
+   "staged": true,
+   "model": "google/gemini-3.1-flash-image",
+   "version": 4,
+   "created_at": "2026-09-27T12:00:00Z"
+  }
+ ]
+}

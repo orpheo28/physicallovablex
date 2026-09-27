@@ -19,9 +19,9 @@ export function ExampleCard({ p }: { p: Project }) {
   return (
     <Link
       href={`/projects/${p.id}/wow`}
-      className="group flex flex-col overflow-hidden rounded-md border border-line bg-paper transition-colors duration-150 hover:border-line-2"
+      className="group flex flex-col overflow-hidden rounded-md bg-paper transition-colors duration-150 hover:border-line-2"
     >
-      <div className="relative flex h-[260px] items-center justify-center">
+      <div className="relative flex h-[clamp(160px,26vh,240px)] items-center justify-center">
         <span className="absolute left-3 top-3 z-10">
           <Pill dot>Example project</Pill>
         </span>
@@ -29,15 +29,15 @@ export function ExampleCard({ p }: { p: Project }) {
           <Still
             url={directionHero(p.id, dir.id)}
             alt={`${p.name}, rendered from the CAD`}
-            height={260}
-            className={`flex h-[260px] w-full justify-center bg-paper ${STILL}`}
-            fallback={<ModelViewer url={directionGlb(p.id, dir)} alt={p.name} height={260} interactive={false} />}
+            height="100%"
+            className={`flex h-[clamp(160px,26vh,240px)] w-full justify-center bg-paper ${STILL}`}
+            fallback={<ModelViewer url={directionGlb(p.id, dir)} alt={p.name} height="100%" interactive={false} />}
           />
         ) : s2.error ? null : (
-          <Skeleton className="h-[260px] w-full" />
+          <Skeleton className="h-[clamp(160px,26vh,240px)] w-full" />
         )}
       </div>
-      <div className="flex flex-1 flex-col gap-1.5 border-t border-line bg-surface px-5 py-4">
+      <div className="flex flex-1 flex-col gap-1 border-t border-line bg-surface px-4 py-3">
         <span className="text-md font-medium">{p.name}</span>
         <span className="truncate text-base text-ink-2">&ldquo;{p.prompt}&rdquo;</span>
         <span className="mt-2 flex items-center justify-between text-sm">

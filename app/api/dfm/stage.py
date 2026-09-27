@@ -24,7 +24,8 @@ MIN_ISSUES = 3
 def _step_path(spec):
     from api.cad.files import resolve_file
 
-    for f in spec.cad_files:
+    # the moulded parts (enclosure.* / v<n>_enclosure.*) first: a family product also lists its full-product STEP
+    for f in sorted(spec.cad_files, key=lambda c: "enclosure" not in c.url):
         if f.format == "step":
             parts = f.url.strip("/").split("/")
             if len(parts) == 3 and parts[0] == "files":
@@ -41,6 +42,20 @@ def _moulded_part(spec):
     return spec.parts[0] if spec.parts else None
 
 
+SOLID_NOTE = ("Solid product ('{fam}' family): moulded-shell checks (draft, undercut, wall thickness, clamp tonnage) do not "
+              "apply; the measured checks are process fit, stock size and thinnest section on the product CAD")
+
+
+def solid_direction(design, spec):
+    """The spec's direction when it is a solid product family (board, furniture, PV array), else None."""
+    if design is None or spec is None:
+        return None
+    from api.cad import family_mode
+
+    d = next((x for x in design.directions if x.id == spec.direction_id), None)
+    return d if d is not None and family_mode.is_solid(d) else None
+
+
 def _fixture(example: str | None, project_id: str) -> DFMArtifact:
     from api.stages.runner import load_fixture
 
@@ -55,13 +70,21 @@ def run(ctx: StageContext) -> DFMArtifact:
     if spec is None:
         raise LookupError("stage 4 needs the spec (stage 3)")
     part = _moulded_part(spec)
-    measured = measure(_step_path(spec), (0, 0, 1), finish=part.finish if part else None,
-                       material=part.material if part else None, part_id=part.id if part else None)
+    solid = solid_direction(ctx.artifact(2), spec)
+    if solid is not None:  # W21: a surfboard / piece of furniture / PV array is not a moulded shell
+        from api.cad import family_mode
 
-    assumptions = [Assumption(id="a4_1", label="estimate", stage=4,
-                              text="Measured checks assume a straight two-half tool pulling along ±Z (split line in the XY plane)"),
-                   Assumption(id="a4_2", label="estimate", stage=4,
-                              text="Clamp tonnage = projected area (in²) × 3 t/in² (PC/ABS) × 1.1 safety")]
+        fam = family_mode.family_of(solid)
+        extra = {"section_mm": family_mode.board_section_mm(solid)} if fam == "board" else None
+        measured = family_mode.solid_issues(fam, family_mode.measured_parts(solid), part.id if part else None, extra)
+        assumptions = [Assumption(id="a4_1", label="estimate", stage=4, text=SOLID_NOTE.format(fam=fam))]
+    else:
+        measured = measure(_step_path(spec), (0, 0, 1), finish=part.finish if part else None,
+                           material=part.material if part else None, part_id=part.id if part else None)
+        assumptions = [Assumption(id="a4_1", label="estimate", stage=4,
+                                  text="Measured checks assume a straight two-half tool pulling along ±Z (split line in the XY plane)"),
+                       Assumption(id="a4_2", label="estimate", stage=4,
+                                  text="Clamp tonnage = projected area (in²) × 3 t/in² (PC/ABS) × 1.1 safety")]
     cached: DFMArtifact | None = None
 
     def fixture() -> DFMArtifact:

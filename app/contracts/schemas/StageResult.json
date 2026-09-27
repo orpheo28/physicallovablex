@@ -241,6 +241,14 @@
         },
         "amazon_listing": {
           "$ref": "#/$defs/ListingDraft"
+        },
+        "listing_photos": {
+          "description": "W27: e-commerce listing photo kit (packshot_white, lifestyle, in_hand_scale, detail_macro) of the current version",
+          "items": {
+            "$ref": "#/$defs/ProductPhoto"
+          },
+          "title": "Listing Photos",
+          "type": "array"
         }
       },
       "required": [
@@ -407,13 +415,15 @@
       "additionalProperties": false,
       "properties": {
         "format": {
+          "description": "py (W21): the build123d program of the model, served by GET /projects/<pid>/cad/code/<n>",
           "enum": [
             "step",
             "stl",
             "glb",
             "pdf",
             "png",
-            "svg"
+            "svg",
+            "py"
           ],
           "title": "Format",
           "type": "string"
@@ -653,6 +663,18 @@
             }
           ],
           "default": null
+        },
+        "alternative": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/PartAlternative"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "W21b: cheapest in-stock same-kind part when this one is expensive or low-stock (None: no alternative in the snapshot)"
         }
       },
       "required": [
@@ -831,13 +853,23 @@
           "description": "Editable unit-cost decay per tier step"
         },
         "tiers": {
-          "description": "500 / 2,000 / 10,000 by default",
+          "description": "500 / 2,000 / 10,000 by default; a site install (unit_basis per_installation, W21c) has ONE tier: the pilot quantity of installations, with per-installation figures",
           "items": {
             "$ref": "#/$defs/CostTier"
           },
-          "minItems": 3,
+          "minItems": 1,
           "title": "Tiers",
           "type": "array"
+        },
+        "unit_basis": {
+          "default": "per_unit",
+          "description": "W21c: per_installation = rooftop solar etc.: unit_cost = installer cost of one installation, target_retail_price = turnkey installed price, cash for a pilot of reference_quantity installations",
+          "enum": [
+            "per_unit",
+            "per_installation"
+          ],
+          "title": "Unit Basis",
+          "type": "string"
         },
         "tooling": {
           "items": {
@@ -2358,6 +2390,47 @@
       "title": "PackagingSpec",
       "type": "object"
     },
+    "PartAlternative": {
+      "additionalProperties": false,
+      "description": "W21b: a cheaper / better-stocked catalogue part proposed for a risky BOM line (structured, no text parsing).",
+      "properties": {
+        "part": {
+          "description": "Manufacturer part number + package",
+          "title": "Part",
+          "type": "string"
+        },
+        "lcsc_pn": {
+          "title": "Lcsc Pn",
+          "type": "string"
+        },
+        "price": {
+          "$ref": "#/$defs/LabeledValue",
+          "description": "Unit price at the order quantity (Sourced: LCSC snapshot)"
+        },
+        "stock": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/LabeledValue"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "label": {
+          "$ref": "#/$defs/Label",
+          "default": "sourced"
+        }
+      },
+      "required": [
+        "part",
+        "lcsc_pn",
+        "price"
+      ],
+      "title": "PartAlternative",
+      "type": "object"
+    },
     "PaymentScheduleItem": {
       "additionalProperties": false,
       "properties": {
@@ -2450,6 +2523,94 @@
       ],
       "title": "ProcessType",
       "type": "string"
+    },
+    "ProductPhoto": {
+      "additionalProperties": false,
+      "description": "W27: one AI product photo. With a reference the model only restyles light, surface, lens and framing around OUR\nCAD image (viewer capture or Blender render of the CAD); without one it is a text-only concept image.",
+      "properties": {
+        "shot": {
+          "enum": [
+            "hero_studio",
+            "packshot_white",
+            "lifestyle",
+            "in_hand_scale",
+            "detail_macro"
+          ],
+          "title": "Shot",
+          "type": "string"
+        },
+        "url": {
+          "description": "/files/<pid>/photo_v<n>_<shot>.png",
+          "title": "Url",
+          "type": "string"
+        },
+        "label": {
+          "description": "Honesty caption shown under the image: 'Photo-styled from the CAD (AI image, geometry from our CAD)' or 'AI concept image (no CAD reference)'; lifestyle adds ' \u00b7 Staged scene \u2014 illustrative'",
+          "title": "Label",
+          "type": "string"
+        },
+        "reference": {
+          "description": "viewer = PNG captured from the 3D viewer by the client; cad_render = Blender render of the CAD; none = text only",
+          "enum": [
+            "viewer",
+            "cad_render",
+            "none"
+          ],
+          "title": "Reference",
+          "type": "string"
+        },
+        "aspect_ratio": {
+          "description": "4:5 or 1:1",
+          "title": "Aspect Ratio",
+          "type": "string"
+        },
+        "staged": {
+          "default": false,
+          "description": "Lifestyle / in-hand scene: illustrative staging, not a real photo shoot",
+          "title": "Staged",
+          "type": "boolean"
+        },
+        "model": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Image model slug (OpenRouter)",
+          "title": "Model"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Studio version the photo was made from",
+          "title": "Version"
+        },
+        "created_at": {
+          "format": "date-time",
+          "title": "Created At",
+          "type": "string"
+        }
+      },
+      "required": [
+        "shot",
+        "url",
+        "label",
+        "reference",
+        "aspect_ratio"
+      ],
+      "title": "ProductPhoto",
+      "type": "object"
     },
     "ProductionPlanArtifact": {
       "additionalProperties": false,
@@ -2915,6 +3076,19 @@
           ],
           "default": null,
           "title": "Deadline"
+        },
+        "category": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "W21: product category (engineering key) for specialist scoring",
+          "title": "Category"
         }
       },
       "required": [

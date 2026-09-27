@@ -20,6 +20,7 @@ from fastapi.responses import JSONResponse, Response
 load_dotenv()
 
 from contracts.artifacts import (  # noqa: E402
+    Assumption,
     AutorunResult,
     AutorunState,
     AutorunStatus,
@@ -61,8 +62,9 @@ async def _lifespan(_: FastAPI):
     if os.getenv("SEED_DEMO_ON_EMPTY", "").lower() in ("1", "true", "yes"):
         try:
             if not runner.list_projects():
-                for ex in runner.available_examples():
-                    runner.seed_example(ex)
+                from api.showcase import after_seed
+
+                after_seed([runner.seed_example(ex) for ex in runner.available_examples()])
                 log.info("empty database: seeded demo projects")
         except Exception as e:  # noqa: BLE001 — never block startup
             log.warning("demo seeding failed: %s", e)
@@ -191,8 +193,25 @@ def _save_autorun(project_id: str, st: AutorunStatus) -> None:
         sess.commit()
 
 
+AUTOFILL_ASSUMPTION_ID = "a8_autofill"
+AUTOFILL_ASSUMPTION_TEXT = "Auto-approved in autofill mode — review and change the selected factory before any real order"
+
+
+def _autofill_approve(project_id: str) -> None:
+    """Stage 8 approval of the recommended quote (same path as inputs {"approve": true, "quote_id": <recommended>}), then mark it."""
+    neg = runner.get_artifact(project_id, 8)
+    inputs: dict = {"approve": True}
+    if neg is not None and getattr(neg, "recommendation", None) is not None:
+        inputs["quote_id"] = neg.recommendation.quote_id
+    art = runner.run_stage(project_id, 8, inputs)
+    if not any(a.id == AUTOFILL_ASSUMPTION_ID for a in art.assumptions):
+        art.assumptions.append(Assumption(id=AUTOFILL_ASSUMPTION_ID, text=AUTOFILL_ASSUMPTION_TEXT, label="estimate", stage=8))
+    runner.save_artifact(project_id, 8, art, StageStatus.draft)
+
+
 def _run_autorun(project_id: str, st: AutorunStatus) -> list[StageResult]:
-    """Stage 1 if missing, then 2-7 with defaults. Each stage is capped by the runner (STAGE_TIMEOUT_S → fixture)."""
+    """Stage 1 if missing, then 2-7 with defaults; through=13 (autofill) continues with 8 (+ auto-approval), 9-13 and the
+    Factory Pack. Each stage is capped by the runner (STAGE_TIMEOUT_S → fixture)."""
     results: list[StageResult] = []
 
     def step(n: int, inputs: dict | None = None) -> None:
@@ -214,6 +233,13 @@ def _run_autorun(project_id: str, st: AutorunStatus) -> list[StageResult]:
                 if design is not None:
                     inputs["direction_id"] = design.chosen_direction_id or design.directions[0].id
             step(n, inputs)
+        if st.through >= 13:
+            for n in range(8, 14):
+                step(n)
+                if n == 8:
+                    _autofill_approve(project_id)
+                    results[-1] = runner.to_result(project_id, 8, runner.get_artifact(project_id, 8))
+            runner.get_factory_pack(project_id, rebuild=True)
         st.state = AutorunState.done
     except Exception as e:  # noqa: BLE001 — only DB-level failures reach here (stages never raise)
         log.exception("autorun failed for %s", project_id)
@@ -224,15 +250,18 @@ def _run_autorun(project_id: str, st: AutorunStatus) -> list[StageResult]:
 
 
 @app.post("/projects/{project_id}/autorun", response_model=AutorunResult, status_code=status.HTTP_202_ACCEPTED)
-def autorun(project_id: str, wait: bool = False) -> AutorunResult | JSONResponse:
+def autorun(project_id: str, wait: bool = False, through: int = 7) -> AutorunResult | JSONResponse:
     """Default: 202 at once, stages 1-7 run in a background thread; poll GET /projects/{id} (`autorun`, `stages`).
+    `?through=13`: autofill — also stage 8 with the recommended quote auto-approved, stages 9-13 and the Factory Pack.
     `?wait=true`: synchronous (200 + all results) — scripts and tests."""
     runner.get_project(project_id)
+    if through not in (7, 13):
+        raise HTTPException(422, "through must be 7 or 13")
     with _autorun_lock:
         th = _autorun_threads.get(project_id)
         if th is not None and th.is_alive():  # idempotent: a second POST while running just reports progress
             return AutorunResult(project_id=project_id, autorun=_load_autorun(project_id))
-        st = AutorunStatus(state=AutorunState.running, started_at=datetime.now(timezone.utc))
+        st = AutorunStatus(state=AutorunState.running, through=through, started_at=datetime.now(timezone.utc))
         _save_autorun(project_id, st)
         if wait:
             _autorun_threads.pop(project_id, None)
@@ -280,13 +309,17 @@ def export(project_id: str) -> Response:
 @app.post("/demo/reset", response_model=ResetResult)
 def demo_reset() -> ResetResult:
     db.reset_db()
-    try:  # the factory portal reads the MCP store: wipe live RFQs/quotes and re-seed the 8 fictional factories
+    try:  # the factory portal reads the MCP store: wipe live RFQs/quotes and re-seed the fictional partners (factories, integrator, installers)
         from factory_mcp import network
 
         network.reset()
     except Exception as e:  # noqa: BLE001 — the reset of the app DB must still succeed
         log.warning("factory network reset failed: %s", e)
-    return ResetResult(projects=[runner.seed_example(ex) for ex in runner.available_examples()])
+    projects = [runner.seed_example(ex) for ex in runner.available_examples()]
+    from api.showcase import after_seed  # W21: showcase Studio versions + engineering cache
+
+    after_seed(projects)
+    return ResetResult(projects=projects)
 
 
 # --------------------------------------------------------------------------- factory portal

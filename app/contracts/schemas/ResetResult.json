@@ -59,6 +59,14 @@
           "description": "Keys are stage numbers as strings ('1'..'13')",
           "title": "Stage Status",
           "type": "object"
+        },
+        "tags": {
+          "description": "W21: e.g. ['Example'] for the showcase gallery projects",
+          "items": {
+            "type": "string"
+          },
+          "title": "Tags",
+          "type": "array"
         }
       },
       "required": [

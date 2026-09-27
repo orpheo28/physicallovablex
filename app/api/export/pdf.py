@@ -1,7 +1,7 @@
 """Launch Dossier PDF (PRD §8 "Final export"). Owner: W6.
 
 `@provider("export_pdf")`: ctx → PDF bytes (ReportLab platypus). Order: cover · Factory Pack (EN) · Factory Pack (CN,
-STSong-Light CID font) · the 13 stage outputs · assumption register · label legend.
+STSong-Light CID font) · the 13 stage outputs · engineering & prototype path (W20) · assumption register · label legend.
 
 Honesty rules enforced here:
 - every LabeledValue is printed as "value unit [Label]" (Measured / Sourced / Estimate / Fictional — demo data);
@@ -61,6 +61,7 @@ _REPL = {
     "→": "->", "←": "<-", "≤": "<=", "≥": ">=", "≈": "~", "−": "-", "‑": "-", "≠": "!=", "Δ": "delta ", "Ω": "ohm ",
     "✓": "yes", "⚠": "!", "µ": "µ", " ": " ", "​": "", " ": " ", " ": " ", "√": "sqrt", "∞": "inf",
     "²": "2", "³": "3", "¹": "1",
+    "θ": "theta", "ρ": "rho", "η": "eta", "∇": "V", "Σ": "sum ", "∆": "delta ",  # engineering formulas (W20)
 }
 
 
@@ -309,6 +310,16 @@ def factory_pack_en(fp: Any) -> list[Any]:
     f.append(P("Chinese text is machine-translated — to be reviewed by a native speaker.", "muted"))
     f.append(table(["#", "English", "中文 (machine-translated)"], [[mixed(q.id), mixed(q.en), mixed(q.cn or "—")] for q in fp.questions], [0.06, 0.47, 0.47]))
     f += [h2("9. Assumption register"), P("The full register is printed at the end of this dossier (" + str(len(fp.assumption_register)) + " entries).", "small")]
+    eng = getattr(fp, "engineering", None)
+    if eng is not None:
+        counts = {v: sum(1 for c in eng.checks if c.verdict == v) for v in ("pass", "warn", "fail")}
+        f += [h2("10. Engineering & prototype path"),
+              P(f"{eng.category_title}: {len(eng.checks)} physics checks ({counts['pass']} pass, {counts['warn']} warn, {counts['fail']} fail), "
+                f"{len(eng.standards)} standards, {len(eng.tests)} required tests. Details in the chapter 'Engineering & prototype path'.", "small"),
+              M(f"Prototype path: {mixed(eng.prototype.enclosure_method)} — total {lvs(eng.prototype.total_cost)}, timeline {lvs(eng.prototype.timeline_weeks)}", "small")]
+        bs = getattr(eng, "build_strategy", None)
+        if bs is not None:
+            f.append(M(f"<b>Build strategy: {mixed(bs.title)}</b> — MOQ {lvs(bs.moq)}, entry cost {lvs(bs.entry_cost)}, lead time {lvs(bs.lead_time)}", "small"))
     return f
 
 
@@ -583,6 +594,108 @@ def stage_section(ctx: StageContext, n: int) -> list[Any]:
     return f
 
 
+# ---------------------------------------------------------------------------- engineering (W20)
+
+VERDICT_COLOR = {"pass": "#0b7a3b", "warn": "#b45309", "fail": "#b91c1c", "info": "#374151"}
+
+
+def verdict_chip(v: Any) -> str:
+    v = str(getattr(v, "value", v))
+    return f'<font color="{VERDICT_COLOR.get(v, "#374151")}"><b>{mixed(v.upper())}</b></font>'
+
+
+def build_strategy_section(bs: Any) -> list[Any]:
+    """W21: how the product gets built — full design / module assembly / ODM customisation, with Estimates."""
+    if bs is None:
+        return []
+    f: list[Any] = [h2(f"Build strategy — {bs.title}"), P(mixed(bs.explanation), "small")]
+    f.append(kv([("Typical MOQ", lv_src(bs.moq)), ("Entry cost", lv_src(bs.entry_cost)), ("Lead time", lv_src(bs.lead_time))]))
+    f.append(sp(4))
+    f.append(table(["You design / choose", "Comes from the modules / the ODM platform"],
+                   [[mixed("\n".join(f"• {x}" for x in bs.customisable)), mixed("\n".join(f"• {x}" for x in bs.not_customisable) or "—")]],
+                   [0.5, 0.5]))
+    if bs.path:
+        f.append(P("Realistic path" + (" (ODM)" if bs.strategy == "odm_customization" else ""), "small"))
+        f += bullets([f"{i + 1}. {x}" for i, x in enumerate(bs.path)], "small")
+    if bs.certifications_note:
+        f.append(M(mixed(f"Certifications: {bs.certifications_note}"), "banner_blue"))
+    return f
+
+
+def engineering_section(ctx: StageContext, fp: Any) -> list[Any]:
+    """Chapter 'Engineering & prototype path': checks table, standards, power budget, prototype path, firmware note."""
+    eng = getattr(fp, "engineering", None)
+    if eng is None:
+        try:
+            from api.engineering.service import engineering_for_ctx
+
+            eng = engineering_for_ctx(ctx)
+        except Exception as e:  # noqa: BLE001
+            log.warning("engineering chapter skipped: %s", e)
+            return []
+    f: list[Any] = [PageBreak(), h1("Engineering & prototype path", "Engineering & prototype path", 0)]
+    f.append(P(f"{eng.product_name} · category: {eng.category_title} · computed from the current CAD, BOM and brief ({eng.inputs_digest})", "muted"))
+    f.append(sp(6))
+    if eng.fallback:
+        f.append(M(mixed(f"Cached example — {eng.fallback_reason or 'geometry from a pre-built example'}."), "banner_amber"))
+    f.append(M(mixed("Concept-level engineering: every figure carries its label and formula. Validate with the listed tests before tooling."), "banner_blue"))
+    f += build_strategy_section(getattr(eng, "build_strategy", None))
+    f += [h2("Physics checks")]
+    f.append(table(["Check", "Result", "Threshold", "Verdict", "Formula / assumption"],
+                   [[mixed(c.name), lvs(c.value), mixed(c.threshold or "—"), verdict_chip(c.verdict),
+                     mixed(c.formula) + f'<br/><font size="6" color="#6b7280">{mixed(c.value.source_or_assumption)}</font>'
+                     + "".join(f"<br/>• {mixed(n)}" for n in c.notes)] for c in eng.checks],
+                   [0.17, 0.15, 0.2, 0.08, 0.4]))
+    if eng.solar is not None:
+        s = eng.solar
+        f += [h2("Solar yield (PVGIS)"), kv([
+            ("Site", mixed(f"{s.location} ({s.latitude}, {s.longitude})" + (" — assumed demo site" if s.location_assumed else ""))),
+            ("Roof area", lv_src(s.roof_area)), ("Modules", f"{lvs(s.module_count)} × {lvs(s.module_power)}"), ("Peak power", lvs(s.peak_power)),
+            ("Specific yield", lv_src(s.specific_yield)), ("Annual energy", lv_src(s.annual_energy)), ("Install cost", lv_src(s.install_cost)),
+            ("Savings", lv_src(s.annual_savings)), ("Payback", lv_src(s.payback))])]
+    if eng.installers:
+        f.append(M(mixed(FICTIONAL_BANNER), "banner_red"))
+        f += [h2("Certified installers (site-install mode)"),
+              table(["Installer", "Region", "Certifications", "Lead time"],
+                    [[mixed(i.name) + " " + chip("fictional"), mixed(i.region), mixed(", ".join(i.certifications)), mixed(f"{i.lead_time_days} days")] for i in eng.installers],
+                    [0.34, 0.28, 0.24, 0.14])]
+    f += [h2("Applicable standards")]
+    f.append(table(["Standard", "Why it applies", "Citation"],
+                   [[f"<b>{mixed(x.code)}</b><br/>{mixed(x.title)}", mixed(x.applies_because), chip(x.citation_label) + " " + mixed(x.citation_note)] for x in eng.standards],
+                   [0.3, 0.35, 0.35]))
+    f += [h2("Key design risks")]
+    f.append(table(["#", "Severity", "Risk", "Mitigation"], [[mixed(r.id), mixed(r.severity), mixed(r.risk), mixed(r.mitigation)] for r in eng.risks], [0.05, 0.1, 0.4, 0.45]))
+    f += [h2("Required tests")]
+    f.append(table(["Test", "Kind", "Method", "Standard"], [[mixed(t.name), mixed(t.kind), mixed(t.method), mixed(t.standard or "—")] for t in eng.tests], [0.3, 0.1, 0.38, 0.22]))
+    e = eng.electronics
+    if e is not None:
+        f += [h2("Electronics architecture"),
+              P(f"MCU: {e.mcu_part} ({e.mcu_family}) · radio: {', '.join(e.radio) or 'none'} · {e.pcb_note}", "small")]
+        f.append(table(["Power tree node", "Kind", "Fed from", "Voltage"],
+                       [[mixed(n.name), mixed(n.kind), mixed(next((x.name for x in e.power_tree if x.id == n.parent), "—")), lvs(n.voltage)] for n in e.power_tree],
+                       [0.4, 0.12, 0.3, 0.18]))
+        f.append(sp(4))
+        f.append(table(["From", "To", "Bus", "Nets"], [[mixed(c.source), mixed(c.target), mixed(c.bus.upper()), mixed(c.signals)] for c in e.connections], [0.3, 0.3, 0.1, 0.3]))
+        f += [h2("Power budget")]
+        f.append(table(["Block", "Part", "Active", "Sleep", "Duty", "Average"],
+                       [[mixed(b.block), mixed(b.part), lvs(b.active_current), lvs(b.sleep_current), lvs(b.duty_cycle), lvs(b.average_current)] for b in e.power_budget],
+                       [0.1, 0.3, 0.15, 0.15, 0.13, 0.17]))
+        f.append(kv([("Average current", lv_src(e.average_current))] + ([("Battery", f"{lvs(e.battery_capacity)} at {lvs(e.battery_voltage)}")] if e.battery_capacity and e.battery_voltage else [])
+                    + ([("Battery life", lv_src(e.battery_life))] if e.battery_life else [])))
+    p = eng.prototype
+    f += [h2("Prototype path"), P(f"{p.enclosure_method} · {p.units} unit(s) · enclosure volume {num(p.enclosure_volume.value)} {p.enclosure_volume.unit}", "small")]
+    f.append(table(["Item", "Cost"], [[mixed(c.item), lv_src(c.amount)] for c in p.cost_lines] + [["<b>Total</b>", lvs(p.total_cost)], ["Timeline", lv_src(p.timeline_weeks)]], [0.45, 0.55]))
+    if p.devkit_bom:
+        f.append(sp(4))
+        f.append(table(["Dev-kit alternative", "Role", "LCSC", "Unit price"], [[mixed(d.part), mixed(d.role), mixed(d.lcsc_pn or "—"), lv_src(d.unit_price)] for d in p.devkit_bom], [0.36, 0.1, 0.12, 0.42]))
+    f += bullets([f"{i + 1}. {s}" for i, s in enumerate(p.assembly_steps)], "small")
+    if eng.firmware is not None:
+        fw = eng.firmware
+        f += [h2("Firmware skeleton"),
+              M(mixed(f"{fw.note}. {fw.framework} project for {fw.mcu_family} ({fw.connectivity}), generated by {fw.generated_by}: {fw.url} — files: {', '.join(fw.files)}"), "banner_amber")]
+    return f
+
+
 # ---------------------------------------------------------------------------- register, legend, cover
 
 
@@ -629,6 +742,55 @@ def legend_section() -> list[Any]:
           h2("Human review"),
           P("AI drafts; an engineer must review every Factory Pack before it reaches a real factory. Chinese text is machine-translated and must be reviewed by a native speaker."),
           P("Pages marked \"Cached example\" show pre-built demo output instead of live output for this project.")]
+    return f
+
+
+def listing_photos_section(ctx: StageContext) -> list[Any]:
+    """W27: "Listing photos" page — stage 13 listing_photos, else the current Studio version's photos. Each image keeps
+    its honesty caption (photo-styled from the CAD / AI concept image / staged scene)."""
+    from reportlab.platypus import Image as RLImage
+
+    from api.cad.files import resolve_file
+
+    brand = ctx.artifact(13)
+    photos = list(getattr(brand, "listing_photos", None) or [])
+    if not photos:
+        try:
+            from api.cad.photos.engine import version_photos
+            from api.studio import store
+
+            n = store.current(ctx.project.id)
+            photos = version_photos(ctx.project.id, n) if n else []
+        except Exception:  # noqa: BLE001 — no Studio versions: no page
+            photos = []
+    cells = []
+    for ph in photos:
+        path = resolve_file(ctx.project.id, ph.url.rsplit("/", 1)[-1])
+        if path is None:
+            continue
+        w_r, h_r = (int(x) for x in ph.aspect_ratio.split(":"))
+        w = CONTENT_W / 2 - 6 * mm
+        from PIL import Image as PILImage
+
+        buf = io.BytesIO()  # ~800 px JPEG: keeps the dossier small (the PNGs are 1-2 MB each)
+        im = PILImage.open(path).convert("RGB")
+        im.thumbnail((800, 800))
+        im.save(buf, format="JPEG", quality=85)
+        buf.seek(0)
+        cells.append([RLImage(buf, width=w, height=w * h_r / w_r),
+                      P(f"{ph.shot.replace('_', ' ').capitalize()} — {ph.label}", "small")])
+    if not cells:
+        return []
+    f: list[Any] = [PageBreak(), h1("Listing photos", outline="Listing photos"),
+                    M(mixed("AI product photos for the store listing. With a CAD reference the geometry comes from our CAD "
+                            "and the image model only sets light, surface and framing; staged scenes are illustrative."),
+                      "banner_blue"), sp(6)]
+    rows = [[a[0], b[0] if b else ""] for a, b in zip(cells[0::2], cells[1::2] + [None])]
+    caps = [[a[1], b[1] if b else ""] for a, b in zip(cells[0::2], cells[1::2] + [None])]
+    for r, c in zip(rows, caps):
+        t = Table([r, c], colWidths=[CONTENT_W / 2] * 2)
+        t.setStyle(TableStyle([("VALIGN", (0, 0), (-1, -1), "TOP"), ("BOTTOMPADDING", (0, 1), (-1, 1), 10)]))
+        f.append(KeepTogether([t]))
     return f
 
 
@@ -686,6 +848,14 @@ def build_pdf(ctx: StageContext) -> bytes:
     story += factory_pack_cn(fp)
     for n in range(1, 14):
         story += stage_section(ctx, n)
+    try:
+        story += listing_photos_section(ctx)
+    except Exception as e:  # noqa: BLE001 — the dossier never breaks on the photo page
+        log.warning("listing photos page failed: %s", e)
+    try:
+        story += engineering_section(ctx, fp)
+    except Exception as e:  # noqa: BLE001 — the dossier never breaks on the engineering chapter
+        log.warning("engineering chapter failed: %s", e)
     story += assumption_section(ctx, fp)
     story += legend_section()
     buf = io.BytesIO()

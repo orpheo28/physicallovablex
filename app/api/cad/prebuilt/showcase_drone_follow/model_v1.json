@@ -1,0 +1,533 @@
+{
+ "status": "ok",
+ "version": 1,
+ "source": "llm:openai/gpt-6-sol",
+ "label": "AI-generated CAD (concept level) \u2014 geometry measured on the result",
+ "category": "drone",
+ "seed_family": "drone",
+ "variant": "mini",
+ "files": {
+  "step": "api/data/files_w21/p_21f381d053/model_v1.step",
+  "stl": "api/data/files_w21/p_21f381d053/model_v1.stl",
+  "glb": "api/data/files_w21/p_21f381d053/model_v1.glb"
+ },
+ "urls": {
+  "step": "/files/p_21f381d053/model_v1.step",
+  "stl": "/files/p_21f381d053/model_v1.stl",
+  "glb": "/files/p_21f381d053/model_v1.glb"
+ },
+ "code_path": "api/data/files_w21/p_21f381d053/model_v1.py",
+ "code_url": "/projects/p_21f381d053/cad/code/1",
+ "bbox_mm": [
+  172.4,
+  259.57,
+  79.15
+ ],
+ "volume_mm3": 281507.9,
+ "parts": [
+  {
+   "label": "body.1",
+   "role": "body",
+   "volume_mm3": 154968.1,
+   "valid": true,
+   "bbox_mm": [
+    93.27,
+    53.27,
+    35.0
+   ]
+  },
+  {
+   "label": "coat.1",
+   "role": "coat",
+   "volume_mm3": 875.0,
+   "valid": true,
+   "bbox_mm": [
+    2.5,
+    35.0,
+    10.0
+   ]
+  },
+  {
+   "label": "glass.11",
+   "role": "glass",
+   "volume_mm3": 61.6,
+   "valid": true,
+   "bbox_mm": [
+    1.8,
+    6.6,
+    6.6
+   ]
+  },
+  {
+   "label": "glass.12",
+   "role": "glass",
+   "volume_mm3": 61.6,
+   "valid": true,
+   "bbox_mm": [
+    1.8,
+    6.6,
+    6.6
+   ]
+  },
+  {
+   "label": "metal.1",
+   "role": "metal",
+   "volume_mm3": 2010.6,
+   "valid": true,
+   "bbox_mm": [
+    16.0,
+    16.0,
+    10.0
+   ]
+  },
+  {
+   "label": "coat.11",
+   "role": "coat",
+   "volume_mm3": 3514.4,
+   "valid": true,
+   "bbox_mm": [
+    32.98,
+    53.35,
+    9.0
+   ]
+  },
+  {
+   "label": "metal.21",
+   "role": "metal",
+   "volume_mm3": 6870.7,
+   "valid": true,
+   "bbox_mm": [
+    18.0,
+    18.0,
+    27.0
+   ]
+  },
+  {
+   "label": "coat.31",
+   "role": "coat",
+   "volume_mm3": 392.7,
+   "valid": true,
+   "bbox_mm": [
+    10.0,
+    10.0,
+    5.0
+   ]
+  },
+  {
+   "label": "coat.42",
+   "role": "coat",
+   "volume_mm3": 1001.0,
+   "valid": true,
+   "bbox_mm": [
+    59.5,
+    11.0,
+    2.0
+   ]
+  },
+  {
+   "label": "coat.43",
+   "role": "coat",
+   "volume_mm3": 1001.0,
+   "valid": true,
+   "bbox_mm": [
+    59.5,
+    11.0,
+    2.0
+   ]
+  },
+  {
+   "label": "rubber.1",
+   "role": "rubber",
+   "volume_mm3": 783.7,
+   "valid": true,
+   "bbox_mm": [
+    5.2,
+    5.2,
+    36.9
+   ]
+  },
+  {
+   "label": "rubber.11",
+   "role": "rubber",
+   "volume_mm3": 164.6,
+   "valid": true,
+   "bbox_mm": [
+    6.8,
+    6.8,
+    6.8
+   ]
+  },
+  {
+   "label": "metal.2",
+   "role": "metal",
+   "volume_mm3": 2010.6,
+   "valid": true,
+   "bbox_mm": [
+    16.0,
+    16.0,
+    10.0
+   ]
+  },
+  {
+   "label": "coat.12",
+   "role": "coat",
+   "volume_mm3": 3514.4,
+   "valid": true,
+   "bbox_mm": [
+    32.98,
+    53.35,
+    9.0
+   ]
+  },
+  {
+   "label": "metal.22",
+   "role": "metal",
+   "volume_mm3": 6870.7,
+   "valid": true,
+   "bbox_mm": [
+    18.0,
+    18.0,
+    27.0
+   ]
+  },
+  {
+   "label": "coat.32",
+   "role": "coat",
+   "volume_mm3": 392.7,
+   "valid": true,
+   "bbox_mm": [
+    10.0,
+    10.0,
+    5.0
+   ]
+  },
+  {
+   "label": "coat.44",
+   "role": "coat",
+   "volume_mm3": 1001.0,
+   "valid": true,
+   "bbox_mm": [
+    59.5,
+    11.0,
+    2.0
+   ]
+  },
+  {
+   "label": "coat.45",
+   "role": "coat",
+   "volume_mm3": 1001.0,
+   "valid": true,
+   "bbox_mm": [
+    59.5,
+    11.0,
+    2.0
+   ]
+  },
+  {
+   "label": "rubber.2",
+   "role": "rubber",
+   "volume_mm3": 783.7,
+   "valid": true,
+   "bbox_mm": [
+    5.2,
+    5.2,
+    36.9
+   ]
+  },
+  {
+   "label": "rubber.12",
+   "role": "rubber",
+   "volume_mm3": 164.6,
+   "valid": true,
+   "bbox_mm": [
+    6.8,
+    6.8,
+    6.8
+   ]
+  },
+  {
+   "label": "metal.3",
+   "role": "metal",
+   "volume_mm3": 2010.6,
+   "valid": true,
+   "bbox_mm": [
+    16.0,
+    16.0,
+    10.0
+   ]
+  },
+  {
+   "label": "coat.13",
+   "role": "coat",
+   "volume_mm3": 3514.4,
+   "valid": true,
+   "bbox_mm": [
+    32.98,
+    53.35,
+    9.0
+   ]
+  },
+  {
+   "label": "metal.23",
+   "role": "metal",
+   "volume_mm3": 6870.7,
+   "valid": true,
+   "bbox_mm": [
+    18.0,
+    18.0,
+    27.0
+   ]
+  },
+  {
+   "label": "coat.33",
+   "role": "coat",
+   "volume_mm3": 392.7,
+   "valid": true,
+   "bbox_mm": [
+    10.0,
+    10.0,
+    5.0
+   ]
+  },
+  {
+   "label": "coat.46",
+   "role": "coat",
+   "volume_mm3": 1001.0,
+   "valid": true,
+   "bbox_mm": [
+    11.0,
+    59.5,
+    2.0
+   ]
+  },
+  {
+   "label": "coat.47",
+   "role": "coat",
+   "volume_mm3": 1001.0,
+   "valid": true,
+   "bbox_mm": [
+    11.0,
+    59.5,
+    2.0
+   ]
+  },
+  {
+   "label": "rubber.3",
+   "role": "rubber",
+   "volume_mm3": 783.7,
+   "valid": true,
+   "bbox_mm": [
+    5.2,
+    5.2,
+    36.9
+   ]
+  },
+  {
+   "label": "rubber.13",
+   "role": "rubber",
+   "volume_mm3": 164.6,
+   "valid": true,
+   "bbox_mm": [
+    6.8,
+    6.8,
+    6.8
+   ]
+  },
+  {
+   "label": "metal.4",
+   "role": "metal",
+   "volume_mm3": 2010.6,
+   "valid": true,
+   "bbox_mm": [
+    16.0,
+    16.0,
+    10.0
+   ]
+  },
+  {
+   "label": "coat.14",
+   "role": "coat",
+   "volume_mm3": 3514.4,
+   "valid": true,
+   "bbox_mm": [
+    32.98,
+    53.35,
+    9.0
+   ]
+  },
+  {
+   "label": "metal.24",
+   "role": "metal",
+   "volume_mm3": 6870.7,
+   "valid": true,
+   "bbox_mm": [
+    18.0,
+    18.0,
+    27.0
+   ]
+  },
+  {
+   "label": "coat.34",
+   "role": "coat",
+   "volume_mm3": 392.7,
+   "valid": true,
+   "bbox_mm": [
+    10.0,
+    10.0,
+    5.0
+   ]
+  },
+  {
+   "label": "coat.48",
+   "role": "coat",
+   "volume_mm3": 1001.0,
+   "valid": true,
+   "bbox_mm": [
+    11.0,
+    59.5,
+    2.0
+   ]
+  },
+  {
+   "label": "coat.49",
+   "role": "coat",
+   "volume_mm3": 1001.0,
+   "valid": true,
+   "bbox_mm": [
+    11.0,
+    59.5,
+    2.0
+   ]
+  },
+  {
+   "label": "rubber.4",
+   "role": "rubber",
+   "volume_mm3": 783.7,
+   "valid": true,
+   "bbox_mm": [
+    5.2,
+    5.2,
+    36.9
+   ]
+  },
+  {
+   "label": "rubber.14",
+   "role": "rubber",
+   "volume_mm3": 164.6,
+   "valid": true,
+   "bbox_mm": [
+    6.8,
+    6.8,
+    6.8
+   ]
+  },
+  {
+   "label": "accent.1",
+   "role": "accent",
+   "volume_mm3": 48880.7,
+   "valid": true,
+   "bbox_mm": [
+    69.0,
+    38.0,
+    19.0
+   ]
+  },
+  {
+   "label": "led.1",
+   "role": "led",
+   "volume_mm3": 247.5,
+   "valid": true,
+   "bbox_mm": [
+    11.0,
+    15.0,
+    1.5
+   ]
+  },
+  {
+   "label": "metal.40",
+   "role": "metal",
+   "volume_mm3": 2772.0,
+   "valid": true,
+   "bbox_mm": [
+    12.0,
+    33.0,
+    7.0
+   ]
+  },
+  {
+   "label": "coat.51",
+   "role": "coat",
+   "volume_mm3": 255.0,
+   "valid": true,
+   "bbox_mm": [
+    5.0,
+    3.0,
+    17.0
+   ]
+  },
+  {
+   "label": "coat.52",
+   "role": "coat",
+   "volume_mm3": 255.0,
+   "valid": true,
+   "bbox_mm": [
+    5.0,
+    3.0,
+    17.0
+   ]
+  },
+  {
+   "label": "coat.60",
+   "role": "coat",
+   "volume_mm3": 9202.8,
+   "valid": true,
+   "bbox_mm": [
+    26.0,
+    26.0,
+    26.0
+   ]
+  },
+  {
+   "label": "metal.61",
+   "role": "metal",
+   "volume_mm3": 804.2,
+   "valid": true,
+   "bbox_mm": [
+    4.0,
+    16.0,
+    16.0
+   ]
+  },
+  {
+   "label": "glass.1",
+   "role": "glass",
+   "volume_mm3": 169.6,
+   "valid": true,
+   "bbox_mm": [
+    1.5,
+    12.0,
+    12.0
+   ]
+  }
+ ],
+ "target_dims_mm": [
+  234.25,
+  261.87,
+  91.5
+ ],
+ "attempts": [
+  {
+   "n": 1,
+   "kind": "generate",
+   "llm_seconds": 26.81,
+   "run_seconds": 1.96,
+   "error": null,
+   "error_kind": null
+  }
+ ],
+ "notes": [],
+ "instruction": null,
+ "parent_version": null,
+ "seconds": 28.99,
+ "brief": "product_name: Kitesurf follow-me drone; one_liner: A foldable battery-powered drone that follows a kitesurfer to record video.; category: other; key_features: Foldable airframe; Autonomous follow-me filming; Onboard video recording; Tracking suited to a moving kitesurfer; prompt: A foldable drone for kitesurf follow-me shots"
+}

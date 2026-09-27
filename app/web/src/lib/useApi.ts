@@ -1,12 +1,17 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import { api, ApiError, errorMessage } from "./api";
+import { api, ApiError, errorMessage, isTransient, withRetry } from "./api";
 
 type State<T> = { key: string | null; data?: T; error?: string; status?: number };
 
-/** GET `path` (null = skip). `loading` is derived, so no synchronous setState in the effect. */
-export function useApi<T>(path: string | null) {
+/**
+ * GET `path` (null = skip). `loading` is derived, so no synchronous setState in the effect.
+ * Transient errors are retried twice with backoff; `retryNotFound` also retries a 404 (a complete project whose
+ * stage must exist, e.g. right after a demo reset).
+ */
+export function useApi<T>(path: string | null, opts: { retryNotFound?: boolean } = {}) {
+  const retryNotFound = !!opts.retryNotFound;
   const [nonce, setNonce] = useState(0);
   const [state, setState] = useState<State<T>>({ key: null });
   const key = path === null ? null : `${path}#${nonce}`;
@@ -15,8 +20,11 @@ export function useApi<T>(path: string | null) {
     if (path === null) return;
     let cancelled = false;
     const k = `${path}#${nonce}`;
-    api
-      .get<T>(path)
+    withRetry(
+      () => api.get<T>(path),
+      (e) => isTransient(e) || (retryNotFound && e instanceof ApiError && e.status === 404),
+      () => !cancelled,
+    )
       .then((data) => {
         if (!cancelled) setState({ key: k, data });
       })
@@ -27,7 +35,7 @@ export function useApi<T>(path: string | null) {
     return () => {
       cancelled = true;
     };
-  }, [path, nonce]);
+  }, [path, nonce, retryNotFound]);
 
   const reload = useCallback(() => setNonce((n) => n + 1), []);
   const fresh = state.key === key;

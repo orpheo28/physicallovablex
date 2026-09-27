@@ -1,0 +1,41 @@
+{
+  "key": "vacuum",
+  "title": "Cordless stick vacuum",
+  "match": ["vacuum", "hoover", "aspirateur", "dyson", "stick vac", "cyclone cleaner", "dust extractor"],
+  "families": ["stick_vacuum"],
+  "brief_categories": [],
+  "partner_word": "factories",
+  "standards": [
+    {"code": "IEC 60335-1", "applies_because": "Household appliance safety, general requirements"},
+    {"code": "IEC 60335-2-2", "applies_because": "Particular requirements for vacuum cleaners"},
+    {"code": "IEC 62133-2", "applies_because": "Li-ion battery pack (typically 6S 18650/21700)"},
+    {"code": "UN 38.3", "applies_because": "Li-ion pack shipped with the product"},
+    {"code": "IEC 61000-6-3", "applies_because": "EMC emissions of the BLDC motor drive in a residential environment"},
+    {"code": "Directive 2014/53/EU", "applies_because": "Only if an app link (BLE/Wi-Fi) is added"}
+  ],
+  "risks": [
+    {"risk": "High-speed BLDC motor (≈100k rpm) overheats when the airway clogs", "mitigation": "Motor NTC + current derating, bypass valve, clog detection in firmware", "severity": "critical"},
+    {"risk": "Battery pack abuse (drops, crushing, water)", "mitigation": "Protected 6S pack with BMS, fuse, IEC 62133-2 cells, drop-tested pack housing", "severity": "critical"},
+    {"risk": "Cyclone separation too weak → filter clogs, suction falls", "mitigation": "CFD/bench iterations of cyclone cone, washable HEPA post-filter", "severity": "major"},
+    {"risk": "Hair wrap on the brush bar", "mitigation": "Conical / comb de-tangling brush bar", "severity": "minor"},
+    {"risk": "Noise > 80 dB(A) at boost", "mitigation": "Motor mount decoupling, exhaust silencer foam", "severity": "minor"}
+  ],
+  "tests": [
+    {"name": "Temperature rise and abnormal operation (blocked inlet)", "kind": "thermal", "method": "Run with the inlet blocked until steady state", "standard": "IEC 60335-2-2"},
+    {"name": "Drop test of the handheld unit and pack", "kind": "drop", "method": "Drop from specified height onto hardwood", "standard": "IEC 60335-2-2"},
+    {"name": "Suction power / air watts", "kind": "other", "method": "Orifice-plate air-watt curve on the bench", "standard": "IEC 62885-4 (performance, to be confirmed)"},
+    {"name": "Battery safety", "kind": "battery", "method": "Accredited lab", "standard": "IEC 62133-2 / UN 38.3"},
+    {"name": "EMC emissions", "kind": "electrical", "method": "Accredited lab", "standard": "IEC 61000-6-3"}
+  ],
+  "checks": ["airflow", "battery_life", "mass", "tip_over"],
+  "params": {
+    "motor_w": 180, "motor_eff": 0.3, "inlet_d_mm": 36, "loss_k": 4.0, "aw_target": 100, "aw_warn": 60,
+    "battery_target_h": 0.5, "battery_mah_default": 2600, "battery_v_default": 25.2,
+    "mass_max_g": 3000, "com_ratio": 0.6, "tip_min_deg": 10, "tip_warn_deg": 5,
+    "duty": {"motor": 100, "mcu": 100, "led": 100, "display": 100, "radio": 0},
+    "default_family": "esp32", "connectivity": "none (optional BLE app link)",
+    "typical_electronics": ["Suction BLDC motor 180W", "BLDC motor driver", "MCU 32-bit", "Li-ion pack 6S 2600 mAh 25.2V", "BMS 6S", "Buck converter 3.3V", "Status LED"]
+  },
+  "prototype": {"method": "SLA resin (cyclone, clear) + MJF PA12 (body)", "usd_per_cm3": 0.32, "setup_usd": 40, "units": 2,
+    "steps": ["Bench the motor + cyclone in an SLA clear print, measure the air-watt curve", "Print the body in MJF PA12", "Drive the BLDC motor from an off-the-shelf ESC first, then the quick-turn PCBA", "Use a bought-in protected 6S pack for the prototype", "Blocked-inlet thermal test before any user test"]}
+}

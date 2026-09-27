@@ -220,7 +220,19 @@ def run_stage(project_id: str, n: int, inputs: dict | None = None) -> ArtifactBa
         artifact.fallback_reason = (str(e) if isinstance(e, StageTimeout) else f"{type(e).__name__}: {e}")[:500]
     log.info("stage %d for %s in %.1fs%s", n, project_id, time.monotonic() - started, " (fallback)" if artifact.fallback else "")
     save_artifact(project_id, n, artifact, StageStatus.draft)
+    if n == 1 and not artifact.fallback:
+        name_from_brief(project_id, artifact)
     return artifact
+
+
+def name_from_brief(project_id: str, brief) -> None:
+    """W21b: an auto-named project (name = truncated prompt) takes the brief's product name after stage 1."""
+    project = get_project(project_id)
+    new = (getattr(brief, "product_name", "") or "").strip()[:80]
+    auto = not project.name.strip() or project.name.strip() == project.prompt.strip()[:60] or project.name == "Untitled product"
+    if new and auto and new != project.name:
+        project.name = new
+        save_project(project)
 
 
 def get_factory_pack(project_id: str, rebuild: bool = False) -> FactoryPack:
@@ -253,7 +265,11 @@ def seed_example(example: str) -> Project:
     project.example = example
     project.stage_status = {}
     save_project(project)
+    partial = example.startswith("showcase_")  # W21: a start-only showcase has stages 1-7; never fill 8-13 with the desk lamp
     for n in range(1, 14):
+        if partial and not fixture_path(example, n).exists():
+            continue
         save_artifact(project.id, n, load_fixture(example, n, project.id), StageStatus.validated)
-    save_artifact(project.id, FACTORY_PACK_STAGE, load_fixture(example, FACTORY_PACK_STAGE, project.id))
+    if not partial or fixture_path(example, FACTORY_PACK_STAGE).exists():
+        save_artifact(project.id, FACTORY_PACK_STAGE, load_fixture(example, FACTORY_PACK_STAGE, project.id))
     return get_project(project.id)

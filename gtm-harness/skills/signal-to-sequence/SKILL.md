@@ -6,7 +6,8 @@ description: Turn one detected signal on one account into a short outreach seque
 # Signal to sequence
 
 **Input:** an account plus one signal. The signal needs its URL, its date and the exact wording from the source. The best input is the output of `account-research`.
-**Output:** three messages (email, LinkedIn note, follow-up), ready to send and personalised on the signal.
+**Output:** three messages (email, LinkedIn note, follow-up), personalised on the signal, as drafts for a human to review and send. Single drafts go into `03_DISCOVERY/envoi/A_ENVOYER.md` (source of truth, contacts stay there); a new campaign gets `outputs/YYYY-MM-DD-campaign-<name>/brief.md` via `workflows/campaign-build.md`. Nothing is sent by the agent.
+**Reads:** `context/signals.md` (hooks, confidence), `context/positioning.md` (messaging matrix, guardrails), `context/personas/hardware-founder.md` (objections, hooks).
 
 ## Rules (from `03_DISCOVERY/messages.md`)
 - Never mention Hexa or the project name.
@@ -15,6 +16,7 @@ description: Turn one detected signal on one account into a short outreach seque
 - **Cite the precise signal:** the update number or date, and the problem in the founder's own words. A generic "saw you're delayed" is not allowed.
 - Use only a high-confidence signal. If the page was not reopened, do not quote it.
 - Never mention the backers' anger. Talk about the problem, not the blame.
+- **Value test before QA:** delete the ask. If the message still gives the founder something (their own facts, a precise question worth thinking about), keep it; if it is empty without the ask, it is a pitch: rewrite. Test adapted from the GTM repository skill (credits in `README.md`).
 
 ## Reference messages
 These are the two templates in `outputs/campaign-01-discovery/brief.md`. `03_DISCOVERY/messages.md` has "Templates: (à rédiger)", so these are the first version.
@@ -59,7 +61,7 @@ stage, or did it only appear at the factory?
 2. Fill `{exact quote}` with a sentence copied from the source, not a paraphrase.
 3. Adapt the "design, components, certification or factory" line so it names the account's bucket first.
 4. Circular Ring 2 is a Paris startup: send its messages in French (`02_RECHERCHE/parallel/00_SYNTHESE.md` §3).
-5. Log what was sent in `outputs/accounts.csv`, in the `message_envoye` and `reponse` columns, and in the tracking table in `brief.md`.
+5. Hand the drafts to a human for the QA gate in `workflows/campaign-build.md`. After the human sends, log in this order: `03_DISCOVERY/envoi/SUIVI.md` (source of truth) → `outputs/campaign-01-discovery/tracking.md` → the performance table in `context/signals.md`.
 
 ## Worked example (AIVELA Ring Pro, score 4)
 Signal source: ["About half of the units made in that batch passed final checks… the rest were held back due to component quality issues"](https://gadgetsandwearables.com/2026/02/12/aivela-ring-pro-shipping/) (12/02/2026).

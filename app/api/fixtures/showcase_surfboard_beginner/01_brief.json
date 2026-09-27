@@ -1,0 +1,122 @@
+{
+ "project_id": "demo_surfboard_beginner",
+ "status": "validated",
+ "fallback": false,
+ "fallback_reason": null,
+ "generated_by": "llm:openai/gpt-6-sol",
+ "generated_at": "2026-09-27T00:14:08.231510Z",
+ "assumptions": [
+  {
+   "id": "a1",
+   "text": "Skipped clarifying questions use their defaults: markets=US; volume=100–500; target_price=$300–$499; battery=None (mains/USB); wireless=None. Re-run stage 1 with answers to change them.",
+   "label": "estimate",
+   "source": null,
+   "stage": 1
+  },
+  {
+   "id": "a2",
+   "text": "Target retail price proposed by the spec copilot (not stated by the founder); confirm before costing.",
+   "label": "estimate",
+   "source": null,
+   "stage": 1
+  }
+ ],
+ "stage": 1,
+ "mode": "idea",
+ "prompt": "A hydrodynamic surfboard for beginners, 7'6\"",
+ "product_name": "Beginner surfboard 7'6\"",
+ "one_liner": "A 7'6\" surfboard shaped for beginner stability and paddling.",
+ "category": "mechanical",
+ "target_markets": [
+  "US"
+ ],
+ "target_retail_price": {
+  "value": 450.0,
+  "unit": "USD",
+  "label": "estimate",
+  "source_or_assumption": "Assumed by the spec copilot from category comparables — confirm with the founder"
+ },
+ "target_volumes": [
+  500,
+  2000,
+  10000
+ ],
+ "key_features": [
+  "7'6\" board length",
+  "Beginner-oriented stable outline",
+  "Buoyant shape for easier paddling",
+  "Hydrodynamic hull and rails"
+ ],
+ "constraints": [
+  "7'6\" length"
+ ],
+ "has_battery": false,
+ "wireless": [],
+ "pasted_bom": [],
+ "clarifying_questions": [
+  {
+   "id": "q1",
+   "topic": "markets",
+   "question": "Where will the board first be sold?",
+   "options": [
+    "US",
+    "EU",
+    "UK",
+    "CA"
+   ],
+   "answer": "US",
+   "skipped": true
+  },
+  {
+   "id": "q2",
+   "topic": "volume",
+   "question": "What is the expected first production quantity?",
+   "options": [
+    "Under 100",
+    "100–500",
+    "501–2,000",
+    "Over 2,000"
+   ],
+   "answer": "100–500",
+   "skipped": true
+  },
+  {
+   "id": "q3",
+   "topic": "target_price",
+   "question": "What retail price are you targeting?",
+   "options": [
+    "Under $300",
+    "$300–$499",
+    "$500–$699",
+    "$700 or more"
+   ],
+   "answer": "$300–$499",
+   "skipped": true
+  },
+  {
+   "id": "q4",
+   "topic": "battery",
+   "question": "Does it need a battery, and what runtime?",
+   "options": [
+    "None (mains/USB)",
+    "Rechargeable Li-ion",
+    "Coin cell"
+   ],
+   "answer": "None (mains/USB)",
+   "skipped": true
+  },
+  {
+   "id": "q5",
+   "topic": "wireless",
+   "question": "Any app or wireless control?",
+   "options": [
+    "None",
+    "BLE",
+    "Wi-Fi",
+    "NFC"
+   ],
+   "answer": "None",
+   "skipped": true
+  }
+ ]
+}

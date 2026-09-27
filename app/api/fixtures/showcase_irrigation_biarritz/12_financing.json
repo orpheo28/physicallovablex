@@ -1,0 +1,353 @@
+{
+ "project_id": "demo_irrigation_biarritz",
+ "status": "validated",
+ "fallback": false,
+ "fallback_reason": null,
+ "generated_by": "code",
+ "generated_at": "2026-09-27T08:58:58.642824Z",
+ "assumptions": [
+  {
+   "id": "a1",
+   "text": "Dates from stage 9 milestones; amounts from the stage 5 cash breakdown with the approved stage 8 quote applied (unit price, tooling; duties, platform fee, insurance recomputed) (tooling 50/50 at T0/T1, samples at golden sample, 30% deposit + 70% before shipment (payment terms of stage 9), logistics at shipment/delivery)",
+   "label": "estimate",
+   "source": null,
+   "stage": 12
+  },
+  {
+   "id": "a2",
+   "text": "Peak cash need $144,823; 32,973 of it falls in the first 60 days.",
+   "label": "estimate",
+   "source": null,
+   "stage": 12
+  },
+  {
+   "id": "a3",
+   "text": "Financing costs are typical ranges, not quotes: verify with each provider",
+   "label": "estimate",
+   "source": null,
+   "stage": 12
+  }
+ ],
+ "stage": 12,
+ "cash_curve": [
+  {
+   "date": "2026-09-28",
+   "milestone_id": "m1",
+   "description": "Tooling — 50% @ PO + tooling kickoff",
+   "cash_out": {
+    "value": 1650.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Stage 5 cash breakdown, allocated to the milestone"
+   },
+   "cumulative": {
+    "value": 1650.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Running total"
+   }
+  },
+  {
+   "date": "2026-11-12",
+   "milestone_id": "m3",
+   "description": "Tooling — 50% @ T1 corrections",
+   "cash_out": {
+    "value": 1650.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Stage 5 cash breakdown, allocated to the milestone"
+   },
+   "cumulative": {
+    "value": 3300.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Running total"
+   }
+  },
+  {
+   "date": "2026-11-19",
+   "milestone_id": "m4",
+   "description": "Samples (T0, T1, golden) @ Golden sample approval",
+   "cash_out": {
+    "value": 1683.18,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Stage 5 cash breakdown, allocated to the milestone"
+   },
+   "cumulative": {
+    "value": 4983.18,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Running total"
+   }
+  },
+  {
+   "date": "2026-11-19",
+   "milestone_id": "m6",
+   "description": "First production order (2,000 × negotiated FOB) — 30% @ Mass production (2,000 units)",
+   "cash_out": {
+    "value": 27990.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Stage 5 cash breakdown, allocated to the milestone"
+   },
+   "cumulative": {
+    "value": 32973.18,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Running total"
+   }
+  },
+  {
+   "date": "2026-12-17",
+   "milestone_id": "m5",
+   "description": "Certification @ Certification testing",
+   "cash_out": {
+    "value": 7100.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Stage 5 cash breakdown, allocated to the milestone"
+   },
+   "cumulative": {
+    "value": 40073.18,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Running total"
+   }
+  },
+  {
+   "date": "2026-12-19",
+   "milestone_id": "m7",
+   "description": "First production order (2,000 × negotiated FOB) — 70% @ Pre-shipment inspection",
+   "cash_out": {
+    "value": 65310.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Stage 5 cash breakdown, allocated to the milestone"
+   },
+   "cumulative": {
+    "value": 105383.18,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Running total"
+   }
+  },
+  {
+   "date": "2026-12-19",
+   "milestone_id": "m7",
+   "description": "Pre-shipment inspection @ Pre-shipment inspection",
+   "cash_out": {
+    "value": 540.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Stage 5 cash breakdown, allocated to the milestone"
+   },
+   "cumulative": {
+    "value": 105923.18,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Running total"
+   }
+  },
+  {
+   "date": "2027-01-20",
+   "milestone_id": "m8",
+   "description": "Freight + insurance @ Balance + sea shipment",
+   "cash_out": {
+    "value": 4600.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Stage 5 cash breakdown, allocated to the milestone"
+   },
+   "cumulative": {
+    "value": 110523.18,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Running total"
+   }
+  },
+  {
+   "date": "2027-01-20",
+   "milestone_id": "m8",
+   "description": "Duties (HTS + Section 301) @ Balance + sea shipment",
+   "cash_out": {
+    "value": 26120.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Stage 5 cash breakdown, allocated to the milestone"
+   },
+   "cumulative": {
+    "value": 136643.18,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Running total"
+   }
+  },
+  {
+   "date": "2027-01-20",
+   "milestone_id": "m8",
+   "description": "Platform / agent fee @ Balance + sea shipment",
+   "cash_out": {
+    "value": 6540.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Stage 5 cash breakdown, allocated to the milestone"
+   },
+   "cumulative": {
+    "value": 143183.18,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Running total"
+   }
+  },
+  {
+   "date": "2027-01-23",
+   "milestone_id": "m9",
+   "description": "Broker, port, 3PL @ Delivered to destination 3PL",
+   "cash_out": {
+    "value": 1640.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Stage 5 cash breakdown, allocated to the milestone"
+   },
+   "cumulative": {
+    "value": 144823.18,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Running total"
+   }
+  }
+ ],
+ "total_cash": {
+  "value": 144823.18,
+  "unit": "USD",
+  "label": "estimate",
+  "source_or_assumption": "Sum of the cash curve (approved quote applied)"
+ },
+ "matches_stage5_total": false,
+ "options": [
+  {
+   "kind": "preorders",
+   "name": "Preorders / waitlist deposits",
+   "description": "Presell about 1,078 units at the target price $139.32 (net of ~3.5% card fees) to cover the $144,823 total cash need; refunds if the golden sample slips.",
+   "cost": {
+    "value": 3.5,
+    "unit": "pct",
+    "label": "estimate",
+    "source_or_assumption": "Assumed card-processing fee ~3.5% of preorder value; check your payment provider"
+   },
+   "pros": [
+    "Validates demand before tooling",
+    "No dilution, no interest",
+    "Preorder cash lands before the production deposit"
+   ],
+   "cons": [
+    "Delivery promise creates refund and legal exposure",
+    "Slipping dates hurt trust",
+    "Needs an audience: 1,078 buyers ≈ 54% of the 2,000-unit first order"
+   ]
+  },
+  {
+   "kind": "crowdfunding",
+   "name": "Crowdfunding campaign",
+   "description": "Reward-based campaign with a goal around $157,500 so that ~8% platform + processing fees still leave $144,823.",
+   "cost": {
+    "value": 8.0,
+    "unit": "pct",
+    "label": "estimate",
+    "source_or_assumption": "Assumed 5% platform fee + ~3% payment processing; verify on the chosen platform"
+   },
+   "pros": [
+    "Marketing and financing in one",
+    "Market proof for later investors",
+    "Backers fund tooling early"
+   ],
+   "cons": [
+    "All-or-nothing risk",
+    "Public roadmap; copycats",
+    "Fulfilment obligations start before mass production is proven"
+   ]
+  },
+  {
+   "kind": "inventory_financing",
+   "name": "Inventory / purchase-order financing",
+   "description": "Lender advances the ~$93,300 first production order against confirmed POs or preorders; repaid from sales.",
+   "cost": {
+    "value": 15.0,
+    "unit": "pct",
+    "label": "estimate",
+    "source_or_assumption": "Assumed 12-20% annualised cost; quotes vary widely"
+   },
+   "pros": [
+    "Preserves equity",
+    "Scales with the order size"
+   ],
+   "cons": [
+    "Needs revenue history or confirmed POs",
+    "Does not cover tooling or certification",
+    "Personal guarantees are common for first-time founders"
+   ]
+  },
+  {
+   "kind": "revenue_based",
+   "name": "Revenue-based financing",
+   "description": "Advance repaid as a fixed share of monthly revenue until a cap; better for the second production run than the first.",
+   "cost": {
+    "value": 9.0,
+    "unit": "pct",
+    "label": "estimate",
+    "source_or_assumption": "Assumed flat fee 6-12% of the advance"
+   },
+   "pros": [
+    "No dilution",
+    "Repayment tracks sales"
+   ],
+   "cons": [
+    "Needs existing revenue",
+    "Repayment share squeezes reorder cash"
+   ]
+  },
+  {
+   "kind": "equity",
+   "name": "Angel / pre-seed round",
+   "description": "Raise about $189,000 (total cash + 30% buffer for slips and re-tooling).",
+   "cost": null,
+   "pros": [
+    "Buffer for re-tooling and delays",
+    "Advice and factory introductions"
+   ],
+   "cons": [
+    "Dilution",
+    "Slow to close for pre-revenue hardware",
+    "Investors expect a distribution plan"
+   ]
+  },
+  {
+   "kind": "other",
+   "name": "Negotiate factory terms",
+   "description": "Ask for tooling amortised into the unit price (mold cost spread over the first orders) and 30/70 payment terms instead of 50/50; each step lowers the cash needed up front.",
+   "cost": {
+    "value": 0.0,
+    "unit": "pct",
+    "label": "estimate",
+    "source_or_assumption": "Trade-off: a higher unit price in exchange for less upfront cash"
+   },
+   "pros": [
+    "No third party",
+    "Reduces the peak cash need"
+   ],
+   "cons": [
+    "Higher unit price",
+    "Factory lock-in until the mold is paid",
+    "Negotiation leverage depends on volume"
+   ]
+  }
+ ],
+ "stage5_total": {
+  "value": 138239.16,
+  "unit": "USD",
+  "label": "estimate",
+  "source_or_assumption": "Stage 5 total cash needed (budget reference)"
+ },
+ "reconciliation_note": "Differs from stage 5 by $+6,584 ($144,823 vs $138,239) because the negotiated quote qt_686f323e43 replaced the estimate: FOB $46.65 vs $44.11 × 2,000, tooling $3,300 vs $3,600, payment terms 30% deposit / 70% before shipment"
+}

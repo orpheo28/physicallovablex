@@ -1,0 +1,78 @@
+{
+ "project_id": "demo_changing_table",
+ "status": "validated",
+ "fallback": false,
+ "fallback_reason": null,
+ "generated_by": "llm:openai/gpt-6-luna",
+ "generated_at": "2026-09-27T00:18:04.914692Z",
+ "assumptions": [
+  {
+   "id": "a1",
+   "text": "Lead times are typical values per process (tooling + first shots), not factory quotes; refined at stages 7-9 with the negotiated quote.",
+   "label": "estimate",
+   "source": null,
+   "stage": 6
+  },
+  {
+   "id": "a2",
+   "text": "Mass production duration assumes 90 units/day on one line for a 2,000-unit order.",
+   "label": "estimate",
+   "source": null,
+   "stage": 6
+  }
+ ],
+ "stage": 6,
+ "steps": [
+  {
+   "part_id": "p1",
+   "part_name": "Birch plywood panels and legs",
+   "process": "cnc",
+   "reason": "CNC routing suits the shaped birch plywood panels and legs at 2,000 units, holds the specified ±1 mm profile tolerance, and prepares edges for a consistent satin lacquer finish.",
+   "region": "Dongguan, Guangdong",
+   "lead_time_days": {
+    "value": 10.0,
+    "unit": "days",
+    "label": "estimate",
+    "source_or_assumption": "Typical cnc lead time incl. setup and first article — planning assumption"
+   }
+  },
+  {
+   "part_id": "p2",
+   "part_name": "Changing pad (wipe-clean foam)",
+   "process": "other",
+   "reason": "Cutting PU foam to shape and sewing or welding a PVC-free wipe-clean cover is appropriate for this soft, non-rigid part at 2,000 units and provides a cleanable surface.",
+   "region": "Shenzhen, Guangdong",
+   "lead_time_days": {
+    "value": 14.0,
+    "unit": "days",
+    "label": "estimate",
+    "source_or_assumption": "Typical other lead time incl. setup and first article — planning assumption"
+   }
+  },
+  {
+   "part_id": "p3",
+   "part_name": "Guard rails / trims",
+   "process": "cnc",
+   "reason": "CNC routing is well suited to low-volume birch plywood or HPL rails and trims, achieving the ±1 mm geometry while leaving edges ready for a satin lacquer finish.",
+   "region": "Dongguan, Guangdong",
+   "lead_time_days": {
+    "value": 10.0,
+    "unit": "days",
+    "label": "estimate",
+    "source_or_assumption": "Typical cnc lead time incl. setup and first article — planning assumption"
+   }
+  }
+ ],
+ "assembly_notes": [
+  "Assemble on a flat fixture; verify table stability, squareness, and that all fasteners are secure.",
+  "Fit rails and trims flush, with no sharp edges, pinch points, or exposed fastener ends.",
+  "Check pad fit and cover seams; confirm the cover is intact and wipe-clean.",
+  "Perform a final inspection of finish, joints, and overall function; no burn-in or battery handling is required."
+ ],
+ "total_lead_time_days": {
+  "value": 51.0,
+  "unit": "days",
+  "label": "estimate",
+  "source_or_assumption": "Critical path from PO: slowest tooling/first article (14) + tooling correction T1 (7) + golden sample (7) + mass production (23) for 2,000 units"
+ }
+}

@@ -20,7 +20,7 @@ translation, certification nuance) are simply skipped.
 | POST | `/projects/{id}/stages/2/render` | `?direction_id=dN` | `StageResult` | on-demand AI concept render of one direction (stage 2 auto-renders only the first `LLM_IMAGE_MAX_RENDERS`, default 1 — images are the largest LLM cost). Same 25 s call timeout / 27 s budget; sets `render_url` in the saved stage 2 (+ assumption `a2_render`). A failed render (no image model, 402, timeout) returns 200 with `render_url` unchanged. 404: unknown project / direction, or stage 2 not run |
 | GET | `/projects/{id}/stages/{n}` | – | `StageResult` | 404 if never run |
 | PUT | `/projects/{id}/stages/{n}` | `UpdateStageRequest` | `StageResult` | user edits (spec edits, chosen design direction, approvals). `validate_stage: true` → status `validated`. `artifact.stage` must equal n |
-| POST | `/projects/{id}/autorun` | `?wait=bool` | `AutorunResult` | **202 immediately** (`results: []`, `autorun.state = running`); stage 1 if missing, then 2-7 run in a background thread with defaults (stage 3 gets `direction_id` = chosen or first direction). Poll `GET /projects/{id}` every 2 s: each stage's `StageSummary` turns `draft` as it finishes; `autorun.current_stage` is the stage in progress; `autorun.state` becomes `done`. A second POST while running returns the current status (idempotent). `?wait=true` = synchronous, 200 with all results (scripts/tests) |
+| POST | `/projects/{id}/autorun` | `?wait=bool&through=7\|13` | `AutorunResult` | **202 immediately** (`results: []`, `autorun.state = running`); stage 1 if missing, then 2-7 run in a background thread with defaults (stage 3 gets `direction_id` = chosen or first direction). Poll `GET /projects/{id}` every 2 s: each stage's `StageSummary` turns `draft` as it finishes; `autorun.current_stage` is the stage in progress; `autorun.state` becomes `done`. **`through=13` (autofill)**: after 1-7 it runs stage 8, auto-approves the recommended quote (same path as inputs `{"approve": true, "quote_id": <recommended>}`; the artifact gets assumption `a8_autofill`, label `estimate`: "Auto-approved in autofill mode — review and change the selected factory before any real order"), runs 9-13 and builds the Factory Pack; `current_stage`/`completed_stages` cover 1-13, `autorun.through` = 13 (7 by default). Same 45 s per-stage cap and fallbacks. Other `through` → 422. A second POST while running returns the current status (idempotent). `?wait=true` = synchronous, 200 with all results (scripts/tests) |
 | GET | `/projects/{id}/factory-pack` | `?rebuild=bool` | `FactoryPack` | assembled by the `factory_pack` provider (W6) from stages 1-6, else fixture |
 | GET | `/projects/{id}/export` | – | `application/pdf` | Launch Dossier. `export_pdf` provider (W6), else W0 stub PDF |
 | POST | `/demo/reset` | – | `ResetResult` | wipes the DB, re-seeds every example in `api/fixtures/*/project.json` with all 13 stages `validated` (ids `demo_desk_lamp`, `demo_tracker_card`) |
@@ -59,3 +59,251 @@ An artifact with `fallback: true` shows a "Cached example" banner (it may be the
   negotiated quote … replaced the estimate". Show the note instead of "Matches stage 5 total".
 - `PastPerformance.no_data` (+ `on_time_rate_pct` / `defect_rate_pct` nullable): self-registered factories → "no data yet".
 - `contracts.artifacts.process_label()` / `PROCESS_LABELS`: human wording of process enums (injection_molding → "Injection molding").
+
+## Additive fields (W16)
+- `AutorunStatus.through` (7 | 13): see `POST /projects/{id}/autorun`. Autofill artifacts carry the stage-8 assumption `a8_autofill` — show it prominently ("review before any real order").
+
+## Studio (W17) — refine the product by prompting
+Every prompt updates the real product (CAD, BOM, costs, DFM, certifications, shortlist) as a new **Version**. The stage
+artifacts (`GET /projects/{id}/stages/{n}`, n = 1-7) always reflect the **current** version; stages 8-13 and the Factory
+Pack are deleted when the current version changes (they described another product) and are rebuilt by "Make it"
+(`POST /projects/{id}/autorun?through=13`), which continues from the current version: for a Studio project stages 1-3
+return the stored artifacts unchanged when run with default inputs (explicit inputs — stage 1 `answers`, stage 3 another
+`direction_id` — still run the normal handler); stages 4-13 re-run on that product.
+
+| Method | Path | Request | Response | Notes |
+|---|---|---|---|---|
+| POST | `/projects/{id}/studio/start` | – | `StudioAccepted` `{"version": 1}` (**202**) | Background job: stage 1 if missing, stage 2 with only `d1` built now (wearables → family `wearable_band` / `ring`; `d2`/`d3` built lazily, `glb_url: null` until then), concept render of d1 (async, patched in), stage 3, stage 5, stage 7 → **version 1**; then stage 4 (+ stage 5 re-costed with its certifications), stage 6 and stage 7 in the background (`background_pending`). Idempotent: a second call returns the current version (a failed v1 is re-run). 409 while an autorun runs |
+| POST | `/projects/{id}/refine` | `RefineRequest` `{"message": str}` (1-1000 chars) | `StudioAccepted` `{"version": n}` (**202**) | Version n is created `running` at once. Jobs of one project run in order (FIFO). 409 before `studio/start` or while an autorun runs; 422 empty message |
+| GET | `/projects/{id}/versions` | – | `Version[]` (oldest first) | poll every 1-2 s while a version is `running` / `render_pending` / `background_pending` (cheap read, no lock) |
+| GET | `/projects/{id}/versions/{n}` | – | `Version` | 404 unknown |
+| POST | `/projects/{id}/versions/{n}/restore` | – | `Version` (200, `is_current: true`) | the stage 1-7 artifacts return to version n (its files are immutable: `v<n>.glb`, `v<n>_enclosure.*`). 404 unknown; 409 if n is not `done`, a refine is running, or an autorun runs |
+
+**Refine job.** (1) ONE LLM call (route `main`, `complete_json`, schema `RefinePatch`) turns message + current product
+state into typed ops: `set_color{hex,name}`, `set_material{material ∈ pc_abs|aluminium|stainless_steel|tpu, finish}`,
+`set_dimensions{length,width,height mm}`, `set_shape_family{rounded_box|puck|slab|wearable_band|ring}`,
+`add_feature{name,description}`, `add_component{part,category,qty,rationale,manufacturer_pn?}`,
+`remove_component{bom_item_id}`, `set_target_price{value,currency}`, `set_markets{markets}`, `note_requirement{text}`
+(anything not physically modelled → `brief.constraints`). The model never invents a measurement (dimensions only from
+numbers the founder gave). (2) Code applies it deterministically: every value re-checked and clamped (per-family ranges —
+a clamp becomes a `Note` change; invalid hex refused), brief, chosen direction, CAD rebuilt (build123d, cached by params
+hash) into version files, spec (bbox **Measured** from the STEP, weight Estimate, parts), BOM (added electronic parts
+matched to the LCSC snapshot → Sourced; a known capability without its part — heart rate/HRV/SpO2, accelerometer, skin
+temperature, haptics — gets it added), DFM (measured checks re-run on the new STEP; certifications re-mapped by rule +
+wearable rows; component risks; the AI review re-runs in the background), costs (stage 5 code), shortlist (stage 7 code;
+stage 6 re-planned in the background when material / shape changed). One commit for stages 1-7. (3) A new concept render
+only if colour / material / shape / dimensions changed (`render_pending`, then `preview.render_url = /files/<pid>/v<n>.png`;
+`render_url` is `null` meanwhile — the old look is never shown for the new product).
+
+**Failures.** LLM error / 402 / timeout / CAD failure → the version is `failed` with a plain-language `error`
+("The AI service is out of credits (HTTP 402)… Nothing changed — version 3 is still current."); nothing is written, the
+previous version stays current. Never a 5xx.
+
+**`Version`** `{n, message, status: running|done|failed, created_at, finished_at, summary, changes: VersionChange[],
+preview: VersionPreview|null, error, is_current, render_pending, background_pending}`
+- `VersionChange {area: color|material|shape|dimensions|feature|component|price|markets|requirement|certification|cost,
+  label, before, after, label_kind: measured|sourced|estimate|fictional}` — e.g. `{"area":"dimensions","label":"Pod
+  thickness","before":"10.0 mm","after":"8.0 mm","label_kind":"measured"}`, `{"area":"component","label":"Component
+  added","after":"Optical heart-rate sensor (PPG) × 1 — LCSC C6454833, $12.18/unit","label_kind":"sourced"}`.
+- `VersionPreview {glb_url, render_url, dimensions: Dimensions (Measured), color_hex, color_name, material, finish,
+  shape_family, unit_costs: [{quantity, value, label, source_or_assumption}], top_factories: [{name, score, label:
+  "fictional"}], certifications: ["<market> <standard>" of required ones], bom_count}`.
+
+**Shape families** (`cad_parameters.family`): 0 rounded box · 1 puck · 2 slab · **3 wearable_band** (pod length × width ×
+thickness incl. a 0.8 mm optical sensor window; `strap_width`, `strap_length`; strap = LSR spec part + BOM line, drawn in
+the full-product GLB, excluded from the measured bbox) · **4 ring** (length = width = outer diameter, height = band width,
+wall = band thickness; drafted annular halves + inner sensor bump). Wearable certification rows (skin-contact ISO 10993,
+EU nickel release, IEC 62471 for optical sensing, FDA general-wellness review) are added to stage 4 for Studio projects.
+Public-link guards: `DEMO_READONLY` → 403 on start/refine; per-IP cap `STUDIO_RATE_LIMIT_PER_DAY` (default 100, only with a key).
+
+## Engineering (W20)
+Concept-level engineering computed from the current project state (stage 1 brief, stage 2 chosen direction → shape family,
+stage 3 measured CAD bbox + STEP solid volume + weight + BOM). Every number is a `LabeledValue`; every check has a formula and a
+`verdict` (`pass` / `warn` / `fail` / `info`) against a stated threshold.
+
+| Method | Path | Request | Response | Notes |
+|---|---|---|---|---|
+| GET | `/projects/{id}/engineering` | `?refresh=bool` | `EngineeringArtifact` | cached by `inputs_digest` (recomputed when stages 1-3 change); 404 unknown project. First call writes `firmware.zip` (template) and, with an LLM key, starts an LLM version in the background (`firmware.pending_llm: true` → re-GET) |
+| POST | `/projects/{id}/engineering/recompute` | – | `EngineeringArtifact` | force recompute = `api.engineering.recompute_engineering(project_id)` (call after each Studio refine) |
+| GET/HEAD | `/files/{id}/firmware.zip` | – | `application/zip` | generated firmware project, README first line "Generated code — not compiled or tested"; 404 before the first GET of `/engineering` |
+
+`EngineeringArtifact`: `category` (pack key: wearable, furniture_baby, home_robot, vacuum, irrigation, solar_roof, surfboard, lighting,
+tracker, generic) + `category_title`; `partner_word` = `factories` | `installers` (+ `site_install`); `standards[]` (`StandardRef`:
+`citation_label` sourced = URL checked to load, date in `citation_note`; estimate = "Standard to be confirmed"); `risks[]`; `tests[]`
+(drop / ingress / salt_spray / tip_over / thermal …); `checks[]` (`EngineeringCheck`: `value`, `threshold`, `verdict`, `formula`,
+`inputs[]`, `notes[]` — e.g. the sealing checklist of the IP check); `electronics` (`power_tree[]`, `connections[]` netlist-level,
+`power_budget[]`, `average_current`, `battery_life`, `pcb_note` "PCB layout: next step (human or text-to-PCB)") or null;
+`firmware` (`framework` zephyr | arduino, `url`, `files[]`, `generated_by` template | llm:<model>, `note`) or null;
+`prototype` (`enclosure_volume` Measured, `cost_lines[]`, `devkit_bom[]` LCSC-matched lines Sourced, `assembly_steps[]`,
+`timeline_weeks`, `total_cost`); `solar` (site install: PVGIS yield Sourced "PVGIS (EU JRC), fetched <date>", module count / kWp /
+annual kWh / payback Estimates) and `installers[]` (Fictional — demo data). `fallback: true` when stage 3 is missing or cached.
+
+Additive fields: `FactoryPack.engineering: EngineeringArtifact | null` (section 10 "Engineering & prototype path"); the Launch
+Dossier has a chapter "Engineering & prototype path" after the 13 stages. Stage 7: a rooftop-solar project (category `solar_roof`)
+is matched with the 3 fictional certified installers (`factory_mcp/data/factories.json`, ids `i_*`, process `other`) instead of factories.
+
+## Production MCP (HTTP) (W22)
+The 7 PRD §10 tools (`register_capacity`, `search_capacity`, `get_factory_profile`, `request_quote`, `submit_quote`,
+`counter_offer`, `accept_quote`) served over MCP Streamable HTTP, in the API process, on the same store as the factory portal
+(`factory_mcp/http.py`, mounted by `api/mcp_http/`). Not a REST route: the body is JSON-RPC 2.0.
+
+| Method | Path | Notes |
+|---|---|---|
+| POST | `/mcp` (also `/mcp/`) | MCP JSON-RPC (`initialize`, `tools/list`, `tools/call`). Stateless, JSON responses (`Accept: application/json, text/event-stream`) |
+
+- **Auth**: `Authorization: Bearer <token>` or `X-App-Key: <token>`, where token = `MCP_TOKEN`, else `API_SHARED_KEY`; both unset → open
+  (local dev). Read per request. Missing/wrong → 401 + `WWW-Authenticate: Bearer`. `/mcp` is exempt from the global `X-App-Key`
+  guard (`api/auth.py`), which would otherwise demand the API key; `DEMO_READONLY` does not apply to it.
+- A factory registered over MCP is immediately in `GET /factories` and in `search_capacity`; an RFQ from `request_quote` is in
+  `GET /factories/{id}/rfqs`. All data is Fictional — demo data.
+- Standalone (no API): `uv run python -m factory_mcp.http --port 8123`. Demo agents: `python -m factory_mcp.demo.buyer_agent | factory_agent`
+  (`--url`, `--token`). Guide: `docs/MCP_DEMO.md`.
+
+## W21 — product families, AI CAD in the Studio, build strategy, showcase gallery (additive)
+
+**Product families in stages 2-4.** When the brief maps to a parametric family (`api.cad.codegen.classify` → `seed_for`:
+board, furniture, stick_vacuum, home_robot, irrigation, solar_array, drone, hair_dryer, camera, smartphone), stage 2's three
+directions are that family (three parameter sets, < 1 s each, `generated_by: "code"`, dimensions **Measured** on the family CAD;
+sizes stated in the prompt are applied, e.g. a 7'6" board = 2286 mm, a 35 m² roof → module count). `DesignDirection.cad_parameters`
+then also carries `product_family` (code 10-19), the family parameters prefixed `fp_` and, after a Studio dimension edit,
+`fp_scale_x|y|z`. Stage 3: `overall_dimensions` = the full product; shell products (vacuum, robot, irrigation controller, drone,
+hair dryer, camera, phone) keep the two-shell `enclosure.*` as their main moulded housing (DFM, weight) plus a "Full product — all
+parts, STEP AP214" file; solid products (board, furniture, PV array) export the product itself as `enclosure.*`, weight = measured
+solid volume × per-part densities, parts grouped by role, and stage 4 replaces draft / undercut / wall / tonnage with measured
+process-fit, stock-size and thinnest-section checks (a surfboard never gets wall-thickness DFM). Wearables keep W17's families.
+
+**Studio (additive).**
+- `Version.cad_pending` — the AI CAD model (text-to-CAD, `api/cad/codegen`) of this version is being generated in the
+  background (Studio start) or edited (geometric refine). `Version.cad_note` — plain-language note (e.g. fell back to the family).
+- `VersionPreview.code_url` (`/projects/{id}/cad/code/{k}` — the build123d program), `step_url`, `cad_label`
+  ("AI-generated CAD (concept level) — geometry measured on the result" or "Parametric family CAD (concept level) — …"),
+  `cad_source` (`llm:<model>` | `seed:<family>` | `previous_version`). When an AI model exists, `preview.glb_url` is it
+  (`model_v<k>.glb`, or a recoloured copy `v<n>_ai.glb` after a colour / material change); `shape_family` may now be a product
+  family name (board, drone …).
+- Stage 3 `cad_files`: the AI model first (`glb` + `step` with description starting "AI-generated CAD (concept level) —
+  geometry measured", and `format: "py"` = its program), then the product / DFM files (`enclosure.*` stays for DFM).
+- Studio start: v1 from the family (< 35 s), then the AI model in the background, patched into v1 (and later versions that
+  did not change geometry) when done. `CODEGEN_ENABLED=0` (or no key) → no AI CAD: the family's parametric program is recorded
+  as the version's code (`cad_label` = parametric, `cad_source` = `seed:<family>`).
+- New refine op `regenerate_geometry{instruction}` (a change of form the parameters cannot express: "wider nose", "bigger bin",
+  "add two storage baskets"). `regenerate_geometry`, `set_shape_family` and `set_dimensions` edit the version's AI program
+  (`refine_cad`, Cursor-style, self-repair, measured) — change `{"area": "shape", "label": "AI CAD program", "after": "v<k> — <instruction>"}`.
+  Other refines stay fast (no codegen). Without an AI model the form change is recorded as a requirement and a note says it
+  was not modelled. Product families keep their family on `set_shape_family`; `set_dimensions` scales the family CAD (0.5-2× per axis).
+- `recompute_engineering` runs after Studio start, each refine commit, each restore and when an AI model lands.
+
+**Engineering (additive).** `EngineeringArtifact.build_strategy: BuildStrategy | null` — `strategy` `full_design` (furniture,
+board, lamp, tracker, generic) | `module_assembly` (drone, irrigation, wearable, hair dryer, vacuum, rooftop solar) |
+`odm_customization` (smartphone, camera, home robot); `title`, `explanation`, `customisable[]`, `not_customisable[]`, `moq`,
+`entry_cost`, `lead_time` (LabeledValue, **Estimate** with the assumption), `path[]` (ODM: find an ODM with a close reference
+platform → customise enclosure / colours / display / sensors / software → certifications carried over or redone),
+`certifications_note`, `assumptions[]`. Shown in the Factory Pack (section 10 summary) and the Launch Dossier ("Build strategy").
+New categories: `drone` (checks `thrust_to_weight`, `hover_time` — momentum theory from battery Wh and hover power —,
+`drone_class`: EU C0 < 250 g / C1 < 900 g / C2 < 4 kg, **Sourced** from Regulation (EU) 2019/945), `hair_dryer` (IEC 60335-2-23;
+`dryer_power`, `dryer_airflow`, `outlet_temperature` = P / (ρ Q c_p)), `camera` and `smartphone` (ODM; radio certifications
+47 CFR Parts 2/15/22/24/27, RED, PTCRB/GCF). `EngineeringCheck.domain` adds `flight`, `regulatory`.
+
+**Factories (additive).** `CapacityProfile.categories` (specialities; empty = generalist) and `SearchCapacityQuery.category`
+(stage 7 passes the engineering category): a specialist of another category scores 50% on process fit ("specialises in
+lighting, not wearable"). Three new fictional factories: Tidewater Wearables EMS, Lumen Peak Micro-Electronics (wearables /
+small electronics) and Skyforge Robotics Integrators (drones / robots). LCSC matching: a line that names a sensing kind (PPG,
+IMU, gas, image sensor…) only matches a part of that kind; unmatched stays **Estimate**.
+
+| Method | Path | Request | Response | Notes |
+|---|---|---|---|---|
+| GET | `/examples` | – | `ExampleSummary[]` | showcase gallery: `id` (demo_<slug>), `name`, `prompt`, `category`, `strategy`, `hero_image_url`, `glb_url`, `one_line_result`, `versions`, `stages_done`, `tags` (["Example"]), `seeded` (true after `POST /demo/reset`). Opening a showcase costs nothing: all stages, Studio versions, AI CAD programs and engineering are cached |
+| GET/HEAD | `/projects/{id}/cad/code/{k}` | – | `text/x-python` | AI-written (or family) build123d program `model_v<k>.py` |
+
+`Project.tags` (e.g. `["Example"]`). `/demo/reset` also seeds `api/fixtures/showcase_<slug>/` (Studio versions + engineering cache);
+their files resolve from `api/cad/prebuilt/showcase_<slug>/`. Guards (api/auth.py): `studio/start`, `refine`, `versions/{n}/restore`
+and `engineering/recompute` → 403 under `DEMO_READONLY`, per-IP `STUDIO_RATE_LIMIT_PER_DAY` (a start on an already-started project
+is not counted); `cad/code` is behind `API_SHARED_KEY` like every route.
+
+## W21b (additive)
+- Refine op `upgrade_battery{capacity_mah?, factor?}` (default 1.5×; also the backstop for a noted "longer flight time /
+  battery life / runtime"): the BOM battery line gets the new capacity (or a pack line is added), price scales (Estimate),
+  added mass is stated. Changes: `{"area": "component", "label": "Battery capacity", "after": "3680 mAh at 14.8 V (54.5 Wh), +101 g"}`
+  and `{"area": "performance", "label": "Flight time" | "Battery life", "before", "after"}` recomputed by the engineering layer.
+  `VersionChange.area` adds `performance`.
+- `VersionChange.risk: ComponentRiskSummary | null` on "Component added" and `ComponentRiskItem.alternative: PartAlternative | null`:
+  `{level, reasons[], alternative: {part, lcsc_pn, price (Sourced), stock, label}}` — a cheaper in-stock same-kind LCSC part when
+  the line is expensive (≥ $3 at 2k) or low-stock; `null` + a reason when the snapshot has none (e.g. MAX30102).
+- `Factory.kind`: `factory | installer | integrator` (all seeds set; older stored records inferred). New seed: Coralline Silicone
+  Works (fictional), LSR / silicone overmolding + PCBA (the MCP buyer demo lands on it). W21's "Tidewater Wearables EMS" is
+  renamed Harborlight Wearables EMS (the MCP demo registers "Tidewater Wearables" itself). 15 partners after `/demo/reset`.
+- `Project.name` becomes the brief's `product_name` after stage 1 / Studio start when the project was auto-named (prompt).
+- `EngineeringArtifact.unit_basis` (`per_unit` | `per_installation`) + `installation_cost`; `ExampleSummary.unit_basis` +
+  `unit_cost` (per installation for rooftop solar, e.g. 10,621 EUR turnkey).
+- `/mcp` is natively exempt in `api/auth.py` (`MCP_PATHS`): the endpoint checks its own `MCP_TOKEN`.
+
+## W21c (additive; one relaxation)
+- Refine components are capability-aware: a part is never added for a capability the BOM already provides (PPG covers heart
+  rate / HRV / SpO2 — a PPG without red + IR is upgraded in place to MAX30102, change "Component upgraded"); a feature adds
+  every part it implies ("SpO2 and skin temperature" → the missing temperature sensor only, HDC3020 Sourced). SpO2 /
+  body-temperature on a worn product adds the required row "US FDA general-wellness vs medical-device boundary (SpO2 /
+  body-temperature claims)" → a visible `certification` change.
+- LCSC matching never maps complex modules (mainboard, display, camera / compute module, gimbal, flight controller, ESC,
+  BLDC / gear motors, LiDAR, pump, valve, heater, flex / "assembly" lines, grouped passives, PV kit) to a catalogue chip,
+  rejects implausible class matches (a $0.01 tactile switch as a trigger / TRIAC switch) and one generic chip standing in
+  for different lines. Those lines are priced by the module price model (`api/costs/modules.py`, Estimate with the assumption).
+- An assumed (not founder-given) retail below 1.6 × landed cost is replaced by ex-works × category multiplier (3.0; 2.4 for
+  furniture / boards), assumption stated.
+- `CostsArtifact.unit_basis` (`per_unit` | `per_installation`); `CostsArtifact.tiers` min length relaxed 3 → 1. Site installs
+  (rooftop solar): one tier = a pilot of 10 installations with per-installation figures, `target_retail_price` = turnkey installed
+  price, margin vs installed price, cash for the pilot; stage 11 = DDP local delivery, no import. One currency per project: USD
+  (engineering solar figures converted at 1.08 USD/EUR, stated).
+- `Version.cad_attempts`, `Version.cad_repairs` ("self-repaired N×").
+
+## W27 — product photos (reference-based AI photography + listing kit, additive)
+
+Photos are AI images **styled from a reference image of OUR CAD**: the prompt directs only light, surface, lens and
+framing and ends with "Preserve the exact geometry, proportions, colours, materials and details of the referenced
+product. No added text, logos, watermarks or extra objects unless stated." Reference, in order: (a) a PNG/JPEG the
+client captured from the 3D viewer (sent with the request, saved as `/files/<pid>/ref_v<n>.png` and reused by later
+shots of that version); (b) the Blender render of the CAD (`hero_v<n>.png`, or `hero_<dN>.png` of the chosen direction
+for version 1); (c) none → text-only prompt (product described from the design direction). Doc: docs/PHOTOGRAPHY.md.
+
+| Method | Path | Body | Response | Notes |
+|---|---|---|---|---|
+| POST | `/projects/{id}/versions/{n}/photo?shot=hero_studio` | optional image (below) | `PhotoAccepted {version, shots}` (**202**) | one shot, background job; `shot` ∈ `hero_studio` (4:5) · `packshot_white` (1:1) · `lifestyle` (4:5) · `in_hand_scale` (4:5) · `detail_macro` (1:1) |
+| POST | `/projects/{id}/photos/kit?version=n&detail=true` | optional image | `PhotoAccepted` (**202**) | listing kit: `packshot_white`, `lifestyle`, `in_hand_scale` (+ `detail_macro` unless `detail=false`) of `version` (default current); when done the kit is attached to stage 13 `BrandArtifact.listing_photos` and printed on a "Listing photos" page of the Launch Dossier |
+| GET | `/projects/{id}/photos` | – | `ProjectPhotos {project_id, version, photos: ProductPhoto[], job: PhotoJob, configured}` | poll every ~2 s while `job.state == "running"`; `photos` = current version, newest per shot (source of truth) |
+
+Image body (optional; ≤ 2 MB; PNG or JPEG checked by magic bytes and decoding; 64-4096 px a side), any of:
+`multipart/form-data` field `image` · `application/json {"image_base64": "<base64 or data: URL>"}` · raw `image/png` |
+`image/jpeg`. Errors: 413 (> 2 MB), 415 (not PNG/JPEG / undecodable / other content type), 422 (unknown shot, too
+small / large, bad base64), 404 (project / version), 409 (a photo job of this project is running), 403
+(`DEMO_READONLY`), 429 (per-IP `PHOTO_RATE_LIMIT_PER_DAY`, default 30 jobs, 0 disables), 503 (no image model).
+
+- `ProductPhoto {shot, url (/files/<pid>/photo_v<n>_<shot>.png), label, reference: viewer|cad_render|none, aspect_ratio,
+  staged, model, version, created_at}`. `label` (show it under the image, always):
+  "Photo-styled from the CAD (AI image, geometry from our CAD)" with a reference, "AI concept image (no CAD reference)"
+  without; lifestyle / in-hand add " · Staged scene — illustrative" (`staged: true`).
+- `PhotoJob {state: idle|running|done|failed, version, shots, done, failed, error, started_at, finished_at}`. A failed
+  shot (timeout, 402 credits, no image) keeps the previous file and entry; `error` is a calm plain-language sentence.
+- `VersionPreview.photos: ProductPhoto[]` (additive). A `hero_studio` photo also becomes `VersionPreview.render_url`
+  (and the chosen direction's `render_url` in the version snapshot) — `a2_render` semantics unchanged otherwise.
+- `BrandArtifact.listing_photos: ProductPhoto[]` (additive, default []).
+- `ExampleSummary.hero_image_label` + `ExampleSummary.photos` (hero_studio + lifestyle; additive). Showcase cards'
+  `hero_image_url` is the hero_studio photo styled from the Blender render of the current version's CAD.
+- Model: env `LLM_IMAGE_MODEL` (live); the showcase recorder uses `LLM_IMAGE_MODEL_SHOWCASE` when set.
+
+## W21d
+- Studio preview refreshes (background DFM / plan / render results) keep `preview.photos` (W27 photos are not in the snapshot).
+- Photo routes (`POST /projects/{id}/versions/{n}/photo`, `POST /projects/{id}/photos/kit`) are guarded in `api/auth.py`
+  (`PHOTO_RUN`): 403 under `DEMO_READONLY`, per-IP `PHOTO_RATE_LIMIT_PER_DAY` (default 30, own bucket, only with a key); the
+  route keeps only the 503 "no image model" check.
+- The live Studio concept render of version n sends the stored viewer capture `ref_v<n>.png` as the image reference when present.
+- Site installs: `breakeven_units` is counted in `installations` (unit) against the pilot's fixed-cost base (installer
+  qualification + insurance, tools / van share, sales), which the pilot cash plan now includes.
+
+## W21e
+- `VersionPreview.unit_basis`, `installed_price`, `installer_cost` (per_installation only): one source of truth per version —
+  `installed_price` = stage 5 `target_retail_price` = engineering `installation_cost` = gallery card `unit_cost` (PV turnkey +
+  battery system when the BOM has one); `installer_cost` = stage 5 tier `unit_cost` ("not the customer price").
+- "Component added" changes carry the price stage 5 uses (`$3,400.00/installation` for the solar battery), not a stale BOM placeholder.
+- `Version.look_changed`: false when colour / material / finish / shape / dimensions did not change → the previous version's photos
+  are copied to the new version (same labels / references, no image call); `POST /versions/{n}/photo` then returns 202 with the
+  carried photo (add `?force=true` to re-shoot anyway).
+- `whoop_kitesurf` showcase: the 4-shot listing kit (packshot_white, lifestyle, in_hand_scale, detail_macro, Blender CAD reference)
+  in stage 13 and the Dossier.

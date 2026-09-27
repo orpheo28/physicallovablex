@@ -1,0 +1,121 @@
+{
+ "project_id": "demo_hair_dryer",
+ "status": "validated",
+ "fallback": false,
+ "fallback_reason": null,
+ "generated_by": "llm:openai/gpt-6-sol",
+ "generated_at": "2026-09-27T00:09:46.197506Z",
+ "assumptions": [
+  {
+   "id": "a1",
+   "text": "Skipped clarifying questions use their defaults: markets=US; volume=1,000–10,000 units; target_price=$50–$99; battery=Corded; wireless=None. Re-run stage 1 with answers to change them.",
+   "label": "estimate",
+   "source": null,
+   "stage": 1
+  },
+  {
+   "id": "a2",
+   "text": "Target retail price proposed by the spec copilot (not stated by the founder); confirm before costing.",
+   "label": "estimate",
+   "source": null,
+   "stage": 1
+  }
+ ],
+ "stage": 1,
+ "mode": "idea",
+ "prompt": "A quiet, compact hair dryer",
+ "product_name": "Quiet compact hair dryer",
+ "one_liner": "A compact hair dryer designed to reduce operating noise.",
+ "category": "other",
+ "target_markets": [
+  "US"
+ ],
+ "target_retail_price": {
+  "value": 79.0,
+  "unit": "USD",
+  "label": "estimate",
+  "source_or_assumption": "Assumed by the spec copilot from category comparables — confirm with the founder"
+ },
+ "target_volumes": [
+  500,
+  2000,
+  10000
+ ],
+ "key_features": [
+  "Compact handheld form",
+  "Reduced operating noise",
+  "Adjustable airflow",
+  "Multiple heat settings",
+  "Removable air-intake filter"
+ ],
+ "constraints": [
+  "Compact size",
+  "Quiet operation"
+ ],
+ "has_battery": false,
+ "wireless": [],
+ "pasted_bom": [],
+ "clarifying_questions": [
+  {
+   "id": "q1",
+   "topic": "markets",
+   "question": "Which market should the first version serve?",
+   "options": [
+    "US",
+    "EU",
+    "UK",
+    "US and EU"
+   ],
+   "answer": "US",
+   "skipped": true
+  },
+  {
+   "id": "q2",
+   "topic": "volume",
+   "question": "What is the expected first production quantity?",
+   "options": [
+    "Under 1,000 units",
+    "1,000–10,000 units",
+    "Over 10,000 units"
+   ],
+   "answer": "1,000–10,000 units",
+   "skipped": true
+  },
+  {
+   "id": "q3",
+   "topic": "target_price",
+   "question": "What retail price are you targeting?",
+   "options": [
+    "Under $50",
+    "$50–$99",
+    "$100–$149",
+    "$150 or more"
+   ],
+   "answer": "$50–$99",
+   "skipped": true
+  },
+  {
+   "id": "q4",
+   "topic": "battery",
+   "question": "Should it be corded or battery-powered?",
+   "options": [
+    "Corded",
+    "Battery-powered"
+   ],
+   "answer": "Corded",
+   "skipped": true
+  },
+  {
+   "id": "q5",
+   "topic": "wireless",
+   "question": "Does it need wireless connectivity?",
+   "options": [
+    "None",
+    "BLE",
+    "Wi-Fi"
+   ],
+   "answer": "None",
+   "skipped": true
+  }
+ ]
+}

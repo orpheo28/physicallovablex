@@ -1,0 +1,320 @@
+{
+ "project_id": "demo_minimal_phone",
+ "status": "validated",
+ "fallback": false,
+ "fallback_reason": null,
+ "generated_by": "code",
+ "generated_at": "2026-09-27T00:11:50.486484Z",
+ "assumptions": [
+  {
+   "id": "a7_network",
+   "text": "Factories, capacity, load and past performance come from the simulated production network.",
+   "label": "fictional",
+   "source": "factory_mcp (demo data)",
+   "stage": 7
+  },
+  {
+   "id": "a7_weights",
+   "text": "Score = 35% process fit + 15% MOQ + 15% certifications + 15% load + 20% lead time; product-level criteria are part-weighted means over the queries (CNC machining ×2, PCBA ×1, Other ×1, Assembly ×1).",
+   "label": "estimate",
+   "source": null,
+   "stage": 7
+  }
+ ],
+ "stage": 7,
+ "factory_pack_id": "fp_demo_minimal_phone_studio",
+ "queries": [
+  {
+   "process": "cnc",
+   "material": "Aluminium 6063 frame, cover glass",
+   "quantity": 2000,
+   "certifications_required": [
+    "ISO 9001"
+   ],
+   "deadline": null,
+   "category": "smartphone"
+  },
+  {
+   "process": "pcba",
+   "material": "FR-4 1.6 mm",
+   "quantity": 2000,
+   "certifications_required": [
+    "ISO 9001"
+   ],
+   "deadline": null,
+   "category": "smartphone"
+  },
+  {
+   "process": "other",
+   "material": "Steel",
+   "quantity": 2000,
+   "certifications_required": [
+    "ISO 9001"
+   ],
+   "deadline": null,
+   "category": "smartphone"
+  },
+  {
+   "process": "assembly",
+   "material": "any",
+   "quantity": 2000,
+   "certifications_required": [
+    "ISO 9001"
+   ],
+   "deadline": null,
+   "category": "smartphone"
+  }
+ ],
+ "shortlist": [
+  {
+   "rank": 1,
+   "factory_id": "f_lumenpeak",
+   "factory_name": "Lumen Peak Micro-Electronics (fictional)",
+   "score": {
+    "value": 84.7,
+    "unit": "score/100",
+    "label": "fictional",
+    "source_or_assumption": "Scored on demo data (fictional network)"
+   },
+   "score_breakdown": [
+    {
+     "criterion": "process_fit",
+     "score": 0.8,
+     "weight": 0.35,
+     "note": "Covers 3/4 processes in-house (CNC machining, PCBA, Assembly); would subcontract Other"
+    },
+    {
+     "criterion": "moq",
+     "score": 1.0,
+     "weight": 0.15,
+     "note": "MOQ 500 ≤ 2,000 units"
+    },
+    {
+     "criterion": "certifications",
+     "score": 1.0,
+     "weight": 0.15,
+     "note": "Holds ISO 9001 of ISO 9001"
+    },
+    {
+     "criterion": "load",
+     "score": 0.58,
+     "weight": 0.15,
+     "note": "66% loaded, ~8,500 units/month free"
+    },
+    {
+     "criterion": "lead_time",
+     "score": 0.9,
+     "weight": 0.2,
+     "note": "24-day lead time"
+    }
+   ],
+   "reasons": [
+    "Covers 3/4 processes in-house (CNC machining, PCBA, Assembly); would subcontract Other",
+    "Capacity available: 66% loaded, ~8,500 units/month free",
+    "Fast: 24-day lead time",
+    "95% on-time over 39 orders, 0.7% defects",
+    "Profile: fast/expensive"
+   ]
+  },
+  {
+   "rank": 2,
+   "factory_id": "f_harborlight",
+   "factory_name": "Harborlight Wearables EMS (fictional)",
+   "score": {
+    "value": 70.1,
+    "unit": "score/100",
+    "label": "fictional",
+    "source_or_assumption": "Scored on demo data (fictional network)"
+   },
+   "score_breakdown": [
+    {
+     "criterion": "process_fit",
+     "score": 0.4,
+     "weight": 0.35,
+     "note": "Covers 2/4 processes in-house (PCBA, Assembly); would subcontract CNC machining, Other"
+    },
+    {
+     "criterion": "moq",
+     "score": 1.0,
+     "weight": 0.15,
+     "note": "MOQ 1,000 ≤ 2,000 units"
+    },
+    {
+     "criterion": "certifications",
+     "score": 1.0,
+     "weight": 0.15,
+     "note": "Holds ISO 9001 of ISO 9001"
+    },
+    {
+     "criterion": "load",
+     "score": 0.74,
+     "weight": 0.15,
+     "note": "58% loaded, ~25,200 units/month free"
+    },
+    {
+     "criterion": "lead_time",
+     "score": 0.75,
+     "weight": 0.2,
+     "note": "30-day lead time"
+    }
+   ],
+   "reasons": [
+    "Covers 2/4 processes in-house (PCBA, Assembly); would subcontract CNC machining, Other",
+    "Capacity available: 58% loaded, ~25,200 units/month free",
+    "Fast: 30-day lead time",
+    "93% on-time over 64 orders, 0.9% defects",
+    "Profile: balanced"
+   ]
+  },
+  {
+   "rank": 3,
+   "factory_id": "f_skyforge",
+   "factory_name": "Skyforge Robotics Integrators (fictional)",
+   "score": {
+    "value": 67.9,
+    "unit": "score/100",
+    "label": "fictional",
+    "source_or_assumption": "Scored on demo data (fictional network)"
+   },
+   "score_breakdown": [
+    {
+     "criterion": "process_fit",
+     "score": 0.4,
+     "weight": 0.35,
+     "note": "Covers 3/4 processes in-house (CNC machining, PCBA, Assembly); would subcontract Other"
+    },
+    {
+     "criterion": "moq",
+     "score": 1.0,
+     "weight": 0.15,
+     "note": "MOQ 300 ≤ 2,000 units"
+    },
+    {
+     "criterion": "certifications",
+     "score": 1.0,
+     "weight": 0.15,
+     "note": "Holds ISO 9001 of ISO 9001"
+    },
+    {
+     "criterion": "load",
+     "score": 0.86,
+     "weight": 0.15,
+     "note": "52% loaded, ~3,840 units/month free"
+    },
+    {
+     "criterion": "lead_time",
+     "score": 0.55,
+     "weight": 0.2,
+     "note": "38-day lead time"
+    }
+   ],
+   "reasons": [
+    "Covers 3/4 processes in-house (CNC machining, PCBA, Assembly); would subcontract Other",
+    "Capacity available: 52% loaded, ~3,840 units/month free",
+    "38-day lead time",
+    "91% on-time over 27 orders, 1.1% defects",
+    "Profile: specialist (drone & robotics integrator)"
+   ]
+  },
+  {
+   "rank": 4,
+   "factory_id": "f_basalt",
+   "factory_name": "Basalt Precision Metal (fictional)",
+   "score": {
+    "value": 66.5,
+    "unit": "score/100",
+    "label": "fictional",
+    "source_or_assumption": "Scored on demo data (fictional network)"
+   },
+   "score_breakdown": [
+    {
+     "criterion": "process_fit",
+     "score": 0.4,
+     "weight": 0.35,
+     "note": "Covers 1/4 processes in-house (CNC machining); would subcontract PCBA, Other, Assembly"
+    },
+    {
+     "criterion": "moq",
+     "score": 1.0,
+     "weight": 0.15,
+     "note": "MOQ 300 ≤ 2,000 units"
+    },
+    {
+     "criterion": "certifications",
+     "score": 1.0,
+     "weight": 0.15,
+     "note": "Holds ISO 9001 of ISO 9001"
+    },
+    {
+     "criterion": "load",
+     "score": 0.5,
+     "weight": 0.15,
+     "note": "70% loaded, ~4,500 units/month free"
+    },
+    {
+     "criterion": "lead_time",
+     "score": 0.75,
+     "weight": 0.2,
+     "note": "30-day lead time"
+    }
+   ],
+   "reasons": [
+    "Covers 1/4 processes in-house (CNC machining); would subcontract PCBA, Other, Assembly",
+    "Capacity available: 70% loaded, ~4,500 units/month free",
+    "Fast: 30-day lead time",
+    "91% on-time over 35 orders, 0.7% defects",
+    "Profile: specialist (CNC metal)"
+   ]
+  },
+  {
+   "rank": 5,
+   "factory_id": "f_redkite",
+   "factory_name": "Red Kite Die-Cast (fictional)",
+   "score": {
+    "value": 66.1,
+    "unit": "score/100",
+    "label": "fictional",
+    "source_or_assumption": "Scored on demo data (fictional network)"
+   },
+   "score_breakdown": [
+    {
+     "criterion": "process_fit",
+     "score": 0.4,
+     "weight": 0.35,
+     "note": "Covers 1/4 processes in-house (CNC machining); would subcontract PCBA, Other, Assembly"
+    },
+    {
+     "criterion": "moq",
+     "score": 1.0,
+     "weight": 0.15,
+     "note": "MOQ 800 ≤ 2,000 units"
+    },
+    {
+     "criterion": "certifications",
+     "score": 1.0,
+     "weight": 0.15,
+     "note": "Holds ISO 9001 of ISO 9001"
+    },
+    {
+     "criterion": "load",
+     "score": 0.74,
+     "weight": 0.15,
+     "note": "58% loaded, ~12,600 units/month free"
+    },
+    {
+     "criterion": "lead_time",
+     "score": 0.55,
+     "weight": 0.2,
+     "note": "38-day lead time"
+    }
+   ],
+   "reasons": [
+    "Covers 1/4 processes in-house (CNC machining); would subcontract PCBA, Other, Assembly",
+    "Capacity available: 58% loaded, ~12,600 units/month free",
+    "38-day lead time",
+    "86% on-time over 42 orders, 1.6% defects",
+    "Profile: specialist (die-cast metal)"
+   ]
+  }
+ ]
+}

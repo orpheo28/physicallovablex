@@ -1,0 +1,126 @@
+{
+  "$defs": {
+    "Label": {
+      "description": "The four honesty labels. UI text: Measured / Sourced / Estimate / Fictional \u2014 demo data.",
+      "enum": [
+        "measured",
+        "sourced",
+        "estimate",
+        "fictional"
+      ],
+      "title": "Label",
+      "type": "string"
+    },
+    "LabeledValue": {
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "title": "Value",
+          "type": "number"
+        },
+        "unit": {
+          "description": "e.g. USD, EUR, mm, g, days, weeks, pct, units, man-days",
+          "title": "Unit",
+          "type": "string"
+        },
+        "label": {
+          "$ref": "#/$defs/Label"
+        },
+        "source_or_assumption": {
+          "description": "Sourced: '<source>, <YYYY-MM-DD>'. Estimate: the assumption. Measured: the check. Fictional: 'demo data'.",
+          "title": "Source Or Assumption",
+          "type": "string"
+        }
+      },
+      "required": [
+        "value",
+        "unit",
+        "label",
+        "source_or_assumption"
+      ],
+      "title": "LabeledValue",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "W21: how this product realistically gets built \u2014 design everything, assemble bought-in modules, or customise an\nODM reference platform. Figures are Estimates with their assumptions.",
+  "properties": {
+    "strategy": {
+      "enum": [
+        "full_design",
+        "module_assembly",
+        "odm_customization"
+      ],
+      "title": "Strategy",
+      "type": "string"
+    },
+    "title": {
+      "description": "e.g. 'Full design', 'Module assembly', 'ODM customisation'",
+      "title": "Title",
+      "type": "string"
+    },
+    "explanation": {
+      "title": "Explanation",
+      "type": "string"
+    },
+    "customisable": {
+      "description": "What the founder designs / chooses",
+      "items": {
+        "type": "string"
+      },
+      "title": "Customisable",
+      "type": "array"
+    },
+    "not_customisable": {
+      "description": "What comes from the modules / the ODM platform",
+      "items": {
+        "type": "string"
+      },
+      "title": "Not Customisable",
+      "type": "array"
+    },
+    "moq": {
+      "$ref": "#/$defs/LabeledValue",
+      "description": "Typical minimum order quantity (units), Estimate"
+    },
+    "entry_cost": {
+      "$ref": "#/$defs/LabeledValue",
+      "description": "Typical entry cost (NRE, tooling, certification) before the first order, Estimate"
+    },
+    "lead_time": {
+      "$ref": "#/$defs/LabeledValue",
+      "description": "Typical time from frozen design to first production units (weeks), Estimate"
+    },
+    "path": {
+      "description": "Realistic steps (for ODM: find a close reference platform\u2026)",
+      "items": {
+        "type": "string"
+      },
+      "title": "Path",
+      "type": "array"
+    },
+    "certifications_note": {
+      "default": "",
+      "title": "Certifications Note",
+      "type": "string"
+    },
+    "assumptions": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Assumptions",
+      "type": "array"
+    }
+  },
+  "required": [
+    "strategy",
+    "title",
+    "explanation",
+    "customisable",
+    "moq",
+    "entry_cost",
+    "lead_time"
+  ],
+  "title": "BuildStrategy",
+  "type": "object"
+}

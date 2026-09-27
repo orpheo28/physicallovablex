@@ -1,0 +1,2172 @@
+{
+ "id": "fp_demo_whoop_kitesurf_v2",
+ "project_id": "demo_whoop_kitesurf",
+ "version": 2,
+ "created_at": "2026-09-26T23:54:39.360436Z",
+ "fallback": false,
+ "cached_note": null,
+ "fallback_stages": [],
+ "product_name": "Kitesurf recovery band",
+ "product_summary": "A screenless wrist-worn band that tracks activity and recovery for kitesurfers. Target volumes: 500 / 2,000 / 10,000 units; markets: US.",
+ "product_summary_cn": "一款无屏幕的腕戴式手环，用于追踪风筝冲浪者的活动与恢复数据。目标产量：500 / 2,000 / 10,000 件；目标市场：美国。",
+ "target_markets": [
+  "US"
+ ],
+ "spec": {
+  "overall_dimensions": {
+   "length": {
+    "value": 44.0,
+    "unit": "mm",
+    "label": "measured",
+    "source_or_assumption": "Bounding box of the built STEP (build123d/OCCT), pod only (strap excluded)"
+   },
+   "width": {
+    "value": 30.0,
+    "unit": "mm",
+    "label": "measured",
+    "source_or_assumption": "Bounding box of the built STEP (build123d/OCCT), pod only (strap excluded)"
+   },
+   "height": {
+    "value": 8.0,
+    "unit": "mm",
+    "label": "measured",
+    "source_or_assumption": "Bounding box of the built STEP (build123d/OCCT), pod only (strap excluded)"
+   }
+  },
+  "weight": {
+   "value": 5.2,
+   "unit": "g",
+   "label": "estimate",
+   "source_or_assumption": "Enclosure volume 4.5 cm³ (measured) × PC/ABS 1.15 g/cm³; electronics, battery and strap not included"
+  },
+  "parts": [
+   {
+    "id": "p1",
+    "name": "Bottom shell",
+    "material": "PC/ABS (UL94 V-0)",
+    "finish": "MT-11010 light texture · Pink #FFC0CB",
+    "process_hint": "injection_molding",
+    "tolerance": "±0.1 mm on mating faces and boss pilots",
+    "dimensions": {
+     "length": {
+      "value": 44.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the built STEP (build123d/OCCT), this part"
+     },
+     "width": {
+      "value": 30.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the built STEP (build123d/OCCT), this part"
+     },
+     "height": {
+      "value": 5.12,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the built STEP (build123d/OCCT), this part"
+     }
+    },
+    "wall_thickness": {
+     "value": 1.5,
+     "unit": "mm",
+     "label": "estimate",
+     "source_or_assumption": "Design parameter (nominal wall); measured in DFM stage 4"
+    },
+    "quantity": 1
+   },
+   {
+    "id": "p2",
+    "name": "Top shell",
+    "material": "PC/ABS (UL94 V-0)",
+    "finish": "MT-11010 light texture · Pink #FFC0CB",
+    "process_hint": "injection_molding",
+    "tolerance": "±0.1 mm on mating faces and boss pilots",
+    "dimensions": {
+     "length": {
+      "value": 44.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the built STEP (build123d/OCCT), this part"
+     },
+     "width": {
+      "value": 30.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the built STEP (build123d/OCCT), this part"
+     },
+     "height": {
+      "value": 2.88,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the built STEP (build123d/OCCT), this part"
+     }
+    },
+    "wall_thickness": {
+     "value": 1.5,
+     "unit": "mm",
+     "label": "estimate",
+     "source_or_assumption": "Design parameter (nominal wall); measured in DFM stage 4"
+    },
+    "quantity": 1
+   },
+   {
+    "id": "p3",
+    "name": "Main PCB assembly",
+    "material": "FR-4 1.6 mm",
+    "finish": "HASL lead-free, green mask",
+    "process_hint": "pcba",
+    "tolerance": "±0.2 mm outline",
+    "dimensions": {
+     "length": {
+      "value": 35.0,
+      "unit": "mm",
+      "label": "estimate",
+      "source_or_assumption": "PCB length: fits the inner cavity with 1 mm clearance"
+     },
+     "width": {
+      "value": 21.0,
+      "unit": "mm",
+      "label": "estimate",
+      "source_or_assumption": "PCB width: fits the inner cavity with 1 mm clearance"
+     },
+     "height": {
+      "value": 0.8,
+      "unit": "mm",
+      "label": "estimate",
+      "source_or_assumption": "PCB thickness: fits the inner cavity with 1 mm clearance"
+     }
+    },
+    "wall_thickness": null,
+    "quantity": 1
+   },
+   {
+    "id": "p4",
+    "name": "Screws M2.5 × 6 self-tapping",
+    "material": "Steel",
+    "finish": "Black zinc",
+    "process_hint": "other",
+    "tolerance": null,
+    "dimensions": null,
+    "wall_thickness": null,
+    "quantity": 4
+   },
+   {
+    "id": "p5",
+    "name": "Strap",
+    "material": "Liquid silicone rubber (LSR)",
+    "finish": "Matte · Pink #FFC0CB",
+    "process_hint": "injection_molding",
+    "tolerance": "±0.2 mm on width and pin holes",
+    "dimensions": {
+     "length": {
+      "value": 230.0,
+      "unit": "mm",
+      "label": "estimate",
+      "source_or_assumption": "Design parameter (strap), not measured: the strap is drawn in the viewer model only"
+     },
+     "width": {
+      "value": 24.0,
+      "unit": "mm",
+      "label": "estimate",
+      "source_or_assumption": "Design parameter (strap), not measured: the strap is drawn in the viewer model only"
+     },
+     "height": {
+      "value": 2.4,
+      "unit": "mm",
+      "label": "estimate",
+      "source_or_assumption": "Design parameter (strap), not measured: the strap is drawn in the viewer model only"
+     }
+    },
+    "wall_thickness": {
+     "value": 2.4,
+     "unit": "mm",
+     "label": "estimate",
+     "source_or_assumption": "Design parameter (strap), not measured: the strap is drawn in the viewer model only"
+    },
+    "quantity": 1
+   }
+  ],
+  "tolerances": [
+   "General ISO 2768-m",
+   "Shell mating faces ±0.1 mm",
+   "Boss pilot Ø2.2 +0.05/0 mm",
+   "Split-line step ≤ 0.1 mm"
+  ]
+ },
+ "cad_files": [
+  {
+   "format": "glb",
+   "url": "/files/demo_whoop_kitesurf/model_v2.glb",
+   "description": "AI-generated CAD (concept level) — geometry measured on the result — bbox 80 × 30 × 40 mm",
+   "size_bytes": 152988
+  },
+  {
+   "format": "step",
+   "url": "/files/demo_whoop_kitesurf/model_v2.step",
+   "description": "AI-generated CAD (concept level) — geometry measured on the result — STEP AP214",
+   "size_bytes": 250750
+  },
+  {
+   "format": "py",
+   "url": "/projects/demo_whoop_kitesurf/cad/code/2",
+   "description": "AI-generated CAD (concept level) — geometry measured on the result — build123d program v2 (llm:openai/gpt-6-sol)",
+   "size_bytes": 2921
+  },
+  {
+   "format": "glb",
+   "url": "/files/demo_whoop_kitesurf/v4.glb",
+   "description": "Full product — materials",
+   "size_bytes": 243748
+  },
+  {
+   "format": "step",
+   "url": "/files/demo_whoop_kitesurf/v4_enclosure.step",
+   "description": "Moulded parts (DFM) — both shells, STEP AP214",
+   "size_bytes": 192155
+  },
+  {
+   "format": "stl",
+   "url": "/files/demo_whoop_kitesurf/v4_enclosure.stl",
+   "description": "Moulded parts (DFM) — mesh for 3D printing",
+   "size_bytes": 289884
+  },
+  {
+   "format": "glb",
+   "url": "/files/demo_whoop_kitesurf/v4_enclosure.glb",
+   "description": "Moulded parts (DFM) — viewer model",
+   "size_bytes": 200056
+  }
+ ],
+ "bom": [
+  {
+   "id": "e1",
+   "part": "BLE microcontroller, WCH CH582M",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "BLE MCU with integrated 2.4 GHz radio; PCB antenna matching/layout required",
+   "manufacturer_pn": "CH582M",
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 1.656,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: BLE / Wi-Fi SoC ≈ USD 1.8 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "risk": {
+    "level": "medium",
+    "reasons": [
+     "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+    ]
+   },
+   "alternative": null
+  },
+  {
+   "id": "e2",
+   "part": "Optical heart-rate sensor, MAX30102",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Reflective PPG sensor for wrist heart-rate measurement",
+   "manufacturer_pn": "MAX30102",
+   "lcsc_pn": "C6454833",
+   "unit_cost_est": {
+    "value": 12.182,
+    "unit": "USD",
+    "label": "sourced",
+    "source_or_assumption": "LCSC price, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C6454833.html"
+   },
+   "risk": {
+    "level": "medium",
+    "reasons": [
+     "expensive: $12.18/unit at 2k (above $3)",
+     "low stock (776 pcs)",
+     "JLCPCB extended part (per-part-type feeder fee at assembly)",
+     "single source: no same-package alternative in the snapshot",
+     "no cheaper in-stock part of the same kind in the snapshot: keep, or qualify a second source"
+    ]
+   },
+   "alternative": null
+  },
+  {
+   "id": "e3",
+   "part": "6-axis IMU, QMI8658A",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Accelerometer and gyroscope for activity and motion tracking",
+   "manufacturer_pn": "QMI8658A",
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 1.012,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: 6-axis IMU ≈ USD 1.1 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "risk": {
+    "level": "medium",
+    "reasons": [
+     "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+    ]
+   },
+   "alternative": null
+  },
+  {
+   "id": "e4",
+   "part": "LiPo battery, 3.7 V, 150 mAh",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Rechargeable single-cell pouch battery; confirm capacity and fit against final enclosure and five-day power budget",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 1.104,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Battery priced by energy: 150 mAh × 3.7 V = 0.6 Wh (stated capacity) × $0.35/Wh + pack overhead"
+   },
+   "risk": {
+    "level": "medium",
+    "reasons": [
+     "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+    ]
+   },
+   "alternative": null
+  },
+  {
+   "id": "e5",
+   "part": "Single-cell LiPo charger IC, TP4054",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Linear charger; charging input provided through external contacts",
+   "manufacturer_pn": "TP4054",
+   "lcsc_pn": "C7473157",
+   "unit_cost_est": {
+    "value": 0.0312,
+    "unit": "USD",
+    "label": "sourced",
+    "source_or_assumption": "LCSC price, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C7473157.html"
+   },
+   "risk": {
+    "level": "medium",
+    "reasons": [
+     "JLCPCB extended part (per-part-type feeder fee at assembly)",
+     "single source: no same-package alternative in the snapshot"
+    ]
+   },
+   "alternative": null
+  },
+  {
+   "id": "e6",
+   "part": "3.3 V LDO regulator, XC6206P332MR",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Regulates battery supply for sensors and MCU as required by final power design",
+   "manufacturer_pn": "XC6206P332MR",
+   "lcsc_pn": "C6430947",
+   "unit_cost_est": {
+    "value": 0.0165,
+    "unit": "USD",
+    "label": "sourced",
+    "source_or_assumption": "LCSC price, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C6430947.html"
+   },
+   "risk": {
+    "level": "low",
+    "reasons": [
+     "JLCPCB extended part (per-part-type feeder fee at assembly)"
+    ]
+   },
+   "alternative": null
+  },
+  {
+   "id": "e7",
+   "part": "PCB with BLE antenna and charging-contact pads",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Custom rigid PCB; antenna and matching network require RF tuning",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 1.38,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: antenna set ≈ USD 1.5 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "risk": {
+    "level": "medium",
+    "reasons": [
+     "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+    ]
+   },
+   "alternative": null
+  },
+  {
+   "id": "e8",
+   "part": "Resistors, capacitors, inductors and protection passives",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Grouped PCB passives for MCU, sensors, charger, regulator and RF matching; values finalized in schematic/layout",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.736,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: passives group ≈ USD 0.8 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "risk": {
+    "level": "medium",
+    "reasons": [
+     "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+    ]
+   },
+   "alternative": null
+  },
+  {
+   "id": "e9",
+   "part": "Charging contacts",
+   "category": "electronic",
+   "qty": 2.0,
+   "description": "Gold-plated PCB contacts for external charging dock",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.276,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: charging contact ≈ USD 0.3 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "risk": {
+    "level": "medium",
+    "reasons": [
+     "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+    ]
+   },
+   "alternative": null
+  },
+  {
+   "id": "m1",
+   "part": "Top shell",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Injection-moulded PC/ABS, UL94 V-0; outer 44 × 30 × 10 mm; 1.5 mm wall",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.2698,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Top shell: Moulded shell 44×30×2.88 mm, wall 1.5 mm ≈ 2.8 cm³ × 1.15 g/cm³ = 3 g × $3.2/kg + $0.28 moulding/finish conversion"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m2",
+   "part": "Bottom shell",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Injection-moulded PC/ABS, UL94 V-0; mates with top shell; internal cavity approximately 41 × 27 × 7 mm",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.2741,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Bottom shell: Moulded shell 44×30×5.12 mm, wall 1.5 mm ≈ 3.1 cm³ × 1.15 g/cm³ = 4 g × $3.2/kg + $0.29 moulding/finish conversion"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m3",
+   "part": "M2.5 screws",
+   "category": "mechanical",
+   "qty": 4.0,
+   "description": "Enclosure fastening screws; length and head style to match shell bosses",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.0276,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: screw ≈ USD 0.03 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m4",
+   "part": "Wrist strap and attachment hardware",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Adjustable wrist-worn band compatible with enclosure",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.5183,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Strap: Moulded shell 230×24×2.4 mm, wall 2.4 mm ≈ 17.7 cm³ × 1.15 g/cm³ = 20 g × $5.0/kg + $0.46 moulding/finish conversion"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m5",
+   "part": "Optical sensor window and light seal",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Optically suitable window and opaque seal to limit ambient-light leakage at skin interface",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.92,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: internal brackets / seals ≈ USD 1 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "k1",
+   "part": "Retail carton and insert",
+   "category": "packaging",
+   "qty": 1.0,
+   "description": "Protective carton and insert sized for band and accessories",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 1.38,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: retail carton + insert ≈ USD 1.5 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "k2",
+   "part": "Printed quick-start guide",
+   "category": "packaging",
+   "qty": 1.0,
+   "description": "Setup, charging and app-pairing instructions",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.276,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: printed guide ≈ USD 0.3 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  }
+ ],
+ "dfm_alerts": [
+  {
+   "id": "a1",
+   "severity": "major",
+   "category": "assembly",
+   "method": "ai_reviewed",
+   "part_id": null,
+   "description": "A kitesurf wearable needs a defined seal at the shell joint, screws, charging contacts, and optical window; none is specified.",
+   "fix": "Specify gaskets or overmolding, sealing geometry, compression limits, and an assembled-unit ingress test.",
+   "rule_citation": "Verify enclosure ingress protection by test — IEC 60529.",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a2",
+   "severity": "major",
+   "category": "assembly",
+   "method": "ai_reviewed",
+   "part_id": null,
+   "description": "The optical sensor window and light seal appear in the BOM but have no material, geometry, retention method, or assembly process.",
+   "fix": "Add controlled drawings and an assembly method for the window and light seal; validate optical performance after sealing.",
+   "rule_citation": "Define mating features and assembly method before tooling — Protolabs injection molding design guide.",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a3",
+   "severity": "major",
+   "category": "other",
+   "method": "ai_reviewed",
+   "part_id": null,
+   "description": "The LiPo cell is listed without a specified protection circuit, retention method, or routing that prevents lead pinching during shell closure.",
+   "fix": "Specify a protected cell or protection circuit, a cell restraint, and a wire-routing and inspection procedure.",
+   "rule_citation": "Safety requirements and tests for portable lithium cells and batteries — IEC 62133-2.",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a4",
+   "severity": "major",
+   "category": "material",
+   "method": "ai_reviewed",
+   "part_id": "p5",
+   "description": "The strap material and finish do not specify resistance to UV, saltwater, sunscreen, or repeated flexing in the intended use.",
+   "fix": "Set grade and qualification requirements for weathering, chemical exposure, tear strength, and flex life before approving the strap mold.",
+   "rule_citation": "Accelerated exposure of plastics to laboratory light sources — ISO 4892-2.",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a5",
+   "severity": "major",
+   "category": "assembly",
+   "method": "ai_reviewed",
+   "part_id": null,
+   "description": "Strap attachment hardware is in the BOM but its parts, retention geometry, and assembly method are undefined.",
+   "fix": "Specify pins or other attachment hardware, mating features, installation steps, and a strap pull-test requirement.",
+   "rule_citation": "Define mating features and assembly method before tooling — Protolabs injection molding design guide.",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a6",
+   "severity": "major",
+   "category": "material",
+   "method": "ai_reviewed",
+   "part_id": null,
+   "description": "The charging contacts have no specified base metal, plating, or corrosion acceptance criteria for saltwater exposure.",
+   "fix": "Specify contact material and plating, isolate dissimilar metals where needed, and qualify assembled contacts for salt-fog exposure.",
+   "rule_citation": "Salt mist corrosion test method — IEC 60068-2-11.",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "m1",
+   "severity": "minor",
+   "category": "draft",
+   "method": "measured",
+   "part_id": "p1",
+   "description": "Minimum wall draft is 1.33°: enough for a polished finish, short of the ~3° a textured finish ('MT-11010 light texture · Pink #FFC0CB') needs.",
+   "fix": "Increase draft to 3° on textured faces, or specify a lighter texture / polished finish.",
+   "rule_citation": "Draft ≥1° plus 1° per 0.025 mm texture depth — Protolabs injection molding design guidelines; measured with text-to-cad DFM skill (mold_tool.py, MIT) ported to OCCT",
+   "measurement": {
+    "value": 1.333,
+    "unit": "deg",
+    "label": "measured",
+    "source_or_assumption": "Min wall draft vs pull +Z: lowest-draft B-rep wall face ≥ 6.31 mm² (curved, 33.09 mm² at [0.0, -0.0, 0.4]) — text-to-cad DFM skill (mold_tool.py, MIT) ported to OCCT"
+   },
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "m2",
+   "severity": "minor",
+   "category": "projection",
+   "method": "measured",
+   "part_id": "p1",
+   "description": "Projected area along +Z: 1250 mm² (part silhouette, per cavity). Estimated clamp force ≈ 6.4 t (Estimate: area in² × 3.0 t/in² for PC/ABS × 1.1 safety) — per cavity; a family tool moulding both shells in one shot roughly doubles it.",
+   "fix": "Quote on a press ≥ 10 t; keep both shells in one family mould only if tonnage allows.",
+   "rule_citation": "Clamp force ≈ projected area × cavity-pressure factor (2-5 t/in²) — Protolabs injection molding design guidelines; silhouette raster from text-to-cad DFM skill (mold_tool.py, MIT) ported to OCCT",
+   "measurement": {
+    "value": 1250.3,
+    "unit": "mm2",
+    "label": "measured",
+    "source_or_assumption": "Silhouette along +Z, raster 0.11 mm — text-to-cad DFM skill (mold_tool.py, MIT) ported to OCCT"
+   },
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "m3",
+   "severity": "minor",
+   "category": "wall_thickness",
+   "method": "measured",
+   "part_id": "p1",
+   "description": "Measured wall 1.50-1.50 mm is within the PC/ABS 1.2-3.5 mm range; keep bosses/ribs ≤ 60% of nominal wall to avoid sink.",
+   "fix": "No change to nominal wall; core bosses and ribs to ≤ 60% of the wall.",
+   "rule_citation": "PC/ABS wall 1.2-3.5 mm, ribs/bosses ≤ 60% of wall — Protolabs injection molding design guidelines",
+   "measurement": {
+    "value": 1.5,
+    "unit": "mm",
+    "label": "measured",
+    "source_or_assumption": "5th percentile of 3120 ray samples into the material (median 1.5 mm)"
+   },
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a7",
+   "severity": "minor",
+   "category": "tolerance",
+   "method": "ai_reviewed",
+   "part_id": null,
+   "description": "The shell mating-face and split-line requirements lack a datum scheme and a stack-up covering both molded shells and their alignment features.",
+   "fix": "Define functional datums and a closed-shell inspection method; calculate the stack-up before releasing tool drawings.",
+   "rule_citation": "Geometrical tolerancing requires defined datum references for controlled relationships — ISO 1101 and ISO 5459.",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a8",
+   "severity": "minor",
+   "category": "assembly",
+   "method": "ai_reviewed",
+   "part_id": "p1",
+   "description": "The screw specification and boss pilot are given, but boss depth, outer diameter, engagement length, and installation torque are not defined for repeatable self-tapping assembly.",
+   "fix": "Detail the boss geometry and screw engagement, then validate driving torque, stripping torque, and repeated assembly on molded samples.",
+   "rule_citation": "Size molded screw bosses for the selected fastener and validate assembly — Protolabs injection molding design guide.",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  }
+ ],
+ "certifications": [
+  {
+   "market": "US",
+   "standard": "FCC Part 15C (intentional radiator; 15B digital-device emissions tested with it)",
+   "applies_because": "Contains an intentional radiator (BLE); needs an FCC ID via a TCB unless a fully pre-certified module is used unmodified. Sourced: 47 CFR 15.247 (Operation within the bands 902-928 MHz, 2400-2483.5 MHz, and 5725-5850 MHz): “(a) Operation under the provisions of this Section is limited to frequency hopping and digitally modulated intentional radiators that comply with the following provisions: (1) Frequency hopping systems shall have hopping channel…” — eCFR text as of 2026-09-22, retrieved 2026-09-26, https://www.ecfr.gov/current/title-47/section-15.247. See also 47 CFR 15.19, 47 CFR 15.101, 47 CFR 15.109.",
+   "required": true,
+   "cost_est": {
+    "value": 6000.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Accredited-lab range, demo assumption — lower if a pre-certified module is integrated"
+   },
+   "lead_time_weeks": {
+    "value": 6.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Typical lab queue + report, demo assumption"
+   }
+  },
+  {
+   "market": "Global",
+   "standard": "UN38.3 (lithium battery transport tests)",
+   "applies_because": "Lithium cells must pass UN Manual of Tests and Criteria 38.3 to ship by sea/air; ask the cell supplier for the test summary. Reference: UN Manual of Tests and Criteria, section 38.3; IATA Lithium Battery Guidance Document 2026, https://www.iata.org/contentassets/05e6d8742b0047259bf3a700bc9d42b9/lithium-battery-guidance-document.pdf",
+   "required": true,
+   "cost_est": {
+    "value": 1000.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Accredited-lab range, demo assumption"
+   },
+   "lead_time_weeks": {
+    "value": 4.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Typical lab queue + report, demo assumption"
+   }
+  },
+  {
+   "market": "Global",
+   "standard": "IEC 62133-2 (secondary lithium cell/battery safety)",
+   "applies_because": "Rechargeable lithium cell inside the product; also required by many retailers and by EU/UK market surveillance",
+   "required": true,
+   "cost_est": {
+    "value": 2500.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Accredited-lab range, demo assumption"
+   },
+   "lead_time_weeks": {
+    "value": 4.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Typical lab queue + report, demo assumption"
+   }
+  },
+  {
+   "market": "Global",
+   "standard": "Bluetooth SIG qualification (listing)",
+   "applies_because": "Needed to use the Bluetooth name and logo; a pre-qualified module keeps the listing inexpensive",
+   "required": false,
+   "cost_est": {
+    "value": 3000.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Accredited-lab range, demo assumption — verify the current SIG fee"
+   },
+   "lead_time_weeks": {
+    "value": 2.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Typical lab queue + report, demo assumption"
+   }
+  },
+  {
+   "market": "US",
+   "standard": "47 CFR § 2.1093",
+   "applies_because": "As a wrist-worn BLE transmitter used close to the body, the band needs an RF-exposure compliance evaluation under the portable-device rules, even if it qualifies for SAR-test exemption.",
+   "required": true,
+   "cost_est": {
+    "value": 1500.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "LLM-proposed rough estimate — get a lab quote to confirm"
+   },
+   "lead_time_weeks": {
+    "value": 2.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "LLM-proposed rough estimate — get a lab quote to confirm"
+   }
+  },
+  {
+   "market": "Global",
+   "standard": "ISO 10993-5 / -10 (skin-contact biocompatibility: cytotoxicity, sensitisation)",
+   "applies_because": "Worn against the skin for hours: retailers and EU market surveillance expect biocompatibility data for the skin-contact materials",
+   "required": false,
+   "cost_est": {
+    "value": 2500.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Accredited-lab range, demo assumption — lower if the material supplier already holds reports"
+   },
+   "lead_time_weeks": {
+    "value": 5.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Typical lab queue + report, demo assumption"
+   }
+  },
+  {
+   "market": "US",
+   "standard": "FDA general-wellness policy review (no medical claims)",
+   "applies_because": "Heart-rate / HRV / sleep metrics stay a non-regulated wellness product only while no diagnostic claim is made; a claims review avoids a 510(k)",
+   "required": false,
+   "cost_est": {
+    "value": 1500.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Accredited-lab range, demo assumption — regulatory-consultant review, demo assumption"
+   },
+   "lead_time_weeks": {
+    "value": 2.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Typical lab queue + report, demo assumption"
+   }
+  }
+ ],
+ "target_quantities": [
+  500,
+  2000,
+  10000
+ ],
+ "cost_estimate": [
+  {
+   "quantity": 500,
+   "bom_cost": {
+    "value": 21.5,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Electronics at LCSC price breaks (LCSC price, 2026-09-26); other lines base × 0.92^0"
+   },
+   "assembly_cost": {
+    "value": 5.51,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Assembly + factory overhead/margin: 14.4 min = 6 base + 0.6 × 14 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^0"
+   },
+   "packaging_cost": {
+    "value": 1.8,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Packaging BOM lines × 0.92^0"
+   },
+   "unit_cost": {
+    "value": 28.82,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
+   },
+   "tooling_amortisation": {
+    "value": 7.46,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "$3,730 tooling ÷ 500"
+   },
+   "margin_pct": {
+    "value": 76.0,
+    "unit": "pct",
+    "label": "estimate",
+    "source_or_assumption": "($199.00 target − $47.83 landed estimate) ÷ target; before retailer margin, VAT and marketing"
+   }
+  },
+  {
+   "quantity": 2000,
+   "bom_cost": {
+    "value": 20.76,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Electronics at LCSC price breaks (LCSC price, 2026-09-26); other lines base × 0.92^1"
+   },
+   "assembly_cost": {
+    "value": 5.22,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Assembly + factory overhead/margin: 14.4 min = 6 base + 0.6 × 14 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^1"
+   },
+   "packaging_cost": {
+    "value": 1.66,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Packaging BOM lines × 0.92^1"
+   },
+   "unit_cost": {
+    "value": 27.64,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
+   },
+   "tooling_amortisation": {
+    "value": 1.86,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "$3,730 tooling ÷ 2,000"
+   },
+   "margin_pct": {
+    "value": 80.1,
+    "unit": "pct",
+    "label": "estimate",
+    "source_or_assumption": "($199.00 target − $39.60 landed estimate) ÷ target; before retailer margin, VAT and marketing"
+   }
+  },
+  {
+   "quantity": 10000,
+   "bom_cost": {
+    "value": 20.07,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Electronics at LCSC price breaks (LCSC price, 2026-09-26); other lines base × 0.92^2"
+   },
+   "assembly_cost": {
+    "value": 4.94,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Assembly + factory overhead/margin: 14.4 min = 6 base + 0.6 × 14 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^2"
+   },
+   "packaging_cost": {
+    "value": 1.52,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Packaging BOM lines × 0.92^2"
+   },
+   "unit_cost": {
+    "value": 26.54,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
+   },
+   "tooling_amortisation": {
+    "value": 0.37,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "$3,730 tooling ÷ 10,000"
+   },
+   "margin_pct": {
+    "value": 81.7,
+    "unit": "pct",
+    "label": "estimate",
+    "source_or_assumption": "($199.00 target − $36.45 landed estimate) ÷ target; before retailer margin, VAT and marketing"
+   }
+  }
+ ],
+ "questions": [
+  {
+   "id": "fq1",
+   "en": "DFM major — A kitesurf wearable needs a defined seal at the shell joint, screws, charging contacts, and optical window; none is specified. Proposed fix: Specify gaskets or overmolding, sealing geometry, compression limits, and an assembled-unit ingress test. Can you accommodate this, and at what cost or lead-time impact?",
+   "cn": "DFM 重大问题 — 风筝冲浪可穿戴设备的外壳接缝、螺丝、充电触点和光学窗口处均需明确的密封设计，但目前均未指定。建议方案：指定垫圈或包胶工艺、密封几何结构、压缩限值，以及整机组装后的防护（ingress）测试。贵司能否满足此要求？对成本和交期有何影响？",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  },
+  {
+   "id": "fq2",
+   "en": "DFM major — The optical sensor window and light seal appear in the BOM but have no material, geometry, retention method, or assembly process. Proposed fix: Add controlled drawings and an assembly method for the window and light seal; validate optical performance after sealing. Can you accommodate this, and at what cost or lead-time impact?",
+   "cn": "DFM 重大问题 — 光学传感器窗口和遮光件出现在 BOM 中，但未指定材料、几何结构、固定方式或组装工艺。建议方案：为窗口和遮光件补充受控图纸和组装方法，并在密封后验证光学性能。贵司能否满足此要求？对成本和交期有何影响？",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  },
+  {
+   "id": "fq3",
+   "en": "DFM major — The LiPo cell is listed without a specified protection circuit, retention method, or routing that prevents lead pinching during shell closure. Proposed fix: Specify a protected cell or protection circuit, a cell restraint, and a wire-routing and inspection procedure. Can you accommodate this, and at what cost or lead-time impact?",
+   "cn": "DFM 重大问题 — 聚合物锂电池（LiPo）未指定保护电路、固定方式，也未指定防止合壳时导线被夹住的走线方案。建议方案：指定带保护的电芯或保护电路、电芯固定结构，以及走线和检验流程。贵司能否满足此要求？对成本和交期有何影响？",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  },
+  {
+   "id": "fq4",
+   "en": "What are your MOQ and lead time for 500 units, and how do they change at 2,000 and 10,000 units?",
+   "cn": "贵司 500 件的最小起订量（MOQ）和交期是多少？在 2,000 件和 10,000 件时如何变化？",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  },
+  {
+   "id": "fq5",
+   "en": "What payment terms and sample rounds (T0, T1, golden sample) do you propose, with dates?",
+   "cn": "贵司建议的付款条件和样品轮次（T0、T1、黄金样件）是什么？请附日期。",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  },
+  {
+   "id": "fq6",
+   "en": "Please confirm the tolerances in the spec and flag any tolerance or finish you cannot hold.",
+   "cn": "请确认规格书中的公差，并指出任何贵司无法保证的公差或表面处理。",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  },
+  {
+   "id": "fq7",
+   "en": "Which BOM components do you source yourselves, and do you accept the listed alternatives for high-risk parts?",
+   "cn": "BOM 中哪些物料由贵司自行采购？对于高风险物料，贵司是否接受清单中列出的替代料？",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  }
+ ],
+ "assumption_register": [
+  {
+   "id": "a1",
+   "text": "Skipped clarifying questions use their defaults: markets=US; volume=Under 1,000 units; target_price=$199 USD; battery=Rechargeable Li-ion; wireless=BLE to a phone. Re-run stage 1 with answers to change them.",
+   "label": "estimate",
+   "source": null,
+   "stage": 1
+  },
+  {
+   "id": "a2",
+   "text": "Target retail price proposed by the spec copilot (not stated by the founder); confirm before costing.",
+   "label": "estimate",
+   "source": null,
+   "stage": 1
+  },
+  {
+   "id": "a2_1",
+   "text": "Two-shell injection-moulded enclosure, drafted walls, split line in the XY plane",
+   "label": "estimate",
+   "source": null,
+   "stage": 2
+  },
+  {
+   "id": "a2_2",
+   "text": "Names, colours and dimensions from 'small' category presets (LLM unavailable: ValueError)",
+   "label": "estimate",
+   "source": null,
+   "stage": 2
+  },
+  {
+   "id": "a2_render",
+   "text": "AI concept render — illustrative, not the CAD. Generated by an AI image model from the direction's shape, dimensions, material, finish and colour; the 3D model is the CAD.",
+   "label": "estimate",
+   "source": null,
+   "stage": 2
+  },
+  {
+   "id": "a2_studio",
+   "text": "Direction d1 refined in Studio (version 4); dimensions are design parameters, the spec measures the built CAD",
+   "label": "estimate",
+   "source": null,
+   "stage": 2
+  },
+  {
+   "id": "a3_1",
+   "text": "PC/ABS density 1.15 g/cm³ for the weight estimate",
+   "label": "estimate",
+   "source": null,
+   "stage": 3
+  },
+  {
+   "id": "a3_2",
+   "text": "Direction d1 ('Soft block') built as a two-shell enclosure, wall 1.5 mm, draft 1.5°",
+   "label": "estimate",
+   "source": null,
+   "stage": 3
+  },
+  {
+   "id": "a4_1",
+   "text": "Measured checks assume a straight two-half tool pulling along ±Z (split line in the XY plane)",
+   "label": "estimate",
+   "source": null,
+   "stage": 4
+  },
+  {
+   "id": "a4_2",
+   "text": "Clamp tonnage = projected area (in²) × 3 t/in² (PC/ABS) × 1.1 safety",
+   "label": "estimate",
+   "source": null,
+   "stage": 4
+  },
+  {
+   "id": "s5_a1",
+   "text": "Volume curve: non-LCSC lines and assembly × 0.92 per tier step (500 → 2,000 → 10,000)",
+   "label": "estimate",
+   "source": "Demo assumption (PRD §11), editable",
+   "stage": 5
+  },
+  {
+   "id": "s5_a2",
+   "text": "Assembly 14.4 min = 6 base + 0.6 × 14 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials",
+   "label": "estimate",
+   "source": null,
+   "stage": 5
+  },
+  {
+   "id": "a3",
+   "text": "Electronic lines matched to the JLCPCB/LCSC parts snapshot of 2026-09-26 (CDFER/jlcpcb-parts-database, MIT); unmatched lines are estimates",
+   "label": "sourced",
+   "source": "https://github.com/CDFER/jlcpcb-parts-database",
+   "stage": 5
+  },
+  {
+   "id": "a4",
+   "text": "Simple 1-cavity injection mold $1,000-3,000; complex multi-cavity steel mold $30,000-100,000",
+   "label": "estimate",
+   "source": "Zetar Mold 2026 price list (vendor, medium confidence), https://zetarmold.com/injection-mold-price-list-2026",
+   "stage": 5
+  },
+  {
+   "id": "a5",
+   "text": "Sum of 4 required certifications from stage 4 (their own cost estimates)",
+   "label": "estimate",
+   "source": null,
+   "stage": 5
+  },
+  {
+   "id": "a6",
+   "text": "Landed-cost basis for margin and cash: sea freight (fictional rates), HTS 9031.80.80.85 (general 0%, Section 301 25%), IEEPA 0, Section 122 off",
+   "label": "estimate",
+   "source": "https://hts.usitc.gov/search?query=9031.80.80.85",
+   "stage": 5
+  },
+  {
+   "id": "a7",
+   "text": "Brief target price 199 USD (retail price incl. VAT where applicable)",
+   "label": "estimate",
+   "source": null,
+   "stage": 5
+  },
+  {
+   "id": "b1",
+   "text": "BOM from stage 3 spec",
+   "label": "estimate",
+   "source": null,
+   "stage": 5
+  },
+  {
+   "id": "s6_a1",
+   "text": "Lead times are typical values per process (tooling + first shots), not factory quotes; refined at stages 7-9 with the negotiated quote.",
+   "label": "estimate",
+   "source": null,
+   "stage": 6
+  },
+  {
+   "id": "s6_a2",
+   "text": "Mass production duration assumes 90 units/day on one line for a 2,000-unit order.",
+   "label": "estimate",
+   "source": null,
+   "stage": 6
+  },
+  {
+   "id": "a7_network",
+   "text": "Factories, capacity, load and past performance come from the simulated production network.",
+   "label": "fictional",
+   "source": "factory_mcp (demo data)",
+   "stage": 7
+  },
+  {
+   "id": "a7_weights",
+   "text": "Score = 35% process fit + 15% MOQ + 15% certifications + 15% load + 20% lead time; product-level criteria are part-weighted means over the queries (Injection molding ×3, PCBA ×1, Other ×1, Assembly ×1).",
+   "label": "estimate",
+   "source": null,
+   "stage": 7
+  },
+  {
+   "id": "a8_network",
+   "text": "Factories, quotes, counters and replies are simulated (production MCP demo network).",
+   "label": "fictional",
+   "source": "factory_mcp (demo data)",
+   "stage": 8
+  },
+  {
+   "id": "a8_anchor",
+   "text": "Factory quotes are anchored on stage 5 cost tiers + tooling total × each factory's personality margin; subcontracted processes add 3% each.",
+   "label": "estimate",
+   "source": null,
+   "stage": 8
+  },
+  {
+   "id": "a8_policy",
+   "text": "Negotiation policy: max 2 rounds; price, tooling, MOQ ≤ 2,000, lead time, 30% deposit / 70% before shipment; pick = lowest risk-adjusted cost incl. tooling.",
+   "label": "estimate",
+   "source": null,
+   "stage": 8
+  },
+  {
+   "id": "a8_autofill",
+   "text": "Auto-approved in autofill mode — review and change the selected factory before any real order",
+   "label": "estimate",
+   "source": null,
+   "stage": 8
+  },
+  {
+   "id": "s9_a1",
+   "text": "Quote lead time (30 d) is used as the tooling T0 duration; T1, golden sample and mass production use planning assumptions.",
+   "label": "estimate",
+   "source": null,
+   "stage": 9
+  },
+  {
+   "id": "s9_a2",
+   "text": "Date check: lead time differs from the stage 6 plan by -5 d (stage 6: 79 d, this plan: 74 d) — the negotiated quote governs",
+   "label": "estimate",
+   "source": null,
+   "stage": 9
+  },
+  {
+   "id": "s9_a3",
+   "text": "Kickoff date 2026-09-28 (next Monday after today unless start_date is passed in inputs); durations are planning assumptions except the quote lead time.",
+   "label": "estimate",
+   "source": null,
+   "stage": 9
+  },
+  {
+   "id": "s9_a4",
+   "text": "Sample rounds cost is an assumption; production payments follow the 30/70 term (deposit / before shipment) unless the quote states another deposit.",
+   "label": "estimate",
+   "source": null,
+   "stage": 9
+  },
+  {
+   "id": "s10_a1",
+   "text": "Pre-shipment inspection priced at $268 per man-day.",
+   "label": "sourced",
+   "source": "V-Trust, https://www.v-trust.com/en/our-network, checked 2026-09-26",
+   "stage": 10
+  },
+  {
+   "id": "s10_a2",
+   "text": "AQL 0 / 2.5 / 4.0 for critical / major / minor is the usual consumer-goods setting; agree it with the buyer and factory.",
+   "label": "estimate",
+   "source": null,
+   "stage": 10
+  },
+  {
+   "id": "s10_a3",
+   "text": "One inspector checks about 100 units per day including functional tests.",
+   "label": "estimate",
+   "source": null,
+   "stage": 10
+  },
+  {
+   "id": "s11_a1",
+   "text": "HTS 9031.80.80.85: USITC HTS 9031.80.80.85 general rate Free, https://hts.usitc.gov/search?query=9031.80.80.85, fetched 2026-09-26",
+   "label": "sourced",
+   "source": "https://hts.usitc.gov/search?query=9031.80.80.85",
+   "stage": 11
+  },
+  {
+   "id": "s11_a2",
+   "text": "Section 301 China, heading 9903.88.01 (+25%): USITC HTS, https://hts.usitc.gov/search?query=9903.88.01, fetched 2026-09-26; heading cited with HTS 9031.80.8085 in CBP ruling N348181 (2025-04-30). Coverage on the entry date to be confirmed by a customs broker",
+   "label": "sourced",
+   "source": "https://hts.usitc.gov/search?query=9031.80.80.85",
+   "stage": 11
+  },
+  {
+   "id": "s11_a3",
+   "text": "IEEPA duties not collected since 24/02/2026; de minimis suspended; Section 122 is a user toggle (status to verify)",
+   "label": "sourced",
+   "source": "CBP CSMS 67834313 (https://content.govdelivery.com/accounts/USDHSCBP/bulletins/40b11c9); CBP CSMS 67844987; Federal Register 2026-06-24",
+   "stage": 11
+  },
+  {
+   "id": "s11_a4",
+   "text": "Freight sea lcl: 32 days transit (simulated); cost per unit derived from the Drewry lane rate, see a8-a10",
+   "label": "fictional",
+   "source": "demo data",
+   "stage": 11
+  },
+  {
+   "id": "s11_a5",
+   "text": "Platform/agent fee 7% of FOB (benchmark 5-10%)",
+   "label": "estimate",
+   "source": "https://www.dragonsourcing.com/top-10-cost-insights-for-hiring-a-china-sourcing-agent/",
+   "stage": 11
+  },
+  {
+   "id": "s11_a6",
+   "text": "FOB basis: Approved final terms, quote qt_3d9b0df996 — demo data",
+   "label": "fictional",
+   "source": "stage8_final_terms",
+   "stage": 11
+  },
+  {
+   "id": "s11_a7",
+   "text": "Assumed HTS 9031.80.8085 — precedent: CBP ruling N348181 (2025-04-30), https://rulings.cbp.gov/ruling/N348181. Not a binding classification; confirm with a customs broker.",
+   "label": "sourced",
+   "source": "https://rulings.cbp.gov/ruling/N348181",
+   "stage": 11
+  },
+  {
+   "id": "a8",
+   "text": "Sea container rate Drewry World Container Index, 24 Sep 2026: Shanghai–Los Angeles $7,838/40ft (Drewry-assessed spot benchmark, snapshot; the quote you get will differ)",
+   "label": "sourced",
+   "source": "https://www.drewry.co.uk/supply-chain-advisors/supply-chain-expertise/world-container-index-assessed-by-drewry",
+   "stage": 11
+  },
+  {
+   "id": "a9",
+   "text": "Sea freight derived from the Drewry lane rate, cheaper of LCL and FCL chosen automatically: packed unit 0.0005 m³ (bounding box × 1.5 packaging, min 0.5 L) = 134,000 units per 40ft (67 m³ usable); 20ft container ≈ 0.55 × the 40ft rate, 33 m³. Air = max(gross kg, m³ × 167) × $6.00/kg, min $150 per shipment; express = 1.8× air (Estimate: typical China→US air cargo range $4-8/kg, to be confirmed by a forwarder); air and express are never auto-chosen",
+   "label": "estimate",
+   "source": "demo assumption",
+   "stage": 11
+  },
+  {
+   "id": "a10",
+   "text": "LCL consolidation premium vs FCL, typical 1.3–2.0×: 1.5× applied to lane rate ÷ 67 m³, minimum charge 1 m³ per shipment (derived from Drewry WCI 24 Sep 2026)",
+   "label": "estimate",
+   "source": "https://www.drewry.co.uk/supply-chain-advisors/supply-chain-expertise/world-container-index-assessed-by-drewry",
+   "stage": 11
+  },
+  {
+   "id": "s12_a1",
+   "text": "Dates from stage 9 milestones; amounts from the stage 5 cash breakdown with the approved stage 8 quote applied (unit price, tooling; duties, platform fee, insurance recomputed) (tooling 50/50 at T0/T1, samples at golden sample, 30% deposit + 70% before shipment (payment terms of stage 9), logistics at shipment/delivery)",
+   "label": "estimate",
+   "source": null,
+   "stage": 12
+  },
+  {
+   "id": "s12_a2",
+   "text": "Peak cash need $94,058; 21,876 of it falls in the first 60 days.",
+   "label": "estimate",
+   "source": null,
+   "stage": 12
+  },
+  {
+   "id": "s12_a3",
+   "text": "Financing costs are typical ranges, not quotes: verify with each provider",
+   "label": "estimate",
+   "source": null,
+   "stage": 12
+  },
+  {
+   "id": "s13_a1",
+   "text": "Amazon price in USD: Founder target retail price (USD); no conversion applied. Marketplace fees and VAT are not included.",
+   "label": "estimate",
+   "source": null,
+   "stage": 13
+  },
+  {
+   "id": "s13_a2",
+   "text": "Name options are not trademark-searched; run a clearance search before committing.",
+   "label": "estimate",
+   "source": null,
+   "stage": 13
+  },
+  {
+   "id": "s13_a3",
+   "text": "Listing copy uses only facts from the brief and spec; no certification claims until testing is complete (stage 4).",
+   "label": "estimate",
+   "source": null,
+   "stage": 13
+  },
+  {
+   "id": "cn1",
+   "text": "Chinese text in this pack is machine-translated — to be reviewed by a native speaker.",
+   "label": "estimate",
+   "source": null,
+   "stage": null
+  }
+ ],
+ "engineering": {
+  "project_id": "demo_whoop_kitesurf",
+  "status": "draft",
+  "fallback": false,
+  "fallback_reason": null,
+  "generated_by": "code",
+  "generated_at": "2026-09-26T23:53:42.057044Z",
+  "assumptions": [
+   {
+    "id": "e1",
+    "text": "Engineering category 'Wearable (water sports, skin contact)' detected from the product description and the 'wearable_band' shape family",
+    "label": "estimate",
+    "source": null,
+    "stage": null
+   },
+   {
+    "id": "e4",
+    "text": "Physics checks are concept-level (rigid-body statics, rules of thumb): validate with the listed tests",
+    "label": "estimate",
+    "source": null,
+    "stage": null
+   }
+  ],
+  "stage": "engineering",
+  "category": "wearable",
+  "category_title": "Wearable (water sports, skin contact)",
+  "partner_word": "factories",
+  "site_install": false,
+  "product_name": "Kitesurf recovery band",
+  "inputs_digest": "bec165f1c3debb2d",
+  "standards": [
+   {
+    "code": "IEC 60529",
+    "title": "Degrees of protection provided by enclosures (IP Code)",
+    "applies_because": "Worn in salt water and spray: the ingress protection target (IP68) is declared against this standard",
+    "url": "https://webstore.iec.ch/en/publication/2452",
+    "citation_label": "sourced",
+    "citation_note": "https://webstore.iec.ch/en/publication/2452, page checked 2026-09-27"
+   },
+   {
+    "code": "ISO 22810",
+    "title": "Horology — Water-resistant watches",
+    "applies_because": "Water-resistance claims in 'ATM' for wrist-worn devices follow the watch standard",
+    "url": null,
+    "citation_label": "estimate",
+    "citation_note": "Standard to be confirmed (edition and applicability) — no verified citation URL"
+   },
+   {
+    "code": "IEC 60068-2-11",
+    "title": "Environmental testing — Part 2-11: Tests — Test Ka: Salt mist",
+    "applies_because": "Salt-mist corrosion of charging contacts, buckle and screws (ocean use)",
+    "url": "https://webstore.iec.ch/en/publication/64484",
+    "citation_label": "sourced",
+    "citation_note": "https://webstore.iec.ch/en/publication/64484, page checked 2026-09-27"
+   },
+   {
+    "code": "IEC 62133-2",
+    "title": "Secondary cells and batteries containing alkaline or other non-acid electrolytes — Safety — Part 2: Lithium systems",
+    "applies_because": "Rechargeable Li-ion / Li-Po cell worn on the body",
+    "url": "https://webstore.iec.ch/en/publication/32662",
+    "citation_label": "sourced",
+    "citation_note": "https://webstore.iec.ch/en/publication/32662, page checked 2026-09-27"
+   },
+   {
+    "code": "UN 38.3",
+    "title": "UN Manual of Tests and Criteria, section 38.3 (lithium batteries)",
+    "applies_because": "Lithium cell shipped inside the product",
+    "url": "https://unece.org/transport/dangerous-goods/rev8-files",
+    "citation_label": "sourced",
+    "citation_note": "https://unece.org/transport/dangerous-goods/rev8-files, page checked 2026-09-27"
+   },
+   {
+    "code": "ISO 10993-1",
+    "title": "Biological evaluation of medical devices — Part 1 (used here for skin-contact materials)",
+    "applies_because": "Prolonged skin contact of the strap and sensor window (biocompatibility)",
+    "url": null,
+    "citation_label": "estimate",
+    "citation_note": "Standard to be confirmed (edition and applicability) — no verified citation URL"
+   },
+   {
+    "code": "47 CFR Part 15",
+    "title": "FCC Part 15 — Radio Frequency Devices",
+    "applies_because": "BLE intentional radiator (FCC 15C) + digital device (15B) for the US",
+    "url": "https://www.ecfr.gov/current/title-47/chapter-I/subchapter-A/part-15",
+    "citation_label": "sourced",
+    "citation_note": "https://www.ecfr.gov/current/title-47/chapter-I/subchapter-A/part-15, page checked 2026-09-27"
+   },
+   {
+    "code": "Directive 2014/53/EU",
+    "title": "Radio Equipment Directive (RED)",
+    "applies_because": "BLE radio sold in the EU (RED)",
+    "url": "https://eur-lex.europa.eu/eli/dir/2014/53/oj/eng",
+    "citation_label": "sourced",
+    "citation_note": "https://eur-lex.europa.eu/eli/dir/2014/53/oj/eng, page checked 2026-09-27"
+   }
+  ],
+  "risks": [
+   {
+    "id": "r1",
+    "risk": "Salt water creeps into charging contacts and the case seam",
+    "mitigation": "Gold-plated pogo pads or wireless (Qi) charging, ultrasonic-welded seam, ePTFE vent — no open USB port",
+    "severity": "critical"
+   },
+   {
+    "id": "r2",
+    "risk": "BLE does not propagate through water: no live sync while riding",
+    "mitigation": "Log to on-board flash, sync on shore; size flash for a 6 h session",
+    "severity": "major"
+   },
+   {
+    "id": "r3",
+    "risk": "Optical heart-rate (PPG) corrupted by motion and water film",
+    "mitigation": "IMU-based motion artefact rejection; sensor window flush with skin; validate against a chest strap",
+    "severity": "major"
+   },
+   {
+    "id": "r4",
+    "risk": "Strap snag in a kite crash (lines, bar)",
+    "mitigation": "Breakaway buckle or low-profile strap with no hook points",
+    "severity": "major"
+   },
+   {
+    "id": "r5",
+    "risk": "Cell swelling after hours in a hot car on the beach",
+    "mitigation": "IEC 62133-2 cell with protection IC; storage temperature warning; thermal pad away from the skin",
+    "severity": "major"
+   },
+   {
+    "id": "r6",
+    "risk": "Strap UV and chlorine/salt degradation",
+    "mitigation": "Silicone (LSR) or FKM strap, UV-stabilised PC/PA housing",
+    "severity": "minor"
+   }
+  ],
+  "tests": [
+   {
+    "id": "t1",
+    "name": "Immersion 2 m for 1 h (IP68 as declared) + 5 ATM pressure",
+    "kind": "ingress",
+    "method": "Sealed units immersed in salt water, leak check by weight and inspection",
+    "standard": "IEC 60529 / ISO 22810"
+   },
+   {
+    "id": "t2",
+    "name": "Salt mist 48-96 h",
+    "kind": "salt_spray",
+    "method": "5% NaCl fog on contacts, buckle and fasteners; inspect corrosion",
+    "standard": "IEC 60068-2-11"
+   },
+   {
+    "id": "t3",
+    "name": "Drop 1.5 m on concrete, 6 faces",
+    "kind": "drop",
+    "method": "Free fall, functional check + seal re-test after the drop",
+    "standard": "IEC 60068-2-31"
+   },
+   {
+    "id": "t4",
+    "name": "Thermal cycling -10 °C / +50 °C",
+    "kind": "thermal",
+    "method": "10 cycles with the cell charged; check swelling and seal",
+    "standard": null
+   },
+   {
+    "id": "t5",
+    "name": "Skin sensitisation / cytotoxicity of the strap and window",
+    "kind": "chemical",
+    "method": "Accredited lab, materials in final colour",
+    "standard": "ISO 10993-1"
+   },
+   {
+    "id": "t6",
+    "name": "Radio conformity (BLE)",
+    "kind": "radio",
+    "method": "Accredited lab, FCC 15C + RED radio test suite",
+    "standard": "47 CFR Part 15 / Directive 2014/53/EU"
+   }
+  ],
+  "checks": [
+   {
+    "id": "mass",
+    "name": "Product mass",
+    "domain": "mass",
+    "value": {
+     "value": 5.2,
+     "unit": "g",
+     "label": "estimate",
+     "source_or_assumption": "Enclosure volume 4.5 cm³ (measured) × PC/ABS 1.15 g/cm³; electronics, battery and strap not included"
+    },
+    "threshold": "≤ 45 g pass, ≤ 56.25 g warn (category comfort target, Estimate)",
+    "verdict": "pass",
+    "formula": "Stage 3 weight (measured enclosure volume × density + parts)",
+    "inputs": [
+     {
+      "value": 5.2,
+      "unit": "g",
+      "label": "estimate",
+      "source_or_assumption": "Enclosure volume 4.5 cm³ (measured) × PC/ABS 1.15 g/cm³; electronics, battery and strap not included"
+     },
+     {
+      "value": 4.5,
+      "unit": "cm³",
+      "label": "measured",
+      "source_or_assumption": "Enclosure solid volume measured on the STEP (stage 3)"
+     }
+    ],
+    "notes": []
+   },
+   {
+    "id": "battery_life",
+    "name": "Battery life / runtime from the power budget",
+    "domain": "power",
+    "value": {
+     "value": 58.3,
+     "unit": "h",
+     "label": "estimate",
+     "source_or_assumption": "150 mAh × 85% usable / 2.186 mA average"
+    },
+    "threshold": "≥ 4 days pass, ≥ 50% of it warn (category target, Estimate)",
+    "verdict": "warn",
+    "formula": "t = capacity × 85% usable / Σ(active × duty + sleep × (1 − duty))",
+    "inputs": [
+     {
+      "value": 150.0,
+      "unit": "mAh",
+      "label": "estimate",
+      "source_or_assumption": "Capacity from the BOM line 'LiPo battery, 3.7 V, 150 mAh'"
+     },
+     {
+      "value": 2.1858,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "Sum of the power-budget lines"
+     }
+    ],
+    "notes": []
+   },
+   {
+    "id": "ip_rating",
+    "name": "Ingress protection target",
+    "domain": "ingress",
+    "value": {
+     "value": 68.0,
+     "unit": "IP code (IEC 60529)",
+     "label": "estimate",
+     "source_or_assumption": "Category target: IP68 (2 m / 1 h, manufacturer-declared) + 5 ATM"
+    },
+    "threshold": "IP68 to be proven by test (IEC 60529) — design only at this stage",
+    "verdict": "warn",
+    "formula": "Target from the use environment; every opening in the BOM gets a sealing measure",
+    "inputs": [],
+    "notes": [
+     "Housing seam: compressed gasket (25-30% squeeze) or ultrasonic weld; fasteners outside the sealed volume",
+     "Windows (LED/sensor/display): bonded with a continuous adhesive gasket, no press fit",
+     "Pressure-equalisation vent to avoid seal pumping with temperature cycles",
+     "Salt water: gold-plated or stainless contacts, no dissimilar metals in the wet area"
+    ]
+   },
+   {
+    "id": "thermal",
+    "name": "Surface temperature rise at sustained load",
+    "domain": "thermal",
+    "value": {
+     "value": 0.2,
+     "unit": "K",
+     "label": "estimate",
+     "source_or_assumption": "0.01 W dissipated / (10 W/m²K × 38 cm² bbox surface)"
+    },
+    "threshold": "≤ 15 K pass, ≤ 25 K warn (touch comfort target; limits per IEC 62368-1 / 60335-1 to confirm)",
+    "verdict": "pass",
+    "formula": "ΔT = P / (h A), all electrical power ends as heat, natural convection",
+    "inputs": [
+     {
+      "value": 44.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the built STEP (build123d/OCCT), pod only (strap excluded)"
+     },
+     {
+      "value": 30.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the built STEP (build123d/OCCT), pod only (strap excluded)"
+     },
+     {
+      "value": 8.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the built STEP (build123d/OCCT), pod only (strap excluded)"
+     },
+     {
+      "value": 2.1858,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "Sum of the power-budget lines"
+     }
+    ],
+    "notes": []
+   }
+  ],
+  "electronics": {
+   "mcu_family": "generic",
+   "mcu_part": "BLE microcontroller, WCH CH582M",
+   "radio": [],
+   "power_tree": [
+    {
+     "id": "p_chg",
+     "name": "Single-cell LiPo charger IC, TP4054",
+     "kind": "charger",
+     "parent": null,
+     "voltage": {
+      "value": 3.7,
+      "unit": "V",
+      "label": "estimate",
+      "source_or_assumption": "Charges the cell; output = VBAT"
+     }
+    },
+    {
+     "id": "p_bat",
+     "name": "LiPo battery, 3.7 V, 150 mAh",
+     "kind": "storage",
+     "parent": "p_chg",
+     "voltage": {
+      "value": 3.7,
+      "unit": "V",
+      "label": "estimate",
+      "source_or_assumption": "Voltage from the BOM line 'LiPo battery, 3.7 V, 150 mAh'"
+     }
+    },
+    {
+     "id": "p_reg",
+     "name": "3.3 V regulator (implied, VBAT 3.7 V)",
+     "kind": "regulator",
+     "parent": "p_bat",
+     "voltage": {
+      "value": 3.3,
+      "unit": "V",
+      "label": "estimate",
+      "source_or_assumption": "Logic rail for MCU and sensors"
+     }
+    },
+    {
+     "id": "p_b1",
+     "name": "BLE microcontroller, WCH CH582M",
+     "kind": "load",
+     "parent": "p_reg",
+     "voltage": {
+      "value": 3.3,
+      "unit": "V",
+      "label": "estimate",
+      "source_or_assumption": "Logic rail"
+     }
+    },
+    {
+     "id": "p_b2",
+     "name": "Optical heart-rate sensor, MAX30102",
+     "kind": "load",
+     "parent": "p_reg",
+     "voltage": {
+      "value": 3.3,
+      "unit": "V",
+      "label": "estimate",
+      "source_or_assumption": "Logic rail"
+     }
+    },
+    {
+     "id": "p_b3",
+     "name": "6-axis IMU, QMI8658A",
+     "kind": "load",
+     "parent": "p_reg",
+     "voltage": {
+      "value": 3.3,
+      "unit": "V",
+      "label": "estimate",
+      "source_or_assumption": "Logic rail"
+     }
+    },
+    {
+     "id": "p_b6",
+     "name": "3.3 V LDO regulator, XC6206P332MR",
+     "kind": "load",
+     "parent": "p_reg",
+     "voltage": {
+      "value": 3.3,
+      "unit": "V",
+      "label": "estimate",
+      "source_or_assumption": "Logic rail"
+     }
+    }
+   ],
+   "connections": [
+    {
+     "source": "Single-cell LiPo charger IC, TP4054",
+     "target": "LiPo battery, 3.7 V, 150 mAh",
+     "bus": "power",
+     "signals": "3.7 V"
+    },
+    {
+     "source": "LiPo battery, 3.7 V, 150 mAh",
+     "target": "3.3 V regulator (implied, VBAT 3.7 V)",
+     "bus": "power",
+     "signals": "3.3 V"
+    },
+    {
+     "source": "3.3 V regulator (implied, VBAT 3.7 V)",
+     "target": "BLE microcontroller, WCH CH582M",
+     "bus": "power",
+     "signals": "3.3 V"
+    },
+    {
+     "source": "3.3 V regulator (implied, VBAT 3.7 V)",
+     "target": "Optical heart-rate sensor, MAX30102",
+     "bus": "power",
+     "signals": "3.3 V"
+    },
+    {
+     "source": "3.3 V regulator (implied, VBAT 3.7 V)",
+     "target": "6-axis IMU, QMI8658A",
+     "bus": "power",
+     "signals": "3.3 V"
+    },
+    {
+     "source": "3.3 V regulator (implied, VBAT 3.7 V)",
+     "target": "3.3 V LDO regulator, XC6206P332MR",
+     "bus": "power",
+     "signals": "3.3 V"
+    },
+    {
+     "source": "BLE microcontroller, WCH CH582M",
+     "target": "Optical heart-rate sensor, MAX30102",
+     "bus": "i2c",
+     "signals": "SDA, SCL, INT"
+    },
+    {
+     "source": "BLE microcontroller, WCH CH582M",
+     "target": "6-axis IMU, QMI8658A",
+     "bus": "i2c",
+     "signals": "SDA, SCL, INT1"
+    },
+    {
+     "source": "BLE microcontroller, WCH CH582M",
+     "target": "Single-cell LiPo charger IC, TP4054",
+     "bus": "gpio",
+     "signals": "CHG_STAT, PGOOD"
+    },
+    {
+     "source": "BLE microcontroller, WCH CH582M",
+     "target": "3.3 V LDO regulator, XC6206P332MR",
+     "bus": "gpio",
+     "signals": "GPIO"
+    },
+    {
+     "source": "BLE microcontroller, WCH CH582M",
+     "target": "Battery voltage divider",
+     "bus": "adc",
+     "signals": "VBAT_SENSE (fuel estimate)"
+    }
+   ],
+   "power_budget": [
+    {
+     "block": "mcu",
+     "part": "BLE microcontroller, WCH CH582M",
+     "active_current": {
+      "value": 6.0,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "Typical active current of a MCU (from the BOM)"
+     },
+     "sleep_current": {
+      "value": 2.0,
+      "unit": "µA",
+      "label": "estimate",
+      "source_or_assumption": "Typical sleep/standby current"
+     },
+     "duty_cycle": {
+      "value": 4.0,
+      "unit": "pct",
+      "label": "estimate",
+      "source_or_assumption": "Category duty cycle for 'mcu' (Wearable (water sports, skin contact))"
+     },
+     "average_current": {
+      "value": 0.2419,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "active × duty + sleep × (1 − duty)"
+     }
+    },
+    {
+     "block": "ppg",
+     "part": "Optical heart-rate sensor, MAX30102",
+     "active_current": {
+      "value": 1.2,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "Typical active current of a PPG (from the BOM)"
+     },
+     "sleep_current": {
+      "value": 5.0,
+      "unit": "µA",
+      "label": "estimate",
+      "source_or_assumption": "Typical sleep/standby current"
+     },
+     "duty_cycle": {
+      "value": 100.0,
+      "unit": "pct",
+      "label": "estimate",
+      "source_or_assumption": "Category duty cycle for 'ppg' (Wearable (water sports, skin contact))"
+     },
+     "average_current": {
+      "value": 1.2,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "active × duty + sleep × (1 − duty)"
+     }
+    },
+    {
+     "block": "imu",
+     "part": "6-axis IMU, QMI8658A",
+     "active_current": {
+      "value": 0.5,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "Typical active current of a IMU (from the BOM)"
+     },
+     "sleep_current": {
+      "value": 3.0,
+      "unit": "µA",
+      "label": "estimate",
+      "source_or_assumption": "Typical sleep/standby current"
+     },
+     "duty_cycle": {
+      "value": 100.0,
+      "unit": "pct",
+      "label": "estimate",
+      "source_or_assumption": "Category duty cycle for 'imu' (Wearable (water sports, skin contact))"
+     },
+     "average_current": {
+      "value": 0.5,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "active × duty + sleep × (1 − duty)"
+     }
+    },
+    {
+     "block": "mcu",
+     "part": "3.3 V LDO regulator, XC6206P332MR",
+     "active_current": {
+      "value": 6.0,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "Typical active current of a MCU (from the BOM)"
+     },
+     "sleep_current": {
+      "value": 2.0,
+      "unit": "µA",
+      "label": "estimate",
+      "source_or_assumption": "Typical sleep/standby current"
+     },
+     "duty_cycle": {
+      "value": 4.0,
+      "unit": "pct",
+      "label": "estimate",
+      "source_or_assumption": "Category duty cycle for 'mcu' (Wearable (water sports, skin contact))"
+     },
+     "average_current": {
+      "value": 0.2419,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "active × duty + sleep × (1 − duty)"
+     }
+    },
+    {
+     "block": "charger",
+     "part": "Single-cell LiPo charger IC, TP4054",
+     "active_current": {
+      "value": 0.0,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "Pass-through part"
+     },
+     "sleep_current": {
+      "value": 2.0,
+      "unit": "µA",
+      "label": "estimate",
+      "source_or_assumption": "Typical quiescent current"
+     },
+     "duty_cycle": {
+      "value": 100.0,
+      "unit": "pct",
+      "label": "estimate",
+      "source_or_assumption": "Always on"
+     },
+     "average_current": {
+      "value": 0.002,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "Quiescent current"
+     }
+    }
+   ],
+   "average_current": {
+    "value": 2.1858,
+    "unit": "mA",
+    "label": "estimate",
+    "source_or_assumption": "Sum of the power-budget lines"
+   },
+   "battery_voltage": {
+    "value": 3.7,
+    "unit": "V",
+    "label": "estimate",
+    "source_or_assumption": "Voltage from the BOM line 'LiPo battery, 3.7 V, 150 mAh'"
+   },
+   "battery_capacity": {
+    "value": 150.0,
+    "unit": "mAh",
+    "label": "estimate",
+    "source_or_assumption": "Capacity from the BOM line 'LiPo battery, 3.7 V, 150 mAh'"
+   },
+   "battery_life": {
+    "value": 58.3,
+    "unit": "h",
+    "label": "estimate",
+    "source_or_assumption": "150 mAh × 85% usable / 2.186 mA average"
+   },
+   "pcb_note": "PCB layout: next step (human or text-to-PCB)"
+  },
+  "firmware": {
+   "framework": "arduino",
+   "mcu_family": "generic",
+   "connectivity": "BLE GATT service (heart rate, motion, session log)",
+   "url": "/files/demo_whoop_kitesurf/firmware.zip",
+   "files": [
+    "README.md",
+    "platformio.ini",
+    "src/connectivity.cpp",
+    "src/connectivity.h",
+    "src/main.cpp",
+    "src/pins.h",
+    "src/sensors.cpp",
+    "src/sensors.h"
+   ],
+   "generated_by": "llm:openai/gpt-6-luna",
+   "note": "Generated code — not compiled or tested",
+   "pending_llm": false
+  },
+  "prototype": {
+   "enclosure_method": "SLA resin 3D print (tough resin), silicone strap from a stock size",
+   "enclosure_volume": {
+    "value": 4.5,
+    "unit": "cm³",
+    "label": "measured",
+    "source_or_assumption": "Enclosure solid volume measured on the STEP (stage 3)"
+   },
+   "units": 3,
+   "cost_lines": [
+    {
+     "item": "Enclosure: SLA resin 3D print (tough resin), silicone strap from a stock size",
+     "amount": {
+      "value": 65.0,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "3 × (20 USD setup + 0.35 USD/cm³ × 4.5 cm³ measured volume)"
+     }
+    },
+    {
+     "item": "PCBA quick-turn (5 boards, 9 BOM lines)",
+     "amount": {
+      "value": 213.0,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "5 boards: setup/stencil 25 + 2-layer fab 5 + parts 163.45 (LCSC price at 5× qty where matched, else BOM estimate × 3) + shipping 20 USD"
+     }
+    },
+    {
+     "item": "Dev-kit bring-up set (firmware before the PCBA arrives)",
+     "amount": {
+      "value": 33.0,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Sum of the dev-kit BOM lines"
+     }
+    },
+    {
+     "item": "Batteries, cables, fasteners, consumables",
+     "amount": {
+      "value": 40.0,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Flat allowance"
+     }
+    }
+   ],
+   "devkit_bom": [
+    {
+     "part": "Arduino-compatible dev board",
+     "role": "MCU + radio dev board",
+     "qty": 1,
+     "lcsc_pn": null,
+     "unit_price": {
+      "value": 10.0,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Typical distributor price for this dev board class"
+     }
+    },
+    {
+     "part": "Optical heart-rate sensor, MAX30102 → MAX30102EFD+T on a breakout",
+     "role": "ppg",
+     "qty": 1,
+     "lcsc_pn": "C6454833",
+     "unit_price": {
+      "value": 14.62,
+      "unit": "USD",
+      "label": "sourced",
+      "source_or_assumption": "LCSC price, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C6454833.html (chip only; add ~8 USD breakout)"
+     }
+    },
+    {
+     "part": "6-axis IMU, QMI8658A (module / breakout)",
+     "role": "imu",
+     "qty": 1,
+     "lcsc_pn": null,
+     "unit_price": {
+      "value": 8.0,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Typical hobby breakout/module price, not in the LCSC snapshot"
+     }
+    }
+   ],
+   "assembly_steps": [
+    "Print pod top/bottom in tough SLA resin, sand the sensor window seat",
+    "Flash firmware on the dev kit, validate IMU + PPG on the bench",
+    "Assemble the quick-turn PCBA with the cell and charging pads",
+    "Seal the seam (gasket + screws on the prototype; ultrasonic weld in production)",
+    "Bench IPX7 dunk test in salt water, then ride test with a chest-strap reference",
+    "PCB layout: next step (human or text-to-PCB) — the schematic follows the power tree and connection list above"
+   ],
+   "timeline_weeks": {
+    "value": 4.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Design freeze 0.5 + PCBA quick-turn incl. shipping 2 + integration 1 + test 0.5 (enclosure and firmware on the dev kit run in parallel)"
+   },
+   "total_cost": {
+    "value": 351.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Sum of the prototype cost lines"
+   }
+  },
+  "solar": null,
+  "installers": [],
+  "build_strategy": {
+   "strategy": "module_assembly",
+   "title": "Module assembly",
+   "explanation": "You design the product around bought-in, pre-certified modules (e.g. motor + driver, battery pack, radio module, heater + fan): your work is the architecture, the enclosure, the integration and the software; the factory assembles the modules into your parts. Faster and cheaper than designing every sub-system, and the modules' certifications carry part of the compliance.",
+   "customisable": [
+    "Pod enclosure, strap, CMF",
+    "Sensor choice, firmware, app, algorithms"
+   ],
+   "not_customisable": [
+    "BLE SoC module",
+    "PPG / IMU sensor ICs",
+    "Li-Po cell (certified)"
+   ],
+   "moq": {
+    "value": 2000.0,
+    "unit": "units",
+    "label": "estimate",
+    "source_or_assumption": "Typical minimum order for a first run in this category — factory MOQ range"
+   },
+   "entry_cost": {
+    "value": 60000.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Typical first production run for this category (Pod + strap moulds ≈ $25k, PCBA NRE ≈ $10k, tests ≈ $15k, pilot run) — industry range, not a quote"
+   },
+   "lead_time": {
+    "value": 24.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Frozen design → first production units (tooling, samples, certification), typical"
+   },
+   "path": [
+    "Design the pod around a BLE module + sensor reference designs",
+    "Moulds (pod + LSR strap)",
+    "Skin-contact + IP68 + radio tests",
+    "Pilot run of 200, then 2000"
+   ],
+   "certifications_note": "BLE module's modular approval reused; biocompatibility (ISO 10993), IP68 and battery tests on your product.",
+   "assumptions": [
+    "Estimates for a first production run; real MOQs and NRE come from quotes",
+    "Module figures assume catalogue modules with their own certifications"
+   ]
+  },
+  "unit_basis": "per_unit",
+  "installation_cost": null
+ }
+}

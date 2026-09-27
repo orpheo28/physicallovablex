@@ -1,0 +1,164 @@
+{
+ "project_id": "demo_solar_biarritz",
+ "status": "validated",
+ "fallback": false,
+ "fallback_reason": null,
+ "generated_by": "llm:openai/gpt-6-luna",
+ "generated_at": "2026-09-27T00:24:22.715073Z",
+ "assumptions": [
+  {
+   "id": "a1",
+   "text": "Amazon price in USD: 12000 EUR × 1.08 (demo EUR→USD assumption). Marketplace fees and VAT are not included.",
+   "label": "estimate",
+   "source": null,
+   "stage": 13
+  },
+  {
+   "id": "a2",
+   "text": "Name options are not trademark-searched; run a clearance search before committing.",
+   "label": "estimate",
+   "source": null,
+   "stage": 13
+  },
+  {
+   "id": "a3",
+   "text": "Listing copy uses only facts from the brief and spec; no certification claims until testing is complete (stage 4).",
+   "label": "estimate",
+   "source": null,
+   "stage": 13
+  }
+ ],
+ "stage": 13,
+ "name_options": [
+  {
+   "name": "Solvane",
+   "rationale": "A concise coined name that suggests solar energy without promising a specific output. Trademark search needed before use."
+  },
+  {
+   "name": "Rooflume",
+   "rationale": "Combines a roof reference with a light-related sound to make the system easy to place. Trademark search needed before use."
+  },
+  {
+   "name": "Biarisole",
+   "rationale": "A coined name with a subtle nod to Biarritz and its rooftop solar setting. Trademark search needed before use."
+  }
+ ],
+ "chosen_name": null,
+ "packaging": {
+  "box_type": "Protective palletized shipping package for rooftop system components",
+  "dimensions": {
+   "length": {
+    "value": 8268.0,
+    "unit": "mm",
+    "label": "estimate",
+    "source_or_assumption": "Product overall size + 10 mm clearance (rule; insert design at packaging RFQ)"
+   },
+   "width": {
+    "value": 3024.9,
+    "unit": "mm",
+    "label": "estimate",
+    "source_or_assumption": "Product overall size + 10 mm clearance (rule; insert design at packaging RFQ)"
+   },
+   "height": {
+    "value": 1768.0,
+    "unit": "mm",
+    "label": "estimate",
+    "source_or_assumption": "Product overall size + 10 mm clearance (rule; insert design at packaging RFQ)"
+   }
+  },
+  "materials": [
+   "Corrugated cardboard",
+   "Protective foam",
+   "Pallet wood"
+  ],
+  "printing": "Minimal exterior printing with product name and handling information.",
+  "contents": [
+   "Photovoltaic modules sized for the usable roof area",
+   "Anodised aluminium 6063 mounting rails and clamps",
+   "Inverter for household electricity",
+   "Grid-connected system design"
+  ],
+  "unit_cost": {
+   "value": 1.2,
+   "unit": "USD",
+   "label": "estimate",
+   "source_or_assumption": "Default retail-box + insert allowance (no packaging cost in the BOM)"
+  }
+ },
+ "landing_copy": {
+  "headline": "Solar electricity, designed for your roof",
+  "subheadline": "A grid-connected rooftop solar system designed for a 35 m² roof in Biarritz, with panels, mounting hardware and an inverter.",
+  "bullets": [
+   "Panels sized to the usable roof area",
+   "Mounting rails and clamps in anodised aluminium 6063",
+   "Inverter designed to convert solar electricity for household use",
+   "Grid-connected system design"
+  ],
+  "cta": "Explore the €12,000 system"
+ },
+ "shopify_listing": {
+  "channel": "shopify",
+  "title": "Rooftop Solar Electricity System for a 35 m² Roof in Biarritz",
+  "description": "A roof-mounted photovoltaic system designed for a 35 m² roof in Biarritz. It includes black-frame monocrystalline glass-glass modules, anodised aluminium 6063 mounting rails and clamps, and an inverter for household electricity in a grid-connected design.",
+  "bullets": [
+   "Designed for a 35 m² roof in Biarritz",
+   "Photovoltaic panels sized to the usable roof area",
+   "Black-frame monocrystalline glass-glass modules",
+   "Anodised aluminium 6063 mounting rails and clamps",
+   "Inverter for household electricity; grid-connected system design"
+  ],
+  "price": {
+   "value": 17343.5,
+   "unit": "USD",
+   "label": "estimate",
+   "source_or_assumption": "Installed price of one installation (5.59 kWp + battery): PV turnkey $11,471 + battery system $5,872 (equipment × 1.35)"
+  },
+  "keywords": [
+   "rooftop solar system",
+   "Biarritz solar panels",
+   "35 m² roof solar",
+   "grid-connected solar system",
+   "monocrystalline glass-glass modules",
+   "solar roof mounting hardware"
+  ]
+ },
+ "amazon_listing": {
+  "channel": "amazon",
+  "title": "Solvane Rooftop Solar Electricity System for 35 m² Roof in Biarritz, Grid-Connected Design, Glass-Glass PV Modules, Inverter and Mounting Hardware",
+  "description": "A roof-mounted photovoltaic system designed for a 35 m² roof in Biarritz. Includes black-frame monocrystalline glass-glass modules, anodised aluminium 6063 mounting rails and clamps, and an inverter for household electricity in a grid-connected design.",
+  "bullets": [
+   "ROOF-AREA FIT — Photovoltaic panels sized to the usable area of a 35 m² roof in Biarritz",
+   "GLASS-GLASS MODULES — Monocrystalline photovoltaic modules with black frames",
+   "ROOF MOUNTING — Mounting rails and clamps made from anodised aluminium 6063",
+   "HOUSEHOLD ELECTRICITY — Includes an inverter for household electricity",
+   "GRID-CONNECTED DESIGN — Designed as a grid-connected rooftop solar system"
+  ],
+  "price": {
+   "value": 17343.5,
+   "unit": "USD",
+   "label": "estimate",
+   "source_or_assumption": "Installed price of one installation (5.59 kWp + battery): PV turnkey $11,471 + battery system $5,872 (equipment × 1.35)"
+  },
+  "keywords": [
+   "rooftop solar electricity system",
+   "Biarritz solar panels",
+   "35 m2 roof photovoltaic",
+   "grid connected rooftop solar",
+   "glass glass monocrystalline modules",
+   "aluminium solar mounting rails"
+  ]
+ },
+ "listing_photos": [
+  {
+   "shot": "lifestyle",
+   "url": "/files/demo_solar_biarritz/photo_v2_lifestyle.png",
+   "label": "Photo-styled from the CAD (AI image, geometry from our CAD) · Staged scene — illustrative",
+   "reference": "cad_render",
+   "aspect_ratio": "4:5",
+   "staged": true,
+   "model": "google/gemini-3.1-flash-image",
+   "version": 2,
+   "created_at": "2026-09-27T12:00:00Z"
+  }
+ ]
+}

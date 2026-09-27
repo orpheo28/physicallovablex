@@ -1,0 +1,42 @@
+{
+  "key": "irrigation",
+  "title": "Smart irrigation controller (outdoor, water)",
+  "match": ["irrigation", "sprinkler", "watering", "drip", "garden water", "arrosage", "soil moisture", "valve controller"],
+  "families": ["irrigation"],
+  "brief_categories": [],
+  "partner_word": "factories",
+  "standards": [
+    {"code": "IEC 60529", "applies_because": "Outdoor enclosure next to water: IP67 target"},
+    {"code": "IEC 60730-1", "applies_because": "Automatic electrical control (valve timer / controller)"},
+    {"code": "EN 1717", "applies_because": "Protection of potable water against backflow from the irrigation line"},
+    {"code": "IEC 62368-1", "applies_because": "Electrical safety of the controller and its power supply"},
+    {"code": "47 CFR Part 15", "applies_because": "Wi-Fi radio (US)"},
+    {"code": "Directive 2014/53/EU", "applies_because": "Wi-Fi radio (EU)"}
+  ],
+  "risks": [
+    {"risk": "Valve fails open → flooding and water bill", "mitigation": "Normally-closed valves, flow sensor with leak alarm, max run time in firmware", "severity": "critical"},
+    {"risk": "Backflow contaminates drinking water", "mitigation": "Backflow preventer (EN 1717 category per fluid) at the tap connection", "severity": "critical"},
+    {"risk": "Frost bursts valves and housing", "mitigation": "Drain function, winter mode, frost-tolerant valve bodies", "severity": "major"},
+    {"risk": "UV and heat degrade the enclosure", "mitigation": "UV-stabilised ASA/PC, light colour, sunshade", "severity": "minor"},
+    {"risk": "Weak Wi-Fi at the garden edge", "mitigation": "External antenna or LoRa/BLE bridge option", "severity": "minor"}
+  ],
+  "tests": [
+    {"name": "IPX7 immersion + IP6X dust", "kind": "ingress", "method": "30 min at 1 m, inspection", "standard": "IEC 60529"},
+    {"name": "UV ageing 500 h", "kind": "other", "method": "Xenon-arc chamber, colour and impact after exposure", "standard": null},
+    {"name": "Pressure / burst of valve manifold (1.5 × max supply)", "kind": "mechanical", "method": "Hydrostatic test", "standard": null},
+    {"name": "Thermal cycling -10 °C / +60 °C", "kind": "thermal", "method": "Operating cycles with water", "standard": null},
+    {"name": "Radio + EMC", "kind": "radio", "method": "Accredited lab", "standard": "47 CFR Part 15 / Directive 2014/53/EU"}
+  ],
+  "checks": ["irrigation_flow", "ip_rating", "battery_life"],
+  "params": {
+    "zones_default": 4, "zone_lpm_drip": 1.5, "zone_lpm_sprinkler": 10.0, "supply_lpm": 20.0, "supply_bar": 3.0,
+    "pipe_id_mm": 13.6, "run_m": 30.0, "valve_loss_bar": 0.3, "min_bar_drip": 1.0, "min_bar_sprinkler": 2.0, "hazen_c": 140,
+    "ip_target": 67, "ip_detail": "IP67 (1 m / 30 min), outdoor",
+    "battery_target_h": 4380, "battery_mah_default": 2600, "battery_v_default": 3.0,
+    "duty": {"mcu": 0.5, "radio": 0.3, "valve": 0.02, "moisture": 0.1, "flow": 1.0, "led": 0.05, "env": 0.1},
+    "default_family": "esp32", "connectivity": "Wi-Fi + MQTT (schedules, soil moisture, flow)",
+    "typical_electronics": ["ESP32-C3 Wi-Fi module", "Latching solenoid valve driver H-bridge", "Latching solenoid valve 3W", "Soil moisture sensor capacitive", "Flow sensor hall", "2x AA lithium 2600 mAh 3V", "Buck-boost converter 3.3V"]
+  },
+  "prototype": {"method": "FDM ASA 3D print (outdoor-stable) with an O-ring groove", "usd_per_cm3": 0.12, "setup_usd": 15, "units": 2,
+    "steps": ["Bench the valve driver on a dev kit with a real latching valve", "Print the housing in ASA with an O-ring lid", "Assemble the quick-turn PCBA, pot the valve connector", "Dunk test the closed housing (bench IPX7)", "Run one real garden zone for a week with the flow sensor logging"]}
+}

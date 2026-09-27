@@ -1,0 +1,16 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "message": {
+      "maxLength": 1000,
+      "minLength": 1,
+      "title": "Message",
+      "type": "string"
+    }
+  },
+  "required": [
+    "message"
+  ],
+  "title": "RefineRequest",
+  "type": "object"
+}

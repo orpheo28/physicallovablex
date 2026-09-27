@@ -1,0 +1,31 @@
+{
+  "key": "generic",
+  "title": "Consumer electronics (generic)",
+  "match": [],
+  "families": [],
+  "brief_categories": [],
+  "partner_word": "factories",
+  "standards": [
+    {"code": "IEC 62368-1", "applies_because": "Electrical safety of consumer electronics"},
+    {"code": "47 CFR Part 15", "applies_because": "Digital device (15B) and any radio (15C), US"},
+    {"code": "Directive 2014/53/EU", "applies_because": "Only if the product has a radio (EU)"},
+    {"code": "IEC 61000-6-3", "applies_because": "EMC emissions, residential"},
+    {"code": "IEC 62133-2", "applies_because": "Only if the product has a rechargeable Li-ion cell"},
+    {"code": "Regulation (EU) 2023/988", "applies_because": "General Product Safety Regulation (EU)"}
+  ],
+  "risks": [
+    {"risk": "Battery or charger overheats", "mitigation": "Charger with thermal regulation, protected cell, NTC", "severity": "major"},
+    {"risk": "Emissions fail at the lab", "mitigation": "Pre-scan the first PCBA; ground plane and filtering on cables", "severity": "major"},
+    {"risk": "Enclosure cracks at screw bosses in a drop", "mitigation": "Rib-supported bosses, drop test on the first printed parts", "severity": "minor"}
+  ],
+  "tests": [
+    {"name": "Drop 1 m, 6 faces", "kind": "drop", "method": "Functional check after each drop", "standard": null},
+    {"name": "Temperature rise at max load", "kind": "thermal", "method": "Thermocouples until steady state", "standard": "IEC 62368-1"},
+    {"name": "EMC emissions pre-scan", "kind": "electrical", "method": "Near-field probe, then accredited lab", "standard": "IEC 61000-6-3 / 47 CFR Part 15"}
+  ],
+  "checks": ["battery_life", "thermal", "mass"],
+  "params": {"mass_max_g": 2000, "battery_target_h": 24, "battery_mah_default": 1000, "battery_v_default": 3.7,
+    "duty": {}, "default_family": "esp32", "connectivity": "Wi-Fi + MQTT", "typical_electronics": []},
+  "prototype": {"method": "SLA resin 3D print", "usd_per_cm3": 0.30, "setup_usd": 20, "units": 3,
+    "steps": ["Bring up firmware on the dev kit", "Print the enclosure in SLA resin", "Assemble the quick-turn PCBA", "Fit check, drop and thermal checks", "5 units to friendly users for 2 weeks"]}
+}

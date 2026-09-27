@@ -62,6 +62,14 @@
       "default": "fictional",
       "title": "Label",
       "type": "string"
+    },
+    "categories": {
+      "description": "W21: product categories the factory specialises in (engineering category keys, e.g. lighting, wearable, drone); empty = generalist. A specialist scores lower on process fit for other categories",
+      "items": {
+        "type": "string"
+      },
+      "title": "Categories",
+      "type": "array"
     }
   },
   "required": [

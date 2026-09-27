@@ -62,3 +62,25 @@ export function errorMessage(e: unknown): string {
   if (e instanceof Error) return e.message;
   return String(e);
 }
+
+/** Transient failure worth retrying: network, timeout, rate limit, server error (N3). */
+export function isTransient(e: unknown): boolean {
+  const s = e instanceof ApiError ? e.status : 0;
+  return s === 0 || s === 408 || s === 429 || s >= 500;
+}
+
+/**
+ * Run `fn`, retrying twice with backoff (0.7 s, then 2 s) while `retry(e)` says the error is worth it.
+ * `alive()` stops the retries once the caller has gone away.
+ */
+export async function withRetry<T>(fn: () => Promise<T>, retry: (e: unknown) => boolean = isTransient, alive: () => boolean = () => true): Promise<T> {
+  const waits = [700, 2000];
+  for (let i = 0; ; i++) {
+    try {
+      return await fn();
+    } catch (e) {
+      if (i >= waits.length || !retry(e) || !alive()) throw e;
+      await new Promise((r) => setTimeout(r, waits[i]));
+    }
+  }
+}

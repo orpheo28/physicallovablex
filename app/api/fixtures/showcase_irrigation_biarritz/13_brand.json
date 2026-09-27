@@ -1,0 +1,160 @@
+{
+ "project_id": "demo_irrigation_biarritz",
+ "status": "validated",
+ "fallback": false,
+ "fallback_reason": null,
+ "generated_by": "llm:openai/gpt-6-luna",
+ "generated_at": "2026-09-27T00:01:49.087471Z",
+ "assumptions": [
+  {
+   "id": "a1",
+   "text": "Amazon price in USD: 129 EUR × 1.08 (demo EUR→USD assumption). Marketplace fees and VAT are not included.",
+   "label": "estimate",
+   "source": null,
+   "stage": 13
+  },
+  {
+   "id": "a2",
+   "text": "Name options are not trademark-searched; run a clearance search before committing.",
+   "label": "estimate",
+   "source": null,
+   "stage": 13
+  },
+  {
+   "id": "a3",
+   "text": "Listing copy uses only facts from the brief and spec; no certification claims until testing is complete (stage 4).",
+   "label": "estimate",
+   "source": null,
+   "stage": 13
+  }
+ ],
+ "stage": 13,
+ "name_options": [
+  {
+   "name": "Soleva",
+   "rationale": "A short coined name that suggests solar power and garden care. Trademark search needed before use."
+  },
+  {
+   "name": "Moisora",
+   "rationale": "A coined name with a soft sound that hints at moisture monitoring. Trademark search needed before use."
+  },
+  {
+   "name": "Verdilo",
+   "rationale": "A simple invented name with a garden-inspired feel. Trademark search needed before use."
+  }
+ ],
+ "chosen_name": null,
+ "packaging": {
+  "box_type": "Folding paperboard carton with a formed-pulp insert",
+  "dimensions": {
+   "length": {
+    "value": 554.0,
+    "unit": "mm",
+    "label": "estimate",
+    "source_or_assumption": "Product overall size + 10 mm clearance (rule; insert design at packaging RFQ)"
+   },
+   "width": {
+    "value": 231.5,
+    "unit": "mm",
+    "label": "estimate",
+    "source_or_assumption": "Product overall size + 10 mm clearance (rule; insert design at packaging RFQ)"
+   },
+   "height": {
+    "value": 84.0,
+    "unit": "mm",
+    "label": "estimate",
+    "source_or_assumption": "Product overall size + 10 mm clearance (rule; insert design at packaging RFQ)"
+   }
+  },
+  "materials": [
+   "Paperboard carton",
+   "Formed-pulp insert"
+  ],
+  "printing": "One-colour printing on the exterior with a simple product name and contents list.",
+  "contents": [
+   "Smart garden irrigation controller"
+  ],
+  "unit_cost": {
+   "value": 1.2,
+   "unit": "USD",
+   "label": "estimate",
+   "source_or_assumption": "Default retail-box + insert allowance (no packaging cost in the BOM)"
+  }
+ },
+ "landing_copy": {
+  "headline": "Watering That Adjusts to Conditions",
+  "subheadline": "A solar-powered controller for a 30 m² Biarritz garden, with scheduled watering adjusted for weather and soil conditions.",
+  "bullets": [
+   "Set scheduled watering for your garden.",
+   "Adjust schedules based on weather and soil conditions.",
+   "Check soil moisture with integrated monitoring.",
+   "Start watering manually when needed."
+  ],
+  "cta": "Shop now — 129 EUR"
+ },
+ "shopify_listing": {
+  "channel": "shopify",
+  "title": "Soleva Smart Garden Irrigation Controller",
+  "description": "Soleva is an irrigation controller for a 30 m² garden in Biarritz. It schedules watering, adjusts schedules based on weather and soil conditions, and includes a manual watering override and solar power.",
+  "bullets": [
+   "Schedule watering for your garden.",
+   "Weather-based adjustments help adapt the watering schedule.",
+   "Soil moisture monitoring informs watering conditions.",
+   "Use the manual override to start watering when needed.",
+   "Solar-powered irrigation controller."
+  ],
+  "price": {
+   "value": 139.32,
+   "unit": "USD",
+   "label": "estimate",
+   "source_or_assumption": "Brief target price 129 EUR × 1.08 (assumed FX) (retail price incl. VAT where applicable)"
+  },
+  "keywords": [
+   "smart garden irrigation controller",
+   "scheduled garden watering",
+   "weather based watering schedule",
+   "soil moisture monitoring",
+   "solar powered irrigation",
+   "manual watering override"
+  ]
+ },
+ "amazon_listing": {
+  "channel": "amazon",
+  "title": "Soleva Smart Garden Irrigation Controller, Scheduled Watering with Weather Adjustments and Soil Moisture Monitoring, Solar Powered",
+  "description": "Soleva is an irrigation controller for a 30 m² garden in Biarritz. It schedules watering, adjusts schedules based on weather and soil conditions, and includes a manual watering override and solar power.",
+  "bullets": [
+   "SCHEDULED WATERING: Set watering schedules for your garden.",
+   "WEATHER ADJUSTMENTS: Adjusts watering schedules based on weather conditions.",
+   "SOIL MONITORING: Includes soil moisture monitoring.",
+   "MANUAL OVERRIDE: Start watering manually when needed.",
+   "SOLAR POWER: The controller uses solar power."
+  ],
+  "price": {
+   "value": 139.32,
+   "unit": "USD",
+   "label": "estimate",
+   "source_or_assumption": "Brief target price 129 EUR × 1.08 (assumed FX) (retail price incl. VAT where applicable)"
+  },
+  "keywords": [
+   "garden irrigation controller",
+   "scheduled watering",
+   "weather based watering",
+   "soil moisture monitor",
+   "solar irrigation",
+   "manual watering override"
+  ]
+ },
+ "listing_photos": [
+  {
+   "shot": "lifestyle",
+   "url": "/files/demo_irrigation_biarritz/photo_v2_lifestyle.png",
+   "label": "Photo-styled from the CAD (AI image, geometry from our CAD) · Staged scene — illustrative",
+   "reference": "cad_render",
+   "aspect_ratio": "4:5",
+   "staged": true,
+   "model": "google/gemini-3.1-flash-image",
+   "version": 2,
+   "created_at": "2026-09-27T12:00:00Z"
+  }
+ ]
+}

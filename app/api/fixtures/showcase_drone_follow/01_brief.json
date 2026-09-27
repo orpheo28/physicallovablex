@@ -1,0 +1,125 @@
+{
+ "project_id": "demo_drone_follow",
+ "status": "validated",
+ "fallback": false,
+ "fallback_reason": null,
+ "generated_by": "llm:openai/gpt-6-sol",
+ "generated_at": "2026-09-27T00:06:53.281267Z",
+ "assumptions": [
+  {
+   "id": "a1",
+   "text": "Skipped clarifying questions use their defaults: markets=US; volume=100–1,000 units; target_price=$500–$999; battery=Rechargeable Li-ion; wireless=Both Wi-Fi and dedicated radio. Re-run stage 1 with answers to change them.",
+   "label": "estimate",
+   "source": null,
+   "stage": 1
+  },
+  {
+   "id": "a2",
+   "text": "Target retail price proposed by the spec copilot (not stated by the founder); confirm before costing.",
+   "label": "estimate",
+   "source": null,
+   "stage": 1
+  }
+ ],
+ "stage": 1,
+ "mode": "idea",
+ "prompt": "A foldable drone for kitesurf follow-me shots",
+ "product_name": "Kitesurf follow-me drone",
+ "one_liner": "A foldable battery-powered drone that follows a kitesurfer to record video.",
+ "category": "other",
+ "target_markets": [
+  "US"
+ ],
+ "target_retail_price": {
+  "value": 999.0,
+  "unit": "USD",
+  "label": "estimate",
+  "source_or_assumption": "Assumed by the spec copilot from category comparables — confirm with the founder"
+ },
+ "target_volumes": [
+  500,
+  2000,
+  10000
+ ],
+ "key_features": [
+  "Foldable airframe",
+  "Autonomous follow-me filming",
+  "Onboard video recording",
+  "Tracking suited to a moving kitesurfer"
+ ],
+ "constraints": [
+  "Foldable design",
+  "Intended for kitesurf follow-me shots",
+  "Longer flight time; target duration not specified."
+ ],
+ "has_battery": true,
+ "wireless": [
+  "Wi-Fi"
+ ],
+ "pasted_bom": [],
+ "clarifying_questions": [
+  {
+   "id": "q1",
+   "topic": "markets",
+   "question": "Which markets should the first release serve?",
+   "options": [
+    "US",
+    "US and EU",
+    "US and UK",
+    "Other"
+   ],
+   "answer": "US",
+   "skipped": true
+  },
+  {
+   "id": "q2",
+   "topic": "volume",
+   "question": "What is the expected first production run?",
+   "options": [
+    "Under 100 units",
+    "100–1,000 units",
+    "Over 1,000 units"
+   ],
+   "answer": "100–1,000 units",
+   "skipped": true
+  },
+  {
+   "id": "q3",
+   "topic": "target_price",
+   "question": "What retail price are you targeting?",
+   "options": [
+    "Under $500",
+    "$500–$999",
+    "$1,000–$1,499",
+    "$1,500 or more"
+   ],
+   "answer": "$500–$999",
+   "skipped": true
+  },
+  {
+   "id": "q4",
+   "topic": "battery",
+   "question": "Does it need a battery, and what runtime?",
+   "options": [
+    "None (mains/USB)",
+    "Rechargeable Li-ion",
+    "Coin cell"
+   ],
+   "answer": "Rechargeable Li-ion",
+   "skipped": true
+  },
+  {
+   "id": "q5",
+   "topic": "wireless",
+   "question": "How should the drone receive tracking and control data?",
+   "options": [
+    "Wi-Fi phone link",
+    "Dedicated radio controller or wearable tracker",
+    "Both Wi-Fi and dedicated radio",
+    "Not decided"
+   ],
+   "answer": "Both Wi-Fi and dedicated radio",
+   "skipped": true
+  }
+ ]
+}

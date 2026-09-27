@@ -1,0 +1,164 @@
+{
+ "project_id": "demo_changing_table",
+ "status": "validated",
+ "fallback": false,
+ "fallback_reason": null,
+ "generated_by": "llm:openai/gpt-6-luna",
+ "generated_at": "2026-09-27T00:18:36.470304Z",
+ "assumptions": [
+  {
+   "id": "a1",
+   "text": "Amazon price in USD: Founder target retail price (USD); no conversion applied. Marketplace fees and VAT are not included.",
+   "label": "estimate",
+   "source": null,
+   "stage": 13
+  },
+  {
+   "id": "a2",
+   "text": "Name options are not trademark-searched; run a clearance search before committing.",
+   "label": "estimate",
+   "source": null,
+   "stage": 13
+  },
+  {
+   "id": "a3",
+   "text": "Listing copy uses only facts from the brief and spec; no certification claims until testing is complete (stage 4).",
+   "label": "estimate",
+   "source": null,
+   "stage": 13
+  }
+ ],
+ "stage": 13,
+ "name_options": [
+  {
+   "name": "Nuvora",
+   "rationale": "A simple coined name with a soft sound suited to a baby changing space. Trademark search needed before use."
+  },
+  {
+   "name": "Birlo",
+   "rationale": "A short, easy-to-spell coined name that nods to the birch construction. Trademark search needed before use."
+  },
+  {
+   "name": "Tivora",
+   "rationale": "A distinctive coined name that is easy to say and remember. Trademark search needed before use."
+  }
+ ],
+ "chosen_name": null,
+ "packaging": {
+  "box_type": "Protective corrugated shipping box with fitted paperboard supports",
+  "dimensions": {
+   "length": {
+    "value": 1020.0,
+    "unit": "mm",
+    "label": "estimate",
+    "source_or_assumption": "Product overall size + 10 mm clearance (rule; insert design at packaging RFQ)"
+   },
+   "width": {
+    "value": 910.0,
+    "unit": "mm",
+    "label": "estimate",
+    "source_or_assumption": "Product overall size + 10 mm clearance (rule; insert design at packaging RFQ)"
+   },
+   "height": {
+    "value": 570.0,
+    "unit": "mm",
+    "label": "estimate",
+    "source_or_assumption": "Product overall size + 10 mm clearance (rule; insert design at packaging RFQ)"
+   }
+  },
+  "materials": [
+   "Corrugated cardboard",
+   "Paperboard supports",
+   "Paper padding"
+  ],
+  "printing": "One-color exterior printing with product name and simple assembly and handling symbols.",
+  "contents": [
+   "Freestanding baby changing table",
+   "Changing pad",
+   "Assembly hardware",
+   "Assembly instructions"
+  ],
+  "unit_cost": {
+   "value": 1.2,
+   "unit": "USD",
+   "label": "estimate",
+   "source_or_assumption": "Default retail-box + insert allowance (no packaging cost in the BOM)"
+  }
+ },
+ "landing_copy": {
+  "headline": "A more organized changing space",
+  "subheadline": "A freestanding changing table with a stable frame, raised edges, wipe-clean surface, and storage for changing supplies.",
+  "bullets": [
+   "Raised edges surround the changing surface.",
+   "Wipe-clean pad surface makes everyday cleanup straightforward.",
+   "Accessible storage keeps changing supplies close at hand.",
+   "Anchor provision offers an option to reduce tip-over risk."
+  ],
+  "cta": "Shop now for $149"
+ },
+ "shopify_listing": {
+  "channel": "shopify",
+  "title": "Freestanding Baby Changing Table with Raised Edges and Storage",
+  "description": "Create a dedicated changing space with a freestanding table featuring a stable frame and raised edges around the changing surface. The wipe-clean pad and accessible storage help keep everyday changing supplies close at hand.",
+  "bullets": [
+   "Stable freestanding frame for a dedicated changing area.",
+   "Raised edges surround the changing surface.",
+   "Wipe-clean changing pad has a PVC-free cover.",
+   "Accessible storage keeps changing supplies within reach.",
+   "Anchor provision helps reduce tip-over risk."
+  ],
+  "price": {
+   "value": 289.0,
+   "unit": "USD",
+   "label": "estimate",
+   "source_or_assumption": "No founder price and the assumed brief target price 149 usd is below 1.6× landed cost $257.02: retail derived as 2.4× ex-works unit cost $122.53 at 2,000 units (category retail multiplier, comparables to confirm)"
+  },
+  "keywords": [
+   "freestanding baby changing table",
+   "baby changing station",
+   "changing table with storage",
+   "raised edge changing table",
+   "wipe-clean changing pad",
+   "birch plywood changing table"
+  ]
+ },
+ "amazon_listing": {
+  "channel": "amazon",
+  "title": "Nuvora Freestanding Baby Changing Table with Raised Edges, Wipe-Clean Pad and Accessible Storage",
+  "description": "Set up a dedicated changing space with a freestanding table made with birch plywood panels and legs. Raised edges, a wipe-clean changing surface, accessible storage, and an anchor provision support practical everyday use.",
+  "bullets": [
+   "STABLE FRAME: Freestanding construction creates a dedicated changing area.",
+   "RAISED EDGES: Guard rails surround the changing surface.",
+   "WIPE-CLEAN SURFACE: Changing pad features PU foam and a PVC-free cover.",
+   "SUPPLIES CLOSE BY: Accessible storage keeps changing supplies within reach.",
+   "ANCHOR PROVISION: Included provision is designed to help reduce tip-over risk."
+  ],
+  "price": {
+   "value": 289.0,
+   "unit": "USD",
+   "label": "estimate",
+   "source_or_assumption": "No founder price and the assumed brief target price 149 usd is below 1.6× landed cost $257.02: retail derived as 2.4× ex-works unit cost $122.53 at 2,000 units (category retail multiplier, comparables to confirm)"
+  },
+  "keywords": [
+   "baby changing table",
+   "freestanding changing station",
+   "changing table with storage",
+   "raised edge baby table",
+   "wipe-clean changing pad",
+   "birch plywood nursery furniture"
+  ]
+ },
+ "listing_photos": [
+  {
+   "shot": "lifestyle",
+   "url": "/files/demo_changing_table/photo_v2_lifestyle.png",
+   "label": "Photo-styled from the CAD (AI image, geometry from our CAD) · Staged scene — illustrative",
+   "reference": "cad_render",
+   "aspect_ratio": "4:5",
+   "staged": true,
+   "model": "google/gemini-3.1-flash-image",
+   "version": 2,
+   "created_at": "2026-09-27T12:00:00Z"
+  }
+ ]
+}

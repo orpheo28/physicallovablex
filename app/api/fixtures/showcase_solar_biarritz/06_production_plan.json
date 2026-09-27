@@ -1,0 +1,66 @@
+{
+ "project_id": "demo_solar_biarritz",
+ "status": "validated",
+ "fallback": false,
+ "fallback_reason": null,
+ "generated_by": "llm:openai/gpt-6-luna",
+ "generated_at": "2026-09-27T00:23:47.522495Z",
+ "assumptions": [
+  {
+   "id": "a1",
+   "text": "Lead times are typical values per process (tooling + first shots), not factory quotes; refined at stages 7-9 with the negotiated quote.",
+   "label": "estimate",
+   "source": null,
+   "stage": 6
+  },
+  {
+   "id": "a2",
+   "text": "Mass production duration assumes 90 units/day on one line for a 2,000-unit order.",
+   "label": "estimate",
+   "source": null,
+   "stage": 6
+  }
+ ],
+ "stage": 6,
+ "steps": [
+  {
+   "part_id": "p1",
+   "part_name": "Mounting rails and clamps",
+   "process": "extrusion",
+   "reason": "Extrusion efficiently produces the long, constant-section 6063 aluminium rails at 2,000-unit volume, with anodising providing the specified black finish.",
+   "region": "Foshan, Guangdong",
+   "lead_time_days": {
+    "value": 20.0,
+    "unit": "days",
+    "label": "estimate",
+    "source_or_assumption": "Typical extrusion lead time incl. tooling and first shots — planning assumption"
+   }
+  },
+  {
+   "part_id": "p2",
+   "part_name": "PV modules",
+   "process": "other",
+   "reason": "PV modules are specialized glass-glass laminates with framed cells, so sourcing finished modules is more economical and suitable than fabricating them in-house at 2,000 units.",
+   "region": "Shenzhen, Guangdong",
+   "lead_time_days": {
+    "value": 14.0,
+    "unit": "days",
+    "label": "estimate",
+    "source_or_assumption": "Typical other lead time incl. setup and first article — planning assumption"
+   }
+  }
+ ],
+ "assembly_notes": [
+  "Install rails and clamps to the roof structure per the module and mounting-system specifications, maintaining required clearances and torque.",
+  "Mount modules without stressing the glass; connect only compatible, correctly polarized PV-rated connectors and secure cable runs.",
+  "Install DC isolator, AC protection/disconnect, grid-tie inverter, and battery inverter/charger to applicable electrical and grid requirements.",
+  "Commission and function-test inverter, MPPT, protections, battery management, charging, and grid interaction; record test results.",
+  "Handle the battery per its manufacturer’s instructions; ship battery cells by sea only as UN3481 packed with equipment."
+ ],
+ "total_lead_time_days": {
+  "value": 64.0,
+  "unit": "days",
+  "label": "estimate",
+  "source_or_assumption": "Critical path from PO: slowest tooling/first article (20) + tooling correction T1 (14) + golden sample (7) + mass production (23) for 2,000 units"
+ }
+}

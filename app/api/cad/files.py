@@ -32,12 +32,21 @@ def resolve_file(project_id: str, filename: str) -> Path | None:
         return None
     if Path(filename).suffix.lower() not in MEDIA:
         return None
-    for base in (files_root(), PREBUILT_DIR):
-        root = (base / project_id).resolve()
+    for root in roots(project_id):
         candidate = (root / filename).resolve()
         if candidate.parent == root and candidate.is_file():
             return candidate
     return None
+
+
+def roots(project_id: str) -> list[Path]:
+    """Generated folder, committed prebuilt folder, and (W21 showcases) demo_<slug> → prebuilt/showcase_<slug>."""
+    from api.showcase import alias_dir
+
+    out = [(files_root() / project_id).resolve(), (PREBUILT_DIR / project_id).resolve()]
+    if (alias := alias_dir(project_id)) is not None:
+        out.append(alias.resolve())
+    return out
 
 
 def register(router: APIRouter) -> None:

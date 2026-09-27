@@ -1,0 +1,91 @@
+{
+ "project_id": "demo_stick_vacuum",
+ "status": "validated",
+ "fallback": false,
+ "fallback_reason": null,
+ "generated_by": "llm:openai/gpt-6-luna",
+ "generated_at": "2026-09-26T23:58:57.129132Z",
+ "assumptions": [
+  {
+   "id": "a1",
+   "text": "Lead times are typical values per process (tooling + first shots), not factory quotes; refined at stages 7-9 with the negotiated quote.",
+   "label": "estimate",
+   "source": null,
+   "stage": 6
+  },
+  {
+   "id": "a2",
+   "text": "Mass production duration assumes 90 units/day on one line for a 2,000-unit order.",
+   "label": "estimate",
+   "source": null,
+   "stage": 6
+  }
+ ],
+ "stage": 6,
+ "steps": [
+  {
+   "part_id": "p1",
+   "part_name": "Bottom shell",
+   "process": "injection_molding",
+   "reason": "At 2,000 units, injection molding suits the thin 2.2 mm PC/ABS shell geometry and mating features, while a satin nickel finish can be applied consistently after molding.",
+   "region": "Dongguan, Guangdong",
+   "lead_time_days": {
+    "value": 35.0,
+    "unit": "days",
+    "label": "estimate",
+    "source_or_assumption": "Typical injection molding lead time incl. tooling and first shots — planning assumption"
+   }
+  },
+  {
+   "part_id": "p2",
+   "part_name": "Top shell",
+   "process": "injection_molding",
+   "reason": "At 2,000 units, injection molding efficiently produces the thin 2.2 mm PC/ABS shell and precise mating features, with the satin nickel finish applied consistently after molding.",
+   "region": "Dongguan, Guangdong",
+   "lead_time_days": {
+    "value": 35.0,
+    "unit": "days",
+    "label": "estimate",
+    "source_or_assumption": "Typical injection molding lead time incl. tooling and first shots — planning assumption"
+   }
+  },
+  {
+   "part_id": "p3",
+   "part_name": "Main PCB assembly",
+   "process": "pcba",
+   "reason": "PCBA is appropriate for assembling the FR-4 board’s motor-control electronics and grouped passives, with lead-free HASL providing a cost-effective production finish at this volume.",
+   "region": "Shenzhen, Guangdong",
+   "lead_time_days": {
+    "value": 12.0,
+    "unit": "days",
+    "label": "estimate",
+    "source_or_assumption": "Typical pcba lead time incl. setup and first article — planning assumption"
+   }
+  },
+  {
+   "part_id": "p4",
+   "part_name": "Screws M2.5 × 6 self-tapping",
+   "process": "other",
+   "reason": "Standard self-tapping steel screws are the economical choice at 2,000 units for fastening molded shells, and black zinc provides corrosion protection and a matching finish.",
+   "region": "Shenzhen, Guangdong",
+   "lead_time_days": {
+    "value": 14.0,
+    "unit": "days",
+    "label": "estimate",
+    "source_or_assumption": "Typical other lead time incl. setup and first article — planning assumption"
+   }
+  }
+ ],
+ "assembly_notes": [
+  "Install and secure the PCB, trigger switch, charging interface, motor, and battery pack; route and strain-relieve wiring clear of moving and hot components.",
+  "Use controlled screw-driving torque and verify shell mating, boss engagement, and connector seating without damaging molded bosses.",
+  "Perform electrical safety checks and functional testing of trigger operation, charging, battery protection, and motor operation; run a motor spin or burn-in test and check for abnormal noise or overheating.",
+  "Handle cells with short-circuit protection and pack protection in place; ship battery packs by sea only as UN3481 packed with equipment."
+ ],
+ "total_lead_time_days": {
+  "value": 79.0,
+  "unit": "days",
+  "label": "estimate",
+  "source_or_assumption": "Critical path from PO: slowest tooling/first article (35) + tooling correction T1 (14) + golden sample (7) + mass production (23) for 2,000 units"
+ }
+}

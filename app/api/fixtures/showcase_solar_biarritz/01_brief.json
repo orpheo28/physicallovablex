@@ -1,0 +1,121 @@
+{
+ "project_id": "demo_solar_biarritz",
+ "status": "validated",
+ "fallback": false,
+ "fallback_reason": null,
+ "generated_by": "llm:openai/gpt-6-sol",
+ "generated_at": "2026-09-27T00:22:10.238849Z",
+ "assumptions": [
+  {
+   "id": "a1",
+   "text": "Skipped clarifying questions use their defaults: markets=EU; volume=One home; target_price=€8,000–€15,000; battery=No battery; wireless=No wireless monitoring. Re-run stage 1 with answers to change them.",
+   "label": "estimate",
+   "source": null,
+   "stage": 1
+  },
+  {
+   "id": "a2",
+   "text": "Target retail price proposed by the spec copilot (not stated by the founder); confirm before costing.",
+   "label": "estimate",
+   "source": null,
+   "stage": 1
+  }
+ ],
+ "stage": 1,
+ "mode": "idea",
+ "prompt": "Solar panels sized for my 35 m² roof in Biarritz",
+ "product_name": "Rooftop solar, Biarritz",
+ "one_liner": "A roof-mounted solar electricity system designed for a 35 m² roof in Biarritz.",
+ "category": "other",
+ "target_markets": [
+  "EU"
+ ],
+ "target_retail_price": {
+  "value": 12000.0,
+  "unit": "EUR",
+  "label": "estimate",
+  "source_or_assumption": "Assumed by the spec copilot from category comparables — confirm with the founder"
+ },
+ "target_volumes": [
+  500,
+  2000,
+  10000
+ ],
+ "key_features": [
+  "Photovoltaic panels sized to the usable roof area",
+  "Roof mounting hardware",
+  "Inverter for household electricity",
+  "Grid-connected system design",
+  "Battery energy storage"
+ ],
+ "constraints": [
+  "Roof area is 35 m²",
+  "Installation location is Biarritz, France"
+ ],
+ "has_battery": false,
+ "wireless": [],
+ "pasted_bom": [],
+ "clarifying_questions": [
+  {
+   "id": "q1",
+   "topic": "markets",
+   "question": "Which markets at launch?",
+   "options": [
+    "US",
+    "EU",
+    "UK",
+    "US + EU"
+   ],
+   "answer": "EU",
+   "skipped": true
+  },
+  {
+   "id": "q2",
+   "topic": "volume",
+   "question": "How many installations are planned initially?",
+   "options": [
+    "One home",
+    "2–10 homes",
+    "More than 10 homes"
+   ],
+   "answer": "One home",
+   "skipped": true
+  },
+  {
+   "id": "q3",
+   "topic": "target_price",
+   "question": "What is your budget for the installed system?",
+   "options": [
+    "Under €8,000",
+    "€8,000–€15,000",
+    "Over €15,000"
+   ],
+   "answer": "€8,000–€15,000",
+   "skipped": true
+  },
+  {
+   "id": "q4",
+   "topic": "battery",
+   "question": "Should the system include battery storage?",
+   "options": [
+    "No battery",
+    "Battery storage",
+    "Decide after a site assessment"
+   ],
+   "answer": "No battery",
+   "skipped": true
+  },
+  {
+   "id": "q5",
+   "topic": "wireless",
+   "question": "Do you want wireless system monitoring?",
+   "options": [
+    "No wireless monitoring",
+    "Wi-Fi monitoring",
+    "Cellular monitoring"
+   ],
+   "answer": "No wireless monitoring",
+   "skipped": true
+  }
+ ]
+}

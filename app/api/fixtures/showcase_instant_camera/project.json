@@ -1,0 +1,14 @@
+{
+ "id": "demo_instant_camera",
+ "name": "Retro instant camera",
+ "mode": "idea",
+ "prompt": "A retro instant camera",
+ "pasted_bom": null,
+ "example": "showcase_instant_camera",
+ "status": "active",
+ "created_at": "2026-09-27T00:10:24.073893Z",
+ "stage_status": {},
+ "tags": [
+  "Example"
+ ]
+}

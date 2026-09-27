@@ -48,6 +48,14 @@
           "default": "fictional",
           "title": "Label",
           "type": "string"
+        },
+        "categories": {
+          "description": "W21: product categories the factory specialises in (engineering category keys, e.g. lighting, wearable, drone); empty = generalist. A specialist scores lower on process fit for other categories",
+          "items": {
+            "type": "string"
+          },
+          "title": "Categories",
+          "type": "array"
         }
       },
       "required": [
@@ -186,6 +194,17 @@
       "default": true,
       "title": "Fictional",
       "type": "boolean"
+    },
+    "kind": {
+      "default": "factory",
+      "description": "W21b: partner kind for the portal filter \u2014 factory (makes parts / assembles), installer (site install, e.g. rooftop PV), integrator (integrates bought-in modules, e.g. drones / robots)",
+      "enum": [
+        "factory",
+        "installer",
+        "integrator"
+      ],
+      "title": "Kind",
+      "type": "string"
     }
   },
   "required": [

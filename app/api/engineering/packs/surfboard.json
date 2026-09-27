@@ -1,0 +1,32 @@
+{
+  "key": "surfboard",
+  "title": "Surfboard / hydrodynamic board",
+  "match": ["surfboard", "surf board", "hydrofoil", "foil board", "paddle board", "paddleboard", "sup board", "bodyboard", "kiteboard", "hydrodynamic board", "longboard"],
+  "families": ["board"],
+  "brief_categories": [],
+  "partner_word": "factories",
+  "standards": [
+    {"code": "Regulation (EU) 2023/988", "applies_because": "No harmonised surfboard standard: the General Product Safety Regulation applies"},
+    {"code": "Regulation (EC) 1907/2006", "applies_because": "REACH: resins, hardeners and foam additives (SVHC declaration)"},
+    {"code": "ISO 178", "applies_because": "Flexural properties of the laminate (3-point bending of coupons)"}
+  ],
+  "risks": [
+    {"risk": "Board snaps or creases under a heavy landing", "mitigation": "Stringer or carbon rail bands; 3-point bending test on coupons and full board", "severity": "critical"},
+    {"risk": "Fin box pulls out", "mitigation": "Pull-out test on the fin system, reinforcement patch under the box", "severity": "major"},
+    {"risk": "Delamination and water ingress into the core", "mitigation": "Vent plug (EPS), vacuum-bagged laminate, sealed inserts", "severity": "major"},
+    {"risk": "Too little volume for the rider → hard paddling, late planing", "mitigation": "Size volume from rider weight and level (litres per kg guideline)", "severity": "major"},
+    {"risk": "UV yellowing and resin brittleness", "mitigation": "UV-stabilised epoxy, hot coat with UV blocker", "severity": "minor"}
+  ],
+  "tests": [
+    {"name": "3-point flex of laminate coupons and full board", "kind": "mechanical", "method": "Load-deflection to failure on coupons; proof load on a board", "standard": "ISO 178"},
+    {"name": "Fin box pull-out", "kind": "mechanical", "method": "Pull along the fin axis to failure", "standard": null},
+    {"name": "Drop / impact on rails (ding resistance)", "kind": "drop", "method": "Falling-weight impact on rail and deck", "standard": null},
+    {"name": "Water absorption after 24 h immersion", "kind": "ingress", "method": "Weigh before/after with a pierced laminate patch", "standard": null},
+    {"name": "Salt-water + UV exposure of fittings", "kind": "salt_spray", "method": "Inserts and plugs, visual + pull-out after exposure", "standard": null}
+  ],
+  "checks": ["board_volume", "mass"],
+  "params": {"rider_kg_default": 75, "rho_sea": 1025, "fn_volumetric": 2.0, "litres_per_kg_min": 0.35, "litres_per_kg_warn": 0.3, "shape_coeff": 0.6, "mass_max_g": 4500,
+    "default_family": "nrf52", "connectivity": "BLE GATT service (optional ride logger)", "typical_electronics": []},
+  "prototype": {"method": "CNC-shaped EPS blank + hand-laid epoxy/glass (per litre)", "usd_per_litre": 12, "setup_usd": 300, "units": 1,
+    "steps": ["Export the outline and rocker from the CAD to the shaping machine", "CNC-shape an EPS blank, hand-finish rails", "Laminate epoxy/glass (4+4 oz deck, 4 oz bottom), install fin boxes and vent plug", "Weigh the finished board, check volume by water displacement", "Test-ride with two rider weights and log speed with a GPS watch"]}
+}

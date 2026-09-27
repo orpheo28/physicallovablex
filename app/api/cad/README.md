@@ -25,6 +25,11 @@
   Cycles render of a material GLB (3-point area lights, shadow catcher, #F7F6F3 seamless background, 3/4 camera
   framed on the bbox, denoise). Produced `prebuilt/<id>/hero_dN.png` for both demos (Blender 5.2.2, ~45 s each).
   Caption: "Rendered from the CAD". Not in the live path.
+- `wearables.py` (W17) — families **3 wearable_band** (pod L × W × thickness incl. a 0.8 mm drafted optical sensor window,
+  two drafted shells; `strap_width` / `strap_length` → LSR strap drawn in the full-product GLB only) and **4 ring**
+  (length = width = outer Ø, height = band width, wall = band thickness; drafted annular halves + drafted inner sensor
+  bump). Own plausible ranges in `normalize` (`build.py` delegates for family ≥ 3); `look.build_assembly` uses
+  `assembly_parts` (top = body colour, bottom = accent, strap = body). Used by the Studio (api/studio) for wearables.
 - `files.py` — `GET /files/{project_id}/{filename}`: `api/data/files/<pid>/` → `api/cad/prebuilt/<pid>/` → 404.
   Whitelisted names, resolved path must stay in its base dir.
 - `prebuilt/` — committed demo CAD, regenerate with `uv run python -m api.cad._prebuild`:

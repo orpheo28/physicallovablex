@@ -1,0 +1,39 @@
+{
+  "key": "smartphone",
+  "title": "Smartphone (ODM reference platform)",
+  "match": ["smartphone", "smart phone", "mobile phone", "cell phone", "cellphone", "minimalist phone", "dumbphone", "feature phone", "light phone"],
+  "families": ["smartphone"],
+  "brief_categories": ["smartphone"],
+  "partner_word": "factories",
+  "standards": [
+    {"code": "47 CFR Part 22", "applies_because": "US cellular (850 MHz band) — FCC equipment authorisation of the cellular radio"},
+    {"code": "47 CFR Part 24", "applies_because": "US PCS (1900 MHz) cellular bands"},
+    {"code": "47 CFR Part 27", "applies_because": "US AWS / LTE / 5G bands"},
+    {"code": "47 CFR Part 2", "applies_because": "US equipment authorisation and RF exposure (SAR, §2.1093)"},
+    {"code": "47 CFR Part 15", "applies_because": "Wi-Fi / Bluetooth radios and digital device"},
+    {"code": "Directive 2014/53/EU", "applies_because": "EU RED: cellular, Wi-Fi, BT, GNSS, SAR and EMC under one declaration"},
+    {"code": "IEC 62368-1", "applies_because": "Electrical safety of ICT equipment"},
+    {"code": "IEC 62133-2", "applies_because": "Li-ion cell"},
+    {"code": "UN 38.3", "applies_because": "Lithium cell shipped in the product"},
+    {"code": "PTCRB / GCF", "applies_because": "Carrier / industry certification of the cellular modem (needed to be sold through operators)"}
+  ],
+  "risks": [
+    {"risk": "A phone cannot realistically be designed from scratch by a start-up (modem, RF, OS, certification)", "mitigation": "ODM reference platform with pre-certified modem; customise enclosure, colours, display, sensors and software", "severity": "critical"},
+    {"risk": "Carrier certification and OS licensing (Google Mobile Services / AOSP) gate the launch", "mitigation": "Pick the ODM platform already certified on the target carriers; AOSP-based launcher for the 'no social apps' experience", "severity": "critical"},
+    {"risk": "Software updates and security patches for years", "mitigation": "Contract the ODM for a patch schedule (e.g. 3 years) with the BSP", "severity": "major"},
+    {"risk": "SAR re-test when the antenna area or back material changes", "mitigation": "Keep the ODM's antenna layout; metal back → budget a SAR + OTA re-test", "severity": "major"}
+  ],
+  "tests": [
+    {"name": "Radio + SAR (FCC ID, RED)", "kind": "radio", "method": "Accredited lab; re-use the ODM's modular reports where the RF design is unchanged", "standard": "47 CFR Part 2 / 22 / 24 / 27 / Directive 2014/53/EU"},
+    {"name": "Carrier / industry certification", "kind": "radio", "method": "PTCRB (North America) / GCF (Europe) test plan", "standard": "PTCRB / GCF"},
+    {"name": "Drop 1.2 m and tumble", "kind": "drop", "method": "Functional + display check after drops", "standard": null},
+    {"name": "Battery safety", "kind": "battery", "method": "Accredited lab (cell supplier reports)", "standard": "IEC 62133-2 / UN 38.3"}
+  ],
+  "checks": ["battery_life", "thermal", "mass"],
+  "params": {"mass_max_g": 200, "battery_target_h": 24, "battery_mah_default": 4000, "battery_v_default": 3.85,
+    "duty": {"mcu": 20, "display": 15, "radio": 10, "cellular": 30, "gnss": 2, "camera": 1},
+    "default_family": "generic", "connectivity": "LTE + Wi-Fi + BT (ODM modem)",
+    "typical_electronics": ["Application processor SoC with LTE modem (ODM reference board)", "AMOLED display 6.1 inch", "Li-ion cell 4000 mAh", "PMIC", "Camera module 50MP", "NFC controller"]},
+  "prototype": {"method": "ODM engineering samples in a CNC aluminium / SLA body", "usd_per_cm3": 0.35, "setup_usd": 200, "units": 5,
+    "steps": ["Shortlist ODMs with a reference platform close to the brief (size, modem bands, price tier)", "Get engineering samples; build the software experience (launcher, app policy) on AOSP", "CNC / SLA the custom back and colours around the ODM's board", "Pre-scan radio and SAR on the custom body", "Carrier pre-test with the ODM before committing tooling"]}
+}

@@ -6,6 +6,7 @@ import type { CostsArtifact, DFMArtifact, FactoryMatch, MatchingArtifact, Produc
 import type { SpecArtifact } from "@/types/contracts";
 import { humanize } from "@/lib/meta";
 import { useApi } from "@/lib/useApi";
+import { partnerTitle, useEngineering } from "@/lib/studio";
 import { BreakEven, CertificationsByMarket, IssuesTable, StackedBar, TiersTable } from "../blocks";
 import { Btn, Card, KV, LabelBadge, LV, Severity, Spinner, StatStrip, Table, Td, Th } from "../ui";
 import type { StageViewProps } from "./types";
@@ -77,7 +78,20 @@ export function DFMView({ artifact: a }: StageViewProps<DFMArtifact>) {
                   <Td>
                     <LV v={r.lead_time_weeks} />
                   </Td>
-                  <Td className="text-sm text-ink-2">{r.alternatives.join(", ") || "—"}</Td>
+                  <Td className="text-sm text-ink-2">
+                    {r.alternative ? (
+                      <span className="flex flex-col gap-0.5">
+                        <span>
+                          Cheaper: <span className="text-ink">{r.alternative.part}</span> <span className="font-mono">{r.alternative.lcsc_pn}</span>
+                        </span>
+                        <LV v={r.alternative.price} />
+                      </span>
+                    ) : r.level !== "low" ? (
+                      <span className="text-ink-3">{r.alternatives.join(", ") || "No cheaper in-stock alternative in LCSC"}</span>
+                    ) : (
+                      r.alternatives.join(", ") || "—"
+                    )}
+                  </Td>
                 </tr>
               ))}
             </tbody>
@@ -124,7 +138,7 @@ export function CostsView({ artifact: a, busy, run, project }: StageViewProps<Co
     <div className="flex flex-col gap-6">
       <StatStrip
         items={[
-          { label: "Total cash needed", value: <LV v={a.total_cash_needed} big />, sub: `First order of ${a.reference_quantity.toLocaleString("en-US")} units`, accent: true },
+          { label: "Total cash needed", value: <LV v={a.total_cash_needed} big />, sub: `First order of ${a.reference_quantity.toLocaleString("en-US")} ${a.unit_basis === "per_installation" ? (a.reference_quantity === 1 ? "installation" : "installations") : "units"}`, accent: true },
           { label: "Break-even", value: <BreakEven v={a.breakeven_units} big /> },
           { label: "Target retail price", value: <LV v={a.target_retail_price} big /> },
           {
@@ -143,9 +157,9 @@ export function CostsView({ artifact: a, busy, run, project }: StageViewProps<Co
         ]}
       />
 
-      <Card title="Unit cost by volume tier">
-        <TiersTable tiers={a.tiers} />
-        <div className="mt-5 flex flex-wrap items-end gap-4 border-t border-line pt-5 text-base">
+      <Card title={a.unit_basis === "per_installation" ? "Cost per installation" : "Unit cost by volume tier"}>
+        <TiersTable tiers={a.tiers} perInstallation={a.unit_basis === "per_installation"} />
+        <div className="mt-6 flex flex-wrap items-end gap-4 text-base">
           <label className="flex flex-col gap-1.5">
             <span className="micro">Volumes</span>
             <input value={vols} onChange={(e) => setVols(e.target.value)} className="field !w-48 font-mono" />
@@ -316,7 +330,7 @@ export function MatchCard({ m, compact }: { m: FactoryMatch; compact?: boolean }
         </span>
       </div>
       {!compact && (
-        <div className="mt-4 flex flex-col gap-3 border-t border-line pt-4">
+        <div className="mt-5 flex flex-col gap-3">
           {m.score_breakdown.map((s) => (
             <div key={s.criterion} className="flex flex-col gap-1.5" title={s.note}>
               <div className="flex items-baseline justify-between gap-2 text-sm">
@@ -326,14 +340,14 @@ export function MatchCard({ m, compact }: { m: FactoryMatch; compact?: boolean }
                 </span>
               </div>
               <span className="h-[3px] overflow-hidden rounded-full bg-paper-2">
-                <span className="block h-full bg-ink" style={{ width: `${Math.round(s.score * 100)}%` }} />
+                <span className="block h-full rounded-full bg-ink-3" style={{ width: `${Math.round(s.score * 100)}%` }} />
               </span>
               <span className="text-sm text-ink-3">{s.note}</span>
             </div>
           ))}
         </div>
       )}
-      <ul className="mt-4 flex flex-col gap-1 border-t border-line pt-4 text-base">
+      <ul className="mt-5 flex flex-col gap-1 text-base">
         {m.reasons.map((r) => (
           <li key={r} className="flex gap-2.5">
             <span className="mt-[11px] h-px w-2.5 shrink-0 bg-ink-3" aria-hidden />
@@ -345,13 +359,15 @@ export function MatchCard({ m, compact }: { m: FactoryMatch; compact?: boolean }
   );
 }
 
-export function MatchingView({ artifact: a }: StageViewProps<MatchingArtifact>) {
+export function MatchingView({ artifact: a, project }: StageViewProps<MatchingArtifact>) {
   const list = [...a.shortlist].sort((x, y) => x.rank - y.rank);
+  const eng = useEngineering(project.id, a.generated_at);
+  const who = partnerTitle(eng.data).toLowerCase();
   return (
     <div className="flex flex-col gap-6">
       <p className="flex flex-wrap items-center gap-2 text-base text-ink-2">
-        Queried the production MCP with Factory Pack <span className="font-mono text-ink">{a.factory_pack_id}</span>. The factory network is
-        <LabelBadge label="fictional" small />
+        Queried the production MCP with Factory Pack <span className="font-mono text-ink">{a.factory_pack_id}</span>. The {who === "installers" ? "installer" : "factory"} network is
+        <LabelBadge label="fictional" small text />
       </p>
       <div className="grid gap-5 lg:grid-cols-3">
         {list.map((m) => (
@@ -383,7 +399,7 @@ export function MatchingView({ artifact: a }: StageViewProps<MatchingArtifact>) 
         </Table>
       </Card>
       <KV k="Next">
-        <span className="text-base text-ink-2">Stage 8 sends RFQs to the shortlist and negotiates.</span>
+        <span className="text-base text-ink-2">Step 8 sends RFQs to the shortlisted {who} and negotiates.</span>
       </KV>
     </div>
   );

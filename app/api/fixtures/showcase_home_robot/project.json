@@ -1,0 +1,14 @@
+{
+ "id": "demo_home_robot",
+ "name": "Toy-tidying home robot",
+ "mode": "idea",
+ "prompt": "A next-gen home robot that tidies toys",
+ "pasted_bom": null,
+ "example": "showcase_home_robot",
+ "status": "active",
+ "created_at": "2026-09-27T00:08:51.027878Z",
+ "stage_status": {},
+ "tags": [
+  "Example"
+ ]
+}

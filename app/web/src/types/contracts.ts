@@ -80,9 +80,19 @@ export type MilestoneKind =
   | "other";
 /**
  * This interface was referenced by `ContractsBundle`'s JSON-Schema
+ * via the `definition` "CheckVerdict".
+ */
+export type CheckVerdict = "pass" | "warn" | "fail" | "info";
+/**
+ * This interface was referenced by `ContractsBundle`'s JSON-Schema
  * via the `definition` "AutorunState".
  */
 export type AutorunState = "idle" | "running" | "done" | "failed";
+/**
+ * This interface was referenced by `ContractsBundle`'s JSON-Schema
+ * via the `definition` "VersionStatus".
+ */
+export type VersionStatus = "running" | "done" | "failed";
 
 export interface ContractsBundle {
   LabeledValue: LabeledValue;
@@ -121,6 +131,20 @@ export interface ContractsBundle {
   ResetResult: ResetResult;
   HealthResponse: HealthResponse;
   ErrorResponse: ErrorResponse;
+  EngineeringArtifact: EngineeringArtifact;
+  Version: Version;
+  VersionChange: VersionChange;
+  VersionPreview: VersionPreview;
+  RefineRequest: RefineRequest;
+  ExampleSummary: ExampleSummary;
+  BuildStrategy: BuildStrategy;
+  ComponentRiskSummary: ComponentRiskSummary;
+  PartAlternative: PartAlternative;
+  StudioAccepted: StudioAccepted;
+  ProductPhoto: ProductPhoto;
+  PhotoJob: PhotoJob;
+  ProjectPhotos: ProjectPhotos;
+  PhotoAccepted: PhotoAccepted;
   Label: Label;
   StageStatus: StageStatus;
   ProcessType: ProcessType;
@@ -177,6 +201,10 @@ export interface Project {
   stage_status: {
     [k: string]: StageStatus;
   };
+  /**
+   * W21: e.g. ['Example'] for the showcase gallery projects
+   */
+  tags: string[];
 }
 /**
  * This interface was referenced by `ContractsBundle`'s JSON-Schema
@@ -402,7 +430,10 @@ export interface ElectronicsEdge {
  * via the `definition` "CadFile".
  */
 export interface CadFile {
-  format: "step" | "stl" | "glb" | "pdf" | "png" | "svg";
+  /**
+   * py (W21): the build123d program of the model, served by GET /projects/<pid>/cad/code/<n>
+   */
+  format: "step" | "stl" | "glb" | "pdf" | "png" | "svg" | "py";
   /**
    * Served by the API, e.g. /files/<project_id>/enclosure.step
    */
@@ -468,6 +499,26 @@ export interface ComponentRiskItem {
   alternatives: string[];
   stock: LabeledValue | null;
   lead_time_weeks: LabeledValue | null;
+  /**
+   * W21b: cheapest in-stock same-kind part when this one is expensive or low-stock (None: no alternative in the snapshot)
+   */
+  alternative: PartAlternative | null;
+}
+/**
+ * W21b: a cheaper / better-stocked catalogue part proposed for a risky BOM line (structured, no text parsing).
+ *
+ * This interface was referenced by `ContractsBundle`'s JSON-Schema
+ * via the `definition` "PartAlternative".
+ */
+export interface PartAlternative {
+  /**
+   * Manufacturer part number + package
+   */
+  part: string;
+  lcsc_pn: string;
+  price: LabeledValue;
+  stock: LabeledValue | null;
+  label: Label;
 }
 /**
  * This interface was referenced by `ContractsBundle`'s JSON-Schema
@@ -510,11 +561,15 @@ export interface CostsArtifact {
   bom_lines: CostLine[];
   volume_factor: LabeledValue;
   /**
-   * 500 / 2,000 / 10,000 by default
+   * 500 / 2,000 / 10,000 by default; a site install (unit_basis per_installation, W21c) has ONE tier: the pilot quantity of installations, with per-installation figures
    *
-   * @minItems 3
+   * @minItems 1
    */
-  tiers: [CostTier, CostTier, CostTier, ...CostTier[]];
+  tiers: [CostTier, ...CostTier[]];
+  /**
+   * W21c: per_installation = rooftop solar etc.: unit_cost = installer cost of one installation, target_retail_price = turnkey installed price, cash for a pilot of reference_quantity installations
+   */
+  unit_basis: "per_unit" | "per_installation";
   tooling: ToolingItem[];
   tooling_total: LabeledValue;
   certification_total: LabeledValue;
@@ -649,6 +704,10 @@ export interface SearchCapacityQuery {
   quantity: number;
   certifications_required: string[];
   deadline: string | null;
+  /**
+   * W21: product category (engineering key) for specialist scoring
+   */
+  category: string | null;
 }
 /**
  * This interface was referenced by `ContractsBundle`'s JSON-Schema
@@ -1030,6 +1089,10 @@ export interface BrandArtifact {
   landing_copy: LandingCopy;
   shopify_listing: ListingDraft;
   amazon_listing: ListingDraft;
+  /**
+   * W27: e-commerce listing photo kit (packshot_white, lifestyle, in_hand_scale, detail_macro) of the current version
+   */
+  listing_photos: ProductPhoto[];
 }
 /**
  * This interface was referenced by `ContractsBundle`'s JSON-Schema
@@ -1074,6 +1137,45 @@ export interface ListingDraft {
   keywords: string[];
 }
 /**
+ * W27: one AI product photo. With a reference the model only restyles light, surface, lens and framing around OUR
+ * CAD image (viewer capture or Blender render of the CAD); without one it is a text-only concept image.
+ *
+ * This interface was referenced by `ContractsBundle`'s JSON-Schema
+ * via the `definition` "ProductPhoto".
+ */
+export interface ProductPhoto {
+  shot: "hero_studio" | "packshot_white" | "lifestyle" | "in_hand_scale" | "detail_macro";
+  /**
+   * /files/<pid>/photo_v<n>_<shot>.png
+   */
+  url: string;
+  /**
+   * Honesty caption shown under the image: 'Photo-styled from the CAD (AI image, geometry from our CAD)' or 'AI concept image (no CAD reference)'; lifestyle adds ' · Staged scene — illustrative'
+   */
+  label: string;
+  /**
+   * viewer = PNG captured from the 3D viewer by the client; cad_render = Blender render of the CAD; none = text only
+   */
+  reference: "viewer" | "cad_render" | "none";
+  /**
+   * 4:5 or 1:1
+   */
+  aspect_ratio: string;
+  /**
+   * Lifestyle / in-hand scene: illustrative staging, not a real photo shoot
+   */
+  staged: boolean;
+  /**
+   * Image model slug (OpenRouter)
+   */
+  model: string | null;
+  /**
+   * Studio version the photo was made from
+   */
+  version: number | null;
+  created_at: string;
+}
+/**
  * This interface was referenced by `ContractsBundle`'s JSON-Schema
  * via the `definition` "FactoryPack".
  */
@@ -1104,6 +1206,7 @@ export interface FactoryPack {
   cost_estimate: CostTier[];
   questions: FactoryQuestion[];
   assumption_register: Assumption[];
+  engineering: EngineeringArtifact | null;
 }
 /**
  * This interface was referenced by `ContractsBundle`'s JSON-Schema
@@ -1124,6 +1227,343 @@ export interface FactoryQuestion {
   en: string;
   cn: string | null;
   cn_review_note: string;
+}
+/**
+ * This interface was referenced by `ContractsBundle`'s JSON-Schema
+ * via the `definition` "EngineeringArtifact".
+ */
+export interface EngineeringArtifact {
+  project_id: string;
+  status: StageStatus;
+  /**
+   * True when served from a fixture after an error
+   */
+  fallback: boolean;
+  fallback_reason: string | null;
+  /**
+   * 'fixture' | 'code' | 'llm:<model slug>'
+   */
+  generated_by: string;
+  generated_at: string;
+  assumptions: Assumption[];
+  stage: "engineering";
+  /**
+   * Engineering category key, e.g. wearable, furniture_baby, home_robot, vacuum, irrigation, solar_roof, surfboard, lighting, tracker, generic
+   */
+  category: string;
+  category_title: string;
+  partner_word: "factories" | "installers";
+  site_install: boolean;
+  product_name: string;
+  /**
+   * Hash of the project state this was computed from
+   */
+  inputs_digest: string;
+  standards: StandardRef[];
+  risks: DesignRisk[];
+  tests: RequiredTest[];
+  checks: EngineeringCheck[];
+  electronics: ElectronicsArchitecture | null;
+  firmware: FirmwareProject | null;
+  prototype: PrototypePath;
+  solar: SolarDesign | null;
+  /**
+   * Site-install mode: fictional certified installers
+   */
+  installers: InstallerMatch[];
+  /**
+   * W21: full design / module assembly / ODM customisation
+   */
+  build_strategy: BuildStrategy | null;
+  /**
+   * W21b: what one 'unit' is for this product — per_installation for site installs (rooftop solar): costs are per site
+   */
+  unit_basis: "per_unit" | "per_installation";
+  /**
+   * W21b: turnkey cost of one installation (per_installation only; = solar.install_cost)
+   */
+  installation_cost: LabeledValue | null;
+}
+/**
+ * This interface was referenced by `ContractsBundle`'s JSON-Schema
+ * via the `definition` "StandardRef".
+ */
+export interface StandardRef {
+  /**
+   * e.g. 'IEC 60335-2-2', 'EN 12221-1', 'IEC 60529'
+   */
+  code: string;
+  title: string;
+  applies_because: string;
+  url: string | null;
+  citation_label: Label;
+  citation_note: string;
+}
+/**
+ * This interface was referenced by `ContractsBundle`'s JSON-Schema
+ * via the `definition` "DesignRisk".
+ */
+export interface DesignRisk {
+  id: string;
+  risk: string;
+  mitigation: string;
+  severity: Severity;
+}
+/**
+ * This interface was referenced by `ContractsBundle`'s JSON-Schema
+ * via the `definition` "RequiredTest".
+ */
+export interface RequiredTest {
+  id: string;
+  /**
+   * e.g. 'Drop test 1.5 m', 'IPX7 immersion', 'Salt spray 96 h', 'Tip-over'
+   */
+  name: string;
+  kind:
+    | "drop"
+    | "ingress"
+    | "salt_spray"
+    | "tip_over"
+    | "thermal"
+    | "electrical"
+    | "radio"
+    | "mechanical"
+    | "battery"
+    | "chemical"
+    | "other";
+  method: string;
+  standard: string | null;
+}
+/**
+ * This interface was referenced by `ContractsBundle`'s JSON-Schema
+ * via the `definition` "EngineeringCheck".
+ */
+export interface EngineeringCheck {
+  id: string;
+  name: string;
+  domain:
+    | "stability"
+    | "hydrodynamics"
+    | "power"
+    | "ingress"
+    | "airflow"
+    | "fluid"
+    | "solar"
+    | "thermal"
+    | "mass"
+    | "geometry"
+    | "flight"
+    | "regulatory";
+  value: LabeledValue;
+  /**
+   * Human wording of the pass/warn/fail rule, e.g. '≥ 15° (design target)'
+   */
+  threshold: string | null;
+  verdict: CheckVerdict;
+  /**
+   * Formula and assumptions, with the inputs' labels
+   */
+  formula: string;
+  /**
+   * Inputs of the formula (each labeled)
+   */
+  inputs: LabeledValue[];
+  /**
+   * e.g. the sealing checklist of an IP check
+   */
+  notes: string[];
+}
+/**
+ * This interface was referenced by `ContractsBundle`'s JSON-Schema
+ * via the `definition` "ElectronicsArchitecture".
+ */
+export interface ElectronicsArchitecture {
+  mcu_family: "nrf52" | "esp32" | "stm32" | "avr" | "generic";
+  mcu_part: string;
+  radio: string[];
+  power_tree: PowerNode[];
+  connections: NetConnection[];
+  power_budget: PowerBudgetLine[];
+  average_current: LabeledValue;
+  battery_voltage: LabeledValue | null;
+  battery_capacity: LabeledValue | null;
+  battery_life: LabeledValue | null;
+  pcb_note: string;
+}
+/**
+ * This interface was referenced by `ContractsBundle`'s JSON-Schema
+ * via the `definition` "PowerNode".
+ */
+export interface PowerNode {
+  id: string;
+  name: string;
+  kind: "source" | "charger" | "storage" | "regulator" | "load";
+  /**
+   * Upstream node id (None for a source)
+   */
+  parent: string | null;
+  voltage: LabeledValue;
+}
+/**
+ * This interface was referenced by `ContractsBundle`'s JSON-Schema
+ * via the `definition` "NetConnection".
+ */
+export interface NetConnection {
+  source: string;
+  target: string;
+  bus: "power" | "i2c" | "spi" | "uart" | "gpio" | "pwm" | "adc" | "rf" | "usb" | "analog" | "can";
+  /**
+   * Net names, e.g. 'SDA, SCL, INT1'
+   */
+  signals: string;
+}
+/**
+ * This interface was referenced by `ContractsBundle`'s JSON-Schema
+ * via the `definition` "PowerBudgetLine".
+ */
+export interface PowerBudgetLine {
+  block: string;
+  part: string;
+  active_current: LabeledValue;
+  sleep_current: LabeledValue;
+  duty_cycle: LabeledValue;
+  average_current: LabeledValue;
+}
+/**
+ * This interface was referenced by `ContractsBundle`'s JSON-Schema
+ * via the `definition` "FirmwareProject".
+ */
+export interface FirmwareProject {
+  framework: "zephyr" | "arduino";
+  mcu_family: string;
+  /**
+   * e.g. 'BLE GATT service', 'Wi-Fi + MQTT'
+   */
+  connectivity: string;
+  /**
+   * /files/<project_id>/firmware.zip
+   */
+  url: string;
+  files: string[];
+  /**
+   * 'template' | 'llm:<model slug>'
+   */
+  generated_by: string;
+  note: string;
+  /**
+   * An LLM version is being generated in the background; re-GET to pick it up
+   */
+  pending_llm: boolean;
+}
+/**
+ * This interface was referenced by `ContractsBundle`'s JSON-Schema
+ * via the `definition` "PrototypePath".
+ */
+export interface PrototypePath {
+  enclosure_method: string;
+  enclosure_volume: LabeledValue;
+  /**
+   * Prototype quantity (input)
+   */
+  units: number;
+  cost_lines: PrototypeCostLine[];
+  devkit_bom: DevKitLine[];
+  assembly_steps: string[];
+  timeline_weeks: LabeledValue;
+  total_cost: LabeledValue;
+}
+/**
+ * This interface was referenced by `ContractsBundle`'s JSON-Schema
+ * via the `definition` "PrototypeCostLine".
+ */
+export interface PrototypeCostLine {
+  item: string;
+  amount: LabeledValue;
+}
+/**
+ * This interface was referenced by `ContractsBundle`'s JSON-Schema
+ * via the `definition` "DevKitLine".
+ */
+export interface DevKitLine {
+  part: string;
+  role: string;
+  qty: number;
+  lcsc_pn: string | null;
+  unit_price: LabeledValue;
+}
+/**
+ * This interface was referenced by `ContractsBundle`'s JSON-Schema
+ * via the `definition` "SolarDesign".
+ */
+export interface SolarDesign {
+  location: string;
+  latitude: number;
+  longitude: number;
+  /**
+   * True when the location was not in the prompt (default demo site)
+   */
+  location_assumed: boolean;
+  roof_area: LabeledValue;
+  module_power: LabeledValue;
+  module_count: LabeledValue;
+  peak_power: LabeledValue;
+  specific_yield: LabeledValue;
+  annual_energy: LabeledValue;
+  /**
+   * 12 values, kWh
+   */
+  monthly_energy: LabeledValue[];
+  install_cost: LabeledValue;
+  annual_savings: LabeledValue;
+  payback: LabeledValue;
+  pvgis_url: string;
+}
+/**
+ * This interface was referenced by `ContractsBundle`'s JSON-Schema
+ * via the `definition` "InstallerMatch".
+ */
+export interface InstallerMatch {
+  factory_id: string;
+  /**
+   * Fictional installer name — ends with '(fictional)'
+   */
+  name: string;
+  region: string;
+  certifications: string[];
+  lead_time_days: number;
+  label: "fictional";
+}
+/**
+ * W21: how this product realistically gets built — design everything, assemble bought-in modules, or customise an
+ * ODM reference platform. Figures are Estimates with their assumptions.
+ *
+ * This interface was referenced by `ContractsBundle`'s JSON-Schema
+ * via the `definition` "BuildStrategy".
+ */
+export interface BuildStrategy {
+  strategy: "full_design" | "module_assembly" | "odm_customization";
+  /**
+   * e.g. 'Full design', 'Module assembly', 'ODM customisation'
+   */
+  title: string;
+  explanation: string;
+  /**
+   * What the founder designs / chooses
+   */
+  customisable: string[];
+  /**
+   * What comes from the modules / the ODM platform
+   */
+  not_customisable: string[];
+  moq: LabeledValue;
+  entry_cost: LabeledValue;
+  lead_time: LabeledValue;
+  /**
+   * Realistic steps (for ODM: find a close reference platform…)
+   */
+  path: string[];
+  certifications_note: string;
+  assumptions: string[];
 }
 /**
  * This interface was referenced by `ContractsBundle`'s JSON-Schema
@@ -1149,6 +1589,10 @@ export interface Factory {
   past_performance: PastPerformance;
   label: "fictional";
   fictional: true;
+  /**
+   * W21b: partner kind for the portal filter — factory (makes parts / assembles), installer (site install, e.g. rooftop PV), integrator (integrates bought-in modules, e.g. drones / robots)
+   */
+  kind: "factory" | "installer" | "integrator";
 }
 /**
  * Mirrors MCP `register_capacity` input (PRD §10).
@@ -1171,6 +1615,10 @@ export interface CapacityProfile {
   monthly_capacity: number;
   current_load_pct: number;
   label: "fictional";
+  /**
+   * W21: product categories the factory specialises in (engineering category keys, e.g. lighting, wearable, drone); empty = generalist. A specialist scores lower on process fit for other categories
+   */
+  categories: string[];
 }
 /**
  * This interface was referenced by `ContractsBundle`'s JSON-Schema
@@ -1218,13 +1666,17 @@ export interface RegisterFactoryRequest {
   personality: string | null;
 }
 /**
- * Progress of the background autorun (stages 1-7). Poll GET /projects/{id} every ~2 s.
+ * Progress of the background autorun (stages 1-7, or 1-13 + Factory Pack in autofill mode). Poll GET /projects/{id} every ~2 s.
  *
  * This interface was referenced by `ContractsBundle`'s JSON-Schema
  * via the `definition` "AutorunStatus".
  */
 export interface AutorunStatus {
   state: AutorunState;
+  /**
+   * Last stage the run goes to: 7 (default) or 13 (autofill: also auto-approves the recommended quote at stage 8 and builds the Factory Pack)
+   */
+  through: 7 | 13;
   /**
    * Stage being run while state == running
    */
@@ -1394,4 +1846,307 @@ export interface HealthResponse {
  */
 export interface ErrorResponse {
   detail: string;
+}
+/**
+ * This interface was referenced by `ContractsBundle`'s JSON-Schema
+ * via the `definition` "Version".
+ */
+export interface Version {
+  n: number;
+  /**
+   * The founder's prompt ('Studio start' for version 1)
+   */
+  message: string;
+  status: VersionStatus;
+  created_at: string;
+  finished_at: string | null;
+  summary: string;
+  changes: VersionChange[];
+  preview: VersionPreview | null;
+  /**
+   * Plain-language reason when status == failed
+   */
+  error: string | null;
+  /**
+   * Stage artifacts reflect this version
+   */
+  is_current: boolean;
+  /**
+   * An AI concept render for this version is still running
+   */
+  render_pending: boolean;
+  /**
+   * AI DFM review / production plan still refreshing in the background
+   */
+  background_pending: boolean;
+  /**
+   * W21: the AI CAD model (text-to-CAD) of this version is still being generated; preview.glb_url / code_url are patched in when done
+   */
+  cad_pending: boolean;
+  /**
+   * W21: plain-language note on the AI CAD (e.g. fell back to the family)
+   */
+  cad_note: string | null;
+  /**
+   * W21c: LLM attempts the AI CAD program of this version took (0 = no AI CAD run)
+   */
+  cad_attempts: number;
+  /**
+   * W21c: self-repair rounds (attempts − 1 when it ended ok) — 'self-repaired N×'
+   */
+  cad_repairs: number;
+  /**
+   * W21e: colour, material, finish, shape or dimensions changed vs the previous version. False → the previous version's photos are carried over (copied, same labels) and no new photo is generated
+   */
+  look_changed: boolean;
+}
+/**
+ * This interface was referenced by `ContractsBundle`'s JSON-Schema
+ * via the `definition` "VersionChange".
+ */
+export interface VersionChange {
+  area:
+    | "color"
+    | "material"
+    | "shape"
+    | "dimensions"
+    | "feature"
+    | "component"
+    | "price"
+    | "markets"
+    | "requirement"
+    | "certification"
+    | "cost"
+    | "performance";
+  /**
+   * Human wording, e.g. 'Colour', 'Pod height', 'Optical heart-rate sensor'
+   */
+  label: string;
+  before: string | null;
+  after: string | null;
+  label_kind: Label;
+  /**
+   * W21b: on a 'Component added' change — structured supply risk + proposed cheaper in-stock alternative
+   */
+  risk: ComponentRiskSummary | null;
+}
+/**
+ * W21b: structured risk of one part: level, reasons and the proposed alternative (None when the snapshot has none).
+ *
+ * This interface was referenced by `ContractsBundle`'s JSON-Schema
+ * via the `definition` "ComponentRiskSummary".
+ */
+export interface ComponentRiskSummary {
+  level: RiskLevel;
+  reasons: string[];
+  alternative: PartAlternative | null;
+}
+/**
+ * This interface was referenced by `ContractsBundle`'s JSON-Schema
+ * via the `definition` "VersionPreview".
+ */
+export interface VersionPreview {
+  /**
+   * Full-product GLB of this version (/files/<pid>/v<n>.glb)
+   */
+  glb_url: string | null;
+  /**
+   * AI concept render (illustrative, not the CAD); patched in later
+   */
+  render_url: string | null;
+  /**
+   * W21e: see CostsArtifact.unit_basis
+   */
+  unit_basis: "per_unit" | "per_installation";
+  /**
+   * W21e, per_installation only: THE customer price of one installation for this version (turnkey, battery included when the BOM has one) — the single source for the Studio strip, Overview and gallery card
+   */
+  installed_price: LabeledValue | null;
+  /**
+   * W21e, per_installation only: what one installation costs the installer (equipment + labour + site admin)
+   */
+  installer_cost: LabeledValue | null;
+  /**
+   * Measured on the built STEP (moulded parts)
+   */
+  dimensions: Dimensions | null;
+  color_hex: string | null;
+  color_name: string | null;
+  material: string | null;
+  finish: string | null;
+  /**
+   * rounded_box | puck | slab | wearable_band | ring, or a W21 product family (board, furniture, stick_vacuum, home_robot, irrigation, solar_array, drone, hair_dryer, camera, smartphone)
+   */
+  shape_family: string | null;
+  unit_costs: VersionUnitCost[];
+  top_factories: VersionFactory[];
+  /**
+   * '<market> <standard>' of the required certifications
+   */
+  certifications: string[];
+  bom_count: number;
+  /**
+   * W21: the build123d program of this version's model (/projects/<pid>/cad/code/<k>): AI-written, or the parametric family seed when AI CAD is off / failed (see cad_label)
+   */
+  code_url: string | null;
+  /**
+   * W21: STEP of the model shown in glb_url (AI model when present)
+   */
+  step_url: string | null;
+  /**
+   * W21: 'AI-generated CAD (concept level) — geometry measured on the result' or 'Parametric family CAD (concept level) — …'
+   */
+  cad_label: string | null;
+  /**
+   * W21: llm:<model> | seed:<family> | previous_version | family:<name>
+   */
+  cad_source: string | null;
+  /**
+   * W27: AI product photos of this version (one per shot, newest wins). hero_studio, when present, is also render_url
+   */
+  photos: ProductPhoto[];
+}
+/**
+ * This interface was referenced by `ContractsBundle`'s JSON-Schema
+ * via the `definition` "VersionUnitCost".
+ */
+export interface VersionUnitCost {
+  quantity: number;
+  /**
+   * Ex-works unit cost, USD
+   */
+  value: number;
+  label: Label;
+  source_or_assumption: string | null;
+}
+/**
+ * This interface was referenced by `ContractsBundle`'s JSON-Schema
+ * via the `definition` "VersionFactory".
+ */
+export interface VersionFactory {
+  /**
+   * Fictional factory name
+   */
+  name: string;
+  /**
+   * 0-100 match score on demo data
+   */
+  score: number;
+  label: "fictional";
+}
+/**
+ * This interface was referenced by `ContractsBundle`'s JSON-Schema
+ * via the `definition` "RefineRequest".
+ */
+export interface RefineRequest {
+  message: string;
+}
+/**
+ * W21: one showcase project of the gallery (GET /examples). Opening it costs nothing: every stage is cached.
+ *
+ * This interface was referenced by `ContractsBundle`'s JSON-Schema
+ * via the `definition` "ExampleSummary".
+ */
+export interface ExampleSummary {
+  /**
+   * Project id, e.g. demo_whoop_kitesurf
+   */
+  id: string;
+  slug: string;
+  name: string;
+  prompt: string;
+  /**
+   * Engineering category key
+   */
+  category: string;
+  strategy: ("full_design" | "module_assembly" | "odm_customization") | null;
+  /**
+   * Concept render (illustrative) or None
+   */
+  hero_image_url: string | null;
+  /**
+   * 3D model of the current version
+   */
+  glb_url: string | null;
+  one_line_result: string;
+  unit_basis: "per_unit" | "per_installation";
+  /**
+   * W21b: headline cost — ex-works unit cost at the reference quantity (per_unit) or turnkey cost per installation
+   */
+  unit_cost: LabeledValue | null;
+  versions: number;
+  stages_done: number;
+  tags: string[];
+  /**
+   * The project exists in the database (after POST /demo/reset)
+   */
+  seeded: boolean;
+  /**
+   * W27: honesty caption of hero_image_url
+   */
+  hero_image_label: string | null;
+  /**
+   * W27: hero_studio + lifestyle photos of the current version
+   */
+  photos: ProductPhoto[];
+}
+/**
+ * This interface was referenced by `ContractsBundle`'s JSON-Schema
+ * via the `definition` "StudioAccepted".
+ */
+export interface StudioAccepted {
+  version: number;
+}
+/**
+ * This interface was referenced by `ContractsBundle`'s JSON-Schema
+ * via the `definition` "PhotoJob".
+ */
+export interface PhotoJob {
+  state: "idle" | "running" | "done" | "failed";
+  version: number | null;
+  /**
+   * Shots requested by this job
+   */
+  shots: string[];
+  /**
+   * Shots generated so far
+   */
+  done: string[];
+  /**
+   * Shots that failed (the previous photo, if any, is kept)
+   */
+  failed: string[];
+  /**
+   * Plain-language reason when a shot failed (e.g. image credits exhausted)
+   */
+  error: string | null;
+  started_at: string | null;
+  finished_at: string | null;
+}
+/**
+ * GET /projects/{id}/photos — photos of the current version + the running / last photo job (poll every ~2 s).
+ *
+ * This interface was referenced by `ContractsBundle`'s JSON-Schema
+ * via the `definition` "ProjectPhotos".
+ */
+export interface ProjectPhotos {
+  project_id: string;
+  /**
+   * Current Studio version (None: not a Studio project)
+   */
+  version: number | null;
+  photos: ProductPhoto[];
+  job: PhotoJob;
+  /**
+   * An image model + key are configured (else POSTs return 503)
+   */
+  configured: boolean;
+}
+/**
+ * This interface was referenced by `ContractsBundle`'s JSON-Schema
+ * via the `definition` "PhotoAccepted".
+ */
+export interface PhotoAccepted {
+  version: number;
+  shots: string[];
 }

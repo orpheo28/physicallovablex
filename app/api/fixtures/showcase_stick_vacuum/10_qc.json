@@ -1,0 +1,125 @@
+{
+ "project_id": "demo_stick_vacuum",
+ "status": "validated",
+ "fallback": false,
+ "fallback_reason": null,
+ "generated_by": "llm:openai/gpt-6-luna",
+ "generated_at": "2026-09-26T23:59:28.065619Z",
+ "assumptions": [
+  {
+   "id": "a1",
+   "text": "Pre-shipment inspection priced at $268 per man-day.",
+   "label": "sourced",
+   "source": "V-Trust, https://www.v-trust.com/en/our-network, checked 2026-09-26",
+   "stage": 10
+  },
+  {
+   "id": "a2",
+   "text": "AQL 0 / 2.5 / 4.0 for critical / major / minor is the usual consumer-goods setting; agree it with the buyer and factory.",
+   "label": "estimate",
+   "source": null,
+   "stage": 10
+  },
+  {
+   "id": "a3",
+   "text": "One inspector checks about 100 units per day including functional tests.",
+   "label": "estimate",
+   "source": null,
+   "stage": 10
+  }
+ ],
+ "stage": 10,
+ "standard": "ISO 2859-1 (ANSI/ASQ Z1.4)",
+ "inspection_level": "General II",
+ "lot_size": 2000,
+ "sample_size": {
+  "value": 125.0,
+  "unit": "units",
+  "label": "estimate",
+  "source_or_assumption": "Per ISO 2859-1 table (edition not verified): Table I code letter K for lot 1,201–3,200, level General II, Table II-A"
+ },
+ "defects": [
+  {
+   "id": "c1",
+   "severity": "critical",
+   "description": "Battery pack is swollen, leaking, visibly damaged, or becomes abnormally hot during operation or charging.",
+   "spec_ref": "BOM e1 (21.6 V (6S) rechargeable Li-ion battery pack with protection) / Certification: IEC 62133-2 / Certification: UN38.3",
+   "check_method": "Visual inspection; functional charge and run test with temperature monitoring — AQL 0: accept ≤0 / reject ≥1 at n=125",
+   "aql": 0.0
+  },
+  {
+   "id": "c2",
+   "severity": "critical",
+   "description": "Charging interface or wiring shows exposed live conductors, arcing, smoke, or burning odor during charging.",
+   "spec_ref": "BOM e5 (DC charging connector and charge interface) / Electronics block b6 (Charging interface)",
+   "check_method": "Visual inspection; functional charge test under controlled conditions — AQL 0: accept ≤0 / reject ≥1 at n=125",
+   "aql": 0.0
+  },
+  {
+   "id": "c3",
+   "severity": "critical",
+   "description": "Housing or wand has a sharp edge or burr that can cut the user during normal handling.",
+   "spec_ref": "Part p1 (Bottom shell) / Part p2 (Top shell) / BOM m2 (Aluminium wand)",
+   "check_method": "Visual and careful tactile inspection of accessible edges — AQL 0: accept ≤0 / reject ≥1 at n=125",
+   "aql": 0.0
+  },
+  {
+   "id": "j1",
+   "severity": "major",
+   "description": "Top and bottom shell mating faces exceed the specified dimensional tolerance, preventing proper assembly or leaving a visible gap.",
+   "spec_ref": "Part p1 (Bottom shell) / Part p2 (Top shell) / Tolerance: Shell mating faces ±0.1 mm",
+   "check_method": "Measure mating faces with calipers or a suitable gauge; inspect assembled fit — AQL 2.5: accept ≤7 / reject ≥8 at n=125",
+   "aql": 2.5
+  },
+  {
+   "id": "j2",
+   "severity": "major",
+   "description": "Shell split-line step exceeds the specified limit or the assembled shell has a visibly uneven joint.",
+   "spec_ref": "Part p1 (Bottom shell) / Part p2 (Top shell) / Tolerance: Split-line step ≤ 0.1 mm",
+   "check_method": "Measure split-line step with a step gauge or feeler gauge — AQL 2.5: accept ≤7 / reject ≥8 at n=125",
+   "aql": 2.5
+  },
+  {
+   "id": "j3",
+   "severity": "major",
+   "description": "Vacuum motor or floor head does not start, runs intermittently, or stops during normal operation.",
+   "spec_ref": "BOM e2 (High-speed BLDC vacuum motor assembly) / BOM m1 (Motorized floor head assembly)",
+   "check_method": "Functional run test using the trigger; verify motor and floor head operation — AQL 2.5: accept ≤7 / reject ≥8 at n=125",
+   "aql": 2.5
+  },
+  {
+   "id": "j4",
+   "severity": "major",
+   "description": "Top or bottom shell finish is visibly inconsistent with the specified Satin · Nickel #9A9DA1 finish.",
+   "spec_ref": "Part p1 (Bottom shell) / Part p2 (Top shell)",
+   "check_method": "Visual comparison under D65 lighting at 50 cm; use colorimeter if available — AQL 2.5: accept ≤7 / reject ≥8 at n=125",
+   "aql": 2.5
+  },
+  {
+   "id": "n1",
+   "severity": "minor",
+   "description": "Cosmetic scratches, scuffs, or sink marks are visible on the shell but do not affect fit or function.",
+   "spec_ref": "Part p1 (Bottom shell) / Part p2 (Top shell)",
+   "check_method": "Visual inspection under D65 lighting at 50 cm — AQL 4: accept ≤10 / reject ≥11 at n=125",
+   "aql": 4.0
+  }
+ ],
+ "inspection_man_days": {
+  "value": 2.0,
+  "unit": "man-days",
+  "label": "estimate",
+  "source_or_assumption": "125 samples at 100 units per man-day incl. functional tests"
+ },
+ "man_day_rate": {
+  "value": 268.0,
+  "unit": "USD",
+  "label": "sourced",
+  "source_or_assumption": "V-Trust, https://www.v-trust.com/en/our-network, checked 2026-09-26"
+ },
+ "inspection_cost": {
+  "value": 536.0,
+  "unit": "USD",
+  "label": "estimate",
+  "source_or_assumption": "V-Trust rate (Sourced) × estimated man-days: 2 man-days (estimate) × $268/man-day (V-Trust, https://www.v-trust.com/en/our-network, checked 2026-09-26)"
+ }
+}

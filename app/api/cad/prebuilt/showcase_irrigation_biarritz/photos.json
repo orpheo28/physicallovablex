@@ -1,0 +1,18 @@
+{
+ "hero_studio": {
+  "file": "photo_v2_hero_studio.png",
+  "reference": "cad_render",
+  "model": "google/gemini-3.1-flash-image",
+  "version": 2,
+  "cost_usd": 0.0678,
+  "seconds": 11.9
+ },
+ "lifestyle": {
+  "file": "photo_v2_lifestyle.png",
+  "reference": "cad_render",
+  "model": "google/gemini-3.1-flash-image",
+  "version": 2,
+  "cost_usd": 0.0678,
+  "seconds": 15.0
+ }
+}

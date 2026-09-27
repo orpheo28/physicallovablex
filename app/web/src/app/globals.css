@@ -70,9 +70,14 @@
   --text-3xl: 64px;
   --text-3xl--line-height: 66px;
 
-  --radius-sm: 3px;
-  --radius: 4px;
-  --radius-md: 6px;
+  /* W26: softer, concentric radii — controls 8, surfaces 12, floating layers 16. */
+  --radius-sm: 6px;
+  --radius: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+
+  /* The one elevation: floating layers only (composer, menus, tooltips, dialogs). */
+  --shadow-float: 0 0 0 1px rgb(17 17 17 / 0.06), 0 2px 4px rgb(17 17 17 / 0.04), 0 12px 32px -12px rgb(17 17 17 / 0.18);
 
   --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
   --animate-shimmer: shimmer 1.4s ease-in-out infinite;
@@ -104,6 +109,56 @@ html {
   color-scheme: light;
 }
 
+/* Desktop app shell: the page itself never scrolls; only designated regions do. */
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+/* Public docs are documents, not app screens: the page scrolls normally. */
+html:has([data-docs]),
+html:has([data-docs]) body {
+  height: auto !important;
+  min-height: 100%;
+  overflow: visible !important;
+  overscroll-behavior: auto;
+}
+
+/*
+ * Designated scroll region: thin scrollbar in brand colours and soft fades at the top and bottom
+ * edges, shown only when there is more content that way (ScrollArea sets --fade-top / --fade-bottom).
+ */
+.scroll-y {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-line-2) transparent;
+  --fade-top: 0px;
+  --fade-bottom: 0px;
+  mask-image: linear-gradient(to bottom, transparent 0, #000 var(--fade-top), #000 calc(100% - var(--fade-bottom)), transparent 100%);
+}
+.scroll-y:hover {
+  scrollbar-color: var(--color-ink-4) transparent;
+}
+.scroll-y::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.scroll-y::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scroll-y::-webkit-scrollbar-thumb {
+  background: var(--color-line-2);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  border-radius: 999px;
+}
+.scroll-y::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-ink-4);
+}
+
 body {
   background: var(--color-paper);
   color: var(--color-ink);
@@ -130,7 +185,64 @@ body {
 :focus-visible {
   outline: 2px solid var(--color-ink);
   outline-offset: 2px;
-  border-radius: 2px;
+}
+
+button,
+a,
+[role="tab"],
+[role="radio"] {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Quiet trust-label dot (Measured / Sourced / Estimate / Fictional): full label and source in the tooltip. */
+.tdot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 2px var(--color-surface-ring, transparent);
+}
+
+/* Press feedback on buttons (better-ui: scale 0.96). */
+.press {
+  transition-property: color, background-color, border-color, box-shadow, opacity, scale;
+  transition-duration: 150ms;
+  transition-timing-function: var(--ease-out);
+}
+.press:active:not(:disabled) {
+  scale: 0.96;
+}
+
+/* Floating tooltip for trust labels. */
+.tip {
+  position: fixed;
+  z-index: 60;
+  max-width: 320px;
+  pointer-events: none;
+  border-radius: 10px;
+  background: var(--color-ink);
+  color: #fff;
+  padding: 8px 10px;
+  font-size: 12.5px;
+  line-height: 18px;
+  box-shadow: var(--shadow-float);
+  opacity: 0;
+  translate: 0 2px;
+  transition-property: opacity, translate;
+  transition-duration: 120ms;
+  transition-timing-function: var(--ease-out);
+}
+.tip[data-on] {
+  opacity: 1;
+  translate: 0 0;
+}
+
+/* Images get a hairline outline for depth (pure black at low opacity, never a tinted grey). */
+.img-outline {
+  outline: 1px solid rgb(0 0 0 / 0.06);
+  outline-offset: -1px;
 }
 
 /* Condensed display: Archivo at 72% width, tight, for page titles and the product name. */
@@ -141,15 +253,22 @@ body {
   letter-spacing: -0.01em;
 }
 
-/* Mono uppercase micro-label for section headers */
+/* Section and field label: sentence case, Inter Tight, quiet (W26 — no letter-spaced mono caps). */
 .micro {
-  font-family: var(--font-mono);
-  font-size: 10.5px;
-  line-height: 16px;
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  line-height: 18px;
   font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--color-ink-2);
+  letter-spacing: 0;
+  color: var(--color-ink-3);
+}
+
+/* Titles: Inter Tight, tight tracking, sentence case. The condensed display face is the home headline only. */
+.title {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: -0.022em;
+  text-wrap: balance;
 }
 
 /* Form controls share one look */
@@ -158,7 +277,7 @@ body {
   border: 1px solid var(--color-line-2);
   background: var(--color-surface);
   border-radius: var(--radius);
-  padding: 7px 10px;
+  padding: 8px 12px;
   font-size: 14px;
   line-height: 20px;
   color: var(--color-ink);
@@ -202,7 +321,7 @@ details > summary::-webkit-details-marker {
 
 model-viewer {
   --poster-color: transparent;
-  --progress-bar-color: var(--color-accent);
+  --progress-bar-color: var(--color-ink-4);
   --progress-bar-height: 2px;
 }
 
@@ -218,12 +337,24 @@ model-viewer {
 @media print {
   header[data-chrome],
   footer[data-chrome],
+  [data-chrome],
   [data-noprint] {
     display: none !important;
   }
   body,
   html {
     background: #fff;
+    height: auto !important;
+    overflow: visible !important;
+  }
+  /* The app shell and its scroll regions flow onto paper. */
+  [data-shell],
+  .scroll-y {
+    display: block !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+    mask-image: none !important;
   }
   @page {
     size: A4;

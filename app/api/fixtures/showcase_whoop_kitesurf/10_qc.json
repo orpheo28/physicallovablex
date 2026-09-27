@@ -1,0 +1,133 @@
+{
+ "project_id": "demo_whoop_kitesurf",
+ "status": "validated",
+ "fallback": false,
+ "fallback_reason": null,
+ "generated_by": "llm:openai/gpt-6-luna",
+ "generated_at": "2026-09-26T23:54:23.978724Z",
+ "assumptions": [
+  {
+   "id": "a1",
+   "text": "Pre-shipment inspection priced at $268 per man-day.",
+   "label": "sourced",
+   "source": "V-Trust, https://www.v-trust.com/en/our-network, checked 2026-09-26",
+   "stage": 10
+  },
+  {
+   "id": "a2",
+   "text": "AQL 0 / 2.5 / 4.0 for critical / major / minor is the usual consumer-goods setting; agree it with the buyer and factory.",
+   "label": "estimate",
+   "source": null,
+   "stage": 10
+  },
+  {
+   "id": "a3",
+   "text": "One inspector checks about 100 units per day including functional tests.",
+   "label": "estimate",
+   "source": null,
+   "stage": 10
+  }
+ ],
+ "stage": 10,
+ "standard": "ISO 2859-1 (ANSI/ASQ Z1.4)",
+ "inspection_level": "General II",
+ "lot_size": 2000,
+ "sample_size": {
+  "value": 125.0,
+  "unit": "units",
+  "label": "estimate",
+  "source_or_assumption": "Per ISO 2859-1 table (edition not verified): Table I code letter K for lot 1,201–3,200, level General II, Table II-A"
+ },
+ "defects": [
+  {
+   "id": "c1",
+   "severity": "critical",
+   "description": "Battery is swollen, punctured, leaking, or has damaged or exposed leads.",
+   "spec_ref": "BOM e4 (LiPo battery, 3.7 V, 150 mAh)",
+   "check_method": "Visual inspection; check battery condition and lead insulation — AQL 0: accept ≤0 / reject ≥1 at n=125",
+   "aql": 0.0
+  },
+  {
+   "id": "c2",
+   "severity": "critical",
+   "description": "Charging causes abnormal heating, smoke, odor, or visible damage to the unit.",
+   "spec_ref": "Electronics block b1 (Battery and power management) / BOM e5 (Single-cell LiPo charger IC, TP4054)",
+   "check_method": "Functional charging test; monitor for abnormal heat, smoke, odor, or damage — AQL 0: accept ≤0 / reject ≥1 at n=125",
+   "aql": 0.0
+  },
+  {
+   "id": "c3",
+   "severity": "critical",
+   "description": "Accessible shell edges or seams have sharp burrs that could cut the user.",
+   "spec_ref": "Part p1 (Bottom shell) / Part p2 (Top shell)",
+   "check_method": "Visual and careful touch inspection of accessible edges and seams — AQL 0: accept ≤0 / reject ≥1 at n=125",
+   "aql": 0.0
+  },
+  {
+   "id": "j1",
+   "severity": "major",
+   "description": "Top and bottom shells do not mate correctly, or the split-line step exceeds the specified limit.",
+   "spec_ref": "Part p1 (Bottom shell) / Part p2 (Top shell) / Tolerance: Split-line step ≤ 0.1 mm",
+   "check_method": "Assemble shells and measure the split-line step with a feeler gauge — AQL 2.5: accept ≤7 / reject ≥8 at n=125",
+   "aql": 2.5
+  },
+  {
+   "id": "j2",
+   "severity": "major",
+   "description": "Shell mating faces or boss pilots are visibly out of tolerance, causing poor fit or screw assembly issues.",
+   "spec_ref": "Part p1 (Bottom shell) / Part p2 (Top shell) / Tolerance: Shell mating faces ±0.1 mm / Tolerance: Boss pilot Ø2.2 +0.05/0 mm",
+   "check_method": "Measure mating faces and boss pilots with suitable gauges — AQL 2.5: accept ≤7 / reject ≥8 at n=125",
+   "aql": 2.5
+  },
+  {
+   "id": "j3",
+   "severity": "major",
+   "description": "Unit fails to power on, has intermittent operation, or heart-rate or motion sensing does not respond during the functional check.",
+   "spec_ref": "Electronics block b1 (Battery and power management) / Electronics block b3 (Optical heart-rate sensing) / Electronics block b4 (Motion sensing)",
+   "check_method": "Power-on and basic heart-rate and motion functional test — AQL 2.5: accept ≤7 / reject ≥8 at n=125",
+   "aql": 2.5
+  },
+  {
+   "id": "j4",
+   "severity": "major",
+   "description": "BLE function is absent or repeatedly disconnects during the functional check.",
+   "spec_ref": "Electronics block b2 (BLE MCU and antenna)",
+   "check_method": "Pair with a test device and verify connection and data exchange — AQL 2.5: accept ≤7 / reject ≥8 at n=125",
+   "aql": 2.5
+  },
+  {
+   "id": "j5",
+   "severity": "major",
+   "description": "Charging contacts are missing, damaged, misaligned, or fail to make reliable electrical contact.",
+   "spec_ref": "BOM e9 (Charging contacts) / Electronics block b5 (Charging contacts)",
+   "check_method": "Visual inspection and charging-contact continuity or charging test — AQL 2.5: accept ≤7 / reject ≥8 at n=125",
+   "aql": 2.5
+  },
+  {
+   "id": "n1",
+   "severity": "minor",
+   "description": "Shells or strap have scratches, sink marks, blemishes, or finish color visibly different from the approved appearance sample.",
+   "spec_ref": "Part p1 (Bottom shell) / Part p2 (Top shell) / Part p5 (Strap)",
+   "check_method": "Visual inspection under D65 light at 50 cm; compare color with approved sample — AQL 4: accept ≤10 / reject ≥11 at n=125",
+   "aql": 4.0
+  }
+ ],
+ "inspection_man_days": {
+  "value": 2.0,
+  "unit": "man-days",
+  "label": "estimate",
+  "source_or_assumption": "125 samples at 100 units per man-day incl. functional tests"
+ },
+ "man_day_rate": {
+  "value": 268.0,
+  "unit": "USD",
+  "label": "sourced",
+  "source_or_assumption": "V-Trust, https://www.v-trust.com/en/our-network, checked 2026-09-26"
+ },
+ "inspection_cost": {
+  "value": 536.0,
+  "unit": "USD",
+  "label": "estimate",
+  "source_or_assumption": "V-Trust rate (Sourced) × estimated man-days: 2 man-days (estimate) × $268/man-day (V-Trust, https://www.v-trust.com/en/our-network, checked 2026-09-26)"
+ }
+}

@@ -1,0 +1,386 @@
+{
+ "project_id": "demo_irrigation_biarritz",
+ "status": "validated",
+ "fallback": false,
+ "fallback_reason": null,
+ "generated_by": "llm:openai/gpt-6-sol",
+ "generated_at": "2026-09-27T00:01:08.604056Z",
+ "assumptions": [
+  {
+   "id": "a4_1",
+   "text": "Measured checks assume a straight two-half tool pulling along ±Z (split line in the XY plane)",
+   "label": "estimate",
+   "source": null,
+   "stage": 4
+  },
+  {
+   "id": "a4_2",
+   "text": "Clamp tonnage = projected area (in²) × 3 t/in² (PC/ABS) × 1.1 safety",
+   "label": "estimate",
+   "source": null,
+   "stage": 4
+  }
+ ],
+ "stage": 4,
+ "issues": [
+  {
+   "id": "a1",
+   "severity": "major",
+   "category": "assembly",
+   "method": "ai_reviewed",
+   "part_id": null,
+   "description": "Weather seals and cable glands are listed, but the shell joint has no gasket groove, compression stops, or leak-test requirement. Outdoor water ingress could reach the PCB and battery.",
+   "fix": "Define the gasket profile, gland interfaces, compression stops, target ingress rating, and assembled leak test.",
+   "rule_citation": "Verify enclosure ingress protection by test — IEC 60529.",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a2",
+   "severity": "major",
+   "category": "other",
+   "method": "ai_reviewed",
+   "part_id": null,
+   "description": "The rechargeable battery and solar charge controller have no specified cell chemistry, protection, charging limits, or temperature limits.",
+   "fix": "Specify the cell and a compatible charge controller, protection functions, temperature sensing, and charging verification.",
+   "rule_citation": "Safety requirements for portable sealed secondary cells and batteries — IEC 62133-2 (if lithium-based).",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a3",
+   "severity": "major",
+   "category": "assembly",
+   "method": "ai_reviewed",
+   "part_id": null,
+   "description": "Battery retention and routing are undefined; the cell or leads could move or be pinched when the shells are closed.",
+   "fix": "Add a restrained battery pocket, insulating barriers, wire channels, and assembly clearance checks.",
+   "rule_citation": "Prevent mechanical damage and short circuits in battery installations — IEC 62133-2 (if lithium-based).",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a4",
+   "severity": "major",
+   "category": "other",
+   "method": "ai_reviewed",
+   "part_id": null,
+   "description": "The valve drive is not specified beyond the valve, MOSFET, and diode. Coil voltage, current, startup demand, and solar/battery power budget cannot be checked.",
+   "fix": "Specify the valve coil and duty cycle; verify the regulator, battery, MOSFET, diode, wiring, and connectors across the operating range.",
+   "rule_citation": "Select semiconductor operating conditions within rated limits — AO3400A and SS14 manufacturer datasheets.",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a5",
+   "severity": "major",
+   "category": "assembly",
+   "method": "ai_reviewed",
+   "part_id": "p1",
+   "description": "The specified boss pilot and self-tapping screws lack a boss outer diameter, engagement depth, screw type, and torque limit; cracking or stripped bosses may result.",
+   "fix": "Dimension the bosses and engagement for the selected screw, then validate installation and strip torque in molded ASA samples.",
+   "rule_citation": "Size pilot holes and bosses for the selected thread-forming screw and plastic — STANLEY Engineered Fastening plastics fastening design guide.",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a7",
+   "severity": "major",
+   "category": "material",
+   "method": "ai_reviewed",
+   "part_id": null,
+   "description": "The ASA housing has no declared flammability grade despite enclosing a rechargeable battery and electronics.",
+   "fix": "Specify and qualify an ASA grade with a flammability classification appropriate to the completed product's safety assessment.",
+   "rule_citation": "Classify plastic material flammability using standardized burning tests — UL 94.",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "m1",
+   "severity": "minor",
+   "category": "draft",
+   "method": "measured",
+   "part_id": "p1",
+   "description": "Minimum wall draft is 1.46°: enough for a polished finish, short of the ~3° a textured finish ('Matte texture · Warm white #EDEBE6') needs.",
+   "fix": "Increase draft to 3° on textured faces, or specify a lighter texture / polished finish.",
+   "rule_citation": "Draft ≥1° plus 1° per 0.025 mm texture depth — Protolabs injection molding design guidelines; measured with text-to-cad DFM skill (mold_tool.py, MIT) ported to OCCT",
+   "measurement": {
+    "value": 1.463,
+    "unit": "deg",
+    "label": "measured",
+    "source_or_assumption": "Min wall draft vs pull +Z: lowest-draft B-rep wall face ≥ 173.84 mm² (curved, 277.52 mm² at [-64.98, 19.98, 11.69]) — text-to-cad DFM skill (mold_tool.py, MIT) ported to OCCT"
+   },
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "m2",
+   "severity": "minor",
+   "category": "projection",
+   "method": "measured",
+   "part_id": "p1",
+   "description": "Projected area along +Z: 8805 mm² (part silhouette, per cavity). Estimated clamp force ≈ 45.0 t (Estimate: area in² × 3.0 t/in² for PC/ABS × 1.1 safety) — per cavity; a family tool moulding both shells in one shot roughly doubles it.",
+   "fix": "Quote on a press ≥ 60 t; keep both shells in one family mould only if tonnage allows.",
+   "rule_citation": "Clamp force ≈ projected area × cavity-pressure factor (2-5 t/in²) — Protolabs injection molding design guidelines; silhouette raster from text-to-cad DFM skill (mold_tool.py, MIT) ported to OCCT",
+   "measurement": {
+    "value": 8805.4,
+    "unit": "mm2",
+    "label": "measured",
+    "source_or_assumption": "Silhouette along +Z, raster 0.375 mm — text-to-cad DFM skill (mold_tool.py, MIT) ported to OCCT"
+   },
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "m3",
+   "severity": "minor",
+   "category": "wall_thickness",
+   "method": "measured",
+   "part_id": "p1",
+   "description": "Measured wall 2.00-2.00 mm is within the PC/ABS 1.2-3.5 mm range; keep bosses/ribs ≤ 60% of nominal wall to avoid sink.",
+   "fix": "No change to nominal wall; core bosses and ribs to ≤ 60% of the wall.",
+   "rule_citation": "PC/ABS wall 1.2-3.5 mm, ribs/bosses ≤ 60% of wall — Protolabs injection molding design guidelines",
+   "measurement": {
+    "value": 2.0,
+    "unit": "mm",
+    "label": "measured",
+    "source_or_assumption": "5th percentile of 11860 ray samples into the material (median 2.0 mm)"
+   },
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a6",
+   "severity": "minor",
+   "category": "tolerance",
+   "method": "ai_reviewed",
+   "part_id": "p2",
+   "description": "Tight shell mating-face and split-line requirements are specified without a datum scheme, warpage allowance, or inspection method.",
+   "fix": "Define functional datums and inspection locations; confirm the tolerance stack on molded samples before tooling sign-off.",
+   "rule_citation": "Specify datums and geometrical tolerances for functional features — ISO 1101 and ISO 5459.",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  }
+ ],
+ "component_risks": [
+  {
+   "bom_item_id": "e1",
+   "part": "Solar panel, 6 V nominal, approximately 5 W",
+   "level": "medium",
+   "reasons": [
+    "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+   ],
+   "alternatives": [],
+   "stock": null,
+   "lead_time_weeks": null,
+   "alternative": null
+  },
+  {
+   "bom_item_id": "e2",
+   "part": "Microcontroller, ATmega328P-AU",
+   "level": "medium",
+   "reasons": [
+    "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+   ],
+   "alternatives": [],
+   "stock": null,
+   "lead_time_weeks": null,
+   "alternative": null
+  },
+  {
+   "bom_item_id": "e3",
+   "part": "Capacitive soil-moisture probe module, analog output",
+   "level": "medium",
+   "reasons": [
+    "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+   ],
+   "alternatives": [],
+   "stock": null,
+   "lead_time_weeks": null,
+   "alternative": null
+  },
+  {
+   "bom_item_id": "e4",
+   "part": "DC-DC regulator, 5 V output",
+   "level": "low",
+   "reasons": [
+    "JLCPCB extended part (per-part-type feeder fee at assembly)"
+   ],
+   "alternatives": [
+    "C6461170 RTQ2103AGSP-QA (SOP-8-EP, 2285 in stock, $0.7500@2k)"
+   ],
+   "stock": {
+    "value": 4905.0,
+    "unit": "units",
+    "label": "sourced",
+    "source_or_assumption": "LCSC stock, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C6653519.html"
+   },
+   "lead_time_weeks": null,
+   "alternative": null
+  },
+  {
+   "bom_item_id": "e5",
+   "part": "Logic-level N-channel MOSFET, AO3400A",
+   "level": "medium",
+   "reasons": [
+    "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+   ],
+   "alternatives": [],
+   "stock": null,
+   "lead_time_weeks": null,
+   "alternative": null
+  },
+  {
+   "bom_item_id": "e6",
+   "part": "Flyback diode, SS14",
+   "level": "medium",
+   "reasons": [
+    "single source: no same-package alternative in the snapshot"
+   ],
+   "alternatives": [],
+   "stock": {
+    "value": 233319.0,
+    "unit": "units",
+    "label": "sourced",
+    "source_or_assumption": "LCSC stock, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C7420316.html"
+   },
+   "lead_time_weeks": null,
+   "alternative": null
+  },
+  {
+   "bom_item_id": "e7",
+   "part": "Resistors, capacitors, connectors, and manual override switch",
+   "level": "medium",
+   "reasons": [
+    "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+   ],
+   "alternatives": [],
+   "stock": null,
+   "lead_time_weeks": null,
+   "alternative": null
+  },
+  {
+   "bom_item_id": "e8",
+   "part": "Rechargeable battery",
+   "level": "medium",
+   "reasons": [
+    "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+   ],
+   "alternatives": [],
+   "stock": null,
+   "lead_time_weeks": null,
+   "alternative": null
+  },
+  {
+   "bom_item_id": "e9",
+   "part": "Solar battery charge controller",
+   "level": "medium",
+   "reasons": [
+    "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+   ],
+   "alternatives": [],
+   "stock": null,
+   "lead_time_weeks": null,
+   "alternative": null
+  }
+ ],
+ "certifications": [
+  {
+   "market": "EU",
+   "standard": "CE — EMC 2014/30/EU (EN 55032 / EN 55035)",
+   "applies_because": "Electronic product without a radio: EMC directive applies. Reference: Directive 2014/30/EU (EMC), https://eur-lex.europa.eu/eli/dir/2014/30/oj",
+   "required": true,
+   "cost_est": {
+    "value": 3000.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Accredited-lab range, demo assumption"
+   },
+   "lead_time_weeks": {
+    "value": 5.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Typical lab queue + report, demo assumption"
+   }
+  },
+  {
+   "market": "EU",
+   "standard": "RoHS 2011/65/EU",
+   "applies_because": "Electronic product placed on the EU market must restrict hazardous substances (test report + declaration). Reference: Directive 2011/65/EU (RoHS), https://eur-lex.europa.eu/eli/dir/2011/65/oj",
+   "required": true,
+   "cost_est": {
+    "value": 600.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Accredited-lab range, demo assumption"
+   },
+   "lead_time_weeks": {
+    "value": 2.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Typical lab queue + report, demo assumption"
+   }
+  },
+  {
+   "market": "Global",
+   "standard": "UN38.3 (lithium battery transport tests)",
+   "applies_because": "Lithium cells must pass UN Manual of Tests and Criteria 38.3 to ship by sea/air; ask the cell supplier for the test summary. Reference: UN Manual of Tests and Criteria, section 38.3; IATA Lithium Battery Guidance Document 2026, https://www.iata.org/contentassets/05e6d8742b0047259bf3a700bc9d42b9/lithium-battery-guidance-document.pdf",
+   "required": true,
+   "cost_est": {
+    "value": 1000.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Accredited-lab range, demo assumption"
+   },
+   "lead_time_weeks": {
+    "value": 4.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Typical lab queue + report, demo assumption"
+   }
+  },
+  {
+   "market": "Global",
+   "standard": "IEC 62133-2 (secondary lithium cell/battery safety)",
+   "applies_because": "Rechargeable lithium cell inside the product; also required by many retailers and by EU/UK market surveillance",
+   "required": true,
+   "cost_est": {
+    "value": 2500.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Accredited-lab range, demo assumption"
+   },
+   "lead_time_weeks": {
+    "value": 4.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Typical lab queue + report, demo assumption"
+   }
+  },
+  {
+   "market": "EU",
+   "standard": "Directive 2012/19/EU (WEEE)",
+   "applies_because": "As electrical and electronic equipment sold in the EU, the controller is subject to applicable producer registration, reporting, and take-back obligations.",
+   "required": true,
+   "cost_est": {
+    "value": 0.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "LLM-proposed rough estimate — get a lab quote to confirm"
+   },
+   "lead_time_weeks": {
+    "value": 2.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "LLM-proposed rough estimate — get a lab quote to confirm"
+   }
+  }
+ ]
+}

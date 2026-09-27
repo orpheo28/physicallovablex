@@ -1,0 +1,310 @@
+{
+ "project_id": "demo_surfboard_beginner",
+ "status": "validated",
+ "fallback": false,
+ "fallback_reason": null,
+ "generated_by": "code",
+ "generated_at": "2026-09-27T00:15:50.198739Z",
+ "assumptions": [
+  {
+   "id": "a7_network",
+   "text": "Factories, capacity, load and past performance come from the simulated production network.",
+   "label": "fictional",
+   "source": "factory_mcp (demo data)",
+   "stage": 7
+  },
+  {
+   "id": "a7_weights",
+   "text": "Score = 35% process fit + 15% MOQ + 15% certifications + 15% load + 20% lead time; product-level criteria are part-weighted means over the queries (Other ×2, Injection molding ×1, Assembly ×1).",
+   "label": "estimate",
+   "source": null,
+   "stage": 7
+  }
+ ],
+ "stage": 7,
+ "factory_pack_id": "fp_demo_surfboard_beginner_v1",
+ "queries": [
+  {
+   "process": "other",
+   "material": "PU foam + fibreglass/polyester",
+   "quantity": 2000,
+   "certifications_required": [
+    "ISO 9001"
+   ],
+   "deadline": null,
+   "category": "surfboard"
+  },
+  {
+   "process": "injection_molding",
+   "material": "Glass-filled nylon",
+   "quantity": 2000,
+   "certifications_required": [
+    "ISO 9001"
+   ],
+   "deadline": null,
+   "category": "surfboard"
+  },
+  {
+   "process": "assembly",
+   "material": "any",
+   "quantity": 2000,
+   "certifications_required": [
+    "ISO 9001"
+   ],
+   "deadline": null,
+   "category": "surfboard"
+  }
+ ],
+ "shortlist": [
+  {
+   "rank": 1,
+   "factory_id": "i_soleilatlantique",
+   "factory_name": "Soleil Atlantique Installations (fictional)",
+   "score": {
+    "value": 71.9,
+    "unit": "score/100",
+    "label": "fictional",
+    "source_or_assumption": "Scored on demo data (fictional network)"
+   },
+   "score_breakdown": [
+    {
+     "criterion": "process_fit",
+     "score": 0.3,
+     "weight": 0.35,
+     "note": "Covers 1/3 processes in-house (Other); would subcontract Injection molding, Assembly"
+    },
+    {
+     "criterion": "moq",
+     "score": 1.0,
+     "weight": 0.15,
+     "note": "MOQ 1 ≤ 2,000 units"
+    },
+    {
+     "criterion": "certifications",
+     "score": 1.0,
+     "weight": 0.15,
+     "note": "Holds ISO 9001 of ISO 9001"
+    },
+    {
+     "criterion": "load",
+     "score": 0.8,
+     "weight": 0.15,
+     "note": "55% loaded, ~18 units/month free"
+    },
+    {
+     "criterion": "lead_time",
+     "score": 0.97,
+     "weight": 0.2,
+     "note": "21-day lead time"
+    }
+   ],
+   "reasons": [
+    "Covers 1/3 processes in-house (Other); would subcontract Injection molding, Assembly",
+    "Capacity available: 55% loaded, ~18 units/month free",
+    "Fast: 21-day lead time",
+    "91% on-time over 112 orders, 0.9% defects",
+    "Profile: installer (balanced)"
+   ]
+  },
+  {
+   "rank": 2,
+   "factory_id": "i_lumiereparis",
+   "factory_name": "Lumière Toits Paris (fictional)",
+   "score": {
+    "value": 68.0,
+    "unit": "score/100",
+    "label": "fictional",
+    "source_or_assumption": "Scored on demo data (fictional network)"
+   },
+   "score_breakdown": [
+    {
+     "criterion": "process_fit",
+     "score": 0.3,
+     "weight": 0.35,
+     "note": "Covers 1/3 processes in-house (Other); would subcontract Injection molding, Assembly"
+    },
+    {
+     "criterion": "moq",
+     "score": 1.0,
+     "weight": 0.15,
+     "note": "MOQ 1 ≤ 2,000 units"
+    },
+    {
+     "criterion": "certifications",
+     "score": 1.0,
+     "weight": 0.15,
+     "note": "Holds ISO 9001 of ISO 9001"
+    },
+    {
+     "criterion": "load",
+     "score": 0.5,
+     "weight": 0.15,
+     "note": "70% loaded, ~7 units/month free"
+    },
+    {
+     "criterion": "lead_time",
+     "score": 1.0,
+     "weight": 0.2,
+     "note": "14-day lead time"
+    }
+   ],
+   "reasons": [
+    "Covers 1/3 processes in-house (Other); would subcontract Injection molding, Assembly",
+    "Capacity available: 70% loaded, ~7 units/month free",
+    "Fast: 14-day lead time",
+    "95% on-time over 64 orders, 0.6% defects",
+    "Profile: installer (fast/expensive)"
+   ]
+  },
+  {
+   "rank": 3,
+   "factory_id": "f_lumenpeak",
+   "factory_name": "Lumen Peak Micro-Electronics (fictional)",
+   "score": {
+    "value": 63.7,
+    "unit": "score/100",
+    "label": "fictional",
+    "source_or_assumption": "Scored on demo data (fictional network)"
+   },
+   "score_breakdown": [
+    {
+     "criterion": "process_fit",
+     "score": 0.2,
+     "weight": 0.35,
+     "note": "Covers 2/3 processes in-house (Injection molding, Assembly); would subcontract Other"
+    },
+    {
+     "criterion": "moq",
+     "score": 1.0,
+     "weight": 0.15,
+     "note": "MOQ 500 ≤ 2,000 units"
+    },
+    {
+     "criterion": "certifications",
+     "score": 1.0,
+     "weight": 0.15,
+     "note": "Holds ISO 9001 of ISO 9001"
+    },
+    {
+     "criterion": "load",
+     "score": 0.58,
+     "weight": 0.15,
+     "note": "66% loaded, ~8,500 units/month free"
+    },
+    {
+     "criterion": "lead_time",
+     "score": 0.9,
+     "weight": 0.2,
+     "note": "24-day lead time"
+    }
+   ],
+   "reasons": [
+    "Covers 2/3 processes in-house (Injection molding, Assembly); would subcontract Other",
+    "Capacity available: 66% loaded, ~8,500 units/month free",
+    "Fast: 24-day lead time",
+    "95% on-time over 39 orders, 0.7% defects",
+    "Profile: fast/expensive"
+   ]
+  },
+  {
+   "rank": 4,
+   "factory_id": "f_kestrel",
+   "factory_name": "Kestrel Bay Manufacturing (fictional)",
+   "score": {
+    "value": 63.6,
+    "unit": "score/100",
+    "label": "fictional",
+    "source_or_assumption": "Scored on demo data (fictional network)"
+   },
+   "score_breakdown": [
+    {
+     "criterion": "process_fit",
+     "score": 0.4,
+     "weight": 0.35,
+     "note": "Covers 2/3 processes in-house (Injection molding, Assembly); would subcontract Other"
+    },
+    {
+     "criterion": "moq",
+     "score": 1.0,
+     "weight": 0.15,
+     "note": "MOQ 2,000 ≤ 2,000 units"
+    },
+    {
+     "criterion": "certifications",
+     "score": 1.0,
+     "weight": 0.15,
+     "note": "Holds ISO 9001 of ISO 9001"
+    },
+    {
+     "criterion": "load",
+     "score": 0.8,
+     "weight": 0.15,
+     "note": "55% loaded, ~36,000 units/month free"
+    },
+    {
+     "criterion": "lead_time",
+     "score": 0.38,
+     "weight": 0.2,
+     "note": "45-day lead time"
+    }
+   ],
+   "reasons": [
+    "Covers 2/3 processes in-house (Injection molding, Assembly); would subcontract Other",
+    "Capacity available: 55% loaded, ~36,000 units/month free",
+    "Slow: 45-day lead time",
+    "76% on-time over 120 orders, 2.3% defects",
+    "Profile: cheap/slow"
+   ]
+  },
+  {
+   "rank": 5,
+   "factory_id": "f_harborlight",
+   "factory_name": "Harborlight Wearables EMS (fictional)",
+   "score": {
+    "value": 63.1,
+    "unit": "score/100",
+    "label": "fictional",
+    "source_or_assumption": "Scored on demo data (fictional network)"
+   },
+   "score_breakdown": [
+    {
+     "criterion": "process_fit",
+     "score": 0.2,
+     "weight": 0.35,
+     "note": "Covers 2/3 processes in-house (Injection molding, Assembly); would subcontract Other"
+    },
+    {
+     "criterion": "moq",
+     "score": 1.0,
+     "weight": 0.15,
+     "note": "MOQ 1,000 ≤ 2,000 units"
+    },
+    {
+     "criterion": "certifications",
+     "score": 1.0,
+     "weight": 0.15,
+     "note": "Holds ISO 9001 of ISO 9001"
+    },
+    {
+     "criterion": "load",
+     "score": 0.74,
+     "weight": 0.15,
+     "note": "58% loaded, ~25,200 units/month free"
+    },
+    {
+     "criterion": "lead_time",
+     "score": 0.75,
+     "weight": 0.2,
+     "note": "30-day lead time"
+    }
+   ],
+   "reasons": [
+    "Covers 2/3 processes in-house (Injection molding, Assembly); would subcontract Other",
+    "Capacity available: 58% loaded, ~25,200 units/month free",
+    "Fast: 30-day lead time",
+    "93% on-time over 64 orders, 0.9% defects",
+    "Profile: balanced"
+   ]
+  }
+ ]
+}

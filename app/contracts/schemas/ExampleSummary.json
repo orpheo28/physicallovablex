@@ -1,0 +1,281 @@
+{
+  "$defs": {
+    "Label": {
+      "description": "The four honesty labels. UI text: Measured / Sourced / Estimate / Fictional \u2014 demo data.",
+      "enum": [
+        "measured",
+        "sourced",
+        "estimate",
+        "fictional"
+      ],
+      "title": "Label",
+      "type": "string"
+    },
+    "LabeledValue": {
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "title": "Value",
+          "type": "number"
+        },
+        "unit": {
+          "description": "e.g. USD, EUR, mm, g, days, weeks, pct, units, man-days",
+          "title": "Unit",
+          "type": "string"
+        },
+        "label": {
+          "$ref": "#/$defs/Label"
+        },
+        "source_or_assumption": {
+          "description": "Sourced: '<source>, <YYYY-MM-DD>'. Estimate: the assumption. Measured: the check. Fictional: 'demo data'.",
+          "title": "Source Or Assumption",
+          "type": "string"
+        }
+      },
+      "required": [
+        "value",
+        "unit",
+        "label",
+        "source_or_assumption"
+      ],
+      "title": "LabeledValue",
+      "type": "object"
+    },
+    "ProductPhoto": {
+      "additionalProperties": false,
+      "description": "W27: one AI product photo. With a reference the model only restyles light, surface, lens and framing around OUR\nCAD image (viewer capture or Blender render of the CAD); without one it is a text-only concept image.",
+      "properties": {
+        "shot": {
+          "enum": [
+            "hero_studio",
+            "packshot_white",
+            "lifestyle",
+            "in_hand_scale",
+            "detail_macro"
+          ],
+          "title": "Shot",
+          "type": "string"
+        },
+        "url": {
+          "description": "/files/<pid>/photo_v<n>_<shot>.png",
+          "title": "Url",
+          "type": "string"
+        },
+        "label": {
+          "description": "Honesty caption shown under the image: 'Photo-styled from the CAD (AI image, geometry from our CAD)' or 'AI concept image (no CAD reference)'; lifestyle adds ' \u00b7 Staged scene \u2014 illustrative'",
+          "title": "Label",
+          "type": "string"
+        },
+        "reference": {
+          "description": "viewer = PNG captured from the 3D viewer by the client; cad_render = Blender render of the CAD; none = text only",
+          "enum": [
+            "viewer",
+            "cad_render",
+            "none"
+          ],
+          "title": "Reference",
+          "type": "string"
+        },
+        "aspect_ratio": {
+          "description": "4:5 or 1:1",
+          "title": "Aspect Ratio",
+          "type": "string"
+        },
+        "staged": {
+          "default": false,
+          "description": "Lifestyle / in-hand scene: illustrative staging, not a real photo shoot",
+          "title": "Staged",
+          "type": "boolean"
+        },
+        "model": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Image model slug (OpenRouter)",
+          "title": "Model"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Studio version the photo was made from",
+          "title": "Version"
+        },
+        "created_at": {
+          "format": "date-time",
+          "title": "Created At",
+          "type": "string"
+        }
+      },
+      "required": [
+        "shot",
+        "url",
+        "label",
+        "reference",
+        "aspect_ratio"
+      ],
+      "title": "ProductPhoto",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "W21: one showcase project of the gallery (GET /examples). Opening it costs nothing: every stage is cached.",
+  "properties": {
+    "id": {
+      "description": "Project id, e.g. demo_whoop_kitesurf",
+      "title": "Id",
+      "type": "string"
+    },
+    "slug": {
+      "title": "Slug",
+      "type": "string"
+    },
+    "name": {
+      "title": "Name",
+      "type": "string"
+    },
+    "prompt": {
+      "title": "Prompt",
+      "type": "string"
+    },
+    "category": {
+      "description": "Engineering category key",
+      "title": "Category",
+      "type": "string"
+    },
+    "strategy": {
+      "anyOf": [
+        {
+          "enum": [
+            "full_design",
+            "module_assembly",
+            "odm_customization"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Strategy"
+    },
+    "hero_image_url": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Concept render (illustrative) or None",
+      "title": "Hero Image Url"
+    },
+    "glb_url": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "3D model of the current version",
+      "title": "Glb Url"
+    },
+    "one_line_result": {
+      "title": "One Line Result",
+      "type": "string"
+    },
+    "unit_basis": {
+      "default": "per_unit",
+      "enum": [
+        "per_unit",
+        "per_installation"
+      ],
+      "title": "Unit Basis",
+      "type": "string"
+    },
+    "unit_cost": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "W21b: headline cost \u2014 ex-works unit cost at the reference quantity (per_unit) or turnkey cost per installation"
+    },
+    "versions": {
+      "default": 0,
+      "title": "Versions",
+      "type": "integer"
+    },
+    "stages_done": {
+      "default": 0,
+      "title": "Stages Done",
+      "type": "integer"
+    },
+    "tags": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Tags",
+      "type": "array"
+    },
+    "seeded": {
+      "default": false,
+      "description": "The project exists in the database (after POST /demo/reset)",
+      "title": "Seeded",
+      "type": "boolean"
+    },
+    "hero_image_label": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "W27: honesty caption of hero_image_url",
+      "title": "Hero Image Label"
+    },
+    "photos": {
+      "description": "W27: hero_studio + lifestyle photos of the current version",
+      "items": {
+        "$ref": "#/$defs/ProductPhoto"
+      },
+      "title": "Photos",
+      "type": "array"
+    }
+  },
+  "required": [
+    "id",
+    "slug",
+    "name",
+    "prompt",
+    "category",
+    "one_line_result"
+  ],
+  "title": "ExampleSummary",
+  "type": "object"
+}

@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import type { ReactNode } from "react";
 import { useParams } from "next/navigation";
 import type { FactoryPack } from "@/types/contracts";
@@ -8,7 +7,8 @@ import { useApi } from "@/lib/useApi";
 import { fmtDate } from "@/lib/meta";
 import { BOMTable, CertificationsByMarket, DimsView, FileLink, IssuesTable, PartsTable, TiersTable } from "@/components/blocks";
 import { Generic } from "@/components/Generic";
-import { Mark } from "@/components/Mark";
+import { Lockup } from "@/components/Lockup";
+import { ScrollArea } from "@/components/ScrollArea";
 import { Boundary, Btn, CachedBanner, ErrorBox, LabelBadge, Loading, LV } from "@/components/ui";
 import { ExportButton } from "@/components/ExportButton";
 
@@ -26,7 +26,7 @@ const SECTIONS = [
 
 function Sec({ n, children, aside }: { n: number; children: ReactNode; aside?: ReactNode }) {
   return (
-    <section id={`s${n}`} className="scroll-mt-24 border-t border-ink pt-4 [break-inside:avoid-page]">
+    <section id={`s${n}`} className="scroll-mt-4 border-t border-line-2 pt-5 [break-inside:avoid-page]">
       <h2 className="flex items-baseline gap-4">
         <span className="w-8 shrink-0 font-mono text-sm text-ink-3">§{n}</span>
         <span className="flex-1 text-lg font-semibold tracking-[-0.015em]">{SECTIONS[n - 1]}</span>
@@ -49,11 +49,11 @@ function TitleBlock({ fp }: { fp: FactoryPack }) {
     ["Quantities", <span key="q" className="font-mono">{fp.target_quantities.map((q) => q.toLocaleString("en-US")).join(" / ")}</span>],
   ];
   return (
-    <div className="grid grid-cols-2 border border-ink sm:grid-cols-3 lg:grid-cols-6">
+    <div className="grid grid-cols-2 gap-y-1 rounded-md bg-paper py-1 sm:grid-cols-3">
       {cells.map(([k, v]) => (
-        <div key={k} className="-ml-px -mt-px border-l border-t border-ink/25 px-3 py-2.5">
-          <div className="micro !text-[10px]">{k}</div>
-          <div className="mt-1 truncate text-sm">{v}</div>
+        <div key={k} className="px-4 py-3">
+          <div className="text-2xs text-ink-3">{k}</div>
+          <div className="mt-0.5 break-words text-sm">{v}</div>
         </div>
       ))}
     </div>
@@ -65,19 +65,10 @@ export default function FactoryPackPage() {
   const { data: fp, error, loading, reload } = useApi<FactoryPack>(`/projects/${id}/factory-pack`);
 
   return (
-    <div className="mx-auto max-w-[1320px] px-6 pt-8 lg:px-10">
-      <div data-noprint className="flex flex-wrap items-center gap-3">
-        <nav aria-label="Breadcrumb" className="flex min-w-0 flex-1 items-center gap-2 text-sm text-ink-3">
-          <Link href="/projects" className="transition-colors hover:text-ink">
-            Projects
-          </Link>
-          <span aria-hidden>/</span>
-          <Link href={`/projects/${id}`} className="truncate transition-colors hover:text-ink">
-            {fp?.product_name ?? id}
-          </Link>
-          <span aria-hidden>/</span>
-          <span className="text-ink-2">Factory Pack</span>
-        </nav>
+    <div data-shell className="grid h-full min-h-0 grid-rows-[auto_minmax(0,1fr)]">
+      <div data-noprint className="flex min-h-[52px] items-center gap-3 px-8">
+        <p className="micro">Factory Pack</p>
+        <span className="min-w-0 flex-1 truncate text-sm text-ink-3">The spec a factory can quote and build without back-and-forth{fp ? ` · ${fp.id} · v${fp.version}` : ""}</span>
         <Btn variant="ghost" onClick={() => window.print()}>
           Print
         </Btn>
@@ -85,15 +76,19 @@ export default function FactoryPackPage() {
       </div>
 
       {error && !fp && (
-        <div className="mt-6">
+        <div className="px-8 pt-6">
           <ErrorBox message={`Could not load the Factory Pack: ${error}`} onRetry={reload} />
         </div>
       )}
-      {loading && !fp && <Loading text="Assembling the Factory Pack…" rows={6} />}
+      {loading && !fp && (
+        <div className="px-8">
+          <Loading text="Assembling the Factory Pack…" rows={6} />
+        </div>
+      )}
       {fp && (
         <Boundary fallback={<Generic value={fp} />}>
-          <div className="mt-6 grid gap-10 xl:grid-cols-[200px_minmax(0,1fr)]">
-            <nav data-noprint aria-label="Sections" className="hidden xl:sticky xl:top-20 xl:block xl:self-start">
+          <div data-shell className="grid min-h-0 grid-cols-[200px_minmax(0,1fr)] gap-8 pl-8">
+            <nav data-noprint aria-label="Sections" className="pt-6">
               <p className="micro">Contents</p>
               <ol className="mt-3 flex flex-col">
                 {SECTIONS.map((s, i) => (
@@ -107,14 +102,16 @@ export default function FactoryPackPage() {
               </ol>
             </nav>
 
-            <article className="rounded-md border border-line bg-surface px-6 py-10 sm:px-12 print:border-0 print:p-0">
+            <ScrollArea className="h-full pb-10 pr-8 pt-6" label="Factory Pack document">
+            <article className="mx-auto max-w-[1080px] rounded-md bg-surface px-12 py-10 print:border-0 print:p-0">
               <header>
                 <div className="flex items-start justify-between gap-6">
                   <div>
-                    <p className="flex items-center gap-2 text-sm font-medium">
-                      <Mark size={12} /> Factory Pack
+                    <p className="flex items-center gap-3 text-sm font-medium">
+                      <Lockup tag={false} />
+                      <span className="micro">Factory Pack</span>
                     </p>
-                    <h1 className="font-display mt-6 text-[48px] font-semibold uppercase leading-[1]">{fp.product_name}</h1>
+                    <h1 className="title mt-6 text-[40px] leading-[1.08]">{fp.product_name}</h1>
                     <p className="mt-2 text-md text-ink-2">The spec a factory can quote and build without back-and-forth.</p>
                   </div>
                 </div>
@@ -142,14 +139,14 @@ export default function FactoryPackPage() {
                   </p>
                 </Sec>
                 <Sec n={2} aside={`${fp.spec.parts.length} parts`}>
-                  <dl className="mb-6 grid max-w-[560px] grid-cols-2 border-y border-line">
+                  <dl className="mb-6 grid max-w-[560px] grid-cols-2 gap-x-8">
                     <div className="py-3 pr-4">
                       <dt className="micro">Overall (L × W × H)</dt>
                       <dd className="mt-1">
                         <DimsView d={fp.spec.overall_dimensions} />
                       </dd>
                     </div>
-                    <div className="border-l border-line py-3 pl-4">
+                    <div className="py-3">
                       <dt className="micro">Weight</dt>
                       <dd className="mt-1">
                         <LV v={fp.spec.weight} />
@@ -232,6 +229,7 @@ export default function FactoryPackPage() {
                 <span>Every figure carries its trust label: Measured, Sourced, Estimate or Fictional.</span>
               </footer>
             </article>
+            </ScrollArea>
           </div>
         </Boundary>
       )}

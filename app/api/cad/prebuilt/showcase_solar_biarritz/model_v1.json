@@ -1,0 +1,533 @@
+{
+ "status": "ok",
+ "version": 1,
+ "source": "llm:openai/gpt-6-sol",
+ "label": "AI-generated CAD (concept level) \u2014 geometry measured on the result",
+ "category": "solar_roof",
+ "seed_family": "solar_array",
+ "variant": "roof",
+ "files": {
+  "step": "api/data/files_w21/p_2e12010fae/model_v1.step",
+  "stl": "api/data/files_w21/p_2e12010fae/model_v1.stl",
+  "glb": "api/data/files_w21/p_2e12010fae/model_v1.glb"
+ },
+ "urls": {
+  "step": "/files/p_2e12010fae/model_v1.step",
+  "stl": "/files/p_2e12010fae/model_v1.stl",
+  "glb": "/files/p_2e12010fae/model_v1.glb"
+ },
+ "code_path": "api/data/files_w21/p_2e12010fae/model_v1.py",
+ "code_url": "/projects/p_2e12010fae/cad/code/1",
+ "bbox_mm": [
+  8258.0,
+  3470.81,
+  1722.17
+ ],
+ "volume_mm3": 937036948.0,
+ "parts": [
+  {
+   "label": "roof.1",
+   "role": "roof",
+   "volume_mm3": 578720640.0,
+   "valid": true,
+   "bbox_mm": [
+    8258.0,
+    3103.24,
+    1662.69
+   ]
+  },
+  {
+   "label": "metal.1",
+   "role": "metal",
+   "volume_mm3": 14898432.0,
+   "valid": true,
+   "bbox_mm": [
+    8168.0,
+    56.09,
+    60.22
+   ]
+  },
+  {
+   "label": "steel.1",
+   "role": "steel",
+   "volume_mm3": 149040.0,
+   "valid": true,
+   "bbox_mm": [
+    72.0,
+    109.99,
+    69.88
+   ]
+  },
+  {
+   "label": "steel.2",
+   "role": "steel",
+   "volume_mm3": 149040.0,
+   "valid": true,
+   "bbox_mm": [
+    72.0,
+    109.99,
+    69.88
+   ]
+  },
+  {
+   "label": "metal.2",
+   "role": "metal",
+   "volume_mm3": 14898432.0,
+   "valid": true,
+   "bbox_mm": [
+    8168.0,
+    56.09,
+    60.22
+   ]
+  },
+  {
+   "label": "steel.3",
+   "role": "steel",
+   "volume_mm3": 149040.0,
+   "valid": true,
+   "bbox_mm": [
+    72.0,
+    109.99,
+    69.88
+   ]
+  },
+  {
+   "label": "steel.4",
+   "role": "steel",
+   "volume_mm3": 149040.0,
+   "valid": true,
+   "bbox_mm": [
+    72.0,
+    109.99,
+    69.88
+   ]
+  },
+  {
+   "label": "coat.1",
+   "role": "coat",
+   "volume_mm3": 12881512.0,
+   "valid": true,
+   "bbox_mm": [
+    1134.0,
+    1534.52,
+    834.92
+   ]
+  },
+  {
+   "label": "cell.1",
+   "role": "cell",
+   "volume_mm3": 7041780.0,
+   "valid": true,
+   "bbox_mm": [
+    1065.0,
+    1461.39,
+    779.57
+   ]
+  },
+  {
+   "label": "coat.2",
+   "role": "coat",
+   "volume_mm3": 12881512.0,
+   "valid": true,
+   "bbox_mm": [
+    1134.0,
+    1534.52,
+    834.92
+   ]
+  },
+  {
+   "label": "cell.2",
+   "role": "cell",
+   "volume_mm3": 7041780.0,
+   "valid": true,
+   "bbox_mm": [
+    1065.0,
+    1461.39,
+    779.57
+   ]
+  },
+  {
+   "label": "coat.3",
+   "role": "coat",
+   "volume_mm3": 12881512.0,
+   "valid": true,
+   "bbox_mm": [
+    1134.0,
+    1534.52,
+    834.92
+   ]
+  },
+  {
+   "label": "cell.3",
+   "role": "cell",
+   "volume_mm3": 7041780.0,
+   "valid": true,
+   "bbox_mm": [
+    1065.0,
+    1461.39,
+    779.57
+   ]
+  },
+  {
+   "label": "coat.4",
+   "role": "coat",
+   "volume_mm3": 12881512.0,
+   "valid": true,
+   "bbox_mm": [
+    1134.0,
+    1534.52,
+    834.92
+   ]
+  },
+  {
+   "label": "cell.4",
+   "role": "cell",
+   "volume_mm3": 7041780.0,
+   "valid": true,
+   "bbox_mm": [
+    1065.0,
+    1461.39,
+    779.57
+   ]
+  },
+  {
+   "label": "coat.5",
+   "role": "coat",
+   "volume_mm3": 12881512.0,
+   "valid": true,
+   "bbox_mm": [
+    1134.0,
+    1534.52,
+    834.92
+   ]
+  },
+  {
+   "label": "cell.5",
+   "role": "cell",
+   "volume_mm3": 7041780.0,
+   "valid": true,
+   "bbox_mm": [
+    1065.0,
+    1461.39,
+    779.57
+   ]
+  },
+  {
+   "label": "coat.6",
+   "role": "coat",
+   "volume_mm3": 12881512.0,
+   "valid": true,
+   "bbox_mm": [
+    1134.0,
+    1534.52,
+    834.92
+   ]
+  },
+  {
+   "label": "cell.6",
+   "role": "cell",
+   "volume_mm3": 7041780.0,
+   "valid": true,
+   "bbox_mm": [
+    1065.0,
+    1461.39,
+    779.57
+   ]
+  },
+  {
+   "label": "coat.7",
+   "role": "coat",
+   "volume_mm3": 12881512.0,
+   "valid": true,
+   "bbox_mm": [
+    1134.0,
+    1534.52,
+    834.92
+   ]
+  },
+  {
+   "label": "cell.7",
+   "role": "cell",
+   "volume_mm3": 7041780.0,
+   "valid": true,
+   "bbox_mm": [
+    1065.0,
+    1461.39,
+    779.57
+   ]
+  },
+  {
+   "label": "metal.3",
+   "role": "metal",
+   "volume_mm3": 14898432.0,
+   "valid": true,
+   "bbox_mm": [
+    8168.0,
+    56.09,
+    60.22
+   ]
+  },
+  {
+   "label": "steel.5",
+   "role": "steel",
+   "volume_mm3": 149040.0,
+   "valid": true,
+   "bbox_mm": [
+    72.0,
+    109.99,
+    69.88
+   ]
+  },
+  {
+   "label": "steel.6",
+   "role": "steel",
+   "volume_mm3": 149040.0,
+   "valid": true,
+   "bbox_mm": [
+    72.0,
+    109.99,
+    69.88
+   ]
+  },
+  {
+   "label": "metal.4",
+   "role": "metal",
+   "volume_mm3": 14898432.0,
+   "valid": true,
+   "bbox_mm": [
+    8168.0,
+    56.09,
+    60.22
+   ]
+  },
+  {
+   "label": "steel.7",
+   "role": "steel",
+   "volume_mm3": 149040.0,
+   "valid": true,
+   "bbox_mm": [
+    72.0,
+    109.99,
+    69.88
+   ]
+  },
+  {
+   "label": "steel.8",
+   "role": "steel",
+   "volume_mm3": 149040.0,
+   "valid": true,
+   "bbox_mm": [
+    72.0,
+    109.99,
+    69.88
+   ]
+  },
+  {
+   "label": "coat.8",
+   "role": "coat",
+   "volume_mm3": 12881512.0,
+   "valid": true,
+   "bbox_mm": [
+    1134.0,
+    1534.52,
+    834.92
+   ]
+  },
+  {
+   "label": "cell.8",
+   "role": "cell",
+   "volume_mm3": 7041780.0,
+   "valid": true,
+   "bbox_mm": [
+    1065.0,
+    1461.39,
+    779.57
+   ]
+  },
+  {
+   "label": "coat.9",
+   "role": "coat",
+   "volume_mm3": 12881512.0,
+   "valid": true,
+   "bbox_mm": [
+    1134.0,
+    1534.52,
+    834.92
+   ]
+  },
+  {
+   "label": "cell.9",
+   "role": "cell",
+   "volume_mm3": 7041780.0,
+   "valid": true,
+   "bbox_mm": [
+    1065.0,
+    1461.39,
+    779.57
+   ]
+  },
+  {
+   "label": "coat.10",
+   "role": "coat",
+   "volume_mm3": 12881512.0,
+   "valid": true,
+   "bbox_mm": [
+    1134.0,
+    1534.52,
+    834.92
+   ]
+  },
+  {
+   "label": "cell.10",
+   "role": "cell",
+   "volume_mm3": 7041780.0,
+   "valid": true,
+   "bbox_mm": [
+    1065.0,
+    1461.39,
+    779.57
+   ]
+  },
+  {
+   "label": "coat.11",
+   "role": "coat",
+   "volume_mm3": 12881512.0,
+   "valid": true,
+   "bbox_mm": [
+    1134.0,
+    1534.52,
+    834.92
+   ]
+  },
+  {
+   "label": "cell.11",
+   "role": "cell",
+   "volume_mm3": 7041780.0,
+   "valid": true,
+   "bbox_mm": [
+    1065.0,
+    1461.39,
+    779.57
+   ]
+  },
+  {
+   "label": "coat.12",
+   "role": "coat",
+   "volume_mm3": 12881512.0,
+   "valid": true,
+   "bbox_mm": [
+    1134.0,
+    1534.52,
+    834.92
+   ]
+  },
+  {
+   "label": "cell.12",
+   "role": "cell",
+   "volume_mm3": 7041780.0,
+   "valid": true,
+   "bbox_mm": [
+    1065.0,
+    1461.39,
+    779.57
+   ]
+  },
+  {
+   "label": "coat.13",
+   "role": "coat",
+   "volume_mm3": 12881512.0,
+   "valid": true,
+   "bbox_mm": [
+    1134.0,
+    1534.52,
+    834.92
+   ]
+  },
+  {
+   "label": "cell.13",
+   "role": "cell",
+   "volume_mm3": 7041780.0,
+   "valid": true,
+   "bbox_mm": [
+    1065.0,
+    1461.39,
+    779.57
+   ]
+  },
+  {
+   "label": "coat.14",
+   "role": "coat",
+   "volume_mm3": 12881512.0,
+   "valid": true,
+   "bbox_mm": [
+    1134.0,
+    1534.52,
+    834.92
+   ]
+  },
+  {
+   "label": "cell.14",
+   "role": "cell",
+   "volume_mm3": 7041780.0,
+   "valid": true,
+   "bbox_mm": [
+    1065.0,
+    1461.39,
+    779.57
+   ]
+  },
+  {
+   "label": "coat.100",
+   "role": "coat",
+   "volume_mm3": 18538000.0,
+   "valid": true,
+   "bbox_mm": [
+    460.0,
+    130.0,
+    310.0
+   ]
+  },
+  {
+   "label": "glass.1",
+   "role": "glass",
+   "volume_mm3": 64800.0,
+   "valid": true,
+   "bbox_mm": [
+    180.0,
+    5.0,
+    72.0
+   ]
+  },
+  {
+   "label": "led.1",
+   "role": "led",
+   "volume_mm3": 1372.0,
+   "valid": true,
+   "bbox_mm": [
+    14.0,
+    7.0,
+    14.0
+   ]
+  }
+ ],
+ "target_dims_mm": [
+  8258.0,
+  3014.91,
+  1757.98
+ ],
+ "attempts": [
+  {
+   "n": 1,
+   "kind": "generate",
+   "llm_seconds": 32.34,
+   "run_seconds": 1.95,
+   "error": null,
+   "error_kind": null
+  }
+ ],
+ "notes": [],
+ "instruction": null,
+ "parent_version": null,
+ "seconds": 34.6,
+ "brief": "product_name: Rooftop solar, Biarritz; one_liner: A roof-mounted solar electricity system designed for a 35 m\u00b2 roof in Biarritz.; category: other; key_features: Photovoltaic panels sized to the usable roof area; Roof mounting hardware; Inverter for household electricity; Grid-connected system design; prompt: Solar panels sized for my 35 m\u00b2 roof in Biarritz"
+}

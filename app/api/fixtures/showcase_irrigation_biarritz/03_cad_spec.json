@@ -1,0 +1,483 @@
+{
+ "project_id": "demo_irrigation_biarritz",
+ "status": "validated",
+ "fallback": false,
+ "fallback_reason": null,
+ "generated_by": "llm:openai/gpt-6-luna",
+ "generated_at": "2026-09-26T23:59:55.581625Z",
+ "assumptions": [
+  {
+   "id": "a3_1",
+   "text": "PC/ABS density 1.15 g/cm³ for the weight estimate",
+   "label": "estimate",
+   "source": null,
+   "stage": 3
+  },
+  {
+   "id": "a3_2",
+   "text": "Direction d1 ('Solar kit'): full product from the 'irrigation' family (overall size measured on it); its main moulded housing is modelled as a two-shell enclosure 150 × 60 × 190 mm, wall 2.0 mm, draft 1.5° (DFM, weight)",
+   "label": "estimate",
+   "source": null,
+   "stage": 3
+  }
+ ],
+ "stage": 3,
+ "product_name": "Smart garden irrigation",
+ "direction_id": "d1",
+ "overall_dimensions": {
+  "length": {
+   "value": 544.0,
+   "unit": "mm",
+   "label": "measured",
+   "source_or_assumption": "Bounding box of the full product (family CAD, build123d/OCCT)"
+  },
+  "width": {
+   "value": 74.0,
+   "unit": "mm",
+   "label": "measured",
+   "source_or_assumption": "Bounding box of the full product (family CAD, build123d/OCCT)"
+  },
+  "height": {
+   "value": 221.5,
+   "unit": "mm",
+   "label": "measured",
+   "source_or_assumption": "Bounding box of the full product (family CAD, build123d/OCCT)"
+  }
+ },
+ "weight": {
+  "value": 197.1,
+  "unit": "g",
+  "label": "estimate",
+  "source_or_assumption": "Enclosure volume 171.4 cm³ (measured) × ASA 1.15 g/cm³; electronics and battery not included"
+ },
+ "parts": [
+  {
+   "id": "p1",
+   "name": "Bottom shell",
+   "material": "ASA (UV-stable) housing",
+   "finish": "Matte texture · Warm white #EDEBE6",
+   "process_hint": "injection_molding",
+   "tolerance": "±0.1 mm on mating faces and boss pilots",
+   "dimensions": {
+    "length": {
+     "value": 150.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Bounding box of the built STEP (build123d/OCCT), this part"
+    },
+    "width": {
+     "value": 60.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Bounding box of the built STEP (build123d/OCCT), this part"
+    },
+    "height": {
+     "value": 95.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Bounding box of the built STEP (build123d/OCCT), this part"
+    }
+   },
+   "wall_thickness": {
+    "value": 2.0,
+    "unit": "mm",
+    "label": "estimate",
+    "source_or_assumption": "Design parameter (nominal wall); measured in DFM stage 4"
+   },
+   "quantity": 1
+  },
+  {
+   "id": "p2",
+   "name": "Top shell",
+   "material": "ASA (UV-stable) housing",
+   "finish": "Matte texture · Warm white #EDEBE6",
+   "process_hint": "injection_molding",
+   "tolerance": "±0.1 mm on mating faces and boss pilots",
+   "dimensions": {
+    "length": {
+     "value": 150.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Bounding box of the built STEP (build123d/OCCT), this part"
+    },
+    "width": {
+     "value": 60.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Bounding box of the built STEP (build123d/OCCT), this part"
+    },
+    "height": {
+     "value": 95.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Bounding box of the built STEP (build123d/OCCT), this part"
+    }
+   },
+   "wall_thickness": {
+    "value": 2.0,
+    "unit": "mm",
+    "label": "estimate",
+    "source_or_assumption": "Design parameter (nominal wall); measured in DFM stage 4"
+   },
+   "quantity": 1
+  },
+  {
+   "id": "p3",
+   "name": "Main PCB assembly",
+   "material": "FR-4 1.6 mm",
+   "finish": "HASL lead-free, green mask",
+   "process_hint": "pcba",
+   "tolerance": "±0.2 mm outline",
+   "dimensions": {
+    "length": {
+     "value": 132.0,
+     "unit": "mm",
+     "label": "estimate",
+     "source_or_assumption": "PCB length: fits the inner cavity with 1 mm clearance"
+    },
+    "width": {
+     "value": 42.0,
+     "unit": "mm",
+     "label": "estimate",
+     "source_or_assumption": "PCB width: fits the inner cavity with 1 mm clearance"
+    },
+    "height": {
+     "value": 1.6,
+     "unit": "mm",
+     "label": "estimate",
+     "source_or_assumption": "PCB thickness: fits the inner cavity with 1 mm clearance"
+    }
+   },
+   "wall_thickness": null,
+   "quantity": 1
+  },
+  {
+   "id": "p4",
+   "name": "Screws M2.5 × 6 self-tapping",
+   "material": "Steel",
+   "finish": "Black zinc",
+   "process_hint": "other",
+   "tolerance": null,
+   "dimensions": null,
+   "wall_thickness": null,
+   "quantity": 4
+  }
+ ],
+ "electronics_blocks": [
+  {
+   "id": "b1",
+   "name": "Solar power input and regulation",
+   "function": "Provides regulated supply from the solar panel without a battery."
+  },
+  {
+   "id": "b2",
+   "name": "Controller and user override",
+   "function": "Runs watering schedule logic and accepts manual watering override."
+  },
+  {
+   "id": "b3",
+   "name": "Soil-moisture probe",
+   "function": "Measures soil moisture and supplies an analog signal to the controller."
+  },
+  {
+   "id": "b4",
+   "name": "Valve driver and solenoid valve",
+   "function": "Switches the irrigation valve in response to controller commands."
+  },
+  {
+   "id": "b5",
+   "name": "Rechargeable battery",
+   "function": "Stores solar energy to power the controller when sunlight is unavailable."
+  },
+  {
+   "id": "b6",
+   "name": "Solar battery charge controller",
+   "function": "Charges the battery from the existing solar panel."
+  }
+ ],
+ "electronics_edges": [
+  {
+   "source": "b1",
+   "target": "b2",
+   "signal": "regulated power"
+  },
+  {
+   "source": "b1",
+   "target": "b4",
+   "signal": "valve power"
+  },
+  {
+   "source": "b3",
+   "target": "b2",
+   "signal": "analog soil-moisture measurement"
+  },
+  {
+   "source": "b2",
+   "target": "b4",
+   "signal": "valve on/off drive command"
+  },
+  {
+   "source": "b4",
+   "target": "b2",
+   "signal": "manual override input"
+  },
+  {
+   "source": "b2",
+   "target": "b5",
+   "signal": "I²C / GPIO"
+  },
+  {
+   "source": "b2",
+   "target": "b6",
+   "signal": "I²C / GPIO"
+  }
+ ],
+ "bom": [
+  {
+   "id": "e1",
+   "part": "Solar panel, 6 V nominal, approximately 5 W",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Panel supplies controller and valve; no battery included.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "e2",
+   "part": "Microcontroller, ATmega328P-AU",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Runs scheduled watering and weather/soil-based adjustments; weather data requires an external source or user configuration because wireless is not specified.",
+   "manufacturer_pn": "ATmega328P-AU",
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "e3",
+   "part": "Capacitive soil-moisture probe module, analog output",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Probe assembly with analog output for soil moisture measurement.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "e4",
+   "part": "DC-DC regulator, 5 V output",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Regulates solar-panel supply for the controller and sensor.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "e5",
+   "part": "Logic-level N-channel MOSFET, AO3400A",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Low-side valve-driver switch; verify voltage/current rating against selected valve coil.",
+   "manufacturer_pn": "AO3400A",
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "e6",
+   "part": "Flyback diode, SS14",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Across solenoid coil for inductive transient suppression.",
+   "manufacturer_pn": "SS14",
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "e7",
+   "part": "Resistors, capacitors, connectors, and manual override switch",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Grouped passive and interconnect set, including MCU timing/bypass components, sensor connector, and momentary manual-watering input.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m1",
+   "part": "Top shell",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Moulded ASA, UV-stable; approximately 150 × 60 × 190 mm.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m2",
+   "part": "Bottom shell",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Moulded ASA, UV-stable; mates with top shell; approximately 150 × 60 × 190 mm.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m3",
+   "part": "1-inch solenoid irrigation valve",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Normally closed valve assembly compatible with the intended pipe and solar supply; confirm coil voltage/current during design verification.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m4",
+   "part": "Enclosure screws",
+   "category": "mechanical",
+   "qty": 4.0,
+   "description": "Corrosion-resistant screws sized to secure the two housing shells.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m5",
+   "part": "Cable glands and weather seals",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Seals for probe, panel, and valve wiring penetrations.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "k1",
+   "part": "Retail carton and protective inserts",
+   "category": "packaging",
+   "qty": 1.0,
+   "description": "Packaging set for one finished controller kit.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "e8",
+   "part": "Rechargeable battery",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Stores solar energy to power the controller when sunlight is unavailable.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.3,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "No match in LCSC snapshot 2026-09-26. Placeholder estimate: USD 0.30 per unit for an electronic line without catalogue match"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "e9",
+   "part": "Solar battery charge controller",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Charges the battery from the existing solar panel.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.3,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "No match in LCSC snapshot 2026-09-26. Placeholder estimate: USD 0.30 per unit for an electronic line without catalogue match"
+   },
+   "risk": null,
+   "alternative": null
+  }
+ ],
+ "tolerances": [
+  "General ISO 2768-m",
+  "Shell mating faces ±0.1 mm",
+  "Boss pilot Ø2.2 +0.05/0 mm",
+  "Split-line step ≤ 0.1 mm"
+ ],
+ "cad_files": [
+  {
+   "format": "glb",
+   "url": "/files/demo_irrigation_biarritz/model_v1.glb",
+   "description": "AI-generated CAD (concept level) — geometry measured on the result — bbox 554 × 74 × 222 mm",
+   "size_bytes": 698224
+  },
+  {
+   "format": "step",
+   "url": "/files/demo_irrigation_biarritz/model_v1.step",
+   "description": "AI-generated CAD (concept level) — geometry measured on the result — STEP AP214",
+   "size_bytes": 611512
+  },
+  {
+   "format": "py",
+   "url": "/projects/demo_irrigation_biarritz/cad/code/1",
+   "description": "AI-generated CAD (concept level) — geometry measured on the result — build123d program v1 (llm:openai/gpt-6-sol)",
+   "size_bytes": 5194
+  },
+  {
+   "format": "glb",
+   "url": "/files/demo_irrigation_biarritz/v2.glb",
+   "description": "Full product — materials",
+   "size_bytes": 774184
+  },
+  {
+   "format": "step",
+   "url": "/files/demo_irrigation_biarritz/v2_enclosure.step",
+   "description": "Moulded parts (DFM) — both shells, STEP AP214",
+   "size_bytes": 345207
+  },
+  {
+   "format": "stl",
+   "url": "/files/demo_irrigation_biarritz/v2_enclosure.stl",
+   "description": "Moulded parts (DFM) — mesh for 3D printing",
+   "size_bytes": 1111284
+  },
+  {
+   "format": "glb",
+   "url": "/files/demo_irrigation_biarritz/v2_enclosure.glb",
+   "description": "Moulded parts (DFM) — viewer model",
+   "size_bytes": 626492
+  },
+  {
+   "format": "step",
+   "url": "/files/demo_irrigation_biarritz/v2.step",
+   "description": "Full product — all parts, STEP AP214",
+   "size_bytes": 503048
+  }
+ ]
+}

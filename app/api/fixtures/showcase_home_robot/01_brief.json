@@ -1,0 +1,119 @@
+{
+ "project_id": "demo_home_robot",
+ "status": "validated",
+ "fallback": false,
+ "fallback_reason": null,
+ "generated_by": "llm:openai/gpt-6-sol",
+ "generated_at": "2026-09-27T00:08:57.279912Z",
+ "assumptions": [
+  {
+   "id": "a1",
+   "text": "Skipped clarifying questions use their defaults: markets=US; volume=Under 100 units; target_price=$500–$999; battery=Rechargeable battery with dock; wireless=None. Re-run stage 1 with answers to change them.",
+   "label": "estimate",
+   "source": null,
+   "stage": 1
+  },
+  {
+   "id": "a2",
+   "text": "Target retail price proposed by the spec copilot (not stated by the founder); confirm before costing.",
+   "label": "estimate",
+   "source": null,
+   "stage": 1
+  }
+ ],
+ "stage": 1,
+ "mode": "idea",
+ "prompt": "A next-gen home robot that tidies toys",
+ "product_name": "Toy-tidying home robot",
+ "one_liner": "A home robot that finds toys on the floor and moves them to a designated collection area.",
+ "category": "other",
+ "target_markets": [
+  "US"
+ ],
+ "target_retail_price": {
+  "value": 699.0,
+  "unit": "USD",
+  "label": "estimate",
+  "source_or_assumption": "Assumed by the spec copilot from category comparables — confirm with the founder"
+ },
+ "target_volumes": [
+  500,
+  2000,
+  10000
+ ],
+ "key_features": [
+  "Detect toys on the floor",
+  "Navigate around household obstacles",
+  "Pick up compatible toys",
+  "Transport toys to a designated collection area",
+  "Return to a charging dock"
+ ],
+ "constraints": [],
+ "has_battery": true,
+ "wireless": [],
+ "pasted_bom": [],
+ "clarifying_questions": [
+  {
+   "id": "q1",
+   "topic": "markets",
+   "question": "Which market should the first version target?",
+   "options": [
+    "US",
+    "EU",
+    "UK",
+    "US and EU"
+   ],
+   "answer": "US",
+   "skipped": true
+  },
+  {
+   "id": "q2",
+   "topic": "volume",
+   "question": "What is the planned initial production volume?",
+   "options": [
+    "Under 100 units",
+    "100–1,000 units",
+    "Over 1,000 units"
+   ],
+   "answer": "Under 100 units",
+   "skipped": true
+  },
+  {
+   "id": "q3",
+   "topic": "target_price",
+   "question": "What retail price are you targeting?",
+   "options": [
+    "Under $500",
+    "$500–$999",
+    "$1,000 or more"
+   ],
+   "answer": "$500–$999",
+   "skipped": true
+  },
+  {
+   "id": "q4",
+   "topic": "battery",
+   "question": "How should the robot be powered?",
+   "options": [
+    "Rechargeable battery with dock",
+    "Rechargeable battery with plug-in charger",
+    "Tethered power"
+   ],
+   "answer": "Rechargeable battery with dock",
+   "skipped": true
+  },
+  {
+   "id": "q5",
+   "topic": "wireless",
+   "question": "Does the robot need wireless connectivity?",
+   "options": [
+    "None",
+    "Wi-Fi",
+    "BLE",
+    "Wi-Fi and BLE"
+   ],
+   "answer": "None",
+   "skipped": true
+  }
+ ]
+}

@@ -87,7 +87,7 @@ def test_stage8_approval_of_explicit_quote():
 
 def test_factory_portal_routes(pid):
     fs = client.get("/factories").json()
-    assert len(fs) == 8 and all(f["name"].endswith("(fictional)") for f in fs)
+    assert len(fs) == 15 and all(f["name"].endswith("(fictional)") for f in fs)  # 8 + 3 installers (W20) + 3 (W21) + 1 (W21b)
     neg = runner.get_artifact(pid, 8)
     for rfq in neg.rfqs:
         r = client.get(f"/factories/{rfq.factory_id}/rfqs")

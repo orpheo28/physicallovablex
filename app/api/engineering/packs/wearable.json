@@ -1,0 +1,44 @@
+{
+  "key": "wearable",
+  "title": "Wearable (water sports, skin contact)",
+  "match": ["wearable", "wristband", "wrist band", "wrist", "strap", "whoop", "fitness band", "fitness tracker", "heart rate", "heart-rate", "hrv", "smart ring", "smartwatch", "watch", "armband"],
+  "families": ["wearable_band", "ring"],
+  "brief_categories": ["wearable"],
+  "partner_word": "factories",
+  "standards": [
+    {"code": "IEC 60529", "applies_because": "Worn in salt water and spray: the ingress protection target (IP68) is declared against this standard"},
+    {"code": "ISO 22810", "applies_because": "Water-resistance claims in 'ATM' for wrist-worn devices follow the watch standard"},
+    {"code": "IEC 60068-2-11", "applies_because": "Salt-mist corrosion of charging contacts, buckle and screws (ocean use)"},
+    {"code": "IEC 62133-2", "applies_because": "Rechargeable Li-ion / Li-Po cell worn on the body"},
+    {"code": "UN 38.3", "applies_because": "Lithium cell shipped inside the product"},
+    {"code": "ISO 10993-1", "applies_because": "Prolonged skin contact of the strap and sensor window (biocompatibility)"},
+    {"code": "47 CFR Part 15", "applies_because": "BLE intentional radiator (FCC 15C) + digital device (15B) for the US"},
+    {"code": "Directive 2014/53/EU", "applies_because": "BLE radio sold in the EU (RED)"}
+  ],
+  "risks": [
+    {"risk": "Salt water creeps into charging contacts and the case seam", "mitigation": "Gold-plated pogo pads or wireless (Qi) charging, ultrasonic-welded seam, ePTFE vent — no open USB port", "severity": "critical"},
+    {"risk": "BLE does not propagate through water: no live sync while riding", "mitigation": "Log to on-board flash, sync on shore; size flash for a 6 h session", "severity": "major"},
+    {"risk": "Optical heart-rate (PPG) corrupted by motion and water film", "mitigation": "IMU-based motion artefact rejection; sensor window flush with skin; validate against a chest strap", "severity": "major"},
+    {"risk": "Strap snag in a kite crash (lines, bar)", "mitigation": "Breakaway buckle or low-profile strap with no hook points", "severity": "major"},
+    {"risk": "Cell swelling after hours in a hot car on the beach", "mitigation": "IEC 62133-2 cell with protection IC; storage temperature warning; thermal pad away from the skin", "severity": "major"},
+    {"risk": "Strap UV and chlorine/salt degradation", "mitigation": "Silicone (LSR) or FKM strap, UV-stabilised PC/PA housing", "severity": "minor"}
+  ],
+  "tests": [
+    {"name": "Immersion 2 m for 1 h (IP68 as declared) + 5 ATM pressure", "kind": "ingress", "method": "Sealed units immersed in salt water, leak check by weight and inspection", "standard": "IEC 60529 / ISO 22810"},
+    {"name": "Salt mist 48-96 h", "kind": "salt_spray", "method": "5% NaCl fog on contacts, buckle and fasteners; inspect corrosion", "standard": "IEC 60068-2-11"},
+    {"name": "Drop 1.5 m on concrete, 6 faces", "kind": "drop", "method": "Free fall, functional check + seal re-test after the drop", "standard": "IEC 60068-2-31"},
+    {"name": "Thermal cycling -10 °C / +50 °C", "kind": "thermal", "method": "10 cycles with the cell charged; check swelling and seal", "standard": null},
+    {"name": "Skin sensitisation / cytotoxicity of the strap and window", "kind": "chemical", "method": "Accredited lab, materials in final colour", "standard": "ISO 10993-1"},
+    {"name": "Radio conformity (BLE)", "kind": "radio", "method": "Accredited lab, FCC 15C + RED radio test suite", "standard": "47 CFR Part 15 / Directive 2014/53/EU"}
+  ],
+  "checks": ["mass", "battery_life", "ip_rating", "thermal"],
+  "params": {
+    "mass_max_g": 45, "battery_target_h": 96, "battery_mah_default": 200, "battery_v_default": 3.7,
+    "ip_target": 68, "ip_detail": "IP68 (2 m / 1 h, manufacturer-declared) + 5 ATM",
+    "duty": {"mcu": 4, "radio": 0.6, "imu": 100, "ppg": 100, "env": 5, "gnss": 0, "led": 0.2, "buzzer": 0.01, "haptic": 0.05, "display": 1},
+    "default_family": "nrf52", "connectivity": "BLE GATT service (heart rate, motion, session log)",
+    "typical_electronics": ["nRF52840 BLE SoC", "6-axis IMU accelerometer gyroscope", "PPG optical heart-rate sensor AFE", "Li-Po cell 200 mAh", "Li-Po charger IC", "LDO 3.3V regulator", "Vibration motor"]
+  },
+  "prototype": {"method": "SLA resin 3D print (tough resin), silicone strap from a stock size", "usd_per_cm3": 0.35, "setup_usd": 20, "units": 3,
+    "steps": ["Print pod top/bottom in tough SLA resin, sand the sensor window seat", "Flash firmware on the dev kit, validate IMU + PPG on the bench", "Assemble the quick-turn PCBA with the cell and charging pads", "Seal the seam (gasket + screws on the prototype; ultrasonic weld in production)", "Bench IPX7 dunk test in salt water, then ride test with a chest-strap reference"]}
+}

@@ -1,208 +1,247 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
-import type { AutorunResult, AutorunStatus, ProjectDetail, StageSummary } from "@/types/contracts";
-import { api, ApiError, errorMessage } from "@/lib/api";
+import Link from "next/link";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { errorMessage } from "@/lib/api";
 import { useNow } from "@/lib/useNow";
-import { STAGES } from "@/lib/meta";
-import { Btn, ErrorBox, Pill, Spinner } from "./ui";
+import { PHASES, railName, STAGES } from "@/lib/meta";
+import { startAutorun, type Through } from "@/lib/autofill";
+import { animeNow, loadAnime, reducedMotion } from "@/lib/motion";
+import { useProject } from "./project/ProjectContext";
+import { StatusIcon, stepState } from "./project/StatusIcon";
+import { ScrollArea } from "./ScrollArea";
+import { Arrow, Btn, BtnLink, ErrorBox, Pill, Spinner } from "./ui";
 
-const STEPS = STAGES.slice(0, 7);
-
-/** A stage counts as done in this run once the server stamped it after the run started. */
-function doneSince(s: StageSummary | undefined, start: number) {
-  if (!s || s.status === "not_started" || !s.updated_at) return false;
-  const t = new Date(s.updated_at).getTime();
-  return Number.isFinite(t) && t >= start - 1500;
-}
+const ROW = 44; // px per step row: the progress line is measured in rows
 
 /**
- * Modal: POST /projects/{id}/autorun. While it runs, GET /projects/{id} every 2 s drives
- * the stepper from the real stage statuses; then land on the overview (wow) screen.
+ * Autofill stepper (main panel): POST /projects/{id}/autorun?through=13 (or 7) returns 202 at once;
+ * the project shell polls GET /projects/{id} every 2 s and the 13 steps, grouped in the 4 phases,
+ * follow the server's real status. At the end: the overview, with the Launch Dossier ready to download.
  */
-export function AutorunDialog({ projectId, onClose, onDone }: { projectId: string; onClose: () => void; onDone?: () => void }) {
+export function AutorunPanel({ through: requested }: { through: Through }) {
+  const { id, detail, autorun, running, reload, summary } = useProject();
   const router = useRouter();
-  const [start, setStart] = useState<number | null>(null);
-  const [postError, setError] = useState<string | null>(null);
-  const [detail, setDetail] = useState<ProjectDetail | null>(null);
-  const [sync, setSync] = useState<AutorunResult | null>(null); // only if the API answered synchronously
-  const [briefExisted, setBriefExisted] = useState(false);
-  const status: AutorunStatus | null | undefined = detail?.autorun;
-  const serverDone = status?.state === "done";
-  const serverFailed = status?.state === "failed";
-  const finished = !!sync || (start !== null && serverDone);
-  const error = postError ?? (start !== null && serverFailed ? (status?.error ?? "The run failed on the server.") : null);
-  const running = start !== null && !finished && !error;
-  const now = useNow(running);
-  const elapsed = start ? Math.max(0, ((now || start) - start) / 1000) : 0;
-  const dialogRef = useRef<HTMLDivElement>(null);
+  const sp = useSearchParams();
+  const [postError, setPostError] = useState<string | null>(null);
+  const [starting, setStarting] = useState(false);
+  const through = (autorun?.through === 13 || autorun?.through === 7 ? autorun.through : requested) as Through;
+  const state = autorun?.state ?? "idle";
+  const failed = state === "failed";
+  const finished = state === "done";
 
-  // POST returns 202 at once; GET /projects/{id} every 2 s is the source of truth for progress.
-  useEffect(() => {
-    if (!running) return;
-    let cancelled = false;
-    let inflight = false; // never stack polls: one request at a time, each capped at 5 s
-    const tick = () => {
-      if (inflight) return;
-      inflight = true;
-      api
-        .poll<ProjectDetail>(`/projects/${projectId}`, 5000)
-        .then((d) => !cancelled && setDetail(d))
-        .catch(() => undefined)
-        .finally(() => (inflight = false));
-    };
-    tick();
-    const t = setInterval(tick, 2000);
-    return () => {
-      cancelled = true;
-      clearInterval(t);
-    };
-  }, [running, projectId]);
+  const begin = useCallback(() => {
+    setStarting(true);
+    setPostError(null);
+    startAutorun(id, requested)
+      .then(() => {
+        reload();
+        router.replace(`/projects/${id}?autorun=${requested}`, { scroll: false });
+      })
+      .catch((e) => setPostError(errorMessage(e)))
+      .finally(() => setStarting(false));
+  }, [id, requested, reload, router]);
 
+  // ?start=1 (from "Autofill the remaining steps"): start the run here, once.
+  const startedHere = useRef(false);
   useEffect(() => {
-    if (!finished) return;
-    onDone?.();
-    const t = setTimeout(() => router.push(`/projects/${projectId}/wow`), 900);
+    if (sp.get("start") !== "1" || startedHere.current || running) return;
+    startedHere.current = true;
+    begin();
+  }, [sp, running, begin]);
+
+  // Land on the overview once a run we watched finishes.
+  const [sawRunning, setSawRunning] = useState(false);
+  if (running && !sawRunning) setSawRunning(true);
+  useEffect(() => {
+    if (!finished || !sawRunning) return;
+    const t = setTimeout(() => router.push(`/projects/${id}/wow${through === 13 ? "?dossier=1" : ""}`), 900);
     return () => clearTimeout(t);
-  }, [finished, onDone, router, projectId]);
+  }, [finished, sawRunning, router, id, through]);
 
-  useEffect(() => {
-    dialogRef.current?.focus();
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [onClose]);
+  const started = autorun?.started_at ? new Date(autorun.started_at).getTime() : null;
+  const ended = autorun?.finished_at ? new Date(autorun.finished_at).getTime() : null;
+  const now = useNow(running);
+  const elapsed = started ? Math.max(0, ((running ? now : (ended ?? now)) - started) / 1000) : 0;
 
-  async function go() {
-    setError(null);
-    setSync(null);
-    setDetail(null);
-    try {
-      const d = await api.get<ProjectDetail>(`/projects/${projectId}`);
-      setBriefExisted(d.stages.some((s) => s.stage === 1 && s.status !== "not_started"));
-    } catch {
-      setBriefExisted(false);
-    }
-    setStart(Date.now());
-    try {
-      const r = await api.post<AutorunResult>(`/projects/${projectId}/autorun`);
-      if (r.results.length > 0) setSync(r); // synchronous API (older build): all results at once
-    } catch (e) {
-      // A dropped connection does not stop the server-side run: keep following it by polling.
-      if (!(e instanceof ApiError && (e.status === 0 || e.status >= 500))) setError(errorMessage(e));
-    }
-  }
-
-  const byStage = new Map(sync?.results.map((r) => [r.stage, r]) ?? []);
-  const summary = new Map((detail?.stages ?? []).map((s) => [s.stage, s]));
-  const doneN = (n: number) => {
-    if (start === null) return false;
-    if (byStage.has(n) || serverDone) return true;
-    // Prefer the server's autorun status; fall back to update times if the API has none.
-    if (status) return status.completed_stages.includes(n) || (n === 1 && briefExisted && status.current_stage !== 1);
-    return doneSince(summary.get(n), start) || (n === 1 && briefExisted);
+  const inRun = (n: number) => n <= through;
+  const doneN = (n: number): boolean => {
+    const s = summary(n);
+    if (!autorun || state === "idle") return (s?.status ?? "not_started") !== "not_started";
+    if (!inRun(n)) return (s?.status ?? "not_started") !== "not_started";
+    if (finished) return true;
+    if (autorun.completed_stages.includes(n)) return true;
+    // Stage 1 is skipped when the brief already exists.
+    return n === 1 && (s?.status ?? "not_started") !== "not_started" && autorun.current_stage !== 1;
   };
-  const current = running ? (status?.current_stage ?? STEPS.find((s) => !doneN(s.n))?.n) : undefined;
-  const completed = STEPS.filter((s) => doneN(s.n)).length;
-  const allDone = completed === STEPS.length;
+  const current = running ? autorun?.current_stage ?? null : null;
+  const total = through;
+  const completed = STAGES.filter((m) => inRun(m.n) && doneN(m.n)).length;
+  const error = postError ?? (failed ? (autorun?.error ?? "The run failed on the server.") : null);
+
+  // ---- Motion 1: the line draws between steps as real progress arrives; completed steps get a check stroke.
+  const root = useRef<HTMLDivElement>(null);
+  const prevDone = useRef<Set<number> | null>(null);
+  const prevLines = useRef<Record<number, number>>({});
+  useEffect(() => void loadAnime(), []);
+  const doneSet = new Set(STAGES.filter((m) => doneN(m.n)).map((m) => m.n));
+  const doneKey = [...doneSet].join(",");
+  useLayoutEffect(() => {
+    const el = root.current;
+    if (!el) return;
+    const before = prevDone.current;
+    prevDone.current = new Set(doneKey ? doneKey.split(",").map(Number) : []);
+    if (before === null) {
+      // First render: no drawing, record where the lines are.
+      el.querySelectorAll<HTMLElement>("[data-line]").forEach((l) => (prevLines.current[Number(l.dataset.line)] = l.offsetHeight));
+      return;
+    }
+    // anime is loaded on mount; progress arrives seconds later (if not loaded: no animation, final state).
+    const a = reducedMotion() ? null : animeNow();
+    el.querySelectorAll<HTMLElement>("[data-line]").forEach((l) => {
+      const ph = Number(l.dataset.line);
+      const target = l.offsetHeight;
+      const from = prevLines.current[ph] ?? target;
+      prevLines.current[ph] = target;
+      if (!a || from === target) return;
+      l.style.height = `${from}px`;
+      a.animate(l, { height: [`${from}px`, `${target}px`], duration: 600, ease: "outExpo" });
+    });
+    if (!a) return;
+    for (const n of prevDone.current) {
+      if (before.has(n)) continue;
+      const path = el.querySelector<SVGPathElement>(`[data-step="${n}"] [data-check]`);
+      if (path) a.animate(path, { strokeDashoffset: [1, 0], duration: 320, delay: 180, ease: "outExpo" });
+    }
+  }, [doneKey]);
+
+  const hideHref = `/projects/${id}?stage=${current ?? Math.min(13, completed + 1)}`;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink/30 p-4" onMouseDown={(e) => e.target === e.currentTarget && onClose()}>
-      <div
-        ref={dialogRef}
-        tabIndex={-1}
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="autorun-title"
-        className="w-full max-w-[520px] rounded-md border border-line-2 bg-surface outline-none"
-      >
-        <div className="flex items-center justify-between border-b border-line px-6 py-4">
-          <h2 id="autorun-title" className="text-md font-semibold tracking-[-0.01em]">
-            From brief to factory shortlist
-          </h2>
-          <button onClick={onClose} className="text-sm text-ink-2 transition-colors hover:text-ink">
-            {running ? "Hide — keeps running" : "Close"}
-          </button>
-        </div>
-        <div className="px-6 py-5">
-          <p className="text-base text-ink-2">
-            Runs stages 1 to 7 with sensible defaults: the chosen (or first) design direction and default volumes. You can edit any stage
-            afterwards.
-          </p>
+    <div className="grid h-full min-h-0 grid-rows-[auto_minmax(0,1fr)_auto]">
+      <header className="px-8 pb-3 pt-4">
+        <p className="micro">Autofill · {through === 13 ? "all 13 steps" : "steps 1–7"}</p>
+        <h1 className="title mt-1 text-[26px] leading-[32px]">
+          {through === 13 ? "Autofill all 13 steps with AI" : "Autofill steps 1–7 with AI"}
+        </h1>
+        <dl className="mt-3 grid max-w-[1180px] grid-cols-2 gap-x-10">
+          <div>
+            <dt className="micro !text-ink-3">What this does</dt>
+            <dd className="mt-0.5 text-base text-ink-2">
+              Runs every step in order with sensible defaults: the first design direction and default volumes
+              {through === 13 ? ", then quotes with the recommended one auto-approved, and the launch steps." : "."}
+            </dd>
+          </div>
+          <div>
+            <dt className="micro !text-ink-3">What you decide here</dt>
+            <dd className="mt-0.5 text-base text-ink">Nothing while it runs. Afterwards, open any step to review or change it.</dd>
+          </div>
+        </dl>
+      </header>
 
-          <div className="mt-5 flex items-center gap-3">
+      <ScrollArea className="h-full px-8 pb-6 pt-6">
+        <div className="flex max-w-[1180px] flex-col gap-6">
+          <div className="flex items-center gap-4">
+            <span className="font-mono text-xl font-medium tracking-[-0.02em]">
+              {completed}
+              <span className="text-ink-3">/{total}</span>
+            </span>
             <div className="h-[3px] flex-1 overflow-hidden rounded-full bg-paper-2">
-              <div className="h-full bg-accent transition-[width] duration-500 ease-out" style={{ width: `${(completed / STEPS.length) * 100}%` }} />
+              <div className="h-full origin-left bg-accent transition-[width] duration-500 ease-out" style={{ width: `${(completed / total) * 100}%` }} />
             </div>
-            <span className="font-mono text-sm text-ink-2">
-              {completed}/{STEPS.length}
+            <span className="flex w-[260px] items-center justify-end gap-2 text-sm text-ink-2" role="status">
+              {starting ? (
+                <>
+                  <Spinner /> Starting…
+                </>
+              ) : running ? (
+                <>
+                  <Spinner className="text-accent" /> Running on the server <span className="font-mono">{elapsed.toFixed(0)} s</span>
+                </>
+              ) : finished ? (
+                <span className="font-medium text-measured-ink">
+                  Done in <span className="font-mono">{elapsed.toFixed(0)} s</span>
+                </span>
+              ) : failed ? (
+                <span className="text-danger">Stopped</span>
+              ) : (
+                "Not started"
+              )}
             </span>
           </div>
 
-          <ol className="mt-4">
-            {STEPS.map((s) => {
-              const r = byStage.get(s.n);
-              const done = doneN(s.n);
-              const active = current === s.n;
-              const cached = r?.fallback ?? (done && summary.get(s.n)?.fallback);
+          <div ref={root} className="grid grid-cols-4 gap-6">
+            {PHASES.map((ph) => {
+              const steps = ph.stages;
+              const lastDone = steps.reduce((k, n, i) => (doneN(n) ? i : k), -1);
               return (
-                <li key={s.n} className="flex h-10 items-center gap-3 border-b border-line text-base last:border-b-0">
-                  <span
-                    className={`flex h-5 w-5 items-center justify-center rounded-full text-2xs transition-colors duration-200 ${
-                      done ? "bg-ink text-white" : active ? "border border-accent text-accent-ink" : "border border-line-2 text-ink-3"
-                    }`}
-                  >
-                    {done ? (
-                      <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden>
-                        <path d="m3 8.5 3.2 3L13 4.5" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    ) : active ? (
-                      <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
-                    ) : (
-                      <span className="font-mono">{s.n}</span>
-                    )}
-                  </span>
-                  <span className={`flex-1 ${done || active ? "text-ink" : "text-ink-3"}`}>{s.title}</span>
-                  {active && <span className="text-sm text-ink-2">Running…</span>}
-                  {cached && (
-                    <Pill tone="amber" dot>
-                      Cached example
-                    </Pill>
-                  )}
-                </li>
+                <section key={ph.n} aria-label={`Phase ${ph.n}: ${ph.title}`} className="min-w-0">
+                  <p className="flex items-center gap-2 pb-1">
+                    <span className="micro !text-ink-3">{ph.n}</span>
+                    <span className="micro">{ph.title}</span>
+                  </p>
+                  <ol className="relative mt-1">
+                    {/* track + drawn line, centred on the 16 px status icons */}
+                    <span className="absolute left-[7.5px] top-[22px] w-px bg-line-2" style={{ height: (steps.length - 1) * ROW }} aria-hidden />
+                    <span data-line={ph.n} className="absolute left-[7.5px] top-[22px] w-px bg-ink" style={{ height: Math.max(0, lastDone) * ROW }} aria-hidden />
+                    {steps.map((n) => {
+                      const s = summary(n);
+                      const d = doneN(n);
+                      const active = current === n;
+                      const out = !inRun(n) && state !== "idle";
+                      const st = active ? stepState(undefined, { running: true }) : d ? stepState(s?.status === "validated" ? "validated" : "draft") : stepState(undefined);
+                      return (
+                        <li key={n} data-step={n} className="relative flex items-center gap-3" style={{ height: ROW }}>
+                          <span className="relative z-10 rounded-full bg-paper">
+                            <StatusIcon state={st} />
+                          </span>
+                          <span className={`min-w-0 flex-1 truncate text-base ${d || active ? "text-ink" : out ? "text-ink-4" : "text-ink-3"}`}>{railName(n)}</span>
+                          {active && <span className="text-sm text-accent-ink">Running…</span>}
+                          {d && s?.fallback && (
+                            <span className="flex shrink-0">
+                              <Pill tone="amber" dot>
+                                Cached example
+                              </Pill>
+                            </span>
+                          )}
+                          {out && !d && <span className="text-sm text-ink-4">Not in this run</span>}
+                        </li>
+                      );
+                    })}
+                  </ol>
+                </section>
               );
             })}
-          </ol>
+          </div>
 
-          {running && !allDone && (
-            <p className="mt-4 flex items-center gap-2 text-sm text-ink-2">
-              <Spinner /> Running on the server <span className="font-mono">{elapsed.toFixed(0)} s</span>
-            </p>
+          {running && elapsed > 120 && (
+            <p className="text-sm text-estimate-ink">Live runs can take several minutes. You can leave this screen: the run continues on the server.</p>
           )}
-          {running && elapsed > 120 && !allDone && (
-            <p className="mt-2 text-sm text-estimate-ink">
-              Live runs can take several minutes. You can hide this window: the run continues on the server.
-            </p>
-          )}
-          {finished && <p className="mt-4 text-base font-medium text-measured-ink">Done. Opening the overview…</p>}
-          {error && (
-            <div className="mt-4">
-              <ErrorBox message={`Autorun failed: ${error}`} onRetry={go} />
-            </div>
-          )}
-          {start === null && (
-            <div className="mt-6 flex justify-end gap-2">
-              <Btn variant="ghost" onClick={onClose}>
-                Cancel
-              </Btn>
-              <Btn variant="primary" onClick={go}>
-                Start autorun
-              </Btn>
-            </div>
+          {error && <ErrorBox message={`Autofill failed: ${error}`} onRetry={begin} />}
+          {finished && sawRunning && <p className="text-base font-medium text-measured-ink">Done. Opening the overview…</p>}
+          {detail && !running && state === "idle" && !starting && !error && (
+            <p className="text-base text-ink-2">Autofill has not started for this project.</p>
           )}
         </div>
-      </div>
+      </ScrollArea>
+
+      <footer data-noprint className="flex h-14 items-center gap-3 px-8">
+        <Link href={hideHref} className="text-sm text-ink-2 transition-colors hover:text-ink">
+          {running ? "Hide — it keeps running" : "Back to the steps"}
+        </Link>
+        <span className="ml-auto" />
+        {!running && state === "idle" && !starting && (
+          <Btn variant="primary" onClick={begin}>
+            Start autofill
+          </Btn>
+        )}
+        {(finished || failed) && (
+          <BtnLink href={`/projects/${id}/wow${through === 13 && finished ? "?dossier=1" : ""}`} variant="primary">
+            Open the overview <Arrow />
+          </BtnLink>
+        )}
+      </footer>
     </div>
   );
 }

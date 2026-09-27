@@ -6,9 +6,10 @@ description: Score a list of hardware accounts from 1 to 5 on production urgency
 # ICP scoring
 
 **Input:** a list of accounts, each with a name and a campaign or website URL (CSV or inline).
-**Output:** rows in the `outputs/accounts.csv` format (`nom,type,url,produit,signal,statut_livraison,contact,canal,score,…,notes`). Every score is justified by at least one source URL in `notes`.
+**Output:** rows in the `03_DISCOVERY/comptes.csv` format (`nom,type,url,produit,signal,statut_livraison,contact,canal,score,…,notes`), appended there first (source of truth), plus a run summary `outputs/YYYY-MM-DD-scoring-<list>.md` (score, priority points, bucket, tier per account; no contact details). Every score is justified by at least one source URL in `notes`. Add one line to `outputs/RUN_LOG.md`.
+**Reads:** `context/icp.md` (tiers, anti-ICP), `context/signals.md` (points, decay, combinations), `workflows/enrichment.md` (sources, 403 handling), `workflows/signal-routing.md` (suppression).
 
-The rubric below is derived from the 45 scored rows of `outputs/accounts.csv`. Each level cites the anchor accounts to calibrate against.
+The rubric below was derived from the 45 rows scored before 26/09 (`outputs/accounts.csv`); `comptes.csv` has 55 rows since batch 3 (27/09). Each level cites the anchor accounts to calibrate against.
 
 ## Step 1: collect the signals
 For each account:
@@ -36,6 +37,12 @@ This step decides the ranking, not the score. Keep an account in the top list on
 - Priority +1 if a next product is announced or there is a sourcing job posting (`context/signals.md`).
 
 Rank by score, then by fit, then by contactability.
+
+## Step 3b: priority points, bucket and tier
+1. For each signal found, take its points from `context/signals.md`, apply the decay for its age (today minus the source date), then add any combination bonus and apply the penalties (snippet-only × 0.5).
+2. Bucket: HOT ≥ 60, WARM 40-59, COLD 20-39, SKIP < 20.
+3. Tier (1-4) from the table in `context/icp.md`. Established brands are Tier 4 whatever the points.
+4. Show the arithmetic in the summary file (e.g. "30 + 10 + 25 × 50% + 15 = 67.5"), so a human can re-check it.
 
 ## Step 4: write the justification
 Put this in `notes`:

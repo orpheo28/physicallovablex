@@ -1,0 +1,475 @@
+{
+ "project_id": "demo_hair_dryer",
+ "status": "validated",
+ "fallback": false,
+ "fallback_reason": null,
+ "generated_by": "llm:openai/gpt-6-luna",
+ "generated_at": "2026-09-27T00:09:55.211882Z",
+ "assumptions": [
+  {
+   "id": "a3_1",
+   "text": "PC/ABS density 1.15 g/cm³ for the weight estimate",
+   "label": "estimate",
+   "source": null,
+   "stage": 3
+  },
+  {
+   "id": "a3_2",
+   "text": "Direction d1 ('Travel'): full product from the 'hair_dryer' family (overall size measured on it); its main moulded housing is modelled as a two-shell enclosure 150 × 62 × 62 mm, wall 2.2 mm, draft 1.5° (DFM, weight)",
+   "label": "estimate",
+   "source": null,
+   "stage": 3
+  }
+ ],
+ "stage": 3,
+ "product_name": "Quiet compact hair dryer",
+ "direction_id": "d1",
+ "overall_dimensions": {
+  "length": {
+   "value": 209.6,
+   "unit": "mm",
+   "label": "measured",
+   "source_or_assumption": "Bounding box of the full product (family CAD, build123d/OCCT)"
+  },
+  "width": {
+   "value": 68.0,
+   "unit": "mm",
+   "label": "measured",
+   "source_or_assumption": "Bounding box of the full product (family CAD, build123d/OCCT)"
+  },
+  "height": {
+   "value": 178.61,
+   "unit": "mm",
+   "label": "measured",
+   "source_or_assumption": "Bounding box of the full product (family CAD, build123d/OCCT)"
+  }
+ },
+ "weight": {
+  "value": 98.9,
+  "unit": "g",
+  "label": "estimate",
+  "source_or_assumption": "Enclosure volume 86.0 cm³ (measured) × PC/ABS 1.15 g/cm³; electronics and battery not included"
+ },
+ "parts": [
+  {
+   "id": "p1",
+   "name": "Bottom shell",
+   "material": "PC (heat-resistant, UL94 V-0)",
+   "finish": "Soft-touch paint · Stone #E8E4DC",
+   "process_hint": "injection_molding",
+   "tolerance": "±0.1 mm on mating faces and boss pilots",
+   "dimensions": {
+    "length": {
+     "value": 150.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Bounding box of the built STEP (build123d/OCCT), this part"
+    },
+    "width": {
+     "value": 62.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Bounding box of the built STEP (build123d/OCCT), this part"
+    },
+    "height": {
+     "value": 31.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Bounding box of the built STEP (build123d/OCCT), this part"
+    }
+   },
+   "wall_thickness": {
+    "value": 2.2,
+    "unit": "mm",
+    "label": "estimate",
+    "source_or_assumption": "Design parameter (nominal wall); measured in DFM stage 4"
+   },
+   "quantity": 1
+  },
+  {
+   "id": "p2",
+   "name": "Top shell",
+   "material": "PC (heat-resistant, UL94 V-0)",
+   "finish": "Soft-touch paint · Stone #E8E4DC",
+   "process_hint": "injection_molding",
+   "tolerance": "±0.1 mm on mating faces and boss pilots",
+   "dimensions": {
+    "length": {
+     "value": 150.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Bounding box of the built STEP (build123d/OCCT), this part"
+    },
+    "width": {
+     "value": 62.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Bounding box of the built STEP (build123d/OCCT), this part"
+    },
+    "height": {
+     "value": 31.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Bounding box of the built STEP (build123d/OCCT), this part"
+    }
+   },
+   "wall_thickness": {
+    "value": 2.2,
+    "unit": "mm",
+    "label": "estimate",
+    "source_or_assumption": "Design parameter (nominal wall); measured in DFM stage 4"
+   },
+   "quantity": 1
+  },
+  {
+   "id": "p3",
+   "name": "Main PCB assembly",
+   "material": "FR-4 1.6 mm",
+   "finish": "HASL lead-free, green mask",
+   "process_hint": "pcba",
+   "tolerance": "±0.2 mm outline",
+   "dimensions": {
+    "length": {
+     "value": 131.6,
+     "unit": "mm",
+     "label": "estimate",
+     "source_or_assumption": "PCB length: fits the inner cavity with 1 mm clearance"
+    },
+    "width": {
+     "value": 43.6,
+     "unit": "mm",
+     "label": "estimate",
+     "source_or_assumption": "PCB width: fits the inner cavity with 1 mm clearance"
+    },
+    "height": {
+     "value": 1.6,
+     "unit": "mm",
+     "label": "estimate",
+     "source_or_assumption": "PCB thickness: fits the inner cavity with 1 mm clearance"
+    }
+   },
+   "wall_thickness": null,
+   "quantity": 1
+  },
+  {
+   "id": "p4",
+   "name": "Screws M2.5 × 6 self-tapping",
+   "material": "Steel",
+   "finish": "Black zinc",
+   "process_hint": "other",
+   "tolerance": null,
+   "dimensions": null,
+   "wall_thickness": null,
+   "quantity": 4
+  }
+ ],
+ "electronics_blocks": [
+  {
+   "id": "b1",
+   "name": "Mains input and protection",
+   "function": "Receives mains power and provides appliance-level electrical and thermal protection."
+  },
+  {
+   "id": "b2",
+   "name": "Controls and power switching",
+   "function": "Provides airflow and heat selections and switches power to the motor and heater."
+  },
+  {
+   "id": "b3",
+   "name": "Motor and fan",
+   "function": "Drives airflow through the dryer."
+  },
+  {
+   "id": "b4",
+   "name": "Heater assembly",
+   "function": "Heats the airflow, with thermal cutouts providing overtemperature protection."
+  },
+  {
+   "id": "b5",
+   "name": "Air path and housing",
+   "function": "Routes air through the intake filter, fan and heater to the outlet nozzle."
+  }
+ ],
+ "electronics_edges": [
+  {
+   "source": "b1",
+   "target": "b2",
+   "signal": "Protected mains power"
+  },
+  {
+   "source": "b2",
+   "target": "b3",
+   "signal": "Switched motor power"
+  },
+  {
+   "source": "b2",
+   "target": "b4",
+   "signal": "Switched heater power"
+  },
+  {
+   "source": "b3",
+   "target": "b5",
+   "signal": "Driven airflow"
+  },
+  {
+   "source": "b4",
+   "target": "b5",
+   "signal": "Heated airflow"
+  },
+  {
+   "source": "b5",
+   "target": "b1",
+   "signal": "Thermal cutout feedback interrupts mains on overtemperature"
+  }
+ ],
+ "bom": [
+  {
+   "id": "e1",
+   "part": "AC universal motor with fan impeller",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Mains-powered motor and blower assembly; voltage and rating to be finalized for target market",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "e2",
+   "part": "Nichrome heating element assembly",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Mains-powered heater coil on heat-resistant insulating supports",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "e3",
+   "part": "Power and airflow control PCB",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "PCB assembly for motor and heater switching; design ratings must match target mains voltage and power",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "e4",
+   "part": "TRIAC heater power switch",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Mains-rated heater switching device selected and thermally designed for the heater load",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "e5",
+   "part": "Motor and heater control switches",
+   "category": "electronic",
+   "qty": 2.0,
+   "description": "User controls for airflow and multiple heat settings; mains-rated",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "e6",
+   "part": "Thermal safety cutouts",
+   "category": "electronic",
+   "qty": 2.0,
+   "description": "One resettable thermostat and one one-shot thermal fuse, rated for the final design",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "e7",
+   "part": "Mains power cord with strain relief",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Insulated cord and plug suitable for the intended sales region and appliance rating",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "e8",
+   "part": "Control and snubber passives",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Grouped resistors, capacitors and any required suppression components; mains-rated as applicable",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m1",
+   "part": "Top shell",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Moulded heat-resistant PC, UL94 V-0; part of the two-shell main housing",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m2",
+   "part": "Bottom shell",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Moulded heat-resistant PC, UL94 V-0; part of the two-shell main housing",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m3",
+   "part": "Concentrator nozzle",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Outlet nozzle for directing airflow",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m4",
+   "part": "Removable intake filter and cap",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Removable air-intake filter assembly with retaining cap",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m5",
+   "part": "Internal airflow duct and motor mounts",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Ducting and supports for the fan and heater assembly",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m6",
+   "part": "Housing screws",
+   "category": "mechanical",
+   "qty": 4.0,
+   "description": "Fasteners for joining the housing shells",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "k1",
+   "part": "Retail carton and protective insert",
+   "category": "packaging",
+   "qty": 1.0,
+   "description": "Protective packaging for one finished unit",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "k2",
+   "part": "Product documentation",
+   "category": "packaging",
+   "qty": 1.0,
+   "description": "User and safety instructions",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  }
+ ],
+ "tolerances": [
+  "General ISO 2768-m",
+  "Shell mating faces ±0.1 mm",
+  "Boss pilot Ø2.2 +0.05/0 mm",
+  "Split-line step ≤ 0.1 mm"
+ ],
+ "cad_files": [
+  {
+   "format": "glb",
+   "url": "/files/demo_hair_dryer/model_v1.glb",
+   "description": "AI-generated CAD (concept level) — geometry measured on the result — bbox 202 × 64 × 175 mm",
+   "size_bytes": 326676
+  },
+  {
+   "format": "step",
+   "url": "/files/demo_hair_dryer/model_v1.step",
+   "description": "AI-generated CAD (concept level) — geometry measured on the result — STEP AP214",
+   "size_bytes": 333918
+  },
+  {
+   "format": "py",
+   "url": "/projects/demo_hair_dryer/cad/code/1",
+   "description": "AI-generated CAD (concept level) — geometry measured on the result — build123d program v1 (llm:openai/gpt-6-sol)",
+   "size_bytes": 4108
+  },
+  {
+   "format": "glb",
+   "url": "/files/demo_hair_dryer/v1.glb",
+   "description": "Full product — materials",
+   "size_bytes": 192364
+  },
+  {
+   "format": "step",
+   "url": "/files/demo_hair_dryer/v1_enclosure.step",
+   "description": "Moulded parts (DFM) — both shells, STEP AP214",
+   "size_bytes": 349021
+  },
+  {
+   "format": "stl",
+   "url": "/files/demo_hair_dryer/v1_enclosure.stl",
+   "description": "Moulded parts (DFM) — mesh for 3D printing",
+   "size_bytes": 1057884
+  },
+  {
+   "format": "glb",
+   "url": "/files/demo_hair_dryer/v1_enclosure.glb",
+   "description": "Moulded parts (DFM) — viewer model",
+   "size_bytes": 604296
+  },
+  {
+   "format": "step",
+   "url": "/files/demo_hair_dryer/d1.step",
+   "description": "Full product — all parts, STEP AP214",
+   "size_bytes": 106763
+  }
+ ]
+}

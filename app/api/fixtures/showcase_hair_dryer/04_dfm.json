@@ -1,0 +1,269 @@
+{
+ "project_id": "demo_hair_dryer",
+ "status": "validated",
+ "fallback": false,
+ "fallback_reason": null,
+ "generated_by": "llm:openai/gpt-6-sol",
+ "generated_at": "2026-09-27T00:10:19.359553Z",
+ "assumptions": [
+  {
+   "id": "a4_1",
+   "text": "Measured checks assume a straight two-half tool pulling along ±Z (split line in the XY plane)",
+   "label": "estimate",
+   "source": null,
+   "stage": 4
+  },
+  {
+   "id": "a4_2",
+   "text": "Clamp tonnage = projected area (in²) × 3 t/in² (PC/ABS) × 1.1 safety",
+   "label": "estimate",
+   "source": null,
+   "stage": 4
+  }
+ ],
+ "stage": 4,
+ "issues": [
+  {
+   "id": "a3",
+   "severity": "critical",
+   "category": "assembly",
+   "method": "ai_reviewed",
+   "part_id": null,
+   "description": "The mains cord and strain relief are listed, but their retention geometry and routing away from hot parts are unspecified.",
+   "fix": "Detail the cord anchor, bend protection, routing, and pull-test acceptance criteria in the assembly drawings.",
+   "rule_citation": "Provide and verify supply-cord anchorage and protection — IEC 60335-1; particular requirements for hair-care appliances — IEC 60335-2-23",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a4",
+   "severity": "critical",
+   "category": "material",
+   "method": "ai_reviewed",
+   "part_id": null,
+   "description": "The heating assembly, cutouts, and plastic airflow components lack defined mounting locations and thermal-clearance requirements; overheating performance cannot be verified.",
+   "fix": "Define heat-resistant supports, cutout placement, and thermal-clearance limits; validate normal and abnormal-operation temperatures.",
+   "rule_citation": "Temperature-rise and abnormal-operation requirements — IEC 60335-1 and IEC 60335-2-23",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a1",
+   "severity": "major",
+   "category": "tolerance",
+   "method": "ai_reviewed",
+   "part_id": "p2",
+   "description": "Shell mating-face and split-line requirements do not account for paint build-up or the combined variation of both shells.",
+   "fix": "Define masked mating surfaces or a controlled coating thickness, then tolerance the assembled split line after finishing.",
+   "rule_citation": "Account for coating thickness and tolerance stack-up at mating interfaces — ISO 2768-1 general tolerances; Protolabs injection molding design guide",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a2",
+   "severity": "major",
+   "category": "assembly",
+   "method": "ai_reviewed",
+   "part_id": "p1",
+   "description": "The specified boss pilot has no boss outside diameter, engagement depth, or edge-distance definition, so screw retention and cosmetic sink cannot be assessed.",
+   "fix": "Specify boss geometry and validate screw insertion torque, strip torque, and sink on molded samples.",
+   "rule_citation": "Keep boss walls near or below 60% of nominal wall to limit sink — Protolabs injection molding design guide",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "m1",
+   "severity": "minor",
+   "category": "projection",
+   "method": "measured",
+   "part_id": "p1",
+   "description": "Projected area along +Z: 9077 mm² (part silhouette, per cavity). Estimated clamp force ≈ 46.4 t (Estimate: area in² × 3.0 t/in² for PC/ABS × 1.1 safety) — per cavity; a family tool moulding both shells in one shot roughly doubles it.",
+   "fix": "Quote on a press ≥ 60 t; keep both shells in one family mould only if tonnage allows.",
+   "rule_citation": "Clamp force ≈ projected area × cavity-pressure factor (2-5 t/in²) — Protolabs injection molding design guidelines; silhouette raster from text-to-cad DFM skill (mold_tool.py, MIT) ported to OCCT",
+   "measurement": {
+    "value": 9076.8,
+    "unit": "mm2",
+    "label": "measured",
+    "source_or_assumption": "Silhouette along +Z, raster 0.375 mm — text-to-cad DFM skill (mold_tool.py, MIT) ported to OCCT"
+   },
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "m2",
+   "severity": "minor",
+   "category": "wall_thickness",
+   "method": "measured",
+   "part_id": "p1",
+   "description": "Measured wall 2.20-2.20 mm is within the PC/ABS 1.2-3.5 mm range; keep bosses/ribs ≤ 60% of nominal wall to avoid sink.",
+   "fix": "No change to nominal wall; core bosses and ribs to ≤ 60% of the wall.",
+   "rule_citation": "PC/ABS wall 1.2-3.5 mm, ribs/bosses ≤ 60% of wall — Protolabs injection molding design guidelines",
+   "measurement": {
+    "value": 2.2,
+    "unit": "mm",
+    "label": "measured",
+    "source_or_assumption": "5th percentile of 10766 ray samples into the material (median 2.2 mm)"
+   },
+   "resolved": false,
+   "resolution": null
+  }
+ ],
+ "component_risks": [
+  {
+   "bom_item_id": "e1",
+   "part": "AC universal motor with fan impeller",
+   "level": "medium",
+   "reasons": [
+    "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+   ],
+   "alternatives": [],
+   "stock": null,
+   "lead_time_weeks": null,
+   "alternative": null
+  },
+  {
+   "bom_item_id": "e2",
+   "part": "Nichrome heating element assembly",
+   "level": "medium",
+   "reasons": [
+    "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+   ],
+   "alternatives": [],
+   "stock": null,
+   "lead_time_weeks": null,
+   "alternative": null
+  },
+  {
+   "bom_item_id": "e3",
+   "part": "Power and airflow control PCB",
+   "level": "medium",
+   "reasons": [
+    "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+   ],
+   "alternatives": [],
+   "stock": null,
+   "lead_time_weeks": null,
+   "alternative": null
+  },
+  {
+   "bom_item_id": "e4",
+   "part": "TRIAC heater power switch",
+   "level": "medium",
+   "reasons": [
+    "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+   ],
+   "alternatives": [],
+   "stock": null,
+   "lead_time_weeks": null,
+   "alternative": null
+  },
+  {
+   "bom_item_id": "e5",
+   "part": "Motor and heater control switches",
+   "level": "medium",
+   "reasons": [
+    "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+   ],
+   "alternatives": [],
+   "stock": null,
+   "lead_time_weeks": null,
+   "alternative": null
+  },
+  {
+   "bom_item_id": "e6",
+   "part": "Thermal safety cutouts",
+   "level": "medium",
+   "reasons": [
+    "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+   ],
+   "alternatives": [],
+   "stock": null,
+   "lead_time_weeks": null,
+   "alternative": null
+  },
+  {
+   "bom_item_id": "e7",
+   "part": "Mains power cord with strain relief",
+   "level": "medium",
+   "reasons": [
+    "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+   ],
+   "alternatives": [],
+   "stock": null,
+   "lead_time_weeks": null,
+   "alternative": null
+  },
+  {
+   "bom_item_id": "e8",
+   "part": "Control and snubber passives",
+   "level": "medium",
+   "reasons": [
+    "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+   ],
+   "alternatives": [],
+   "stock": null,
+   "lead_time_weeks": null,
+   "alternative": null
+  }
+ ],
+ "certifications": [
+  {
+   "market": "US",
+   "standard": "FCC Part 15B (unintentional radiator)",
+   "applies_because": "Digital circuitry (MCU clock, switching drivers) can emit RF noise; SDoC on a lab report. Sourced: 47 CFR 15.101 (Equipment authorization of unintentional radiators): “(a) Except as otherwise exempted in §§ 15.23, 15.103, and 15.113, unintentional radiators shall be authorized prior to the initiation of marketing, pursuant to the procedures for certification or Supplier's Declaration of…” — eCFR text as of 2026-09-22, retrieved 2026-09-26, https://www.ecfr.gov/current/title-47/section-15.101. See also 47 CFR 15.107, 47 CFR 15.109, 47 CFR 15.19, 47 CFR 15.103.",
+   "required": true,
+   "cost_est": {
+    "value": 2500.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Accredited-lab range, demo assumption"
+   },
+   "lead_time_weeks": {
+    "value": 4.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Typical lab queue + report, demo assumption"
+   }
+  },
+  {
+   "market": "US",
+   "standard": "UL/ETL listing (UL 62368-1)",
+   "applies_because": "Mains-powered product: not federally mandated but required by most retailers and insurers",
+   "required": false,
+   "cost_est": {
+    "value": 4000.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Accredited-lab range, demo assumption"
+   },
+   "lead_time_weeks": {
+    "value": 6.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Typical lab queue + report, demo assumption"
+   }
+  },
+  {
+   "market": "US",
+   "standard": "UL 859, Standard for Household Electric Personal Grooming Appliances",
+   "applies_because": "A handheld hair dryer is a personal grooming appliance, so this product-specific safety standard is a more relevant evaluation basis than a general electronics standard alone.",
+   "required": false,
+   "cost_est": {
+    "value": 12000.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "LLM-proposed rough estimate — get a lab quote to confirm"
+   },
+   "lead_time_weeks": {
+    "value": 6.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "LLM-proposed rough estimate — get a lab quote to confirm"
+   }
+  }
+ ]
+}

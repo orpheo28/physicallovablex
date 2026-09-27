@@ -1,0 +1,77 @@
+{
+ "project_id": "demo_surfboard_beginner",
+ "status": "validated",
+ "fallback": false,
+ "fallback_reason": null,
+ "generated_by": "llm:openai/gpt-6-luna",
+ "generated_at": "2026-09-27T00:15:34.358576Z",
+ "assumptions": [
+  {
+   "id": "a1",
+   "text": "Lead times are typical values per process (tooling + first shots), not factory quotes; refined at stages 7-9 with the negotiated quote.",
+   "label": "estimate",
+   "source": null,
+   "stage": 6
+  },
+  {
+   "id": "a2",
+   "text": "Mass production duration assumes 90 units/day on one line for a 2,000-unit order.",
+   "label": "estimate",
+   "source": null,
+   "stage": 6
+  }
+ ],
+ "stage": 6,
+ "steps": [
+  {
+   "part_id": "p1",
+   "part_name": "Board blank (shaped core + laminate)",
+   "process": "other",
+   "reason": "At 2,000 units, hand shaping and routing PU foam blanks followed by fibreglass/polyester lamination suits the long contoured geometry and enables the required gloss-polished finish.",
+   "region": "Shenzhen, Guangdong",
+   "lead_time_days": {
+    "value": 14.0,
+    "unit": "days",
+    "label": "estimate",
+    "source_or_assumption": "Typical other lead time incl. setup and first article — planning assumption"
+   }
+  },
+  {
+   "part_id": "p2",
+   "part_name": "Traction pad",
+   "process": "other",
+   "reason": "At 2,000 units, die-cutting and bonding flexible EVA foam is economical for the traction pad’s shaped geometry and provides a consistent surface.",
+   "region": "Shenzhen, Guangdong",
+   "lead_time_days": {
+    "value": 14.0,
+    "unit": "days",
+    "label": "estimate",
+    "source_or_assumption": "Typical other lead time incl. setup and first article — planning assumption"
+   }
+  },
+  {
+   "part_id": "p3",
+   "part_name": "Fins",
+   "process": "injection_molding",
+   "reason": "Glass-filled nylon injection molding suits the fins’ repeatable thin, contoured geometry at 2,000 units, with tooling amortized across volume and a polished mold surface providing the finish.",
+   "region": "Dongguan, Guangdong",
+   "lead_time_days": {
+    "value": 35.0,
+    "unit": "days",
+    "label": "estimate",
+    "source_or_assumption": "Typical injection molding lead time incl. tooling and first shots — planning assumption"
+   }
+  }
+ ],
+ "assembly_notes": [
+  "Bond the traction pad to the cleaned, dry board deck using compatible adhesive and verify alignment and adhesion.",
+  "Fit and secure fins in their boxes; check retention and confirm the board has no delamination or sharp defects.",
+  "No electronics or battery are present; no burn-in or battery shipping controls are required."
+ ],
+ "total_lead_time_days": {
+  "value": 79.0,
+  "unit": "days",
+  "label": "estimate",
+  "source_or_assumption": "Critical path from PO: slowest tooling/first article (35) + tooling correction T1 (14) + golden sample (7) + mass production (23) for 2,000 units"
+ }
+}

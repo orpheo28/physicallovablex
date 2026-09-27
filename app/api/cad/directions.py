@@ -260,9 +260,11 @@ def render_on_demand(project_id: str, direction_id: str) -> DesignArtifact:
         raise KeyError(direction_id)
     if d.render_url:
         return art
+    from api.cad.family_mode import family_of
+
     feats = features_for(brief) if brief is not None else set()
     url = render_direction(project_id, brief, d, project_dir(project_id), colour_name=None,
-                           extra=describe_features(feats), deadline=time.monotonic() + STAGE_BUDGET_S)
+                           extra="" if family_of(d) else describe_features(feats), deadline=time.monotonic() + STAGE_BUDGET_S)
     if url:
         art = runner.get_artifact(project_id, 2) or art  # re-read: the user may have chosen a direction meanwhile
         for x in art.directions:
@@ -274,12 +276,63 @@ def render_on_demand(project_id: str, direction_id: str) -> DesignArtifact:
     return art
 
 
+def family_assumptions(hit, notes: list[str]) -> list[Assumption]:
+    cat, name, variant = hit
+    out = [Assumption(id="a2_1", label="estimate", stage=2,
+                      text=f"Directions from the parametric '{name}' product family (category '{cat}'"
+                           + (f", preset '{variant}'" if variant else "") + "): built with build123d, dimensions measured on the CAD")]
+    if notes:
+        out.append(Assumption(id="a2_3", label="estimate", stage=2, text="; ".join(notes)))
+    return out
+
+
+def _family_run(ctx: StageContext, brief, hit, t0: float, started: datetime) -> DesignArtifact:
+    from api.cad import family_mode
+
+    pid = ctx.project.id
+    directions, notes = family_mode.family_directions(pid, brief, ctx.project.prompt, hit)
+    assumptions = family_assumptions(hit, notes)
+    deadline = t0 + STAGE_BUDGET_S
+    pending = {}
+    if max_auto_renders() > 0:
+        pool = ThreadPoolExecutor(max_workers=3, thread_name_prefix="render")
+        futures = {d.id: pool.submit(render_direction, pid, brief, d, project_dir(pid), colour_name=_colour_name(d), extra="",
+                                     deadline=deadline) for d in directions[:max_auto_renders()]}
+        wait(futures.values(), timeout=max(0.0, min(deadline, t0 + INLINE_RENDER_S) - time.monotonic()))
+        pool.shutdown(wait=False, cancel_futures=False)
+        for d in directions:
+            f = futures.get(d.id)
+            d.render_url = _url(f) if f is not None else None
+            if f is not None and not f.done():
+                pending[d.id] = f
+    if any(d.render_url for d in directions):
+        assumptions.append(_render_assumption())
+    if pending:
+        threading.Thread(target=_patch_late_renders, args=(pid, pending, deadline, started), daemon=True,
+                         name=f"renders-{pid}").start()
+    prev = ctx.artifact(2)
+    chosen = prev.chosen_direction_id if prev is not None and prev.chosen_direction_id in {d.id for d in directions} else None
+    return DesignArtifact(project_id=pid, generated_by="code", assumptions=assumptions, directions=directions,
+                          chosen_direction_id=chosen)
+
+
+def _colour_name(d: DesignDirection) -> str | None:
+    """Colour name from a finish 'Finish · Name #RRGGBB'."""
+    part = d.finish.split("·", 1)[1].strip() if "·" in d.finish else ""
+    return part.split("#")[0].strip() or None
+
+
 @stage_handler(2)
 def run(ctx: StageContext) -> DesignArtifact:
     t0, started = time.monotonic(), datetime.now(timezone.utc)
     brief = ctx.artifact(1)
     if brief is None:
         raise LookupError("stage 2 needs the brief (stage 1)")
+    from api.cad import family_mode
+
+    hit = family_mode.detect(brief, ctx.project.prompt)
+    if hit is not None:  # W21: the product maps to a parametric family (board, drone, vacuum…): its 3 directions
+        return _family_run(ctx, brief, hit, t0, started)
     assumptions = [Assumption(id="a2_1", label="estimate", stage=2,
                               text="Two-shell injection-moulded enclosure, nominal wall 2.0 mm, 1.5° draft, split line at 60% height, 4 × M2.5 screw bosses")]
     try:

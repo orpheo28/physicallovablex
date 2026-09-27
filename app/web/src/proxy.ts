@@ -37,5 +37,6 @@ export async function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!_next/static|_next/image|icon.svg|favicon.ico).*)"],
+  // Public, never behind APP_PASSWORD: the brand assets and the documentation (/docs, /agents.md, /llms.txt).
+  matcher: ["/((?!_next/static|_next/image|icon.svg|favicon.ico|brand/|docs$|docs/|agents\\.md$|llms\\.txt$).*)"],
 };

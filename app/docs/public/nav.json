@@ -1,0 +1,34 @@
+{
+  "title": "PhysicalLovableX Docs",
+  "baseUrl": "https://physicallovablex.vercel.app",
+  "groups": [
+    {
+      "title": "Getting started",
+      "pages": [
+        { "slug": "overview", "title": "Overview", "file": "overview.md" },
+        { "slug": "quickstart", "title": "Quickstart", "file": "quickstart.md" },
+        { "slug": "concepts", "title": "Concepts", "file": "concepts.md" }
+      ]
+    },
+    {
+      "title": "Reference",
+      "pages": [
+        { "slug": "studio-api", "title": "Studio API", "file": "studio-api.md" },
+        { "slug": "production-mcp", "title": "Production MCP", "file": "production-mcp.md" },
+        { "slug": "engineering", "title": "Engineering", "file": "engineering.md" }
+      ]
+    },
+    {
+      "title": "Honest scope",
+      "pages": [
+        { "slug": "limits", "title": "Limits", "file": "limits.md" }
+      ]
+    },
+    {
+      "title": "For agents",
+      "pages": [
+        { "slug": "agents", "title": "agents.md", "file": "agents.md", "path": "/agents.md" }
+      ]
+    }
+  ]
+}

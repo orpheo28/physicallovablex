@@ -1,0 +1,1331 @@
+{
+ "id": "fp_demo_surfboard_beginner_v2",
+ "project_id": "demo_surfboard_beginner",
+ "version": 2,
+ "created_at": "2026-09-27T00:16:31.049437Z",
+ "fallback": false,
+ "cached_note": null,
+ "fallback_stages": [],
+ "product_name": "Beginner surfboard 7'6\"",
+ "product_summary": "A 7'6\" surfboard shaped for beginner stability and paddling. Target volumes: 500 / 2,000 / 10,000 units; markets: US.",
+ "product_summary_cn": "一款为初学者稳定性和划水而设计的7'6\"冲浪板。目标产量:500 / 2,000 / 10,000件;目标市场:美国。",
+ "target_markets": [
+  "US"
+ ],
+ "spec": {
+  "overall_dimensions": {
+   "length": {
+    "value": 2286.0,
+    "unit": "mm",
+    "label": "measured",
+    "source_or_assumption": "Bounding box of the full product (family CAD, build123d/OCCT)"
+   },
+   "width": {
+    "value": 560.03,
+    "unit": "mm",
+    "label": "measured",
+    "source_or_assumption": "Bounding box of the full product (family CAD, build123d/OCCT)"
+   },
+   "height": {
+    "value": 210.02,
+    "unit": "mm",
+    "label": "measured",
+    "source_or_assumption": "Bounding box of the full product (family CAD, build123d/OCCT)"
+   }
+  },
+  "weight": {
+   "value": 4598.5,
+   "unit": "g",
+   "label": "estimate",
+   "source_or_assumption": "Solid volume 60181.4 cm³ (measured) × densities per part (PU foam + fibreglass laminate effective density 0.065 g/cm³ (a 60 L board ≈ 4 kg))"
+  },
+  "parts": [
+   {
+    "id": "p1",
+    "name": "Board blank (shaped core + laminate)",
+    "material": "PU foam + fibreglass/polyester",
+    "finish": "Gloss polish",
+    "process_hint": "other",
+    "tolerance": "±1 mm (shaped / routed parts)",
+    "dimensions": {
+     "length": {
+      "value": 2286.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the largest part of this group, built family CAD (build123d/OCCT)"
+     },
+     "width": {
+      "value": 560.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the largest part of this group, built family CAD (build123d/OCCT)"
+     },
+     "height": {
+      "value": 127.9,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the largest part of this group, built family CAD (build123d/OCCT)"
+     }
+    },
+    "wall_thickness": null,
+    "quantity": 1
+   },
+   {
+    "id": "p2",
+    "name": "Traction pad",
+    "material": "EVA foam",
+    "finish": "Gloss polish",
+    "process_hint": "other",
+    "tolerance": "±1 mm (shaped / routed parts)",
+    "dimensions": {
+     "length": {
+      "value": 300.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the largest part of this group, built family CAD (build123d/OCCT)"
+     },
+     "width": {
+      "value": 246.8,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the largest part of this group, built family CAD (build123d/OCCT)"
+     },
+     "height": {
+      "value": 8.5,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the largest part of this group, built family CAD (build123d/OCCT)"
+     }
+    },
+    "wall_thickness": null,
+    "quantity": 4
+   },
+   {
+    "id": "p3",
+    "name": "Fins",
+    "material": "Glass-filled nylon",
+    "finish": "Gloss polish",
+    "process_hint": "injection_molding",
+    "tolerance": "±1 mm (shaped / routed parts)",
+    "dimensions": {
+     "length": {
+      "value": 110.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the largest part of this group, built family CAD (build123d/OCCT)"
+     },
+     "width": {
+      "value": 7.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the largest part of this group, built family CAD (build123d/OCCT)"
+     },
+     "height": {
+      "value": 115.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the largest part of this group, built family CAD (build123d/OCCT)"
+     }
+    },
+    "wall_thickness": null,
+    "quantity": 3
+   }
+  ],
+  "tolerances": [
+   "Outline ±2 mm",
+   "Thickness ±1 mm",
+   "Rocker ±3 mm at nose / tail",
+   "Fin box position ±1 mm"
+  ]
+ },
+ "cad_files": [
+  {
+   "format": "glb",
+   "url": "/files/demo_surfboard_beginner/model_v2.glb",
+   "description": "AI-generated CAD (concept level) — geometry measured on the result — bbox 2286 × 573 × 203 mm",
+   "size_bytes": 241816
+  },
+  {
+   "format": "step",
+   "url": "/files/demo_surfboard_beginner/model_v2.step",
+   "description": "AI-generated CAD (concept level) — geometry measured on the result — STEP AP214",
+   "size_bytes": 593528
+  },
+  {
+   "format": "py",
+   "url": "/projects/demo_surfboard_beginner/cad/code/2",
+   "description": "AI-generated CAD (concept level) — geometry measured on the result — build123d program v2 (llm:openai/gpt-6-sol)",
+   "size_bytes": 4065
+  },
+  {
+   "format": "glb",
+   "url": "/files/demo_surfboard_beginner/v2.glb",
+   "description": "Full product — materials",
+   "size_bytes": 228620
+  },
+  {
+   "format": "step",
+   "url": "/files/demo_surfboard_beginner/v2_enclosure.step",
+   "description": "Product — all parts (solid bodies), STEP AP214",
+   "size_bytes": 567367
+  },
+  {
+   "format": "stl",
+   "url": "/files/demo_surfboard_beginner/v2_enclosure.stl",
+   "description": "Product — mesh",
+   "size_bytes": 325684
+  },
+  {
+   "format": "glb",
+   "url": "/files/demo_surfboard_beginner/v2_enclosure.glb",
+   "description": "Product — viewer model",
+   "size_bytes": 228620
+  }
+ ],
+ "bom": [
+  {
+   "id": "m1",
+   "part": "PU surfboard foam blank with wood stringer",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Shaped 7'6\" (2286 mm) beginner-stability outline with rocker and soft rails; finished board dimensions approximately 2286 × 560 × 210 mm.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 55.2,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: PU / EPS surfboard blank, 7-9 ft ≈ USD 60 (typical 2026 trade price, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m2",
+   "part": "Fibreglass cloth",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Fibreglass reinforcement cloth for the board laminate; cut and applied during glassing.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 34.96,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: fibreglass cloth + laminating / hot-coat resin per board ≈ USD 38 (typical 2026 trade price, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m3",
+   "part": "Polyester laminating resin and catalyst",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Resin system for laminating and sealing the PU foam and fibreglass; quantity sufficient for one board.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 34.96,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: fibreglass cloth + laminating / hot-coat resin per board ≈ USD 38 (typical 2026 trade price, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m4",
+   "part": "Thruster fin box set",
+   "category": "mechanical",
+   "qty": 3.0,
+   "description": "Compatible fin boxes installed in the tail for a thruster setup.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 3.68,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: fin box / plug ≈ USD 4 (typical 2026 trade price, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m5",
+   "part": "Thruster surfboard fins",
+   "category": "mechanical",
+   "qty": 3.0,
+   "description": "Removable fins compatible with the installed fin boxes; one center and two side fins.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 5.52,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: moulded fin ≈ USD 6 (typical 2026 trade price, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m6",
+   "part": "Surfboard leash plug",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Embedded tail leash attachment plug.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 3.68,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: fin box / plug ≈ USD 4 (typical 2026 trade price, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m7",
+   "part": "Surfboard sanding and finishing consumables",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Abrasives and finishing supplies used to sand and finish one glassed board.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 23.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: hand shaping / sanding labour share ≈ USD 25 (typical 2026 trade price, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "k1",
+   "part": "Protective surfboard shipping carton",
+   "category": "packaging",
+   "qty": 1.0,
+   "description": "Long carton sized to protect one 7'6\" surfboard during shipping.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 7.36,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: board sock / carton ≈ USD 8 (typical 2026 trade price, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "k2",
+   "part": "Protective packaging materials",
+   "category": "packaging",
+   "qty": 1.0,
+   "description": "Board wrap and cushioning for protection inside the shipping carton.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 7.36,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: board sock / carton ≈ USD 8 (typical 2026 trade price, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  }
+ ],
+ "dfm_alerts": [
+  {
+   "id": "a1",
+   "severity": "major",
+   "category": "assembly",
+   "method": "ai_reviewed",
+   "part_id": "p2",
+   "description": "The traction pad is specified as a part but is missing from the BOM, along with its attachment method. The factory cannot procure or install it consistently.",
+   "fix": "Add the EVA pad and a specified marine-grade pressure-sensitive adhesive or pre-applied adhesive backing to the BOM; define its placement.",
+   "rule_citation": "Define all purchased parts and joining methods in the BOM and assembly instructions — ISO 10007 configuration management guidance.",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a2",
+   "severity": "major",
+   "category": "other",
+   "method": "ai_reviewed",
+   "part_id": "p1",
+   "description": "The laminate specification omits cloth weight, ply count, layup locations, and resin cure instructions. Strength, weight, and finish will vary between builds.",
+   "fix": "Issue a laminate schedule for the deck, bottom, and rails, plus resin mix, cure, and finishing instructions.",
+   "rule_citation": "Specify reinforcement architecture and processing for composite manufacture — Gurit Guide to Composites.",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a3",
+   "severity": "major",
+   "category": "assembly",
+   "method": "ai_reviewed",
+   "part_id": null,
+   "description": "Fin boxes and the leash plug are in the BOM, but their models, routing dimensions, installation method, and alignment datums are unspecified. Supplied fins may not fit the boxes.",
+   "fix": "Specify a compatible fin-and-box system, plug model, routing templates, installation materials, and locations referenced to board datums.",
+   "rule_citation": "Define mating interfaces and assembly datums — ASME Y14.5 dimensioning and tolerancing.",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "m1",
+   "severity": "minor",
+   "category": "other",
+   "method": "measured",
+   "part_id": "p3",
+   "description": "Solid product (60.2 L of material): not an injection-moulded shell, so draft, undercut, wall thickness and clamp tonnage do not apply. Process: hand / CNC shaping of a foam blank + hand lamination.",
+   "fix": "Quote the listed process; send the STEP as the shaping / routing / layout file.",
+   "rule_citation": "Moulded-shell DFM rules apply to injection moulding only (Protolabs design guide)",
+   "measurement": {
+    "value": 60.2,
+    "unit": "L",
+    "label": "measured",
+    "source_or_assumption": "Solid volume of all parts, measured on the product CAD (build123d/OCCT)"
+   },
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "m2",
+   "severity": "minor",
+   "category": "material",
+   "method": "measured",
+   "part_id": "p3",
+   "description": "Board length 2286 mm (7.5 ft) fits standard PU blank stock (up to 9'0\" / 2745 mm).",
+   "fix": "Order the next blank size up with the right rocker; keep 20-30 mm shaping allowance.",
+   "rule_citation": "Blank sizes of the major foam suppliers (6'0\" to 9'0\" shortboard/mid-length ranges) — Estimate",
+   "measurement": {
+    "value": 2286.0,
+    "unit": "mm",
+    "label": "measured",
+    "source_or_assumption": "Overall length, measured on the product CAD (build123d/OCCT)"
+   },
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "m3",
+   "severity": "minor",
+   "category": "wall_thickness",
+   "method": "measured",
+   "part_id": "p3",
+   "description": "Maximum hull thickness 72 mm (with rocker the bbox is taller): enough float for the brief.",
+   "fix": "Keep ≥ 65 mm at the centre for beginners; move volume under the chest, not into the rails.",
+   "rule_citation": "Surf shaping rule of thumb: beginner mid-lengths 65-80 mm thick — Estimate",
+   "measurement": {
+    "value": 72.0,
+    "unit": "mm",
+    "label": "measured",
+    "source_or_assumption": "Smallest extent of the hull, measured on the product CAD (build123d/OCCT)"
+   },
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a4",
+   "severity": "minor",
+   "category": "tolerance",
+   "method": "ai_reviewed",
+   "part_id": "p1",
+   "description": "The spec does not say whether outline, thickness, rocker, and fin-box tolerances apply before or after lamination and gloss polishing. Finish build-up makes inspection ambiguous.",
+   "fix": "Define inspection at the finished-board stage, with measurement datums and rocker support conditions; set separate blank-shaping targets if needed.",
+   "rule_citation": "Define the measured feature and datum reference for dimensional inspection — ASME Y14.5 dimensioning and tolerancing.",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a5",
+   "severity": "minor",
+   "category": "material",
+   "method": "ai_reviewed",
+   "part_id": "p2",
+   "description": "Gloss polish is not an appropriate finish instruction for an EVA traction pad: it could remove the intended grip texture.",
+   "fix": "Specify the EVA texture, colour, and edge treatment; limit gloss polishing to the laminated board.",
+   "rule_citation": "Specify surface finish by functional surface and material — ISO 1302 indication of surface texture.",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  }
+ ],
+ "certifications": [
+  {
+   "market": "Global",
+   "standard": "General Product Safety (GPSR 2023/988 EU; CPSA US)",
+   "applies_because": "No electronics, battery, food-contact or children's-product trigger found: general product-safety duties still apply (technical file, labelling, traceability)",
+   "required": true,
+   "cost_est": {
+    "value": 500.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Accredited-lab range, demo assumption"
+   },
+   "lead_time_weeks": {
+    "value": 2.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Typical lab queue + report, demo assumption"
+   }
+  }
+ ],
+ "target_quantities": [
+  500,
+  2000,
+  10000
+ ],
+ "cost_estimate": [
+  {
+   "quantity": 500,
+   "bom_cost": {
+    "value": 195.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Electronics at LCSC price breaks (LCSC price, 2026-09-26); other lines base × 0.92^0"
+   },
+   "assembly_cost": {
+    "value": 33.08,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Assembly + factory overhead/margin: 10.2 min = 6 base + 0.6 × 7 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^0"
+   },
+   "packaging_cost": {
+    "value": 16.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Packaging BOM lines × 0.92^0"
+   },
+   "unit_cost": {
+    "value": 244.08,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
+   },
+   "tooling_amortisation": {
+    "value": 2.14,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "$1,070 tooling ÷ 500"
+   },
+   "margin_pct": {
+    "value": 28.1,
+    "unit": "pct",
+    "label": "estimate",
+    "source_or_assumption": "($549.00 target − $394.62 landed estimate) ÷ target; before retailer margin, VAT and marketing"
+   }
+  },
+  {
+   "quantity": 2000,
+   "bom_cost": {
+    "value": 179.4,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Electronics at LCSC price breaks (LCSC price, 2026-09-26); other lines base × 0.92^1"
+   },
+   "assembly_cost": {
+    "value": 30.43,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Assembly + factory overhead/margin: 10.2 min = 6 base + 0.6 × 7 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^1"
+   },
+   "packaging_cost": {
+    "value": 14.72,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Packaging BOM lines × 0.92^1"
+   },
+   "unit_cost": {
+    "value": 224.55,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
+   },
+   "tooling_amortisation": {
+    "value": 0.54,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "$1,070 tooling ÷ 2,000"
+   },
+   "margin_pct": {
+    "value": 35.1,
+    "unit": "pct",
+    "label": "estimate",
+    "source_or_assumption": "($549.00 target − $356.40 landed estimate) ÷ target; before retailer margin, VAT and marketing"
+   }
+  },
+  {
+   "quantity": 10000,
+   "bom_cost": {
+    "value": 165.05,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Electronics at LCSC price breaks (LCSC price, 2026-09-26); other lines base × 0.92^2"
+   },
+   "assembly_cost": {
+    "value": 28.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Assembly + factory overhead/margin: 10.2 min = 6 base + 0.6 × 7 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^2"
+   },
+   "packaging_cost": {
+    "value": 13.54,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Packaging BOM lines × 0.92^2"
+   },
+   "unit_cost": {
+    "value": 206.59,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
+   },
+   "tooling_amortisation": {
+    "value": 0.11,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "$1,070 tooling ÷ 10,000"
+   },
+   "margin_pct": {
+    "value": 40.2,
+    "unit": "pct",
+    "label": "estimate",
+    "source_or_assumption": "($549.00 target − $328.32 landed estimate) ÷ target; before retailer margin, VAT and marketing"
+   }
+  }
+ ],
+ "questions": [
+  {
+   "id": "fq1",
+   "en": "DFM major — The traction pad is specified as a part but is missing from the BOM, along with its attachment method. The factory cannot procure or install it consistently. Proposed fix: Add the EVA pad and a specified marine-grade pressure-sensitive adhesive or pre-applied adhesive backing to the BOM; define its placement. Can you accommodate this, and at what cost or lead-time impact?",
+   "cn": "DFM重大问题 — 防滑垫被列为一个零件但未出现在BOM(物料清单)中,其固定方式也未说明。工厂无法一致地进行采购或安装。建议解决方案:将EVA防滑垫及指定的船用级压敏胶或预涂胶背胶加入BOM;并定义其安装位置。贵厂能否满足此要求?对成本或交期有何影响?",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  },
+  {
+   "id": "fq2",
+   "en": "DFM major — The laminate specification omits cloth weight, ply count, layup locations, and resin cure instructions. Strength, weight, and finish will vary between builds. Proposed fix: Issue a laminate schedule for the deck, bottom, and rails, plus resin mix, cure, and finishing instructions. Can you accommodate this, and at what cost or lead-time impact?",
+   "cn": "DFM重大问题 — 层压规格中遗漏了玻璃布克重、层数、铺层位置以及树脂固化说明。不同批次产品的强度、重量和表面光洁度会有差异。建议解决方案:发布甲板、板底和板缘的层压工艺表,以及树脂配比、固化和表面处理说明。贵厂能否满足此要求?对成本或交期有何影响?",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  },
+  {
+   "id": "fq3",
+   "en": "DFM major — Fin boxes and the leash plug are in the BOM, but their models, routing dimensions, installation method, and alignment datums are unspecified. Supplied fins may not fit the boxes. Proposed fix: Specify a compatible fin-and-box system, plug model, routing templates, installation materials, and locations referenced to board datums. Can you accommodate this, and at what cost or lead-time impact?",
+   "cn": "DFM重大问题 — 鳍槽盒和尾鳍绳插孔已列入BOM,但其型号、开槽尺寸、安装方式和定位基准均未指定。所配鳍片可能无法与鳍槽盒匹配。建议解决方案:指定兼容的鳍片与鳍槽盒系统、插孔型号、开槽模板、安装材料,以及以板体基准为参照的位置。贵厂能否满足此要求?对成本或交期有何影响?",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  },
+  {
+   "id": "fq4",
+   "en": "What are your MOQ and lead time for 500 units, and how do they change at 2,000 and 10,000 units?",
+   "cn": "贵厂500件的MOQ(最小起订量)和交期是多少?在2,000件和10,000件时会有何变化?",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  },
+  {
+   "id": "fq5",
+   "en": "What payment terms and sample rounds (T0, T1, golden sample) do you propose, with dates?",
+   "cn": "贵厂提议的付款条件和样品轮次(T0、T1、标准样件)是什么?具体日期如何安排?",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  },
+  {
+   "id": "fq6",
+   "en": "Please confirm the tolerances in the spec and flag any tolerance or finish you cannot hold.",
+   "cn": "请确认规格中的公差要求,并指出任何贵厂无法保证的公差或表面处理。",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  },
+  {
+   "id": "fq7",
+   "en": "Which BOM components do you source yourselves, and do you accept the listed alternatives for high-risk parts?",
+   "cn": "BOM中哪些部件由贵厂自行采购?对于高风险零件,贵厂是否接受清单中列出的替代方案?",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  }
+ ],
+ "assumption_register": [
+  {
+   "id": "a1",
+   "text": "Skipped clarifying questions use their defaults: markets=US; volume=100–500; target_price=$300–$499; battery=None (mains/USB); wireless=None. Re-run stage 1 with answers to change them.",
+   "label": "estimate",
+   "source": null,
+   "stage": 1
+  },
+  {
+   "id": "a2",
+   "text": "Target retail price proposed by the spec copilot (not stated by the founder); confirm before costing.",
+   "label": "estimate",
+   "source": null,
+   "stage": 1
+  },
+  {
+   "id": "a2_1",
+   "text": "Directions from the parametric 'board' product family (category 'board', preset 'surf'): built with build123d, dimensions measured on the CAD",
+   "label": "estimate",
+   "source": null,
+   "stage": 2
+  },
+  {
+   "id": "a2_3",
+   "text": "Length 7'6\" = 2286 mm from the prompt; Beginner outline: wider, thicker, fuller nose, flatter rocker",
+   "label": "estimate",
+   "source": null,
+   "stage": 2
+  },
+  {
+   "id": "a2_render",
+   "text": "AI concept render — illustrative, not the CAD. Generated by an AI image model from the direction's shape, dimensions, material, finish and colour; the 3D model is the CAD.",
+   "label": "estimate",
+   "source": null,
+   "stage": 2
+  },
+  {
+   "id": "a2_studio",
+   "text": "Direction d1 refined in Studio (version 2); dimensions are design parameters, the spec measures the built CAD",
+   "label": "estimate",
+   "source": null,
+   "stage": 2
+  },
+  {
+   "id": "a3_1",
+   "text": "Weight from the measured solid volume × per-part densities (PU foam + fibreglass laminate effective density 0.065 g/cm³ (a 60 L board ≈ 4 kg))",
+   "label": "estimate",
+   "source": null,
+   "stage": 3
+  },
+  {
+   "id": "a3_2",
+   "text": "Direction d1 ('Classic'): solid product from the 'board' family — no moulded enclosure; enclosure.* files are the product itself",
+   "label": "estimate",
+   "source": null,
+   "stage": 3
+  },
+  {
+   "id": "a4_1",
+   "text": "Solid product ('board' family): moulded-shell checks (draft, undercut, wall thickness, clamp tonnage) do not apply; the measured checks are process fit, stock size and thinnest section on the product CAD",
+   "label": "estimate",
+   "source": null,
+   "stage": 4
+  },
+  {
+   "id": "s5_a1",
+   "text": "Volume curve: non-LCSC lines and assembly × 0.92 per tier step (500 → 2,000 → 10,000)",
+   "label": "estimate",
+   "source": "Demo assumption (PRD §11), editable",
+   "stage": 5
+  },
+  {
+   "id": "s5_a2",
+   "text": "Assembly 10.2 min = 6 base + 0.6 × 7 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials",
+   "label": "estimate",
+   "source": null,
+   "stage": 5
+  },
+  {
+   "id": "a3",
+   "text": "Electronic lines matched to the JLCPCB/LCSC parts snapshot of 2026-09-26 (CDFER/jlcpcb-parts-database, MIT); unmatched lines are estimates",
+   "label": "sourced",
+   "source": "https://github.com/CDFER/jlcpcb-parts-database",
+   "stage": 5
+  },
+  {
+   "id": "a4",
+   "text": "Simple 1-cavity injection mold $1,000-3,000; complex multi-cavity steel mold $30,000-100,000",
+   "label": "estimate",
+   "source": "Zetar Mold 2026 price list (vendor, medium confidence), https://zetarmold.com/injection-mold-price-list-2026",
+   "stage": 5
+  },
+  {
+   "id": "a5",
+   "text": "Sum of 1 required certifications from stage 4 (their own cost estimates)",
+   "label": "estimate",
+   "source": null,
+   "stage": 5
+  },
+  {
+   "id": "a6",
+   "text": "Landed-cost basis for margin and cash: sea freight (fictional rates), HTS 9506.29.0080 (general 4.6%, Section 301 25%), IEEPA 0, Section 122 off",
+   "label": "estimate",
+   "source": "https://hts.usitc.gov/",
+   "stage": 5
+  },
+  {
+   "id": "a7",
+   "text": "Brief target price 450 USD (retail price incl. VAT where applicable)",
+   "label": "estimate",
+   "source": null,
+   "stage": 5
+  },
+  {
+   "id": "b1",
+   "text": "BOM from stage 3 spec",
+   "label": "estimate",
+   "source": null,
+   "stage": 5
+  },
+  {
+   "id": "s6_a1",
+   "text": "Lead times are typical values per process (tooling + first shots), not factory quotes; refined at stages 7-9 with the negotiated quote.",
+   "label": "estimate",
+   "source": null,
+   "stage": 6
+  },
+  {
+   "id": "s6_a2",
+   "text": "Mass production duration assumes 90 units/day on one line for a 2,000-unit order.",
+   "label": "estimate",
+   "source": null,
+   "stage": 6
+  },
+  {
+   "id": "a7_network",
+   "text": "Factories, capacity, load and past performance come from the simulated production network.",
+   "label": "fictional",
+   "source": "factory_mcp (demo data)",
+   "stage": 7
+  },
+  {
+   "id": "a7_weights",
+   "text": "Score = 35% process fit + 15% MOQ + 15% certifications + 15% load + 20% lead time; product-level criteria are part-weighted means over the queries (Other ×2, Injection molding ×1, Assembly ×1).",
+   "label": "estimate",
+   "source": null,
+   "stage": 7
+  },
+  {
+   "id": "a8_network",
+   "text": "Factories, quotes, counters and replies are simulated (production MCP demo network).",
+   "label": "fictional",
+   "source": "factory_mcp (demo data)",
+   "stage": 8
+  },
+  {
+   "id": "a8_anchor",
+   "text": "Factory quotes are anchored on stage 5 cost tiers + tooling total × each factory's personality margin; subcontracted processes add 3% each.",
+   "label": "estimate",
+   "source": null,
+   "stage": 8
+  },
+  {
+   "id": "a8_policy",
+   "text": "Negotiation policy: max 2 rounds; price, tooling, MOQ ≤ 2,000, lead time, 30% deposit / 70% before shipment; pick = lowest risk-adjusted cost incl. tooling.",
+   "label": "estimate",
+   "source": null,
+   "stage": 8
+  },
+  {
+   "id": "a8_autofill",
+   "text": "Auto-approved in autofill mode — review and change the selected factory before any real order",
+   "label": "estimate",
+   "source": null,
+   "stage": 8
+  },
+  {
+   "id": "s9_a1",
+   "text": "Quote lead time (24 d) is used as the tooling T0 duration; T1, golden sample and mass production use planning assumptions.",
+   "label": "estimate",
+   "source": null,
+   "stage": 9
+  },
+  {
+   "id": "s9_a2",
+   "text": "Date check: lead time differs from the stage 6 plan by -11 d (stage 6: 79 d, this plan: 68 d) — the negotiated quote governs",
+   "label": "estimate",
+   "source": null,
+   "stage": 9
+  },
+  {
+   "id": "s9_a3",
+   "text": "Kickoff date 2026-09-28 (next Monday after today unless start_date is passed in inputs); durations are planning assumptions except the quote lead time.",
+   "label": "estimate",
+   "source": null,
+   "stage": 9
+  },
+  {
+   "id": "s9_a4",
+   "text": "Sample rounds cost is an assumption; production payments follow the 30/70 term (deposit / before shipment) unless the quote states another deposit.",
+   "label": "estimate",
+   "source": null,
+   "stage": 9
+  },
+  {
+   "id": "s10_a1",
+   "text": "Pre-shipment inspection priced at $268 per man-day.",
+   "label": "sourced",
+   "source": "V-Trust, https://www.v-trust.com/en/our-network, checked 2026-09-26",
+   "stage": 10
+  },
+  {
+   "id": "s10_a2",
+   "text": "AQL 0 / 2.5 / 4.0 for critical / major / minor is the usual consumer-goods setting; agree it with the buyer and factory.",
+   "label": "estimate",
+   "source": null,
+   "stage": 10
+  },
+  {
+   "id": "s10_a3",
+   "text": "One inspector checks about 100 units per day including functional tests.",
+   "label": "estimate",
+   "source": null,
+   "stage": 10
+  },
+  {
+   "id": "s11_a1",
+   "text": "HTS 9506.29.0080: Same heading and rate as stage 5 (LLM-suggested) — to be confirmed by a customs broker",
+   "label": "estimate",
+   "source": "https://hts.usitc.gov/",
+   "stage": 11
+  },
+  {
+   "id": "s11_a2",
+   "text": "Assumed Section 301 rate of stage 5 — to be confirmed by a customs broker",
+   "label": "estimate",
+   "source": "https://hts.usitc.gov/",
+   "stage": 11
+  },
+  {
+   "id": "s11_a3",
+   "text": "IEEPA duties not collected since 24/02/2026; de minimis suspended; Section 122 is a user toggle (status to verify)",
+   "label": "sourced",
+   "source": "CBP CSMS 67834313 (https://content.govdelivery.com/accounts/USDHSCBP/bulletins/40b11c9); CBP CSMS 67844987; Federal Register 2026-06-24",
+   "stage": 11
+  },
+  {
+   "id": "s11_a4",
+   "text": "Freight sea fcl: 35 days transit (simulated); cost per unit derived from the Drewry lane rate, see a8-a10",
+   "label": "fictional",
+   "source": "demo data",
+   "stage": 11
+  },
+  {
+   "id": "s11_a5",
+   "text": "Platform/agent fee 7% of FOB (benchmark 5-10%)",
+   "label": "estimate",
+   "source": "https://www.dragonsourcing.com/top-10-cost-insights-for-hiring-a-china-sourcing-agent/",
+   "stage": 11
+  },
+  {
+   "id": "s11_a6",
+   "text": "FOB basis: Approved final terms, quote qt_03db975b7d — demo data",
+   "label": "fictional",
+   "source": "stage8_final_terms",
+   "stage": 11
+  },
+  {
+   "id": "s11_a7",
+   "text": "No CBP CROSS precedent in the cached set for this product: HTS 9506.29.0080 and its rates are an estimate — to be confirmed by a customs broker",
+   "label": "estimate",
+   "source": "https://rulings.cbp.gov/",
+   "stage": 11
+  },
+  {
+   "id": "a8",
+   "text": "Sea container rate Drewry World Container Index, 24 Sep 2026: Shanghai–Los Angeles $7,838/40ft (Drewry-assessed spot benchmark, snapshot; the quote you get will differ)",
+   "label": "sourced",
+   "source": "https://www.drewry.co.uk/supply-chain-advisors/supply-chain-expertise/world-container-index-assessed-by-drewry",
+   "stage": 11
+  },
+  {
+   "id": "a9",
+   "text": "Sea freight derived from the Drewry lane rate, cheaper of LCL and FCL chosen automatically: packed unit 0.4033 m³ (bounding box × 1.5 packaging, min 0.5 L) = 166 units per 40ft (67 m³ usable); 20ft container ≈ 0.55 × the 40ft rate, 33 m³. Air = max(gross kg, m³ × 167) × $6.00/kg, min $150 per shipment; express = 1.8× air (Estimate: typical China→US air cargo range $4-8/kg, to be confirmed by a forwarder); air and express are never auto-chosen",
+   "label": "estimate",
+   "source": "demo assumption",
+   "stage": 11
+  },
+  {
+   "id": "a10",
+   "text": "LCL consolidation premium vs FCL, typical 1.3–2.0×: 1.5× applied to lane rate ÷ 67 m³, minimum charge 1 m³ per shipment (derived from Drewry WCI 24 Sep 2026)",
+   "label": "estimate",
+   "source": "https://www.drewry.co.uk/supply-chain-advisors/supply-chain-expertise/world-container-index-assessed-by-drewry",
+   "stage": 11
+  },
+  {
+   "id": "s12_a1",
+   "text": "Dates from stage 9 milestones; amounts from the stage 5 cash breakdown with the approved stage 8 quote applied (unit price, tooling; duties, platform fee, insurance recomputed) (tooling 50/50 at T0/T1, samples at golden sample, 30% deposit + 70% before shipment (payment terms of stage 9), logistics at shipment/delivery)",
+   "label": "estimate",
+   "source": null,
+   "stage": 12
+  },
+  {
+   "id": "s12_a2",
+   "text": "Peak cash need $828,442; 165,804 of it falls in the first 60 days.",
+   "label": "estimate",
+   "source": null,
+   "stage": 12
+  },
+  {
+   "id": "s12_a3",
+   "text": "Financing costs are typical ranges, not quotes: verify with each provider",
+   "label": "estimate",
+   "source": null,
+   "stage": 12
+  },
+  {
+   "id": "s13_a1",
+   "text": "Amazon price in USD: Founder target retail price (USD); no conversion applied. Marketplace fees and VAT are not included.",
+   "label": "estimate",
+   "source": null,
+   "stage": 13
+  },
+  {
+   "id": "s13_a2",
+   "text": "Name options are not trademark-searched; run a clearance search before committing.",
+   "label": "estimate",
+   "source": null,
+   "stage": 13
+  },
+  {
+   "id": "s13_a3",
+   "text": "Listing copy uses only facts from the brief and spec; no certification claims until testing is complete (stage 4).",
+   "label": "estimate",
+   "source": null,
+   "stage": 13
+  },
+  {
+   "id": "cn1",
+   "text": "Chinese text in this pack is machine-translated — to be reviewed by a native speaker.",
+   "label": "estimate",
+   "source": null,
+   "stage": null
+  }
+ ],
+ "engineering": {
+  "project_id": "demo_surfboard_beginner",
+  "status": "draft",
+  "fallback": false,
+  "fallback_reason": null,
+  "generated_by": "code",
+  "generated_at": "2026-09-27T00:15:03.562404Z",
+  "assumptions": [
+   {
+    "id": "e1",
+    "text": "Engineering category 'Surfboard / hydrodynamic board' detected from the product description and the 'board' shape family",
+    "label": "estimate",
+    "source": null,
+    "stage": null
+   },
+   {
+    "id": "e4",
+    "text": "Physics checks are concept-level (rigid-body statics, rules of thumb): validate with the listed tests",
+    "label": "estimate",
+    "source": null,
+    "stage": null
+   }
+  ],
+  "stage": "engineering",
+  "category": "surfboard",
+  "category_title": "Surfboard / hydrodynamic board",
+  "partner_word": "factories",
+  "site_install": false,
+  "product_name": "Beginner surfboard 7'6\"",
+  "inputs_digest": "06250adbbde2ee05",
+  "standards": [
+   {
+    "code": "Regulation (EU) 2023/988",
+    "title": "General Product Safety Regulation (GPSR)",
+    "applies_because": "No harmonised surfboard standard: the General Product Safety Regulation applies",
+    "url": "https://eur-lex.europa.eu/eli/reg/2023/988/oj/eng",
+    "citation_label": "sourced",
+    "citation_note": "https://eur-lex.europa.eu/eli/reg/2023/988/oj/eng, page checked 2026-09-27"
+   },
+   {
+    "code": "Regulation (EC) 1907/2006",
+    "title": "REACH — Registration, Evaluation, Authorisation and Restriction of Chemicals",
+    "applies_because": "REACH: resins, hardeners and foam additives (SVHC declaration)",
+    "url": "https://eur-lex.europa.eu/eli/reg/2006/1907/oj/eng",
+    "citation_label": "sourced",
+    "citation_note": "https://eur-lex.europa.eu/eli/reg/2006/1907/oj/eng, page checked 2026-09-27"
+   },
+   {
+    "code": "ISO 178",
+    "title": "Plastics — Determination of flexural properties",
+    "applies_because": "Flexural properties of the laminate (3-point bending of coupons)",
+    "url": null,
+    "citation_label": "estimate",
+    "citation_note": "Standard to be confirmed (edition and applicability) — no verified citation URL"
+   }
+  ],
+  "risks": [
+   {
+    "id": "r1",
+    "risk": "Board snaps or creases under a heavy landing",
+    "mitigation": "Stringer or carbon rail bands; 3-point bending test on coupons and full board",
+    "severity": "critical"
+   },
+   {
+    "id": "r2",
+    "risk": "Fin box pulls out",
+    "mitigation": "Pull-out test on the fin system, reinforcement patch under the box",
+    "severity": "major"
+   },
+   {
+    "id": "r3",
+    "risk": "Delamination and water ingress into the core",
+    "mitigation": "Vent plug (EPS), vacuum-bagged laminate, sealed inserts",
+    "severity": "major"
+   },
+   {
+    "id": "r4",
+    "risk": "Too little volume for the rider → hard paddling, late planing",
+    "mitigation": "Size volume from rider weight and level (litres per kg guideline)",
+    "severity": "major"
+   },
+   {
+    "id": "r5",
+    "risk": "UV yellowing and resin brittleness",
+    "mitigation": "UV-stabilised epoxy, hot coat with UV blocker",
+    "severity": "minor"
+   }
+  ],
+  "tests": [
+   {
+    "id": "t1",
+    "name": "3-point flex of laminate coupons and full board",
+    "kind": "mechanical",
+    "method": "Load-deflection to failure on coupons; proof load on a board",
+    "standard": "ISO 178"
+   },
+   {
+    "id": "t2",
+    "name": "Fin box pull-out",
+    "kind": "mechanical",
+    "method": "Pull along the fin axis to failure",
+    "standard": null
+   },
+   {
+    "id": "t3",
+    "name": "Drop / impact on rails (ding resistance)",
+    "kind": "drop",
+    "method": "Falling-weight impact on rail and deck",
+    "standard": null
+   },
+   {
+    "id": "t4",
+    "name": "Water absorption after 24 h immersion",
+    "kind": "ingress",
+    "method": "Weigh before/after with a pierced laminate patch",
+    "standard": null
+   },
+   {
+    "id": "t5",
+    "name": "Salt-water + UV exposure of fittings",
+    "kind": "salt_spray",
+    "method": "Inserts and plugs, visual + pull-out after exposure",
+    "standard": null
+   }
+  ],
+  "checks": [
+   {
+    "id": "board_volume",
+    "name": "Board volume",
+    "domain": "hydrodynamics",
+    "value": {
+     "value": 60.18,
+     "unit": "L",
+     "label": "measured",
+     "source_or_assumption": "Solid volume of the CAD body (Enclosure solid volume measured on the STEP (stage 3))"
+    },
+    "threshold": "Guild factor ≥ 0.35 L/kg of rider pass, ≥ 0.3 warn (surf rule of thumb, Estimate)",
+    "verdict": "pass",
+    "formula": "V / rider = 60.2 L / 75 kg = 0.80 L/kg",
+    "inputs": [
+     {
+      "value": 60.18,
+      "unit": "L",
+      "label": "measured",
+      "source_or_assumption": "Solid volume of the CAD body (Enclosure solid volume measured on the STEP (stage 3))"
+     },
+     {
+      "value": 75.0,
+      "unit": "kg",
+      "label": "estimate",
+      "source_or_assumption": "Default rider weight (no weight in the prompt)"
+     }
+    ],
+    "notes": []
+   },
+   {
+    "id": "buoyancy",
+    "name": "Static buoyancy margin with the rider on board",
+    "domain": "hydrodynamics",
+    "value": {
+     "value": -17.91,
+     "unit": "kg",
+     "label": "estimate",
+     "source_or_assumption": "ρ V − m_board − m_rider = 61.7 − 4.60 − 75 kg"
+    },
+    "threshold": "≥ 0 kg: floats the rider at rest (longboard/SUP); < 0: sinks at rest, paddle power needed (normal for shortboards)",
+    "verdict": "warn",
+    "formula": "B = ρ_sea V, ρ_sea = 1025 kg/m³",
+    "inputs": [
+     {
+      "value": 60.18,
+      "unit": "L",
+      "label": "measured",
+      "source_or_assumption": "Solid volume of the CAD body (Enclosure solid volume measured on the STEP (stage 3))"
+     },
+     {
+      "value": 4598.5,
+      "unit": "g",
+      "label": "estimate",
+      "source_or_assumption": "Solid volume 60181.4 cm³ (measured) × densities per part (PU foam + fibreglass laminate effective density 0.065 g/cm³ (a 60 L board ≈ 4 kg))"
+     },
+     {
+      "value": 75.0,
+      "unit": "kg",
+      "label": "estimate",
+      "source_or_assumption": "Default rider weight (no weight in the prompt)"
+     }
+    ],
+    "notes": []
+   },
+   {
+    "id": "planing_speed",
+    "name": "Rough planing-onset speed",
+    "domain": "hydrodynamics",
+    "value": {
+     "value": 14.7,
+     "unit": "km/h",
+     "label": "estimate",
+     "source_or_assumption": "Fn∇ = 2 at displacement 79.6 kg (rider + board)"
+    },
+    "threshold": "Information (lower = earlier planing); validate with a GPS ride log",
+    "verdict": "info",
+    "formula": "v = Fn∇ √(g ∇^(1/3)), ∇ = (m_rider + m_board) / ρ_sea (volumetric Froude number, Savitsky-style rough estimate)",
+    "inputs": [
+     {
+      "value": 75.0,
+      "unit": "kg",
+      "label": "estimate",
+      "source_or_assumption": "Default rider weight (no weight in the prompt)"
+     },
+     {
+      "value": 4598.5,
+      "unit": "g",
+      "label": "estimate",
+      "source_or_assumption": "Solid volume 60181.4 cm³ (measured) × densities per part (PU foam + fibreglass laminate effective density 0.065 g/cm³ (a 60 L board ≈ 4 kg))"
+     }
+    ],
+    "notes": []
+   },
+   {
+    "id": "mass",
+    "name": "Product mass",
+    "domain": "mass",
+    "value": {
+     "value": 4598.5,
+     "unit": "g",
+     "label": "estimate",
+     "source_or_assumption": "Solid volume 60181.4 cm³ (measured) × densities per part (PU foam + fibreglass laminate effective density 0.065 g/cm³ (a 60 L board ≈ 4 kg))"
+    },
+    "threshold": "≤ 4500 g pass, ≤ 5625 g warn (category comfort target, Estimate)",
+    "verdict": "warn",
+    "formula": "Stage 3 weight (measured enclosure volume × density + parts)",
+    "inputs": [
+     {
+      "value": 4598.5,
+      "unit": "g",
+      "label": "estimate",
+      "source_or_assumption": "Solid volume 60181.4 cm³ (measured) × densities per part (PU foam + fibreglass laminate effective density 0.065 g/cm³ (a 60 L board ≈ 4 kg))"
+     },
+     {
+      "value": 60181.4,
+      "unit": "cm³",
+      "label": "measured",
+      "source_or_assumption": "Enclosure solid volume measured on the STEP (stage 3)"
+     }
+    ],
+    "notes": []
+   }
+  ],
+  "electronics": null,
+  "firmware": null,
+  "prototype": {
+   "enclosure_method": "CNC-shaped EPS blank + hand-laid epoxy/glass (per litre)",
+   "enclosure_volume": {
+    "value": 60181.4,
+    "unit": "cm³",
+    "label": "measured",
+    "source_or_assumption": "Enclosure solid volume measured on the STEP (stage 3)"
+   },
+   "units": 1,
+   "cost_lines": [
+    {
+     "item": "Enclosure: CNC-shaped EPS blank + hand-laid epoxy/glass (per litre)",
+     "amount": {
+      "value": 1022.0,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "300 USD glassing/finishing + 12 USD/L × 60.2 L"
+     }
+    }
+   ],
+   "devkit_bom": [],
+   "assembly_steps": [
+    "Export the outline and rocker from the CAD to the shaping machine",
+    "CNC-shape an EPS blank, hand-finish rails",
+    "Laminate epoxy/glass (4+4 oz deck, 4 oz bottom), install fin boxes and vent plug",
+    "Weigh the finished board, check volume by water displacement",
+    "Test-ride with two rider weights and log speed with a GPS watch"
+   ],
+   "timeline_weeks": {
+    "value": 3.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Design freeze 0.5 + build 1.5 + test 1"
+   },
+   "total_cost": {
+    "value": 1022.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Sum of the prototype cost lines"
+   }
+  },
+  "solar": null,
+  "installers": [],
+  "build_strategy": {
+   "strategy": "full_design",
+   "title": "Full design",
+   "explanation": "You design the whole product: every part, the BOM and (if any) the simple electronics are yours, and a factory builds to your CAD and drawings. This is how mechanical products and simple electronics are made.",
+   "customisable": [
+    "Outline, rocker, rails, volume",
+    "Laminate schedule, colours, fin setup"
+   ],
+   "not_customisable": [
+    "Foam blanks, fin boxes, fins from suppliers"
+   ],
+   "moq": {
+    "value": 50.0,
+    "unit": "units",
+    "label": "estimate",
+    "source_or_assumption": "Typical minimum order for a first run in this category — factory MOQ range"
+   },
+   "entry_cost": {
+    "value": 6000.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Typical first production run for this category (Shaping file + 3 prototypes ≈ $2.5k, glassing set-up, board bags; a moulded epoxy line needs ~300+ units) — industry range, not a quote"
+   },
+   "lead_time": {
+    "value": 7.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Frozen design → first production units (tooling, samples, certification), typical"
+   },
+   "path": [
+    "Freeze the shape file (STEP) and send it to a CNC shaping machine",
+    "Shape and glass 3 prototypes, ride-test",
+    "First run of 50 boards at a glassing shop"
+   ],
+   "certifications_note": "No mandatory certification for surfboards; EU General Product Safety Regulation applies.",
+   "assumptions": [
+    "Estimates for a first production run; real MOQs and NRE come from quotes",
+    "Full-design figures assume tooling sized for the first run"
+   ]
+  },
+  "unit_basis": "per_unit",
+  "installation_cost": null
+ }
+}

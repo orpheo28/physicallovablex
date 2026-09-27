@@ -1,0 +1,49 @@
+{
+ "id": "demo_stick_vacuum",
+ "slug": "stick_vacuum",
+ "name": "Cordless stick vacuum",
+ "prompt": "A cordless stick vacuum, Dyson alternative",
+ "category": "vacuum",
+ "strategy": "module_assembly",
+ "hero_image_url": "/files/demo_stick_vacuum/photo_v2_hero_studio.png",
+ "glb_url": "/files/demo_stick_vacuum/model_v2.glb",
+ "one_line_result": "2 versions · AI-written CAD · $98.09/unit @ 2,000 (Estimate) · Module assembly · 13/13 stages",
+ "unit_basis": "per_unit",
+ "unit_cost": {
+  "value": 98.09,
+  "unit": "USD",
+  "label": "estimate",
+  "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
+ },
+ "versions": 2,
+ "stages_done": 13,
+ "tags": [
+  "Example"
+ ],
+ "seeded": false,
+ "hero_image_label": "Photo-styled from the CAD (AI image, geometry from our CAD)",
+ "photos": [
+  {
+   "shot": "hero_studio",
+   "url": "/files/demo_stick_vacuum/photo_v2_hero_studio.png",
+   "label": "Photo-styled from the CAD (AI image, geometry from our CAD)",
+   "reference": "cad_render",
+   "aspect_ratio": "4:5",
+   "staged": false,
+   "model": "google/gemini-3.1-flash-image",
+   "version": 2,
+   "created_at": "2026-09-27T12:00:00Z"
+  },
+  {
+   "shot": "lifestyle",
+   "url": "/files/demo_stick_vacuum/photo_v2_lifestyle.png",
+   "label": "Photo-styled from the CAD (AI image, geometry from our CAD) · Staged scene — illustrative",
+   "reference": "cad_render",
+   "aspect_ratio": "4:5",
+   "staged": true,
+   "model": "google/gemini-3.1-flash-image",
+   "version": 2,
+   "created_at": "2026-09-27T12:00:00Z"
+  }
+ ]
+}

@@ -1,0 +1,91 @@
+{
+ "project_id": "demo_minimal_phone",
+ "status": "validated",
+ "fallback": false,
+ "fallback_reason": null,
+ "generated_by": "llm:openai/gpt-6-luna",
+ "generated_at": "2026-09-27T00:11:50.478676Z",
+ "assumptions": [
+  {
+   "id": "a1",
+   "text": "Lead times are typical values per process (tooling + first shots), not factory quotes; refined at stages 7-9 with the negotiated quote.",
+   "label": "estimate",
+   "source": null,
+   "stage": 6
+  },
+  {
+   "id": "a2",
+   "text": "Mass production duration assumes 90 units/day on one line for a 2,000-unit order.",
+   "label": "estimate",
+   "source": null,
+   "stage": 6
+  }
+ ],
+ "stage": 6,
+ "steps": [
+  {
+   "part_id": "p1",
+   "part_name": "Bottom shell",
+   "process": "cnc",
+   "reason": "At 2,000 units, CNC suits the thin 6063 aluminium shell’s precise mating faces and boss pilots while enabling bead-blasted graphite anodising without dedicated tooling.",
+   "region": "Dongguan, Guangdong",
+   "lead_time_days": {
+    "value": 10.0,
+    "unit": "days",
+    "label": "estimate",
+    "source_or_assumption": "Typical cnc lead time incl. setup and first article — planning assumption"
+   }
+  },
+  {
+   "part_id": "p2",
+   "part_name": "Top shell",
+   "process": "cnc",
+   "reason": "At 2,000 units, CNC suits the thin 6063 aluminium shell’s precise mating faces and boss pilots while enabling bead-blasted graphite anodising without dedicated tooling.",
+   "region": "Dongguan, Guangdong",
+   "lead_time_days": {
+    "value": 10.0,
+    "unit": "days",
+    "label": "estimate",
+    "source_or_assumption": "Typical cnc lead time incl. setup and first article — planning assumption"
+   }
+  },
+  {
+   "part_id": "p3",
+   "part_name": "Main PCB assembly",
+   "process": "pcba",
+   "reason": "PCBA is appropriate for the 1.6 mm FR-4 smartphone mainboard, combining fine-pitch component placement and lead-free HASL at this production volume.",
+   "region": "Shenzhen, Guangdong",
+   "lead_time_days": {
+    "value": 12.0,
+    "unit": "days",
+    "label": "estimate",
+    "source_or_assumption": "Typical pcba lead time incl. setup and first article — planning assumption"
+   }
+  },
+  {
+   "part_id": "p4",
+   "part_name": "Screws M2.5 × 6 self-tapping",
+   "process": "other",
+   "reason": "Standard steel M2.5 self-tapping screws with black zinc finish are economical at 2,000 units and provide durable fastening into the shell’s screw features.",
+   "region": "Shenzhen, Guangdong",
+   "lead_time_days": {
+    "value": 14.0,
+    "unit": "days",
+    "label": "estimate",
+    "source_or_assumption": "Typical other lead time incl. setup and first article — planning assumption"
+   }
+  }
+ ],
+ "assembly_notes": [
+  "Fit display, cameras, antennas, audio parts, USB-C flex, and side-button flex without pinching flexes or antenna paths.",
+  "Install the Li-ion battery last where practical; avoid puncture, crushing, short circuits, and excessive heat during assembly.",
+  "Perform final functional test and battery safety checks, followed by burn-in and verification of charging, display, cameras, radios, audio, and buttons.",
+  "Ship battery cells by sea only as UN3481 packed with equipment, with compliant packaging, labels, and documentation."
+ ],
+ "total_lead_time_days": {
+  "value": 51.0,
+  "unit": "days",
+  "label": "estimate",
+  "source_or_assumption": "Critical path from PO: slowest tooling/first article (14) + tooling correction T1 (7) + golden sample (7) + mass production (23) for 2,000 units"
+ }
+}

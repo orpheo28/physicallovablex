@@ -42,7 +42,9 @@ export function DimsView({ d }: { d: Dimensions | null | undefined }) {
 export function FileLink({ file }: { file: CadFile }) {
   const url = fileUrl(file.url);
   const { checking, ok } = useFileExists(url);
-  const name = file.url.split("/").pop();
+  // format "py": the build123d program, served by /projects/{id}/cad/code/{k} (text): open it, don't name it "2".
+  const py = file.format === "py";
+  const name = py ? `model_v${file.url.split("/").pop()}.py` : file.url.split("/").pop();
   return (
     <div className="grid grid-cols-[44px_1fr] items-baseline gap-3 border-b border-line py-2 text-base last:border-b-0">
       <span className="font-mono text-2xs font-medium uppercase tracking-wider text-ink-3">{file.format}</span>
@@ -52,7 +54,7 @@ export function FileLink({ file }: { file: CadFile }) {
             <Spinner /> {name}
           </span>
         ) : ok && url ? (
-          <a href={url} download={name} className="inline-flex items-center gap-1.5 font-medium text-ink underline decoration-line-2 underline-offset-4 transition-colors hover:decoration-ink">
+          <a href={url} download={py ? undefined : name} target={py ? "_blank" : undefined} rel={py ? "noreferrer" : undefined} className="inline-flex items-center gap-1.5 font-medium text-ink underline decoration-line-2 underline-offset-4 transition-colors hover:decoration-ink">
             <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden>
               <path d="M8 2v8.5M4.5 7 8 10.5 11.5 7M3 13.5h10" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
@@ -222,7 +224,7 @@ export function CertificationsByMarket({ certs }: { certs: Certification[] }) {
     <div className="grid gap-x-8 gap-y-6 md:grid-cols-2 xl:grid-cols-3">
       {markets.map((m) => (
         <div key={m}>
-          <div className="flex items-baseline justify-between border-b border-line-2 pb-2">
+          <div className="flex items-baseline justify-between pb-1">
             <span className="text-base font-medium">{m}</span>
             <span className="font-mono text-2xs text-ink-3">{certs.filter((c) => c.market === m).length}</span>
           </div>
@@ -262,15 +264,17 @@ const TIER_ROWS: { key: keyof CostTier; label: string; strong?: boolean }[] = [
   { key: "margin_pct", label: "Margin at target price", strong: true },
 ];
 
-export function TiersTable({ tiers }: { tiers: CostTier[] }) {
+/** Cost per volume tier. A site install (unit_basis per_installation, W21c) may have a single tier, in installations. */
+export function TiersTable({ tiers, perInstallation }: { tiers: CostTier[]; perInstallation?: boolean }) {
+  const noun = (q: number) => (perInstallation ? (q === 1 ? "installation" : "installations") : "units");
   return (
     <Table>
       <thead>
         <tr>
-          <Th>Per unit</Th>
+          <Th>{perInstallation ? "Per installation" : "Per unit"}</Th>
           {tiers.map((t) => (
             <Th key={t.quantity} right>
-              {t.quantity.toLocaleString("en-US")} units
+              {t.quantity.toLocaleString("en-US")} {noun(t.quantity)}
             </Th>
           ))}
         </tr>

@@ -1,0 +1,1 @@
+{"digest": "380e865c21631b99", "generated_by": "llm:openai/gpt-6-luna", "files": ["README.md", "platformio.ini", "src/connectivity.cpp", "src/connectivity.h", "src/main.cpp", "src/pins.h", "src/sensors.cpp", "src/sensors.h"], "llm_state": "done"}

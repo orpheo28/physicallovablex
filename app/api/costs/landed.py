@@ -360,6 +360,10 @@ def run_logistics(ctx: StageContext) -> LogisticsArtifact:
     from . import engine  # local import: engine imports this module
 
     costs = ctx.artifact(5) or engine.build_costs(ctx)
+    if costs.unit_basis == "per_installation":  # W21c: site install — no import, no freight leg
+        from api.costs.site import site_logistics
+
+        return site_logistics(ctx, costs)
     hts, prec = resolve_hts(ctx)
     s122 = bool(ctx.inputs.get("section_122", False))
     fob, qty, tooling, fob_label, fob_note, fob_src = fob_basis(ctx, costs)

@@ -37,6 +37,7 @@ SECTIONS = {
     7: "Target quantities and cost estimate",
     8: "Questions for the factory",
     9: "Assumption register",
+    10: "Engineering & prototype path",
 }
 
 _SEV_ORDER = {"critical": 0, "major": 1, "minor": 2}
@@ -142,6 +143,17 @@ def _merge_assumptions(ctx: StageContext, extra: list[Assumption]) -> list[Assum
     return out
 
 
+def _engineering(ctx: StageContext) -> Any:
+    """Section 10 (W20): engineering checks, standards, power budget, prototype path, firmware note. Never blocks the pack."""
+    try:
+        from api.engineering.service import engineering_for_ctx
+
+        return engineering_for_ctx(ctx)
+    except Exception as e:  # noqa: BLE001
+        log.warning("engineering section skipped: %s", e)
+        return None
+
+
 @provider("factory_pack")
 def build_factory_pack(ctx: StageContext) -> FactoryPack:
     example = _example_pack(ctx)
@@ -232,4 +244,5 @@ def build_factory_pack(ctx: StageContext) -> FactoryPack:
         cost_estimate=cost_estimate,
         questions=questions,
         assumption_register=register,
+        engineering=_engineering(ctx),
     )

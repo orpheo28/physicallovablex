@@ -17,6 +17,9 @@ RUN apt-get update \
 
 WORKDIR /app
 ENV PATH="/app/.venv/bin:$PATH" PYTHONUNBUFFERED=1 PYTHONDONTWRITEBYTECODE=1
+# W21 memory tuning for a 1 GB container: one malloc arena pair and single-threaded OpenBLAS (numpy pulled in by
+# build123d) keep the API near 500 MB; the AI CAD sandbox child is capped by CODEGEN_MEM_MB / CODEGEN_DATA_MB
+ENV MALLOC_ARENA_MAX=2 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 CODEGEN_ENABLED=1 CODEGEN_MEM_MB=1280 CODEGEN_DATA_MB=640
 COPY --from=builder /app/.venv /app/.venv
 
 # prebuilt CAD/renders/fixtures live inside api/ (api/cad/prebuilt, api/fixtures, api/costs/data)

@@ -91,10 +91,19 @@
     },
     "AutorunStatus": {
       "additionalProperties": false,
-      "description": "Progress of the background autorun (stages 1-7). Poll GET /projects/{id} every ~2 s.",
+      "description": "Progress of the background autorun (stages 1-7, or 1-13 + Factory Pack in autofill mode). Poll GET /projects/{id} every ~2 s.",
       "properties": {
         "state": {
           "$ref": "#/$defs/AutorunState"
+        },
+        "through": {
+          "default": 7,
+          "description": "Last stage the run goes to: 7 (default) or 13 (autofill: also auto-approves the recommended quote at stage 8 and builds the Factory Pack)",
+          "enum": [
+            7,
+            13
+          ],
+          "type": "integer"
         },
         "current_stage": {
           "anyOf": [
@@ -152,6 +161,7 @@
       },
       "required": [
         "state",
+        "through",
         "current_stage",
         "completed_stages",
         "started_at",
@@ -343,6 +353,13 @@
         },
         "amazon_listing": {
           "$ref": "#/$defs/ListingDraft"
+        },
+        "listing_photos": {
+          "description": "W27: e-commerce listing photo kit (packshot_white, lifestyle, in_hand_scale, detail_macro) of the current version",
+          "items": {
+            "$ref": "#/$defs/ProductPhoto"
+          },
+          "type": "array"
         }
       },
       "required": [
@@ -359,7 +376,8 @@
         "packaging",
         "landing_copy",
         "shopify_listing",
-        "amazon_listing"
+        "amazon_listing",
+        "listing_photos"
       ],
       "title": "BrandArtifact",
       "type": "object"
@@ -504,17 +522,95 @@
       "title": "BriefArtifact",
       "type": "object"
     },
+    "BuildStrategy": {
+      "additionalProperties": false,
+      "description": "W21: how this product realistically gets built \u2014 design everything, assemble bought-in modules, or customise an\nODM reference platform. Figures are Estimates with their assumptions.",
+      "properties": {
+        "strategy": {
+          "enum": [
+            "full_design",
+            "module_assembly",
+            "odm_customization"
+          ],
+          "type": "string"
+        },
+        "title": {
+          "description": "e.g. 'Full design', 'Module assembly', 'ODM customisation'",
+          "type": "string"
+        },
+        "explanation": {
+          "type": "string"
+        },
+        "customisable": {
+          "description": "What the founder designs / chooses",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "not_customisable": {
+          "description": "What comes from the modules / the ODM platform",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "moq": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "entry_cost": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "lead_time": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "path": {
+          "description": "Realistic steps (for ODM: find a close reference platform\u2026)",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "certifications_note": {
+          "default": "",
+          "type": "string"
+        },
+        "assumptions": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "strategy",
+        "title",
+        "explanation",
+        "customisable",
+        "not_customisable",
+        "moq",
+        "entry_cost",
+        "lead_time",
+        "path",
+        "certifications_note",
+        "assumptions"
+      ],
+      "title": "BuildStrategy",
+      "type": "object"
+    },
     "CadFile": {
       "additionalProperties": false,
       "properties": {
         "format": {
+          "description": "py (W21): the build123d program of the model, served by GET /projects/<pid>/cad/code/<n>",
           "enum": [
             "step",
             "stl",
             "glb",
             "pdf",
             "png",
-            "svg"
+            "svg",
+            "py"
           ],
           "type": "string"
         },
@@ -594,6 +690,13 @@
           "const": "fictional",
           "default": "fictional",
           "type": "string"
+        },
+        "categories": {
+          "description": "W21: product categories the factory specialises in (engineering category keys, e.g. lighting, wearable, drone); empty = generalist. A specialist scores lower on process fit for other categories",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
         }
       },
       "required": [
@@ -604,7 +707,8 @@
         "lead_time_days",
         "monthly_capacity",
         "current_load_pct",
-        "label"
+        "label",
+        "categories"
       ],
       "title": "CapacityProfile",
       "type": "object"
@@ -674,6 +778,16 @@
       ],
       "title": "Certification",
       "type": "object"
+    },
+    "CheckVerdict": {
+      "enum": [
+        "pass",
+        "warn",
+        "fail",
+        "info"
+      ],
+      "title": "CheckVerdict",
+      "type": "string"
     },
     "ClarifyingQuestion": {
       "additionalProperties": false,
@@ -794,6 +908,18 @@
             }
           ],
           "default": null
+        },
+        "alternative": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/PartAlternative"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "W21b: cheapest in-stock same-kind part when this one is expensive or low-stock (None: no alternative in the snapshot)"
         }
       },
       "required": [
@@ -803,9 +929,43 @@
         "reasons",
         "alternatives",
         "stock",
-        "lead_time_weeks"
+        "lead_time_weeks",
+        "alternative"
       ],
       "title": "ComponentRiskItem",
+      "type": "object"
+    },
+    "ComponentRiskSummary": {
+      "additionalProperties": false,
+      "description": "W21b: structured risk of one part: level, reasons and the proposed alternative (None when the snapshot has none).",
+      "properties": {
+        "level": {
+          "$ref": "#/$defs/RiskLevel"
+        },
+        "reasons": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "alternative": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/PartAlternative"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "level",
+        "reasons",
+        "alternative"
+      ],
+      "title": "ComponentRiskSummary",
       "type": "object"
     },
     "CostLine": {
@@ -957,12 +1117,21 @@
           "$ref": "#/$defs/LabeledValue"
         },
         "tiers": {
-          "description": "500 / 2,000 / 10,000 by default",
+          "description": "500 / 2,000 / 10,000 by default; a site install (unit_basis per_installation, W21c) has ONE tier: the pilot quantity of installations, with per-installation figures",
           "items": {
             "$ref": "#/$defs/CostTier"
           },
-          "minItems": 3,
+          "minItems": 1,
           "type": "array"
+        },
+        "unit_basis": {
+          "default": "per_unit",
+          "description": "W21c: per_installation = rooftop solar etc.: unit_cost = installer cost of one installation, target_retail_price = turnkey installed price, cash for a pilot of reference_quantity installations",
+          "enum": [
+            "per_unit",
+            "per_installation"
+          ],
+          "type": "string"
         },
         "tooling": {
           "items": {
@@ -1010,6 +1179,7 @@
         "bom_lines",
         "volume_factor",
         "tiers",
+        "unit_basis",
         "tooling",
         "tooling_total",
         "certification_total",
@@ -1438,6 +1608,69 @@
       "title": "DesignDirection",
       "type": "object"
     },
+    "DesignRisk": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "risk": {
+          "type": "string"
+        },
+        "mitigation": {
+          "type": "string"
+        },
+        "severity": {
+          "$ref": "#/$defs/Severity"
+        }
+      },
+      "required": [
+        "id",
+        "risk",
+        "mitigation",
+        "severity"
+      ],
+      "title": "DesignRisk",
+      "type": "object"
+    },
+    "DevKitLine": {
+      "additionalProperties": false,
+      "properties": {
+        "part": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "qty": {
+          "default": 1,
+          "type": "integer"
+        },
+        "lcsc_pn": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "unit_price": {
+          "$ref": "#/$defs/LabeledValue"
+        }
+      },
+      "required": [
+        "part",
+        "role",
+        "qty",
+        "lcsc_pn",
+        "unit_price"
+      ],
+      "title": "DevKitLine",
+      "type": "object"
+    },
     "Dimensions": {
       "additionalProperties": false,
       "properties": {
@@ -1457,6 +1690,103 @@
         "height"
       ],
       "title": "Dimensions",
+      "type": "object"
+    },
+    "ElectronicsArchitecture": {
+      "additionalProperties": false,
+      "properties": {
+        "mcu_family": {
+          "enum": [
+            "nrf52",
+            "esp32",
+            "stm32",
+            "avr",
+            "generic"
+          ],
+          "type": "string"
+        },
+        "mcu_part": {
+          "type": "string"
+        },
+        "radio": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "power_tree": {
+          "items": {
+            "$ref": "#/$defs/PowerNode"
+          },
+          "type": "array"
+        },
+        "connections": {
+          "items": {
+            "$ref": "#/$defs/NetConnection"
+          },
+          "type": "array"
+        },
+        "power_budget": {
+          "items": {
+            "$ref": "#/$defs/PowerBudgetLine"
+          },
+          "type": "array"
+        },
+        "average_current": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "battery_voltage": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/LabeledValue"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "battery_capacity": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/LabeledValue"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "battery_life": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/LabeledValue"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "pcb_note": {
+          "default": "PCB layout: next step (human or text-to-PCB)",
+          "type": "string"
+        }
+      },
+      "required": [
+        "mcu_family",
+        "mcu_part",
+        "radio",
+        "power_tree",
+        "connections",
+        "power_budget",
+        "average_current",
+        "battery_voltage",
+        "battery_capacity",
+        "battery_life",
+        "pcb_note"
+      ],
+      "title": "ElectronicsArchitecture",
       "type": "object"
     },
     "ElectronicsBlock": {
@@ -1501,6 +1831,286 @@
       "title": "ElectronicsEdge",
       "type": "object"
     },
+    "EngineeringArtifact": {
+      "additionalProperties": false,
+      "properties": {
+        "project_id": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/$defs/StageStatus"
+        },
+        "fallback": {
+          "default": false,
+          "description": "True when served from a fixture after an error",
+          "type": "boolean"
+        },
+        "fallback_reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "generated_by": {
+          "default": "fixture",
+          "description": "'fixture' | 'code' | 'llm:<model slug>'",
+          "type": "string"
+        },
+        "generated_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "assumptions": {
+          "items": {
+            "$ref": "#/$defs/Assumption"
+          },
+          "type": "array"
+        },
+        "stage": {
+          "const": "engineering",
+          "default": "engineering",
+          "type": "string"
+        },
+        "category": {
+          "description": "Engineering category key, e.g. wearable, furniture_baby, home_robot, vacuum, irrigation, solar_roof, surfboard, lighting, tracker, generic",
+          "type": "string"
+        },
+        "category_title": {
+          "type": "string"
+        },
+        "partner_word": {
+          "default": "factories",
+          "enum": [
+            "factories",
+            "installers"
+          ],
+          "type": "string"
+        },
+        "site_install": {
+          "default": false,
+          "type": "boolean"
+        },
+        "product_name": {
+          "type": "string"
+        },
+        "inputs_digest": {
+          "description": "Hash of the project state this was computed from",
+          "type": "string"
+        },
+        "standards": {
+          "items": {
+            "$ref": "#/$defs/StandardRef"
+          },
+          "type": "array"
+        },
+        "risks": {
+          "items": {
+            "$ref": "#/$defs/DesignRisk"
+          },
+          "type": "array"
+        },
+        "tests": {
+          "items": {
+            "$ref": "#/$defs/RequiredTest"
+          },
+          "type": "array"
+        },
+        "checks": {
+          "items": {
+            "$ref": "#/$defs/EngineeringCheck"
+          },
+          "type": "array"
+        },
+        "electronics": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ElectronicsArchitecture"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "firmware": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/FirmwareProject"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "prototype": {
+          "$ref": "#/$defs/PrototypePath"
+        },
+        "solar": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/SolarDesign"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "installers": {
+          "description": "Site-install mode: fictional certified installers",
+          "items": {
+            "$ref": "#/$defs/InstallerMatch"
+          },
+          "type": "array"
+        },
+        "build_strategy": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/BuildStrategy"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "W21: full design / module assembly / ODM customisation"
+        },
+        "unit_basis": {
+          "default": "per_unit",
+          "description": "W21b: what one 'unit' is for this product \u2014 per_installation for site installs (rooftop solar): costs are per site",
+          "enum": [
+            "per_unit",
+            "per_installation"
+          ],
+          "type": "string"
+        },
+        "installation_cost": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/LabeledValue"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "W21b: turnkey cost of one installation (per_installation only; = solar.install_cost)"
+        }
+      },
+      "required": [
+        "project_id",
+        "status",
+        "fallback",
+        "fallback_reason",
+        "generated_by",
+        "generated_at",
+        "assumptions",
+        "stage",
+        "category",
+        "category_title",
+        "partner_word",
+        "site_install",
+        "product_name",
+        "inputs_digest",
+        "standards",
+        "risks",
+        "tests",
+        "checks",
+        "electronics",
+        "firmware",
+        "prototype",
+        "solar",
+        "installers",
+        "build_strategy",
+        "unit_basis",
+        "installation_cost"
+      ],
+      "title": "EngineeringArtifact",
+      "type": "object"
+    },
+    "EngineeringCheck": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "domain": {
+          "enum": [
+            "stability",
+            "hydrodynamics",
+            "power",
+            "ingress",
+            "airflow",
+            "fluid",
+            "solar",
+            "thermal",
+            "mass",
+            "geometry",
+            "flight",
+            "regulatory"
+          ],
+          "type": "string"
+        },
+        "value": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "threshold": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Human wording of the pass/warn/fail rule, e.g. '\u2265 15\u00b0 (design target)'"
+        },
+        "verdict": {
+          "$ref": "#/$defs/CheckVerdict"
+        },
+        "formula": {
+          "description": "Formula and assumptions, with the inputs' labels",
+          "type": "string"
+        },
+        "inputs": {
+          "description": "Inputs of the formula (each labeled)",
+          "items": {
+            "$ref": "#/$defs/LabeledValue"
+          },
+          "type": "array"
+        },
+        "notes": {
+          "description": "e.g. the sealing checklist of an IP check",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "domain",
+        "value",
+        "threshold",
+        "verdict",
+        "formula",
+        "inputs",
+        "notes"
+      ],
+      "title": "EngineeringCheck",
+      "type": "object"
+    },
     "ErrorResponse": {
       "additionalProperties": false,
       "properties": {
@@ -1512,6 +2122,151 @@
         "detail"
       ],
       "title": "ErrorResponse",
+      "type": "object"
+    },
+    "ExampleSummary": {
+      "additionalProperties": false,
+      "description": "W21: one showcase project of the gallery (GET /examples). Opening it costs nothing: every stage is cached.",
+      "properties": {
+        "id": {
+          "description": "Project id, e.g. demo_whoop_kitesurf",
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "prompt": {
+          "type": "string"
+        },
+        "category": {
+          "description": "Engineering category key",
+          "type": "string"
+        },
+        "strategy": {
+          "anyOf": [
+            {
+              "enum": [
+                "full_design",
+                "module_assembly",
+                "odm_customization"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "hero_image_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Concept render (illustrative) or None"
+        },
+        "glb_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "3D model of the current version"
+        },
+        "one_line_result": {
+          "type": "string"
+        },
+        "unit_basis": {
+          "default": "per_unit",
+          "enum": [
+            "per_unit",
+            "per_installation"
+          ],
+          "type": "string"
+        },
+        "unit_cost": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/LabeledValue"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "W21b: headline cost \u2014 ex-works unit cost at the reference quantity (per_unit) or turnkey cost per installation"
+        },
+        "versions": {
+          "default": 0,
+          "type": "integer"
+        },
+        "stages_done": {
+          "default": 0,
+          "type": "integer"
+        },
+        "tags": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "seeded": {
+          "default": false,
+          "description": "The project exists in the database (after POST /demo/reset)",
+          "type": "boolean"
+        },
+        "hero_image_label": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "W27: honesty caption of hero_image_url"
+        },
+        "photos": {
+          "description": "W27: hero_studio + lifestyle photos of the current version",
+          "items": {
+            "$ref": "#/$defs/ProductPhoto"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "slug",
+        "name",
+        "prompt",
+        "category",
+        "strategy",
+        "hero_image_url",
+        "glb_url",
+        "one_line_result",
+        "unit_basis",
+        "unit_cost",
+        "versions",
+        "stages_done",
+        "tags",
+        "seeded",
+        "hero_image_label",
+        "photos"
+      ],
+      "title": "ExampleSummary",
       "type": "object"
     },
     "Factory": {
@@ -1564,6 +2319,16 @@
           "const": true,
           "default": true,
           "type": "boolean"
+        },
+        "kind": {
+          "default": "factory",
+          "description": "W21b: partner kind for the portal filter \u2014 factory (makes parts / assembles), installer (site install, e.g. rooftop PV), integrator (integrates bought-in modules, e.g. drones / robots)",
+          "enum": [
+            "factory",
+            "installer",
+            "integrator"
+          ],
+          "type": "string"
         }
       },
       "required": [
@@ -1576,7 +2341,8 @@
         "audit_notes",
         "past_performance",
         "label",
-        "fictional"
+        "fictional",
+        "kind"
       ],
       "title": "Factory",
       "type": "object"
@@ -1733,6 +2499,17 @@
             "$ref": "#/$defs/Assumption"
           },
           "type": "array"
+        },
+        "engineering": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EngineeringArtifact"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
         }
       },
       "required": [
@@ -1755,7 +2532,8 @@
         "target_quantities",
         "cost_estimate",
         "questions",
-        "assumption_register"
+        "assumption_register",
+        "engineering"
       ],
       "title": "FactoryPack",
       "type": "object"
@@ -1997,6 +2775,60 @@
       "title": "FinancingOption",
       "type": "object"
     },
+    "FirmwareProject": {
+      "additionalProperties": false,
+      "properties": {
+        "framework": {
+          "enum": [
+            "zephyr",
+            "arduino"
+          ],
+          "type": "string"
+        },
+        "mcu_family": {
+          "type": "string"
+        },
+        "connectivity": {
+          "description": "e.g. 'BLE GATT service', 'Wi-Fi + MQTT'",
+          "type": "string"
+        },
+        "url": {
+          "description": "/files/<project_id>/firmware.zip",
+          "type": "string"
+        },
+        "files": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "generated_by": {
+          "description": "'template' | 'llm:<model slug>'",
+          "type": "string"
+        },
+        "note": {
+          "default": "Generated code \u2014 not compiled or tested",
+          "type": "string"
+        },
+        "pending_llm": {
+          "default": false,
+          "description": "An LLM version is being generated in the background; re-GET to pick it up",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "framework",
+        "mcu_family",
+        "connectivity",
+        "url",
+        "files",
+        "generated_by",
+        "note",
+        "pending_llm"
+      ],
+      "title": "FirmwareProject",
+      "type": "object"
+    },
     "FreightOption": {
       "additionalProperties": false,
       "properties": {
@@ -2097,6 +2929,45 @@
         "registered_stages"
       ],
       "title": "HealthResponse",
+      "type": "object"
+    },
+    "InstallerMatch": {
+      "additionalProperties": false,
+      "properties": {
+        "factory_id": {
+          "type": "string"
+        },
+        "name": {
+          "description": "Fictional installer name \u2014 ends with '(fictional)'",
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
+        },
+        "certifications": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "lead_time_days": {
+          "type": "integer"
+        },
+        "label": {
+          "const": "fictional",
+          "default": "fictional",
+          "type": "string"
+        }
+      },
+      "required": [
+        "factory_id",
+        "name",
+        "region",
+        "certifications",
+        "lead_time_days",
+        "label"
+      ],
+      "title": "InstallerMatch",
       "type": "object"
     },
     "Label": {
@@ -2715,6 +3586,45 @@
       "title": "NegotiationTurn",
       "type": "object"
     },
+    "NetConnection": {
+      "additionalProperties": false,
+      "properties": {
+        "source": {
+          "type": "string"
+        },
+        "target": {
+          "type": "string"
+        },
+        "bus": {
+          "enum": [
+            "power",
+            "i2c",
+            "spi",
+            "uart",
+            "gpio",
+            "pwm",
+            "adc",
+            "rf",
+            "usb",
+            "analog",
+            "can"
+          ],
+          "type": "string"
+        },
+        "signals": {
+          "description": "Net names, e.g. 'SDA, SCL, INT1'",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source",
+        "target",
+        "bus",
+        "signals"
+      ],
+      "title": "NetConnection",
+      "type": "object"
+    },
     "PackagingSpec": {
       "additionalProperties": false,
       "properties": {
@@ -2752,6 +3662,45 @@
         "unit_cost"
       ],
       "title": "PackagingSpec",
+      "type": "object"
+    },
+    "PartAlternative": {
+      "additionalProperties": false,
+      "description": "W21b: a cheaper / better-stocked catalogue part proposed for a risky BOM line (structured, no text parsing).",
+      "properties": {
+        "part": {
+          "description": "Manufacturer part number + package",
+          "type": "string"
+        },
+        "lcsc_pn": {
+          "type": "string"
+        },
+        "price": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "stock": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/LabeledValue"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "label": {
+          "$ref": "#/$defs/Label"
+        }
+      },
+      "required": [
+        "part",
+        "lcsc_pn",
+        "price",
+        "stock",
+        "label"
+      ],
+      "title": "PartAlternative",
       "type": "object"
     },
     "PastPerformance": {
@@ -2841,6 +3790,199 @@
       "title": "PaymentScheduleItem",
       "type": "object"
     },
+    "PhotoAccepted": {
+      "additionalProperties": false,
+      "properties": {
+        "version": {
+          "type": "integer"
+        },
+        "shots": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "version",
+        "shots"
+      ],
+      "title": "PhotoAccepted",
+      "type": "object"
+    },
+    "PhotoJob": {
+      "additionalProperties": false,
+      "properties": {
+        "state": {
+          "default": "idle",
+          "enum": [
+            "idle",
+            "running",
+            "done",
+            "failed"
+          ],
+          "type": "string"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "shots": {
+          "description": "Shots requested by this job",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "done": {
+          "description": "Shots generated so far",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "failed": {
+          "description": "Shots that failed (the previous photo, if any, is kept)",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "error": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Plain-language reason when a shot failed (e.g. image credits exhausted)"
+        },
+        "started_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "finished_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "state",
+        "version",
+        "shots",
+        "done",
+        "failed",
+        "error",
+        "started_at",
+        "finished_at"
+      ],
+      "title": "PhotoJob",
+      "type": "object"
+    },
+    "PowerBudgetLine": {
+      "additionalProperties": false,
+      "properties": {
+        "block": {
+          "type": "string"
+        },
+        "part": {
+          "type": "string"
+        },
+        "active_current": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "sleep_current": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "duty_cycle": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "average_current": {
+          "$ref": "#/$defs/LabeledValue"
+        }
+      },
+      "required": [
+        "block",
+        "part",
+        "active_current",
+        "sleep_current",
+        "duty_cycle",
+        "average_current"
+      ],
+      "title": "PowerBudgetLine",
+      "type": "object"
+    },
+    "PowerNode": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "source",
+            "charger",
+            "storage",
+            "regulator",
+            "load"
+          ],
+          "type": "string"
+        },
+        "parent": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Upstream node id (None for a source)"
+        },
+        "voltage": {
+          "$ref": "#/$defs/LabeledValue"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "kind",
+        "parent",
+        "voltage"
+      ],
+      "title": "PowerNode",
+      "type": "object"
+    },
     "ProcessStep": {
       "additionalProperties": false,
       "properties": {
@@ -2888,6 +4030,89 @@
       ],
       "title": "ProcessType",
       "type": "string"
+    },
+    "ProductPhoto": {
+      "additionalProperties": false,
+      "description": "W27: one AI product photo. With a reference the model only restyles light, surface, lens and framing around OUR\nCAD image (viewer capture or Blender render of the CAD); without one it is a text-only concept image.",
+      "properties": {
+        "shot": {
+          "enum": [
+            "hero_studio",
+            "packshot_white",
+            "lifestyle",
+            "in_hand_scale",
+            "detail_macro"
+          ],
+          "type": "string"
+        },
+        "url": {
+          "description": "/files/<pid>/photo_v<n>_<shot>.png",
+          "type": "string"
+        },
+        "label": {
+          "description": "Honesty caption shown under the image: 'Photo-styled from the CAD (AI image, geometry from our CAD)' or 'AI concept image (no CAD reference)'; lifestyle adds ' \u00b7 Staged scene \u2014 illustrative'",
+          "type": "string"
+        },
+        "reference": {
+          "description": "viewer = PNG captured from the 3D viewer by the client; cad_render = Blender render of the CAD; none = text only",
+          "enum": [
+            "viewer",
+            "cad_render",
+            "none"
+          ],
+          "type": "string"
+        },
+        "aspect_ratio": {
+          "description": "4:5 or 1:1",
+          "type": "string"
+        },
+        "staged": {
+          "default": false,
+          "description": "Lifestyle / in-hand scene: illustrative staging, not a real photo shoot",
+          "type": "boolean"
+        },
+        "model": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Image model slug (OpenRouter)"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Studio version the photo was made from"
+        },
+        "created_at": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "required": [
+        "shot",
+        "url",
+        "label",
+        "reference",
+        "aspect_ratio",
+        "staged",
+        "model",
+        "version",
+        "created_at"
+      ],
+      "title": "ProductPhoto",
+      "type": "object"
     },
     "ProductionPlanArtifact": {
       "additionalProperties": false,
@@ -3017,6 +4242,13 @@
           },
           "description": "Keys are stage numbers as strings ('1'..'13')",
           "type": "object"
+        },
+        "tags": {
+          "description": "W21: e.g. ['Example'] for the showcase gallery projects",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
         }
       },
       "required": [
@@ -3028,7 +4260,8 @@
         "example",
         "status",
         "created_at",
-        "stage_status"
+        "stage_status",
+        "tags"
       ],
       "title": "Project",
       "type": "object"
@@ -3088,6 +4321,50 @@
       "title": "ProjectMode",
       "type": "string"
     },
+    "ProjectPhotos": {
+      "additionalProperties": false,
+      "description": "GET /projects/{id}/photos \u2014 photos of the current version + the running / last photo job (poll every ~2 s).",
+      "properties": {
+        "project_id": {
+          "type": "string"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Current Studio version (None: not a Studio project)"
+        },
+        "photos": {
+          "items": {
+            "$ref": "#/$defs/ProductPhoto"
+          },
+          "type": "array"
+        },
+        "job": {
+          "$ref": "#/$defs/PhotoJob"
+        },
+        "configured": {
+          "default": false,
+          "description": "An image model + key are configured (else POSTs return 503)",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "project_id",
+        "version",
+        "photos",
+        "job",
+        "configured"
+      ],
+      "title": "ProjectPhotos",
+      "type": "object"
+    },
     "ProjectStatus": {
       "enum": [
         "active",
@@ -3095,6 +4372,74 @@
       ],
       "title": "ProjectStatus",
       "type": "string"
+    },
+    "PrototypeCostLine": {
+      "additionalProperties": false,
+      "properties": {
+        "item": {
+          "type": "string"
+        },
+        "amount": {
+          "$ref": "#/$defs/LabeledValue"
+        }
+      },
+      "required": [
+        "item",
+        "amount"
+      ],
+      "title": "PrototypeCostLine",
+      "type": "object"
+    },
+    "PrototypePath": {
+      "additionalProperties": false,
+      "properties": {
+        "enclosure_method": {
+          "type": "string"
+        },
+        "enclosure_volume": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "units": {
+          "description": "Prototype quantity (input)",
+          "type": "integer"
+        },
+        "cost_lines": {
+          "items": {
+            "$ref": "#/$defs/PrototypeCostLine"
+          },
+          "type": "array"
+        },
+        "devkit_bom": {
+          "items": {
+            "$ref": "#/$defs/DevKitLine"
+          },
+          "type": "array"
+        },
+        "assembly_steps": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "timeline_weeks": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "total_cost": {
+          "$ref": "#/$defs/LabeledValue"
+        }
+      },
+      "required": [
+        "enclosure_method",
+        "enclosure_volume",
+        "units",
+        "cost_lines",
+        "devkit_bom",
+        "assembly_steps",
+        "timeline_weeks",
+        "total_cost"
+      ],
+      "title": "PrototypePath",
+      "type": "object"
     },
     "QCArtifact": {
       "additionalProperties": false,
@@ -3396,6 +4741,21 @@
       "title": "Recommendation",
       "type": "object"
     },
+    "RefineRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "message": {
+          "maxLength": 1000,
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "message"
+      ],
+      "title": "RefineRequest",
+      "type": "object"
+    },
     "RegisterFactoryRequest": {
       "additionalProperties": false,
       "description": "POST /factories \u2014 mirrors MCP `register_capacity` (PRD \u00a710). The factory is Fictional \u2014 demo data.",
@@ -3474,6 +4834,57 @@
         "personality"
       ],
       "title": "RegisterFactoryRequest",
+      "type": "object"
+    },
+    "RequiredTest": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "description": "e.g. 'Drop test 1.5 m', 'IPX7 immersion', 'Salt spray 96 h', 'Tip-over'",
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "drop",
+            "ingress",
+            "salt_spray",
+            "tip_over",
+            "thermal",
+            "electrical",
+            "radio",
+            "mechanical",
+            "battery",
+            "chemical",
+            "other"
+          ],
+          "type": "string"
+        },
+        "method": {
+          "type": "string"
+        },
+        "standard": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "kind",
+        "method",
+        "standard"
+      ],
+      "title": "RequiredTest",
       "type": "object"
     },
     "ResetResult": {
@@ -3580,6 +4991,18 @@
             }
           ],
           "default": null
+        },
+        "category": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "W21: product category (engineering key) for specialist scoring"
         }
       },
       "required": [
@@ -3587,7 +5010,8 @@
         "material",
         "quantity",
         "certifications_required",
-        "deadline"
+        "deadline",
+        "category"
       ],
       "title": "SearchCapacityQuery",
       "type": "object"
@@ -3600,6 +5024,80 @@
       ],
       "title": "Severity",
       "type": "string"
+    },
+    "SolarDesign": {
+      "additionalProperties": false,
+      "properties": {
+        "location": {
+          "type": "string"
+        },
+        "latitude": {
+          "type": "number"
+        },
+        "longitude": {
+          "type": "number"
+        },
+        "location_assumed": {
+          "description": "True when the location was not in the prompt (default demo site)",
+          "type": "boolean"
+        },
+        "roof_area": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "module_power": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "module_count": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "peak_power": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "specific_yield": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "annual_energy": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "monthly_energy": {
+          "description": "12 values, kWh",
+          "items": {
+            "$ref": "#/$defs/LabeledValue"
+          },
+          "type": "array"
+        },
+        "install_cost": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "annual_savings": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "payback": {
+          "$ref": "#/$defs/LabeledValue"
+        },
+        "pvgis_url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "location",
+        "latitude",
+        "longitude",
+        "location_assumed",
+        "roof_area",
+        "module_power",
+        "module_count",
+        "peak_power",
+        "specific_yield",
+        "annual_energy",
+        "monthly_energy",
+        "install_cost",
+        "annual_savings",
+        "payback",
+        "pvgis_url"
+      ],
+      "title": "SolarDesign",
+      "type": "object"
     },
     "Speaker": {
       "enum": [
@@ -3953,6 +5451,48 @@
       "title": "StageSummary",
       "type": "object"
     },
+    "StandardRef": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "description": "e.g. 'IEC 60335-2-2', 'EN 12221-1', 'IEC 60529'",
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "applies_because": {
+          "type": "string"
+        },
+        "url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "citation_label": {
+          "$ref": "#/$defs/Label"
+        },
+        "citation_note": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "title",
+        "applies_because",
+        "url",
+        "citation_label",
+        "citation_note"
+      ],
+      "title": "StandardRef",
+      "type": "object"
+    },
     "StructuredSpec": {
       "additionalProperties": false,
       "properties": {
@@ -3982,6 +5522,19 @@
         "tolerances"
       ],
       "title": "StructuredSpec",
+      "type": "object"
+    },
+    "StudioAccepted": {
+      "additionalProperties": false,
+      "properties": {
+        "version": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "version"
+      ],
+      "title": "StudioAccepted",
       "type": "object"
     },
     "ToolingArtifact": {
@@ -4154,6 +5707,511 @@
       ],
       "title": "UpdateStageRequest",
       "type": "object"
+    },
+    "Version": {
+      "additionalProperties": false,
+      "properties": {
+        "n": {
+          "type": "integer"
+        },
+        "message": {
+          "description": "The founder's prompt ('Studio start' for version 1)",
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/$defs/VersionStatus"
+        },
+        "created_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "finished_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "summary": {
+          "default": "",
+          "type": "string"
+        },
+        "changes": {
+          "items": {
+            "$ref": "#/$defs/VersionChange"
+          },
+          "type": "array"
+        },
+        "preview": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/VersionPreview"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "error": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Plain-language reason when status == failed"
+        },
+        "is_current": {
+          "default": false,
+          "description": "Stage artifacts reflect this version",
+          "type": "boolean"
+        },
+        "render_pending": {
+          "default": false,
+          "description": "An AI concept render for this version is still running",
+          "type": "boolean"
+        },
+        "background_pending": {
+          "default": false,
+          "description": "AI DFM review / production plan still refreshing in the background",
+          "type": "boolean"
+        },
+        "cad_pending": {
+          "default": false,
+          "description": "W21: the AI CAD model (text-to-CAD) of this version is still being generated; preview.glb_url / code_url are patched in when done",
+          "type": "boolean"
+        },
+        "cad_note": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "W21: plain-language note on the AI CAD (e.g. fell back to the family)"
+        },
+        "cad_attempts": {
+          "default": 0,
+          "description": "W21c: LLM attempts the AI CAD program of this version took (0 = no AI CAD run)",
+          "type": "integer"
+        },
+        "cad_repairs": {
+          "default": 0,
+          "description": "W21c: self-repair rounds (attempts \u2212 1 when it ended ok) \u2014 'self-repaired N\u00d7'",
+          "type": "integer"
+        },
+        "look_changed": {
+          "default": true,
+          "description": "W21e: colour, material, finish, shape or dimensions changed vs the previous version. False \u2192 the previous version's photos are carried over (copied, same labels) and no new photo is generated",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "n",
+        "message",
+        "status",
+        "created_at",
+        "finished_at",
+        "summary",
+        "changes",
+        "preview",
+        "error",
+        "is_current",
+        "render_pending",
+        "background_pending",
+        "cad_pending",
+        "cad_note",
+        "cad_attempts",
+        "cad_repairs",
+        "look_changed"
+      ],
+      "title": "Version",
+      "type": "object"
+    },
+    "VersionChange": {
+      "additionalProperties": false,
+      "properties": {
+        "area": {
+          "enum": [
+            "color",
+            "material",
+            "shape",
+            "dimensions",
+            "feature",
+            "component",
+            "price",
+            "markets",
+            "requirement",
+            "certification",
+            "cost",
+            "performance"
+          ],
+          "type": "string"
+        },
+        "label": {
+          "description": "Human wording, e.g. 'Colour', 'Pod height', 'Optical heart-rate sensor'",
+          "type": "string"
+        },
+        "before": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "after": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "label_kind": {
+          "$ref": "#/$defs/Label"
+        },
+        "risk": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ComponentRiskSummary"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "W21b: on a 'Component added' change \u2014 structured supply risk + proposed cheaper in-stock alternative"
+        }
+      },
+      "required": [
+        "area",
+        "label",
+        "before",
+        "after",
+        "label_kind",
+        "risk"
+      ],
+      "title": "VersionChange",
+      "type": "object"
+    },
+    "VersionFactory": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "description": "Fictional factory name",
+          "type": "string"
+        },
+        "score": {
+          "description": "0-100 match score on demo data",
+          "type": "number"
+        },
+        "label": {
+          "const": "fictional",
+          "default": "fictional",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "score",
+        "label"
+      ],
+      "title": "VersionFactory",
+      "type": "object"
+    },
+    "VersionPreview": {
+      "additionalProperties": false,
+      "properties": {
+        "glb_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Full-product GLB of this version (/files/<pid>/v<n>.glb)"
+        },
+        "render_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "AI concept render (illustrative, not the CAD); patched in later"
+        },
+        "unit_basis": {
+          "default": "per_unit",
+          "description": "W21e: see CostsArtifact.unit_basis",
+          "enum": [
+            "per_unit",
+            "per_installation"
+          ],
+          "type": "string"
+        },
+        "installed_price": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/LabeledValue"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "W21e, per_installation only: THE customer price of one installation for this version (turnkey, battery included when the BOM has one) \u2014 the single source for the Studio strip, Overview and gallery card"
+        },
+        "installer_cost": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/LabeledValue"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "W21e, per_installation only: what one installation costs the installer (equipment + labour + site admin)"
+        },
+        "dimensions": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Dimensions"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Measured on the built STEP (moulded parts)"
+        },
+        "color_hex": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "color_name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "material": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "finish": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "shape_family": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "rounded_box | puck | slab | wearable_band | ring, or a W21 product family (board, furniture, stick_vacuum, home_robot, irrigation, solar_array, drone, hair_dryer, camera, smartphone)"
+        },
+        "unit_costs": {
+          "items": {
+            "$ref": "#/$defs/VersionUnitCost"
+          },
+          "type": "array"
+        },
+        "top_factories": {
+          "items": {
+            "$ref": "#/$defs/VersionFactory"
+          },
+          "type": "array"
+        },
+        "certifications": {
+          "description": "'<market> <standard>' of the required certifications",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "bom_count": {
+          "default": 0,
+          "type": "integer"
+        },
+        "code_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "W21: the build123d program of this version's model (/projects/<pid>/cad/code/<k>): AI-written, or the parametric family seed when AI CAD is off / failed (see cad_label)"
+        },
+        "step_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "W21: STEP of the model shown in glb_url (AI model when present)"
+        },
+        "cad_label": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "W21: 'AI-generated CAD (concept level) \u2014 geometry measured on the result' or 'Parametric family CAD (concept level) \u2014 \u2026'"
+        },
+        "cad_source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "W21: llm:<model> | seed:<family> | previous_version | family:<name>"
+        },
+        "photos": {
+          "description": "W27: AI product photos of this version (one per shot, newest wins). hero_studio, when present, is also render_url",
+          "items": {
+            "$ref": "#/$defs/ProductPhoto"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "glb_url",
+        "render_url",
+        "unit_basis",
+        "installed_price",
+        "installer_cost",
+        "dimensions",
+        "color_hex",
+        "color_name",
+        "material",
+        "finish",
+        "shape_family",
+        "unit_costs",
+        "top_factories",
+        "certifications",
+        "bom_count",
+        "code_url",
+        "step_url",
+        "cad_label",
+        "cad_source",
+        "photos"
+      ],
+      "title": "VersionPreview",
+      "type": "object"
+    },
+    "VersionStatus": {
+      "enum": [
+        "running",
+        "done",
+        "failed"
+      ],
+      "title": "VersionStatus",
+      "type": "string"
+    },
+    "VersionUnitCost": {
+      "additionalProperties": false,
+      "properties": {
+        "quantity": {
+          "type": "integer"
+        },
+        "value": {
+          "description": "Ex-works unit cost, USD",
+          "type": "number"
+        },
+        "label": {
+          "$ref": "#/$defs/Label"
+        },
+        "source_or_assumption": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "quantity",
+        "value",
+        "label",
+        "source_or_assumption"
+      ],
+      "title": "VersionUnitCost",
+      "type": "object"
     }
   },
   "properties": {
@@ -4265,6 +6323,48 @@
     "ErrorResponse": {
       "$ref": "#/$defs/ErrorResponse"
     },
+    "EngineeringArtifact": {
+      "$ref": "#/$defs/EngineeringArtifact"
+    },
+    "Version": {
+      "$ref": "#/$defs/Version"
+    },
+    "VersionChange": {
+      "$ref": "#/$defs/VersionChange"
+    },
+    "VersionPreview": {
+      "$ref": "#/$defs/VersionPreview"
+    },
+    "RefineRequest": {
+      "$ref": "#/$defs/RefineRequest"
+    },
+    "ExampleSummary": {
+      "$ref": "#/$defs/ExampleSummary"
+    },
+    "BuildStrategy": {
+      "$ref": "#/$defs/BuildStrategy"
+    },
+    "ComponentRiskSummary": {
+      "$ref": "#/$defs/ComponentRiskSummary"
+    },
+    "PartAlternative": {
+      "$ref": "#/$defs/PartAlternative"
+    },
+    "StudioAccepted": {
+      "$ref": "#/$defs/StudioAccepted"
+    },
+    "ProductPhoto": {
+      "$ref": "#/$defs/ProductPhoto"
+    },
+    "PhotoJob": {
+      "$ref": "#/$defs/PhotoJob"
+    },
+    "ProjectPhotos": {
+      "$ref": "#/$defs/ProjectPhotos"
+    },
+    "PhotoAccepted": {
+      "$ref": "#/$defs/PhotoAccepted"
+    },
     "Label": {
       "$ref": "#/$defs/Label"
     },
@@ -4312,6 +6412,20 @@
     "ResetResult",
     "HealthResponse",
     "ErrorResponse",
+    "EngineeringArtifact",
+    "Version",
+    "VersionChange",
+    "VersionPreview",
+    "RefineRequest",
+    "ExampleSummary",
+    "BuildStrategy",
+    "ComponentRiskSummary",
+    "PartAlternative",
+    "StudioAccepted",
+    "ProductPhoto",
+    "PhotoJob",
+    "ProjectPhotos",
+    "PhotoAccepted",
     "Label",
     "StageStatus",
     "ProcessType"

@@ -1,0 +1,313 @@
+{
+ "status": "ok",
+ "version": 1,
+ "source": "llm:openai/gpt-6-sol",
+ "label": "AI-generated CAD (concept level) \u2014 geometry measured on the result",
+ "category": "camera",
+ "seed_family": "camera",
+ "variant": "instant",
+ "files": {
+  "step": "api/data/files_w21/p_c8f3bd27c3/model_v1.step",
+  "stl": "api/data/files_w21/p_c8f3bd27c3/model_v1.stl",
+  "glb": "api/data/files_w21/p_c8f3bd27c3/model_v1.glb"
+ },
+ "urls": {
+  "step": "/files/p_c8f3bd27c3/model_v1.step",
+  "stl": "/files/p_c8f3bd27c3/model_v1.stl",
+  "glb": "/files/p_c8f3bd27c3/model_v1.glb"
+ },
+ "code_path": "api/data/files_w21/p_c8f3bd27c3/model_v1.py",
+ "code_url": "/projects/p_c8f3bd27c3/cad/code/1",
+ "bbox_mm": [
+  151.8,
+  117.3,
+  123.5
+ ],
+ "volume_mm3": 1695428.1,
+ "parts": [
+  {
+   "label": "body.1",
+   "role": "body",
+   "volume_mm3": 1539677.9,
+   "valid": true,
+   "bbox_mm": [
+    151.0,
+    89.0,
+    116.0
+   ]
+  },
+  {
+   "label": "rubber.1",
+   "role": "rubber",
+   "volume_mm3": 24886.5,
+   "valid": true,
+   "bbox_mm": [
+    151.8,
+    89.8,
+    39.0
+   ]
+  },
+  {
+   "label": "accent.1",
+   "role": "accent",
+   "volume_mm3": 18070.0,
+   "valid": true,
+   "bbox_mm": [
+    139.0,
+    2.0,
+    65.0
+   ]
+  },
+  {
+   "label": "coat.1",
+   "role": "coat",
+   "volume_mm3": 10869.8,
+   "valid": true,
+   "bbox_mm": [
+    139.0,
+    2.3,
+    34.0
+   ]
+  },
+  {
+   "label": "coat.2",
+   "role": "coat",
+   "volume_mm3": 18158.4,
+   "valid": true,
+   "bbox_mm": [
+    68.0,
+    5.0,
+    68.0
+   ]
+  },
+  {
+   "label": "metal.1",
+   "role": "metal",
+   "volume_mm3": 61242.2,
+   "valid": true,
+   "bbox_mm": [
+    57.0,
+    24.0,
+    57.0
+   ]
+  },
+  {
+   "label": "coat.3",
+   "role": "coat",
+   "volume_mm3": 9568.9,
+   "valid": true,
+   "bbox_mm": [
+    59.0,
+    3.5,
+    59.0
+   ]
+  },
+  {
+   "label": "metal.2",
+   "role": "metal",
+   "volume_mm3": 2992.6,
+   "valid": true,
+   "bbox_mm": [
+    50.4,
+    1.5,
+    50.4
+   ]
+  },
+  {
+   "label": "glass.1",
+   "role": "glass",
+   "volume_mm3": 1582.6,
+   "valid": true,
+   "bbox_mm": [
+    42.8,
+    1.1,
+    42.8
+   ]
+  },
+  {
+   "label": "glass.2",
+   "role": "glass",
+   "volume_mm3": 127.2,
+   "valid": true,
+   "bbox_mm": [
+    18.0,
+    0.5,
+    18.0
+   ]
+  },
+  {
+   "label": "steel.1",
+   "role": "steel",
+   "volume_mm3": 330.9,
+   "valid": true,
+   "bbox_mm": [
+    48.1,
+    1.7,
+    48.1
+   ]
+  },
+  {
+   "label": "coat.4",
+   "role": "coat",
+   "volume_mm3": 1620.0,
+   "valid": true,
+   "bbox_mm": [
+    30.0,
+    3.0,
+    18.0
+   ]
+  },
+  {
+   "label": "diffuser.1",
+   "role": "diffuser",
+   "volume_mm3": 390.0,
+   "valid": true,
+   "bbox_mm": [
+    25.0,
+    1.2,
+    13.0
+   ]
+  },
+  {
+   "label": "coat.5",
+   "role": "coat",
+   "volume_mm3": 1311.0,
+   "valid": true,
+   "bbox_mm": [
+    23.0,
+    3.0,
+    19.0
+   ]
+  },
+  {
+   "label": "glass.3",
+   "role": "glass",
+   "volume_mm3": 244.8,
+   "valid": true,
+   "bbox_mm": [
+    17.0,
+    1.2,
+    12.0
+   ]
+  },
+  {
+   "label": "port.1",
+   "role": "port",
+   "volume_mm3": 380.2,
+   "valid": true,
+   "bbox_mm": [
+    108.0,
+    1.1,
+    3.2
+   ]
+  },
+  {
+   "label": "metal.3",
+   "role": "metal",
+   "volume_mm3": 237.3,
+   "valid": true,
+   "bbox_mm": [
+    113.0,
+    1.5,
+    1.4
+   ]
+  },
+  {
+   "label": "metal.4",
+   "role": "metal",
+   "volume_mm3": 237.3,
+   "valid": true,
+   "bbox_mm": [
+    113.0,
+    1.5,
+    1.4
+   ]
+  },
+  {
+   "label": "button.1",
+   "role": "button",
+   "volume_mm3": 90.0,
+   "valid": true,
+   "bbox_mm": [
+    9.0,
+    2.0,
+    5.0
+   ]
+  },
+  {
+   "label": "button.2",
+   "role": "button",
+   "volume_mm3": 565.5,
+   "valid": true,
+   "bbox_mm": [
+    12.0,
+    12.0,
+    5.0
+   ]
+  },
+  {
+   "label": "metal.5",
+   "role": "metal",
+   "volume_mm3": 2199.1,
+   "valid": true,
+   "bbox_mm": [
+    20.0,
+    20.0,
+    7.0
+   ]
+  },
+  {
+   "label": "coat.6",
+   "role": "coat",
+   "volume_mm3": 153.9,
+   "valid": true,
+   "bbox_mm": [
+    14.0,
+    14.0,
+    1.0
+   ]
+  },
+  {
+   "label": "glass.4",
+   "role": "glass",
+   "volume_mm3": 468.0,
+   "valid": true,
+   "bbox_mm": [
+    18.0,
+    2.0,
+    13.0
+   ]
+  },
+  {
+   "label": "led.1",
+   "role": "led",
+   "volume_mm3": 24.0,
+   "valid": true,
+   "bbox_mm": [
+    4.0,
+    1.5,
+    4.0
+   ]
+  }
+ ],
+ "target_dims_mm": [
+  150.8,
+  119.2,
+  124.0
+ ],
+ "attempts": [
+  {
+   "n": 1,
+   "kind": "generate",
+   "llm_seconds": 21.43,
+   "run_seconds": 1.87,
+   "error": null,
+   "error_kind": null
+  }
+ ],
+ "notes": [],
+ "instruction": null,
+ "parent_version": null,
+ "seconds": 23.41,
+ "brief": "product_name: Retro instant camera; one_liner: A retro-styled camera that captures photos and prints them on instant film.; category: other; key_features: Instant-film photo capture; Retro-style body and physical controls; Built-in flash; Automatic film ejection; prompt: A retro instant camera"
+}

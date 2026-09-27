@@ -1,0 +1,708 @@
+{
+ "project_id": "demo_home_robot",
+ "status": "validated",
+ "fallback": false,
+ "fallback_reason": null,
+ "generated_by": "code",
+ "generated_at": "2026-09-27T00:09:36.573533Z",
+ "assumptions": [
+  {
+   "id": "a1",
+   "text": "Volume curve: non-LCSC lines and assembly × 0.92 per tier step (500 → 2,000 → 10,000)",
+   "label": "estimate",
+   "source": "Demo assumption (PRD §11), editable",
+   "stage": 5
+  },
+  {
+   "id": "a2",
+   "text": "Assembly 16.8 min = 6 base + 0.6 × 18 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials",
+   "label": "estimate",
+   "source": null,
+   "stage": 5
+  },
+  {
+   "id": "a3",
+   "text": "Electronic lines matched to the JLCPCB/LCSC parts snapshot of 2026-09-26 (CDFER/jlcpcb-parts-database, MIT); unmatched lines are estimates",
+   "label": "sourced",
+   "source": "https://github.com/CDFER/jlcpcb-parts-database",
+   "stage": 5
+  },
+  {
+   "id": "a4",
+   "text": "Simple 1-cavity injection mold $1,000-3,000; complex multi-cavity steel mold $30,000-100,000",
+   "label": "estimate",
+   "source": "Zetar Mold 2026 price list (vendor, medium confidence), https://zetarmold.com/injection-mold-price-list-2026",
+   "stage": 5
+  },
+  {
+   "id": "a5",
+   "text": "Sum of 4 required certifications from stage 4 (their own cost estimates)",
+   "label": "estimate",
+   "source": null,
+   "stage": 5
+  },
+  {
+   "id": "a6",
+   "text": "Landed-cost basis for margin and cash: sea freight (fictional rates), HTS TBD (general 3%, Section 301 25%), IEEPA 0, Section 122 off",
+   "label": "estimate",
+   "source": "https://hts.usitc.gov/",
+   "stage": 5
+  },
+  {
+   "id": "a7",
+   "text": "Brief target price 699 USD (retail price incl. VAT where applicable)",
+   "label": "estimate",
+   "source": null,
+   "stage": 5
+  },
+  {
+   "id": "b1",
+   "text": "BOM from stage 3 spec",
+   "label": "estimate",
+   "source": null,
+   "stage": 5
+  }
+ ],
+ "stage": 5,
+ "currency": "USD",
+ "bom_lines": [
+  {
+   "bom_item_id": "e1",
+   "part": "Embedded Linux compute module",
+   "qty_per_unit": 1.0,
+   "unit_price": {
+    "value": 32.2,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: embedded Linux / vision compute module ≈ USD 35 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "lcsc_pn": null,
+   "stock": null,
+   "extended": {
+    "value": 32.2,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "1 × 32.2000"
+   }
+  },
+  {
+   "bom_item_id": "e2",
+   "part": "RGB camera module",
+   "qty_per_unit": 1.0,
+   "unit_price": {
+    "value": 7.36,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: camera module (sensor + lens) ≈ USD 8 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "lcsc_pn": null,
+   "stock": null,
+   "extended": {
+    "value": 7.36,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "1 × 7.3600"
+   }
+  },
+  {
+   "bom_item_id": "e3",
+   "part": "2D lidar module",
+   "qty_per_unit": 1.0,
+   "unit_price": {
+    "value": 41.4,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: 2D LiDAR module ≈ USD 45 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "lcsc_pn": null,
+   "stock": null,
+   "extended": {
+    "value": 41.4,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "1 × 41.4000"
+   }
+  },
+  {
+   "bom_item_id": "e4",
+   "part": "Time-of-flight distance sensor",
+   "qty_per_unit": 4.0,
+   "unit_price": {
+    "value": 7.5235,
+    "unit": "USD",
+    "label": "sourced",
+    "source_or_assumption": "LCSC price, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C7386355.html"
+   },
+   "lcsc_pn": "C7386355",
+   "stock": {
+    "value": 2570.0,
+    "unit": "units",
+    "label": "sourced",
+    "source_or_assumption": "LCSC stock, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C7386355.html"
+   },
+   "extended": {
+    "value": 30.094,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "LCSC unit price (Sourced) × estimated quantity: 4 × 7.5235 (price break at 8,000 pcs, C7386355)"
+   }
+  },
+  {
+   "bom_item_id": "e5",
+   "part": "Six-axis IMU",
+   "qty_per_unit": 1.0,
+   "unit_price": {
+    "value": 1.1196,
+    "unit": "USD",
+    "label": "sourced",
+    "source_or_assumption": "LCSC price, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C7544197.html"
+   },
+   "lcsc_pn": "C7544197",
+   "stock": {
+    "value": 23814.0,
+    "unit": "units",
+    "label": "sourced",
+    "source_or_assumption": "LCSC stock, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C7544197.html"
+   },
+   "extended": {
+    "value": 1.1196,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "LCSC unit price (Sourced) × estimated quantity: 1 × 1.1196 (price break at 2,000 pcs, C7544197)"
+   }
+  },
+  {
+   "bom_item_id": "e6",
+   "part": "Brushed DC gearmotor with encoder",
+   "qty_per_unit": 2.0,
+   "unit_price": {
+    "value": 4.14,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: DC gearmotor with encoder ≈ USD 4.5 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "lcsc_pn": null,
+   "stock": null,
+   "extended": {
+    "value": 8.28,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "2 × 4.1400"
+   }
+  },
+  {
+   "bom_item_id": "e7",
+   "part": "Dual brushed DC motor driver module",
+   "qty_per_unit": 1.0,
+   "unit_price": {
+    "value": 5.52,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: motor / control PCBA ≈ USD 6 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "lcsc_pn": null,
+   "stock": null,
+   "extended": {
+    "value": 5.52,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "1 × 5.5200"
+   }
+  },
+  {
+   "bom_item_id": "e8",
+   "part": "Arm joint servo actuator",
+   "qty_per_unit": 3.0,
+   "unit_price": {
+    "value": 5.98,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: robot joint servo ≈ USD 6.5 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "lcsc_pn": null,
+   "stock": null,
+   "extended": {
+    "value": 17.94,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "3 × 5.9800"
+   }
+  },
+  {
+   "bom_item_id": "e9",
+   "part": "Rechargeable lithium-ion battery pack",
+   "qty_per_unit": 1.0,
+   "unit_price": {
+    "value": 4.2228,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Battery priced by energy: 2000 mAh × 3.7 V = 7.4 Wh (generic pack) × $0.35/Wh + pack overhead"
+   },
+   "lcsc_pn": null,
+   "stock": null,
+   "extended": {
+    "value": 4.2228,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "1 × 4.2228"
+   }
+  },
+  {
+   "bom_item_id": "e10",
+   "part": "Battery management and protection board",
+   "qty_per_unit": 1.0,
+   "unit_price": {
+    "value": 3.22,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: BMS / protection board ≈ USD 3.5 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "lcsc_pn": null,
+   "stock": null,
+   "extended": {
+    "value": 3.22,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "1 × 3.2200"
+   }
+  },
+  {
+   "bom_item_id": "e11",
+   "part": "DC-DC buck converter module",
+   "qty_per_unit": 1.0,
+   "unit_price": {
+    "value": 0.0512,
+    "unit": "USD",
+    "label": "sourced",
+    "source_or_assumption": "LCSC price, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C7419825.html"
+   },
+   "lcsc_pn": "C7419825",
+   "stock": {
+    "value": 7936.0,
+    "unit": "units",
+    "label": "sourced",
+    "source_or_assumption": "LCSC stock, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C7419825.html"
+   },
+   "extended": {
+    "value": 0.0512,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "LCSC unit price (Sourced) × estimated quantity: 1 × 0.0512 (price break at 2,000 pcs, C7419825)"
+   }
+  },
+  {
+   "bom_item_id": "e12",
+   "part": "Dock charging interface and charger",
+   "qty_per_unit": 1.0,
+   "unit_price": {
+    "value": 4.6,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: charger / dock ≈ USD 5 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "lcsc_pn": null,
+   "stock": null,
+   "extended": {
+    "value": 4.6,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "1 × 4.6000"
+   }
+  },
+  {
+   "bom_item_id": "e13",
+   "part": "Grouped passive components",
+   "qty_per_unit": 1.0,
+   "unit_price": {
+    "value": 0.736,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: passives group ≈ USD 0.8 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "lcsc_pn": null,
+   "stock": null,
+   "extended": {
+    "value": 0.736,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "1 × 0.7360"
+   }
+  },
+  {
+   "bom_item_id": "m1",
+   "part": "Top shell",
+   "qty_per_unit": 1.0,
+   "unit_price": {
+    "value": 6.4195,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Top shell: Moulded shell 300×255×155 mm, wall 2.2 mm ≈ 429.1 cm³ × 1.15 g/cm³ = 493 g × $3.2/kg + $5.40 moulding/finish conversion"
+   },
+   "lcsc_pn": null,
+   "stock": null,
+   "extended": {
+    "value": 6.4195,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "1 × 6.4195"
+   }
+  },
+  {
+   "bom_item_id": "m2",
+   "part": "Bottom shell",
+   "qty_per_unit": 1.0,
+   "unit_price": {
+    "value": 6.4195,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Bottom shell: Moulded shell 300×255×155 mm, wall 2.2 mm ≈ 429.1 cm³ × 1.15 g/cm³ = 493 g × $3.2/kg + $5.40 moulding/finish conversion"
+   },
+   "lcsc_pn": null,
+   "stock": null,
+   "extended": {
+    "value": 6.4195,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "1 × 6.4195"
+   }
+  },
+  {
+   "bom_item_id": "m3",
+   "part": "Wheeled base chassis and wheel set",
+   "qty_per_unit": 1.0,
+   "unit_price": {
+    "value": 13.8,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: drive chassis + wheels ≈ USD 15 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "lcsc_pn": null,
+   "stock": null,
+   "extended": {
+    "value": 13.8,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "1 × 13.8000"
+   }
+  },
+  {
+   "bom_item_id": "m4",
+   "part": "Arm and gripper assembly",
+   "qty_per_unit": 1.0,
+   "unit_price": {
+    "value": 16.56,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: arm + gripper mechanics ≈ USD 18 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "lcsc_pn": null,
+   "stock": null,
+   "extended": {
+    "value": 16.56,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "1 × 16.5600"
+   }
+  },
+  {
+   "bom_item_id": "m5",
+   "part": "Fastener set",
+   "qty_per_unit": 1.0,
+   "unit_price": {
+    "value": 0.92,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: fastener set ≈ USD 1 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "lcsc_pn": null,
+   "stock": null,
+   "extended": {
+    "value": 0.92,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "1 × 0.9200"
+   }
+  },
+  {
+   "bom_item_id": "k1",
+   "part": "Retail packaging set",
+   "qty_per_unit": 1.0,
+   "unit_price": {
+    "value": 1.38,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: retail carton + insert ≈ USD 1.5 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "lcsc_pn": null,
+   "stock": null,
+   "extended": {
+    "value": 1.38,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "1 × 1.3800"
+   }
+  }
+ ],
+ "volume_factor": {
+  "value": 0.92,
+  "unit": "ratio",
+  "label": "estimate",
+  "source_or_assumption": "Volume curve: unit cost × 0.92 per tier step"
+ },
+ "tiers": [
+  {
+   "quantity": 500,
+   "bom_cost": {
+    "value": 215.65,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Electronics at LCSC price breaks (LCSC price, 2026-09-26); other lines base × 0.92^0"
+   },
+   "assembly_cost": {
+    "value": 34.92,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Assembly + factory overhead/margin: 16.8 min = 6 base + 0.6 × 18 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^0"
+   },
+   "packaging_cost": {
+    "value": 1.5,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Packaging BOM lines × 0.92^0"
+   },
+   "unit_cost": {
+    "value": 252.07,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
+   },
+   "tooling_amortisation": {
+    "value": 12.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "$6,000 tooling ÷ 500"
+   },
+   "margin_pct": {
+    "value": 38.1,
+    "unit": "pct",
+    "label": "estimate",
+    "source_or_assumption": "($699.00 target − $432.55 landed estimate) ÷ target; before retailer margin, VAT and marketing"
+   }
+  },
+  {
+   "quantity": 2000,
+   "bom_cost": {
+    "value": 200.86,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Electronics at LCSC price breaks (LCSC price, 2026-09-26); other lines base × 0.92^1"
+   },
+   "assembly_cost": {
+    "value": 32.5,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Assembly + factory overhead/margin: 16.8 min = 6 base + 0.6 × 18 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^1"
+   },
+   "packaging_cost": {
+    "value": 1.38,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Packaging BOM lines × 0.92^1"
+   },
+   "unit_cost": {
+    "value": 234.74,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
+   },
+   "tooling_amortisation": {
+    "value": 3.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "$6,000 tooling ÷ 2,000"
+   },
+   "margin_pct": {
+    "value": 44.4,
+    "unit": "pct",
+    "label": "estimate",
+    "source_or_assumption": "($699.00 target − $388.31 landed estimate) ÷ target; before retailer margin, VAT and marketing"
+   }
+  },
+  {
+   "quantity": 10000,
+   "bom_cost": {
+    "value": 187.29,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Electronics at LCSC price breaks (LCSC price, 2026-09-26); other lines base × 0.92^2"
+   },
+   "assembly_cost": {
+    "value": 30.27,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Assembly + factory overhead/margin: 16.8 min = 6 base + 0.6 × 18 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^2"
+   },
+   "packaging_cost": {
+    "value": 1.27,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Packaging BOM lines × 0.92^2"
+   },
+   "unit_cost": {
+    "value": 218.83,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
+   },
+   "tooling_amortisation": {
+    "value": 0.6,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "$6,000 tooling ÷ 10,000"
+   },
+   "margin_pct": {
+    "value": 48.2,
+    "unit": "pct",
+    "label": "estimate",
+    "source_or_assumption": "($699.00 target − $361.83 landed estimate) ÷ target; before retailer margin, VAT and marketing"
+   }
+  }
+ ],
+ "unit_basis": "per_unit",
+ "tooling": [
+  {
+   "name": "Bottom shell mold (1-cavity)",
+   "process": "injection_molding",
+   "cost": {
+    "value": 3000.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Simple 1-cavity mold: point in the sourced range $1,000-3,000 scaled by projected area 76,500 mm². Zetar Mold 2026 price list (vendor, medium confidence), https://zetarmold.com/injection-mold-price-list-2026"
+   }
+  },
+  {
+   "name": "Top shell mold (1-cavity)",
+   "process": "injection_molding",
+   "cost": {
+    "value": 3000.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Simple 1-cavity mold: point in the sourced range $1,000-3,000 scaled by projected area 76,500 mm². Zetar Mold 2026 price list (vendor, medium confidence), https://zetarmold.com/injection-mold-price-list-2026"
+   }
+  }
+ ],
+ "tooling_total": {
+  "value": 6000.0,
+  "unit": "USD",
+  "label": "estimate",
+  "source_or_assumption": "Sum of tooling lines"
+ },
+ "certification_total": {
+  "value": 9500.0,
+  "unit": "USD",
+  "label": "estimate",
+  "source_or_assumption": "Sum of 4 required certifications from stage 4 (their own cost estimates)"
+ },
+ "reference_quantity": 2000,
+ "total_cash_needed": {
+  "value": 793536.11,
+  "unit": "USD",
+  "label": "estimate",
+  "source_or_assumption": "Sum of cash_breakdown"
+ },
+ "cash_breakdown": [
+  {
+   "name": "Tooling",
+   "amount": {
+    "value": 6000.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Sum of tooling lines"
+   }
+  },
+  {
+   "name": "Certification",
+   "amount": {
+    "value": 9500.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Sum of 4 required certifications from stage 4 (their own cost estimates)"
+   }
+  },
+  {
+   "name": "Samples (T0, T1, golden)",
+   "amount": {
+    "value": 7402.29,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "3 rounds × (10 units × $234.74 + $120 express shipping)"
+   }
+  },
+  {
+   "name": "First production order (2,000 × FOB)",
+   "amount": {
+    "value": 469485.82,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "2,000 × $234.74 ex-works"
+   }
+  },
+  {
+   "name": "Pre-shipment inspection",
+   "amount": {
+    "value": 540.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "V-Trust rate (Sourced) × estimated man-days: $268/man-day (V-Trust, https://www.v-trust.com/en/our-network, checked 2026-09-26) × 2 man-days"
+   }
+  },
+  {
+   "name": "Freight + insurance",
+   "amount": {
+    "value": 134648.0,
+    "unit": "USD",
+    "label": "fictional",
+    "source_or_assumption": "demo freight and insurance rates — demo data"
+   }
+  },
+  {
+   "name": "Duties (HTS + Section 301)",
+   "amount": {
+    "value": 131460.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "HTS TBD: Placeholder general duty 3%: heading unknown, to be confirmed by a customs broker; IEEPA 0; Section 122 off"
+   }
+  },
+  {
+   "name": "Broker, port, 3PL",
+   "amount": {
+    "value": 1640.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Broker/port/3PL per-unit rates × 2,000"
+   }
+  },
+  {
+   "name": "Platform / agent fee",
+   "amount": {
+    "value": 32860.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "7% of FOB (benchmark 5-10%)"
+   }
+  }
+ ],
+ "target_retail_price": {
+  "value": 699.0,
+  "unit": "USD",
+  "label": "estimate",
+  "source_or_assumption": "Brief target price 699 USD (retail price incl. VAT where applicable)"
+ },
+ "breakeven_units": {
+  "value": 74.0,
+  "unit": "units",
+  "label": "estimate",
+  "source_or_assumption": "(tooling + certification + samples = $22,902) ÷ ($699.00 target − $385.31 variable landed cost)"
+ }
+}

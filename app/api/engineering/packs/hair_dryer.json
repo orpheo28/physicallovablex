@@ -1,0 +1,37 @@
+{
+  "key": "hair_dryer",
+  "title": "Hair dryer (mains appliance)",
+  "match": ["hair dryer", "hairdryer", "hair drier", "blow dryer", "blow-dryer", "sèche-cheveux", "seche-cheveux", "hair styler"],
+  "families": ["hair_dryer"],
+  "brief_categories": ["hair_dryer"],
+  "partner_word": "factories",
+  "standards": [
+    {"code": "IEC 60335-1", "applies_because": "Household appliance safety, general requirements"},
+    {"code": "IEC 60335-2-23", "applies_because": "Particular requirements for appliances for skin or hair care (hair dryers)"},
+    {"code": "IEC 61000-6-3", "applies_because": "EMC emissions of the fan motor and heater control"},
+    {"code": "Regulation (EU) 2023/988", "applies_because": "General Product Safety Regulation (EU)"},
+    {"code": "UL 859", "applies_because": "US household electric personal grooming appliances (with immersion protection / ALCI plug)"}
+  ],
+  "risks": [
+    {"risk": "Heater overheats when the intake is blocked (hair, towel)", "mitigation": "Thermal cut-out + one-shot thermal fuse on the heater, intake filter with a stand-off", "severity": "critical"},
+    {"risk": "Water immersion near a basin", "mitigation": "Immersion protection (ALCI/GFCI plug in the US, RCD guidance in the EU), IEC 60335-2-23 warnings", "severity": "critical"},
+    {"risk": "Outlet air too hot for the scalp at max setting", "mitigation": "Closed-loop outlet temperature (NTC) and a cool-shot button", "severity": "major"},
+    {"risk": "Noise: a 'quiet' claim fails with a small high-speed fan", "mitigation": "Larger, slower fan; acoustic foam at the intake; measure dB(A) at 0.5 m early", "severity": "major"},
+    {"risk": "Cord strain relief fatigue", "mitigation": "Swivel cord exit and flex test to the standard", "severity": "minor"}
+  ],
+  "tests": [
+    {"name": "Temperature rise and abnormal operation (blocked intake)", "kind": "thermal", "method": "Run with the intake blocked until the cut-out operates", "standard": "IEC 60335-2-23"},
+    {"name": "Outlet air temperature at 3 cm, each setting", "kind": "thermal", "method": "Thermocouple grid in front of the nozzle", "standard": "IEC 60335-2-23"},
+    {"name": "Drop test", "kind": "drop", "method": "Drops onto a hard floor per the standard", "standard": "IEC 60335-1"},
+    {"name": "Cord flex test", "kind": "other", "method": "Flexing test of the supply cord", "standard": "IEC 60335-1"},
+    {"name": "EMC emissions", "kind": "electrical", "method": "Accredited lab", "standard": "IEC 61000-6-3"}
+  ],
+  "checks": ["hair_dryer", "mass"],
+  "params": {
+    "mass_max_g": 600, "heater_w": 1600, "fan_w": 60, "airflow_l_s": 13.0, "inlet_c": 20, "outlet_max_c": 90, "outlet_warn_c": 110,
+    "duty": {}, "default_family": "generic", "connectivity": "none",
+    "typical_electronics": ["8-bit MCU", "Triac heater control", "NTC outlet temperature sensor", "BLDC fan driver"]
+  },
+  "prototype": {"method": "SLA high-temperature resin (nozzle, barrel) + MJF PA12 (handle), bought-in heater and fan", "usd_per_cm3": 0.32, "setup_usd": 40, "units": 2,
+    "steps": ["Bench the heater + fan module in a printed duct, map outlet temperature vs setting", "Print the body in heat-resistant SLA resin and MJF PA12", "Wire through a bought-in thermal cut-out and fuse before any user test", "Blocked-intake test until the cut-out operates", "Noise measurement at 0.5 m per setting"]}
+}

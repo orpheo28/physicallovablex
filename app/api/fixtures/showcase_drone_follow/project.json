@@ -1,0 +1,14 @@
+{
+ "id": "demo_drone_follow",
+ "name": "Kitesurf follow-me drone",
+ "mode": "idea",
+ "prompt": "A foldable drone for kitesurf follow-me shots",
+ "pasted_bom": null,
+ "example": "showcase_drone_follow",
+ "status": "active",
+ "created_at": "2026-09-27T00:06:46.749053Z",
+ "stage_status": {},
+ "tags": [
+  "Example"
+ ]
+}

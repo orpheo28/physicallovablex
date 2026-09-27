@@ -1,0 +1,22 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "title": "Version",
+      "type": "integer"
+    },
+    "shots": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Shots",
+      "type": "array"
+    }
+  },
+  "required": [
+    "version",
+    "shots"
+  ],
+  "title": "PhotoAccepted",
+  "type": "object"
+}

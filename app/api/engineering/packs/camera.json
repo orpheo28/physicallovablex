@@ -1,0 +1,35 @@
+{
+  "key": "camera",
+  "title": "Camera (ODM module based)",
+  "match": ["camera", "instant camera", "polaroid", "point and shoot", "point-and-shoot", "camcorder", "action cam", "action camera"],
+  "families": ["camera"],
+  "brief_categories": ["camera"],
+  "partner_word": "factories",
+  "standards": [
+    {"code": "IEC 62368-1", "applies_because": "Electrical safety of audio/video equipment"},
+    {"code": "47 CFR Part 15", "applies_because": "Digital device (15B) and any Wi-Fi/BLE transfer link (15C), US"},
+    {"code": "Directive 2014/53/EU", "applies_because": "Only if the camera has a radio (Wi-Fi/BLE photo transfer), EU"},
+    {"code": "IEC 62133-2", "applies_because": "Rechargeable Li-ion cell"},
+    {"code": "UN 38.3", "applies_because": "Lithium cell shipped with the product"},
+    {"code": "IEC 62471", "applies_because": "Flash / LED photobiological safety"}
+  ],
+  "risks": [
+    {"risk": "Designing optics and image processing from scratch is out of reach for a first product", "mitigation": "Start from an ODM camera module (sensor + ISP + lens) with its tuning; customise body, UI and colours", "severity": "critical"},
+    {"risk": "Flash capacitor (300 V class) in an openable body", "mitigation": "Bleeder resistor, interlocked battery door, keep the ODM's flash board unchanged", "severity": "major"},
+    {"risk": "Instant film supply: the film format decides the camera", "mitigation": "Commit to an existing film format with a supply agreement before designing the print path", "severity": "major"},
+    {"risk": "Dust in the lens / print path", "mitigation": "Sealed lens module, gasketed print slot", "severity": "minor"}
+  ],
+  "tests": [
+    {"name": "Drop 1 m, 6 faces", "kind": "drop", "method": "Functional + image check after each drop", "standard": null},
+    {"name": "Temperature rise at continuous recording / flash cycling", "kind": "thermal", "method": "Thermocouples until steady state", "standard": "IEC 62368-1"},
+    {"name": "EMC emissions + radio (if Wi-Fi)", "kind": "electrical", "method": "Accredited lab", "standard": "47 CFR Part 15 / Directive 2014/53/EU"},
+    {"name": "Battery safety", "kind": "battery", "method": "Accredited lab (cell supplier reports accepted)", "standard": "IEC 62133-2 / UN 38.3"}
+  ],
+  "checks": ["battery_life", "thermal", "mass"],
+  "params": {"mass_max_g": 500, "battery_target_h": 3, "battery_mah_default": 1200, "battery_v_default": 3.7,
+    "duty": {"camera": 60, "display": 60, "mcu": 60, "radio": 5, "led": 1},
+    "default_family": "esp32", "connectivity": "Wi-Fi photo transfer (optional)",
+    "typical_electronics": ["Camera module OV5640 5MP", "ESP32-S3 Wi-Fi module", "Li-ion cell 1200 mAh", "Li-ion charger IC", "LCD display 2.4 inch", "Xenon flash module"]},
+  "prototype": {"method": "SLA resin body around the ODM evaluation board", "usd_per_cm3": 0.30, "setup_usd": 30, "units": 3,
+    "steps": ["Order the ODM's evaluation kit (module + reference firmware)", "Print the body in SLA resin around the kit, check lens and display alignment", "Customise the UI / shutter behaviour in the ODM SDK", "Drop and thermal checks on printed units", "5 units to friendly photographers for 2 weeks"]}
+}

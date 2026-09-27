@@ -1,0 +1,191 @@
+{
+ "project_id": "demo_changing_table",
+ "status": "validated",
+ "fallback": false,
+ "fallback_reason": null,
+ "generated_by": "llm:openai/gpt-6-sol",
+ "generated_at": "2026-09-27T00:18:02.106100Z",
+ "assumptions": [
+  {
+   "id": "a4_1",
+   "text": "Solid product ('furniture' family): moulded-shell checks (draft, undercut, wall thickness, clamp tonnage) do not apply; the measured checks are process fit, stock size and thinnest section on the product CAD",
+   "label": "estimate",
+   "source": null,
+   "stage": 4
+  }
+ ],
+ "stage": 4,
+ "issues": [
+  {
+   "id": "a1",
+   "severity": "major",
+   "category": "tolerance",
+   "method": "ai_reviewed",
+   "part_id": "p1",
+   "description": "The part tolerance conflicts with the tighter CNC-panel tolerance, leaving the factory without a clear acceptance limit.",
+   "fix": "Issue dimensioned drawings that identify which features use the CNC tolerance and which use the general tolerance; define inspection datums.",
+   "rule_citation": "Specify feature-specific tolerances and datums on production drawings — ISO 1101.",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a2",
+   "severity": "major",
+   "category": "assembly",
+   "method": "ai_reviewed",
+   "part_id": "p1",
+   "description": "The fastener set lacks hole sizes, edge distances, insertion depths and an assembly sequence. Plywood joints may split or loosen if these are selected on the line.",
+   "fix": "Specify the hardware and pilot-hole pattern, verify edge distances and pull-out strength, and provide an assembly drawing.",
+   "rule_citation": "Verify structural strength and stability of changing units — EN 12221-1.",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a3",
+   "severity": "major",
+   "category": "assembly",
+   "method": "ai_reviewed",
+   "part_id": "p3",
+   "description": "The guard specification does not define installed height, continuity, attachment or gaps at joints, so the assembled unit cannot be checked for containment and entrapment.",
+   "fix": "Dimension the assembled guards and joint gaps; test the production assembly against the target-market changing-unit requirements.",
+   "rule_citation": "Changing-unit safety requirements and test methods — EN 12221-1 and EN 12221-2.",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a4",
+   "severity": "major",
+   "category": "assembly",
+   "method": "ai_reviewed",
+   "part_id": "p2",
+   "description": "The changing pad has no specified retention method and may shift during use.",
+   "fix": "Define a positive pad-retention method and verify it with the intended pad and finished deck.",
+   "rule_citation": "Changing-unit safety requirements and test methods — EN 12221-1 and EN 12221-2.",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a5",
+   "severity": "major",
+   "category": "material",
+   "method": "ai_reviewed",
+   "part_id": "p2",
+   "description": "Satin lacquer is listed as the foam pad's finish, but the wipe-clean cover material, seam construction and cleaning-chemical resistance are undefined.",
+   "fix": "Remove the lacquer callout from the pad; specify cover material, sealed-seam construction and a cleaning-resistance test.",
+   "rule_citation": "Define materials and finishes appropriate to foreseeable use and cleaning — ISO 12100 risk assessment principles.",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a6",
+   "severity": "major",
+   "category": "assembly",
+   "method": "ai_reviewed",
+   "part_id": null,
+   "description": "The anti-tip kit does not specify compatible wall types, fixing selection or installation instructions; supplying anchors alone does not ensure a secure installation.",
+   "fix": "Specify approved wall substrates and fixings, installation instructions and an assembled stability verification.",
+   "rule_citation": "Changing-unit stability and instructions — EN 12221-1 and EN 12221-2.",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "m1",
+   "severity": "minor",
+   "category": "other",
+   "method": "measured",
+   "part_id": "p1",
+   "description": "Solid product (51.8 L of material): not an injection-moulded shell, so draft, undercut, wall thickness and clamp tonnage do not apply. Process: CNC routing of plywood sheet + edge finishing + flat-pack assembly.",
+   "fix": "Quote the listed process; send the STEP as the shaping / routing / layout file.",
+   "rule_citation": "Moulded-shell DFM rules apply to injection moulding only (Protolabs design guide)",
+   "measurement": {
+    "value": 51.8,
+    "unit": "L",
+    "label": "measured",
+    "source_or_assumption": "Solid volume of all parts, measured on the product CAD (build123d/OCCT)"
+   },
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "m2",
+   "severity": "minor",
+   "category": "material",
+   "method": "measured",
+   "part_id": "p1",
+   "description": "Largest panel 900 × 560 mm fits a 2440 × 1220 mm plywood sheet; nest all panels on as few sheets as possible.",
+   "fix": "Nest the CNC programme on full sheets; grain along the longest side.",
+   "rule_citation": "Standard plywood sheet 2440 × 1220 mm (8 × 4 ft)",
+   "measurement": {
+    "value": 900.0,
+    "unit": "mm",
+    "label": "measured",
+    "source_or_assumption": "Largest panel length, measured on the product CAD (build123d/OCCT)"
+   },
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "m3",
+   "severity": "minor",
+   "category": "wall_thickness",
+   "method": "measured",
+   "part_id": "p1",
+   "description": "Thinnest wooden part 16 mm: OK for screws and cam locks.",
+   "fix": "Keep structural panels ≥ 15 mm (18 mm birch ply); round every accessible edge r ≥ 2 mm (child safety).",
+   "rule_citation": "Cam-lock fittings need ≥ 15 mm board; EN 12221 asks for rounded accessible edges — Estimate",
+   "measurement": {
+    "value": 16.0,
+    "unit": "mm",
+    "label": "measured",
+    "source_or_assumption": "Smallest extent of the wooden parts, measured on the product CAD (build123d/OCCT)"
+   },
+   "resolved": false,
+   "resolution": null
+  }
+ ],
+ "component_risks": [],
+ "certifications": [
+  {
+   "market": "US",
+   "standard": "CPSIA — ASTM F963 toy safety + Children's Product Certificate",
+   "applies_because": "Children's product: third-party testing at a CPSC-accepted lab, lead/phthalate limits and a CPC are mandatory",
+   "required": true,
+   "cost_est": {
+    "value": 3500.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Accredited-lab range, demo assumption"
+   },
+   "lead_time_weeks": {
+    "value": 4.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Typical lab queue + report, demo assumption"
+   }
+  },
+  {
+   "market": "US",
+   "standard": "16 CFR Part 1235 — Safety Standard for Changing Tables (incorporating ASTM F2388-21)",
+   "applies_because": "This is a freestanding changing table intended for infants, so it must meet the US changing-table safety requirements, including applicable stability, structural-integrity, and restraint requirements.",
+   "required": true,
+   "cost_est": {
+    "value": 2500.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "LLM-proposed rough estimate — get a lab quote to confirm"
+   },
+   "lead_time_weeks": {
+    "value": 3.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "LLM-proposed rough estimate — get a lab quote to confirm"
+   }
+  }
+ ]
+}

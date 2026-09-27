@@ -1,0 +1,14 @@
+{
+ "id": "demo_minimal_phone",
+ "name": "Minimalist smartphone",
+ "mode": "idea",
+ "prompt": "A minimalist smartphone without social apps",
+ "pasted_bom": null,
+ "example": "showcase_minimal_phone",
+ "status": "active",
+ "created_at": "2026-09-27T00:11:05.834982Z",
+ "stage_status": {},
+ "tags": [
+  "Example"
+ ]
+}

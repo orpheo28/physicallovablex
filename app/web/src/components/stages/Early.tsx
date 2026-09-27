@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import type { BriefArtifact, DesignArtifact, DesignDirection, Dimensions, LabeledValue, SpecArtifact, SpecPart, StageResult, ElectronicsBlock, ElectronicsEdge } from "@/types/contracts";
+import { useLayoutEffect, useRef, useState, type ReactNode } from "react";
+import type { BriefArtifact, ClarifyingQuestion, DesignArtifact, DesignDirection, Dimensions, LabeledValue, SpecArtifact, SpecPart, StageResult, ElectronicsBlock, ElectronicsEdge } from "@/types/contracts";
 import { api, fileUrl } from "@/lib/api";
 import { useFileExists } from "@/lib/useApi";
 import { directionGlb, directionRender } from "@/lib/assets";
@@ -9,136 +9,247 @@ import { humanize } from "@/lib/meta";
 import { BOMTable, DimsView, FileLink, PartsTable } from "../blocks";
 import { ModelViewer } from "../ModelViewer";
 import { RetryImg } from "../RetryImg";
-import { Btn, Card, KV, LabelBadge, LV, Pill, Segmented, Spinner, Table, Td, Th } from "../ui";
+import { useAutofillMax } from "@/lib/autofill";
+import { useProject } from "../project/ProjectContext";
+import { ScrollArea } from "../ScrollArea";
+import { Btn, BtnLink, Card, KV, LabelBadge, LV, Pill, Segmented, Spinner, Table, Td, Th } from "../ui";
 import type { StageViewProps } from "./types";
 
 // ---------------------------------------------------------------- Stage 1
-export function BriefView({ artifact: a, busy, run, onAutorun }: StageViewProps<BriefArtifact>) {
-  const questions = a.clarifying_questions ?? [];
-  const [answers, setAnswers] = useState<Record<string, string>>(() =>
-    Object.fromEntries(questions.filter((q) => q.answer).map((q) => [q.id, q.answer as string])),
+function Bullets({ items }: { items: string[] }) {
+  return (
+    <ul className="mt-1 flex flex-col gap-1">
+      {items.map((f) => (
+        <li key={f} className="flex gap-2.5">
+          <span className="mt-[9px] h-px w-2.5 shrink-0 bg-ink-3" aria-hidden />
+          {f}
+        </li>
+      ))}
+    </ul>
   );
-  const [skipped, setSkipped] = useState<Record<string, boolean>>({});
-  const set = (id: string, v: string) => {
-    setAnswers((s) => ({ ...s, [id]: v }));
+}
+
+/** "Let AI fill in the rest" — the primary action on a project's first screen. */
+function AutofillStrip({ projectId }: { projectId: string }) {
+  const max = useAutofillMax();
+  const go = (t: 7 | 13) => `/projects/${projectId}?autorun=${t}&start=1`;
+  return (
+    <div className="flex flex-wrap items-center gap-x-5 gap-y-3 rounded-md bg-surface px-5 py-4">
+      <div className="min-w-[240px] flex-1">
+        <p className="text-base font-medium">Let AI fill in the other {max === 13 ? "12" : "6"} steps</p>
+        <p className="mt-0.5 text-sm text-ink-2">
+          {max === 13
+            ? "Design, 3D model, costs, factories, quotes and the launch plan, with sensible defaults. Change any step afterwards."
+            : "Design, 3D model, manufacturability, costs, production plan and factory shortlist, with sensible defaults."}
+        </p>
+      </div>
+      {max === 13 && (
+        <BtnLink href={go(7)} variant="secondary">
+          Run steps 1–7 only
+        </BtnLink>
+      )}
+      <BtnLink href={go(max)} variant="primary">
+        Autofill the remaining steps
+      </BtnLink>
+    </div>
+  );
+}
+
+type Msg = { id: string; side: "ai" | "you"; text: ReactNode; meta?: ReactNode; muted?: boolean; onEdit?: () => void };
+
+function Bubble({ m }: { m: Msg }) {
+  const you = m.side === "you";
+  return (
+    <li className={`flex items-start gap-2.5 ${you ? "flex-row-reverse" : ""}`}>
+      {!you && (
+        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-paper-2 text-[10px] font-semibold text-ink-2" aria-hidden>
+          AI
+        </span>
+      )}
+      <div className={`flex max-w-[85%] flex-col ${you ? "items-end" : "items-start"}`}>
+        {m.meta && <span className="mb-1 text-2xs text-ink-3">{m.meta}</span>}
+        <div
+          className={`rounded-md px-3 py-2 text-base ${
+            you ? (m.muted ? "rounded-tr-sm bg-paper-2/60 text-ink-3" : "rounded-tr-sm bg-paper-2 text-ink") : "rounded-tl-sm bg-surface text-ink"
+          }`}
+        >
+          {m.text}
+        </div>
+        {m.onEdit && (
+          <button onClick={m.onEdit} className="mt-1 text-2xs text-ink-3 underline decoration-line-2 underline-offset-2 hover:text-ink">
+            Change
+          </button>
+        )}
+      </div>
+    </li>
+  );
+}
+
+/** Clarifying questions as a conversation: one question at a time, chips or free text, Skip / Skip all. */
+function Questions({ questions, busy, onUpdate }: { questions: ClarifyingQuestion[]; busy: boolean; onUpdate: (answers: Record<string, string>) => void }) {
+  const [answers, setAnswers] = useState<Record<string, string>>(() => Object.fromEntries(questions.filter((q) => q.answer).map((q) => [q.id, q.answer as string])));
+  const [skipped, setSkipped] = useState<Record<string, boolean>>(() => Object.fromEntries(questions.filter((q) => q.skipped && !q.answer).map((q) => [q.id, true])));
+  const [draft, setDraft] = useState("");
+  const [dirty, setDirty] = useState(false);
+  const thread = useRef<HTMLDivElement>(null);
+  const idx = questions.findIndex((q) => !(q.id in answers) && !skipped[q.id]);
+  const cur = idx >= 0 ? questions[idx] : null;
+  const answered = Object.keys(answers).length;
+
+  useLayoutEffect(() => {
+    const el = thread.current;
+    if (el) el.scrollTop = el.scrollHeight;
+  }, [idx, answered]);
+
+  const answer = (id: string, v: string) => {
+    if (!v.trim()) return;
+    setAnswers((s) => ({ ...s, [id]: v.trim() }));
+    setSkipped((s) => ({ ...s, [id]: false }));
+    setDraft("");
+    setDirty(true);
+  };
+  const skip = (id: string) => {
+    setSkipped((s) => ({ ...s, [id]: true }));
+    setDraft("");
+    setDirty(true);
+  };
+  const reopen = (id: string) => {
+    setAnswers((s) => {
+      const n = { ...s };
+      delete n[id];
+      return n;
+    });
     setSkipped((s) => ({ ...s, [id]: false }));
   };
-  const pending = questions.filter((q) => !q.answer && !q.skipped).length;
+
+  const msgs: Msg[] = [];
+  questions.forEach((q, i) => {
+    if (idx >= 0 && i > idx) return;
+    msgs.push({ id: `${q.id}-q`, side: "ai", text: q.question, meta: `Question ${i + 1} of ${questions.length} · ${humanize(q.topic)}` });
+    if (q.id in answers) msgs.push({ id: `${q.id}-a`, side: "you", text: answers[q.id], onEdit: () => reopen(q.id) });
+    else if (skipped[q.id]) msgs.push({ id: `${q.id}-s`, side: "you", text: "Skipped — keep the default", muted: true, onEdit: () => reopen(q.id) });
+  });
+  if (!cur)
+    msgs.push({
+      id: "done",
+      side: "ai",
+      text: dirty ? "Thanks, that is everything I need. Update the brief with your answers?" : answered ? "The brief already uses these answers." : "No answers: the brief keeps its defaults.",
+    });
 
   return (
-    <div className="flex flex-col gap-6">
-      <Card title={a.product_name} right={<Pill>{a.mode === "prototype" ? "Prototype mode" : "Idea mode"}</Pill>}>
-        <p className="max-w-[64ch] text-lg tracking-[-0.01em]">{a.one_liner}</p>
-        <p className="mt-2 text-sm text-ink-3">Prompt: &ldquo;{a.prompt}&rdquo;</p>
-        <div className="mt-6 grid gap-x-8 gap-y-5 border-t border-line pt-5 sm:grid-cols-2 lg:grid-cols-3">
-          <KV k="Category">{a.category}</KV>
-          <KV k="Target markets">{a.target_markets.join(", ") || "—"}</KV>
-          <KV k="Target retail price">
-            <LV v={a.target_retail_price} />
-          </KV>
-          <KV k="Volume tiers">
-            <span className="font-mono">{a.target_volumes.map((v) => v.toLocaleString("en-US")).join(" / ")}</span> units
-          </KV>
-          <KV k="Battery">{a.has_battery ? "Yes" : "No"}</KV>
-          <KV k="Wireless">{a.wireless.length ? a.wireless.join(", ") : "None"}</KV>
-        </div>
-        <div className="mt-6 grid gap-8 border-t border-line pt-5 md:grid-cols-2">
-          <KV k="Key features">
-            <ul className="mt-1 flex flex-col gap-1">
-              {a.key_features.map((f) => (
-                <li key={f} className="flex gap-2.5">
-                  <span className="mt-[9px] h-px w-2.5 shrink-0 bg-ink-3" aria-hidden />
-                  {f}
-                </li>
-              ))}
-            </ul>
-          </KV>
-          <KV k="Constraints">
-            <ul className="mt-1 flex flex-col gap-1">
-              {a.constraints.map((f) => (
-                <li key={f} className="flex gap-2.5">
-                  <span className="mt-[9px] h-px w-2.5 shrink-0 bg-ink-3" aria-hidden />
-                  {f}
-                </li>
-              ))}
-            </ul>
-          </KV>
-        </div>
-      </Card>
-
-      {a.pasted_bom?.length > 0 && (
-        <Card title="Pasted BOM (prototype)">
-          <BOMTable items={a.pasted_bom} />
-        </Card>
-      )}
-
-      <Card
-        title={
+    <section aria-label="Clarifying questions" className="flex h-full min-h-0 flex-col overflow-hidden rounded-md bg-surface">
+      <header className="flex h-11 items-center justify-between gap-3 px-4">
+        <h3 className="text-base font-medium">
+          Clarifying questions <span className="ml-1 text-sm font-normal text-ink-3">All optional</span>
+        </h3>
+        <span className="font-mono text-sm text-ink-2">
+          {answered}/{questions.length} answered
+        </span>
+      </header>
+      <ScrollArea ref={thread} className="flex-1 px-4 py-4" label="Conversation">
+        <ol className="flex flex-col gap-3">
+          {msgs.map((m) => (
+            <Bubble key={m.id} m={m} />
+          ))}
+        </ol>
+      </ScrollArea>
+      <div className="px-4 py-3">
+        {cur ? (
           <>
-            Clarifying questions <span className="font-mono text-ink-3">{questions.length}</span>
-            <span className="ml-2 text-sm font-normal text-ink-3">All optional</span>
-          </>
-        }
-        right={pending > 0 ? <Pill tone="amber" dot>{pending} open</Pill> : undefined}
-      >
-        {questions.length === 0 ? (
-          <p className="text-base text-ink-3">No clarifying questions for this brief.</p>
-        ) : (
-          <div className="flex flex-col">
-            {questions.map((q) => (
-              <div key={q.id} className={`flex flex-col gap-3 border-b border-line py-4 first:pt-0 transition-opacity duration-150 ${skipped[q.id] ? "opacity-45" : ""}`}>
-                <div className="flex flex-wrap items-center gap-2">
-                  <span className="text-base font-medium">{q.question}</span>
-                  <span className="text-sm text-ink-3">{humanize(q.topic)}</span>
-                  {q.skipped && !answers[q.id] && <Pill>skipped</Pill>}
-                </div>
-                <div className="flex flex-wrap items-center gap-2">
-                  {q.options.map((o) => (
-                    <button
-                      key={o}
-                      onClick={() => set(q.id, o)}
-                      aria-pressed={answers[q.id] === o}
-                      className={`h-7 rounded border px-2.5 text-sm transition-colors duration-150 ${
-                        answers[q.id] === o ? "border-ink bg-ink text-white" : "border-line-2 bg-surface text-ink hover:border-ink-4"
-                      }`}
-                    >
-                      {o}
-                    </button>
-                  ))}
-                  <input
-                    value={answers[q.id] && !q.options.includes(answers[q.id]) ? answers[q.id] : ""}
-                    onChange={(e) => set(q.id, e.target.value)}
-                    placeholder="Other…"
-                    aria-label={`Other answer to: ${q.question}`}
-                    className="field !h-7 !w-44 !py-0 !text-sm"
-                  />
-                  <button
-                    onClick={() => {
-                      setSkipped((s) => ({ ...s, [q.id]: true }));
-                      setAnswers((s) => {
-                        const n = { ...s };
-                        delete n[q.id];
-                        return n;
-                      });
-                    }}
-                    className="px-1 text-sm text-ink-3 underline decoration-line-2 underline-offset-4 hover:text-ink"
-                  >
-                    Skip
-                  </button>
-                </div>
-              </div>
-            ))}
-            <div className="flex flex-wrap items-center gap-2 pt-5">
-              <Btn variant="primary" disabled={busy} onClick={() => run({ answers })}>
-                {busy && <Spinner />} Update brief with answers
-              </Btn>
-              <Btn variant="ghost" onClick={onAutorun} disabled={busy}>
-                Skip questions, autorun stages 2–7
-              </Btn>
+            <div className="flex flex-wrap gap-1.5">
+              {cur.options.map((o) => (
+                <button
+                  key={o}
+                  onClick={() => answer(cur.id, o)}
+                  className="press h-7 rounded-full bg-paper-2/80 px-3 text-sm text-ink-2 hover:bg-paper-2 hover:text-ink"
+                >
+                  {o}
+                </button>
+              ))}
             </div>
+            <form
+              className="mt-2 flex items-center gap-2"
+              onSubmit={(e) => {
+                e.preventDefault();
+                answer(cur.id, draft);
+              }}
+            >
+              <input value={draft} onChange={(e) => setDraft(e.target.value)} placeholder="Or type your own answer…" aria-label={`Your answer to: ${cur.question}`} className="field !h-8 !py-0 !text-sm" />
+              <Btn type="submit" size="md" disabled={!draft.trim()}>
+                Send
+              </Btn>
+              <Btn variant="ghost" onClick={() => skip(cur.id)}>
+                Skip
+              </Btn>
+            </form>
+            <button
+              onClick={() => {
+                setSkipped((s) => ({ ...s, ...Object.fromEntries(questions.filter((q) => !(q.id in answers)).map((q) => [q.id, true])) }));
+                setDirty(true);
+              }}
+              className="mt-2 text-sm text-ink-2 underline decoration-line-2 underline-offset-4 hover:text-ink"
+            >
+              Skip all, use defaults
+            </button>
+          </>
+        ) : (
+          <div className="flex items-center gap-3">
+            <span className="flex-1 text-sm text-ink-2">
+              {answered} answered, {questions.length - answered} kept as default.
+            </span>
+            <Btn variant="ink" disabled={busy || !dirty} onClick={() => onUpdate(answers)}>
+              {busy && <Spinner />} Update brief
+            </Btn>
           </div>
         )}
-      </Card>
+      </div>
+    </section>
+  );
+}
+
+export function BriefView({ artifact: a, busy, run, project, extras }: StageViewProps<BriefArtifact>) {
+  const questions = a.clarifying_questions ?? [];
+  const { summary } = useProject();
+  const showAutofill = (summary(2)?.status ?? "not_started") === "not_started";
+
+  return (
+    <div className={`grid h-full min-h-0 gap-5 ${questions.length ? "grid-cols-[minmax(0,1fr)_440px]" : "grid-cols-1"}`}>
+      <ScrollArea className="h-full pb-2" label="Brief">
+        <div className="flex flex-col gap-5">
+          {showAutofill && <AutofillStrip projectId={project.id} />}
+          <Card title={a.product_name} right={<Pill>{a.mode === "prototype" ? "Prototype mode" : "Idea mode"}</Pill>}>
+            <p className="max-w-[64ch] text-lg tracking-[-0.01em]">{a.one_liner}</p>
+            <p className="mt-2 text-sm text-ink-3">Prompt: &ldquo;{a.prompt}&rdquo;</p>
+            <div className="mt-6 grid gap-x-8 gap-y-4 sm:grid-cols-2 xl:grid-cols-3">
+              <KV k="Category">{a.category}</KV>
+              <KV k="Target markets">{a.target_markets.join(", ") || "—"}</KV>
+              <KV k="Target retail price">
+                <LV v={a.target_retail_price} />
+              </KV>
+              <KV k="Volume tiers">
+                <span className="font-mono">{a.target_volumes.map((v) => v.toLocaleString("en-US")).join(" / ")}</span> units
+              </KV>
+              <KV k="Battery">{a.has_battery ? "Yes" : "No"}</KV>
+              <KV k="Wireless">{a.wireless.length ? a.wireless.join(", ") : "None"}</KV>
+            </div>
+            <div className="mt-6 grid gap-8 md:grid-cols-2">
+              <KV k="Key features">
+                <Bullets items={a.key_features} />
+              </KV>
+              <KV k="Constraints">
+                <Bullets items={a.constraints} />
+              </KV>
+            </div>
+          </Card>
+          {a.pasted_bom?.length > 0 && (
+            <Card title="Pasted BOM (prototype)">
+              <BOMTable items={a.pasted_bom} />
+            </Card>
+          )}
+          {extras}
+        </div>
+      </ScrollArea>
+      {questions.length > 0 && <Questions key={a.generated_at} questions={questions} busy={busy} onUpdate={(answers) => run({ answers })} />}
     </div>
   );
 }
@@ -239,10 +350,10 @@ export function DesignView({ artifact: a, busy, save, runOther }: StageViewProps
         return (
           <section
             key={d.id}
-            className={`flex flex-col overflow-hidden rounded-md border bg-surface transition-colors duration-150 ${chosen ? "border-ink" : "border-line hover:border-line-2"}`}
+            className={`flex flex-col overflow-hidden rounded-md bg-surface transition-shadow duration-150 ${chosen ? "shadow-[0_0_0_2px_var(--color-ink)]" : "hover:shadow-[0_0_0_1px_var(--color-line-2)]"}`}
           >
             <DirectionMedia projectId={a.project_id} d={d} />
-            <div className="flex flex-1 flex-col gap-4 border-t border-line p-5">
+            <div className="flex flex-1 flex-col gap-4 p-5">
               <div className="flex items-center justify-between gap-2">
                 <h3 className="flex items-baseline gap-2.5 text-lg font-semibold tracking-[-0.015em]">
                   <span className="font-mono text-sm font-normal text-ink-3">{String.fromCharCode(65 + i)}</span>
@@ -251,7 +362,7 @@ export function DesignView({ artifact: a, busy, save, runOther }: StageViewProps
                 {chosen && <Pill tone="accent" dot>Chosen</Pill>}
               </div>
               <p className="text-base text-ink-2">{d.description}</p>
-              <dl className="grid grid-cols-[88px_1fr] gap-x-3 gap-y-2 border-t border-line pt-4 text-base">
+              <dl className="grid grid-cols-[88px_1fr] gap-x-3 gap-y-2 pt-1 text-base">
                 <dt className="text-ink-3">Shape</dt>
                 <dd>{d.shape}</dd>
                 <dt className="text-ink-3">Material</dt>
@@ -292,7 +403,7 @@ export function BlockDiagram({ blocks, edges, functional }: { blocks: Electronic
         {ordered.map((b) => {
           const links = edges.filter((e) => e.source === b.id || e.target === b.id).length;
           return (
-            <li key={b.id} className="flex flex-col gap-1 rounded-sm border border-line-2 bg-surface px-3 py-2.5" title={b.function}>
+            <li key={b.id} className="flex flex-col gap-1 rounded-sm bg-paper px-3 py-2.5" title={b.function}>
               <span className="flex items-center justify-between font-mono text-2xs text-ink-3">
                 {b.id}
                 {links > 0 && <span>{links} link{links > 1 ? "s" : ""}</span>}
@@ -305,7 +416,7 @@ export function BlockDiagram({ blocks, edges, functional }: { blocks: Electronic
       </ol>
       {edges.length > 0 && (
         <div>
-          <p className="micro border-b border-line-2 pb-2">{functional ? "Links" : "Signals"}</p>
+          <p className="micro pb-1">{functional ? "Links" : "Signals"}</p>
           <ul className="grid gap-x-8 sm:grid-cols-2">
             {edges.map((e, i) => (
               <li key={i} className="flex flex-wrap items-baseline gap-x-2 border-b border-line py-2 text-base">
@@ -507,7 +618,7 @@ export function SpecView({ artifact: a, project, busy, save }: StageViewProps<Sp
       >
         {editing ? <PartsEditor parts={s.parts} onChange={(parts) => setDraft({ ...s, parts })} /> : <PartsTable parts={s.parts} />}
         {editing && (
-          <div className="mt-5 flex flex-wrap items-center gap-2 border-t border-line pt-5">
+          <div className="mt-6 flex flex-wrap items-center gap-2">
             <Btn variant="primary" onClick={commit} disabled={busy}>
               {busy && <Spinner />} Save spec
             </Btn>

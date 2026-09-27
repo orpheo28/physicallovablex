@@ -4,14 +4,14 @@
 (ours, Claude, ChatGPT, a buyer's own agent) can query capacity the same way. Research (E_usines.md) found no
 public capacity API: the network *creates* the data through factory onboarding (`register_capacity`).
 
-> Everything here is **Fictional — demo data**: the 8 factories, their capacity, quotes, replies and past performance.
+> Everything here is **Fictional — demo data**: the 15 fictional partners (11 factories, 1 integrator, 3 installers), their capacity, quotes, replies and past performance.
 > Every name ends with "(fictional)".
 
 | File | What |
 |---|---|
 | `network.py` | Plain Python (no MCP import): SQLite store + the 7 tools + `list_factories / get_factory / list_rfqs` (factory portal) |
 | `server.py` | MCP server (official SDK v2 `MCPServer`, ex-`FastMCP`) exposing the 7 tools over `network.py` |
-| `data/factories.json` | 8 seed factories (W0's 4 ids kept + mould maker, box-build EMS, die-caster, 1688-style workshop) |
+| `data/factories.json` | 15 seed partners, `kind` factory / integrator / installer: W0's 4 ids + mould maker, box-build EMS, die-caster, 1688-style workshop; 3 installers (W20); 2 wearable EMS + 1 drone/robot integrator (W21); LSR overmolder Coralline (W21b) |
 | `data/seed_rfqs.json` | Demo RFQs for the desk lamp (portal history) |
 | `data/network.db` | Runtime state (gitignored). Path: `$FACTORY_MCP_DB`, else next to `$DB_PATH` (`app.db` → `factory_network.db`, `<name>.db` → `<name>_network.db`, so isolated DBs never share a store), else here. SQLite WAL |
 

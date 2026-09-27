@@ -1,0 +1,49 @@
+{
+ "id": "demo_hair_dryer",
+ "slug": "hair_dryer",
+ "name": "Quiet compact hair dryer",
+ "prompt": "A quiet, compact hair dryer",
+ "category": "hair_dryer",
+ "strategy": "module_assembly",
+ "hero_image_url": "/files/demo_hair_dryer/photo_v1_hero_studio.png",
+ "glb_url": "/files/demo_hair_dryer/model_v1.glb",
+ "one_line_result": "1 version · AI-written CAD · $42.93/unit @ 2,000 (Estimate) · Module assembly · 7/13 stages",
+ "unit_basis": "per_unit",
+ "unit_cost": {
+  "value": 42.93,
+  "unit": "USD",
+  "label": "estimate",
+  "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
+ },
+ "versions": 1,
+ "stages_done": 7,
+ "tags": [
+  "Example"
+ ],
+ "seeded": false,
+ "hero_image_label": "Photo-styled from the CAD (AI image, geometry from our CAD)",
+ "photos": [
+  {
+   "shot": "hero_studio",
+   "url": "/files/demo_hair_dryer/photo_v1_hero_studio.png",
+   "label": "Photo-styled from the CAD (AI image, geometry from our CAD)",
+   "reference": "cad_render",
+   "aspect_ratio": "4:5",
+   "staged": false,
+   "model": "google/gemini-3.1-flash-image",
+   "version": 1,
+   "created_at": "2026-09-27T12:00:00Z"
+  },
+  {
+   "shot": "lifestyle",
+   "url": "/files/demo_hair_dryer/photo_v1_lifestyle.png",
+   "label": "Photo-styled from the CAD (AI image, geometry from our CAD) · Staged scene — illustrative",
+   "reference": "cad_render",
+   "aspect_ratio": "4:5",
+   "staged": true,
+   "model": "google/gemini-3.1-flash-image",
+   "version": 1,
+   "created_at": "2026-09-27T12:00:00Z"
+  }
+ ]
+}

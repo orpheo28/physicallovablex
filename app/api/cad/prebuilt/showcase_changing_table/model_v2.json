@@ -1,0 +1,254 @@
+{
+ "status": "ok",
+ "version": 2,
+ "source": "llm:openai/gpt-6-sol",
+ "label": "AI-generated CAD (concept level) \u2014 geometry measured on the result",
+ "category": "furniture_child",
+ "seed_family": "furniture",
+ "variant": "changing_table",
+ "files": {
+  "step": "api/data/files_w21/p_b49d3971fe/model_v2.step",
+  "stl": "api/data/files_w21/p_b49d3971fe/model_v2.stl",
+  "glb": "api/data/files_w21/p_b49d3971fe/model_v2.glb"
+ },
+ "urls": {
+  "step": "/files/p_b49d3971fe/model_v2.step",
+  "stl": "/files/p_b49d3971fe/model_v2.stl",
+  "glb": "/files/p_b49d3971fe/model_v2.glb"
+ },
+ "code_path": "api/data/files_w21/p_b49d3971fe/model_v2.py",
+ "code_url": "/projects/p_b49d3971fe/cad/code/2",
+ "bbox_mm": [
+  900.0,
+  564.5,
+  1010.0
+ ],
+ "volume_mm3": 46506556.6,
+ "parts": [
+  {
+   "label": "body.1",
+   "role": "body",
+   "volume_mm3": 9043100.5,
+   "valid": true,
+   "bbox_mm": [
+    900.0,
+    560.0,
+    18.0
+   ]
+  },
+  {
+   "label": "wood.1",
+   "role": "wood",
+   "volume_mm3": 887116.1,
+   "valid": true,
+   "bbox_mm": [
+    76.0,
+    18.0,
+    857.0
+   ]
+  },
+  {
+   "label": "wood.2",
+   "role": "wood",
+   "volume_mm3": 887116.1,
+   "valid": true,
+   "bbox_mm": [
+    76.0,
+    18.0,
+    857.0
+   ]
+  },
+  {
+   "label": "wood.3",
+   "role": "wood",
+   "volume_mm3": 887116.1,
+   "valid": true,
+   "bbox_mm": [
+    76.0,
+    18.0,
+    857.0
+   ]
+  },
+  {
+   "label": "wood.4",
+   "role": "wood",
+   "volume_mm3": 887116.1,
+   "valid": true,
+   "bbox_mm": [
+    76.0,
+    18.0,
+    857.0
+   ]
+  },
+  {
+   "label": "body.2",
+   "role": "body",
+   "volume_mm3": 1028160.0,
+   "valid": true,
+   "bbox_mm": [
+    714.0,
+    18.0,
+    80.0
+   ]
+  },
+  {
+   "label": "body.3",
+   "role": "body",
+   "volume_mm3": 1028160.0,
+   "valid": true,
+   "bbox_mm": [
+    714.0,
+    18.0,
+    80.0
+   ]
+  },
+  {
+   "label": "body.4",
+   "role": "body",
+   "volume_mm3": 642240.0,
+   "valid": true,
+   "bbox_mm": [
+    18.0,
+    446.0,
+    80.0
+   ]
+  },
+  {
+   "label": "body.5",
+   "role": "body",
+   "volume_mm3": 642240.0,
+   "valid": true,
+   "bbox_mm": [
+    18.0,
+    446.0,
+    80.0
+   ]
+  },
+  {
+   "label": "body.6",
+   "role": "body",
+   "volume_mm3": 2109880.9,
+   "valid": true,
+   "bbox_mm": [
+    876.0,
+    18.0,
+    135.0
+   ]
+  },
+  {
+   "label": "body.7",
+   "role": "body",
+   "volume_mm3": 1237989.5,
+   "valid": true,
+   "bbox_mm": [
+    18.0,
+    514.0,
+    135.0
+   ]
+  },
+  {
+   "label": "body.8",
+   "role": "body",
+   "volume_mm3": 1237989.5,
+   "valid": true,
+   "bbox_mm": [
+    18.0,
+    514.0,
+    135.0
+   ]
+  },
+  {
+   "label": "wood.5",
+   "role": "wood",
+   "volume_mm3": 7246660.9,
+   "valid": true,
+   "bbox_mm": [
+    825.0,
+    488.0,
+    18.0
+   ]
+  },
+  {
+   "label": "wood.6",
+   "role": "wood",
+   "volume_mm3": 693582.2,
+   "valid": true,
+   "bbox_mm": [
+    810.0,
+    18.0,
+    48.0
+   ]
+  },
+  {
+   "label": "fabric.1",
+   "role": "fabric",
+   "volume_mm3": 1747647.6,
+   "valid": true,
+   "bbox_mm": [
+    345.0,
+    300.0,
+    125.0
+   ]
+  },
+  {
+   "label": "fabric.2",
+   "role": "fabric",
+   "volume_mm3": 1747647.6,
+   "valid": true,
+   "bbox_mm": [
+    345.0,
+    300.0,
+    125.0
+   ]
+  },
+  {
+   "label": "coat.1",
+   "role": "coat",
+   "volume_mm3": 14517098.9,
+   "valid": true,
+   "bbox_mm": [
+    826.0,
+    495.0,
+    36.0
+   ]
+  },
+  {
+   "label": "steel.1",
+   "role": "steel",
+   "volume_mm3": 17847.3,
+   "valid": true,
+   "bbox_mm": [
+    48.0,
+    5.0,
+    76.0
+   ]
+  },
+  {
+   "label": "steel.2",
+   "role": "steel",
+   "volume_mm3": 17847.3,
+   "valid": true,
+   "bbox_mm": [
+    48.0,
+    5.0,
+    76.0
+   ]
+  }
+ ],
+ "target_dims_mm": null,
+ "attempts": [
+  {
+   "n": 1,
+   "kind": "edit",
+   "llm_seconds": 14.3,
+   "run_seconds": 1.98,
+   "error": null,
+   "error_kind": null
+  }
+ ],
+ "notes": [],
+ "instruction": "add two storage baskets",
+ "parent_version": 1,
+ "seconds": 16.39,
+ "brief": "product_name: Safe baby changing table; one_liner: A freestanding baby changing table with a stable frame, raised edges, and a wipe-clean changing surface.; category: mechanical; key_features: Stable freestanding frame; Raised edges around the changing surface; Wipe-clean changing surface; Accessible storage for changing supplies; Anchor provision to reduce tip-over risk; prompt: A simple, safe changing table for babies"
+}

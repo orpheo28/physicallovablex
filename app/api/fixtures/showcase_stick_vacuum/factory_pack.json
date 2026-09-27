@@ -1,0 +1,2220 @@
+{
+ "id": "fp_demo_stick_vacuum_v2",
+ "project_id": "demo_stick_vacuum",
+ "version": 2,
+ "created_at": "2026-09-26T23:59:36.921481Z",
+ "fallback": false,
+ "cached_note": null,
+ "fallback_stages": [],
+ "product_name": "Cordless stick vacuum",
+ "product_summary": "A battery-powered stick vacuum for cleaning floors and above-floor surfaces. Target volumes: 500 / 2,000 / 10,000 units; markets: US.",
+ "product_summary_cn": "一款电池供电的杆式吸尘器，用于清洁地板及地板以上表面。目标产量：500 / 2,000 / 10,000 台；目标市场：美国。",
+ "target_markets": [
+  "US"
+ ],
+ "spec": {
+  "overall_dimensions": {
+   "length": {
+    "value": 247.6,
+    "unit": "mm",
+    "label": "measured",
+    "source_or_assumption": "Bounding box of the full product (family CAD, build123d/OCCT)"
+   },
+   "width": {
+    "value": 250.0,
+    "unit": "mm",
+    "label": "measured",
+    "source_or_assumption": "Bounding box of the full product (family CAD, build123d/OCCT)"
+   },
+   "height": {
+    "value": 1190.5,
+    "unit": "mm",
+    "label": "measured",
+    "source_or_assumption": "Bounding box of the full product (family CAD, build123d/OCCT)"
+   }
+  },
+  "weight": {
+   "value": 280.6,
+   "unit": "g",
+   "label": "estimate",
+   "source_or_assumption": "Enclosure volume 244.0 cm³ (measured) × PC/ABS 1.15 g/cm³; electronics and battery not included"
+  },
+  "parts": [
+   {
+    "id": "p1",
+    "name": "Bottom shell",
+    "material": "PC/ABS (UL94 V-0)",
+    "finish": "Satin · Nickel #9A9DA1",
+    "process_hint": "injection_molding",
+    "tolerance": "±0.1 mm on mating faces and boss pilots",
+    "dimensions": {
+     "length": {
+      "value": 253.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the built STEP (build123d/OCCT), this part"
+     },
+     "width": {
+      "value": 100.8,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the built STEP (build123d/OCCT), this part"
+     },
+     "height": {
+      "value": 52.8,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the built STEP (build123d/OCCT), this part"
+     }
+    },
+    "wall_thickness": {
+     "value": 2.2,
+     "unit": "mm",
+     "label": "estimate",
+     "source_or_assumption": "Design parameter (nominal wall); measured in DFM stage 4"
+    },
+    "quantity": 1
+   },
+   {
+    "id": "p2",
+    "name": "Top shell",
+    "material": "PC/ABS (UL94 V-0)",
+    "finish": "Satin · Nickel #9A9DA1",
+    "process_hint": "injection_molding",
+    "tolerance": "±0.1 mm on mating faces and boss pilots",
+    "dimensions": {
+     "length": {
+      "value": 253.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the built STEP (build123d/OCCT), this part"
+     },
+     "width": {
+      "value": 100.8,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the built STEP (build123d/OCCT), this part"
+     },
+     "height": {
+      "value": 52.8,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the built STEP (build123d/OCCT), this part"
+     }
+    },
+    "wall_thickness": {
+     "value": 2.2,
+     "unit": "mm",
+     "label": "estimate",
+     "source_or_assumption": "Design parameter (nominal wall); measured in DFM stage 4"
+    },
+    "quantity": 1
+   },
+   {
+    "id": "p3",
+    "name": "Main PCB assembly",
+    "material": "FR-4 1.6 mm",
+    "finish": "HASL lead-free, green mask",
+    "process_hint": "pcba",
+    "tolerance": "±0.2 mm outline",
+    "dimensions": {
+     "length": {
+      "value": 234.6,
+      "unit": "mm",
+      "label": "estimate",
+      "source_or_assumption": "PCB length: fits the inner cavity with 1 mm clearance"
+     },
+     "width": {
+      "value": 82.4,
+      "unit": "mm",
+      "label": "estimate",
+      "source_or_assumption": "PCB width: fits the inner cavity with 1 mm clearance"
+     },
+     "height": {
+      "value": 1.6,
+      "unit": "mm",
+      "label": "estimate",
+      "source_or_assumption": "PCB thickness: fits the inner cavity with 1 mm clearance"
+     }
+    },
+    "wall_thickness": null,
+    "quantity": 1
+   },
+   {
+    "id": "p4",
+    "name": "Screws M2.5 × 6 self-tapping",
+    "material": "Steel",
+    "finish": "Black zinc",
+    "process_hint": "other",
+    "tolerance": null,
+    "dimensions": null,
+    "wall_thickness": null,
+    "quantity": 4
+   }
+  ],
+  "tolerances": [
+   "General ISO 2768-m",
+   "Shell mating faces ±0.1 mm",
+   "Boss pilot Ø2.2 +0.05/0 mm",
+   "Split-line step ≤ 0.1 mm"
+  ]
+ },
+ "cad_files": [
+  {
+   "format": "glb",
+   "url": "/files/demo_stick_vacuum/model_v2.glb",
+   "description": "AI-generated CAD (concept level) — geometry measured on the result — bbox 265 × 250 × 1180 mm",
+   "size_bytes": 862484
+  },
+  {
+   "format": "step",
+   "url": "/files/demo_stick_vacuum/model_v2.step",
+   "description": "AI-generated CAD (concept level) — geometry measured on the result — STEP AP214",
+   "size_bytes": 428548
+  },
+  {
+   "format": "py",
+   "url": "/projects/demo_stick_vacuum/cad/code/2",
+   "description": "AI-generated CAD (concept level) — geometry measured on the result — build123d program v2 (llm:openai/gpt-6-sol)",
+   "size_bytes": 5454
+  },
+  {
+   "format": "glb",
+   "url": "/files/demo_stick_vacuum/v2.glb",
+   "description": "Full product — materials",
+   "size_bytes": 764936
+  },
+  {
+   "format": "step",
+   "url": "/files/demo_stick_vacuum/v2_enclosure.step",
+   "description": "Moulded parts (DFM) — both shells, STEP AP214",
+   "size_bytes": 403364
+  },
+  {
+   "format": "stl",
+   "url": "/files/demo_stick_vacuum/v2_enclosure.stl",
+   "description": "Moulded parts (DFM) — mesh for 3D printing",
+   "size_bytes": 1074684
+  },
+  {
+   "format": "glb",
+   "url": "/files/demo_stick_vacuum/v2_enclosure.glb",
+   "description": "Moulded parts (DFM) — viewer model",
+   "size_bytes": 613040
+  },
+  {
+   "format": "step",
+   "url": "/files/demo_stick_vacuum/v2.step",
+   "description": "Full product — all parts, STEP AP214",
+   "size_bytes": 348223
+  }
+ ],
+ "bom": [
+  {
+   "id": "e1",
+   "part": "21.6 V (6S) rechargeable Li-ion battery pack with protection",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Removable pack; capacity and cell model to be finalized to runtime and motor requirements.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 19.228,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Battery priced by energy: 2500 mAh × 21.6 V = 54.0 Wh (6S appliance pack) × $0.35/Wh + pack overhead"
+   },
+   "risk": {
+    "level": "medium",
+    "reasons": [
+     "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+    ]
+   },
+   "alternative": null
+  },
+  {
+   "id": "e2",
+   "part": "High-speed BLDC vacuum motor assembly",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Motor and drive electronics suitable for the motor pod; voltage and power rating to be finalized.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 25.76,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: 100k rpm BLDC suction motor with impeller ≈ USD 28 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "risk": {
+    "level": "medium",
+    "reasons": [
+     "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+    ]
+   },
+   "alternative": null
+  },
+  {
+   "id": "e3",
+   "part": "Motor control PCB with MOSFETs, MCU and grouped passives",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Motor control and battery monitoring; grouped passives include resistors and capacitors.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 5.52,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: motor / control PCBA ≈ USD 6 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "risk": {
+    "level": "medium",
+    "reasons": [
+     "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+    ]
+   },
+   "alternative": null
+  },
+  {
+   "id": "e4",
+   "part": "Pistol-grip trigger switch",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "User power control input to motor controller.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 1.104,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "No match in LCSC snapshot 2026-09-26. Placeholder estimate for a 'motor' line (not a catalogue part): USD 1.20 per unit"
+   },
+   "risk": {
+    "level": "medium",
+    "reasons": [
+     "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+    ]
+   },
+   "alternative": null
+  },
+  {
+   "id": "e5",
+   "part": "DC charging connector and charge interface",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Charging connection and associated protection/interface components; charger not included.",
+   "manufacturer_pn": null,
+   "lcsc_pn": "C7462836",
+   "unit_cost_est": {
+    "value": 0.0227,
+    "unit": "USD",
+    "label": "sourced",
+    "source_or_assumption": "LCSC price, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C7462836.html"
+   },
+   "risk": {
+    "level": "low",
+    "reasons": [
+     "JLCPCB extended part (per-part-type feeder fee at assembly)"
+    ]
+   },
+   "alternative": null
+  },
+  {
+   "id": "m1",
+   "part": "Motorized floor head assembly",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Powered brush-roll head with housing, brush roll and floor-contact components.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 11.04,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: motorised floor head with brush roll ≈ USD 12 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m2",
+   "part": "Aluminium wand",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Connecting suction tube between floor head and cyclone assembly.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 3.68,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: aluminium wand ≈ USD 4 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m3",
+   "part": "Cyclone and clear removable dust bin assembly",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Cyclone separator with removable transparent dust container.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 5.52,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: cyclone + clear bin moulding set ≈ USD 6 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m4",
+   "part": "Washable filter",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Removable washable filter element.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 1.84,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: washable filter ≈ USD 2 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m5",
+   "part": "Top shell",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "PC/ABS UL94 V-0 moulded housing shell; approximately 253 × 101 × 106 mm overall shell envelope.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 1.9126,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Top shell: Moulded shell 253×100.8×52.8 mm, wall 2.2 mm ≈ 116.6 cm³ × 1.15 g/cm³ = 134 g × $3.2/kg + $1.65 moulding/finish conversion"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m6",
+   "part": "Bottom shell",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "PC/ABS UL94 V-0 moulded housing shell; mates with top shell.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 1.9126,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Bottom shell: Moulded shell 253×100.8×52.8 mm, wall 2.2 mm ≈ 116.6 cm³ × 1.15 g/cm³ = 134 g × $3.2/kg + $1.65 moulding/finish conversion"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m7",
+   "part": "Pistol grip and motor pod housing",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Structural housing components for handle, motor and battery interfaces.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 4.2228,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Battery priced by energy: 2000 mAh × 3.7 V = 7.4 Wh (generic pack) × $0.35/Wh + pack overhead"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m8",
+   "part": "Assembly screws",
+   "category": "mechanical",
+   "qty": 12.0,
+   "description": "Assorted screws for housing and subassembly fastening; final sizes to be determined.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.0276,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: screw ≈ USD 0.03 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "k1",
+   "part": "Retail carton with protective inserts",
+   "category": "packaging",
+   "qty": 1.0,
+   "description": "Protective packaging sized for one assembled vacuum and accessories.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 1.38,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: retail carton + insert ≈ USD 1.5 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "k2",
+   "part": "Printed user manual",
+   "category": "packaging",
+   "qty": 1.0,
+   "description": "Operating, charging and filter-cleaning instructions.",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.276,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: printed guide ≈ USD 0.3 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  }
+ ],
+ "dfm_alerts": [
+  {
+   "id": "a3",
+   "severity": "critical",
+   "category": "assembly",
+   "method": "ai_reviewed",
+   "part_id": null,
+   "description": "The rechargeable pack is specified without cell retention, wire routing, thermal separation or vent provisions. A factory cannot validate safe assembly near the motor.",
+   "fix": "Define pack mounting, harness restraints, clearances and a vent path; verify thermal and abuse behavior in the assembled product.",
+   "rule_citation": "Safety requirements for household electrical appliances and vacuum cleaners — IEC 60335-1 and IEC 60335-2-2",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a1",
+   "severity": "major",
+   "category": "assembly",
+   "method": "ai_reviewed",
+   "part_id": "p1",
+   "description": "The boss pilot is specified, but boss outside diameter, engagement depth and screw-hole condition are not. The selected self-tapping screws may split bosses or strip during assembly.",
+   "fix": "Define boss geometry and pilot depth against the screw supplier's PC/ABS recommendations; validate insertion and strip torque on molded samples.",
+   "rule_citation": "Size molded screw bosses for the selected fastener and resin — Protolabs injection molding design guide",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a2",
+   "severity": "major",
+   "category": "tolerance",
+   "method": "ai_reviewed",
+   "part_id": null,
+   "description": "Shell mating-face and split-line requirements lack datums and an assembled inspection method; independent part tolerances do not guarantee the required assembled step.",
+   "fix": "Add a datum scheme, locating features and a tolerance stack-up; specify how the step is measured on assembled shells.",
+   "rule_citation": "Geometric tolerances require defined datum references for functional inspection — ISO 1101",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a4",
+   "severity": "major",
+   "category": "other",
+   "method": "ai_reviewed",
+   "part_id": null,
+   "description": "The charging interface and protected pack have no defined electrical compatibility or charge-control requirements, leaving the factory without a testable charging specification.",
+   "fix": "Specify charger output, pack charge limits, protection functions, connector polarity and end-of-line charging tests.",
+   "rule_citation": "Safety requirements and tests for portable sealed secondary lithium cells and batteries — IEC 62133-2",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a5",
+   "severity": "major",
+   "category": "material",
+   "method": "ai_reviewed",
+   "part_id": "p2",
+   "description": "The flame-rated PC/ABS callout does not identify an approved resin grade or confirm that the specified color retains the required rating.",
+   "fix": "Specify a supplier grade and obtain flame-rating documentation for the production formulation and applicable thickness.",
+   "rule_citation": "Flammability classification applies to tested plastic material specimens — UL 94",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "m1",
+   "severity": "minor",
+   "category": "projection",
+   "method": "measured",
+   "part_id": "p1",
+   "description": "Projected area along +Z: 24904 mm² (part silhouette, per cavity). Estimated clamp force ≈ 127.4 t (Estimate: area in² × 3.0 t/in² for PC/ABS × 1.1 safety) — per cavity; a family tool moulding both shells in one shot roughly doubles it.",
+   "fix": "Quote on a press ≥ 160 t; keep both shells in one family mould only if tonnage allows.",
+   "rule_citation": "Clamp force ≈ projected area × cavity-pressure factor (2-5 t/in²) — Protolabs injection molding design guidelines; silhouette raster from text-to-cad DFM skill (mold_tool.py, MIT) ported to OCCT",
+   "measurement": {
+    "value": 24903.5,
+    "unit": "mm2",
+    "label": "measured",
+    "source_or_assumption": "Silhouette along +Z, raster 0.6325 mm — text-to-cad DFM skill (mold_tool.py, MIT) ported to OCCT"
+   },
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "m2",
+   "severity": "minor",
+   "category": "wall_thickness",
+   "method": "measured",
+   "part_id": "p1",
+   "description": "Measured wall 2.20-2.20 mm is within the PC/ABS 1.2-3.5 mm range; keep bosses/ribs ≤ 60% of nominal wall to avoid sink.",
+   "fix": "No change to nominal wall; core bosses and ribs to ≤ 60% of the wall.",
+   "rule_citation": "PC/ABS wall 1.2-3.5 mm, ribs/bosses ≤ 60% of wall — Protolabs injection molding design guidelines",
+   "measurement": {
+    "value": 2.2,
+    "unit": "mm",
+    "label": "measured",
+    "source_or_assumption": "5th percentile of 10760 ray samples into the material (median 2.2 mm)"
+   },
+   "resolved": false,
+   "resolution": null
+  }
+ ],
+ "certifications": [
+  {
+   "market": "US",
+   "standard": "FCC Part 15B (unintentional radiator)",
+   "applies_because": "Digital circuitry (MCU clock, switching drivers) can emit RF noise; SDoC on a lab report. Sourced: 47 CFR 15.101 (Equipment authorization of unintentional radiators): “(a) Except as otherwise exempted in §§ 15.23, 15.103, and 15.113, unintentional radiators shall be authorized prior to the initiation of marketing, pursuant to the procedures for certification or Supplier's Declaration of…” — eCFR text as of 2026-09-22, retrieved 2026-09-26, https://www.ecfr.gov/current/title-47/section-15.101. See also 47 CFR 15.107, 47 CFR 15.109, 47 CFR 15.19, 47 CFR 15.103.",
+   "required": true,
+   "cost_est": {
+    "value": 2500.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Accredited-lab range, demo assumption"
+   },
+   "lead_time_weeks": {
+    "value": 4.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Typical lab queue + report, demo assumption"
+   }
+  },
+  {
+   "market": "Global",
+   "standard": "UN38.3 (lithium battery transport tests)",
+   "applies_because": "Lithium cells must pass UN Manual of Tests and Criteria 38.3 to ship by sea/air; ask the cell supplier for the test summary. Reference: UN Manual of Tests and Criteria, section 38.3; IATA Lithium Battery Guidance Document 2026, https://www.iata.org/contentassets/05e6d8742b0047259bf3a700bc9d42b9/lithium-battery-guidance-document.pdf",
+   "required": true,
+   "cost_est": {
+    "value": 1000.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Accredited-lab range, demo assumption"
+   },
+   "lead_time_weeks": {
+    "value": 4.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Typical lab queue + report, demo assumption"
+   }
+  },
+  {
+   "market": "Global",
+   "standard": "IEC 62133-2 (secondary lithium cell/battery safety)",
+   "applies_because": "Rechargeable lithium cell inside the product; also required by many retailers and by EU/UK market surveillance",
+   "required": true,
+   "cost_est": {
+    "value": 2500.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Accredited-lab range, demo assumption"
+   },
+   "lead_time_weeks": {
+    "value": 4.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Typical lab queue + report, demo assumption"
+   }
+  },
+  {
+   "market": "US",
+   "standard": "UL 1017",
+   "applies_because": "This is a motorized household vacuum cleaner, a product type covered by UL 1017.",
+   "required": false,
+   "cost_est": {
+    "value": 20000.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "LLM-proposed rough estimate — get a lab quote to confirm"
+   },
+   "lead_time_weeks": {
+    "value": 8.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "LLM-proposed rough estimate — get a lab quote to confirm"
+   }
+  }
+ ],
+ "target_quantities": [
+  500,
+  2000,
+  10000
+ ],
+ "cost_estimate": [
+  {
+   "quantity": 500,
+   "bom_cost": {
+    "value": 89.23,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Electronics at LCSC price breaks (LCSC price, 2026-09-26); other lines base × 0.92^0"
+   },
+   "assembly_cost": {
+    "value": 15.59,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Assembly + factory overhead/margin: 13.8 min = 6 base + 0.6 × 13 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^0"
+   },
+   "packaging_cost": {
+    "value": 1.8,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Packaging BOM lines × 0.92^0"
+   },
+   "unit_cost": {
+    "value": 106.62,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
+   },
+   "tooling_amortisation": {
+    "value": 12.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "$6,000 tooling ÷ 500"
+   },
+   "margin_pct": {
+    "value": 30.2,
+    "unit": "pct",
+    "label": "estimate",
+    "source_or_assumption": "($249.00 target − $173.83 landed estimate) ÷ target; before retailer margin, VAT and marketing"
+   }
+  },
+  {
+   "quantity": 2000,
+   "bom_cost": {
+    "value": 82.09,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Electronics at LCSC price breaks (LCSC price, 2026-09-26); other lines base × 0.92^1"
+   },
+   "assembly_cost": {
+    "value": 14.34,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Assembly + factory overhead/margin: 13.8 min = 6 base + 0.6 × 13 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^1"
+   },
+   "packaging_cost": {
+    "value": 1.66,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Packaging BOM lines × 0.92^1"
+   },
+   "unit_cost": {
+    "value": 98.09,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
+   },
+   "tooling_amortisation": {
+    "value": 3.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "$6,000 tooling ÷ 2,000"
+   },
+   "margin_pct": {
+    "value": 39.0,
+    "unit": "pct",
+    "label": "estimate",
+    "source_or_assumption": "($249.00 target − $151.89 landed estimate) ÷ target; before retailer margin, VAT and marketing"
+   }
+  },
+  {
+   "quantity": 10000,
+   "bom_cost": {
+    "value": 75.52,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Electronics at LCSC price breaks (LCSC price, 2026-09-26); other lines base × 0.92^2"
+   },
+   "assembly_cost": {
+    "value": 13.19,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Assembly + factory overhead/margin: 13.8 min = 6 base + 0.6 × 13 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^2"
+   },
+   "packaging_cost": {
+    "value": 1.52,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Packaging BOM lines × 0.92^2"
+   },
+   "unit_cost": {
+    "value": 90.24,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
+   },
+   "tooling_amortisation": {
+    "value": 0.6,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "$6,000 tooling ÷ 10,000"
+   },
+   "margin_pct": {
+    "value": 45.0,
+    "unit": "pct",
+    "label": "estimate",
+    "source_or_assumption": "($249.00 target − $136.90 landed estimate) ÷ target; before retailer margin, VAT and marketing"
+   }
+  }
+ ],
+ "questions": [
+  {
+   "id": "fq1",
+   "en": "DFM critical — The rechargeable pack is specified without cell retention, wire routing, thermal separation or vent provisions. A factory cannot validate safe assembly near the motor. Proposed fix: Define pack mounting, harness restraints, clearances and a vent path; verify thermal and abuse behavior in the assembled product. Can you accommodate this, and at what cost or lead-time impact?",
+   "cn": "DFM 关键问题 — 可充电电池组的规格中未定义电芯固定、走线布置、隔热分离或泄压通道。工厂无法验证其在电机附近装配的安全性。建议解决方案：定义电池组安装方式、线束固定、间隙及泄压路径；在整机装配状态下验证热性能及滥用测试表现。贵厂能否满足此要求？对成本或交期有何影响？",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  },
+  {
+   "id": "fq2",
+   "en": "DFM major — The boss pilot is specified, but boss outside diameter, engagement depth and screw-hole condition are not. The selected self-tapping screws may split bosses or strip during assembly. Proposed fix: Define boss geometry and pilot depth against the screw supplier's PC/ABS recommendations; validate insertion and strip torque on molded samples. Can you accommodate this, and at what cost or lead-time impact?",
+   "cn": "DFM 主要问题 — 已指定凸台导引孔，但未指定凸台外径、啮合深度及螺孔状态。所选自攻螺丝可能在装配时导致凸台开裂或滑牙。建议解决方案：根据螺丝供应商的 PC/ABS 建议定义凸台几何形状和导引孔深度；在注塑样品上验证旋入扭矩和滑牙扭矩。贵厂能否满足此要求？对成本或交期有何影响？",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  },
+  {
+   "id": "fq3",
+   "en": "DFM major — Shell mating-face and split-line requirements lack datums and an assembled inspection method; independent part tolerances do not guarantee the required assembled step. Proposed fix: Add a datum scheme, locating features and a tolerance stack-up; specify how the step is measured on assembled shells. Can you accommodate this, and at what cost or lead-time impact?",
+   "cn": "DFM 主要问题 — 壳体配合面和分型线要求缺少基准及装配后检验方法；各零件的独立公差无法保证所需的装配后台阶。建议解决方案：增加基准体系、定位特征及公差叠加分析；规定台阶在装配壳体上的测量方法。贵厂能否满足此要求？对成本或交期有何影响？",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  },
+  {
+   "id": "fq4",
+   "en": "What are your MOQ and lead time for 500 units, and how do they change at 2,000 and 10,000 units?",
+   "cn": "500 台的起订量（MOQ）和交期是多少？在 2,000 台和 10,000 台时如何变化？",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  },
+  {
+   "id": "fq5",
+   "en": "What payment terms and sample rounds (T0, T1, golden sample) do you propose, with dates?",
+   "cn": "贵厂建议的付款条件及样品轮次（T0、T1、标准样品）是什么？请提供具体日期。",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  },
+  {
+   "id": "fq6",
+   "en": "Please confirm the tolerances in the spec and flag any tolerance or finish you cannot hold.",
+   "cn": "请确认规格书中的公差，并指出任何无法保证的公差或表面处理。",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  },
+  {
+   "id": "fq7",
+   "en": "Which BOM components do you source yourselves, and do you accept the listed alternatives for high-risk parts?",
+   "cn": "贵厂自行采购哪些 BOM 物料？是否接受高风险零件清单中的替代料？",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  }
+ ],
+ "assumption_register": [
+  {
+   "id": "a1",
+   "text": "Skipped clarifying questions use their defaults: markets=US; volume=1,000–10,000 units; target_price=$200–$299; battery=Rechargeable Li-ion; wireless=None. Re-run stage 1 with answers to change them.",
+   "label": "estimate",
+   "source": null,
+   "stage": 1
+  },
+  {
+   "id": "a2",
+   "text": "Target retail price proposed by the spec copilot (not stated by the founder); confirm before costing.",
+   "label": "estimate",
+   "source": null,
+   "stage": 1
+  },
+  {
+   "id": "a2_1",
+   "text": "Directions from the parametric 'stick_vacuum' product family (category 'vacuum', preset 'stick'): built with build123d, dimensions measured on the CAD",
+   "label": "estimate",
+   "source": null,
+   "stage": 2
+  },
+  {
+   "id": "a2_render",
+   "text": "AI concept render — illustrative, not the CAD. Generated by an AI image model from the direction's shape, dimensions, material, finish and colour; the 3D model is the CAD.",
+   "label": "estimate",
+   "source": null,
+   "stage": 2
+  },
+  {
+   "id": "a2_studio",
+   "text": "Direction d1 refined in Studio (version 2); dimensions are design parameters, the spec measures the built CAD",
+   "label": "estimate",
+   "source": null,
+   "stage": 2
+  },
+  {
+   "id": "a3_1",
+   "text": "PC/ABS density 1.15 g/cm³ for the weight estimate",
+   "label": "estimate",
+   "source": null,
+   "stage": 3
+  },
+  {
+   "id": "a3_2",
+   "text": "Direction d1 ('Cyclone'): full product from the 'stick_vacuum' family (overall size measured on it); its main moulded housing is modelled as a two-shell enclosure 253 × 101 × 106 mm, wall 2.2 mm, draft 1.5° (DFM, weight)",
+   "label": "estimate",
+   "source": null,
+   "stage": 3
+  },
+  {
+   "id": "a4_1",
+   "text": "Measured checks assume a straight two-half tool pulling along ±Z (split line in the XY plane)",
+   "label": "estimate",
+   "source": null,
+   "stage": 4
+  },
+  {
+   "id": "a4_2",
+   "text": "Clamp tonnage = projected area (in²) × 3 t/in² (PC/ABS) × 1.1 safety",
+   "label": "estimate",
+   "source": null,
+   "stage": 4
+  },
+  {
+   "id": "s5_a1",
+   "text": "Volume curve: non-LCSC lines and assembly × 0.92 per tier step (500 → 2,000 → 10,000)",
+   "label": "estimate",
+   "source": "Demo assumption (PRD §11), editable",
+   "stage": 5
+  },
+  {
+   "id": "s5_a2",
+   "text": "Assembly 13.8 min = 6 base + 0.6 × 13 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials",
+   "label": "estimate",
+   "source": null,
+   "stage": 5
+  },
+  {
+   "id": "a3",
+   "text": "Electronic lines matched to the JLCPCB/LCSC parts snapshot of 2026-09-26 (CDFER/jlcpcb-parts-database, MIT); unmatched lines are estimates",
+   "label": "sourced",
+   "source": "https://github.com/CDFER/jlcpcb-parts-database",
+   "stage": 5
+  },
+  {
+   "id": "a4",
+   "text": "Simple 1-cavity injection mold $1,000-3,000; complex multi-cavity steel mold $30,000-100,000",
+   "label": "estimate",
+   "source": "Zetar Mold 2026 price list (vendor, medium confidence), https://zetarmold.com/injection-mold-price-list-2026",
+   "stage": 5
+  },
+  {
+   "id": "a5",
+   "text": "Sum of 3 required certifications from stage 4 (their own cost estimates)",
+   "label": "estimate",
+   "source": null,
+   "stage": 5
+  },
+  {
+   "id": "a6",
+   "text": "Landed-cost basis for margin and cash: sea freight (fictional rates), HTS 8508.11.0000 (general 0%, Section 301 25%), IEEPA 0, Section 122 off",
+   "label": "estimate",
+   "source": "https://hts.usitc.gov/",
+   "stage": 5
+  },
+  {
+   "id": "a7",
+   "text": "Brief target price 249 USD (retail price incl. VAT where applicable)",
+   "label": "estimate",
+   "source": null,
+   "stage": 5
+  },
+  {
+   "id": "b1",
+   "text": "BOM from stage 3 spec",
+   "label": "estimate",
+   "source": null,
+   "stage": 5
+  },
+  {
+   "id": "s6_a1",
+   "text": "Lead times are typical values per process (tooling + first shots), not factory quotes; refined at stages 7-9 with the negotiated quote.",
+   "label": "estimate",
+   "source": null,
+   "stage": 6
+  },
+  {
+   "id": "s6_a2",
+   "text": "Mass production duration assumes 90 units/day on one line for a 2,000-unit order.",
+   "label": "estimate",
+   "source": null,
+   "stage": 6
+  },
+  {
+   "id": "a7_network",
+   "text": "Factories, capacity, load and past performance come from the simulated production network.",
+   "label": "fictional",
+   "source": "factory_mcp (demo data)",
+   "stage": 7
+  },
+  {
+   "id": "a7_weights",
+   "text": "Score = 35% process fit + 15% MOQ + 15% certifications + 15% load + 20% lead time; product-level criteria are part-weighted means over the queries (Injection molding ×2, PCBA ×1, Other ×1, Assembly ×1).",
+   "label": "estimate",
+   "source": null,
+   "stage": 7
+  },
+  {
+   "id": "a8_network",
+   "text": "Factories, quotes, counters and replies are simulated (production MCP demo network).",
+   "label": "fictional",
+   "source": "factory_mcp (demo data)",
+   "stage": 8
+  },
+  {
+   "id": "a8_anchor",
+   "text": "Factory quotes are anchored on stage 5 cost tiers + tooling total × each factory's personality margin; subcontracted processes add 3% each.",
+   "label": "estimate",
+   "source": null,
+   "stage": 8
+  },
+  {
+   "id": "a8_policy",
+   "text": "Negotiation policy: max 2 rounds; price, tooling, MOQ ≤ 2,000, lead time, 30% deposit / 70% before shipment; pick = lowest risk-adjusted cost incl. tooling.",
+   "label": "estimate",
+   "source": null,
+   "stage": 8
+  },
+  {
+   "id": "a8_autofill",
+   "text": "Auto-approved in autofill mode — review and change the selected factory before any real order",
+   "label": "estimate",
+   "source": null,
+   "stage": 8
+  },
+  {
+   "id": "s9_a1",
+   "text": "Quote lead time (39 d) is used as the tooling T0 duration; T1, golden sample and mass production use planning assumptions.",
+   "label": "estimate",
+   "source": null,
+   "stage": 9
+  },
+  {
+   "id": "s9_a2",
+   "text": "Date check: lead time differs from the stage 6 plan by +4 d (stage 6: 79 d, this plan: 83 d) — the negotiated quote governs",
+   "label": "estimate",
+   "source": null,
+   "stage": 9
+  },
+  {
+   "id": "s9_a3",
+   "text": "Kickoff date 2026-09-28 (next Monday after today unless start_date is passed in inputs); durations are planning assumptions except the quote lead time.",
+   "label": "estimate",
+   "source": null,
+   "stage": 9
+  },
+  {
+   "id": "s9_a4",
+   "text": "Sample rounds cost is an assumption; production payments follow the 30/70 term (deposit / before shipment) unless the quote states another deposit.",
+   "label": "estimate",
+   "source": null,
+   "stage": 9
+  },
+  {
+   "id": "s10_a1",
+   "text": "Pre-shipment inspection priced at $268 per man-day.",
+   "label": "sourced",
+   "source": "V-Trust, https://www.v-trust.com/en/our-network, checked 2026-09-26",
+   "stage": 10
+  },
+  {
+   "id": "s10_a2",
+   "text": "AQL 0 / 2.5 / 4.0 for critical / major / minor is the usual consumer-goods setting; agree it with the buyer and factory.",
+   "label": "estimate",
+   "source": null,
+   "stage": 10
+  },
+  {
+   "id": "s10_a3",
+   "text": "One inspector checks about 100 units per day including functional tests.",
+   "label": "estimate",
+   "source": null,
+   "stage": 10
+  },
+  {
+   "id": "s11_a1",
+   "text": "HTS 8508.11.0000: Same heading and rate as stage 5 (LLM-suggested) — to be confirmed by a customs broker",
+   "label": "estimate",
+   "source": "https://hts.usitc.gov/",
+   "stage": 11
+  },
+  {
+   "id": "s11_a2",
+   "text": "Assumed Section 301 rate of stage 5 — to be confirmed by a customs broker",
+   "label": "estimate",
+   "source": "https://hts.usitc.gov/",
+   "stage": 11
+  },
+  {
+   "id": "s11_a3",
+   "text": "IEEPA duties not collected since 24/02/2026; de minimis suspended; Section 122 is a user toggle (status to verify)",
+   "label": "sourced",
+   "source": "CBP CSMS 67834313 (https://content.govdelivery.com/accounts/USDHSCBP/bulletins/40b11c9); CBP CSMS 67844987; Federal Register 2026-06-24",
+   "stage": 11
+  },
+  {
+   "id": "s11_a4",
+   "text": "Freight sea fcl: 35 days transit (simulated); cost per unit derived from the Drewry lane rate, see a8-a10",
+   "label": "fictional",
+   "source": "demo data",
+   "stage": 11
+  },
+  {
+   "id": "s11_a5",
+   "text": "Platform/agent fee 7% of FOB (benchmark 5-10%)",
+   "label": "estimate",
+   "source": "https://www.dragonsourcing.com/top-10-cost-insights-for-hiring-a-china-sourcing-agent/",
+   "stage": 11
+  },
+  {
+   "id": "s11_a6",
+   "text": "FOB basis: Approved final terms, quote qt_47884d3146 — demo data",
+   "label": "fictional",
+   "source": "stage8_final_terms",
+   "stage": 11
+  },
+  {
+   "id": "s11_a7",
+   "text": "No CBP CROSS precedent in the cached set for this product: HTS 8508.11.0000 and its rates are an estimate — to be confirmed by a customs broker",
+   "label": "estimate",
+   "source": "https://rulings.cbp.gov/",
+   "stage": 11
+  },
+  {
+   "id": "a8",
+   "text": "Sea container rate Drewry World Container Index, 24 Sep 2026: Shanghai–Los Angeles $7,838/40ft (Drewry-assessed spot benchmark, snapshot; the quote you get will differ)",
+   "label": "sourced",
+   "source": "https://www.drewry.co.uk/supply-chain-advisors/supply-chain-expertise/world-container-index-assessed-by-drewry",
+   "stage": 11
+  },
+  {
+   "id": "a9",
+   "text": "Sea freight derived from the Drewry lane rate, cheaper of LCL and FCL chosen automatically: packed unit 0.1105 m³ (bounding box × 1.5 packaging, min 0.5 L) = 606 units per 40ft (67 m³ usable); 20ft container ≈ 0.55 × the 40ft rate, 33 m³. Air = max(gross kg, m³ × 167) × $6.00/kg, min $150 per shipment; express = 1.8× air (Estimate: typical China→US air cargo range $4-8/kg, to be confirmed by a forwarder); air and express are never auto-chosen",
+   "label": "estimate",
+   "source": "demo assumption",
+   "stage": 11
+  },
+  {
+   "id": "a10",
+   "text": "LCL consolidation premium vs FCL, typical 1.3–2.0×: 1.5× applied to lane rate ÷ 67 m³, minimum charge 1 m³ per shipment (derived from Drewry WCI 24 Sep 2026)",
+   "label": "estimate",
+   "source": "https://www.drewry.co.uk/supply-chain-advisors/supply-chain-expertise/world-container-index-assessed-by-drewry",
+   "stage": 11
+  },
+  {
+   "id": "s12_a1",
+   "text": "Dates from stage 9 milestones; amounts from the stage 5 cash breakdown with the approved stage 8 quote applied (unit price, tooling; duties, platform fee, insurance recomputed) (tooling 50/50 at T0/T1, samples at golden sample, 30% deposit + 70% before shipment (payment terms of stage 9), logistics at shipment/delivery)",
+   "label": "estimate",
+   "source": null,
+   "stage": 12
+  },
+  {
+   "id": "s12_a2",
+   "text": "Peak cash need $101,812; 5,400 of it falls in the first 60 days.",
+   "label": "estimate",
+   "source": null,
+   "stage": 12
+  },
+  {
+   "id": "s12_a3",
+   "text": "Financing costs are typical ranges, not quotes: verify with each provider",
+   "label": "estimate",
+   "source": null,
+   "stage": 12
+  },
+  {
+   "id": "s13_a1",
+   "text": "Amazon price in USD: Founder target retail price (USD); no conversion applied. Marketplace fees and VAT are not included.",
+   "label": "estimate",
+   "source": null,
+   "stage": 13
+  },
+  {
+   "id": "s13_a2",
+   "text": "Name options are not trademark-searched; run a clearance search before committing.",
+   "label": "estimate",
+   "source": null,
+   "stage": 13
+  },
+  {
+   "id": "s13_a3",
+   "text": "Listing copy uses only facts from the brief and spec; no certification claims until testing is complete (stage 4).",
+   "label": "estimate",
+   "source": null,
+   "stage": 13
+  },
+  {
+   "id": "cn1",
+   "text": "Chinese text in this pack is machine-translated — to be reviewed by a native speaker.",
+   "label": "estimate",
+   "source": null,
+   "stage": null
+  }
+ ],
+ "engineering": {
+  "project_id": "demo_stick_vacuum",
+  "status": "draft",
+  "fallback": false,
+  "fallback_reason": null,
+  "generated_by": "code",
+  "generated_at": "2026-09-26T23:58:23.601058Z",
+  "assumptions": [
+   {
+    "id": "e1",
+    "text": "Engineering category 'Cordless stick vacuum' detected from the product description and the 'stick_vacuum' shape family",
+    "label": "estimate",
+    "source": null,
+    "stage": null
+   },
+   {
+    "id": "e2",
+    "text": "Electronics architecture completed with the category's typical blocks (the BOM has no MCU)",
+    "label": "estimate",
+    "source": null,
+    "stage": null
+   },
+   {
+    "id": "e4",
+    "text": "Physics checks are concept-level (rigid-body statics, rules of thumb): validate with the listed tests",
+    "label": "estimate",
+    "source": null,
+    "stage": null
+   }
+  ],
+  "stage": "engineering",
+  "category": "vacuum",
+  "category_title": "Cordless stick vacuum",
+  "partner_word": "factories",
+  "site_install": false,
+  "product_name": "Cordless stick vacuum",
+  "inputs_digest": "85371bdd5469a723",
+  "standards": [
+   {
+    "code": "IEC 60335-1",
+    "title": "Household and similar electrical appliances — Safety — Part 1: General requirements",
+    "applies_because": "Household appliance safety, general requirements",
+    "url": "https://webstore.iec.ch/en/publication/61880",
+    "citation_label": "sourced",
+    "citation_note": "https://webstore.iec.ch/en/publication/61880, page checked 2026-09-27"
+   },
+   {
+    "code": "IEC 60335-2-2",
+    "title": "Household appliances — Safety — Part 2-2: Particular requirements for vacuum cleaners and water-suction cleaning appliances",
+    "applies_because": "Particular requirements for vacuum cleaners",
+    "url": "https://webstore.iec.ch/en/publication/61319",
+    "citation_label": "sourced",
+    "citation_note": "https://webstore.iec.ch/en/publication/61319, page checked 2026-09-27"
+   },
+   {
+    "code": "IEC 62133-2",
+    "title": "Secondary cells and batteries containing alkaline or other non-acid electrolytes — Safety — Part 2: Lithium systems",
+    "applies_because": "Li-ion battery pack (typically 6S 18650/21700)",
+    "url": "https://webstore.iec.ch/en/publication/32662",
+    "citation_label": "sourced",
+    "citation_note": "https://webstore.iec.ch/en/publication/32662, page checked 2026-09-27"
+   },
+   {
+    "code": "UN 38.3",
+    "title": "UN Manual of Tests and Criteria, section 38.3 (lithium batteries)",
+    "applies_because": "Li-ion pack shipped with the product",
+    "url": "https://unece.org/transport/dangerous-goods/rev8-files",
+    "citation_label": "sourced",
+    "citation_note": "https://unece.org/transport/dangerous-goods/rev8-files, page checked 2026-09-27"
+   },
+   {
+    "code": "IEC 61000-6-3",
+    "title": "Electromagnetic compatibility (EMC) — Part 6-3: Generic standards — Emission standard for residential environments",
+    "applies_because": "EMC emissions of the BLDC motor drive in a residential environment",
+    "url": "https://webstore.iec.ch/en/publication/71262",
+    "citation_label": "sourced",
+    "citation_note": "https://webstore.iec.ch/en/publication/71262, page checked 2026-09-27"
+   },
+   {
+    "code": "Directive 2014/53/EU",
+    "title": "Radio Equipment Directive (RED)",
+    "applies_because": "Only if an app link (BLE/Wi-Fi) is added",
+    "url": "https://eur-lex.europa.eu/eli/dir/2014/53/oj/eng",
+    "citation_label": "sourced",
+    "citation_note": "https://eur-lex.europa.eu/eli/dir/2014/53/oj/eng, page checked 2026-09-27"
+   }
+  ],
+  "risks": [
+   {
+    "id": "r1",
+    "risk": "High-speed BLDC motor (≈100k rpm) overheats when the airway clogs",
+    "mitigation": "Motor NTC + current derating, bypass valve, clog detection in firmware",
+    "severity": "critical"
+   },
+   {
+    "id": "r2",
+    "risk": "Battery pack abuse (drops, crushing, water)",
+    "mitigation": "Protected 6S pack with BMS, fuse, IEC 62133-2 cells, drop-tested pack housing",
+    "severity": "critical"
+   },
+   {
+    "id": "r3",
+    "risk": "Cyclone separation too weak → filter clogs, suction falls",
+    "mitigation": "CFD/bench iterations of cyclone cone, washable HEPA post-filter",
+    "severity": "major"
+   },
+   {
+    "id": "r4",
+    "risk": "Hair wrap on the brush bar",
+    "mitigation": "Conical / comb de-tangling brush bar",
+    "severity": "minor"
+   },
+   {
+    "id": "r5",
+    "risk": "Noise > 80 dB(A) at boost",
+    "mitigation": "Motor mount decoupling, exhaust silencer foam",
+    "severity": "minor"
+   }
+  ],
+  "tests": [
+   {
+    "id": "t1",
+    "name": "Temperature rise and abnormal operation (blocked inlet)",
+    "kind": "thermal",
+    "method": "Run with the inlet blocked until steady state",
+    "standard": "IEC 60335-2-2"
+   },
+   {
+    "id": "t2",
+    "name": "Drop test of the handheld unit and pack",
+    "kind": "drop",
+    "method": "Drop from specified height onto hardwood",
+    "standard": "IEC 60335-2-2"
+   },
+   {
+    "id": "t3",
+    "name": "Suction power / air watts",
+    "kind": "other",
+    "method": "Orifice-plate air-watt curve on the bench",
+    "standard": "IEC 62885-4 (performance, to be confirmed)"
+   },
+   {
+    "id": "t4",
+    "name": "Battery safety",
+    "kind": "battery",
+    "method": "Accredited lab",
+    "standard": "IEC 62133-2 / UN 38.3"
+   },
+   {
+    "id": "t5",
+    "name": "EMC emissions",
+    "kind": "electrical",
+    "method": "Accredited lab",
+    "standard": "IEC 61000-6-3"
+   }
+  ],
+  "checks": [
+   {
+    "id": "air_watts",
+    "name": "Suction power (air watts)",
+    "domain": "airflow",
+    "value": {
+     "value": 54.0,
+     "unit": "AW",
+     "label": "estimate",
+     "source_or_assumption": "180 W electrical × 30% fan+motor efficiency"
+    },
+    "threshold": "≥ 100 AW pass (premium stick class at boost), ≥ 60 warn",
+    "verdict": "fail",
+    "formula": "AW = η × P_in",
+    "inputs": [
+     {
+      "value": 180.0,
+      "unit": "W",
+      "label": "estimate",
+      "source_or_assumption": "Category default motor class (no power in the BOM)"
+     }
+    ],
+    "notes": []
+   },
+   {
+    "id": "airflow",
+    "name": "Airflow at the operating point",
+    "domain": "airflow",
+    "value": {
+     "value": 28.6,
+     "unit": "L/s",
+     "label": "estimate",
+     "source_or_assumption": "inlet Ø36 mm, system loss coefficient k = 4"
+    },
+    "threshold": "Information: ≥ 15 L/s picks up coarse debris on hard floors (rule of thumb)",
+    "verdict": "pass",
+    "formula": "AW = k ½ρ A v³ → v; Q = A v",
+    "inputs": [
+     {
+      "value": 180.0,
+      "unit": "W",
+      "label": "estimate",
+      "source_or_assumption": "Category default motor class (no power in the BOM)"
+     },
+     {
+      "value": 36.0,
+      "unit": "mm",
+      "label": "estimate",
+      "source_or_assumption": "Inlet diameter, category default"
+     }
+    ],
+    "notes": [
+     "Inlet air speed ≈ 28 m/s; operating-point pressure ≈ 1.9 kPa (sealed suction is higher)"
+    ]
+   },
+   {
+    "id": "battery_life",
+    "name": "Battery life / runtime from the power budget",
+    "domain": "power",
+    "value": {
+     "value": 0.07,
+     "unit": "h",
+     "label": "estimate",
+     "source_or_assumption": "2600 mAh × 85% usable / 3.175e+04 mA average"
+    },
+    "threshold": "≥ 0.5 h pass, ≥ 50% of it warn (category target, Estimate)",
+    "verdict": "fail",
+    "formula": "t = capacity × 85% usable / Σ(active × duty + sleep × (1 − duty))",
+    "inputs": [
+     {
+      "value": 2600.0,
+      "unit": "mAh",
+      "label": "estimate",
+      "source_or_assumption": "Capacity from the BOM line 'Li-ion pack 6S 2600 mAh 25.2V'"
+     },
+     {
+      "value": 31754.0387,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "Sum of the power-budget lines"
+     }
+    ],
+    "notes": []
+   },
+   {
+    "id": "mass",
+    "name": "Product mass",
+    "domain": "mass",
+    "value": {
+     "value": 280.6,
+     "unit": "g",
+     "label": "estimate",
+     "source_or_assumption": "Enclosure volume 244.0 cm³ (measured) × PC/ABS 1.15 g/cm³; electronics and battery not included"
+    },
+    "threshold": "≤ 3000 g pass, ≤ 3750 g warn (category comfort target, Estimate)",
+    "verdict": "pass",
+    "formula": "Stage 3 weight (measured enclosure volume × density + parts)",
+    "inputs": [
+     {
+      "value": 280.6,
+      "unit": "g",
+      "label": "estimate",
+      "source_or_assumption": "Enclosure volume 244.0 cm³ (measured) × PC/ABS 1.15 g/cm³; electronics and battery not included"
+     },
+     {
+      "value": 244.0,
+      "unit": "cm³",
+      "label": "measured",
+      "source_or_assumption": "Enclosure solid volume measured on the STEP (stage 3)"
+     }
+    ],
+    "notes": []
+   },
+   {
+    "id": "tip_over",
+    "name": "Static tip-over angle (narrowest side)",
+    "domain": "stability",
+    "value": {
+     "value": 9.8,
+     "unit": "deg",
+     "label": "estimate",
+     "source_or_assumption": "atan(b / h): b = min(L, W)/2 = 124 mm (Measured), h = 0.6 × H = 714 mm (centre-of-mass height ratio is an Estimate)"
+    },
+    "threshold": "≥ 10° pass, ≥ 5° warn (design target, Estimate)",
+    "verdict": "warn",
+    "formula": "θ = atan(b / h_COM), rigid body on its base, least favourable direction",
+    "inputs": [
+     {
+      "value": 247.6,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the full product (family CAD, build123d/OCCT)"
+     },
+     {
+      "value": 250.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the full product (family CAD, build123d/OCCT)"
+     },
+     {
+      "value": 1190.5,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the full product (family CAD, build123d/OCCT)"
+     }
+    ],
+    "notes": []
+   }
+  ],
+  "electronics": {
+   "mcu_family": "stm32",
+   "mcu_part": "MCU 32-bit (implied)",
+   "radio": [],
+   "power_tree": [
+    {
+     "id": "p_chg",
+     "name": "BMS 6S",
+     "kind": "charger",
+     "parent": null,
+     "voltage": {
+      "value": 25.2,
+      "unit": "V",
+      "label": "estimate",
+      "source_or_assumption": "Charges the cell; output = VBAT"
+     }
+    },
+    {
+     "id": "p_bat",
+     "name": "Li-ion pack 6S 2600 mAh 25.2V",
+     "kind": "storage",
+     "parent": "p_chg",
+     "voltage": {
+      "value": 25.2,
+      "unit": "V",
+      "label": "estimate",
+      "source_or_assumption": "Voltage from the BOM line 'Li-ion pack 6S 2600 mAh 25.2V'"
+     }
+    },
+    {
+     "id": "p_reg",
+     "name": "Buck converter 3.3V",
+     "kind": "regulator",
+     "parent": "p_bat",
+     "voltage": {
+      "value": 3.3,
+      "unit": "V",
+      "label": "estimate",
+      "source_or_assumption": "Logic rail for MCU and sensors"
+     }
+    },
+    {
+     "id": "p_b1",
+     "name": "21.6 V (6S) rechargeable Li-ion battery pack with protection",
+     "kind": "load",
+     "parent": "p_bat",
+     "voltage": {
+      "value": 25.2,
+      "unit": "V",
+      "label": "estimate",
+      "source_or_assumption": "VBAT (through its driver)"
+     }
+    },
+    {
+     "id": "p_b2",
+     "name": "High-speed BLDC vacuum motor assembly",
+     "kind": "load",
+     "parent": "p_bat",
+     "voltage": {
+      "value": 25.2,
+      "unit": "V",
+      "label": "estimate",
+      "source_or_assumption": "VBAT (through its driver)"
+     }
+    },
+    {
+     "id": "p_b3",
+     "name": "Pistol-grip trigger switch",
+     "kind": "load",
+     "parent": "p_bat",
+     "voltage": {
+      "value": 25.2,
+      "unit": "V",
+      "label": "estimate",
+      "source_or_assumption": "VBAT (through its driver)"
+     }
+    },
+    {
+     "id": "p_b4",
+     "name": "Suction BLDC motor 180W",
+     "kind": "load",
+     "parent": "p_bat",
+     "voltage": {
+      "value": 25.2,
+      "unit": "V",
+      "label": "estimate",
+      "source_or_assumption": "VBAT (through its driver)"
+     }
+    },
+    {
+     "id": "p_b5",
+     "name": "BLDC motor driver",
+     "kind": "load",
+     "parent": "p_bat",
+     "voltage": {
+      "value": 25.2,
+      "unit": "V",
+      "label": "estimate",
+      "source_or_assumption": "VBAT (through its driver)"
+     }
+    },
+    {
+     "id": "p_b6",
+     "name": "MCU 32-bit",
+     "kind": "load",
+     "parent": "p_reg",
+     "voltage": {
+      "value": 3.3,
+      "unit": "V",
+      "label": "estimate",
+      "source_or_assumption": "Logic rail"
+     }
+    },
+    {
+     "id": "p_b10",
+     "name": "Status LED",
+     "kind": "load",
+     "parent": "p_reg",
+     "voltage": {
+      "value": 3.3,
+      "unit": "V",
+      "label": "estimate",
+      "source_or_assumption": "Logic rail"
+     }
+    }
+   ],
+   "connections": [
+    {
+     "source": "BMS 6S",
+     "target": "Li-ion pack 6S 2600 mAh 25.2V",
+     "bus": "power",
+     "signals": "25.2 V"
+    },
+    {
+     "source": "Li-ion pack 6S 2600 mAh 25.2V",
+     "target": "Buck converter 3.3V",
+     "bus": "power",
+     "signals": "3.3 V"
+    },
+    {
+     "source": "Li-ion pack 6S 2600 mAh 25.2V",
+     "target": "21.6 V (6S) rechargeable Li-ion battery pack with protection",
+     "bus": "power",
+     "signals": "25.2 V"
+    },
+    {
+     "source": "Li-ion pack 6S 2600 mAh 25.2V",
+     "target": "High-speed BLDC vacuum motor assembly",
+     "bus": "power",
+     "signals": "25.2 V"
+    },
+    {
+     "source": "Li-ion pack 6S 2600 mAh 25.2V",
+     "target": "Pistol-grip trigger switch",
+     "bus": "power",
+     "signals": "25.2 V"
+    },
+    {
+     "source": "Li-ion pack 6S 2600 mAh 25.2V",
+     "target": "Suction BLDC motor 180W",
+     "bus": "power",
+     "signals": "25.2 V"
+    },
+    {
+     "source": "Li-ion pack 6S 2600 mAh 25.2V",
+     "target": "BLDC motor driver",
+     "bus": "power",
+     "signals": "25.2 V"
+    },
+    {
+     "source": "Buck converter 3.3V",
+     "target": "MCU 32-bit",
+     "bus": "power",
+     "signals": "3.3 V"
+    },
+    {
+     "source": "Buck converter 3.3V",
+     "target": "Status LED",
+     "bus": "power",
+     "signals": "3.3 V"
+    },
+    {
+     "source": "BLDC motor driver",
+     "target": "21.6 V (6S) rechargeable Li-ion battery pack with protection",
+     "bus": "power",
+     "signals": "Motor phases / OUT1, OUT2"
+    },
+    {
+     "source": "BLDC motor driver",
+     "target": "High-speed BLDC vacuum motor assembly",
+     "bus": "power",
+     "signals": "Motor phases / OUT1, OUT2"
+    },
+    {
+     "source": "BLDC motor driver",
+     "target": "Pistol-grip trigger switch",
+     "bus": "power",
+     "signals": "Motor phases / OUT1, OUT2"
+    },
+    {
+     "source": "BLDC motor driver",
+     "target": "Suction BLDC motor 180W",
+     "bus": "power",
+     "signals": "Motor phases / OUT1, OUT2"
+    },
+    {
+     "source": "MCU 32-bit",
+     "target": "BLDC motor driver",
+     "bus": "pwm",
+     "signals": "PWM, DIR"
+    },
+    {
+     "source": "MCU 32-bit",
+     "target": "BMS 6S",
+     "bus": "gpio",
+     "signals": "CHG_STAT, PGOOD"
+    },
+    {
+     "source": "MCU 32-bit",
+     "target": "Status LED",
+     "bus": "gpio",
+     "signals": "LED"
+    },
+    {
+     "source": "MCU 32-bit",
+     "target": "Battery voltage divider",
+     "bus": "adc",
+     "signals": "VBAT_SENSE (fuel estimate)"
+    }
+   ],
+   "power_budget": [
+    {
+     "block": "motor",
+     "part": "21.6 V (6S) rechargeable Li-ion battery pack with protection",
+     "active_current": {
+      "value": 7936.508,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "1 × 180 W (category default) / 25.2 V / 90% driver"
+     },
+     "sleep_current": {
+      "value": 0.0,
+      "unit": "µA",
+      "label": "estimate",
+      "source_or_assumption": "Typical sleep/standby current"
+     },
+     "duty_cycle": {
+      "value": 100.0,
+      "unit": "pct",
+      "label": "estimate",
+      "source_or_assumption": "Category duty cycle for 'motor' (Cordless stick vacuum)"
+     },
+     "average_current": {
+      "value": 7936.5079,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "active × duty + sleep × (1 − duty)"
+     }
+    },
+    {
+     "block": "motor",
+     "part": "High-speed BLDC vacuum motor assembly",
+     "active_current": {
+      "value": 7936.508,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "1 × 180 W (category default) / 25.2 V / 90% driver"
+     },
+     "sleep_current": {
+      "value": 0.0,
+      "unit": "µA",
+      "label": "estimate",
+      "source_or_assumption": "Typical sleep/standby current"
+     },
+     "duty_cycle": {
+      "value": 100.0,
+      "unit": "pct",
+      "label": "estimate",
+      "source_or_assumption": "Category duty cycle for 'motor' (Cordless stick vacuum)"
+     },
+     "average_current": {
+      "value": 7936.5079,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "active × duty + sleep × (1 − duty)"
+     }
+    },
+    {
+     "block": "motor",
+     "part": "Pistol-grip trigger switch",
+     "active_current": {
+      "value": 7936.508,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "1 × 180 W (category default) / 25.2 V / 90% driver"
+     },
+     "sleep_current": {
+      "value": 0.0,
+      "unit": "µA",
+      "label": "estimate",
+      "source_or_assumption": "Typical sleep/standby current"
+     },
+     "duty_cycle": {
+      "value": 100.0,
+      "unit": "pct",
+      "label": "estimate",
+      "source_or_assumption": "Category duty cycle for 'motor' (Cordless stick vacuum)"
+     },
+     "average_current": {
+      "value": 7936.5079,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "active × duty + sleep × (1 − duty)"
+     }
+    },
+    {
+     "block": "motor",
+     "part": "Suction BLDC motor 180W",
+     "active_current": {
+      "value": 7936.508,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "1 × 180 W / 25.2 V / 90% driver"
+     },
+     "sleep_current": {
+      "value": 0.0,
+      "unit": "µA",
+      "label": "estimate",
+      "source_or_assumption": "Typical sleep/standby current"
+     },
+     "duty_cycle": {
+      "value": 100.0,
+      "unit": "pct",
+      "label": "estimate",
+      "source_or_assumption": "Category duty cycle for 'motor' (Cordless stick vacuum)"
+     },
+     "average_current": {
+      "value": 7936.5079,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "active × duty + sleep × (1 − duty)"
+     }
+    },
+    {
+     "block": "driver",
+     "part": "BLDC motor driver",
+     "active_current": {
+      "value": 0.0,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "Typical active current of a driver (assumed typical architecture for the category (not in the BOM))"
+     },
+     "sleep_current": {
+      "value": 1.0,
+      "unit": "µA",
+      "label": "estimate",
+      "source_or_assumption": "Typical sleep/standby current"
+     },
+     "duty_cycle": {
+      "value": 100.0,
+      "unit": "pct",
+      "label": "estimate",
+      "source_or_assumption": "Category duty cycle for 'driver' (Cordless stick vacuum)"
+     },
+     "average_current": {
+      "value": 0.0,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "active × duty + sleep × (1 − duty)"
+     }
+    },
+    {
+     "block": "mcu",
+     "part": "MCU 32-bit",
+     "active_current": {
+      "value": 6.0,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "Typical active current of a MCU (assumed typical architecture for the category (not in the BOM))"
+     },
+     "sleep_current": {
+      "value": 2.0,
+      "unit": "µA",
+      "label": "estimate",
+      "source_or_assumption": "Typical sleep/standby current"
+     },
+     "duty_cycle": {
+      "value": 100.0,
+      "unit": "pct",
+      "label": "estimate",
+      "source_or_assumption": "Category duty cycle for 'mcu' (Cordless stick vacuum)"
+     },
+     "average_current": {
+      "value": 6.0,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "active × duty + sleep × (1 − duty)"
+     }
+    },
+    {
+     "block": "led",
+     "part": "Status LED",
+     "active_current": {
+      "value": 2.0,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "Typical active current of a LED (assumed typical architecture for the category (not in the BOM))"
+     },
+     "sleep_current": {
+      "value": 0.0,
+      "unit": "µA",
+      "label": "estimate",
+      "source_or_assumption": "Typical sleep/standby current"
+     },
+     "duty_cycle": {
+      "value": 100.0,
+      "unit": "pct",
+      "label": "estimate",
+      "source_or_assumption": "Category duty cycle for 'led' (Cordless stick vacuum)"
+     },
+     "average_current": {
+      "value": 2.0,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "active × duty + sleep × (1 − duty)"
+     }
+    },
+    {
+     "block": "charger",
+     "part": "BMS 6S",
+     "active_current": {
+      "value": 0.0,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "Pass-through part"
+     },
+     "sleep_current": {
+      "value": 2.0,
+      "unit": "µA",
+      "label": "estimate",
+      "source_or_assumption": "Typical quiescent current"
+     },
+     "duty_cycle": {
+      "value": 100.0,
+      "unit": "pct",
+      "label": "estimate",
+      "source_or_assumption": "Always on"
+     },
+     "average_current": {
+      "value": 0.002,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "Quiescent current"
+     }
+    },
+    {
+     "block": "regulator",
+     "part": "Buck converter 3.3V",
+     "active_current": {
+      "value": 0.0,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "Pass-through part"
+     },
+     "sleep_current": {
+      "value": 5.0,
+      "unit": "µA",
+      "label": "estimate",
+      "source_or_assumption": "Typical quiescent current"
+     },
+     "duty_cycle": {
+      "value": 100.0,
+      "unit": "pct",
+      "label": "estimate",
+      "source_or_assumption": "Always on"
+     },
+     "average_current": {
+      "value": 0.005,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "Quiescent current"
+     }
+    }
+   ],
+   "average_current": {
+    "value": 31754.0387,
+    "unit": "mA",
+    "label": "estimate",
+    "source_or_assumption": "Sum of the power-budget lines"
+   },
+   "battery_voltage": {
+    "value": 25.2,
+    "unit": "V",
+    "label": "estimate",
+    "source_or_assumption": "Voltage from the BOM line 'Li-ion pack 6S 2600 mAh 25.2V'"
+   },
+   "battery_capacity": {
+    "value": 2600.0,
+    "unit": "mAh",
+    "label": "estimate",
+    "source_or_assumption": "Capacity from the BOM line 'Li-ion pack 6S 2600 mAh 25.2V'"
+   },
+   "battery_life": {
+    "value": 0.07,
+    "unit": "h",
+    "label": "estimate",
+    "source_or_assumption": "2600 mAh × 85% usable / 3.175e+04 mA average"
+   },
+   "pcb_note": "PCB layout: next step (human or text-to-PCB)"
+  },
+  "firmware": {
+   "framework": "arduino",
+   "mcu_family": "stm32",
+   "connectivity": "none (optional BLE app link)",
+   "url": "/files/demo_stick_vacuum/firmware.zip",
+   "files": [
+    "README.md",
+    "platformio.ini",
+    "src/connectivity.cpp",
+    "src/connectivity.h",
+    "src/main.cpp",
+    "src/pins.h",
+    "src/sensors.cpp",
+    "src/sensors.h"
+   ],
+   "generated_by": "llm:openai/gpt-6-luna",
+   "note": "Generated code — not compiled or tested",
+   "pending_llm": false
+  },
+  "prototype": {
+   "enclosure_method": "SLA resin (cyclone, clear) + MJF PA12 (body)",
+   "enclosure_volume": {
+    "value": 244.0,
+    "unit": "cm³",
+    "label": "measured",
+    "source_or_assumption": "Enclosure solid volume measured on the STEP (stage 3)"
+   },
+   "units": 2,
+   "cost_lines": [
+    {
+     "item": "Enclosure: SLA resin (cyclone, clear) + MJF PA12 (body)",
+     "amount": {
+      "value": 236.0,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "2 × (40 USD setup + 0.32 USD/cm³ × 244.0 cm³ measured volume)"
+     }
+    },
+    {
+     "item": "PCBA quick-turn (5 boards, 5 BOM lines)",
+     "amount": {
+      "value": 104.0,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "5 boards: setup/stencil 25 + 2-layer fab 5 + parts 54.27 (LCSC price at 5× qty where matched, else BOM estimate × 3) + shipping 20 USD"
+     }
+    },
+    {
+     "item": "Dev-kit bring-up set (firmware before the PCBA arrives)",
+     "amount": {
+      "value": 47.0,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Sum of the dev-kit BOM lines"
+     }
+    },
+    {
+     "item": "Batteries, cables, fasteners, consumables",
+     "amount": {
+      "value": 40.0,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Flat allowance"
+     }
+    }
+   ],
+   "devkit_bom": [
+    {
+     "part": "STM32 Nucleo-64 dev board",
+     "role": "MCU + radio dev board",
+     "qty": 1,
+     "lcsc_pn": null,
+     "unit_price": {
+      "value": 15.0,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Typical distributor price for this dev board class"
+     }
+    },
+    {
+     "part": "21.6 V (6S) rechargeable Li-ion battery pack with protection (module / breakout)",
+     "role": "motor",
+     "qty": 1,
+     "lcsc_pn": null,
+     "unit_price": {
+      "value": 8.0,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Typical hobby breakout/module price, not in the LCSC snapshot"
+     }
+    },
+    {
+     "part": "High-speed BLDC vacuum motor assembly (module / breakout)",
+     "role": "motor",
+     "qty": 1,
+     "lcsc_pn": null,
+     "unit_price": {
+      "value": 8.0,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Typical hobby breakout/module price, not in the LCSC snapshot"
+     }
+    },
+    {
+     "part": "Pistol-grip trigger switch → ZX-QC-LT33703526 on a breakout",
+     "role": "motor",
+     "qty": 1,
+     "lcsc_pn": "C7419911",
+     "unit_price": {
+      "value": 0.02,
+      "unit": "USD",
+      "label": "sourced",
+      "source_or_assumption": "LCSC price, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C7419911.html (chip only; add ~8 USD breakout)"
+     }
+    },
+    {
+     "part": "Suction BLDC motor 180W (module / breakout)",
+     "role": "motor",
+     "qty": 1,
+     "lcsc_pn": null,
+     "unit_price": {
+      "value": 8.0,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Typical hobby breakout/module price, not in the LCSC snapshot"
+     }
+    },
+    {
+     "part": "BLDC motor driver (module / breakout)",
+     "role": "driver",
+     "qty": 1,
+     "lcsc_pn": null,
+     "unit_price": {
+      "value": 8.0,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Typical hobby breakout/module price, not in the LCSC snapshot"
+     }
+    },
+    {
+     "part": "Status LED → F.0603.00037/P2-0603B1TS2-06T-002 on a breakout",
+     "role": "led",
+     "qty": 1,
+     "lcsc_pn": "C7496815",
+     "unit_price": {
+      "value": 0.0,
+      "unit": "USD",
+      "label": "sourced",
+      "source_or_assumption": "LCSC price, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C7496815.html (chip only; add ~8 USD breakout)"
+     }
+    }
+   ],
+   "assembly_steps": [
+    "Bench the motor + cyclone in an SLA clear print, measure the air-watt curve",
+    "Print the body in MJF PA12",
+    "Drive the BLDC motor from an off-the-shelf ESC first, then the quick-turn PCBA",
+    "Use a bought-in protected 6S pack for the prototype",
+    "Blocked-inlet thermal test before any user test",
+    "PCB layout: next step (human or text-to-PCB) — the schematic follows the power tree and connection list above"
+   ],
+   "timeline_weeks": {
+    "value": 4.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Design freeze 0.5 + PCBA quick-turn incl. shipping 2 + integration 1 + test 0.5 (enclosure and firmware on the dev kit run in parallel)"
+   },
+   "total_cost": {
+    "value": 427.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Sum of the prototype cost lines"
+   }
+  },
+  "solar": null,
+  "installers": [],
+  "build_strategy": {
+   "strategy": "module_assembly",
+   "title": "Module assembly",
+   "explanation": "You design the product around bought-in, pre-certified modules (e.g. motor + driver, battery pack, radio module, heater + fan): your work is the architecture, the enclosure, the integration and the software; the factory assembles the modules into your parts. Faster and cheaper than designing every sub-system, and the modules' certifications carry part of the compliance.",
+   "customisable": [
+    "Body, bin, floor head, CMF",
+    "Airflow path, UX, firmware"
+   ],
+   "not_customisable": [
+    "BLDC suction motor + driver",
+    "Battery pack with BMS",
+    "Filters, brush bars"
+   ],
+   "moq": {
+    "value": 3000.0,
+    "unit": "units",
+    "label": "estimate",
+    "source_or_assumption": "Typical minimum order for a first run in this category — factory MOQ range"
+   },
+   "entry_cost": {
+    "value": 150000.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Typical first production run for this category (~15 moulds ≈ $100k, motor/pack NRE, safety lab ≈ $15k) — industry range, not a quote"
+   },
+   "lead_time": {
+    "value": 30.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Frozen design → first production units (tooling, samples, certification), typical"
+   },
+   "path": [
+    "Source the motor module and battery pack",
+    "~15 moulds (body, bin, cyclone, head)",
+    "IEC 60335-2-2 + battery + EMC tests",
+    "Pilot run, then 3000"
+   ],
+   "certifications_note": "Appliance safety on your product; battery pack certifications (IEC 62133-2, UN 38.3) from the pack supplier.",
+   "assumptions": [
+    "Estimates for a first production run; real MOQs and NRE come from quotes",
+    "Module figures assume catalogue modules with their own certifications"
+   ]
+  },
+  "unit_basis": "per_unit",
+  "installation_cost": null
+ }
+}

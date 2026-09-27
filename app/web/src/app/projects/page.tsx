@@ -25,7 +25,7 @@ export default function ProjectsPage() {
   return (
     <div className="mx-auto max-w-[1320px] px-6 pt-10 lg:px-10">
       <div className="flex flex-wrap items-end justify-between gap-4">
-        <h1 className="font-display text-[34px] font-semibold uppercase leading-[36px]">Projects</h1>
+        <h1 className="title text-[28px] leading-[34px]">Projects</h1>
         <div className="flex items-center gap-2">
           <ResetDemo onDone={reload} />
           <BtnLink href="/new" variant="primary">
@@ -51,7 +51,7 @@ export default function ProjectsPage() {
           />
         )}
         {data && data.length > 0 && (
-          <ul className="overflow-hidden rounded-md border border-line bg-surface">
+          <ul className="overflow-hidden rounded-md bg-surface">
             <li className="hidden grid-cols-[minmax(0,1fr)_140px_160px_110px_20px] items-center gap-6 border-b border-line-2 px-6 py-2.5 md:grid">
               <span className="micro">Project</span>
               <span className="micro">Mode</span>

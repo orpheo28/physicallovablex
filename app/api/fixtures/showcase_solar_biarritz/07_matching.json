@@ -1,0 +1,190 @@
+{
+ "project_id": "demo_solar_biarritz",
+ "status": "validated",
+ "fallback": false,
+ "fallback_reason": null,
+ "generated_by": "code",
+ "generated_at": "2026-09-27T00:23:50.119877Z",
+ "assumptions": [
+  {
+   "id": "a7_network",
+   "text": "Factories, capacity, load and past performance come from the simulated production network.",
+   "label": "fictional",
+   "source": "factory_mcp (demo data)",
+   "stage": 7
+  },
+  {
+   "id": "a7_weights",
+   "text": "Score = 35% process fit + 15% MOQ + 15% certifications + 15% load + 20% lead time; product-level criteria are part-weighted means over the queries (Other ×1).",
+   "label": "estimate",
+   "source": null,
+   "stage": 7
+  }
+ ],
+ "stage": 7,
+ "factory_pack_id": "fp_demo_solar_biarritz_v1",
+ "queries": [
+  {
+   "process": "other",
+   "material": "PV modules",
+   "quantity": 1,
+   "certifications_required": [
+    "ISO 9001"
+   ],
+   "deadline": null,
+   "category": null
+  }
+ ],
+ "shortlist": [
+  {
+   "rank": 1,
+   "factory_id": "i_soleilatlantique",
+   "factory_name": "Soleil Atlantique Installations (fictional)",
+   "score": {
+    "value": 96.4,
+    "unit": "score/100",
+    "label": "fictional",
+    "source_or_assumption": "Scored on demo data (fictional network)"
+   },
+   "score_breakdown": [
+    {
+     "criterion": "process_fit",
+     "score": 1.0,
+     "weight": 0.35,
+     "note": "Covers 1/1 processes in-house (Other)"
+    },
+    {
+     "criterion": "moq",
+     "score": 1.0,
+     "weight": 0.15,
+     "note": "MOQ 1 ≤ 1 units"
+    },
+    {
+     "criterion": "certifications",
+     "score": 1.0,
+     "weight": 0.15,
+     "note": "Holds ISO 9001 of ISO 9001"
+    },
+    {
+     "criterion": "load",
+     "score": 0.8,
+     "weight": 0.15,
+     "note": "55% loaded, ~18 units/month free"
+    },
+    {
+     "criterion": "lead_time",
+     "score": 0.97,
+     "weight": 0.2,
+     "note": "21-day lead time"
+    }
+   ],
+   "reasons": [
+    "Covers 1/1 processes in-house (Other)",
+    "Capacity available: 55% loaded, ~18 units/month free",
+    "Fast: 21-day lead time",
+    "91% on-time over 112 orders, 0.9% defects",
+    "Profile: installer (balanced)"
+   ]
+  },
+  {
+   "rank": 2,
+   "factory_id": "i_lumiereparis",
+   "factory_name": "Lumière Toits Paris (fictional)",
+   "score": {
+    "value": 92.5,
+    "unit": "score/100",
+    "label": "fictional",
+    "source_or_assumption": "Scored on demo data (fictional network)"
+   },
+   "score_breakdown": [
+    {
+     "criterion": "process_fit",
+     "score": 1.0,
+     "weight": 0.35,
+     "note": "Covers 1/1 processes in-house (Other)"
+    },
+    {
+     "criterion": "moq",
+     "score": 1.0,
+     "weight": 0.15,
+     "note": "MOQ 1 ≤ 1 units"
+    },
+    {
+     "criterion": "certifications",
+     "score": 1.0,
+     "weight": 0.15,
+     "note": "Holds ISO 9001 of ISO 9001"
+    },
+    {
+     "criterion": "load",
+     "score": 0.5,
+     "weight": 0.15,
+     "note": "70% loaded, ~7 units/month free"
+    },
+    {
+     "criterion": "lead_time",
+     "score": 1.0,
+     "weight": 0.2,
+     "note": "14-day lead time"
+    }
+   ],
+   "reasons": [
+    "Covers 1/1 processes in-house (Other)",
+    "Capacity available: 70% loaded, ~7 units/month free",
+    "Fast: 14-day lead time",
+    "95% on-time over 64 orders, 0.6% defects",
+    "Profile: installer (fast/expensive)"
+   ]
+  },
+  {
+   "rank": 3,
+   "factory_id": "i_estrecho",
+   "factory_name": "Estrecho Solar Montajes (fictional)",
+   "score": {
+    "value": 80.5,
+    "unit": "score/100",
+    "label": "fictional",
+    "source_or_assumption": "Scored on demo data (fictional network)"
+   },
+   "score_breakdown": [
+    {
+     "criterion": "process_fit",
+     "score": 1.0,
+     "weight": 0.35,
+     "note": "Covers 1/1 processes in-house (Other)"
+    },
+    {
+     "criterion": "moq",
+     "score": 1.0,
+     "weight": 0.15,
+     "note": "MOQ 1 ≤ 1 units"
+    },
+    {
+     "criterion": "certifications",
+     "score": 1.0,
+     "weight": 0.15,
+     "note": "Holds ISO 9001 of ISO 9001"
+    },
+    {
+     "criterion": "load",
+     "score": 0.3,
+     "weight": 0.15,
+     "note": "80% loaded, ~12 units/month free"
+    },
+    {
+     "criterion": "lead_time",
+     "score": 0.55,
+     "weight": 0.2,
+     "note": "38-day lead time"
+    }
+   ],
+   "reasons": [
+    "Covers 1/1 processes in-house (Other)",
+    "Busy: 80% loaded, ~12 units/month free",
+    "38-day lead time",
+    "84% on-time over 150 orders, 1.3% defects",
+    "Profile: installer (cheap/slow)"
+   ]
+  }
+ ]
+}

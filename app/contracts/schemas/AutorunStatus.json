@@ -12,11 +12,21 @@
     }
   },
   "additionalProperties": false,
-  "description": "Progress of the background autorun (stages 1-7). Poll GET /projects/{id} every ~2 s.",
+  "description": "Progress of the background autorun (stages 1-7, or 1-13 + Factory Pack in autofill mode). Poll GET /projects/{id} every ~2 s.",
   "properties": {
     "state": {
       "$ref": "#/$defs/AutorunState",
       "default": "idle"
+    },
+    "through": {
+      "default": 7,
+      "description": "Last stage the run goes to: 7 (default) or 13 (autofill: also auto-approves the recommended quote at stage 8 and builds the Factory Pack)",
+      "enum": [
+        7,
+        13
+      ],
+      "title": "Through",
+      "type": "integer"
     },
     "current_stage": {
       "anyOf": [

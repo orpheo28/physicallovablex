@@ -1,0 +1,501 @@
+{
+ "project_id": "demo_home_robot",
+ "status": "validated",
+ "fallback": false,
+ "fallback_reason": null,
+ "generated_by": "llm:openai/gpt-6-luna",
+ "generated_at": "2026-09-27T00:09:07.952877Z",
+ "assumptions": [
+  {
+   "id": "a3_1",
+   "text": "PC/ABS density 1.15 g/cm³ for the weight estimate",
+   "label": "estimate",
+   "source": null,
+   "stage": 3
+  },
+  {
+   "id": "a3_2",
+   "text": "Direction d1 ('Helper'): full product from the 'home_robot' family (overall size measured on it); its main moulded housing is modelled as a two-shell enclosure 300 × 255 × 310 mm, wall 2.2 mm, draft 1.5° (DFM, weight)",
+   "label": "estimate",
+   "source": null,
+   "stage": 3
+  }
+ ],
+ "stage": 3,
+ "product_name": "Toy-tidying home robot",
+ "direction_id": "d1",
+ "overall_dimensions": {
+  "length": {
+   "value": 717.4,
+   "unit": "mm",
+   "label": "measured",
+   "source_or_assumption": "Bounding box of the full product (family CAD, build123d/OCCT)"
+  },
+  "width": {
+   "value": 468.0,
+   "unit": "mm",
+   "label": "measured",
+   "source_or_assumption": "Bounding box of the full product (family CAD, build123d/OCCT)"
+  },
+  "height": {
+   "value": 1083.95,
+   "unit": "mm",
+   "label": "measured",
+   "source_or_assumption": "Bounding box of the full product (family CAD, build123d/OCCT)"
+  }
+ },
+ "weight": {
+  "value": 1069.8,
+  "unit": "g",
+  "label": "estimate",
+  "source_or_assumption": "Enclosure volume 930.2 cm³ (measured) × PC/ABS 1.15 g/cm³; electronics and battery not included"
+ },
+ "parts": [
+  {
+   "id": "p1",
+   "name": "Bottom shell",
+   "material": "PC/ABS (UL94 V-0)",
+   "finish": "Soft-touch paint · Warm white #F2F2EF",
+   "process_hint": "injection_molding",
+   "tolerance": "±0.1 mm on mating faces and boss pilots",
+   "dimensions": {
+    "length": {
+     "value": 300.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Bounding box of the built STEP (build123d/OCCT), this part"
+    },
+    "width": {
+     "value": 255.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Bounding box of the built STEP (build123d/OCCT), this part"
+    },
+    "height": {
+     "value": 155.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Bounding box of the built STEP (build123d/OCCT), this part"
+    }
+   },
+   "wall_thickness": {
+    "value": 2.2,
+    "unit": "mm",
+    "label": "estimate",
+    "source_or_assumption": "Design parameter (nominal wall); measured in DFM stage 4"
+   },
+   "quantity": 1
+  },
+  {
+   "id": "p2",
+   "name": "Top shell",
+   "material": "PC/ABS (UL94 V-0)",
+   "finish": "Soft-touch paint · Warm white #F2F2EF",
+   "process_hint": "injection_molding",
+   "tolerance": "±0.1 mm on mating faces and boss pilots",
+   "dimensions": {
+    "length": {
+     "value": 300.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Bounding box of the built STEP (build123d/OCCT), this part"
+    },
+    "width": {
+     "value": 255.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Bounding box of the built STEP (build123d/OCCT), this part"
+    },
+    "height": {
+     "value": 155.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Bounding box of the built STEP (build123d/OCCT), this part"
+    }
+   },
+   "wall_thickness": {
+    "value": 2.2,
+    "unit": "mm",
+    "label": "estimate",
+    "source_or_assumption": "Design parameter (nominal wall); measured in DFM stage 4"
+   },
+   "quantity": 1
+  },
+  {
+   "id": "p3",
+   "name": "Main PCB assembly",
+   "material": "FR-4 1.6 mm",
+   "finish": "HASL lead-free, green mask",
+   "process_hint": "pcba",
+   "tolerance": "±0.2 mm outline",
+   "dimensions": {
+    "length": {
+     "value": 281.6,
+     "unit": "mm",
+     "label": "estimate",
+     "source_or_assumption": "PCB length: fits the inner cavity with 1 mm clearance"
+    },
+    "width": {
+     "value": 236.6,
+     "unit": "mm",
+     "label": "estimate",
+     "source_or_assumption": "PCB width: fits the inner cavity with 1 mm clearance"
+    },
+    "height": {
+     "value": 1.6,
+     "unit": "mm",
+     "label": "estimate",
+     "source_or_assumption": "PCB thickness: fits the inner cavity with 1 mm clearance"
+    }
+   },
+   "wall_thickness": null,
+   "quantity": 1
+  },
+  {
+   "id": "p4",
+   "name": "Screws M2.5 × 6 self-tapping",
+   "material": "Steel",
+   "finish": "Black zinc",
+   "process_hint": "other",
+   "tolerance": null,
+   "dimensions": null,
+   "wall_thickness": null,
+   "quantity": 4
+  }
+ ],
+ "electronics_blocks": [
+  {
+   "id": "b1",
+   "name": "Perception sensors",
+   "function": "Capture images, range data and motion measurements to detect toys and obstacles"
+  },
+  {
+   "id": "b2",
+   "name": "Main compute and control",
+   "function": "Identify compatible toys, plan navigation and coordinate robot actions"
+  },
+  {
+   "id": "b3",
+   "name": "Drive and manipulation actuators",
+   "function": "Move the wheeled base and operate the arm and gripper"
+  },
+  {
+   "id": "b4",
+   "name": "Battery and charging system",
+   "function": "Supply regulated power and recharge the robot at its dock"
+  }
+ ],
+ "electronics_edges": [
+  {
+   "source": "b1",
+   "target": "b2",
+   "signal": "Images, range measurements and IMU data"
+  },
+  {
+   "source": "b2",
+   "target": "b3",
+   "signal": "Drive and arm/gripper commands"
+  },
+  {
+   "source": "b4",
+   "target": "b2",
+   "signal": "Regulated power"
+  },
+  {
+   "source": "b4",
+   "target": "b3",
+   "signal": "Motor and actuator power"
+  },
+  {
+   "source": "b2",
+   "target": "b4",
+   "signal": "Charging and battery status control"
+  }
+ ],
+ "bom": [
+  {
+   "id": "e1",
+   "part": "Embedded Linux compute module",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Vision-capable main processor; select a module without wireless radios",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "e2",
+   "part": "RGB camera module",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Forward-facing toy detection camera",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "e3",
+   "part": "2D lidar module",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Planar ranging for household navigation and obstacle detection",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "e4",
+   "part": "Time-of-flight distance sensor",
+   "category": "electronic",
+   "qty": 4.0,
+   "description": "Short-range obstacle and docking sensors",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "e5",
+   "part": "Six-axis IMU",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Robot orientation and motion sensing",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "e6",
+   "part": "Brushed DC gearmotor with encoder",
+   "category": "electronic",
+   "qty": 2.0,
+   "description": "Differential-drive wheel motors",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "e7",
+   "part": "Dual brushed DC motor driver module",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Drives the two wheel motors",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "e8",
+   "part": "Arm joint servo actuator",
+   "category": "electronic",
+   "qty": 3.0,
+   "description": "Arm and gripper articulation actuators",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "e9",
+   "part": "Rechargeable lithium-ion battery pack",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Robot battery pack with suitable voltage and capacity",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "e10",
+   "part": "Battery management and protection board",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Cell balancing, overcurrent and undervoltage protection",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "e11",
+   "part": "DC-DC buck converter module",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Regulated logic and sensor power supply",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "e12",
+   "part": "Dock charging interface and charger",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Charging contacts and compatible battery charger",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "e13",
+   "part": "Grouped passive components",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": "Resistors, capacitors, pull-ups, decoupling and protection components",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m1",
+   "part": "Top shell",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Moulded PC/ABS (UL94 V-0) shell, approximately 300 × 255 × 310 mm",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m2",
+   "part": "Bottom shell",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Moulded PC/ABS (UL94 V-0) shell, approximately 300 × 255 × 310 mm",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m3",
+   "part": "Wheeled base chassis and wheel set",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Base frame, drive wheels and caster/support hardware",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m4",
+   "part": "Arm and gripper assembly",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Single arm structure and toy-compatible gripper",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m5",
+   "part": "Fastener set",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Assembly screws, washers and inserts",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "k1",
+   "part": "Retail packaging set",
+   "category": "packaging",
+   "qty": 1.0,
+   "description": "Carton, protective inserts, bags and printed documentation",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  }
+ ],
+ "tolerances": [
+  "General ISO 2768-m",
+  "Shell mating faces ±0.1 mm",
+  "Boss pilot Ø2.2 +0.05/0 mm",
+  "Split-line step ≤ 0.1 mm"
+ ],
+ "cad_files": [
+  {
+   "format": "glb",
+   "url": "/files/demo_home_robot/model_v1.glb",
+   "description": "AI-generated CAD (concept level) — geometry measured on the result — bbox 722 × 468 × 1012 mm",
+   "size_bytes": 1329988
+  },
+  {
+   "format": "step",
+   "url": "/files/demo_home_robot/model_v1.step",
+   "description": "AI-generated CAD (concept level) — geometry measured on the result — STEP AP214",
+   "size_bytes": 670279
+  },
+  {
+   "format": "py",
+   "url": "/projects/demo_home_robot/cad/code/1",
+   "description": "AI-generated CAD (concept level) — geometry measured on the result — build123d program v1 (llm:openai/gpt-6-sol)",
+   "size_bytes": 5452
+  },
+  {
+   "format": "glb",
+   "url": "/files/demo_home_robot/v1.glb",
+   "description": "Full product — materials",
+   "size_bytes": 973692
+  },
+  {
+   "format": "step",
+   "url": "/files/demo_home_robot/v1_enclosure.step",
+   "description": "Moulded parts (DFM) — both shells, STEP AP214",
+   "size_bytes": 577592
+  },
+  {
+   "format": "stl",
+   "url": "/files/demo_home_robot/v1_enclosure.stl",
+   "description": "Moulded parts (DFM) — mesh for 3D printing",
+   "size_bytes": 1124184
+  },
+  {
+   "format": "glb",
+   "url": "/files/demo_home_robot/v1_enclosure.glb",
+   "description": "Moulded parts (DFM) — viewer model",
+   "size_bytes": 657716
+  },
+  {
+   "format": "step",
+   "url": "/files/demo_home_robot/d1.step",
+   "description": "Full product — all parts, STEP AP214",
+   "size_bytes": 402308
+  }
+ ]
+}

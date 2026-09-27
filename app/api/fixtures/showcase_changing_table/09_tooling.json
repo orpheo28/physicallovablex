@@ -1,0 +1,289 @@
+{
+ "project_id": "demo_changing_table",
+ "status": "validated",
+ "fallback": false,
+ "fallback_reason": null,
+ "generated_by": "code",
+ "generated_at": "2026-09-27T00:18:26.218070Z",
+ "assumptions": [
+  {
+   "id": "a1",
+   "text": "Quote lead time (27 d) is used as the tooling T0 duration; T1, golden sample and mass production use planning assumptions.",
+   "label": "estimate",
+   "source": null,
+   "stage": 9
+  },
+  {
+   "id": "a2",
+   "text": "Date check: lead time differs from the stage 6 plan by +13 d (stage 6: 51 d, this plan: 64 d) — the negotiated quote governs",
+   "label": "estimate",
+   "source": null,
+   "stage": 9
+  },
+  {
+   "id": "a3",
+   "text": "Kickoff date 2026-09-28 (next Monday after today unless start_date is passed in inputs); durations are planning assumptions except the quote lead time.",
+   "label": "estimate",
+   "source": null,
+   "stage": 9
+  },
+  {
+   "id": "a4",
+   "text": "Sample rounds cost is an assumption; production payments follow the 30/70 term (deposit / before shipment) unless the quote states another deposit.",
+   "label": "estimate",
+   "source": null,
+   "stage": 9
+  }
+ ],
+ "stage": 9,
+ "milestones": [
+  {
+   "id": "m1",
+   "name": "PO + tooling kickoff",
+   "kind": "deposit",
+   "start_date": "2026-09-28",
+   "end_date": "2026-09-29",
+   "duration_days": {
+    "value": 1.0,
+    "unit": "days",
+    "label": "estimate",
+    "source_or_assumption": "Planning assumption"
+   },
+   "depends_on": [],
+   "payment": null,
+   "notes": null
+  },
+  {
+   "id": "m2",
+   "name": "Tooling T0 + first shots",
+   "kind": "tooling_t0",
+   "start_date": "2026-09-29",
+   "end_date": "2026-10-26",
+   "duration_days": {
+    "value": 27.0,
+    "unit": "days",
+    "label": "fictional",
+    "source_or_assumption": "Lead time of final terms qt_bfdd96a506 — demo data"
+   },
+   "depends_on": [
+    "m1"
+   ],
+   "payment": null,
+   "notes": null
+  },
+  {
+   "id": "m3",
+   "name": "T1 corrections",
+   "kind": "tooling_t1",
+   "start_date": "2026-10-26",
+   "end_date": "2026-11-02",
+   "duration_days": {
+    "value": 7.0,
+    "unit": "days",
+    "label": "estimate",
+    "source_or_assumption": "Planning assumption"
+   },
+   "depends_on": [
+    "m2"
+   ],
+   "payment": null,
+   "notes": null
+  },
+  {
+   "id": "m4",
+   "name": "Golden sample approval",
+   "kind": "golden_sample",
+   "start_date": "2026-11-02",
+   "end_date": "2026-11-09",
+   "duration_days": {
+    "value": 7.0,
+    "unit": "days",
+    "label": "estimate",
+    "source_or_assumption": "Planning assumption"
+   },
+   "depends_on": [
+    "m3"
+   ],
+   "payment": {
+    "value": 600.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Sample rounds + express shipping, assumption"
+   },
+   "notes": null
+  },
+  {
+   "id": "m5",
+   "name": "Certification testing",
+   "kind": "certification",
+   "start_date": "2026-11-02",
+   "end_date": "2026-11-30",
+   "duration_days": {
+    "value": 28.0,
+    "unit": "days",
+    "label": "estimate",
+    "source_or_assumption": "Longest required lab lead time (stage 4 certifications)"
+   },
+   "depends_on": [
+    "m3"
+   ],
+   "payment": {
+    "value": 6000.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Sum of required certification estimates (stage 4/5)"
+   },
+   "notes": "CPSIA — ASTM F963 toy safety + Children's Product Certificate; 16 CFR Part 1235 — Safety Standard for Changing Tables (incorporating ASTM F2388-21)"
+  },
+  {
+   "id": "m6",
+   "name": "Mass production (2,000 units)",
+   "kind": "mass_production",
+   "start_date": "2026-11-09",
+   "end_date": "2026-12-02",
+   "duration_days": {
+    "value": 23.0,
+    "unit": "days",
+    "label": "estimate",
+    "source_or_assumption": "2,000 units at 90 units/day, assumption"
+   },
+   "depends_on": [
+    "m4"
+   ],
+   "payment": {
+    "value": 107988.0,
+    "unit": "USD",
+    "label": "fictional",
+    "source_or_assumption": "30% deposit of unit price of final terms qt_bfdd96a506 × 2,000 units — demo data"
+   },
+   "notes": null
+  },
+  {
+   "id": "m7",
+   "name": "Pre-shipment inspection",
+   "kind": "pre_shipment_inspection",
+   "start_date": "2026-12-02",
+   "end_date": "2026-12-04",
+   "duration_days": {
+    "value": 2.0,
+    "unit": "days",
+    "label": "estimate",
+    "source_or_assumption": "125 samples (ISO 2859-1 code K) at 100 units per man-day, assumption"
+   },
+   "depends_on": [
+    "m6",
+    "m5"
+   ],
+   "payment": {
+    "value": 536.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "V-Trust rate (Sourced) × estimated man-days: 2 man-days × $268/man-day (V-Trust, https://www.v-trust.com/en/our-network, checked 2026-09-26)"
+   },
+   "notes": null
+  },
+  {
+   "id": "m8",
+   "name": "Balance + sea shipment",
+   "kind": "shipment",
+   "start_date": "2026-12-04",
+   "end_date": "2027-01-05",
+   "duration_days": {
+    "value": 32.0,
+    "unit": "days",
+    "label": "estimate",
+    "source_or_assumption": "Sea freight transit assumption; refined at stage 11"
+   },
+   "depends_on": [
+    "m7"
+   ],
+   "payment": {
+    "value": 251972.0,
+    "unit": "USD",
+    "label": "fictional",
+    "source_or_assumption": "70% balance before shipment of unit price of final terms qt_bfdd96a506 × 2,000 units — demo data"
+   },
+   "notes": null
+  },
+  {
+   "id": "m9",
+   "name": "Delivered to destination 3PL",
+   "kind": "delivered",
+   "start_date": "2027-01-05",
+   "end_date": "2027-01-08",
+   "duration_days": {
+    "value": 3.0,
+    "unit": "days",
+    "label": "estimate",
+    "source_or_assumption": "Planning assumption"
+   },
+   "depends_on": [
+    "m8"
+   ],
+   "payment": null,
+   "notes": null
+  }
+ ],
+ "payment_schedule": [
+  {
+   "milestone_id": "m4",
+   "description": "Sample rounds + express shipping",
+   "pct_of_order": null,
+   "amount": {
+    "value": 600.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Sample rounds + express shipping, assumption"
+   },
+   "due_date": "2026-11-02"
+  },
+  {
+   "milestone_id": "m5",
+   "description": "Certification lab fees",
+   "pct_of_order": null,
+   "amount": {
+    "value": 6000.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Sum of required certification estimates (stage 4/5)"
+   },
+   "due_date": "2026-11-02"
+  },
+  {
+   "milestone_id": "m6",
+   "description": "30% production deposit",
+   "pct_of_order": 30.0,
+   "amount": {
+    "value": 107988.0,
+    "unit": "USD",
+    "label": "fictional",
+    "source_or_assumption": "30% deposit of unit price of final terms qt_bfdd96a506 × 2,000 units — demo data"
+   },
+   "due_date": "2026-11-09"
+  },
+  {
+   "milestone_id": "m7",
+   "description": "Pre-shipment inspection",
+   "pct_of_order": null,
+   "amount": {
+    "value": 536.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "V-Trust rate (Sourced) × estimated man-days: 2 man-days × $268/man-day (V-Trust, https://www.v-trust.com/en/our-network, checked 2026-09-26)"
+   },
+   "due_date": "2026-12-02"
+  },
+  {
+   "milestone_id": "m8",
+   "description": "70% balance before shipment",
+   "pct_of_order": 70.0,
+   "amount": {
+    "value": 251972.0,
+    "unit": "USD",
+    "label": "fictional",
+    "source_or_assumption": "70% balance before shipment of unit price of final terms qt_bfdd96a506 × 2,000 units — demo data"
+   },
+   "due_date": "2026-12-04"
+  }
+ ]
+}

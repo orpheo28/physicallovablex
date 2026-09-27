@@ -1,0 +1,41 @@
+{
+  "key": "furniture_baby",
+  "title": "Nursery furniture (changing / activity table)",
+  "match": ["changing table", "changing unit", "changing station", "nappy", "diaper", "baby table", "activity table", "play table", "nursery", "crib", "cot", "high chair", "furniture", "dresser", "shelf", "table for kids", "kids table", "baby changing"],
+  "families": ["furniture"],
+  "brief_categories": [],
+  "partner_word": "factories",
+  "standards": [
+    {"code": "EN 12221-1", "applies_because": "Changing units for domestic use: safety requirements (EU)"},
+    {"code": "EN 12221-2", "applies_because": "Changing units: test methods (stability, strength, barriers)"},
+    {"code": "16 CFR 1235", "applies_because": "US mandatory safety standard for baby changing products (CPSC, incorporates ASTM F2388)"},
+    {"code": "CPSIA", "applies_because": "US children's product: lead / phthalates limits, third-party testing, tracking labels"},
+    {"code": "EN 71-1", "applies_because": "Activity parts or toys attached to the table (mechanical and physical properties, small parts)"},
+    {"code": "EN 71-3", "applies_because": "Migration of heavy metals from paints and coatings a child can mouth"},
+    {"code": "Regulation (EU) 2023/988", "applies_because": "General Product Safety Regulation covers any consumer product placed on the EU market"}
+  ],
+  "risks": [
+    {"risk": "Tip-over when a child climbs or pulls on the top", "mitigation": "Wide base, low centre of mass, wall anti-tip strap supplied and required in the manual", "severity": "critical"},
+    {"risk": "Baby rolls off the changing surface", "mitigation": "Raised barriers on all sides of the changing area (height per EN 12221-1 / ASTM F2388, to be confirmed)", "severity": "critical"},
+    {"risk": "Finger and head entrapment in gaps and hinges", "mitigation": "Keep gaps < 5 mm or > 12 mm (fingers); no V-shaped openings; soft-close hinges", "severity": "major"},
+    {"risk": "Small parts and choking (knobs, activity beads)", "mitigation": "Small-parts cylinder test; captive fasteners; no detachable caps", "severity": "major"},
+    {"risk": "Coatings with lead or heavy metals", "mitigation": "EN 71-3 / CPSIA compliant water-based finishes, lab reports per colour", "severity": "major"}
+  ],
+  "tests": [
+    {"name": "Stability / tip-over (loaded and unloaded, drawers open)", "kind": "tip_over", "method": "Tilt and horizontal-force tests per the standard", "standard": "EN 12221-2 / 16 CFR 1235"},
+    {"name": "Static load on the changing surface and barriers", "kind": "mechanical", "method": "Apply the specified masses for the specified time, check deformation", "standard": "EN 12221-2"},
+    {"name": "Durability (fatigue of hinges, drawers, fold mechanism)", "kind": "mechanical", "method": "Cycle test", "standard": "EN 12221-2"},
+    {"name": "Small parts, sharp edges and points", "kind": "mechanical", "method": "Small-parts cylinder, sharp edge / point tester", "standard": "EN 71-1 / CPSIA"},
+    {"name": "Heavy metals and phthalates in coatings", "kind": "chemical", "method": "Accredited lab, each colour and material", "standard": "EN 71-3 / CPSIA"}
+  ],
+  "checks": ["tip_over", "tip_push", "mass", "battery_life"],
+  "params": {
+    "com_ratio": 0.55, "tip_min_deg": 15, "tip_warn_deg": 10, "push_min_n": 50, "mass_max_g": 40000,
+    "battery_target_h": 40, "battery_mah_default": 2000, "battery_v_default": 4.5,
+    "duty": {"mcu": 2, "led": 5, "buzzer": 1, "radio": 0},
+    "default_family": "esp32", "connectivity": "none (optional BLE for a night-light app)",
+    "typical_electronics": []
+  },
+  "prototype": {"method": "CNC-cut birch plywood panels, hand-finished (1:1 prototype)", "usd_per_cm3": 0.02, "setup_usd": 150, "units": 1,
+    "steps": ["Cut plywood panels on a CNC router from the CAD outlines", "Dry-fit, then glue and screw with the production fasteners", "Apply an EN 71-3 compliant water-based finish", "Run an in-house tip test: incline and horizontal push at the top edge", "Book a pre-test at an accredited nursery-furniture lab"]}
+}

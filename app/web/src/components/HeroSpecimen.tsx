@@ -26,7 +26,7 @@ export function HeroSpecimen() {
   if (failed) return null;
 
   const dir = design?.directions.find((d) => d.id === design.chosen_direction_id) ?? design?.directions[0];
-  const ref = costs?.tiers.find((t) => t.quantity === costs.reference_quantity) ?? costs?.tiers[1];
+  const ref = costs?.tiers.find((t) => t.quantity === costs.reference_quantity) ?? costs?.tiers[Math.min(1, costs.tiers.length - 1)];
 
   return (
     <figure className="flex flex-col">

@@ -1,0 +1,348 @@
+{
+ "project_id": "demo_solar_biarritz",
+ "status": "validated",
+ "fallback": false,
+ "fallback_reason": null,
+ "generated_by": "llm:openai/gpt-6-sol",
+ "generated_at": "2026-09-27T00:23:44.695158Z",
+ "assumptions": [
+  {
+   "id": "a4_1",
+   "text": "Solid product ('solar_array' family): moulded-shell checks (draft, undercut, wall thickness, clamp tonnage) do not apply; the measured checks are process fit, stock size and thinnest section on the product CAD",
+   "label": "estimate",
+   "source": null,
+   "stage": 4
+  }
+ ],
+ "stage": 4,
+ "issues": [
+  {
+   "id": "a1",
+   "severity": "major",
+   "category": "assembly",
+   "method": "ai_reviewed",
+   "part_id": null,
+   "description": "The BOM specifies 10 modules, but the CAD layout contains 14. Rail, clamp, attachment and electrical quantities cannot be released against conflicting array sizes.",
+   "fix": "Choose the intended layout, then reconcile the module count and recalculate all mounting and electrical quantities.",
+   "rule_citation": "BOM quantities must match the released assembly drawing — standard manufacturing BOM control practice.",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a2",
+   "severity": "major",
+   "category": "tolerance",
+   "method": "ai_reviewed",
+   "part_id": "p1",
+   "description": "Rail alignment, module gaps and roof-edge margin lack a common datum and an installation inspection method. The specified gaps may conflict with the selected module's clamp zones.",
+   "fix": "Issue a dimensioned roof layout with datums, measurement points, rail spans and the selected module's permitted clamp zones.",
+   "rule_citation": "Module mounting must follow the manufacturer's installation instructions — IEC 61730-1 (PV module construction requirements).",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a3",
+   "severity": "major",
+   "category": "other",
+   "method": "ai_reviewed",
+   "part_id": null,
+   "description": "Module, inverter, isolator and cable ratings are approximate or unspecified; string voltage, current and connector compatibility cannot be checked.",
+   "fix": "Select exact manufacturer part numbers and issue a string diagram with temperature-corrected voltage, current, cable, isolator and connector checks.",
+   "rule_citation": "PV array electrical design must account for component ratings and string configuration — IEC 62548-1 (PV array design requirements).",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a4",
+   "severity": "major",
+   "category": "assembly",
+   "method": "ai_reviewed",
+   "part_id": null,
+   "description": "The battery pack and battery inverter/charger have no defined electrical interface or operating architecture with the grid-tie inverter.",
+   "fix": "Specify an approved AC- or DC-coupled architecture, compatible equipment models, protection scheme and commissioning tests.",
+   "rule_citation": "Power conversion equipment safety and installation interfaces require verification — IEC 62109-1 (PV power-converter safety).",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a5",
+   "severity": "major",
+   "category": "material",
+   "method": "ai_reviewed",
+   "part_id": null,
+   "description": "The stationary battery has no specified installation location, enclosure, thermal clearance or ventilation provisions.",
+   "fix": "Specify a certified battery system and its installation location; document required clearances, ventilation, protection and compliance with the battery manufacturer's instructions.",
+   "rule_citation": "Safety requirements for industrial lithium batteries — IEC 62619.",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "m1",
+   "severity": "minor",
+   "category": "other",
+   "method": "measured",
+   "part_id": "p1",
+   "description": "Solid product (424.3 L of material): not an injection-moulded shell, so draft, undercut, wall thickness and clamp tonnage do not apply. Process: on-site installation of bought-in modules, rails and inverter.",
+   "fix": "Quote the listed process; send the STEP as the shaping / routing / layout file.",
+   "rule_citation": "Moulded-shell DFM rules apply to injection moulding only (Protolabs design guide)",
+   "measurement": {
+    "value": 424.3,
+    "unit": "L",
+    "label": "measured",
+    "source_or_assumption": "Solid volume of all parts, measured on the product CAD (build123d/OCCT)"
+   },
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "m2",
+   "severity": "minor",
+   "category": "assembly",
+   "method": "measured",
+   "part_id": "p1",
+   "description": "14 modules on the layout (projected module area ≈ 21.4 m²): standard 1722 × 1134 mm class, bought in.",
+   "fix": "Keep the 45 cm roof-edge margin; check rafter spacing against the roof-hook pitch on site.",
+   "rule_citation": "Installer practice: edge margins for wind uplift zones (EN 1991-1-4) — Estimate",
+   "measurement": {
+    "value": 14.0,
+    "unit": "modules",
+    "label": "measured",
+    "source_or_assumption": "Modules counted in the layout CAD, measured on the product CAD (build123d/OCCT)"
+   },
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "m3",
+   "severity": "minor",
+   "category": "other",
+   "method": "measured",
+   "part_id": "p1",
+   "description": "Array footprint 8.3 × 3.0 m incl. rails.",
+   "fix": "Survey the roof (area, orientation, shading) before ordering.",
+   "rule_citation": "Site survey before PV design — installer practice",
+   "measurement": {
+    "value": 8258.0,
+    "unit": "mm",
+    "label": "measured",
+    "source_or_assumption": "Array footprint, measured on the product CAD (build123d/OCCT)"
+   },
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "a6",
+   "severity": "minor",
+   "category": "material",
+   "method": "ai_reviewed",
+   "part_id": "p1",
+   "description": "Anodised aluminium rails and stainless-steel fasteners are specified without an isolation or corrosion-control detail for exposed rooftop joints.",
+   "fix": "Define compatible fastener grades, isolating washers where needed and a documented corrosion-protection detail for the coastal installation.",
+   "rule_citation": "Atmospheric corrosivity classification guides material and coating selection — ISO 9223.",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  }
+ ],
+ "component_risks": [
+  {
+   "bom_item_id": "e1",
+   "part": "Monocrystalline PV module, approx. 450 W, framed",
+   "level": "medium",
+   "reasons": [
+    "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+   ],
+   "alternatives": [],
+   "stock": null,
+   "lead_time_weeks": null,
+   "alternative": null
+  },
+  {
+   "bom_item_id": "e2",
+   "part": "Single-phase grid-tie string inverter, approx. 5 kW, MPPT",
+   "level": "medium",
+   "reasons": [
+    "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+   ],
+   "alternatives": [],
+   "stock": null,
+   "lead_time_weeks": null,
+   "alternative": null
+  },
+  {
+   "bom_item_id": "e3",
+   "part": "PV DC isolator, voltage/current rated for array",
+   "level": "medium",
+   "reasons": [
+    "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+   ],
+   "alternatives": [],
+   "stock": null,
+   "lead_time_weeks": null,
+   "alternative": null
+  },
+  {
+   "bom_item_id": "e4",
+   "part": "AC protection and disconnect assembly",
+   "level": "medium",
+   "reasons": [
+    "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+   ],
+   "alternatives": [],
+   "stock": null,
+   "lead_time_weeks": null,
+   "alternative": null
+  },
+  {
+   "bom_item_id": "e5",
+   "part": "PV-rated DC cable and compatible module connectors",
+   "level": "medium",
+   "reasons": [
+    "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+   ],
+   "alternatives": [],
+   "stock": null,
+   "lead_time_weeks": null,
+   "alternative": null
+  },
+  {
+   "bom_item_id": "e6",
+   "part": "Stationary solar battery pack with integrated battery management system",
+   "level": "medium",
+   "reasons": [
+    "Li-ion cell: UN38.3 transport test, air-freight restrictions, protection circuit required"
+   ],
+   "alternatives": [],
+   "stock": null,
+   "lead_time_weeks": null,
+   "alternative": null
+  },
+  {
+   "bom_item_id": "e7",
+   "part": "Battery inverter/charger compatible with the existing grid-tie system",
+   "level": "medium",
+   "reasons": [
+    "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
+   ],
+   "alternatives": [],
+   "stock": null,
+   "lead_time_weeks": null,
+   "alternative": null
+  }
+ ],
+ "certifications": [
+  {
+   "market": "EU",
+   "standard": "CE — EMC 2014/30/EU (EN 55032 / EN 55035)",
+   "applies_because": "Electronic product without a radio: EMC directive applies. Reference: Directive 2014/30/EU (EMC), https://eur-lex.europa.eu/eli/dir/2014/30/oj",
+   "required": true,
+   "cost_est": {
+    "value": 3000.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Accredited-lab range, demo assumption"
+   },
+   "lead_time_weeks": {
+    "value": 5.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Typical lab queue + report, demo assumption"
+   }
+  },
+  {
+   "market": "EU",
+   "standard": "RoHS 2011/65/EU",
+   "applies_because": "Electronic product placed on the EU market must restrict hazardous substances (test report + declaration). Reference: Directive 2011/65/EU (RoHS), https://eur-lex.europa.eu/eli/dir/2011/65/oj",
+   "required": true,
+   "cost_est": {
+    "value": 600.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Accredited-lab range, demo assumption"
+   },
+   "lead_time_weeks": {
+    "value": 2.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Typical lab queue + report, demo assumption"
+   }
+  },
+  {
+   "market": "Global",
+   "standard": "UN38.3 (lithium battery transport tests)",
+   "applies_because": "Lithium cells must pass UN Manual of Tests and Criteria 38.3 to ship by sea/air; ask the cell supplier for the test summary. Reference: UN Manual of Tests and Criteria, section 38.3; IATA Lithium Battery Guidance Document 2026, https://www.iata.org/contentassets/05e6d8742b0047259bf3a700bc9d42b9/lithium-battery-guidance-document.pdf",
+   "required": true,
+   "cost_est": {
+    "value": 1000.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Accredited-lab range, demo assumption"
+   },
+   "lead_time_weeks": {
+    "value": 4.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Typical lab queue + report, demo assumption"
+   }
+  },
+  {
+   "market": "Global",
+   "standard": "IEC 62133-2 (secondary lithium cell/battery safety)",
+   "applies_because": "Rechargeable lithium cell inside the product; also required by many retailers and by EU/UK market surveillance",
+   "required": true,
+   "cost_est": {
+    "value": 2500.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Accredited-lab range, demo assumption"
+   },
+   "lead_time_weeks": {
+    "value": 4.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Typical lab queue + report, demo assumption"
+   }
+  },
+  {
+   "market": "EU",
+   "standard": "EN IEC 62109-1:2010 and EN IEC 62109-2:2011",
+   "applies_because": "These power-converter safety standards apply to the photovoltaic inverter used to connect the rooftop system to household electricity.",
+   "required": true,
+   "cost_est": {
+    "value": 18000.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "LLM-proposed rough estimate — get a lab quote to confirm"
+   },
+   "lead_time_weeks": {
+    "value": 10.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "LLM-proposed rough estimate — get a lab quote to confirm"
+   }
+  },
+  {
+   "market": "France",
+   "standard": "NF EN 50549-1:2019",
+   "applies_because": "The inverter must satisfy French distribution-network connection requirements for a grid-connected generating plant connected to a low-voltage network.",
+   "required": true,
+   "cost_est": {
+    "value": 15000.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "LLM-proposed rough estimate — get a lab quote to confirm"
+   },
+   "lead_time_weeks": {
+    "value": 8.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "LLM-proposed rough estimate — get a lab quote to confirm"
+   }
+  }
+ ]
+}

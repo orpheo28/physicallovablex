@@ -41,7 +41,7 @@ function GenericInner({ value, depth = 0, skipKeys = true }: { value: unknown; d
       return (
         <ul className="flex flex-col gap-2">
           {value.map((x, i) => (
-            <li key={i} className="rounded-sm border border-line bg-sunken p-3">
+            <li key={i} className="rounded-sm bg-sunken p-3">
               <GenericInner value={x} depth={depth + 1} skipKeys={false} />
             </li>
           ))}

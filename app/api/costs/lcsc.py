@@ -135,7 +135,15 @@ RULES: list[tuple[str, str, str, tuple[str, ...], tuple[str, ...]]] = [
 ]
 
 # Lines that are not catalogue parts: never match, estimate instead.
-NOT_CATALOGUE = re.compile(r"\bcell\b|18650|21700|battery|lipo pack|\bpcb\b|pcba|mcpcb|assembled|cable|antenna|harness|enclosure|circuit board", re.I)
+NOT_CATALOGUE = re.compile(r"\bcell\b|18650|21700|battery|lipo pack|\bpcb\b|pcba|mcpcb|assembled|cable|antenna|harness|enclosure|circuit board|"
+                          r"photovoltaic|\bpv module|solar (panel|module)|inverter|storage system|\bkwh\b|"  # (W21: PV kit)
+                          # W21c: complex modules / sub-assemblies are priced by the module price model, never by a catalogue chip
+                          r"mainboard|main board|motherboard|reference board|compute module|camera module|image sensor module|\blens\b|"
+                          r"display|\blcd\b|\boled\b|amoled|touch panel|gimbal|flight controller|\besc\b|speed controller|brushless|"
+                          r"outrunner|\bbldc\b|gear ?motor|servo|universal motor|motor assembly|vacuum motor|\blidar\b|\bpump\b|valve|"
+                          r"heater|heating element|flex assembly|\bassembly\b|assortment|\bgroup\b|grouped|passives|ejector|exposure engine|"
+                          r"\bdock\b|microsd|sd card", re.I)
+
 # MCU/SoC families: a line naming one only matches a part of that family (never a random MCU from another vendor)
 FAMILIES = re.compile(r"esp32(?:-[a-z]\d)?|stm32[a-z]?\d*|nrf5\d*|rp2040|ch32v?\d*|atmega\d*|attiny\d*|py32|gd32|samd\d*", re.I)
 # Lines that name a mains/non-battery "cell" (load cell, solar cell) are not batteries
@@ -143,9 +151,43 @@ NOT_BATTERY_CELL = re.compile(r"load[- ]?cells?|solar[- ]?cells?|peltier|cellula
 STOP = {"smd", "ic", "the", "and", "for", "with", "type", "chip", "pin", "pcs", "of", "a", "in", "to", "(esop-8)", "led"}
 DEFAULT_ESTIMATES = {  # USD per unit, used only when neither the LCSC snapshot nor the input BOM give a price (most specific first)
     "load cell": 2.40, "wi-fi": 2.20, "esp32": 2.20, "ble module": 2.50, "bluetooth module": 2.50, "lte": 12.0,
-    "display": 6.00, "motor": 1.20, "sensor": 0.90, "mcpcb": 0.35, "pcb": 0.60, "circuit board": 0.60,
+    "passive": 0.80, "display": 6.00, "motor": 1.20, "sensor": 0.90, "mcpcb": 0.35, "pcb": 0.60, "circuit board": 0.60,
     "cell": 2.40, "cable": 0.45, "antenna": 0.15, "module": 1.50,
 }
+
+
+# W21 relevance check: a line that names a sensing kind only matches a part of that kind (a "PPG sensor" is never a float
+# level sensor). (regex on the BOM line, regex the part's mfr + subcategory + description must match)
+SENSOR_KINDS: list[tuple[re.Pattern, re.Pattern]] = [(re.compile(a, re.I), re.compile(b, re.I)) for a, b in [
+    (r"heart|hrv|\bppg\b|pulse|spo2|oximet", r"heart|pulse ox|oximet|spo2|\bppg\b|max3010|max86|afe44"),
+    (r"accelerom|\bimu\b|gyro|motion sensor|inertial", r"accelerom|gyro|\bimu\b|6-axis|3-axis|lis2|lsm6|bmi\d|icm-|mpu-?\d"),
+    (r"soil|moisture", r"soil|moisture probe|capacitive soil"),
+    (r"humidity", r"humid"),
+    (r"temperature|thermometer|\bntc\b|thermistor", r"temperat|ntc|thermist"),
+    (r"pressure|barometer|altimeter|altitude", r"pressure|barom"),
+    (r"\bhall\b|magnetic", r"hall|magnet"),
+    (r"ambient light|light sensor|\bals\b|\blux\b", r"ambient light|light sensor|lux|photo"),
+    (r"proximity|\btof\b|time[- ]of[- ]flight|distance|cliff", r"proximity|tof|time of flight|distance|vl53"),
+    (r"camera|image sensor|cmos sensor", r"camera|cmos image|\bov\d{4}|\bgc\d{4}|\bimx\d{3}"),
+    (r"\bgas\b|co2|\bvoc\b|air quality", r"\bgas\b|co2|voc|air quality"),
+    (r"float|water level|level sensor", r"float|level"),
+    (r"flow sensor|flow meter", r"flow"),
+    (r"touch", r"touch"),
+]]
+GENERIC_SENSOR_WORDS = {"sensor", "sensors", "module", "digital", "analog", "analogue", "i2c", "spi", "low", "power", "smd", "chip",
+                        "optical", "ic", "front", "end", "afe", "high", "accuracy", "precision"}
+
+
+def relevant(line: str, part: Part) -> bool:
+    """False when the line names a sensing kind the part is not (or a bare 'sensor' line shares no specific word)."""
+    ptext = f"{part.mfr} {part.subcategory} {part.description}"
+    for line_rx, part_rx in SENSOR_KINDS:
+        if line_rx.search(line):
+            return bool(part_rx.search(ptext))
+    if re.search(r"sensor", line, re.I) and part.category in ("Sensors", "Magnetic Sensors"):
+        toks = set(_tokens(line)) - GENERIC_SENSOR_WORDS
+        return any(t in ptext.lower() for t in toks)
+    return True
 
 
 def _tokens(s: str) -> list[str]:
@@ -182,6 +224,7 @@ def best_match(text: str, mfr_pn: str | None = None, order_qty: int = 2000, part
         pool = [p for p in parts() if p.category == cat and (not sub or sub.lower() in p.subcategory.lower())]
         if fams:  # named family (ESP32, STM32, nRF52…): same family or no match
             pool = [p for p in pool if any(f in p.mfr.lower() for f in fams)]
+        pool = [p for p in pool if relevant(low, p)]  # W21: before the stock filter (a rare right part beats a stocked wrong one)
         pool = [p for p in pool if p.stock >= LOW_STOCK] or pool
         if need:
             pool = [p for p in pool if all(n in p.text for n in need)]
@@ -219,6 +262,22 @@ def _default_estimate(item: BOMItem) -> tuple[float, str]:
     return 0.30, "Placeholder estimate: USD 0.30 per unit for an electronic line without catalogue match"
 
 
+def plausible(text: str, part: Part, qty: int, explicit: bool) -> bool:
+    """W21c: reject a class match whose price cannot be this line (a $0.01 tactile switch as a 'pistol-grip trigger switch')."""
+    if explicit:
+        return True
+    if part.category == "Switches":
+        return bool(re.search(r"tactile|push ?button|\bbutton\b|slide switch", text, re.I)) and not re.search(
+            r"trigger|power|mains|heater|motor|triac|control switches|assembly", text, re.I)
+    return True
+
+
+def _explicit(text: str, mfr_pn: str | None, part: Part) -> bool:
+    if mfr_pn and part.mfr.lower() == mfr_pn.lower():
+        return True
+    return any(tok in part.mfr.lower() for tok in re.findall(r"[a-z]{1,4}\d{3,}[a-z0-9\-]*", text.lower()))
+
+
 def match_bom(items: list[BOMItem], order_qty: int = 2000) -> list[BOMItem]:
     """Electronic lines → LCSC part (lcsc_pn, Sourced unit_cost_est at the qty break of order_qty × qty per unit).
 
@@ -233,6 +292,13 @@ def match_bom(items: list[BOMItem], order_qty: int = 2000) -> list[BOMItem]:
             continue
         text = f"{it.part} {it.description or ''}"
         part = best_match(text, it.manufacturer_pn, order_qty, part=it.part)
+        if part is not None and not plausible(text, part, max(1, int(round(order_qty * it.qty))), _explicit(text, it.manufacturer_pn, part)):
+            part = None
+        if part is not None and not _explicit(text, it.manufacturer_pn, part):  # one generic chip standing in for several lines
+            mine = set(_tokens(it.part))
+            if any(o.lcsc_pn == part.pn and len(mine & set(_tokens(o.part))) < 0.5 * max(1, min(len(mine), len(set(_tokens(o.part)))))
+                   for o in out):
+                part = None
         if part is not None:
             n = max(1, int(round(order_qty * it.qty)))
             it.lcsc_pn = part.pn
@@ -272,6 +338,24 @@ def alternatives_for(p: Part, k: int = 3) -> list[Part]:
     return pool[:k]
 
 
+EXPENSIVE_USD = 3.0  # W21b: a line above this unit price at 2k gets a cheaper same-kind alternative proposed
+
+
+def cheaper_alternative(p: Part, order_qty: int = 2000):
+    """Same-kind (subcategory) in-stock part: cheaper than `p` when `p` is expensive, else the cheapest well-stocked one.
+    None when the snapshot has none. → contracts.PartAlternative"""
+    from contracts.artifacts import PartAlternative
+
+    pool = [q for q in parts() if q.lcsc != p.lcsc and q.subcategory == p.subcategory and q.stock >= LOW_STOCK]
+    if p.price(order_qty) >= EXPENSIVE_USD:
+        pool = [q for q in pool if q.price(order_qty) < p.price(order_qty)]
+    if not pool:
+        return None
+    q = min(pool, key=lambda x: (x.price(order_qty), -x.stock))
+    return PartAlternative(part=f"{q.mfr} ({q.package})", lcsc_pn=q.pn, price=lv(q.price(order_qty), "USD", "sourced", lcsc_source(q.pn), nd=4),
+                           stock=lv(q.stock, "units", "sourced", lcsc_source(q.pn, "stock"), nd=0))
+
+
 def component_risk(items: list[BOMItem]) -> list[ComponentRiskItem]:
     """Risk per electronic line (and any Li-ion cell): low stock, extended part, single source, unmatched."""
     res: list[ComponentRiskItem] = []
@@ -286,8 +370,12 @@ def component_risk(items: list[BOMItem]) -> list[ComponentRiskItem]:
         alts: list[str] = []
         level = RiskLevel.low
         stock = None
+        alternative = None
         p = get_part(it.lcsc_pn)
         if p is not None:
+            if p.price(2000) >= EXPENSIVE_USD:
+                reasons.append(f"expensive: ${p.price(2000):.2f}/unit at 2k (above ${EXPENSIVE_USD:g})")
+                level = RiskLevel.medium
             stock = lv(p.stock, "units", "sourced", lcsc_source(p.pn, "stock"), nd=0)
             if p.stock < CRITICAL_STOCK:
                 reasons.append(f"very low stock ({p.stock} pcs)")
@@ -302,6 +390,10 @@ def component_risk(items: list[BOMItem]) -> list[ComponentRiskItem]:
             if not alt:
                 reasons.append("single source: no same-package alternative in the snapshot")
                 level = RiskLevel.high if level == RiskLevel.high else RiskLevel.medium
+            if p.price(2000) >= EXPENSIVE_USD or p.stock < LOW_STOCK:
+                alternative = cheaper_alternative(p)
+                if alternative is None:
+                    reasons.append("no cheaper in-stock part of the same kind in the snapshot: keep, or qualify a second source")
         elif not is_cell:
             reasons.append(f"not matched to the LCSC snapshot {SNAPSHOT_DATE}: availability and price unverified")
             level = RiskLevel.medium
@@ -311,7 +403,7 @@ def component_risk(items: list[BOMItem]) -> list[ComponentRiskItem]:
         res.append(
             ComponentRiskItem(
                 bom_item_id=it.id, part=it.part, level=level, reasons=reasons or ["in stock, basic/preferred part, alternatives available"],
-                alternatives=alts, stock=stock, lead_time_weeks=None,
+                alternatives=alts, stock=stock, lead_time_weeks=None, alternative=alternative,
             )
         )
     return res

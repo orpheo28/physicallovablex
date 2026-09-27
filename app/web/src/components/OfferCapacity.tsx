@@ -84,8 +84,8 @@ export function OfferCapacity({ onCreated }: { onCreated?: (f: Factory) => void 
   );
 
   return (
-    <section aria-labelledby="offer-h" className="rounded-md border border-line bg-surface">
-      <header className="flex flex-wrap items-center justify-between gap-3 border-b border-line px-6 py-4">
+    <section aria-labelledby="offer-h" className="rounded-md bg-surface">
+      <header className="flex flex-wrap items-center justify-between gap-3 px-6 pb-2 pt-5">
         <div>
           <h2 id="offer-h" className="text-md font-semibold tracking-[-0.01em]">
             Offer your capacity
@@ -113,8 +113,8 @@ export function OfferCapacity({ onCreated }: { onCreated?: (f: Factory) => void 
                   type="button"
                   aria-pressed={on}
                   onClick={() => setProcs((s) => (on ? s.filter((x) => x !== p) : [...s, p]))}
-                  className={`h-7 rounded border px-2.5 text-sm transition-colors duration-150 disabled:cursor-not-allowed disabled:opacity-50 ${
-                    on ? "border-ink bg-ink text-white" : "border-line-2 bg-surface hover:border-ink-4"
+                  className={`press h-7 rounded-full px-3 text-sm disabled:cursor-not-allowed disabled:opacity-50 ${
+                    on ? "bg-ink text-white" : "bg-paper-2/80 text-ink-2 hover:bg-paper-2 hover:text-ink"
                   }`}
                 >
                   {LABEL[p]}
@@ -144,7 +144,7 @@ export function OfferCapacity({ onCreated }: { onCreated?: (f: Factory) => void 
               <Link href={`/factories/${state.created.id}`} className="font-medium text-ink underline decoration-line-2 underline-offset-4 hover:decoration-ink">
                 {state.created.name}
               </Link>
-              <LabelBadge label="fictional" small />
+              <LabelBadge label="fictional" small text />
               — it now answers capacity queries in the network.
             </span>
           )}

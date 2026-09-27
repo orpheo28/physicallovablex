@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import type { Project, StageResult } from "@/types/contracts";
 
 export type StageViewProps<A> = {
@@ -11,6 +12,8 @@ export type StageViewProps<A> = {
   save: (artifact: A, validate?: boolean) => Promise<void>;
   /** Run another stage, then show it. */
   runOther: (n: number, inputs: Record<string, unknown>) => Promise<void>;
-  goto: (n: number) => void;
+  goto: (n: number, opts?: { run?: boolean }) => void;
   onAutorun: () => void;
+  /** Assumptions + raw view. Views that manage their own scroll regions place it; others get it below. */
+  extras?: ReactNode;
 };

@@ -1,0 +1,163 @@
+{
+ "project_id": "demo_stick_vacuum",
+ "status": "validated",
+ "fallback": false,
+ "fallback_reason": null,
+ "generated_by": "llm:openai/gpt-6-luna",
+ "generated_at": "2026-09-26T23:59:34.347785Z",
+ "assumptions": [
+  {
+   "id": "a1",
+   "text": "Amazon price in USD: Founder target retail price (USD); no conversion applied. Marketplace fees and VAT are not included.",
+   "label": "estimate",
+   "source": null,
+   "stage": 13
+  },
+  {
+   "id": "a2",
+   "text": "Name options are not trademark-searched; run a clearance search before committing.",
+   "label": "estimate",
+   "source": null,
+   "stage": 13
+  },
+  {
+   "id": "a3",
+   "text": "Listing copy uses only facts from the brief and spec; no certification claims until testing is complete (stage 4).",
+   "label": "estimate",
+   "source": null,
+   "stage": 13
+  }
+ ],
+ "stage": 13,
+ "name_options": [
+  {
+   "name": "Veylo",
+   "rationale": "A short coined name with a smooth sound that suits a cordless floor-care product. Trademark search needed before use."
+  },
+  {
+   "name": "Nuvora",
+   "rationale": "A coined, easy-to-spell name that suggests a fresh approach to everyday cleaning. Trademark search needed before use."
+  },
+  {
+   "name": "Kivaro",
+   "rationale": "A distinct coined name with a clear, compact sound for a stick vacuum. Trademark search needed before use."
+  }
+ ],
+ "chosen_name": null,
+ "packaging": {
+  "box_type": "Printed folding carton with molded-pulp insert",
+  "dimensions": {
+   "length": {
+    "value": 1200.5,
+    "unit": "mm",
+    "label": "estimate",
+    "source_or_assumption": "Product overall size + 10 mm clearance (rule; insert design at packaging RFQ)"
+   },
+   "width": {
+    "value": 260.0,
+    "unit": "mm",
+    "label": "estimate",
+    "source_or_assumption": "Product overall size + 10 mm clearance (rule; insert design at packaging RFQ)"
+   },
+   "height": {
+    "value": 257.6,
+    "unit": "mm",
+    "label": "estimate",
+    "source_or_assumption": "Product overall size + 10 mm clearance (rule; insert design at packaging RFQ)"
+   }
+  },
+  "materials": [
+   "Corrugated cardboard carton",
+   "Molded-pulp insert"
+  ],
+  "printing": "One-color exterior printing with product name and product information.",
+  "contents": [
+   "Cordless stick vacuum with motorized floor-cleaning head",
+   "Removable dust bin",
+   "Washable filter",
+   "Rechargeable battery"
+  ],
+  "unit_cost": {
+   "value": 1.2,
+   "unit": "USD",
+   "label": "estimate",
+   "source_or_assumption": "Default retail-box + insert allowance (no packaging cost in the BOM)"
+  }
+ },
+ "landing_copy": {
+  "headline": "Clean Floors, Then Reach Above",
+  "subheadline": "A rechargeable cordless stick vacuum that converts to a handheld configuration for floor and above-floor cleaning.",
+  "bullets": [
+   "Switch between stick and handheld configurations.",
+   "Use the motorized head for floor cleaning.",
+   "Remove the dust bin for emptying.",
+   "Wash the filter for reuse."
+  ],
+  "cta": "Shop now for $249"
+ },
+ "shopify_listing": {
+  "channel": "shopify",
+  "title": "Veylo Cordless Stick Vacuum",
+  "description": "Clean floors and above-floor surfaces with a rechargeable cordless vacuum that converts between stick and handheld configurations. It features a motorized floor-cleaning head, removable dust bin, and washable filter.",
+  "bullets": [
+   "Converts between stick and handheld configurations.",
+   "Motorized head for floor cleaning.",
+   "Removable dust bin.",
+   "Washable filter.",
+   "Rechargeable battery."
+  ],
+  "price": {
+   "value": 249.0,
+   "unit": "USD",
+   "label": "estimate",
+   "source_or_assumption": "Brief target price 249 USD (retail price incl. VAT where applicable)"
+  },
+  "keywords": [
+   "cordless stick vacuum",
+   "handheld vacuum",
+   "rechargeable vacuum",
+   "motorized floor head",
+   "washable filter vacuum",
+   "removable dust bin"
+  ]
+ },
+ "amazon_listing": {
+  "channel": "amazon",
+  "title": "Veylo Cordless Stick Vacuum, Converts to Handheld, Motorized Floor-Cleaning Head, Removable Dust Bin, Washable Filter, Rechargeable Battery",
+  "description": "Clean floors and above-floor surfaces with a rechargeable cordless vacuum that converts between stick and handheld configurations. The vacuum has a motorized floor-cleaning head, removable dust bin, and washable filter.",
+  "bullets": [
+   "FLEXIBLE CONFIGURATION: Use the vacuum in cordless stick or handheld configuration.",
+   "MOTORIZED FLOOR HEAD: Clean floors with the motorized floor-cleaning head.",
+   "REMOVABLE DUST BIN: Remove the dust bin from the vacuum.",
+   "WASHABLE FILTER: The filter is washable.",
+   "RECHARGEABLE BATTERY: Battery-powered design with a rechargeable battery."
+  ],
+  "price": {
+   "value": 249.0,
+   "unit": "USD",
+   "label": "estimate",
+   "source_or_assumption": "Brief target price 249 USD (retail price incl. VAT where applicable)"
+  },
+  "keywords": [
+   "cordless stick vacuum",
+   "handheld stick vacuum",
+   "rechargeable floor vacuum",
+   "motorized vacuum head",
+   "washable filter vacuum",
+   "removable dust bin vacuum"
+  ]
+ },
+ "listing_photos": [
+  {
+   "shot": "lifestyle",
+   "url": "/files/demo_stick_vacuum/photo_v2_lifestyle.png",
+   "label": "Photo-styled from the CAD (AI image, geometry from our CAD) · Staged scene — illustrative",
+   "reference": "cad_render",
+   "aspect_ratio": "4:5",
+   "staged": true,
+   "model": "google/gemini-3.1-flash-image",
+   "version": 2,
+   "created_at": "2026-09-27T12:00:00Z"
+  }
+ ]
+}

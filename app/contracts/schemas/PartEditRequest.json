@@ -1,0 +1,70 @@
+{
+  "additionalProperties": false,
+  "description": "POST /projects/{id}/parts/{part_id}/edit \u2014 deterministic refine (no LLM). At least one field.",
+  "properties": {
+    "colour_hex": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Colour Hex"
+    },
+    "material": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "One of PartMeta.material_options",
+      "title": "Material"
+    },
+    "finish": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Finish"
+    },
+    "param": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "One of PartMeta.editable[].param (requires value)",
+      "title": "Param"
+    },
+    "value": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Value"
+    }
+  },
+  "title": "PartEditRequest",
+  "type": "object"
+}

@@ -6,6 +6,7 @@ import { createPortal } from "react-dom";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { PHASES, railName, STAGES } from "@/lib/meta";
 import { autofillLabel, startAutorun, useAutofillMax } from "@/lib/autofill";
+import { isExampleProject, useStudioAvailable } from "@/lib/studio";
 import { errorMessage } from "@/lib/api";
 import { firstTimeThisVisit, loadAnime, reducedMotion } from "@/lib/motion";
 import { ResetDemo } from "../ResetDemo";
@@ -277,6 +278,8 @@ function Rail() {
   const [err, setErr] = useState<string | null>(null);
   const p = detail?.project;
   const done = detail?.stages.filter((s) => s.status !== "not_started").length ?? 0;
+  // m1: an example built step by step has no Studio (hidden while an example's versions load).
+  const hasStudio = useStudioAvailable(id, isExampleProject(id, p?.tags)) === true;
   // N3: never offer "Autofill all 13 steps" once a step is done, nor on a recorded showcase.
   const showcaseProject = !!p && (p.tags?.includes("Example") || p.id.startsWith("demo_"));
 
@@ -316,13 +319,15 @@ function Rail() {
       <ScrollArea className="flex-1 px-2 pb-2 pt-2">
         <nav aria-label="Steps">
           <ul>
-            <RailItem
-              href={`/projects/${id}/studio`}
-              active={view === "studio"}
-              icon={ICON_STUDIO}
-            >
-              Studio
-            </RailItem>
+            {hasStudio && (
+              <RailItem
+                href={`/projects/${id}/studio`}
+                active={view === "studio"}
+                icon={ICON_STUDIO}
+              >
+                Studio
+              </RailItem>
+            )}
             <RailItem
               href={`/projects/${id}/wow`}
               active={view === "overview"}

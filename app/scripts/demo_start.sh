@@ -30,7 +30,7 @@ command -v npm >/dev/null || die "npm not found"
 
 # ---------------------------------------------------------------- API
 say "API on :$API_PORT"
-uv run uvicorn api.main:app --port "$API_PORT" >"$LOG_DIR/api.log" 2>&1 &
+uv run uvicorn api.main:app --port "$API_PORT" --timeout-keep-alive 75 >"$LOG_DIR/api.log" 2>&1 &
 PIDS+=($!)
 for _ in $(seq 1 60); do curl -sf "$API/health" >/dev/null && break; sleep 1; done
 curl -sf "$API/health" >/dev/null || { tail -20 "$LOG_DIR/api.log"; die "API did not start (log: $LOG_DIR/api.log)"; }

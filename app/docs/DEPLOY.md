@@ -129,7 +129,31 @@ Framer → the **Get Started** button → Link → web page → `https://<vercel
 Delete the old repo: github.com/orpheo28/physicallovablex-mvp → Settings → Danger Zone → Delete this repository. Only after Railway and Vercel point at `physicallovablex`.
 
 ## Redeploy after changes
-The pushed clone at `~/physicallovablex-export` is separate from this working tree (`mvp/`). To ship a later change:
+The pushed clone at `~/physicallovablex-export` is separate from this working tree (`mvp/`). Two ways to ship a later change:
+
+### The everyday command: `ship.sh`
+```bash
+cd ~/Desktop/Hexa_Case/04_LIVRABLE
+./ship.sh --commit "what changed, one line"       # you edited mvp/ yourself and want it committed too
+./ship.sh "what changed, one line"                 # mvp/ is already committed (e.g. you committed it in your editor)
+```
+One command, in order, stopping at the first failure (nothing partial is ever pushed):
+1. *(only with `--commit`)* in `mvp/`, stages **only** safe paths — `web/ api/ contracts/ factory_mcp/ docs/ scripts/` and any
+   new `*.py` under `tests/`; it never stages `.env*`, `*.db`, `api/data/` or `tests/results/` scratch, even if one of those
+   sits inside a staged folder (checked twice: by folder, then a denylist scan of whatever got staged). If `web/` changed it
+   runs `npm run build` first; if `api/`, `contracts/` or `factory_mcp/` changed it runs `uv run pytest -q -x`; either failing
+   **aborts with nothing committed**. Otherwise it commits with your message. If `mvp/` already matches your message (nothing
+   pending in the safe paths), it says so and moves on — this is also how you use it after committing by hand.
+2. Runs `./export_repo.sh --update ~/physicallovablex-export "your message"` — full checks, one commit, never pushes (below).
+3. Prints a diff stat grouped by top folder (`app/web`, `app` outside web, `gtm`, `gtm-harness`, `docs`) and, from that, what
+   will redeploy: **Vercel** if `app/web/` changed, **Railway** if `app/` changed outside `app/web/`, or **nothing** if only
+   `gtm/`, `gtm-harness/` or `docs/` changed — assuming the two dashboard settings below are in place.
+4. Asks **`Push to GitHub? [y/N]`**. Only `y` runs `git push` in the export dir; anything else (including Enter) prints the
+   command instead and pushes nothing. Never `--force`.
+
+### The lower-level command: `export_repo.sh --update`
+`ship.sh` step 2 is exactly this — call it directly when `mvp/` is already committed and you just want to export + look at the
+diff yourself before deciding to push:
 1. `cd ~/Desktop/Hexa_Case/04_LIVRABLE && ./export_repo.sh --update` — builds the export fresh into a temp folder with the
    same checks as the first export (aborts before touching anything on a planted key, a forbidden path, a file over 50 MB, or a
    discovery email), then syncs it into `~/physicallovablex-export` and makes **one** commit `Update: <label>` (label defaults to
@@ -162,6 +186,19 @@ The pushed clone at `~/physicallovablex-export` is separate from this working tr
    ```
    Then in a browser: `https://<vercel-project>.vercel.app/docs` and `/agents.md` open with no password prompt; the password
    screen still gates everything else; log in and open the `whoop_kitesurf` showcase (loads instantly, no LLM call).
+
+### Selective redeploys (set once, so a `gtm/`- or `docs/`-only push costs nothing)
+Both `ship.sh` and `git push` alone trigger a build check on both dashboards by default; these two settings make each platform
+skip its build when nothing relevant to it changed, matching the "will redeploy" line `ship.sh` prints.
+- **Railway** → the API service → **Settings → Build → Watch Paths** → add `app/**` then `!app/web/**` (the `!` excludes;
+  order matters — the exclude line must come after the include). Railway then only rebuilds when a push touches `app/`
+  outside `app/web/`.
+- **Vercel** → the project → **Settings → Git → Ignored Build Step** → **"Only build if there are changes to..."** and set the
+  path to `app/web`, or paste this custom command (skips the build unless something under `app/web/` changed since the last
+  deploy — exit code 1 tells Vercel to proceed, 0 tells it to skip):
+  ```bash
+  git diff --quiet HEAD^ HEAD -- app/web && exit 0 || exit 1
+  ```
 
 ---
 

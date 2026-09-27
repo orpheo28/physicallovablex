@@ -67,6 +67,14 @@ EXPORTED: list[type[BaseModel]] = [
     a.PhotoJob,
     a.ProjectPhotos,
     a.PhotoAccepted,
+    a.PartEditable,
+    a.PartMeta,
+    a.ProjectParts,
+    a.PartEditRequest,
+    a.AnatomyLayer,
+    a.AnatomyCamera,
+    a.AnatomyStep,
+    a.ProjectAnatomy,
 ]
 
 

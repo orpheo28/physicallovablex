@@ -9,6 +9,10 @@
     # 4. after a schema / engine change, refresh from the fixtures alone (no DB, no LLM):
     FILES_DIR=$(mktemp -d) OPENROUTER_API_KEY= uv run python -m api.fixtures._showcase migrate [slugs…]
 
+    # W29: named-part GLBs, parts extras and anatomy (deterministic, no LLM; photos untouched):
+    DB_PATH=$(mktemp -d)/w.db FILES_DIR=$(mktemp -d) FACTORY_MCP_DB=$(mktemp -d)/n.db OPENROUTER_API_KEY= \
+        uv run python -m api.fixtures._showcase w29 [slugs…]
+
     # 5. W27 product photos (reference = Blender render of the current version's CAD, hero_v<n>.png):
     uv run python -m api.fixtures._showcase photos [slugs…] --budget 2.0 [--lifestyle whoop_kitesurf,…]
     FILES_DIR=$(mktemp -d) OPENROUTER_API_KEY= uv run python -m api.fixtures._showcase apply-photos [slugs…]
@@ -593,6 +597,21 @@ def cmd_apply_photos(slugs: list[str]) -> None:
         print(json.dumps({"slug": slug, "photos": [p.shot for p in photos], "hero": card.hero_image_url}), flush=True)
 
 
+def cmd_w29(slugs: list[str]) -> None:
+    """W29 regeneration (no LLM, no network): GLBs in the W29 conventions, /parts extras baked, anatomy precomputed.
+    Run with scratch DB_PATH / FILES_DIR / FACTORY_MCP_DB (it calls /demo/reset on that DB)."""
+    from api.cad._w29_regen import bake, regen_demo, regen_showcase
+
+    slugs = slugs or [*SHOWCASES, "desk_lamp", "tracker_card"]
+    sizes: dict = {}
+    for s in slugs:
+        t0 = time.monotonic()
+        sizes[s] = regen_demo(s) if s in ("desk_lamp", "tracker_card") else regen_showcase(s)
+        print(json.dumps({"slug": s, "seconds": round(time.monotonic() - t0, 1), "glb_bytes_before_after": sizes[s]}), flush=True)
+    pids = [f"demo_{s}" for s in slugs]
+    print(json.dumps(bake(pids), indent=1), flush=True)
+
+
 if __name__ == "__main__":
     args = sys.argv[1:]
     if not args:
@@ -619,6 +638,8 @@ if __name__ == "__main__":
         cmd_photos(args[1:], budget, life)
     elif args[0] == "apply-photos":
         cmd_apply_photos(args[1:])
+    elif args[0] == "w29":  # W29: named-part GLBs + parts extras + anatomy, deterministic (no LLM)
+        cmd_w29(args[1:])
     elif args[0] == "usage":
         print(f"key usage: ${key_usage():.4f}")
     else:

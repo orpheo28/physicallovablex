@@ -51,9 +51,15 @@ def build_family(name: str, params: dict[str, Any] | None = None):
 
 def export_family(name: str, out_dir: Path | str, stem: str, params: dict[str, Any] | None = None,
                   colour: str | None = None) -> dict[str, Any]:
+    from api.cad.parts import trace_labels
+
     p = params_for(name, **(params or {}))
-    _, parts = module(name).build(p)
-    files = export_parts(parts, Path(out_dir) / stem, family_look(colour or DEFAULT_COLOUR.get(name)))
+    with trace_labels(module(name).__file__) as sites:
+        _, parts = module(name).build(p)
+    from api.cad.family_mode import part_names
+
+    files = export_parts(parts, Path(out_dir) / stem, family_look(colour or DEFAULT_COLOUR.get(name)),
+                         names=part_names(name, sites, [q.label for q in parts]))
     return {"files": files, "measured": measure_parts(parts), "params": p}
 
 

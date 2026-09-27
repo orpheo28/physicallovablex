@@ -450,3 +450,137 @@ OpenRouter `usage`: before **$13.4005** → after **$14.3205** = **$0.920** (bud
 2. W26 / W9: N3. Retry `/stages/*` once on a proxy error, and never show "Autofill" on a 13/13 project. Presenter: if the red banner appears, click Retry.
 3. W21: N4. No new photo when the look is unchanged. Budget ≈ $1 per rehearsal until then; check the credit.
 4. W21: N5. Record the 4-shot kit for `whoop_kitesurf`, since the Dossier page is shown on stage.
+
+---
+
+# 3D wave regression (W23c, 27 Sept 2026, 19:43-20:25 — after W28 web + W29 backend)
+
+**Verdict: ready.** No blocker. Every item of the core demo path passed:
+- The live Whoop idea, "Add SpO2 and skin-temperature sensing", and "Make it pink" with its auto photo.
+- The `whoop_kitesurf` showcase, "Open overview" and the Launch Dossier, now with 4 listing photos.
+- The Connect-your-agent panel.
+
+The new 3D stage works on all 11 showcases: presets, hover tooltip, part card, part edits, Exploded, X-ray, Anatomy, and the `?viewer=basic` fallback.
+
+Four major issues are open, none of them on the scripted path:
+- After a part edit, the Photo view shows the **previous look's photo**.
+- The vacuum anatomy caption says the battery lasts **"4 min"**.
+- Proxy ECONNRESET 500s are more frequent.
+- **Live spend went over budget: $0.568 against $0.30.**
+
+Rig: ports 8000/3000 were free. `cd web && npm run sync-docs`, then `SKIP_BUILD=0 scripts/demo_start.sh` printed **READY**. The no-key + login run (`OPENROUTER_API_KEY=` empty, `APP_PASSWORD`, `API_SHARED_KEY`, `SKIP_BUILD=1`) also printed READY. Evidence: `tests/results/final3/`. No code was changed. At the end I ran `/demo/reset` and stopped everything.
+
+## 1. Automated — PASS
+`uv run pytest` **584 passed, 31 skipped** (342 s) · `npx tsc --noEmit` exit 0 · `npm run lint` exit 0 · build inside demo_start OK.
+API log at startup: `ERROR:discovery:plug-in api.cad.partnames_curated register() failed: register() missing 1 required positional argument: 'rules'` (P1).
+
+## 2. 3D stage on 11 showcases + 2 demos — PASS with notes
+- **Showcases (11/11):** Studio and Overview each render one WebGL canvas.
+  - rAF ≈ 60-61 fps. This is headless Chromium, so it is a smoke test, not a GPU benchmark.
+  - Controls present: ¾ / Front / Side / Top / Reset / Exploded / X-ray / Anatomy, plus the Photo/3D toggle.
+  - No page scroll. **Console errors: none from the 3D stage.** The only warning is `THREE.Clock … deprecated`.
+- **Hover** shows the part name ("Top shell").
+- **Click** opens "Edit this part":
+  - Size (Measured), look, unit price (Estimate), BOM line link.
+  - 8 colour swatches plus a custom one, Material and Finish selects, 2 parameter sliders, Apply.
+- **Demos (desk lamp, tracker card):**
+  - The Overview "3D model" toggle loads the new stage. Clicking a part opens a **view-only** card (size, look, "Edit this part in the Studio →"). ✔
+  - But `/projects/demo_desk_lamp/studio` shows an endless "Building the first version: CAD, BOM, costs, factories" spinner and a **"Start the Studio"** button, which would start a live run. The card's "Edit this part in the Studio →" link leads there (M4).
+
+## 3. Edit this part on `whoop_kitesurf` (v4 → v7, reset afterwards) — PASS with 2 issues
+| Edit | New version | Wall-clock | Diff on the card | Cost | Measured |
+|---|---|---|---|---|---|
+| Colour: Sage swatch | v5 | 1.6 s | "Top shell colour → Sage (#9DB09A)"; "Cost unchanged · certifications unchanged" | unchanged $27.64 | 44 × 30 × 8 |
+| Material: Aluminium 6063-T5 | v6 | 1.6 s | "Top shell material PC/ABS → Aluminium 6063-T5 (+$12.34/unit, Estimate)", enclosure weight 5.2 → 12.2 g, tooling $3,730 → $1,490 | **$27.64 → $39.98** | — |
+| Pod thickness slider 8 → 10 mm + Apply | v7 | 3.8 s | "Pod thickness 8.0 → 10.0 mm (Measured)", "Top shell size 44.0 × 3.8 × 30.0 → 44.0 × 5.8 × 30.0 mm" (Measured), weight 13.2 g | $39.98 → $40.05 | **44 × 30 × 10** |
+
+- CAD code diff v2 → v3: the single line `"pod_thickness": 8.0 → 10.0` (`B_cad_code_v2_v3.diff`).
+- Photos: `look_changed: true` on v5-v7, but no photo job ran (showcase, `job: idle`). The **Photo view on v5 (Sage) still shows the pink v4 photo**, captioned "Photo-styled from the CAD…" (M1, `B_photo_after_colour.png`).
+- The colour edit also **re-ranked the factory shortlist**, while the card says only "Cost unchanged · certifications unchanged" (m2):
+  - before: Lumen Peak 86 · Harborlight 85 · Cobalt River 76
+  - after: Coralline 88 · Lumen Peak 86 · Harborlight 85
+- The thickness edit lists the pod thickness change twice (p2).
+
+## 4. Exploded + X-ray (whoop, drone, vacuum) — PASS, labels overlap
+- Exploded separates parts along their layers; X-ray makes the shells translucent. Labels are part names (Battery pack, Propeller 1, Wi-Fi vision compute module, Main PCB, MAX30102 …).
+- **Label overlap, minor:**
+  - drone: "Landing legs" covers "Gimbal camera".
+  - vacuum: 3 labels crowd the top ("Battery lead +", "High-speed BLDC vacuum motor assembly", "Battery pack").
+- whoop Exploded: the top shell and battery leave the frame at the top.
+- Stray thin red/black "cable" lines on the drone read as artefacts.
+- Screenshots: `C_*_exploded.png`, `C_*_xray.png`.
+
+## 5. Anatomy (whoop, drone, vacuum, surfboard, phone) — PASS
+- All 5 open in ≤ 0.17 s. Steps: 6 / 6 / 6 / 7 / 7.
+- Navigation works four ways, each checked on all 5: **Next button, ArrowRight, mouse wheel, ArrowLeft** back.
+- **Esc exits**, and `window.scrollY` stays 0 throughout: the page never scrolls.
+- "Illustrative internal layout — not a routed PCB" is visible on every step.
+- The scale ruler shows "Field of view ≈ 18 cm / 62 cm / 2.4 m / 4.6 m / 28 cm".
+- Captions are labeled, e.g. "MAX30102 Optical heart-rate sensor (LCSC C6454833, OESIP-14, $12.18 (Sourced)) + QMI8658A 6-axis IMU ($1.01 (Estimate))" and "Smartphone ODM mainboard assembly ($78.20 (Estimate))". The surfboard shows construction layers (deck laminate, foam core + stringer, bottom laminate, fins).
+- **Wrong numbers surfaced by the vacuum captions (M2):**
+  - "6 × 18650 Li-ion, 21.6 V, 56 Wh — battery life **4 min** (Estimate)". It comes from engineering `battery_life` **fail 0.07 h** = 2,600 mAh × 85 % / **31,750 mA**; 180 W on a 21.6 V pack is ≈ 8.3 A, so ≈ 16 min.
+  - "Back together … weight **280.6 g**" (enclosure only; a stick vacuum weighs ≈ 2.5 kg).
+- **Framing, polish:**
+  - whoop step 4 camera is inside the shell (huge shapes, small sensor).
+  - vacuum step 4 is very tight, with the "18650 cells" label cut at the top.
+  - The FOV pill covers the "10 cm" ruler tick.
+
+## 6. `?viewer=basic` — PASS
+Studio and Overview (whoop, drone) fall back to `<model-viewer>`: no WebGL stage controls, the model renders, no scroll, no errors.
+
+## 7. Core demo path (live key, one run) — PASS
+| Step | Wall-clock | Result |
+|---|---|---|
+| Whoop idea → v1 | **23.7 s** (AI CAD 44.3 s, Photo 38.2 s) | "Screenless Recovery Band", 44 × 30 × 10 mm, $27.10 / $26.06 / $25.09, 4 certs |
+| Add SpO2 and skin-temperature sensing | **5.2 s** | skin-temp LCSC C7472806 $4.10 (Sourced) + FDA row + cert budget $10,400 → $12,900; $26.06 → **$30.85**; no new photo (look unchanged) ✔ |
+| Make it pink | **4.2 s**, auto Photo at **17.3 s** | pink photo matches the CAD, labeled (`F_pink_photo_s.png`) |
+| `/examples` → `whoop_kitesurf` → **Open overview** | 0.05 s → 0.06 s | header shows only "Open overview"; $28.82 / $27.64 / $26.54, $91,397, $199 |
+| Launch Dossier | 0.35 s, 38 pages | "Listing photos" page with **4 shots** (packshot, lifestyle, in hand, detail), labeled (N5 fixed) |
+| MCP panel `/factories` | — | "Connect your agent · `claude mcp add --transport http physicallovablex-local http://localhost:8000/mcp` · Local API: no token needed" ✔ |
+
+## 8. Layout, mobile, login, docs — PASS
+- **1440×900 and 1280×800** (home, examples, whoop Studio + Overview + stage 8, portal, live Studio, Anatomy): no page scroll and no ellipsis truncation.
+- Mobile 390 px: the gate is shown on app routes; docs are readable (scrollWidth 390).
+- Login mode:
+  - Public: the docs pages, `/agents.md` and `/llms.txt` return 200.
+  - Gated: app routes redirect 307 to `/login?next=…`; `/backend/…/parts` and `/anatomy` return 401 without a session; API `/parts` and the anatomy GLB return 401 without the key.
+  - After login the 3D stage and Anatomy work.
+
+## 9. Budget safety (no key) — PASS
+- Showcase 3D, Anatomy and the part card work.
+- "Generate listing photos" is disabled with the note "No image model is configured here, so new photos can't be made. The photos below were recorded with the example."
+- Refine: "The AI is not configured on this server… Nothing changed — version 4 is still current."
+
+## Proxy resets (carry-over N3, now more frequent)
+- 6 `Failed to proxy … read ECONNRESET` this session: `/stages/1` on the whoop and drone Overviews, and `/openapi.json`. Three came in one 13-project sweep.
+- When it hits the Overview, it shows "Could not load a step" (see W23b N3). On stage: click **Retry**.
+
+## Bugs (open)
+| id | severity | where | repro | expected | actual | owner | screenshot |
+|---|---|---|---|---|---|---|---|
+| M1 | major | Studio Photo view after a part edit (showcase) | whoop → click pod → Sage → Photo | a photo of the new look, or "no photo for this version yet" with 3D shown | the pink v4 photo, captioned "Photo-styled from the CAD", under a Sage v5 (no photo job ran although `look_changed: true`) | W28 web (fallback) + W29 backend (photo job for part edits) | `B_photo_after_colour.png` |
+| M2 | major | Vacuum engineering + Anatomy captions | `demo_stick_vacuum` → Anatomy step 4 / step 6 | ≈ 16 min at 180 W on a 21.6 V pack; whole-product weight | "battery life 4 min" (`battery_life` fail 0.07 h, 31.75 A average: single-cell voltage used); "weight 280.6 g" (enclosure only) | W29 backend | `D_stick_vacuum_step4.png` |
+| M3 | major (intermittent) | Proxy `/backend/*` | browse ≈ 25 pages | no 500 | 6 ECONNRESET 500s this session (3 in one sweep) → "Could not load a step" on the Overview | W28 web (silent retry) / W9 (keep-alive) | — |
+| M4 | major (budget) | Live spend | idea + SpO2 + pink | ≤ $0.30 | **$0.568** for this QA. The core path (AI CAD, review, firmware LLM, 2 photos) posts cost with a delay. One rehearsal of the 3-prompt path is not under $0.30 | W29 backend / W18 docs (DEMO_DAY budget) | — |
+| m1 | minor | Demo projects' Studio | `/projects/demo_desk_lamp/studio`; Overview part card → "Edit this part in the Studio →" | view-only, or a clear "example without Studio versions" | endless "Building the first version…" spinner + "Start the Studio" (live run) | W28 web | `A_desk_lamp_studio.png`, `A_desk_lamp_overview_partclick.png` |
+| m2 | minor | Part edit (colour) | whoop → Sage | shortlist unchanged, or shown in the diff | shortlist re-ranked silently (Lumen/Harborlight/Cobalt → Coralline/Lumen/Harborlight) | W29 backend | `B_edit_colour.png` |
+| m3 | minor | Exploded labels | drone, vacuum Exploded | no overlap | "Landing legs" over "Gimbal camera"; 3 labels stacked on the vacuum head | W28 web | `C_drone_follow_exploded.png`, `C_stick_vacuum_exploded.png` |
+| m4 | minor | Exploded framing | whoop Exploded | whole stack in frame | top shell and battery cut at the top | W28 web | `C_whoop_kitesurf_exploded.png` |
+| m5 | minor | Material edit | whoop → Aluminium | tooling change explained | tooling $3,730 → $1,490 with no note (CNC vs mould?) | W29 backend | `B_edit_material.png` |
+| P1 | polish | API startup | `demo_start.sh` | clean log | `ERROR:discovery:plug-in api.cad.partnames_curated register() failed` | W29 backend | api.log |
+| p2 | polish | Thickness edit diff | slider 8 → 10 | one line | "Pod thickness 8.0 → 10.0 mm (Measured)" and "Pod thickness 8.0 mm → 10.0 mm" | W29 backend | `B_edit_thickness.png` |
+| p3 | polish | Anatomy cameras | whoop step 4, vacuum step 4 | part framed | camera inside the shell / too tight, label cut | W29 backend (camera) / W28 | `D_whoop_kitesurf_step4.png` |
+| p4 | polish | Scale ruler | any anatomy step | ticks readable | FOV pill covers "10 cm" | W28 web | `A_hover_pod.png` |
+| p5 | polish | Part card | click the pod | sliders and Apply visible | inner scroll needed; sliders have no aria-label | W28 web | `A_partcard_pod2.png` |
+| p6 | polish | "Anatomy" button | any Studio | inactive look when off | always filled black (reads as active) | W28 web | `A_whoop_studio.png` |
+| p7 | polish | Drone Exploded | drone | clean | thin red/black line segments across the view | W28 / W29 | `C_drone_follow_exploded.png` |
+| p8 | polish | Console | any 3D page | no warning | `THREE.Clock … deprecated, use THREE.Timer` | W28 web | — |
+| p9 | polish | Desk lamp part names | Overview part card | descriptive | "Metal part" | W29 backend | `A_desk_lamp_overview_partclick.png` |
+
+Counts: **blocker 0 · major 4 · minor 5 · polish 9.**
+
+## Live spend
+OpenRouter `usage`: before **$14.7286** → after **$15.2964** = **$0.568**. Budget was $0.30: **over by $0.27**.
+- Read at 20:00, right after "Make it pink": $0.228. The remaining $0.34 posted later.
+- No other live AI action ran after that: showcase pages, Dossier export and reads only. I then removed the key.
+- My mistake: I did not wait for the delayed billing before judging the budget. W23b already showed the lag.

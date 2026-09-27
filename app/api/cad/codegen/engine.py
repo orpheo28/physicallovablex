@@ -241,11 +241,21 @@ def _publish(res: dict, code: str, out: Path, n: int, look: dict, pid: str | Non
     files: dict[str, Path] = {}
     for k in ("step", "stl", "glb"):
         files[k] = publish(res["files"][k], out / f"model_v{n}.{k}")
-    apply_look(files["glb"], look)
+    apply_look(files["glb"], look, names=program_names(code, res))
     (out / f"model_v{n}.py").write_text(code, encoding="utf-8")
     shutil.rmtree(res.get("work_dir") or "/nonexistent", ignore_errors=True)
     urls = {k: f"/files/{pid}/model_v{n}.{k}" for k in files} if pid else {}
     return {"files": files, "urls": urls}
+
+
+def program_names(code: str, res: dict) -> dict:
+    """W29: label → semantic part (api.cad.parts) from the program and the label call sites the sandbox traced."""
+    from api.cad.parts import names_from_source
+
+    try:
+        return names_from_source(code, res.get("label_sites") or {}, [r["label"] for r in res.get("parts") or []])
+    except Exception:  # noqa: BLE001 — naming is metadata: default names are still valid parts
+        return {}
 
 
 def _fallback_existing(category: str, out: Path, n: int, look: dict, pid: str | None) -> dict[str, Any] | None:

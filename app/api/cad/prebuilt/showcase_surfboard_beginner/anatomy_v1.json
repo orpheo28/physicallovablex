@@ -1,0 +1,732 @@
+{
+ "_v": "a4",
+ "version": 1,
+ "glb_url": "/files/demo_surfboard_beginner/anatomy_v1.glb",
+ "label": "Illustrative internal layout \u2014 not a routed PCB",
+ "kind": "construction",
+ "bbox_mm": [
+  2286.0,
+  204.27,
+  575.39
+ ],
+ "layers": [
+  {
+   "id": "deck",
+   "name": "Deck hardware",
+   "order": 0,
+   "parts": [
+    "leash_plug",
+    "traction_pad"
+   ],
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 542.5,
+   "caption": "EVA traction pad + leash plug (Estimate)"
+  },
+  {
+   "id": "deck_glass",
+   "name": "Deck laminate",
+   "order": 1,
+   "parts": [
+    "body"
+   ],
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 352.6,
+   "caption": "Fibreglass cloth + resin laminate over the deck \u2014 board weight 4598.5 g (Estimate)"
+  },
+  {
+   "id": "core",
+   "name": "Foam core + stringer",
+   "order": 2,
+   "parts": [
+    "pu_foam_core_blank",
+    "stringer"
+   ],
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 1.4,
+   "caption": "PU surfboard foam blank ($55.20 (Estimate))"
+  },
+  {
+   "id": "bottom_glass",
+   "name": "Bottom laminate",
+   "order": 3,
+   "parts": [
+    "bottom_laminate_fibreglass_resin"
+   ],
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 271.2,
+   "caption": "Fibreglass laminate under the board"
+  },
+  {
+   "id": "fins",
+   "name": "Fins + fin boxes",
+   "order": 4,
+   "parts": [
+    "fin",
+    "rubber_part",
+    "fin_2",
+    "rubber_part_2",
+    "fin_3",
+    "rubber_part_3",
+    "fin_box_1",
+    "fin_box_2",
+    "fin_box_3"
+   ],
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 488.2,
+   "caption": "Thruster fin box set ($3.68 (Estimate)) + Thruster surfboard fins ($5.52 (Estimate))"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "title": "The board",
+   "kicker": "01 \u00b7 The board",
+   "caption": "Beginner surfboard 7'6\" \u2014 2286.0 \u00d7 560.0 \u00d7 210.0 mm (Measured), 7 mechanical BOM lines as construction layers (illustrative)",
+   "camera": {
+    "position_mm": [
+     1377.7,
+     2857.5,
+     3857.6
+    ],
+    "target_mm": [
+     0.0,
+     102.1,
+     0.0
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [],
+   "focus_parts": []
+  },
+  {
+   "id": "s2",
+   "title": "Deck hardware",
+   "kicker": "02 \u00b7 Deck hardware",
+   "caption": "EVA traction pad + leash plug (Estimate)",
+   "camera": {
+    "position_mm": [
+     1439.8,
+     3253.0,
+     4031.4
+    ],
+    "target_mm": [
+     0.0,
+     373.4,
+     0.0
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [
+    "deck"
+   ],
+   "focus_parts": [
+    "leash_plug",
+    "traction_pad"
+   ]
+  },
+  {
+   "id": "s3",
+   "title": "Deck laminate",
+   "kicker": "03 \u00b7 Deck laminate",
+   "caption": "Fibreglass cloth + resin laminate over the deck \u2014 board weight 4598.5 g (Estimate)",
+   "camera": {
+    "position_mm": [
+     1439.8,
+     3253.0,
+     4031.4
+    ],
+    "target_mm": [
+     0.0,
+     373.4,
+     0.0
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [
+    "deck",
+    "deck_glass"
+   ],
+   "focus_parts": [
+    "body"
+   ]
+  },
+  {
+   "id": "s4",
+   "title": "Foam core + stringer",
+   "kicker": "04 \u00b7 Foam core + stringer",
+   "caption": "PU surfboard foam blank ($55.20 (Estimate))",
+   "camera": {
+    "position_mm": [
+     1439.8,
+     3253.0,
+     4031.4
+    ],
+    "target_mm": [
+     0.0,
+     373.4,
+     0.0
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [
+    "deck",
+    "deck_glass",
+    "core"
+   ],
+   "focus_parts": [
+    "pu_foam_core_blank",
+    "stringer"
+   ]
+  },
+  {
+   "id": "s5",
+   "title": "Bottom laminate",
+   "kicker": "05 \u00b7 Bottom laminate",
+   "caption": "Fibreglass laminate under the board",
+   "camera": {
+    "position_mm": [
+     1479.7,
+     3231.5,
+     4143.1
+    ],
+    "target_mm": [
+     0.0,
+     272.1,
+     0.0
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [
+    "deck",
+    "deck_glass",
+    "core",
+    "bottom_glass"
+   ],
+   "focus_parts": [
+    "bottom_laminate_fibreglass_resin"
+   ]
+  },
+  {
+   "id": "s6",
+   "title": "Fins + fin boxes",
+   "kicker": "06 \u00b7 Fins + fin boxes",
+   "caption": "Thruster fin box set ($3.68 (Estimate)) + Thruster surfboard fins ($5.52 (Estimate))",
+   "camera": {
+    "position_mm": [
+     1549.5,
+     3228.3,
+     4338.6
+    ],
+    "target_mm": [
+     0.0,
+     129.3,
+     0.0
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [
+    "deck",
+    "deck_glass",
+    "core",
+    "bottom_glass",
+    "fins"
+   ],
+   "focus_parts": [
+    "fin",
+    "rubber_part",
+    "fin_2",
+    "rubber_part_2",
+    "fin_3",
+    "rubber_part_3"
+   ]
+  },
+  {
+   "id": "s7",
+   "title": "Back together",
+   "kicker": "07 \u00b7 Back together",
+   "caption": "Unit cost $224.55 at 2,000 units (Estimate), weight 4.60 kg (Estimate)",
+   "camera": {
+    "position_mm": [
+     -1377.7,
+     2857.5,
+     3857.6
+    ],
+    "target_mm": [
+     0.0,
+     102.1,
+     0.0
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [],
+   "focus_parts": []
+  }
+ ],
+ "parts": [
+  {
+   "part_id": "body",
+   "name": "Deck laminate (fibreglass + resin)",
+   "role": "shell_top",
+   "layer_id": "deck_glass",
+   "material": "Fibreglass + resin laminate",
+   "finish": "Gloss polish",
+   "colour_hex": "#4F6F95",
+   "measured_bbox_mm": [
+    2286.0,
+    135.62,
+    575.39
+   ],
+   "centroid_mm": [
+    0.0,
+    136.46,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ]
+  },
+  {
+   "part_id": "fin",
+   "name": "Fin 1",
+   "role": "other",
+   "layer_id": "fins",
+   "material": "fibreglass fin",
+   "finish": null,
+   "colour_hex": "#3F454B",
+   "measured_bbox_mm": [
+    96.63,
+    88.0,
+    7.0
+   ],
+   "centroid_mm": [
+    -828.0,
+    46.22,
+    130.0
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "rubber_part",
+   "name": "Rubber part 1",
+   "role": "other",
+   "layer_id": "fins",
+   "material": "TPE rubber",
+   "finish": null,
+   "colour_hex": "#303032",
+   "measured_bbox_mm": [
+    93.18,
+    2.0,
+    13.0
+   ],
+   "centroid_mm": [
+    -823.0,
+    89.72,
+    137.0
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "fin_2",
+   "name": "Fin 2",
+   "role": "other",
+   "layer_id": "fins",
+   "material": "fibreglass fin",
+   "finish": null,
+   "colour_hex": "#3F454B",
+   "measured_bbox_mm": [
+    96.63,
+    88.0,
+    7.0
+   ],
+   "centroid_mm": [
+    -828.0,
+    46.22,
+    -144.0
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "rubber_part_2",
+   "name": "Rubber part 2",
+   "role": "other",
+   "layer_id": "fins",
+   "material": "TPE rubber",
+   "finish": null,
+   "colour_hex": "#303032",
+   "measured_bbox_mm": [
+    93.18,
+    2.0,
+    13.0
+   ],
+   "centroid_mm": [
+    -823.0,
+    89.72,
+    -137.0
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "fin_3",
+   "name": "Fin 3",
+   "role": "other",
+   "layer_id": "fins",
+   "material": "fibreglass fin",
+   "finish": null,
+   "colour_hex": "#3F454B",
+   "measured_bbox_mm": [
+    112.0,
+    102.0,
+    7.0
+   ],
+   "centroid_mm": [
+    -1013.0,
+    51.0,
+    -7.0
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "rubber_part_3",
+   "name": "Rubber part 3",
+   "role": "other",
+   "layer_id": "fins",
+   "material": "TPE rubber",
+   "finish": null,
+   "colour_hex": "#303032",
+   "measured_bbox_mm": [
+    108.0,
+    2.0,
+    13.0
+   ],
+   "centroid_mm": [
+    -1008.0,
+    101.5,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "pu_foam_core_blank",
+   "name": "PU foam core (blank)",
+   "role": "other",
+   "layer_id": "core",
+   "material": "PU foam core",
+   "finish": null,
+   "colour_hex": "#F2EEE3",
+   "measured_bbox_mm": [
+    2267.71,
+    122.06,
+    566.76
+   ],
+   "centroid_mm": [
+    0.0,
+    136.46,
+    0.0
+   ],
+   "label": "estimate",
+   "bom_item_id": "m1",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 55.2,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: PU / EPS surfboard blank, 7-9 ft \u2248 USD 60 (typical 2026 trade price, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "bottom_laminate_fibreglass_resin",
+   "name": "Bottom laminate (fibreglass + resin)",
+   "role": "other",
+   "layer_id": "bottom_glass",
+   "material": "Fibreglass + resin laminate",
+   "finish": null,
+   "colour_hex": "#DDEBE4",
+   "measured_bbox_mm": [
+    2286.0,
+    135.62,
+    575.39
+   ],
+   "centroid_mm": [
+    0.0,
+    136.46,
+    0.0
+   ],
+   "label": "estimate",
+   "bom_item_id": "m2",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 34.96,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: fibreglass cloth + laminating / hot-coat resin per board \u2248 USD 38 (typical 2026 trade price, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "stringer",
+   "name": "Stringer",
+   "role": "frame",
+   "layer_id": "core",
+   "material": "Wood stringer (basswood)",
+   "finish": null,
+   "colour_hex": "#C9A36B",
+   "measured_bbox_mm": [
+    2194.56,
+    74.59,
+    3.0
+   ],
+   "centroid_mm": [
+    0.0,
+    136.46,
+    0.0
+   ],
+   "label": "estimate",
+   "bom_item_id": "m1",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 55.2,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: PU / EPS surfboard blank, 7-9 ft \u2248 USD 60 (typical 2026 trade price, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "fin_box_1",
+   "name": "Fin box 1",
+   "role": "fastener",
+   "layer_id": "fins",
+   "material": "Fin box (glass-filled nylon)",
+   "finish": null,
+   "colour_hex": "#1F2124",
+   "measured_bbox_mm": [
+    28.0,
+    8.0,
+    10.0
+   ],
+   "centroid_mm": [
+    -828.0,
+    93.22,
+    130.0
+   ],
+   "label": "estimate",
+   "bom_item_id": "m4",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 3.68,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: fin box / plug \u2248 USD 4 (typical 2026 trade price, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "fin_box_2",
+   "name": "Fin box 2",
+   "role": "fastener",
+   "layer_id": "fins",
+   "material": "Fin box (glass-filled nylon)",
+   "finish": null,
+   "colour_hex": "#1F2124",
+   "measured_bbox_mm": [
+    28.0,
+    8.0,
+    10.0
+   ],
+   "centroid_mm": [
+    -828.0,
+    93.22,
+    -144.0
+   ],
+   "label": "estimate",
+   "bom_item_id": "m4",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 3.68,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: fin box / plug \u2248 USD 4 (typical 2026 trade price, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "fin_box_3",
+   "name": "Fin box 3",
+   "role": "fastener",
+   "layer_id": "fins",
+   "material": "Fin box (glass-filled nylon)",
+   "finish": null,
+   "colour_hex": "#1F2124",
+   "measured_bbox_mm": [
+    28.0,
+    8.0,
+    10.0
+   ],
+   "centroid_mm": [
+    -1013.0,
+    105.0,
+    -7.0
+   ],
+   "label": "estimate",
+   "bom_item_id": "m4",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 3.68,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: fin box / plug \u2248 USD 4 (typical 2026 trade price, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "leash_plug",
+   "name": "Leash plug",
+   "role": "fastener",
+   "layer_id": "deck",
+   "material": "Leash plug (ABS + steel bar)",
+   "finish": null,
+   "colour_hex": "#6B6F75",
+   "measured_bbox_mm": [
+    18.0,
+    33.9,
+    18.0
+   ],
+   "centroid_mm": [
+    -1028.7,
+    187.32,
+    0.0
+   ],
+   "label": "estimate",
+   "bom_item_id": "m6",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 3.68,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: fin box / plug \u2248 USD 4 (typical 2026 trade price, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "traction_pad",
+   "name": "Traction pad",
+   "role": "other",
+   "layer_id": "deck",
+   "material": "EVA traction pad",
+   "finish": null,
+   "colour_hex": "#222325",
+   "measured_bbox_mm": [
+    320.04,
+    5.0,
+    402.77
+   ],
+   "centroid_mm": [
+    -822.96,
+    190.71,
+    0.0
+   ],
+   "label": "estimate",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  }
+ ]
+}

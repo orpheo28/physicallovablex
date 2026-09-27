@@ -410,7 +410,7 @@
    "format": "glb",
    "url": "/files/demo_instant_camera/model_v1.glb",
    "description": "AI-generated CAD (concept level) — geometry measured on the result — bbox 152 × 117 × 124 mm",
-   "size_bytes": 447964
+   "size_bytes": 313604
   },
   {
    "format": "step",
@@ -428,7 +428,7 @@
    "format": "glb",
    "url": "/files/demo_instant_camera/v1.glb",
    "description": "Full product — materials",
-   "size_bytes": 163716
+   "size_bytes": 175536
   },
   {
    "format": "step",
@@ -446,7 +446,7 @@
    "format": "glb",
    "url": "/files/demo_instant_camera/v1_enclosure.glb",
    "description": "Moulded parts (DFM) — viewer model",
-   "size_bytes": 597348
+   "size_bytes": 410452
   },
   {
    "format": "step",

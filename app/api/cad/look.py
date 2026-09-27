@@ -26,7 +26,7 @@ from api.cad.build import BUILD_VERSION, build_shape, normalize, publish
 
 log = logging.getLogger("cad.look")
 
-LOOK_VERSION = "l3"  # bump when assembly geometry or materials change
+LOOK_VERSION = "l4"  # bump when assembly geometry or materials change (l4: W29 finished GLBs — named parts, KHR materials)
 
 # name -> sRGB hex. Used when the finish has a colour word but no #hex.
 COLOURS = {
@@ -99,6 +99,7 @@ def look_for(material: str, finish: str, colour: str | None = None) -> dict[str,
     lum = 0.2126 * body[0] + 0.7152 * body[1] + 0.0722 * body[2]
     accent = _shade(body, 0.62) if lum > 0.08 else [min(1.0, c * 1.6 + 0.012) for c in body]
     return {
+        "_meta": {"material_text": material or "", "finish": (finish or "").split(" · ")[0].strip() or None, "colour": hex_},
         "body": body_pbr,
         "accent": {**body_pbr, "name": "lower shell", "baseColorFactor": [*accent, 1.0]},
         "metal": _pbr([0.80, 0.81, 0.83], 1.0, 0.32, name="anodised aluminium"),
@@ -115,39 +116,20 @@ def look_for(material: str, finish: str, colour: str | None = None) -> dict[str,
 # --------------------------------------------------------------------------- GLB post-process
 
 
-def apply_materials(glb_path: Path | str, look: dict[str, dict]) -> None:
-    """Give every mesh node the material of its role (node name `<role>.<n>`; unknown role -> body)."""
-    from pygltflib import GLTF2, Material, PbrMetallicRoughness
+def apply_materials(glb_path: Path | str, look: dict[str, dict], names: dict | None = None, overrides: dict | None = None) -> None:
+    """Finish the GLB (api.cad.glb.finalize): one node per part, role materials (+ KHR extensions), smooth normals.
+    Nodes of the viewer assemblies are labelled `<role>.<n>`; unknown role -> body. Idempotent (recolours a finished GLB)."""
+    from api.cad import glb, parts
 
-    g = GLTF2.load(str(glb_path))
-    index: dict[str, int] = {}
-    materials: list[Material] = []
+    if names is None:
+        try:
+            from pygltflib import GLTF2
 
-    def mat_for(role: str) -> int:
-        if role not in index:
-            spec = look[role]
-            index[role] = len(materials)
-            materials.append(Material(
-                name=spec["name"] or role,
-                pbrMetallicRoughness=PbrMetallicRoughness(baseColorFactor=spec["baseColorFactor"],
-                                                          metallicFactor=spec["metallicFactor"],
-                                                          roughnessFactor=spec["roughnessFactor"]),
-                emissiveFactor=spec["emissiveFactor"], doubleSided=False, alphaMode="OPAQUE"))
-        return index[role]
-
-    for node in g.nodes:
-        if node.mesh is None:
-            continue
-        role = (node.name or "body").split(".")[0].replace("_shell", "")
-        role = {"top": "body", "bottom": "accent"}.get(role, role)
-        m = mat_for(role if role in look else "body")
-        for prim in g.meshes[node.mesh].primitives:
-            prim.material = m
-    g.materials = materials
-    glb_path = Path(glb_path)
-    tmp = glb_path.with_name(f".{glb_path.name}.{os.getpid()}.{threading.get_ident()}.tmp")  # atomic: never serve a half file
-    g.save_binary(str(tmp))
-    os.replace(tmp, glb_path)
+            labels = [n.name for n in GLTF2.load(str(glb_path)).nodes if n.mesh is not None and n.name]
+            names = parts.fixed_names(labels)
+        except Exception:  # noqa: BLE001
+            names = {}
+    glb.finalize(glb_path, look, names=names, overrides=overrides)
 
 
 # --------------------------------------------------------------------------- assembly geometry
@@ -257,7 +239,10 @@ def export_look(parts: list, path: Path | str, look: dict[str, dict]) -> Path:
     path = Path(path)
     asm = Compound(children=parts)
     asm.label = "product"
-    export_gltf(asm, str(path), binary=True, linear_deflection=0.05, angular_deflection=0.2)
+    from api.cad.build import glb_tolerance
+
+    lin, ang = glb_tolerance(asm)
+    export_gltf(asm, str(path), binary=True, linear_deflection=lin, angular_deflection=ang)
     if not path.exists() or path.stat().st_size == 0:
         raise RuntimeError("assembly GLB export produced no file")
     apply_materials(path, look)

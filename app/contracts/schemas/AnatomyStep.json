@@ -1,0 +1,85 @@
+{
+  "$defs": {
+    "AnatomyCamera": {
+      "additionalProperties": false,
+      "properties": {
+        "position_mm": {
+          "items": {
+            "type": "number"
+          },
+          "maxItems": 3,
+          "minItems": 3,
+          "title": "Position Mm",
+          "type": "array"
+        },
+        "target_mm": {
+          "items": {
+            "type": "number"
+          },
+          "maxItems": 3,
+          "minItems": 3,
+          "title": "Target Mm",
+          "type": "array"
+        },
+        "fov_deg": {
+          "title": "Fov Deg",
+          "type": "number"
+        }
+      },
+      "required": [
+        "position_mm",
+        "target_mm",
+        "fov_deg"
+      ],
+      "title": "AnatomyCamera",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "title": {
+      "title": "Title",
+      "type": "string"
+    },
+    "kicker": {
+      "description": "e.g. '01 \u00b7 The band'",
+      "title": "Kicker",
+      "type": "string"
+    },
+    "caption": {
+      "description": "One line with real BOM / engineering values and their labels",
+      "title": "Caption",
+      "type": "string"
+    },
+    "camera": {
+      "$ref": "#/$defs/AnatomyCamera"
+    },
+    "layers_exploded": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Layers Exploded",
+      "type": "array"
+    },
+    "focus_parts": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Focus Parts",
+      "type": "array"
+    }
+  },
+  "required": [
+    "id",
+    "title",
+    "kicker",
+    "caption",
+    "camera"
+  ],
+  "title": "AnatomyStep",
+  "type": "object"
+}

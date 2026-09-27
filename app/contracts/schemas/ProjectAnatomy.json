@@ -1,0 +1,479 @@
+{
+  "$defs": {
+    "AnatomyCamera": {
+      "additionalProperties": false,
+      "properties": {
+        "position_mm": {
+          "items": {
+            "type": "number"
+          },
+          "maxItems": 3,
+          "minItems": 3,
+          "title": "Position Mm",
+          "type": "array"
+        },
+        "target_mm": {
+          "items": {
+            "type": "number"
+          },
+          "maxItems": 3,
+          "minItems": 3,
+          "title": "Target Mm",
+          "type": "array"
+        },
+        "fov_deg": {
+          "title": "Fov Deg",
+          "type": "number"
+        }
+      },
+      "required": [
+        "position_mm",
+        "target_mm",
+        "fov_deg"
+      ],
+      "title": "AnatomyCamera",
+      "type": "object"
+    },
+    "AnatomyLayer": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "order": {
+          "description": "0 = outermost / first to lift",
+          "title": "Order",
+          "type": "integer"
+        },
+        "parts": {
+          "description": "part_ids (nodes of the anatomy GLB)",
+          "items": {
+            "type": "string"
+          },
+          "title": "Parts",
+          "type": "array"
+        },
+        "explode_vector": {
+          "description": "Unit vector, GLB axes (+Y up)",
+          "items": {
+            "type": "number"
+          },
+          "maxItems": 3,
+          "minItems": 3,
+          "title": "Explode Vector",
+          "type": "array"
+        },
+        "explode_distance_mm": {
+          "title": "Explode Distance Mm",
+          "type": "number"
+        },
+        "caption": {
+          "title": "Caption",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "order",
+        "explode_vector",
+        "explode_distance_mm",
+        "caption"
+      ],
+      "title": "AnatomyLayer",
+      "type": "object"
+    },
+    "AnatomyStep": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "kicker": {
+          "description": "e.g. '01 \u00b7 The band'",
+          "title": "Kicker",
+          "type": "string"
+        },
+        "caption": {
+          "description": "One line with real BOM / engineering values and their labels",
+          "title": "Caption",
+          "type": "string"
+        },
+        "camera": {
+          "$ref": "#/$defs/AnatomyCamera"
+        },
+        "layers_exploded": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Layers Exploded",
+          "type": "array"
+        },
+        "focus_parts": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Focus Parts",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "kicker",
+        "caption",
+        "camera"
+      ],
+      "title": "AnatomyStep",
+      "type": "object"
+    },
+    "Label": {
+      "description": "The four honesty labels. UI text: Measured / Sourced / Estimate / Fictional \u2014 demo data.",
+      "enum": [
+        "measured",
+        "sourced",
+        "estimate",
+        "fictional"
+      ],
+      "title": "Label",
+      "type": "string"
+    },
+    "LabeledValue": {
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "title": "Value",
+          "type": "number"
+        },
+        "unit": {
+          "description": "e.g. USD, EUR, mm, g, days, weeks, pct, units, man-days",
+          "title": "Unit",
+          "type": "string"
+        },
+        "label": {
+          "$ref": "#/$defs/Label"
+        },
+        "source_or_assumption": {
+          "description": "Sourced: '<source>, <YYYY-MM-DD>'. Estimate: the assumption. Measured: the check. Fictional: 'demo data'.",
+          "title": "Source Or Assumption",
+          "type": "string"
+        }
+      },
+      "required": [
+        "value",
+        "unit",
+        "label",
+        "source_or_assumption"
+      ],
+      "title": "LabeledValue",
+      "type": "object"
+    },
+    "PartEditable": {
+      "additionalProperties": false,
+      "description": "One editable parameter of a part (slider): POST /parts/{part_id}/edit {param, value} within [min, max].",
+      "properties": {
+        "param": {
+          "description": "Family parameter (fp_*) or AI CAD program parameter name",
+          "title": "Param",
+          "type": "string"
+        },
+        "label": {
+          "description": "Human wording, e.g. 'Pod thickness'",
+          "title": "Label",
+          "type": "string"
+        },
+        "min": {
+          "title": "Min",
+          "type": "number"
+        },
+        "max": {
+          "title": "Max",
+          "type": "number"
+        },
+        "step": {
+          "title": "Step",
+          "type": "number"
+        },
+        "unit": {
+          "description": "mm, pct \u2026",
+          "title": "Unit",
+          "type": "string"
+        },
+        "value": {
+          "description": "Current value",
+          "title": "Value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "param",
+        "label",
+        "min",
+        "max",
+        "step",
+        "unit",
+        "value"
+      ],
+      "title": "PartEditable",
+      "type": "object"
+    },
+    "PartMeta": {
+      "additionalProperties": false,
+      "description": "W29: one part of a version's GLB. The GLB node named `part_id` carries this object as glTF `extras`.",
+      "properties": {
+        "part_id": {
+          "description": "Stable id within the version = GLB node name, e.g. 'shell_top', 'strap', 'u_ppg_1'",
+          "title": "Part Id",
+          "type": "string"
+        },
+        "name": {
+          "description": "Human name, e.g. 'Top shell', 'MAX30102 PPG sensor'",
+          "title": "Name",
+          "type": "string"
+        },
+        "role": {
+          "enum": [
+            "shell_top",
+            "shell_bottom",
+            "strap",
+            "button",
+            "window",
+            "lens",
+            "diffuser",
+            "frame",
+            "arm",
+            "prop",
+            "motor",
+            "pcb",
+            "component",
+            "battery",
+            "antenna",
+            "connector",
+            "cable",
+            "fastener",
+            "other"
+          ],
+          "title": "Role",
+          "type": "string"
+        },
+        "layer_id": {
+          "description": "Anatomy layer this part belongs to (see ProjectAnatomy.layers)",
+          "title": "Layer Id",
+          "type": "string"
+        },
+        "material": {
+          "description": "Human material, e.g. 'PC/ABS', 'LSR silicone', 'FR-4'",
+          "title": "Material",
+          "type": "string"
+        },
+        "finish": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "e.g. 'soft-touch matte', 'anodised', 'gloss'",
+          "title": "Finish"
+        },
+        "colour_hex": {
+          "description": "#RRGGBB",
+          "title": "Colour Hex",
+          "type": "string"
+        },
+        "measured_bbox_mm": {
+          "description": "[x, y, z] extent in mm (GLB axes: +Y up)",
+          "items": {
+            "type": "number"
+          },
+          "maxItems": 3,
+          "minItems": 3,
+          "title": "Measured Bbox Mm",
+          "type": "array"
+        },
+        "centroid_mm": {
+          "description": "[x, y, z] bbox centre in mm (GLB axes)",
+          "items": {
+            "type": "number"
+          },
+          "maxItems": 3,
+          "minItems": 3,
+          "title": "Centroid Mm",
+          "type": "array"
+        },
+        "label": {
+          "description": "measured = geometry measured on our CAD; estimate = illustrative anatomy body (package table / sizing rule)",
+          "enum": [
+            "measured",
+            "estimate"
+          ],
+          "title": "Label",
+          "type": "string"
+        },
+        "bom_item_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "BOM line this part stands for (stage 3 bom[].id)",
+          "title": "Bom Item Id"
+        },
+        "lcsc_pn": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Lcsc Pn"
+        },
+        "package": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Package string used for the body size, e.g. 'LGA-14', 'USB-C'",
+          "title": "Package"
+        },
+        "unit_price": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/LabeledValue"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "editable": {
+          "items": {
+            "$ref": "#/$defs/PartEditable"
+          },
+          "title": "Editable",
+          "type": "array"
+        },
+        "colour_editable": {
+          "default": false,
+          "title": "Colour Editable",
+          "type": "boolean"
+        },
+        "material_options": {
+          "description": "Material keys accepted by POST /parts/{id}/edit",
+          "items": {
+            "type": "string"
+          },
+          "title": "Material Options",
+          "type": "array"
+        }
+      },
+      "required": [
+        "part_id",
+        "name",
+        "role",
+        "layer_id",
+        "material",
+        "colour_hex",
+        "measured_bbox_mm",
+        "centroid_mm",
+        "label"
+      ],
+      "title": "PartMeta",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "GET /projects/{id}/anatomy?version=n \u2014 illustrative internal layout generated from the BOM (deterministic).",
+  "properties": {
+    "version": {
+      "title": "Version",
+      "type": "integer"
+    },
+    "glb_url": {
+      "description": "Companion anatomy GLB /files/<pid>/anatomy_v<n>.glb (exterior parts + internals)",
+      "title": "Glb Url",
+      "type": "string"
+    },
+    "label": {
+      "const": "Illustrative internal layout \u2014 not a routed PCB",
+      "default": "Illustrative internal layout \u2014 not a routed PCB",
+      "title": "Label",
+      "type": "string"
+    },
+    "kind": {
+      "default": "electronics",
+      "description": "construction = solid product (board, furniture): layers are construction layers, not a PCB",
+      "enum": [
+        "electronics",
+        "construction"
+      ],
+      "title": "Kind",
+      "type": "string"
+    },
+    "bbox_mm": {
+      "description": "[x, y, z] of the whole product, GLB axes",
+      "items": {
+        "type": "number"
+      },
+      "maxItems": 3,
+      "minItems": 3,
+      "title": "Bbox Mm",
+      "type": "array"
+    },
+    "layers": {
+      "items": {
+        "$ref": "#/$defs/AnatomyLayer"
+      },
+      "title": "Layers",
+      "type": "array"
+    },
+    "steps": {
+      "items": {
+        "$ref": "#/$defs/AnatomyStep"
+      },
+      "title": "Steps",
+      "type": "array"
+    },
+    "parts": {
+      "description": "Every node of the anatomy GLB",
+      "items": {
+        "$ref": "#/$defs/PartMeta"
+      },
+      "title": "Parts",
+      "type": "array"
+    }
+  },
+  "required": [
+    "version",
+    "glb_url",
+    "bbox_mm"
+  ],
+  "title": "ProjectAnatomy",
+  "type": "object"
+}

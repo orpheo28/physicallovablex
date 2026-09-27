@@ -15,8 +15,6 @@ Parts are labelled `<role>.<n>`; the role picks the material (look.py roles + th
 from __future__ import annotations
 
 import inspect
-import os
-import threading
 from pathlib import Path
 from typing import Any
 
@@ -49,44 +47,24 @@ def clamp(v: float, lo: float, hi: float) -> float:
 def family_look(colour: str | None = None, finish: str = "", material: str = "pc_abs") -> dict[str, dict]:
     """Role -> glTF PBR material: look.py's roles (body in `colour`) plus the family roles."""
     from api.cad.look import look_for
+    from api.cad.parts import PART_MATERIALS
 
-    return {**look_for(material, finish, colour), **{k: dict(v) for k, v in EXTRA_ROLES.items()}}
-
-
-def apply_look(glb_path: Path | str, look: dict[str, dict]) -> None:
-    """Material per node role (`<role>.<n>`, unknown -> body). Like look.apply_materials, plus alpha blending."""
-    from pygltflib import GLTF2, Material, PbrMetallicRoughness
-
-    g = GLTF2.load(str(glb_path))
-    index: dict[str, int] = {}
-    materials: list = []
-    for node in g.nodes:
-        if node.mesh is None:
-            continue
-        role = (node.name or "body").split(".")[0]
-        role = role if role in look else "body"
-        if role not in index:
-            spec = look[role]
-            alpha = spec["baseColorFactor"][3]
-            index[role] = len(materials)
-            materials.append(Material(
-                name=spec.get("name") or role,
-                pbrMetallicRoughness=PbrMetallicRoughness(baseColorFactor=spec["baseColorFactor"],
-                                                          metallicFactor=spec["metallicFactor"],
-                                                          roughnessFactor=spec["roughnessFactor"]),
-                emissiveFactor=spec.get("emissiveFactor", [0.0, 0.0, 0.0]), doubleSided=alpha < 1.0,
-                alphaMode="BLEND" if alpha < 1.0 else "OPAQUE"))
-        for prim in g.meshes[node.mesh].primitives:
-            prim.material = index[role]
-    g.materials = materials
-    glb_path = Path(glb_path)
-    tmp = glb_path.with_name(f".{glb_path.name}.{os.getpid()}.{threading.get_ident()}.tmp")
-    g.save_binary(str(tmp))
-    os.replace(tmp, glb_path)
+    look = {**look_for(material, finish, colour), **{k: dict(v) for k, v in EXTRA_ROLES.items()}}
+    if material in PART_MATERIALS:  # a Studio material key: the human wording goes to the part extras (W29)
+        look["_meta"] = {**look["_meta"], "material_text": PART_MATERIALS[material]["name"]}
+    return look
 
 
-def export_parts(parts: list, stem: Path | str, look: dict[str, dict] | None = None) -> dict[str, Path]:
-    """Labelled parts -> <stem>.step / .stl / .glb (GLB with per-role materials)."""
+def apply_look(glb_path: Path | str, look: dict[str, dict], names: dict | None = None, overrides: dict | None = None) -> None:
+    """Finish the GLB with the family look (api.cad.glb.finalize: named part nodes, role materials + KHR extensions,
+    transmission instead of alpha for clear parts). Idempotent: a finished GLB is recoloured (part ids kept)."""
+    from api.cad import glb
+
+    glb.finalize(glb_path, look, names=names, overrides=overrides)
+
+
+def export_parts(parts: list, stem: Path | str, look: dict[str, dict] | None = None, names: dict | None = None) -> dict[str, Path]:
+    """Labelled parts -> <stem>.step / .stl / .glb (GLB with per-role materials; `names`: label → part info, W29)."""
     from build123d import Compound
 
     from api.cad.build import export_all
@@ -96,7 +74,7 @@ def export_parts(parts: list, stem: Path | str, look: dict[str, dict] | None = N
     asm = Compound(children=parts)
     asm.label = "product"
     out = export_all(asm, stem)
-    apply_look(out["glb"], look or family_look())
+    apply_look(out["glb"], look or family_look(), names=names)
     return out
 
 

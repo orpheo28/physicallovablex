@@ -234,7 +234,7 @@
       "format": "glb",
       "url": "/files/demo_desk_lamp/d1.glb",
       "description": "Full product — materials (viewer model of direction d1)",
-      "size_bytes": 768784
+      "size_bytes": 504504
     },
     {
       "format": "step",
@@ -252,7 +252,7 @@
       "format": "glb",
       "url": "/files/demo_desk_lamp/enclosure.glb",
       "description": "Moulded parts (DFM) — Enclosure model for the 3D viewer",
-      "size_bytes": 705824
+      "size_bytes": 459424
     }
   ],
   "bom": [

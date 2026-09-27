@@ -1,0 +1,866 @@
+{
+ "_v": "a4",
+ "version": 2,
+ "glb_url": "/files/demo_whoop_kitesurf/anatomy_v2.glb",
+ "label": "Illustrative internal layout \u2014 not a routed PCB",
+ "kind": "electronics",
+ "bbox_mm": [
+  80.0,
+  41.57,
+  30.0
+ ],
+ "layers": [
+  {
+   "id": "strap",
+   "name": "Strap",
+   "order": 0,
+   "parts": [
+    "strap"
+   ],
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 32.0,
+   "caption": "The strap drops away"
+  },
+  {
+   "id": "shell_top",
+   "name": "Top shell",
+   "order": 1,
+   "parts": [
+    "top_shell",
+    "light"
+   ],
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 26.0,
+   "caption": "PC/ABS shell, product 44.0 \u00d7 30.0 \u00d7 10.0 mm (Measured), 1.5 mm wall (Estimate)"
+  },
+  {
+   "id": "battery",
+   "name": "Battery",
+   "order": 2,
+   "parts": [
+    "li_po_battery_150_mah"
+   ],
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 17.0,
+   "caption": "150 mAh Li-po at 3.7 V (sized at 400 Wh/L, Estimate) \u2014 battery life 2.7 days (Estimate)"
+  },
+  {
+   "id": "pcb",
+   "name": "Main board",
+   "order": 3,
+   "parts": [
+    "main_pcb",
+    "ch582m_ble_microcontroller",
+    "qmi8658a_6_axis_imu",
+    "charging_contacts_1",
+    "charging_contacts_2",
+    "tp4054_single_cell_lipo_charger_ic",
+    "xc6206p332mr_3_3_v_ldo_regulator",
+    "passives_cluster"
+   ],
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 9.0,
+   "caption": "Main board: CH582M BLE microcontroller ($1.66 (Estimate)) \u2014 FR-4 board sized to the cavity (Estimate)"
+  },
+  {
+   "id": "sensors",
+   "name": "Sensor stack",
+   "order": 4,
+   "parts": [
+    "max30102_optical_heart_rate_sensor"
+   ],
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 9.0,
+   "caption": "Sensors: MAX30102 Optical heart-rate sensor (LCSC C6454833, OESIP-14, $12.18 (Sourced)) + QMI8658A 6-axis IMU ($1.01 (Estimate))"
+  },
+  {
+   "id": "shell_bottom",
+   "name": "Bottom shell",
+   "order": 5,
+   "parts": [
+    "bottom_shell",
+    "window",
+    "lights"
+   ],
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 18.0,
+   "caption": "PC/ABS shell, 1.5 mm wall (Estimate)"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "title": "The band",
+   "kicker": "01 \u00b7 The band",
+   "caption": "Kitesurf recovery band \u2014 44.0 \u00d7 30.0 \u00d7 10.0 mm (Measured), 9 electronic BOM lines laid out inside (illustrative internal layout, not a routed PCB)",
+   "camera": {
+    "position_mm": [
+     110.7,
+     89.4,
+     149.4
+    ],
+    "target_mm": [
+     0.0,
+     20.8,
+     0.0
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [],
+   "focus_parts": []
+  },
+  {
+   "id": "s2",
+   "title": "Top shell lifts",
+   "kicker": "02 \u00b7 Top shell lifts",
+   "caption": "PC/ABS shell, product 44.0 \u00d7 30.0 \u00d7 10.0 mm (Measured), 1.5 mm wall (Estimate)",
+   "camera": {
+    "position_mm": [
+     152.9,
+     112.6,
+     206.4
+    ],
+    "target_mm": [
+     0.0,
+     17.8,
+     0.0
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [
+    "strap",
+    "shell_top"
+   ],
+   "focus_parts": [
+    "top_shell",
+    "light"
+   ]
+  },
+  {
+   "id": "s3",
+   "title": "Inside the pod",
+   "kicker": "03 \u00b7 Inside the pod",
+   "caption": "Main board: CH582M BLE microcontroller ($1.66 (Estimate)) \u2014 FR-4 board sized to the cavity (Estimate)",
+   "camera": {
+    "position_mm": [
+     127.4,
+     96.8,
+     172.0
+    ],
+    "target_mm": [
+     0.0,
+     17.8,
+     0.0
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [
+    "strap",
+    "shell_top",
+    "battery"
+   ],
+   "focus_parts": [
+    "main_pcb",
+    "ch582m_ble_microcontroller",
+    "qmi8658a_6_axis_imu",
+    "charging_contacts_1"
+   ]
+  },
+  {
+   "id": "s4",
+   "title": "The sensor stack \u2014 MAX30102 Optical heart-rate sensor",
+   "kicker": "04 \u00b7 The sensor stack \u2014 MAX30102 Optical heart-rate sensor",
+   "caption": "Sensors: MAX30102 Optical heart-rate sensor (LCSC C6454833, OESIP-14, $12.18 (Sourced)) + QMI8658A 6-axis IMU ($1.01 (Estimate))",
+   "camera": {
+    "position_mm": [
+     29.4,
+     -22.6,
+     53.4
+    ],
+    "target_mm": [
+     -14.6,
+     34.0,
+     -9.5
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [
+    "strap",
+    "shell_top",
+    "battery",
+    "pcb",
+    "sensors",
+    "shell_bottom"
+   ],
+   "focus_parts": [
+    "max30102_optical_heart_rate_sensor"
+   ]
+  },
+  {
+   "id": "s5",
+   "title": "Power \u2014 150 mAh Li-po",
+   "kicker": "05 \u00b7 Power \u2014 150 mAh Li-po",
+   "caption": "150 mAh Li-po at 3.7 V (sized at 400 Wh/L, Estimate) \u2014 battery life 2.7 days (Estimate)",
+   "camera": {
+    "position_mm": [
+     104.3,
+     102.8,
+     140.9
+    ],
+    "target_mm": [
+     0.0,
+     38.1,
+     0.0
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [
+    "strap",
+    "shell_top",
+    "battery"
+   ],
+   "focus_parts": [
+    "li_po_battery_150_mah"
+   ]
+  },
+  {
+   "id": "s6",
+   "title": "Back together",
+   "kicker": "06 \u00b7 Back together",
+   "caption": "Unit cost $27.64 at 2,000 units (Estimate), product mass 17.0 g (Estimate)",
+   "camera": {
+    "position_mm": [
+     -114.6,
+     83.8,
+     149.0
+    ],
+    "target_mm": [
+     0.0,
+     20.8,
+     0.0
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [],
+   "focus_parts": []
+  }
+ ],
+ "parts": [
+  {
+   "part_id": "strap",
+   "name": "Strap",
+   "role": "strap",
+   "layer_id": "strap",
+   "material": "Liquid silicone rubber (LSR)",
+   "finish": null,
+   "colour_hex": "#E5DFD7",
+   "measured_bbox_mm": [
+    80.0,
+    30.06,
+    25.0
+   ],
+   "centroid_mm": [
+    0.0,
+    15.05,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "m4",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 0.5183,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Strap: Moulded shell 230\u00d724\u00d72.4 mm, wall 2.4 mm \u2248 17.7 cm\u00b3 \u00d7 1.15 g/cm\u00b3 = 20 g \u00d7 $5.0/kg + $0.46 moulding/finish conversion"
+   },
+   "editable": [
+    {
+     "param": "strap_thickness",
+     "label": "Strap thickness",
+     "min": 1.2,
+     "max": 4.7,
+     "step": 0.1,
+     "unit": "mm",
+     "value": 2.4
+    },
+    {
+     "param": "strap_width",
+     "label": "Strap width",
+     "min": 14.0,
+     "max": 32.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 25.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "lsr_silicone",
+    "fabric",
+    "tpu"
+   ]
+  },
+  {
+   "part_id": "bottom_shell",
+   "name": "Bottom shell",
+   "role": "shell_bottom",
+   "layer_id": "shell_bottom",
+   "material": "PC/ABS (UL94 V-0)",
+   "finish": "MT-11010 light texture",
+   "colour_hex": "#EDEBE6",
+   "measured_bbox_mm": [
+    44.0,
+    4.2,
+    30.0
+   ],
+   "centroid_mm": [
+    0.0,
+    33.6,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "m1",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 0.2713,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Top shell: Moulded shell 44\u00d730\u00d73.68 mm, wall 1.5 mm \u2248 2.9 cm\u00b3 \u00d7 1.15 g/cm\u00b3 = 3 g \u00d7 $3.2/kg + $0.28 moulding/finish conversion"
+   },
+   "editable": [
+    {
+     "param": "corner_radius",
+     "label": "Corner radius",
+     "min": 4.0,
+     "max": 16.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 8.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ]
+  },
+  {
+   "part_id": "top_shell",
+   "name": "Top shell",
+   "role": "shell_top",
+   "layer_id": "shell_top",
+   "material": "PC/ABS (UL94 V-0)",
+   "finish": "MT-11010 light texture",
+   "colour_hex": "#EDEBE6",
+   "measured_bbox_mm": [
+    44.0,
+    5.8,
+    30.0
+   ],
+   "centroid_mm": [
+    0.0,
+    38.6,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "m1",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 0.2713,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Top shell: Moulded shell 44\u00d730\u00d73.68 mm, wall 1.5 mm \u2248 2.9 cm\u00b3 \u00d7 1.15 g/cm\u00b3 = 3 g \u00d7 $3.2/kg + $0.28 moulding/finish conversion"
+   },
+   "editable": [
+    {
+     "param": "corner_radius",
+     "label": "Corner radius",
+     "min": 4.0,
+     "max": 16.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 8.0
+    },
+    {
+     "param": "pod_thickness",
+     "label": "Pod thickness",
+     "min": 6.0,
+     "max": 20.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 10.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ]
+  },
+  {
+   "part_id": "window",
+   "name": "Window",
+   "role": "window",
+   "layer_id": "shell_bottom",
+   "material": "dark glass / display",
+   "finish": null,
+   "colour_hex": "#191D22",
+   "measured_bbox_mm": [
+    14.6,
+    0.75,
+    14.6
+   ],
+   "centroid_mm": [
+    0.0,
+    31.23,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "m5",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 0.92,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: internal brackets / seals \u2248 USD 1 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "sensor_radius",
+     "label": "Sensor radius",
+     "min": 4.0,
+     "max": 14.5,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 7.3
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "glass",
+    "clear_pc"
+   ]
+  },
+  {
+   "part_id": "lights",
+   "name": "Lights",
+   "role": "diffuser",
+   "layer_id": "shell_bottom",
+   "material": "status light pipe",
+   "finish": null,
+   "colour_hex": "#7CDAF3",
+   "measured_bbox_mm": [
+    8.1,
+    0.18,
+    2.5
+   ],
+   "centroid_mm": [
+    0.0,
+    30.81,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "light",
+   "name": "Light",
+   "role": "diffuser",
+   "layer_id": "shell_top",
+   "material": "frosted PC diffuser (lit)",
+   "finish": null,
+   "colour_hex": "#F7F6F3",
+   "measured_bbox_mm": [
+    1.7,
+    0.12,
+    1.7
+   ],
+   "centroid_mm": [
+    15.5,
+    41.53,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "m5",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 0.92,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: internal brackets / seals \u2248 USD 1 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "pod_thickness",
+     "label": "Pod thickness",
+     "min": 6.0,
+     "max": 20.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 10.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "main_pcb",
+   "name": "Main PCB",
+   "role": "pcb",
+   "layer_id": "pcb",
+   "material": "FR-4, matte black solder mask",
+   "finish": null,
+   "colour_hex": "#17191C",
+   "measured_bbox_mm": [
+    36.9,
+    1.0,
+    24.3
+   ],
+   "centroid_mm": [
+    0.0,
+    35.25,
+    0.0
+   ],
+   "label": "estimate",
+   "bom_item_id": "e7",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 1.38,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: antenna set \u2248 USD 1.5 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "ch582m_ble_microcontroller",
+   "name": "CH582M BLE microcontroller",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "IC package (epoxy mould)",
+   "finish": null,
+   "colour_hex": "#1B1C1E",
+   "measured_bbox_mm": [
+    7.0,
+    0.9,
+    7.0
+   ],
+   "centroid_mm": [
+    -13.95,
+    36.2,
+    -7.65
+   ],
+   "label": "estimate",
+   "bom_item_id": "e1",
+   "lcsc_pn": null,
+   "package": "QFN-48",
+   "unit_price": {
+    "value": 1.656,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: BLE / Wi-Fi SoC \u2248 USD 1.8 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "qmi8658a_6_axis_imu",
+   "name": "QMI8658A 6-axis IMU",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "IC package (epoxy mould)",
+   "finish": null,
+   "colour_hex": "#1B1C1E",
+   "measured_bbox_mm": [
+    2.5,
+    0.86,
+    3.0
+   ],
+   "centroid_mm": [
+    -8.4,
+    36.18,
+    -9.65
+   ],
+   "label": "estimate",
+   "bom_item_id": "e3",
+   "lcsc_pn": null,
+   "package": "LGA-14",
+   "unit_price": {
+    "value": 1.012,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: 6-axis IMU \u2248 USD 1.1 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "charging_contacts_1",
+   "name": "Charging contacts 1",
+   "role": "connector",
+   "layer_id": "pcb",
+   "material": "Connector (stainless shell)",
+   "finish": null,
+   "colour_hex": "#C9CBCE",
+   "measured_bbox_mm": [
+    2.5,
+    0.6,
+    2.5
+   ],
+   "centroid_mm": [
+    -5.1,
+    36.05,
+    -9.9
+   ],
+   "label": "estimate",
+   "bom_item_id": "e9",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 0.276,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: charging contact \u2248 USD 0.3 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "charging_contacts_2",
+   "name": "Charging contacts 2",
+   "role": "connector",
+   "layer_id": "pcb",
+   "material": "Connector (stainless shell)",
+   "finish": null,
+   "colour_hex": "#C9CBCE",
+   "measured_bbox_mm": [
+    2.5,
+    0.6,
+    2.5
+   ],
+   "centroid_mm": [
+    -1.8,
+    36.05,
+    -9.9
+   ],
+   "label": "estimate",
+   "bom_item_id": "e9",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 0.276,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: charging contact \u2248 USD 0.3 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "tp4054_single_cell_lipo_charger_ic",
+   "name": "TP4054 Single-cell LiPo charger IC",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "IC package (epoxy mould)",
+   "finish": null,
+   "colour_hex": "#1B1C1E",
+   "measured_bbox_mm": [
+    2.9,
+    1.1,
+    1.6
+   ],
+   "centroid_mm": [
+    1.7,
+    36.3,
+    -10.35
+   ],
+   "label": "estimate",
+   "bom_item_id": "e5",
+   "lcsc_pn": "C7473157",
+   "package": "SOT-23-5",
+   "unit_price": {
+    "value": 0.0312,
+    "unit": "USD",
+    "label": "sourced",
+    "source_or_assumption": "LCSC price, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C7473157.html"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "xc6206p332mr_3_3_v_ldo_regulator",
+   "name": "XC6206P332MR 3.3 V LDO regulator",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "IC package (epoxy mould)",
+   "finish": null,
+   "colour_hex": "#1B1C1E",
+   "measured_bbox_mm": [
+    2.9,
+    1.1,
+    1.3
+   ],
+   "centroid_mm": [
+    5.4,
+    36.3,
+    -10.5
+   ],
+   "label": "estimate",
+   "bom_item_id": "e6",
+   "lcsc_pn": "C6430947",
+   "package": "SOT-23",
+   "unit_price": {
+    "value": 0.0165,
+    "unit": "USD",
+    "label": "sourced",
+    "source_or_assumption": "LCSC price, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C6430947.html"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "passives_cluster",
+   "name": "Passives cluster",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "Ceramic passives",
+   "finish": null,
+   "colour_hex": "#9C8B6E",
+   "measured_bbox_mm": [
+    8.5,
+    0.35,
+    1.6
+   ],
+   "centroid_mm": [
+    11.9,
+    35.92,
+    -10.35
+   ],
+   "label": "estimate",
+   "bom_item_id": "e8",
+   "lcsc_pn": null,
+   "package": "0402",
+   "unit_price": {
+    "value": 0.736,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: passives group \u2248 USD 0.8 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "max30102_optical_heart_rate_sensor",
+   "name": "MAX30102 Optical heart-rate sensor",
+   "role": "component",
+   "layer_id": "sensors",
+   "material": "IC package (epoxy mould)",
+   "finish": null,
+   "colour_hex": "#1B1C1E",
+   "measured_bbox_mm": [
+    5.6,
+    1.55,
+    3.3
+   ],
+   "centroid_mm": [
+    -14.65,
+    33.98,
+    -9.5
+   ],
+   "label": "estimate",
+   "bom_item_id": "e2",
+   "lcsc_pn": "C6454833",
+   "package": "OESIP-14",
+   "unit_price": {
+    "value": 12.182,
+    "unit": "USD",
+    "label": "sourced",
+    "source_or_assumption": "LCSC price, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C6454833.html"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "li_po_battery_150_mah",
+   "name": "Li-po battery 150 mAh",
+   "role": "battery",
+   "layer_id": "battery",
+   "material": "Li-po pouch (aluminium laminate)",
+   "finish": null,
+   "colour_hex": "#C3C7CC",
+   "measured_bbox_mm": [
+    33.62,
+    1.86,
+    22.14
+   ],
+   "centroid_mm": [
+    0.0,
+    38.08,
+    0.0
+   ],
+   "label": "estimate",
+   "bom_item_id": "e4",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 1.104,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Battery priced by energy: 150 mAh \u00d7 3.7 V = 0.6 Wh (stated capacity) \u00d7 $0.35/Wh + pack overhead"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  }
+ ]
+}

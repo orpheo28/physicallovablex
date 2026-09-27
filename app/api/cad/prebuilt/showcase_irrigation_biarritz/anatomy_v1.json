@@ -1,0 +1,1811 @@
+{
+ "_v": "a4",
+ "version": 1,
+ "glb_url": "/files/demo_irrigation_biarritz/anatomy_v1.glb",
+ "label": "Illustrative internal layout \u2014 not a routed PCB",
+ "kind": "electronics",
+ "bbox_mm": [
+  553.98,
+  221.5,
+  74.42
+ ],
+ "layers": [
+  {
+   "id": "shell_top",
+   "name": "Top shell",
+   "order": 0,
+   "parts": [
+    "housing",
+    "glass_window",
+    "buttons",
+    "status_light",
+    "top_shell",
+    "top_shell_2",
+    "pv_cells",
+    "rubber_parts",
+    "dark_part",
+    "metal_parts",
+    "dark_part_2",
+    "dark_part_3",
+    "rubber_part",
+    "rubber_part_2",
+    "steel_parts",
+    "body",
+    "pv_cells_2",
+    "status_light_2"
+   ],
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 549.8,
+   "caption": "ASA shell, product 544.0 \u00d7 74.0 \u00d7 221.5 mm (Measured), 2.0 mm wall (Estimate)"
+  },
+  {
+   "id": "pcb",
+   "name": "Main board",
+   "order": 1,
+   "parts": [
+    "main_pcb",
+    "capacitive_soil_moisture_probe_module",
+    "microcontroller",
+    "dc_dc_regulator",
+    "flyback_diode",
+    "ao3400a_logic_level_n_channel_mosfet",
+    "passives_cluster",
+    "switch_under_buttons",
+    "solenoid_valve_coil"
+   ],
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 190.3,
+   "caption": "Main board: Microcontroller ($0.83 (Estimate)) \u2014 FR-4 board sized to the cavity (Estimate)"
+  },
+  {
+   "id": "shell_bottom",
+   "name": "Bottom shell",
+   "order": 2,
+   "parts": [
+    "lower_body",
+    "lower_body_2"
+   ],
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 253.7,
+   "caption": "ASA shell, 2.0 mm wall (Estimate)"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "title": "The controller",
+   "kicker": "01 \u00b7 The controller",
+   "caption": "Smart garden irrigation \u2014 544.0 \u00d7 74.0 \u00d7 221.5 mm (Measured), 7 electronic BOM lines laid out inside (illustrative internal layout, not a routed PCB)",
+   "camera": {
+    "position_mm": [
+     763.5,
+     545.1,
+     950.2
+    ],
+    "target_mm": [
+     63.0,
+     110.8,
+     4.5
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [],
+   "focus_parts": []
+  },
+  {
+   "id": "s2",
+   "title": "Top shell lifts",
+   "kicker": "02 \u00b7 Top shell lifts",
+   "caption": "ASA shell, product 544.0 \u00d7 74.0 \u00d7 221.5 mm (Measured), 2.0 mm wall (Estimate)",
+   "camera": {
+    "position_mm": [
+     1172.8,
+     1073.7,
+     1502.7
+    ],
+    "target_mm": [
+     63.0,
+     385.6,
+     4.5
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [
+    "shell_top"
+   ],
+   "focus_parts": [
+    "housing",
+    "glass_window",
+    "buttons"
+   ]
+  },
+  {
+   "id": "s3",
+   "title": "Inside the controller",
+   "kicker": "03 \u00b7 Inside the controller",
+   "caption": "Main board: Microcontroller ($0.83 (Estimate)) \u2014 FR-4 board sized to the cavity (Estimate)",
+   "camera": {
+    "position_mm": [
+     987.8,
+     959.0,
+     1253.0
+    ],
+    "target_mm": [
+     63.0,
+     385.6,
+     4.5
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [
+    "shell_top"
+   ],
+   "focus_parts": [
+    "main_pcb",
+    "capacitive_soil_moisture_probe_module",
+    "microcontroller",
+    "dc_dc_regulator"
+   ]
+  },
+  {
+   "id": "s4",
+   "title": "Key components",
+   "kicker": "04 \u00b7 Key components",
+   "caption": "Key components: AO3400A Logic-level N-channel MOSFET ($6.90 (Estimate)) + 1-inch solenoid irrigation valve ($6.90 (Estimate)) + Capacitive soil-moisture probe module ($2.30 (Estimate))",
+   "camera": {
+    "position_mm": [
+     359.0,
+     237.9,
+     477.9
+    ],
+    "target_mm": [
+     1.0,
+     16.0,
+     -5.4
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [
+    "shell_top"
+   ],
+   "focus_parts": [
+    "ao3400a_logic_level_n_channel_mosfet",
+    "solenoid_valve_coil",
+    "capacitive_soil_moisture_probe_module"
+   ]
+  },
+  {
+   "id": "s5",
+   "title": "Back together",
+   "kicker": "05 \u00b7 Back together",
+   "caption": "Unit cost $33.81 at 2,000 units (Estimate), product mass 367.0 g (Estimate)",
+   "camera": {
+    "position_mm": [
+     -662.1,
+     509.6,
+     947.2
+    ],
+    "target_mm": [
+     63.0,
+     110.8,
+     4.5
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [],
+   "focus_parts": []
+  }
+ ],
+ "parts": [
+  {
+   "part_id": "housing",
+   "name": "Housing",
+   "role": "shell_top",
+   "layer_id": "shell_top",
+   "material": "PC/ABS (UL94 V-0)",
+   "finish": "Matte texture",
+   "colour_hex": "#EDEBE6",
+   "measured_bbox_mm": [
+    150.0,
+    190.0,
+    60.0
+   ],
+   "centroid_mm": [
+    0.0,
+    95.0,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "m4",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 0.0276,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: screw \u2248 USD 0.03 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "housing_depth",
+     "label": "Housing depth",
+     "min": 35.0,
+     "max": 120.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 60.0
+    },
+    {
+     "param": "housing_height",
+     "label": "Housing height",
+     "min": 95.0,
+     "max": 360.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 190.0
+    },
+    {
+     "param": "housing_width",
+     "label": "Housing width",
+     "min": 80.0,
+     "max": 300.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 150.0
+    },
+    {
+     "param": "corner_radius",
+     "label": "Corner radius",
+     "min": 7.0,
+     "max": 28.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 14.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ]
+  },
+  {
+   "part_id": "glass_window",
+   "name": "Glass window",
+   "role": "window",
+   "layer_id": "shell_top",
+   "material": "dark glass / display",
+   "finish": null,
+   "colour_hex": "#191D22",
+   "measured_bbox_mm": [
+    93.0,
+    45.6,
+    3.0
+   ],
+   "centroid_mm": [
+    0.0,
+    129.2,
+    31.0
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [
+    {
+     "param": "housing_depth",
+     "label": "Housing depth",
+     "min": 35.0,
+     "max": 120.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 60.0
+    },
+    {
+     "param": "housing_height",
+     "label": "Housing height",
+     "min": 95.0,
+     "max": 360.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 190.0
+    },
+    {
+     "param": "housing_width",
+     "label": "Housing width",
+     "min": 80.0,
+     "max": 300.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 150.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "glass",
+    "clear_pc"
+   ]
+  },
+  {
+   "part_id": "buttons",
+   "name": "Buttons",
+   "role": "button",
+   "layer_id": "shell_top",
+   "material": "PC/ABS (UL94 V-0)",
+   "finish": "Matte texture",
+   "colour_hex": "#E2E0DC",
+   "measured_bbox_mm": [
+    77.99,
+    17.99,
+    5.0
+   ],
+   "centroid_mm": [
+    0.01,
+    79.8,
+    33.0
+   ],
+   "label": "measured",
+   "bom_item_id": "e5",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 6.9,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: 1-inch solenoid valve \u2248 USD 7.5 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "housing_depth",
+     "label": "Housing depth",
+     "min": 35.0,
+     "max": 120.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 60.0
+    },
+    {
+     "param": "housing_height",
+     "label": "Housing height",
+     "min": 95.0,
+     "max": 360.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 190.0
+    },
+    {
+     "param": "housing_width",
+     "label": "Housing width",
+     "min": 80.0,
+     "max": 300.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 150.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "status_light",
+   "name": "Status light 1",
+   "role": "diffuser",
+   "layer_id": "shell_top",
+   "material": "status light pipe",
+   "finish": null,
+   "colour_hex": "#7CDAF3",
+   "measured_bbox_mm": [
+    6.0,
+    6.0,
+    3.0
+   ],
+   "centroid_mm": [
+    54.0,
+    167.2,
+    32.0
+   ],
+   "label": "measured",
+   "bom_item_id": "e2",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 0.828,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: microcontroller \u2248 USD 0.9 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "housing_depth",
+     "label": "Housing depth",
+     "min": 35.0,
+     "max": 120.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 60.0
+    },
+    {
+     "param": "housing_height",
+     "label": "Housing height",
+     "min": 95.0,
+     "max": 360.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 190.0
+    },
+    {
+     "param": "housing_width",
+     "label": "Housing width",
+     "min": 80.0,
+     "max": 300.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 150.0
+    }
+   ],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "top_shell",
+   "name": "Top shell 1",
+   "role": "shell_top",
+   "layer_id": "shell_top",
+   "material": "PC/ABS (UL94 V-0)",
+   "finish": "Matte texture",
+   "colour_hex": "#C0BEBA",
+   "measured_bbox_mm": [
+    166.0,
+    16.96,
+    74.42
+   ],
+   "centroid_mm": [
+    0.0,
+    202.97,
+    4.49
+   ],
+   "label": "measured",
+   "bom_item_id": "m1",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 1.1447,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Top shell: Moulded shell 150\u00d760\u00d795 mm, wall 2 mm \u2248 69.5 cm\u00b3 \u00d7 1.05 g/cm\u00b3 = 73 g \u00d7 $2.2/kg + $1.08 moulding/finish conversion"
+   },
+   "editable": [
+    {
+     "param": "housing_height",
+     "label": "Housing height",
+     "min": 95.0,
+     "max": 360.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 190.0
+    },
+    {
+     "param": "roof_depth",
+     "label": "Roof depth",
+     "min": 37.0,
+     "max": 148.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 74.0
+    },
+    {
+     "param": "roof_thickness",
+     "label": "Roof thickness",
+     "min": 4.0,
+     "max": 16.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 8.0
+    },
+    {
+     "param": "roof_width",
+     "label": "Roof width",
+     "min": 83.0,
+     "max": 332.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 166.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ]
+  },
+  {
+   "part_id": "top_shell_2",
+   "name": "Top shell 2",
+   "role": "shell_top",
+   "layer_id": "shell_top",
+   "material": "powder coat",
+   "finish": null,
+   "colour_hex": "#2E3033",
+   "measured_bbox_mm": [
+    149.0,
+    9.42,
+    60.79
+   ],
+   "centroid_mm": [
+    0.0,
+    207.93,
+    5.1
+   ],
+   "label": "measured",
+   "bom_item_id": "m1",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 1.1447,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Top shell: Moulded shell 150\u00d760\u00d795 mm, wall 2 mm \u2248 69.5 cm\u00b3 \u00d7 1.05 g/cm\u00b3 = 73 g \u00d7 $2.2/kg + $1.08 moulding/finish conversion"
+   },
+   "editable": [
+    {
+     "param": "housing_height",
+     "label": "Housing height",
+     "min": 95.0,
+     "max": 360.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 190.0
+    },
+    {
+     "param": "roof_thickness",
+     "label": "Roof thickness",
+     "min": 4.0,
+     "max": 16.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 8.0
+    },
+    {
+     "param": "roof_tilt",
+     "label": "Roof tilt",
+     "min": 3.5,
+     "max": 14.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 7.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ]
+  },
+  {
+   "part_id": "pv_cells",
+   "name": "PV cells",
+   "role": "other",
+   "layer_id": "shell_top",
+   "material": "monocrystalline PV cells under glass",
+   "finish": null,
+   "colour_hex": "#1D273F",
+   "measured_bbox_mm": [
+    141.0,
+    7.37,
+    53.69
+   ],
+   "centroid_mm": [
+    0.0,
+    209.32,
+    5.27
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [
+    {
+     "param": "housing_height",
+     "label": "Housing height",
+     "min": 95.0,
+     "max": 360.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 190.0
+    },
+    {
+     "param": "roof_thickness",
+     "label": "Roof thickness",
+     "min": 4.0,
+     "max": 16.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 8.0
+    },
+    {
+     "param": "roof_tilt",
+     "label": "Roof tilt",
+     "min": 3.5,
+     "max": 14.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 7.0
+    }
+   ],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "rubber_parts",
+   "name": "Rubber parts",
+   "role": "other",
+   "layer_id": "shell_top",
+   "material": "TPE rubber",
+   "finish": null,
+   "colour_hex": "#303032",
+   "measured_bbox_mm": [
+    14.0,
+    13.99,
+    38.0
+   ],
+   "centroid_mm": [
+    82.0,
+    26.6,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [
+    {
+     "param": "housing_depth",
+     "label": "Housing depth",
+     "min": 35.0,
+     "max": 120.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 60.0
+    },
+    {
+     "param": "housing_height",
+     "label": "Housing height",
+     "min": 95.0,
+     "max": 360.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 190.0
+    },
+    {
+     "param": "housing_width",
+     "label": "Housing width",
+     "min": 80.0,
+     "max": 300.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 150.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "dark_part",
+   "name": "Dark part 1",
+   "role": "other",
+   "layer_id": "shell_top",
+   "material": "powder coat",
+   "finish": null,
+   "colour_hex": "#2E3033",
+   "measured_bbox_mm": [
+    170.0,
+    35.05,
+    35.06
+   ],
+   "centroid_mm": [
+    255.0,
+    22.17,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [
+    {
+     "param": "housing_width",
+     "label": "Housing width",
+     "min": 80.0,
+     "max": 300.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 150.0
+    },
+    {
+     "param": "pipe_diameter",
+     "label": "Pipe diameter",
+     "min": 17.0,
+     "max": 64.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 33.4
+    },
+    {
+     "param": "valve_length",
+     "label": "Valve length",
+     "min": 90.0,
+     "max": 300.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 170.0
+    },
+    {
+     "param": "spacing",
+     "label": "Spacing",
+     "min": 48.0,
+     "max": 190.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 95.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ]
+  },
+  {
+   "part_id": "metal_parts",
+   "name": "Metal parts",
+   "role": "frame",
+   "layer_id": "shell_top",
+   "material": "anodised aluminium",
+   "finish": null,
+   "colour_hex": "#E7E8EB",
+   "measured_bbox_mm": [
+    170.0,
+    44.35,
+    38.41
+   ],
+   "centroid_mm": [
+    255.0,
+    22.18,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [
+    {
+     "param": "housing_width",
+     "label": "Housing width",
+     "min": 80.0,
+     "max": 300.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 150.0
+    },
+    {
+     "param": "pipe_diameter",
+     "label": "Pipe diameter",
+     "min": 17.0,
+     "max": 64.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 33.4
+    },
+    {
+     "param": "valve_length",
+     "label": "Valve length",
+     "min": 90.0,
+     "max": 300.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 170.0
+    },
+    {
+     "param": "spacing",
+     "label": "Spacing",
+     "min": 48.0,
+     "max": 190.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 95.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ]
+  },
+  {
+   "part_id": "dark_part_2",
+   "name": "Dark part 2",
+   "role": "other",
+   "layer_id": "shell_top",
+   "material": "powder coat",
+   "finish": null,
+   "colour_hex": "#2E3033",
+   "measured_bbox_mm": [
+    71.4,
+    40.08,
+    43.42
+   ],
+   "centroid_mm": [
+    255.0,
+    22.18,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [
+    {
+     "param": "housing_width",
+     "label": "Housing width",
+     "min": 80.0,
+     "max": 300.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 150.0
+    },
+    {
+     "param": "pipe_diameter",
+     "label": "Pipe diameter",
+     "min": 17.0,
+     "max": 64.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 33.4
+    },
+    {
+     "param": "valve_length",
+     "label": "Valve length",
+     "min": 90.0,
+     "max": 300.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 170.0
+    },
+    {
+     "param": "spacing",
+     "label": "Spacing",
+     "min": 48.0,
+     "max": 190.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 95.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ]
+  },
+  {
+   "part_id": "dark_part_3",
+   "name": "Dark part 3",
+   "role": "other",
+   "layer_id": "shell_top",
+   "material": "powder coat",
+   "finish": null,
+   "colour_hex": "#2E3033",
+   "measured_bbox_mm": [
+    38.39,
+    20.04,
+    38.4
+   ],
+   "centroid_mm": [
+    255.01,
+    52.24,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [
+    {
+     "param": "housing_width",
+     "label": "Housing width",
+     "min": 80.0,
+     "max": 300.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 150.0
+    },
+    {
+     "param": "pipe_diameter",
+     "label": "Pipe diameter",
+     "min": 17.0,
+     "max": 64.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 33.4
+    },
+    {
+     "param": "valve_length",
+     "label": "Valve length",
+     "min": 90.0,
+     "max": 300.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 170.0
+    },
+    {
+     "param": "spacing",
+     "label": "Spacing",
+     "min": 48.0,
+     "max": 190.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 95.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ]
+  },
+  {
+   "part_id": "rubber_part",
+   "name": "Rubber part 1",
+   "role": "other",
+   "layer_id": "shell_top",
+   "material": "TPE rubber",
+   "finish": null,
+   "colour_hex": "#303032",
+   "measured_bbox_mm": [
+    30.04,
+    33.4,
+    30.05
+   ],
+   "centroid_mm": [
+    255.01,
+    78.96,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [
+    {
+     "param": "housing_width",
+     "label": "Housing width",
+     "min": 80.0,
+     "max": 300.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 150.0
+    },
+    {
+     "param": "pipe_diameter",
+     "label": "Pipe diameter",
+     "min": 17.0,
+     "max": 64.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 33.4
+    },
+    {
+     "param": "valve_length",
+     "label": "Valve length",
+     "min": 90.0,
+     "max": 300.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 170.0
+    },
+    {
+     "param": "spacing",
+     "label": "Spacing",
+     "min": 48.0,
+     "max": 190.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 95.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "rubber_part_2",
+   "name": "Rubber part 2",
+   "role": "other",
+   "layer_id": "shell_top",
+   "material": "TPE rubber",
+   "finish": null,
+   "colour_hex": "#303032",
+   "measured_bbox_mm": [
+    30.0,
+    8.0,
+    8.0
+   ],
+   "centroid_mm": [
+    270.03,
+    78.95,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [
+    {
+     "param": "housing_width",
+     "label": "Housing width",
+     "min": 80.0,
+     "max": 300.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 150.0
+    },
+    {
+     "param": "pipe_diameter",
+     "label": "Pipe diameter",
+     "min": 17.0,
+     "max": 64.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 33.4
+    },
+    {
+     "param": "valve_length",
+     "label": "Valve length",
+     "min": 90.0,
+     "max": 300.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 170.0
+    },
+    {
+     "param": "spacing",
+     "label": "Spacing",
+     "min": 48.0,
+     "max": 190.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 95.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "lower_body",
+   "name": "Lower body 1",
+   "role": "shell_bottom",
+   "layer_id": "shell_bottom",
+   "material": "PC/ABS (UL94 V-0)",
+   "finish": "Matte texture",
+   "colour_hex": "#C0BEBA",
+   "measured_bbox_mm": [
+    19.8,
+    132.6,
+    9.0
+   ],
+   "centroid_mm": [
+    -192.0,
+    105.3,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "m2",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 1.1447,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Bottom shell: Moulded shell 150\u00d760\u00d795 mm, wall 2 mm \u2248 69.5 cm\u00b3 \u00d7 1.05 g/cm\u00b3 = 73 g \u00d7 $2.2/kg + $1.08 moulding/finish conversion"
+   },
+   "editable": [
+    {
+     "param": "housing_width",
+     "label": "Housing width",
+     "min": 80.0,
+     "max": 300.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 150.0
+    },
+    {
+     "param": "probe_diameter",
+     "label": "Probe diameter",
+     "min": 25.0,
+     "max": 80.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 44.0
+    },
+    {
+     "param": "probe_length",
+     "label": "Probe length",
+     "min": 110.0,
+     "max": 440.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 220.0
+    },
+    {
+     "param": "spacing",
+     "label": "Spacing",
+     "min": 48.0,
+     "max": 190.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 95.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ]
+  },
+  {
+   "part_id": "lower_body_2",
+   "name": "Lower body 2",
+   "role": "shell_bottom",
+   "layer_id": "shell_bottom",
+   "material": "PC/ABS (UL94 V-0)",
+   "finish": "Matte texture",
+   "colour_hex": "#C0BEBA",
+   "measured_bbox_mm": [
+    22.87,
+    40.0,
+    22.87
+   ],
+   "centroid_mm": [
+    -191.99,
+    20.0,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "m2",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 1.1447,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Bottom shell: Moulded shell 150\u00d760\u00d795 mm, wall 2 mm \u2248 69.5 cm\u00b3 \u00d7 1.05 g/cm\u00b3 = 73 g \u00d7 $2.2/kg + $1.08 moulding/finish conversion"
+   },
+   "editable": [
+    {
+     "param": "housing_width",
+     "label": "Housing width",
+     "min": 80.0,
+     "max": 300.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 150.0
+    },
+    {
+     "param": "probe_diameter",
+     "label": "Probe diameter",
+     "min": 25.0,
+     "max": 80.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 44.0
+    },
+    {
+     "param": "spacing",
+     "label": "Spacing",
+     "min": 48.0,
+     "max": 190.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 95.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ]
+  },
+  {
+   "part_id": "steel_parts",
+   "name": "Steel parts",
+   "role": "frame",
+   "layer_id": "shell_top",
+   "material": "stainless steel 304",
+   "finish": null,
+   "colour_hex": "#EFEFF0",
+   "measured_bbox_mm": [
+    13.56,
+    77.22,
+    1.5
+   ],
+   "centroid_mm": [
+    -192.0,
+    51.48,
+    5.2
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [
+    {
+     "param": "housing_width",
+     "label": "Housing width",
+     "min": 80.0,
+     "max": 300.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 150.0
+    },
+    {
+     "param": "probe_diameter",
+     "label": "Probe diameter",
+     "min": 25.0,
+     "max": 80.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 44.0
+    },
+    {
+     "param": "probe_length",
+     "label": "Probe length",
+     "min": 110.0,
+     "max": 440.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 220.0
+    },
+    {
+     "param": "spacing",
+     "label": "Spacing",
+     "min": 48.0,
+     "max": 190.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 95.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ]
+  },
+  {
+   "part_id": "body",
+   "name": "Body",
+   "role": "other",
+   "layer_id": "shell_top",
+   "material": "PC/ABS (UL94 V-0)",
+   "finish": "Matte texture",
+   "colour_hex": "#EDEBE6",
+   "measured_bbox_mm": [
+    43.97,
+    48.4,
+    43.99
+   ],
+   "centroid_mm": [
+    -191.99,
+    195.8,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [
+    {
+     "param": "housing_width",
+     "label": "Housing width",
+     "min": 80.0,
+     "max": 300.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 150.0
+    },
+    {
+     "param": "probe_diameter",
+     "label": "Probe diameter",
+     "min": 25.0,
+     "max": 80.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 44.0
+    },
+    {
+     "param": "probe_length",
+     "label": "Probe length",
+     "min": 110.0,
+     "max": 440.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 220.0
+    },
+    {
+     "param": "spacing",
+     "label": "Spacing",
+     "min": 48.0,
+     "max": 190.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 95.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ]
+  },
+  {
+   "part_id": "pv_cells_2",
+   "name": "PV cells 1",
+   "role": "other",
+   "layer_id": "shell_top",
+   "material": "monocrystalline PV cells under glass",
+   "finish": null,
+   "colour_hex": "#1D273F",
+   "measured_bbox_mm": [
+    31.66,
+    1.5,
+    31.67
+   ],
+   "centroid_mm": [
+    -191.99,
+    220.75,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [
+    {
+     "param": "housing_width",
+     "label": "Housing width",
+     "min": 80.0,
+     "max": 300.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 150.0
+    },
+    {
+     "param": "probe_diameter",
+     "label": "Probe diameter",
+     "min": 25.0,
+     "max": 80.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 44.0
+    },
+    {
+     "param": "probe_length",
+     "label": "Probe length",
+     "min": 110.0,
+     "max": 440.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 220.0
+    },
+    {
+     "param": "spacing",
+     "label": "Spacing",
+     "min": 48.0,
+     "max": 190.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 95.0
+    }
+   ],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "status_light_2",
+   "name": "Status light 2",
+   "role": "diffuser",
+   "layer_id": "shell_top",
+   "material": "status light pipe",
+   "finish": null,
+   "colour_hex": "#7CDAF3",
+   "measured_bbox_mm": [
+    5.0,
+    5.0,
+    3.0
+   ],
+   "centroid_mm": [
+    -192.0,
+    198.22,
+    22.0
+   ],
+   "label": "measured",
+   "bom_item_id": "e8",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 4.2228,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Battery priced by energy: 2000 mAh \u00d7 3.7 V = 7.4 Wh (generic pack) \u00d7 $0.35/Wh + pack overhead"
+   },
+   "editable": [
+    {
+     "param": "housing_width",
+     "label": "Housing width",
+     "min": 80.0,
+     "max": 300.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 150.0
+    },
+    {
+     "param": "probe_diameter",
+     "label": "Probe diameter",
+     "min": 25.0,
+     "max": 80.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 44.0
+    },
+    {
+     "param": "probe_length",
+     "label": "Probe length",
+     "min": 110.0,
+     "max": 440.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 220.0
+    },
+    {
+     "param": "spacing",
+     "label": "Spacing",
+     "min": 48.0,
+     "max": 190.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 95.0
+    }
+   ],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "main_pcb",
+   "name": "Main PCB",
+   "role": "pcb",
+   "layer_id": "pcb",
+   "material": "FR-4, green solder mask",
+   "finish": null,
+   "colour_hex": "#1E5B3A",
+   "measured_bbox_mm": [
+    145.8,
+    1.6,
+    63.38
+   ],
+   "centroid_mm": [
+    0.0,
+    3.2,
+    4.49
+   ],
+   "label": "estimate",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "capacitive_soil_moisture_probe_module",
+   "name": "Capacitive soil-moisture probe module",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "Optical sensor module",
+   "finish": null,
+   "colour_hex": "#2A2C30",
+   "measured_bbox_mm": [
+    20.0,
+    3.0,
+    8.0
+   ],
+   "centroid_mm": [
+    -61.9,
+    5.5,
+    -22.2
+   ],
+   "label": "estimate",
+   "bom_item_id": "e3",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 2.3,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: capacitive soil-moisture probe \u2248 USD 2.5 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "microcontroller",
+   "name": "Microcontroller",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "IC package (epoxy mould)",
+   "finish": null,
+   "colour_hex": "#1B1C1E",
+   "measured_bbox_mm": [
+    7.0,
+    1.2,
+    7.0
+   ],
+   "centroid_mm": [
+    -47.6,
+    4.6,
+    -22.7
+   ],
+   "label": "estimate",
+   "bom_item_id": "e2",
+   "lcsc_pn": null,
+   "package": "TQFP-32",
+   "unit_price": {
+    "value": 0.828,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: microcontroller \u2248 USD 0.9 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "dc_dc_regulator",
+   "name": "DC-DC regulator",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "IC package (epoxy mould)",
+   "finish": null,
+   "colour_hex": "#1B1C1E",
+   "measured_bbox_mm": [
+    4.9,
+    1.5,
+    3.9
+   ],
+   "centroid_mm": [
+    -40.85,
+    4.75,
+    -24.25
+   ],
+   "label": "estimate",
+   "bom_item_id": "e4",
+   "lcsc_pn": "C6653519",
+   "package": "SOP-8-EP",
+   "unit_price": {
+    "value": 0.48,
+    "unit": "USD",
+    "label": "sourced",
+    "source_or_assumption": "LCSC price, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C6653519.html"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "flyback_diode",
+   "name": "Flyback diode",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "IC package (epoxy mould)",
+   "finish": null,
+   "colour_hex": "#1B1C1E",
+   "measured_bbox_mm": [
+    4.3,
+    2.3,
+    2.6
+   ],
+   "centroid_mm": [
+    -35.45,
+    5.15,
+    -24.9
+   ],
+   "label": "estimate",
+   "bom_item_id": "e6",
+   "lcsc_pn": "C7420316",
+   "package": "SMA_DO-214AC",
+   "unit_price": {
+    "value": 0.0136,
+    "unit": "USD",
+    "label": "sourced",
+    "source_or_assumption": "LCSC price, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C7420316.html"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "ao3400a_logic_level_n_channel_mosfet",
+   "name": "AO3400A Logic-level N-channel MOSFET",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "IC package (epoxy mould)",
+   "finish": null,
+   "colour_hex": "#1B1C1E",
+   "measured_bbox_mm": [
+    2.9,
+    1.1,
+    1.3
+   ],
+   "centroid_mm": [
+    -31.05,
+    4.55,
+    -25.55
+   ],
+   "label": "estimate",
+   "bom_item_id": "e5",
+   "lcsc_pn": null,
+   "package": "SOT-23",
+   "unit_price": {
+    "value": 6.9,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: 1-inch solenoid valve \u2248 USD 7.5 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "passives_cluster",
+   "name": "Passives cluster",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "Ceramic passives",
+   "finish": null,
+   "colour_hex": "#9C8B6E",
+   "measured_bbox_mm": [
+    8.5,
+    0.35,
+    1.6
+   ],
+   "centroid_mm": [
+    -24.55,
+    4.17,
+    -25.4
+   ],
+   "label": "estimate",
+   "bom_item_id": "e7",
+   "lcsc_pn": null,
+   "package": "0402",
+   "unit_price": {
+    "value": 0.276,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: printed guide \u2248 USD 0.3 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "switch_under_buttons",
+   "name": "Switch under buttons",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "Switch (steel + POM)",
+   "finish": null,
+   "colour_hex": "#8D9095",
+   "measured_bbox_mm": [
+    4.0,
+    2.5,
+    4.0
+   ],
+   "centroid_mm": [
+    0.01,
+    69.5,
+    33.0
+   ],
+   "label": "estimate",
+   "bom_item_id": "e7",
+   "lcsc_pn": null,
+   "package": "0402",
+   "unit_price": {
+    "value": 0.276,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: printed guide \u2248 USD 0.3 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "solenoid_valve_coil",
+   "name": "Solenoid valve coil",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "Solenoid coil (copper, varnished)",
+   "finish": null,
+   "colour_hex": "#B06A2C",
+   "measured_bbox_mm": [
+    22.0,
+    24.0,
+    22.0
+   ],
+   "centroid_mm": [
+    63.0,
+    16.0,
+    4.49
+   ],
+   "label": "estimate",
+   "bom_item_id": "m3",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 6.9,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: 1-inch solenoid valve \u2248 USD 7.5 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  }
+ ]
+}

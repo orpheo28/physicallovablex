@@ -306,6 +306,7 @@ def attach_photo(pid: str, n: int, photo: ProductPhoto) -> None:
         v.preview.photos = merge_photos(list(v.preview.photos), photo)
         if photo.shot == "hero_studio":
             v.preview.render_url = photo.url
+            v.preview.photo_stale = False  # W29b
             design = store.load_snapshot(pid, n).get(2)
             if (d := _chosen(design)) is not None:
                 d.render_url = photo.url

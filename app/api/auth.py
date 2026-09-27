@@ -36,7 +36,8 @@ from starlette.types import ASGIApp, Receive, Scope, Send
 
 LIVE_RUN = re.compile(r"^/projects(?:/[^/]+/(?:stages/\d+/run|autorun))?/?$")
 PHOTO_RUN = re.compile(r"^/projects/[^/]+/(?:versions/\d+/photo|photos/kit)/?$")  # W27 image jobs (W21d: guarded here)
-STUDIO_RUN = re.compile(r"^/projects/(?P<pid>[^/]+)/(?P<what>studio/start|refine|versions/\d+/restore|engineering/recompute)/?$")
+STUDIO_RUN = re.compile(r"^/projects/(?P<pid>[^/]+)/(?P<what>studio/start|refine|versions/\d+/restore|engineering/recompute|"
+                        r"parts/[^/]+/edit)/?$")  # W29: structured part edits share the Studio guards + bucket
 READONLY_BLOCKED = re.compile(r"^/projects(?:/[^/]+/(?:stages/\d+(?:/run)?|autorun))?/?$|^/factories/?$")
 MCP_PATHS = ("/mcp", "/mcp/")  # exempt from X-App-Key / read-only / rate limits: token-gated by the endpoint itself
 WINDOW_S = 24 * 3600

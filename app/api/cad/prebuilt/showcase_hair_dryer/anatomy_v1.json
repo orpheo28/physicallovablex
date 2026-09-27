@@ -1,0 +1,1223 @@
+{
+ "_v": "a4",
+ "version": 1,
+ "glb_url": "/files/demo_hair_dryer/anatomy_v1.glb",
+ "label": "Illustrative internal layout \u2014 not a routed PCB",
+ "kind": "electronics",
+ "bbox_mm": [
+  201.8,
+  174.96,
+  63.98
+ ],
+ "layers": [
+  {
+   "id": "shell_top",
+   "name": "Top shell",
+   "order": 0,
+   "parts": [
+    "body",
+    "window",
+    "window_2",
+    "window_3"
+   ],
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 161.1,
+   "caption": "PC shell, product 209.6 \u00d7 68.0 \u00d7 178.6 mm (Measured), 2.2 mm wall (Estimate)"
+  },
+  {
+   "id": "pcb",
+   "name": "Main board",
+   "order": 1,
+   "parts": [
+    "main_pcb",
+    "power",
+    "triac_heater_power_switch",
+    "motor_1",
+    "motor_2",
+    "ac_universal_motor",
+    "nichrome_heating_element_assembly",
+    "thermal_safety_cutouts_1",
+    "thermal_safety_cutouts_2",
+    "mains_power_cord",
+    "passives_cluster",
+    "switch_under_button_1",
+    "switch_under_button_2",
+    "switch_under_button_3"
+   ],
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 55.8,
+   "caption": "Main board: controller \u2014 FR-4 board sized to the cavity (Estimate)"
+  },
+  {
+   "id": "shell_bottom",
+   "name": "Bottom shell",
+   "order": 2,
+   "parts": [
+    "lower_body",
+    "handle",
+    "handle_2",
+    "rubber_part",
+    "button",
+    "button_2",
+    "button_3",
+    "status_light"
+   ],
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 74.4,
+   "caption": "PC shell, 2.2 mm wall (Estimate)"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "title": "The dryer",
+   "kicker": "01 \u00b7 The dryer",
+   "caption": "Quiet compact hair dryer \u2014 209.6 \u00d7 68.0 \u00d7 178.6 mm (Measured), 8 electronic BOM lines laid out inside (illustrative internal layout, not a routed PCB)",
+   "camera": {
+    "position_mm": [
+     331.1,
+     285.9,
+     432.0
+    ],
+    "target_mm": [
+     11.1,
+     87.5,
+     0.0
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [],
+   "focus_parts": []
+  },
+  {
+   "id": "s2",
+   "title": "Top shell lifts",
+   "kicker": "02 \u00b7 Top shell lifts",
+   "caption": "PC shell, product 209.6 \u00d7 68.0 \u00d7 178.6 mm (Measured), 2.2 mm wall (Estimate)",
+   "camera": {
+    "position_mm": [
+     473.8,
+     454.9,
+     624.7
+    ],
+    "target_mm": [
+     11.1,
+     168.0,
+     0.0
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [
+    "shell_top"
+   ],
+   "focus_parts": [
+    "body",
+    "window",
+    "window_2"
+   ]
+  },
+  {
+   "id": "s3",
+   "title": "Inside the housing",
+   "kicker": "03 \u00b7 Inside the housing",
+   "caption": "Main board: controller \u2014 FR-4 board sized to the cavity (Estimate)",
+   "camera": {
+    "position_mm": [
+     396.7,
+     407.1,
+     520.6
+    ],
+    "target_mm": [
+     11.1,
+     168.0,
+     0.0
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [
+    "shell_top"
+   ],
+   "focus_parts": [
+    "main_pcb",
+    "power",
+    "triac_heater_power_switch",
+    "motor_1"
+   ]
+  },
+  {
+   "id": "s4",
+   "title": "Key components",
+   "kicker": "04 \u00b7 Key components",
+   "caption": "Key components: Power ($5.52 (Estimate)) + AC universal motor ($5.52 (Estimate))",
+   "camera": {
+    "position_mm": [
+     412.7,
+     360.0,
+     528.8
+    ],
+    "target_mm": [
+     21.0,
+     117.1,
+     0.0
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [
+    "shell_top"
+   ],
+   "focus_parts": [
+    "main_pcb",
+    "power",
+    "ac_universal_motor"
+   ]
+  },
+  {
+   "id": "s5",
+   "title": "Back together",
+   "kicker": "05 \u00b7 Back together",
+   "caption": "Unit cost $42.93 at 2,000 units (Estimate), product mass 134.0 g (Estimate)",
+   "camera": {
+    "position_mm": [
+     -320.1,
+     269.7,
+     430.6
+    ],
+    "target_mm": [
+     11.1,
+     87.5,
+     0.0
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [],
+   "focus_parts": []
+  }
+ ],
+ "parts": [
+  {
+   "part_id": "body",
+   "name": "Body",
+   "role": "shell_top",
+   "layer_id": "shell_top",
+   "material": "PC/ABS (UL94 V-0)",
+   "finish": "Soft-touch paint",
+   "colour_hex": "#E8E4DC",
+   "measured_bbox_mm": [
+    142.0,
+    61.96,
+    61.98
+   ],
+   "centroid_mm": [
+    1.0,
+    142.98,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "m1",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 0.8314,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Top shell: Moulded shell 150\u00d762\u00d731 mm, wall 2.2 mm \u2248 41.9 cm\u00b3 \u00d7 1.2 g/cm\u00b3 = 50 g \u00d7 $3.0/kg + $0.75 moulding/finish conversion"
+   },
+   "editable": [
+    {
+     "param": "barrel_axis_height",
+     "label": "Barrel axis height",
+     "min": 72.0,
+     "max": 286.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 143.0
+    },
+    {
+     "param": "barrel_diameter",
+     "label": "Barrel diameter",
+     "min": 45.0,
+     "max": 110.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 62.0
+    },
+    {
+     "param": "barrel_length",
+     "label": "Barrel length",
+     "min": 110.0,
+     "max": 280.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 142.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ]
+  },
+  {
+   "part_id": "lower_body",
+   "name": "Lower body",
+   "role": "shell_bottom",
+   "layer_id": "shell_bottom",
+   "material": "PC/ABS (UL94 V-0)",
+   "finish": "Soft-touch paint",
+   "colour_hex": "#BCB8B2",
+   "measured_bbox_mm": [
+    40.0,
+    51.99,
+    51.99
+   ],
+   "centroid_mm": [
+    92.0,
+    143.0,
+    -0.01
+   ],
+   "label": "measured",
+   "bom_item_id": "e1",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 5.52,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: AC/DC fan motor with impeller \u2248 USD 6 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "barrel_axis_height",
+     "label": "Barrel axis height",
+     "min": 72.0,
+     "max": 286.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 143.0
+    },
+    {
+     "param": "barrel_length",
+     "label": "Barrel length",
+     "min": 110.0,
+     "max": 280.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 142.0
+    },
+    {
+     "param": "nozzle_inlet_radius",
+     "label": "Nozzle inlet radius",
+     "min": 13.0,
+     "max": 52.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 26.0
+    },
+    {
+     "param": "nozzle_length",
+     "label": "Nozzle length",
+     "min": 20.0,
+     "max": 80.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 40.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ]
+  },
+  {
+   "part_id": "window",
+   "name": "Window 1",
+   "role": "window",
+   "layer_id": "shell_top",
+   "material": "powder coat",
+   "finish": null,
+   "colour_hex": "#2E3033",
+   "measured_bbox_mm": [
+    3.0,
+    57.96,
+    57.98
+   ],
+   "centroid_mm": [
+    -86.5,
+    142.98,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [
+    {
+     "param": "barrel_axis_height",
+     "label": "Barrel axis height",
+     "min": 72.0,
+     "max": 286.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 143.0
+    },
+    {
+     "param": "filter_depth",
+     "label": "Filter depth",
+     "min": 9.0,
+     "max": 36.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 18.0
+    },
+    {
+     "param": "filter_diameter",
+     "label": "Filter diameter",
+     "min": 40.0,
+     "max": 120.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 64.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "glass",
+    "clear_pc"
+   ]
+  },
+  {
+   "part_id": "window_2",
+   "name": "Window 2",
+   "role": "window",
+   "layer_id": "shell_top",
+   "material": "PC/ABS (UL94 V-0)",
+   "finish": "Soft-touch paint",
+   "colour_hex": "#BCB8B2",
+   "measured_bbox_mm": [
+    16.0,
+    63.96,
+    63.98
+   ],
+   "centroid_mm": [
+    -78.0,
+    142.98,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [
+    {
+     "param": "barrel_axis_height",
+     "label": "Barrel axis height",
+     "min": 72.0,
+     "max": 286.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 143.0
+    },
+    {
+     "param": "filter_depth",
+     "label": "Filter depth",
+     "min": 9.0,
+     "max": 36.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 18.0
+    },
+    {
+     "param": "filter_diameter",
+     "label": "Filter diameter",
+     "min": 40.0,
+     "max": 120.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 64.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "glass",
+    "clear_pc"
+   ]
+  },
+  {
+   "part_id": "window_3",
+   "name": "Window 3",
+   "role": "window",
+   "layer_id": "shell_top",
+   "material": "powder coat",
+   "finish": null,
+   "colour_hex": "#2E3033",
+   "measured_bbox_mm": [
+    2.0,
+    42.2,
+    51.38
+   ],
+   "centroid_mm": [
+    -88.8,
+    143.0,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [
+    {
+     "param": "barrel_axis_height",
+     "label": "Barrel axis height",
+     "min": 72.0,
+     "max": 286.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 143.0
+    },
+    {
+     "param": "filter_depth",
+     "label": "Filter depth",
+     "min": 9.0,
+     "max": 36.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 18.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "glass",
+    "clear_pc"
+   ]
+  },
+  {
+   "part_id": "handle",
+   "name": "Handle 1",
+   "role": "other",
+   "layer_id": "shell_bottom",
+   "material": "PC/ABS (UL94 V-0)",
+   "finish": "Soft-touch paint",
+   "colour_hex": "#E8E4DC",
+   "measured_bbox_mm": [
+    54.56,
+    129.28,
+    34.0
+   ],
+   "centroid_mm": [
+    -20.1,
+    65.62,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [
+    {
+     "param": "handle_depth",
+     "label": "Handle depth",
+     "min": 20.0,
+     "max": 50.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 29.0
+    },
+    {
+     "param": "handle_length",
+     "label": "Handle length",
+     "min": 90.0,
+     "max": 220.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 126.0
+    },
+    {
+     "param": "handle_width",
+     "label": "Handle width",
+     "min": 24.0,
+     "max": 60.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 34.0
+    },
+    {
+     "param": "handle_angle_deg",
+     "label": "Handle angle",
+     "min": 6.0,
+     "max": 24.0,
+     "step": 0.5,
+     "unit": "deg",
+     "value": 12.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ]
+  },
+  {
+   "part_id": "handle_2",
+   "name": "Handle 2",
+   "role": "other",
+   "layer_id": "shell_bottom",
+   "material": "TPE rubber",
+   "finish": null,
+   "colour_hex": "#303032",
+   "measured_bbox_mm": [
+    36.41,
+    39.49,
+    35.0
+   ],
+   "centroid_mm": [
+    -10.53,
+    21.63,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [
+    {
+     "param": "handle_angle_deg",
+     "label": "Handle angle",
+     "min": 6.0,
+     "max": 24.0,
+     "step": 0.5,
+     "unit": "deg",
+     "value": 12.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "rubber_part",
+   "name": "Rubber part",
+   "role": "other",
+   "layer_id": "shell_bottom",
+   "material": "TPE rubber",
+   "finish": null,
+   "colour_hex": "#303032",
+   "measured_bbox_mm": [
+    13.99,
+    9.0,
+    14.0
+   ],
+   "centroid_mm": [
+    -7.0,
+    4.5,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "m1",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 0.8314,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Top shell: Moulded shell 150\u00d762\u00d731 mm, wall 2.2 mm \u2248 41.9 cm\u00b3 \u00d7 1.2 g/cm\u00b3 = 50 g \u00d7 $3.0/kg + $0.75 moulding/finish conversion"
+   },
+   "editable": [],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "button",
+   "name": "Button 1",
+   "role": "button",
+   "layer_id": "shell_bottom",
+   "material": "PC/ABS (UL94 V-0)",
+   "finish": "Soft-touch paint",
+   "colour_hex": "#DDDAD2",
+   "measured_bbox_mm": [
+    5.0,
+    26.0,
+    17.0
+   ],
+   "centroid_mm": [
+    -3.0,
+    76.0,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "e3",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 5.52,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: motor / control PCBA \u2248 USD 6 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "button_2",
+   "name": "Button 2",
+   "role": "button",
+   "layer_id": "shell_bottom",
+   "material": "PC/ABS (UL94 V-0)",
+   "finish": "Soft-touch paint",
+   "colour_hex": "#DDDAD2",
+   "measured_bbox_mm": [
+    5.0,
+    17.0,
+    17.0
+   ],
+   "centroid_mm": [
+    -8.0,
+    104.0,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "e4",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 3.22,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: heating element \u2248 USD 3.5 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "button_3",
+   "name": "Button 3",
+   "role": "button",
+   "layer_id": "shell_bottom",
+   "material": "PC/ABS (UL94 V-0)",
+   "finish": "Soft-touch paint",
+   "colour_hex": "#DDDAD2",
+   "measured_bbox_mm": [
+    5.0,
+    8.0,
+    12.0
+   ],
+   "centroid_mm": [
+    -1.0,
+    56.0,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "e5",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 3.22,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: heating element \u2248 USD 3.5 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "status_light",
+   "name": "Status light",
+   "role": "diffuser",
+   "layer_id": "shell_bottom",
+   "material": "status light pipe",
+   "finish": null,
+   "colour_hex": "#7CDAF3",
+   "measured_bbox_mm": [
+    3.6,
+    3.6,
+    3.59
+   ],
+   "centroid_mm": [
+    -1.5,
+    55.0,
+    -11.0
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "main_pcb",
+   "name": "Main PCB",
+   "role": "pcb",
+   "layer_id": "pcb",
+   "material": "FR-4, green solder mask",
+   "finish": null,
+   "colour_hex": "#1E5B3A",
+   "measured_bbox_mm": [
+    159.84,
+    1.6,
+    51.82
+   ],
+   "centroid_mm": [
+    21.0,
+    115.4,
+    0.0
+   ],
+   "label": "estimate",
+   "bom_item_id": "e3",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 5.52,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: motor / control PCBA \u2248 USD 6 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "power",
+   "name": "Power",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "Switch (steel + POM)",
+   "finish": null,
+   "colour_hex": "#8D9095",
+   "measured_bbox_mm": [
+    6.0,
+    3.5,
+    6.0
+   ],
+   "centroid_mm": [
+    -54.92,
+    117.95,
+    -21.91
+   ],
+   "label": "estimate",
+   "bom_item_id": "e3",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 5.52,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: motor / control PCBA \u2248 USD 6 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "triac_heater_power_switch",
+   "name": "TRIAC heater power switch",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "Switch (steel + POM)",
+   "finish": null,
+   "colour_hex": "#8D9095",
+   "measured_bbox_mm": [
+    6.0,
+    3.5,
+    6.0
+   ],
+   "centroid_mm": [
+    -48.12,
+    117.95,
+    -21.91
+   ],
+   "label": "estimate",
+   "bom_item_id": "e4",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 3.22,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: heating element \u2248 USD 3.5 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "motor_1",
+   "name": "Motor 1",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "Switch (steel + POM)",
+   "finish": null,
+   "colour_hex": "#8D9095",
+   "measured_bbox_mm": [
+    6.0,
+    3.5,
+    6.0
+   ],
+   "centroid_mm": [
+    -41.32,
+    117.95,
+    -21.91
+   ],
+   "label": "estimate",
+   "bom_item_id": "e5",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 3.22,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: heating element \u2248 USD 3.5 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "motor_2",
+   "name": "Motor 2",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "Switch (steel + POM)",
+   "finish": null,
+   "colour_hex": "#8D9095",
+   "measured_bbox_mm": [
+    6.0,
+    3.5,
+    6.0
+   ],
+   "centroid_mm": [
+    -34.52,
+    117.95,
+    -21.91
+   ],
+   "label": "estimate",
+   "bom_item_id": "e5",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 3.22,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: heating element \u2248 USD 3.5 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "ac_universal_motor",
+   "name": "AC universal motor",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "IC package (epoxy mould)",
+   "finish": null,
+   "colour_hex": "#1B1C1E",
+   "measured_bbox_mm": [
+    3.0,
+    0.9,
+    3.0
+   ],
+   "centroid_mm": [
+    -29.22,
+    116.65,
+    -23.41
+   ],
+   "label": "estimate",
+   "bom_item_id": "e1",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 5.52,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: AC/DC fan motor with impeller \u2248 USD 6 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "nichrome_heating_element_assembly",
+   "name": "Nichrome heating element assembly",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "IC package (epoxy mould)",
+   "finish": null,
+   "colour_hex": "#1B1C1E",
+   "measured_bbox_mm": [
+    3.0,
+    0.9,
+    3.0
+   ],
+   "centroid_mm": [
+    -25.42,
+    116.65,
+    -23.41
+   ],
+   "label": "estimate",
+   "bom_item_id": "e2",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 3.22,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: heating element \u2248 USD 3.5 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "thermal_safety_cutouts_1",
+   "name": "Thermal safety cutouts 1",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "IC package (epoxy mould)",
+   "finish": null,
+   "colour_hex": "#1B1C1E",
+   "measured_bbox_mm": [
+    3.0,
+    0.9,
+    3.0
+   ],
+   "centroid_mm": [
+    -21.62,
+    116.65,
+    -23.41
+   ],
+   "label": "estimate",
+   "bom_item_id": "e6",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 0.552,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: thermal cut-out \u2248 USD 0.6 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "thermal_safety_cutouts_2",
+   "name": "Thermal safety cutouts 2",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "IC package (epoxy mould)",
+   "finish": null,
+   "colour_hex": "#1B1C1E",
+   "measured_bbox_mm": [
+    3.0,
+    0.9,
+    3.0
+   ],
+   "centroid_mm": [
+    -17.82,
+    116.65,
+    -23.41
+   ],
+   "label": "estimate",
+   "bom_item_id": "e6",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 0.552,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: thermal cut-out \u2248 USD 0.6 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "mains_power_cord",
+   "name": "Mains power cord",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "IC package (epoxy mould)",
+   "finish": null,
+   "colour_hex": "#1B1C1E",
+   "measured_bbox_mm": [
+    3.0,
+    0.9,
+    3.0
+   ],
+   "centroid_mm": [
+    -14.02,
+    116.65,
+    -23.41
+   ],
+   "label": "estimate",
+   "bom_item_id": "e7",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 2.024,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: certified mains cord \u2248 USD 2.2 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "passives_cluster",
+   "name": "Passives cluster",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "Ceramic passives",
+   "finish": null,
+   "colour_hex": "#9C8B6E",
+   "measured_bbox_mm": [
+    8.5,
+    0.35,
+    1.6
+   ],
+   "centroid_mm": [
+    -7.47,
+    116.37,
+    -24.11
+   ],
+   "label": "estimate",
+   "bom_item_id": "e8",
+   "lcsc_pn": null,
+   "package": "0402",
+   "unit_price": {
+    "value": 0.736,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: passives group \u2248 USD 0.8 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "switch_under_button_1",
+   "name": "Switch under button 1",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "Switch (steel + POM)",
+   "finish": null,
+   "colour_hex": "#8D9095",
+   "measured_bbox_mm": [
+    4.0,
+    2.5,
+    4.0
+   ],
+   "centroid_mm": [
+    -3.0,
+    61.7,
+    0.0
+   ],
+   "label": "estimate",
+   "bom_item_id": "e4",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 3.22,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: heating element \u2248 USD 3.5 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "switch_under_button_2",
+   "name": "Switch under button 2",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "Switch (steel + POM)",
+   "finish": null,
+   "colour_hex": "#8D9095",
+   "measured_bbox_mm": [
+    4.0,
+    2.5,
+    4.0
+   ],
+   "centroid_mm": [
+    -8.0,
+    94.2,
+    0.0
+   ],
+   "label": "estimate",
+   "bom_item_id": "e4",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 3.22,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: heating element \u2248 USD 3.5 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "switch_under_button_3",
+   "name": "Switch under button 3",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "Switch (steel + POM)",
+   "finish": null,
+   "colour_hex": "#8D9095",
+   "measured_bbox_mm": [
+    4.0,
+    2.5,
+    4.0
+   ],
+   "centroid_mm": [
+    -1.0,
+    50.7,
+    0.0
+   ],
+   "label": "estimate",
+   "bom_item_id": "e4",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 3.22,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: heating element \u2248 USD 3.5 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  }
+ ]
+}

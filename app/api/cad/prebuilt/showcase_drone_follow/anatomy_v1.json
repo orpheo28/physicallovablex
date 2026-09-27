@@ -1,0 +1,2209 @@
+{
+ "_v": "a4",
+ "version": 1,
+ "glb_url": "/files/demo_drone_follow/anatomy_v1.glb",
+ "label": "Illustrative internal layout \u2014 not a routed PCB",
+ "kind": "electronics",
+ "bbox_mm": [
+  172.4,
+  79.15,
+  259.58
+ ],
+ "layers": [
+  {
+   "id": "props",
+   "name": "Propellers",
+   "order": 0,
+   "parts": [
+    "prop_1",
+    "prop_2",
+    "prop_3",
+    "prop_4"
+   ],
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 87.5,
+   "caption": "Propeller set ($2.30 (Estimate))"
+  },
+  {
+   "id": "battery_pack",
+   "name": "Battery pack",
+   "order": 1,
+   "parts": [
+    "battery_pack",
+    "li_po_cell_1",
+    "li_po_cell_2",
+    "li_po_cell_3",
+    "li_po_cell_4"
+   ],
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 122.5,
+   "caption": "2450 mAh Li-po at 14.4 V (sized at 400 Wh/L, Estimate) \u2014 flight time 24 min (Estimate)"
+  },
+  {
+   "id": "shell_top",
+   "name": "Top shell",
+   "order": 2,
+   "parts": [
+    "fuselage",
+    "nose_panel",
+    "tracking_windows",
+    "hinge_1",
+    "hinge_2",
+    "hinge_3",
+    "hinge_4",
+    "battery_light",
+    "camera_lens"
+   ],
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 70.0,
+   "caption": "PA12-GF body, carbon-fibre arms shell, product 234.2 \u00d7 261.9 \u00d7 91.5 mm (Measured), 2.0 mm wall (Estimate)"
+  },
+  {
+   "id": "avionics",
+   "name": "Avionics stack",
+   "order": 3,
+   "parts": [
+    "stm32f405_flight_controller_pcb",
+    "4_in_1_brushless_esc",
+    "microsd_card",
+    "passives_cluster",
+    "wi_fi_vision_compute_module",
+    "motor_lead_1",
+    "motor_lead_2",
+    "motor_lead_3",
+    "motor_lead_4"
+   ],
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 28.0,
+   "caption": "Avionics: STM32F405 Flight controller PCB ($16.56 (Estimate)) + 4-in-1 brushless ESC ($20.24 (Estimate)) + Wi-Fi vision compute module ($32.20 (Estimate))"
+  },
+  {
+   "id": "gimbal",
+   "name": "Gimbal camera",
+   "order": 4,
+   "parts": [
+    "gimbal_yoke",
+    "gimbal_camera"
+   ],
+   "explode_vector": [
+    0.9578,
+    -0.2873,
+    0.0
+   ],
+   "explode_distance_mm": 49.0,
+   "caption": "2-axis gimbal camera module ($41.40 (Estimate))"
+  },
+  {
+   "id": "arms",
+   "name": "Arms + motors",
+   "order": 5,
+   "parts": [
+    "arm_1",
+    "motor_1",
+    "landing_legs",
+    "arm_2",
+    "motor_2",
+    "arm_3",
+    "motor_3",
+    "arm_4",
+    "motor_4"
+   ],
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 14.0,
+   "caption": "Brushless outrunner motor ($6.44 (Estimate)) + Carbon-fibre folding arms ($1.84 (Estimate))"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "title": "The drone",
+   "kicker": "01 \u00b7 The drone",
+   "caption": "Kitesurf follow-me drone \u2014 234.2 \u00d7 261.9 \u00d7 91.5 mm (Measured), 9 electronic BOM lines laid out inside (illustrative internal layout, not a routed PCB)",
+   "camera": {
+    "position_mm": [
+     401.8,
+     271.4,
+     505.7
+    ],
+    "target_mm": [
+     27.3,
+     39.2,
+     0.0
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [],
+   "focus_parts": []
+  },
+  {
+   "id": "s2",
+   "title": "Props off",
+   "kicker": "02 \u00b7 Props off",
+   "caption": "Propeller set ($2.30 (Estimate))",
+   "camera": {
+    "position_mm": [
+     436.9,
+     335.0,
+     553.0
+    ],
+    "target_mm": [
+     27.3,
+     81.0,
+     0.0
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [
+    "props",
+    "battery_pack",
+    "shell_top"
+   ],
+   "focus_parts": [
+    "prop_1",
+    "prop_2",
+    "prop_3",
+    "prop_4"
+   ]
+  },
+  {
+   "id": "s3",
+   "title": "Battery out, lid up",
+   "kicker": "03 \u00b7 Battery out, lid up",
+   "caption": "2450 mAh Li-po at 14.4 V (sized at 400 Wh/L, Estimate) \u2014 flight time 24 min (Estimate)",
+   "camera": {
+    "position_mm": [
+     458.6,
+     367.0,
+     582.3
+    ],
+    "target_mm": [
+     27.3,
+     99.5,
+     0.0
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [
+    "props",
+    "battery_pack",
+    "shell_top"
+   ],
+   "focus_parts": [
+    "battery_pack",
+    "li_po_cell_1",
+    "li_po_cell_2",
+    "li_po_cell_3",
+    "li_po_cell_4"
+   ]
+  },
+  {
+   "id": "s4",
+   "title": "The avionics stack",
+   "kicker": "04 \u00b7 The avionics stack",
+   "caption": "Avionics: STM32F405 Flight controller PCB ($16.56 (Estimate)) + 4-in-1 brushless ESC ($20.24 (Estimate)) + Wi-Fi vision compute module ($32.20 (Estimate))",
+   "camera": {
+    "position_mm": [
+     245.0,
+     196.1,
+     330.7
+    ],
+    "target_mm": [
+     0.0,
+     44.2,
+     0.0
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [
+    "props",
+    "battery_pack",
+    "shell_top"
+   ],
+   "focus_parts": [
+    "stm32f405_flight_controller_pcb",
+    "4_in_1_brushless_esc",
+    "microsd_card",
+    "passives_cluster",
+    "wi_fi_vision_compute_module",
+    "motor_lead_1"
+   ]
+  },
+  {
+   "id": "s5",
+   "title": "The eye",
+   "kicker": "05 \u00b7 The eye",
+   "caption": "2-axis gimbal camera module ($41.40 (Estimate))",
+   "camera": {
+    "position_mm": [
+     165.3,
+     23.3,
+     61.6
+    ],
+    "target_mm": [
+     32.0,
+     13.0,
+     0.0
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [
+    "props",
+    "battery_pack",
+    "shell_top",
+    "gimbal"
+   ],
+   "focus_parts": [
+    "gimbal_yoke",
+    "gimbal_camera"
+   ]
+  },
+  {
+   "id": "s6",
+   "title": "Back together",
+   "kicker": "06 \u00b7 Back together",
+   "caption": "Unit cost $190.54 at 2,000 units (Estimate), product mass 885.0 g (Estimate)",
+   "camera": {
+    "position_mm": [
+     -373.6,
+     279.7,
+     481.0
+    ],
+    "target_mm": [
+     27.3,
+     39.2,
+     0.0
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [],
+   "focus_parts": []
+  }
+ ],
+ "parts": [
+  {
+   "part_id": "fuselage",
+   "name": "Fuselage shell",
+   "role": "shell_top",
+   "layer_id": "shell_top",
+   "material": "PC/ABS (UL94 V-0)",
+   "finish": "Matte",
+   "colour_hex": "#3A3D42",
+   "measured_bbox_mm": [
+    93.27,
+    35.0,
+    53.27
+   ],
+   "centroid_mm": [
+    0.0,
+    41.5,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "m1",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 0.5862,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Top shell: Moulded shell 110\u00d762\u00d719 mm, wall 2 mm \u2248 24.2 cm\u00b3 \u00d7 1.14 g/cm\u00b3 = 28 g \u00d7 $3.5/kg + $0.54 moulding/finish conversion"
+   },
+   "editable": [
+    {
+     "param": "body_height",
+     "label": "Body height",
+     "min": 25.0,
+     "max": 70.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 35.0
+    },
+    {
+     "param": "body_length",
+     "label": "Body length",
+     "min": 80.0,
+     "max": 188.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 94.0
+    },
+    {
+     "param": "body_width",
+     "label": "Body width",
+     "min": 50.0,
+     "max": 108.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 54.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ]
+  },
+  {
+   "part_id": "nose_panel",
+   "name": "Nose panel",
+   "role": "other",
+   "layer_id": "shell_top",
+   "material": "powder coat",
+   "finish": null,
+   "colour_hex": "#2E3033",
+   "measured_bbox_mm": [
+    2.5,
+    10.0,
+    35.0
+   ],
+   "centroid_mm": [
+    46.0,
+    47.0,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "e7",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 41.4,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: 2-axis gimbal + 4K camera module \u2248 USD 45 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "body_length",
+     "label": "Body length",
+     "min": 80.0,
+     "max": 188.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 94.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ]
+  },
+  {
+   "part_id": "tracking_windows",
+   "name": "Visual-tracking windows",
+   "role": "window",
+   "layer_id": "shell_top",
+   "material": "dark glass / display",
+   "finish": null,
+   "colour_hex": "#191D22",
+   "measured_bbox_mm": [
+    1.8,
+    6.6,
+    30.6
+   ],
+   "centroid_mm": [
+    47.5,
+    48.0,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "e6",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 32.2,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: embedded Linux / vision compute module \u2248 USD 35 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "body_length",
+     "label": "Body length",
+     "min": 80.0,
+     "max": 188.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 94.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "glass",
+    "clear_pc"
+   ]
+  },
+  {
+   "part_id": "hinge_1",
+   "name": "Folding hinge 1",
+   "role": "fastener",
+   "layer_id": "shell_top",
+   "material": "anodised aluminium",
+   "finish": null,
+   "colour_hex": "#E7E8EB",
+   "measured_bbox_mm": [
+    15.99,
+    10.0,
+    16.0
+   ],
+   "centroid_mm": [
+    25.0,
+    42.9,
+    -17.0
+   ],
+   "label": "measured",
+   "bom_item_id": "m3",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 1.84,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: carbon-fibre arm \u2248 USD 2 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "body_height",
+     "label": "Body height",
+     "min": 25.0,
+     "max": 70.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 35.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "arm_1",
+   "name": "Carbon arm 1",
+   "role": "arm",
+   "layer_id": "arms",
+   "material": "powder coat",
+   "finish": null,
+   "colour_hex": "#2E3033",
+   "measured_bbox_mm": [
+    32.98,
+    9.0,
+    53.35
+   ],
+   "centroid_mm": [
+    37.48,
+    42.9,
+    -41.64
+   ],
+   "label": "measured",
+   "bom_item_id": "m3",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 1.84,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: carbon-fibre arm \u2248 USD 2 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "arm_diameter",
+     "label": "Arm diameter",
+     "min": 8.0,
+     "max": 18.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 9.0
+    },
+    {
+     "param": "arm_reach",
+     "label": "Arm reach",
+     "min": 42.0,
+     "max": 166.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 83.0
+    },
+    {
+     "param": "arm_angle_deg",
+     "label": "Arm angle",
+     "min": 35.0,
+     "max": 60.0,
+     "step": 1.0,
+     "unit": "deg",
+     "value": 53.0
+    },
+    {
+     "param": "body_height",
+     "label": "Body height",
+     "min": 25.0,
+     "max": 70.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 35.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ]
+  },
+  {
+   "part_id": "motor_1",
+   "name": "Brushless motor 1",
+   "role": "motor",
+   "layer_id": "arms",
+   "material": "anodised aluminium",
+   "finish": null,
+   "colour_hex": "#E7E8EB",
+   "measured_bbox_mm": [
+    17.99,
+    27.0,
+    17.99
+   ],
+   "centroid_mm": [
+    49.96,
+    56.4,
+    -66.29
+   ],
+   "label": "measured",
+   "bom_item_id": "e1",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 16.56,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: flight-controller board (STM32F4/F7 + IMU + baro) \u2248 USD 18 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "motor_diameter",
+     "label": "Motor diameter",
+     "min": 14.0,
+     "max": 36.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 18.0
+    },
+    {
+     "param": "motor_height",
+     "label": "Motor height",
+     "min": 13.5,
+     "max": 40.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 27.0
+    },
+    {
+     "param": "arm_reach",
+     "label": "Arm reach",
+     "min": 42.0,
+     "max": 166.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 83.0
+    },
+    {
+     "param": "body_height",
+     "label": "Body height",
+     "min": 25.0,
+     "max": 70.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 35.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "prop_1",
+   "name": "Propeller 1",
+   "role": "prop",
+   "layer_id": "props",
+   "material": "powder coat",
+   "finish": null,
+   "colour_hex": "#2E3033",
+   "measured_bbox_mm": [
+    127.0,
+    7.5,
+    12.0
+   ],
+   "centroid_mm": [
+    49.95,
+    71.15,
+    -66.29
+   ],
+   "label": "measured",
+   "bom_item_id": "e4",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 2.3,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: propeller set \u2248 USD 2.5 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "arm_reach",
+     "label": "Arm reach",
+     "min": 42.0,
+     "max": 166.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 83.0
+    },
+    {
+     "param": "body_height",
+     "label": "Body height",
+     "min": 25.0,
+     "max": 70.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 35.0
+    },
+    {
+     "param": "motor_height",
+     "label": "Motor height",
+     "min": 13.5,
+     "max": 40.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 27.0
+    },
+    {
+     "param": "arm_angle_deg",
+     "label": "Arm angle",
+     "min": 35.0,
+     "max": 60.0,
+     "step": 1.0,
+     "unit": "deg",
+     "value": 53.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "landing_legs",
+   "name": "Landing legs",
+   "role": "frame",
+   "layer_id": "arms",
+   "material": "TPE rubber",
+   "finish": null,
+   "colour_hex": "#303032",
+   "measured_bbox_mm": [
+    82.72,
+    41.3,
+    107.54
+   ],
+   "centroid_mm": [
+    0.0,
+    20.25,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "m4",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 2.3,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: propeller set \u2248 USD 2.5 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "arm_reach",
+     "label": "Arm reach",
+     "min": 42.0,
+     "max": 166.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 83.0
+    },
+    {
+     "param": "body_height",
+     "label": "Body height",
+     "min": 25.0,
+     "max": 70.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 35.0
+    },
+    {
+     "param": "arm_angle_deg",
+     "label": "Arm angle",
+     "min": 35.0,
+     "max": 60.0,
+     "step": 1.0,
+     "unit": "deg",
+     "value": 53.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "hinge_2",
+   "name": "Folding hinge 2",
+   "role": "fastener",
+   "layer_id": "shell_top",
+   "material": "anodised aluminium",
+   "finish": null,
+   "colour_hex": "#E7E8EB",
+   "measured_bbox_mm": [
+    15.99,
+    10.0,
+    16.0
+   ],
+   "centroid_mm": [
+    25.0,
+    42.9,
+    17.0
+   ],
+   "label": "measured",
+   "bom_item_id": "m3",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 1.84,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: carbon-fibre arm \u2248 USD 2 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "body_height",
+     "label": "Body height",
+     "min": 25.0,
+     "max": 70.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 35.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "arm_2",
+   "name": "Carbon arm 2",
+   "role": "arm",
+   "layer_id": "arms",
+   "material": "powder coat",
+   "finish": null,
+   "colour_hex": "#2E3033",
+   "measured_bbox_mm": [
+    32.98,
+    9.0,
+    53.35
+   ],
+   "centroid_mm": [
+    37.47,
+    42.9,
+    41.64
+   ],
+   "label": "measured",
+   "bom_item_id": "m3",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 1.84,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: carbon-fibre arm \u2248 USD 2 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "arm_diameter",
+     "label": "Arm diameter",
+     "min": 8.0,
+     "max": 18.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 9.0
+    },
+    {
+     "param": "arm_reach",
+     "label": "Arm reach",
+     "min": 42.0,
+     "max": 166.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 83.0
+    },
+    {
+     "param": "arm_angle_deg",
+     "label": "Arm angle",
+     "min": 35.0,
+     "max": 60.0,
+     "step": 1.0,
+     "unit": "deg",
+     "value": 53.0
+    },
+    {
+     "param": "body_height",
+     "label": "Body height",
+     "min": 25.0,
+     "max": 70.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 35.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ]
+  },
+  {
+   "part_id": "motor_2",
+   "name": "Brushless motor 2",
+   "role": "motor",
+   "layer_id": "arms",
+   "material": "anodised aluminium",
+   "finish": null,
+   "colour_hex": "#E7E8EB",
+   "measured_bbox_mm": [
+    17.99,
+    27.0,
+    17.99
+   ],
+   "centroid_mm": [
+    49.96,
+    56.4,
+    66.29
+   ],
+   "label": "measured",
+   "bom_item_id": "e1",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 16.56,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: flight-controller board (STM32F4/F7 + IMU + baro) \u2248 USD 18 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "motor_diameter",
+     "label": "Motor diameter",
+     "min": 14.0,
+     "max": 36.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 18.0
+    },
+    {
+     "param": "motor_height",
+     "label": "Motor height",
+     "min": 13.5,
+     "max": 40.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 27.0
+    },
+    {
+     "param": "arm_reach",
+     "label": "Arm reach",
+     "min": 42.0,
+     "max": 166.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 83.0
+    },
+    {
+     "param": "body_height",
+     "label": "Body height",
+     "min": 25.0,
+     "max": 70.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 35.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "prop_2",
+   "name": "Propeller 2",
+   "role": "prop",
+   "layer_id": "props",
+   "material": "powder coat",
+   "finish": null,
+   "colour_hex": "#2E3033",
+   "measured_bbox_mm": [
+    127.0,
+    7.5,
+    12.0
+   ],
+   "centroid_mm": [
+    49.95,
+    71.15,
+    66.29
+   ],
+   "label": "measured",
+   "bom_item_id": "e4",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 2.3,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: propeller set \u2248 USD 2.5 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "arm_reach",
+     "label": "Arm reach",
+     "min": 42.0,
+     "max": 166.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 83.0
+    },
+    {
+     "param": "body_height",
+     "label": "Body height",
+     "min": 25.0,
+     "max": 70.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 35.0
+    },
+    {
+     "param": "motor_height",
+     "label": "Motor height",
+     "min": 13.5,
+     "max": 40.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 27.0
+    },
+    {
+     "param": "arm_angle_deg",
+     "label": "Arm angle",
+     "min": 35.0,
+     "max": 60.0,
+     "step": 1.0,
+     "unit": "deg",
+     "value": 53.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "hinge_3",
+   "name": "Folding hinge 3",
+   "role": "fastener",
+   "layer_id": "shell_top",
+   "material": "anodised aluminium",
+   "finish": null,
+   "colour_hex": "#E7E8EB",
+   "measured_bbox_mm": [
+    15.99,
+    10.0,
+    16.0
+   ],
+   "centroid_mm": [
+    -25.0,
+    42.9,
+    -17.0
+   ],
+   "label": "measured",
+   "bom_item_id": "m3",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 1.84,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: carbon-fibre arm \u2248 USD 2 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "body_height",
+     "label": "Body height",
+     "min": 25.0,
+     "max": 70.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 35.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "arm_3",
+   "name": "Carbon arm 3",
+   "role": "arm",
+   "layer_id": "arms",
+   "material": "powder coat",
+   "finish": null,
+   "colour_hex": "#2E3033",
+   "measured_bbox_mm": [
+    32.98,
+    9.0,
+    53.35
+   ],
+   "centroid_mm": [
+    -37.47,
+    42.9,
+    -41.64
+   ],
+   "label": "measured",
+   "bom_item_id": "m3",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 1.84,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: carbon-fibre arm \u2248 USD 2 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "arm_diameter",
+     "label": "Arm diameter",
+     "min": 8.0,
+     "max": 18.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 9.0
+    },
+    {
+     "param": "arm_reach",
+     "label": "Arm reach",
+     "min": 42.0,
+     "max": 166.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 83.0
+    },
+    {
+     "param": "arm_angle_deg",
+     "label": "Arm angle",
+     "min": 35.0,
+     "max": 60.0,
+     "step": 1.0,
+     "unit": "deg",
+     "value": 53.0
+    },
+    {
+     "param": "body_height",
+     "label": "Body height",
+     "min": 25.0,
+     "max": 70.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 35.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ]
+  },
+  {
+   "part_id": "motor_3",
+   "name": "Brushless motor 3",
+   "role": "motor",
+   "layer_id": "arms",
+   "material": "anodised aluminium",
+   "finish": null,
+   "colour_hex": "#E7E8EB",
+   "measured_bbox_mm": [
+    17.99,
+    27.0,
+    17.99
+   ],
+   "centroid_mm": [
+    -49.95,
+    56.4,
+    -66.29
+   ],
+   "label": "measured",
+   "bom_item_id": "e1",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 16.56,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: flight-controller board (STM32F4/F7 + IMU + baro) \u2248 USD 18 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "motor_diameter",
+     "label": "Motor diameter",
+     "min": 14.0,
+     "max": 36.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 18.0
+    },
+    {
+     "param": "motor_height",
+     "label": "Motor height",
+     "min": 13.5,
+     "max": 40.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 27.0
+    },
+    {
+     "param": "arm_reach",
+     "label": "Arm reach",
+     "min": 42.0,
+     "max": 166.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 83.0
+    },
+    {
+     "param": "body_height",
+     "label": "Body height",
+     "min": 25.0,
+     "max": 70.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 35.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "prop_3",
+   "name": "Propeller 3",
+   "role": "prop",
+   "layer_id": "props",
+   "material": "powder coat",
+   "finish": null,
+   "colour_hex": "#2E3033",
+   "measured_bbox_mm": [
+    12.0,
+    7.5,
+    127.0
+   ],
+   "centroid_mm": [
+    -49.95,
+    71.15,
+    -66.29
+   ],
+   "label": "measured",
+   "bom_item_id": "e4",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 2.3,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: propeller set \u2248 USD 2.5 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "arm_reach",
+     "label": "Arm reach",
+     "min": 42.0,
+     "max": 166.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 83.0
+    },
+    {
+     "param": "body_height",
+     "label": "Body height",
+     "min": 25.0,
+     "max": 70.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 35.0
+    },
+    {
+     "param": "motor_height",
+     "label": "Motor height",
+     "min": 13.5,
+     "max": 40.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 27.0
+    },
+    {
+     "param": "arm_angle_deg",
+     "label": "Arm angle",
+     "min": 35.0,
+     "max": 60.0,
+     "step": 1.0,
+     "unit": "deg",
+     "value": 53.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "hinge_4",
+   "name": "Folding hinge 4",
+   "role": "fastener",
+   "layer_id": "shell_top",
+   "material": "anodised aluminium",
+   "finish": null,
+   "colour_hex": "#E7E8EB",
+   "measured_bbox_mm": [
+    15.99,
+    10.0,
+    16.0
+   ],
+   "centroid_mm": [
+    -25.0,
+    42.9,
+    17.0
+   ],
+   "label": "measured",
+   "bom_item_id": "m3",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 1.84,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: carbon-fibre arm \u2248 USD 2 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "body_height",
+     "label": "Body height",
+     "min": 25.0,
+     "max": 70.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 35.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "arm_4",
+   "name": "Carbon arm 4",
+   "role": "arm",
+   "layer_id": "arms",
+   "material": "powder coat",
+   "finish": null,
+   "colour_hex": "#2E3033",
+   "measured_bbox_mm": [
+    32.98,
+    9.0,
+    53.35
+   ],
+   "centroid_mm": [
+    -37.48,
+    42.9,
+    41.64
+   ],
+   "label": "measured",
+   "bom_item_id": "m3",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 1.84,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: carbon-fibre arm \u2248 USD 2 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "arm_diameter",
+     "label": "Arm diameter",
+     "min": 8.0,
+     "max": 18.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 9.0
+    },
+    {
+     "param": "arm_reach",
+     "label": "Arm reach",
+     "min": 42.0,
+     "max": 166.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 83.0
+    },
+    {
+     "param": "arm_angle_deg",
+     "label": "Arm angle",
+     "min": 35.0,
+     "max": 60.0,
+     "step": 1.0,
+     "unit": "deg",
+     "value": 53.0
+    },
+    {
+     "param": "body_height",
+     "label": "Body height",
+     "min": 25.0,
+     "max": 70.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 35.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ]
+  },
+  {
+   "part_id": "motor_4",
+   "name": "Brushless motor 4",
+   "role": "motor",
+   "layer_id": "arms",
+   "material": "anodised aluminium",
+   "finish": null,
+   "colour_hex": "#E7E8EB",
+   "measured_bbox_mm": [
+    17.99,
+    27.0,
+    17.99
+   ],
+   "centroid_mm": [
+    -49.95,
+    56.4,
+    66.29
+   ],
+   "label": "measured",
+   "bom_item_id": "e1",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 16.56,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: flight-controller board (STM32F4/F7 + IMU + baro) \u2248 USD 18 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "motor_diameter",
+     "label": "Motor diameter",
+     "min": 14.0,
+     "max": 36.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 18.0
+    },
+    {
+     "param": "motor_height",
+     "label": "Motor height",
+     "min": 13.5,
+     "max": 40.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 27.0
+    },
+    {
+     "param": "arm_reach",
+     "label": "Arm reach",
+     "min": 42.0,
+     "max": 166.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 83.0
+    },
+    {
+     "param": "body_height",
+     "label": "Body height",
+     "min": 25.0,
+     "max": 70.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 35.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "prop_4",
+   "name": "Propeller 4",
+   "role": "prop",
+   "layer_id": "props",
+   "material": "powder coat",
+   "finish": null,
+   "colour_hex": "#2E3033",
+   "measured_bbox_mm": [
+    12.0,
+    7.5,
+    127.0
+   ],
+   "centroid_mm": [
+    -49.95,
+    71.15,
+    66.29
+   ],
+   "label": "measured",
+   "bom_item_id": "e4",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 2.3,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: propeller set \u2248 USD 2.5 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "arm_reach",
+     "label": "Arm reach",
+     "min": 42.0,
+     "max": 166.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 83.0
+    },
+    {
+     "param": "body_height",
+     "label": "Body height",
+     "min": 25.0,
+     "max": 70.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 35.0
+    },
+    {
+     "param": "motor_height",
+     "label": "Motor height",
+     "min": 13.5,
+     "max": 40.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 27.0
+    },
+    {
+     "param": "arm_angle_deg",
+     "label": "Arm angle",
+     "min": 35.0,
+     "max": 60.0,
+     "step": 1.0,
+     "unit": "deg",
+     "value": 53.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "battery_pack",
+   "name": "Battery pack",
+   "role": "battery",
+   "layer_id": "battery_pack",
+   "material": "PC/ABS (UL94 V-0)",
+   "finish": "Matte",
+   "colour_hex": "#505359",
+   "measured_bbox_mm": [
+    69.0,
+    19.0,
+    38.0
+   ],
+   "centroid_mm": [
+    -6.0,
+    67.5,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "e5",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 8.9884,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Battery priced by energy: 1500 mAh \u00d7 14.8 V = 22.2 Wh (flight pack) \u00d7 $0.35/Wh + pack overhead"
+   },
+   "editable": [
+    {
+     "param": "battery_height",
+     "label": "Battery height",
+     "min": 12.0,
+     "max": 38.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 19.0
+    },
+    {
+     "param": "battery_length",
+     "label": "Battery length",
+     "min": 40.0,
+     "max": 138.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 69.0
+    },
+    {
+     "param": "battery_width",
+     "label": "Battery width",
+     "min": 25.0,
+     "max": 76.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 38.0
+    },
+    {
+     "param": "body_height",
+     "label": "Body height",
+     "min": 25.0,
+     "max": 70.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 35.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "battery_light",
+   "name": "Battery status light",
+   "role": "diffuser",
+   "layer_id": "shell_top",
+   "material": "status light pipe",
+   "finish": null,
+   "colour_hex": "#7CDAF3",
+   "measured_bbox_mm": [
+    11.0,
+    1.5,
+    15.0
+   ],
+   "centroid_mm": [
+    19.0,
+    78.0,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "e1",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 16.56,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: flight-controller board (STM32F4/F7 + IMU + baro) \u2248 USD 18 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "battery_height",
+     "label": "Battery height",
+     "min": 12.0,
+     "max": 38.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 19.0
+    },
+    {
+     "param": "body_height",
+     "label": "Body height",
+     "min": 25.0,
+     "max": 70.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 35.0
+    }
+   ],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "gimbal_yoke",
+   "name": "Gimbal yoke",
+   "role": "component",
+   "layer_id": "gimbal",
+   "material": "anodised aluminium",
+   "finish": null,
+   "colour_hex": "#E7E8EB",
+   "measured_bbox_mm": [
+    12.0,
+    19.0,
+    33.0
+   ],
+   "centroid_mm": [
+    31.96,
+    15.0,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "e7",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 41.4,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: 2-axis gimbal + 4K camera module \u2248 USD 45 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "gimbal_diameter",
+     "label": "Gimbal diameter",
+     "min": 20.0,
+     "max": 52.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 26.0
+    },
+    {
+     "param": "body_length",
+     "label": "Body length",
+     "min": 80.0,
+     "max": 188.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 94.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "gimbal_camera",
+   "name": "Gimbal camera",
+   "role": "component",
+   "layer_id": "gimbal",
+   "material": "powder coat",
+   "finish": null,
+   "colour_hex": "#2E3033",
+   "measured_bbox_mm": [
+    25.99,
+    26.0,
+    25.99
+   ],
+   "centroid_mm": [
+    31.96,
+    13.0,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "e6",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 32.2,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: embedded Linux / vision compute module \u2248 USD 35 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "gimbal_diameter",
+     "label": "Gimbal diameter",
+     "min": 20.0,
+     "max": 52.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 26.0
+    },
+    {
+     "param": "body_length",
+     "label": "Body length",
+     "min": 80.0,
+     "max": 188.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 94.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "camera_lens",
+   "name": "Camera lens",
+   "role": "lens",
+   "layer_id": "shell_top",
+   "material": "anodised aluminium",
+   "finish": null,
+   "colour_hex": "#E7E8EB",
+   "measured_bbox_mm": [
+    5.05,
+    15.99,
+    16.0
+   ],
+   "centroid_mm": [
+    45.48,
+    13.0,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "e6",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 32.2,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: embedded Linux / vision compute module \u2248 USD 35 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "body_length",
+     "label": "Body length",
+     "min": 80.0,
+     "max": 188.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 94.0
+    },
+    {
+     "param": "gimbal_diameter",
+     "label": "Gimbal diameter",
+     "min": 20.0,
+     "max": 52.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 26.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "glass",
+    "clear_pc"
+   ]
+  },
+  {
+   "part_id": "stm32f405_flight_controller_pcb",
+   "name": "STM32F405 Flight controller PCB",
+   "role": "pcb",
+   "layer_id": "avionics",
+   "material": "FR-4, matte black solder mask",
+   "finish": null,
+   "colour_hex": "#17191C",
+   "measured_bbox_mm": [
+    36.0,
+    1.6,
+    36.0
+   ],
+   "centroid_mm": [
+    0.0,
+    43.05,
+    0.0
+   ],
+   "label": "estimate",
+   "bom_item_id": "e1",
+   "lcsc_pn": null,
+   "package": "LQFP-64",
+   "unit_price": {
+    "value": 16.56,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: flight-controller board (STM32F4/F7 + IMU + baro) \u2248 USD 18 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "4_in_1_brushless_esc",
+   "name": "4-in-1 brushless ESC",
+   "role": "pcb",
+   "layer_id": "avionics",
+   "material": "FR-4, green solder mask",
+   "finish": null,
+   "colour_hex": "#1E5B3A",
+   "measured_bbox_mm": [
+    36.0,
+    1.6,
+    36.0
+   ],
+   "centroid_mm": [
+    0.0,
+    35.3,
+    0.0
+   ],
+   "label": "estimate",
+   "bom_item_id": "e2",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 20.24,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: 4-in-1 ESC, 20-35 A \u2248 USD 22 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "microsd_card",
+   "name": "MicroSD card",
+   "role": "connector",
+   "layer_id": "avionics",
+   "material": "Connector (stainless shell)",
+   "finish": null,
+   "colour_hex": "#C9CBCE",
+   "measured_bbox_mm": [
+    15.0,
+    1.4,
+    11.0
+   ],
+   "centroid_mm": [
+    -7.5,
+    44.55,
+    -9.5
+   ],
+   "label": "estimate",
+   "bom_item_id": "e8",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 2.76,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: microSD card \u2248 USD 3 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "passives_cluster",
+   "name": "Passives cluster",
+   "role": "component",
+   "layer_id": "avionics",
+   "material": "Ceramic passives",
+   "finish": null,
+   "colour_hex": "#9C8B6E",
+   "measured_bbox_mm": [
+    8.5,
+    0.35,
+    1.6
+   ],
+   "centroid_mm": [
+    5.05,
+    44.02,
+    -14.2
+   ],
+   "label": "estimate",
+   "bom_item_id": "e9",
+   "lcsc_pn": null,
+   "package": "0402",
+   "unit_price": {
+    "value": 0.736,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: passives group \u2248 USD 0.8 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "wi_fi_vision_compute_module",
+   "name": "Wi-Fi vision compute module",
+   "role": "component",
+   "layer_id": "avionics",
+   "material": "Module (shield can)",
+   "finish": null,
+   "colour_hex": "#B9BDC2",
+   "measured_bbox_mm": [
+    40.0,
+    5.0,
+    30.0
+   ],
+   "centroid_mm": [
+    0.0,
+    51.42,
+    0.0
+   ],
+   "label": "estimate",
+   "bom_item_id": "e6",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 32.2,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: embedded Linux / vision compute module \u2248 USD 35 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "motor_lead_1",
+   "name": "Motor lead 1",
+   "role": "cable",
+   "layer_id": "avionics",
+   "material": "Cable (silicone, black)",
+   "finish": null,
+   "colour_hex": "#1D1D1F",
+   "measured_bbox_mm": [
+    50.86,
+    1.2,
+    66.98
+   ],
+   "centroid_mm": [
+    24.98,
+    35.3,
+    -33.15
+   ],
+   "label": "estimate",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "motor_lead_2",
+   "name": "Motor lead 2",
+   "role": "cable",
+   "layer_id": "avionics",
+   "material": "Cable (silicone, red)",
+   "finish": null,
+   "colour_hex": "#B3302A",
+   "measured_bbox_mm": [
+    50.86,
+    1.2,
+    66.98
+   ],
+   "centroid_mm": [
+    24.98,
+    35.3,
+    33.15
+   ],
+   "label": "estimate",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "motor_lead_3",
+   "name": "Motor lead 3",
+   "role": "cable",
+   "layer_id": "avionics",
+   "material": "Cable (silicone, black)",
+   "finish": null,
+   "colour_hex": "#1D1D1F",
+   "measured_bbox_mm": [
+    50.86,
+    1.2,
+    66.98
+   ],
+   "centroid_mm": [
+    -24.98,
+    35.3,
+    -33.15
+   ],
+   "label": "estimate",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "motor_lead_4",
+   "name": "Motor lead 4",
+   "role": "cable",
+   "layer_id": "avionics",
+   "material": "Cable (silicone, red)",
+   "finish": null,
+   "colour_hex": "#B3302A",
+   "measured_bbox_mm": [
+    50.86,
+    1.2,
+    66.98
+   ],
+   "centroid_mm": [
+    -24.98,
+    35.3,
+    33.15
+   ],
+   "label": "estimate",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "li_po_cell_1",
+   "name": "Li-po cell 1",
+   "role": "battery",
+   "layer_id": "battery_pack",
+   "material": "Li-po pouch (aluminium laminate)",
+   "finish": null,
+   "colour_hex": "#C3C7CC",
+   "measured_bbox_mm": [
+    62.1,
+    15.2,
+    7.87
+   ],
+   "centroid_mm": [
+    -6.0,
+    59.9,
+    -12.82
+   ],
+   "label": "estimate",
+   "bom_item_id": "e5",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 8.9884,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Battery priced by energy: 1500 mAh \u00d7 14.8 V = 22.2 Wh (flight pack) \u00d7 $0.35/Wh + pack overhead"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "li_po_cell_2",
+   "name": "Li-po cell 2",
+   "role": "battery",
+   "layer_id": "battery_pack",
+   "material": "Li-po pouch (aluminium laminate)",
+   "finish": null,
+   "colour_hex": "#C3C7CC",
+   "measured_bbox_mm": [
+    62.1,
+    15.2,
+    7.87
+   ],
+   "centroid_mm": [
+    -6.0,
+    59.9,
+    -4.28
+   ],
+   "label": "estimate",
+   "bom_item_id": "e5",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 8.9884,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Battery priced by energy: 1500 mAh \u00d7 14.8 V = 22.2 Wh (flight pack) \u00d7 $0.35/Wh + pack overhead"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "li_po_cell_3",
+   "name": "Li-po cell 3",
+   "role": "battery",
+   "layer_id": "battery_pack",
+   "material": "Li-po pouch (aluminium laminate)",
+   "finish": null,
+   "colour_hex": "#C3C7CC",
+   "measured_bbox_mm": [
+    62.1,
+    15.2,
+    7.87
+   ],
+   "centroid_mm": [
+    -6.0,
+    59.9,
+    4.27
+   ],
+   "label": "estimate",
+   "bom_item_id": "e5",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 8.9884,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Battery priced by energy: 1500 mAh \u00d7 14.8 V = 22.2 Wh (flight pack) \u00d7 $0.35/Wh + pack overhead"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "li_po_cell_4",
+   "name": "Li-po cell 4",
+   "role": "battery",
+   "layer_id": "battery_pack",
+   "material": "Li-po pouch (aluminium laminate)",
+   "finish": null,
+   "colour_hex": "#C3C7CC",
+   "measured_bbox_mm": [
+    62.1,
+    15.2,
+    7.87
+   ],
+   "centroid_mm": [
+    -6.0,
+    59.9,
+    12.83
+   ],
+   "label": "estimate",
+   "bom_item_id": "e5",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 8.9884,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Battery priced by energy: 1500 mAh \u00d7 14.8 V = 22.2 Wh (flight pack) \u00d7 $0.35/Wh + pack overhead"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  }
+ ]
+}

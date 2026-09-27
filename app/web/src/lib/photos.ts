@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import type { PhotoJob, ProductPhoto, ProjectPhotos } from "@/types/contracts";
+import type { PhotoJob, ProductPhoto, ProjectPhotos, Version } from "@/types/contracts";
 import { api, API_BASE, ApiError, errorMessage } from "./api";
 
 /**
@@ -60,10 +60,20 @@ export function useProjectPhotos(projectId: string, enabled = true) {
 const MAX_BYTES = 2 * 1024 * 1024;
 
 /**
- * Capture the product from a <model-viewer>: ¾ view (the viewer's default orbit), transparent background
- * (flattened onto paper server-side), long edge ~1200 px, PNG — JPEG 0.9 when the PNG is over 2 MB.
+ * Capture the product from the 3D stage (W28, `[data-viewer3d]`: it renders a clean ¾ frame on request) or from a
+ * <model-viewer> (basic fallback): ¾ view, transparent background (flattened onto paper server-side), long edge
+ * ~1200 px, PNG — JPEG 0.9 when the PNG is over 2 MB.
  */
 export async function captureViewer(el: Element | null): Promise<Blob | null> {
+  const stage = el as (Element & { __plxCapture?: () => Promise<Blob | null> }) | null;
+  if (stage?.__plxCapture) {
+    try {
+      const raw = await stage.__plxCapture();
+      return raw ? await downscale(raw) : null;
+    } catch {
+      return null;
+    }
+  }
   type MV = HTMLElement & {
     toBlob?: (o: { mimeType?: string; qualityArgument?: number }) => Promise<Blob>;
     cameraOrbit?: string;
@@ -81,21 +91,26 @@ export async function captureViewer(el: Element | null): Promise<Blob | null> {
     mv.jumpCameraToGoal?.();
     await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
     const raw = await mv.toBlob({ mimeType: "image/png" });
-    const bmp = await createImageBitmap(raw);
-    const k = Math.min(1, 1200 / Math.max(bmp.width, bmp.height));
-    const c = document.createElement("canvas");
-    c.width = Math.round(bmp.width * k);
-    c.height = Math.round(bmp.height * k);
-    c.getContext("2d")?.drawImage(bmp, 0, 0, c.width, c.height);
-    const png = await new Promise<Blob | null>((r) => c.toBlob(r, "image/png"));
-    if (png && png.size <= MAX_BYTES) return png;
-    return await new Promise<Blob | null>((r) => c.toBlob(r, "image/jpeg", 0.9));
+    return await downscale(raw);
   } catch {
     return null;
   } finally {
     mv.cameraOrbit = orbit;
     mv.autoRotate = spin;
   }
+}
+
+/** Long edge ≤ 1200 px, PNG (JPEG 0.9 when the PNG is over 2 MB). */
+async function downscale(raw: Blob): Promise<Blob | null> {
+  const bmp = await createImageBitmap(raw);
+  const k = Math.min(1, 1200 / Math.max(bmp.width, bmp.height));
+  const c = document.createElement("canvas");
+  c.width = Math.round(bmp.width * k);
+  c.height = Math.round(bmp.height * k);
+  c.getContext("2d")?.drawImage(bmp, 0, 0, c.width, c.height);
+  const png = await new Promise<Blob | null>((r) => c.toBlob(r, "image/png"));
+  if (png && png.size <= MAX_BYTES) return png;
+  return await new Promise<Blob | null>((r) => c.toBlob(r, "image/jpeg", 0.9));
 }
 
 async function postImage(path: string, image: Blob | null): Promise<void> {
@@ -133,3 +148,25 @@ export const postListingKit = (projectId: string, version?: number, image?: Blob
   const qs = q.toString();
   return postImage(`/projects/${projectId}/photos/kit${qs ? `?${qs}` : ""}`, image ?? null);
 };
+
+/**
+ * M1 (W28b): this version's look has no photo of its own yet — `preview.photo_stale` (W29b: the version starts without
+ * photos) or a photo carried from another version although the look changed. Returns the latest older look's hero photo
+ * (from `versions`) to show under an explicit note, or `{ photo: null }`; null when the photo is current.
+ */
+export function stalePhoto(v: Version | undefined, versions?: Version[] | null): { photo: ProductPhoto | null } | null {
+  if (!v) return null;
+  const own = photoOf(v.preview?.photos, "hero_studio");
+  const flagged = (v.preview as (Version["preview"] & { photo_stale?: boolean }) | null)?.photo_stale === true;
+  if (own && own.version !== v.n && v.look_changed) return { photo: own };
+  if (!flagged) return null;
+  const older = (versions ?? [])
+    .filter((x) => x.n < v.n && x.status === "done")
+    .map((x) => photoOf(x.preview?.photos, "hero_studio"))
+    .filter((x): x is ProductPhoto => !!x)
+    .at(-1);
+  return { photo: own && own.version !== v.n ? own : (older ?? null) };
+}
+
+/** "Photo from v4 — updating…" while a photo of the new look can be made; else says it is not there yet. */
+export const stalePhotoNote = (n: number, updating: boolean) => (updating ? `Photo from v${n} — updating…` : `Photo from v${n} — this look has no photo yet`);

@@ -80,6 +80,7 @@ DEFAULT_DUTY = {"mcu": 5, "radio": 1, "imu": 100, "ppg": 100, "env": 5, "gnss": 
 LOADS = set(DEFAULT_DUTY)
 SKIP = re.compile(r"\b(resistor|capacitor|mlcc|crystal|oscillator|passives?|inductor|ferrite|\bpcb\b|mcpcb|fpc|connector|header|pogo|esd|tvs|diode|mosfet|transistor)\b", re.I)
 MOTOR_W_DEFAULT = {"vacuum": 180.0, "home_robot": 5.0}
+MOTOR_W_IS_INPUT = {"vacuum"}  # W29b: the vacuum motor class is its electrical input power (physics: AW = η × P_in)
 
 
 def _watts(text: str) -> float | None:
@@ -91,10 +92,13 @@ def classify(item: BOMItem) -> Block | None:
     if SKIP.search(item.part):
         return None
     text = f"{item.part} {item.description or ''} {item.manufacturer_pn or ''}".lower()
-    for pattern, kind, act, slp, bus, sig, fam in RULES:
-        if re.search(pattern, text, re.I):
-            return Block(id="", kind=kind, name=item.part, part=item.part, qty=float(item.qty or 1), active_ma=act, sleep_ua=slp,
-                         bus=bus, signals=sig, family=fam)
+    # W29b: the part name decides first ("… battery pack" / "trigger switch" whose description mentions the motor are not
+    # motors); the description only when the name alone matches nothing
+    for src in (f"{item.part} {item.manufacturer_pn or ''}".lower(), text):
+        for pattern, kind, act, slp, bus, sig, fam in RULES:
+            if re.search(pattern, src, re.I):
+                return Block(id="", kind=kind, name=item.part, part=item.part, qty=float(item.qty or 1), active_ma=act,
+                             sleep_ua=slp, bus=bus, signals=sig, family=fam)
     return None
 
 
@@ -110,8 +114,10 @@ def _battery_params(blocks: list[Block], pack: dict) -> tuple[float | None, floa
         cap_note = f"Category default {cap:g} mAh (no capacity in the BOM) — confirm with the cell datasheet" if cap else None
     v = first_number(r"(\d+(?:[.,]\d+)?)\s*v\b", text)
     s_cells = first_number(r"(\d)\s*s\b", text)
-    if v:
-        v_note = f"Voltage from the BOM line '{bat.part}'"
+    if v and s_cells and abs(v - 4.2 * s_cells) < 0.3 * s_cells:  # W29b: "6S … 25.2 V" is the full-charge voltage
+        v, v_note = 3.6 * s_cells, f"{s_cells:g}S Li-ion in series × 3.6 V nominal (the {v:g} V in the BOM line is full charge)"
+    elif v:
+        v_note = f"Voltage from the BOM line '{bat.part}'" + (f" ({s_cells:g} cells in series)" if s_cells else "")
     elif s_cells:
         v, v_note = 3.6 * s_cells, f"{s_cells:g}S Li-ion × 3.6 V nominal"
     elif re.search(r"li-?ion|li-?po|18650|21700", text):
@@ -131,7 +137,9 @@ def architecture(bom: list[BOMItem], pack: dict, text: str = "") -> ElectronicsA
         typical = params.get("typical_electronics") or []
         if typical:
             implied = True
-            blocks += [blk for t in typical if (blk := classify(BOMItem(id="x", part=t, category="electronic", qty=1))) is not None]
+            have = {b.kind for b in blocks}  # W29b: a typical line never doubles a part the BOM already has (motor, pack)
+            blocks += [blk for t in typical if (blk := classify(BOMItem(id="x", part=t, category="electronic", qty=1))) is not None
+                       and (blk.kind not in have or blk.kind == "mcu")]
         elif not blocks:
             return None
         else:  # electronics without a controller (e.g. switch + LED): assume a small MCU for the budget
@@ -163,8 +171,10 @@ def architecture(bom: list[BOMItem], pack: dict, text: str = "") -> ElectronicsA
         elif b.kind in ("motor", "pump", "valve"):
             default_w = {"motor": MOTOR_W_DEFAULT.get(pack["key"], 3.0), "pump": 12.0, "valve": 3.0}[b.kind]
             w_each = w or default_w
-            b.active_ma = w_each * b.qty / vbat / DRIVER_EFF * 1000
-            b.extra["note"] = f"{b.qty:g} × {w_each:g} W{'' if w else ' (category default)'} / {vbat:g} V / {DRIVER_EFF:.0%} driver"
+            eff = 1.0 if b.kind == "motor" and pack["key"] in MOTOR_W_IS_INPUT else DRIVER_EFF
+            b.active_ma = w_each * b.qty / vbat / eff * 1000
+            b.extra["note"] = (f"{b.qty:g} × {w_each:g} W{'' if w else ' (category default)'} / {vbat:g} V pack"
+                               + (" (electrical input power)" if eff == 1.0 else f" / {DRIVER_EFF:.0%} driver"))
 
     # ---- power tree
     nodes: list[PowerNode] = []

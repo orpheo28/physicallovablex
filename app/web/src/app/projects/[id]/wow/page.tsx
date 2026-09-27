@@ -8,12 +8,13 @@ import { useApi, useFileExists } from "@/lib/useApi";
 import { fileUrl } from "@/lib/api";
 import { directionGlb, directionHero, directionRender } from "@/lib/assets";
 import { fmtValue } from "@/lib/meta";
-import { photoOf } from "@/lib/photos";
+import { photoOf, stalePhoto } from "@/lib/photos";
 import { autofillLabel, useApiPaths, useAutofillMax } from "@/lib/autofill";
 import { installFigures, partnerTitle, perInstallation, useEngineering } from "@/lib/studio";
 import { animeNow, firstTimeThisVisit, loadAnime, reducedMotion } from "@/lib/motion";
 import { useProject } from "@/components/project/ProjectContext";
 import { ModelViewer } from "@/components/ModelViewer";
+import { Viewer3D } from "@/components/viewer3d/Viewer3D";
 import { RetryImg } from "@/components/RetryImg";
 import { ScrollArea } from "@/components/ScrollArea";
 import { ExportButton } from "@/components/ExportButton";
@@ -54,16 +55,21 @@ function Product({
   spec,
   versionRender,
   photos,
+  version,
+  hasStudio,
 }: {
+  hasStudio: boolean;
   projectId: string;
   design?: DesignArtifact;
   spec?: SpecArtifact;
   versionRender?: string | null;
   photos?: ProductPhoto[] | null;
+  version?: Version;
 }) {
   const dirId = design?.chosen_direction_id ?? spec?.direction_id ?? design?.directions[0]?.id;
   const dir = design?.directions.find((d) => d.id === dirId);
-  const glb = directionGlb(projectId, dir, dirId) ?? spec?.cad_files.find((f) => f.format === "glb")?.url;
+  // Studio projects: the current version's GLB (the same product, parts and colours as the Studio); else the direction's.
+  const glb = version?.preview?.glb_url ?? directionGlb(projectId, dir, dirId) ?? spec?.cad_files.find((f) => f.format === "glb")?.url;
   // Only the demo projects ship a studio render (hero_dN.png); generated projects skip the request.
   const hero = dirId && projectId.startsWith("demo_") ? fileUrl(directionHero(projectId, dirId)) : null;
   // Studio projects: the concept render of the CURRENT version (the direction's render shows the first look).
@@ -82,7 +88,9 @@ function Product({
   options.push({ value: "3d", label: "3D model" });
   if (conceptOk) options.push({ value: "concept", label: heroPhoto ? "Photo" : "Concept" });
   if (lifeOk) options.push({ value: "lifestyle", label: "Lifestyle" });
-  const v: View = view === "auto" ? (heroOk ? "cad" : "3d") : options.some((o) => o.value === view) ? view : "3d";
+  // M1: when this version's look has no photo yet (after a part edit), open on the 3D model, which is always current.
+  const stale = !!stalePhoto(version);
+  const v: View = view === "auto" ? (stale ? "3d" : heroOk ? "cad" : "3d") : options.some((o) => o.value === view) ? view : "3d";
   const alt = spec?.product_name ?? dir?.name ?? "Product";
 
   return (
@@ -91,7 +99,20 @@ function Product({
         <>
           <GraphPaper />
           <div className="relative h-full">
-            <ModelViewer url={glb} alt={alt} height="100%" />
+            <Viewer3D
+              url={glb}
+              alt={alt}
+              height="100%"
+              surface="overview"
+              projectId={projectId}
+              version={version?.n}
+              preview={version?.preview}
+              editLink={
+                hasStudio
+                  ? { href: `/projects/${projectId}/studio`, label: "Edit this part in the Studio →" }
+                  : { href: `/projects/${projectId}?stage=3`, label: "See the parts in 3D model & spec →" }
+              }
+            />
           </div>
         </>
       ) : (
@@ -117,11 +138,12 @@ function Product({
       <p className="absolute bottom-0 left-0 max-w-full text-2xs text-ink-3">
         {v === "3d" && (
           <>
-            Full product, generated from the CAD{dir ? <> — direction <span className="text-ink">{dir.name}</span></> : null}. Drag to rotate.
+            Full product, generated from the CAD{dir ? <> — direction <span className="text-ink">{dir.name}</span></> : null}. Drag to rotate, click a part.
           </>
         )}
         {v === "cad" && <>Rendered from the CAD{dir ? <> — direction <span className="text-ink">{dir.name}</span></> : null}.</>}
         {v === "concept" && (heroPhoto ? heroPhoto.label : "AI concept render — illustrative, not the CAD.")}
+        {v !== "3d" && stale && <span className="text-estimate-ink"> · Shows an older look — this version has no photo yet.</span>}
         {v === "lifestyle" && lifePhoto?.label}
       </p>
     </div>
@@ -259,6 +281,8 @@ function Overview() {
   const paths = useApiPaths();
   const vs = useApi<Version[]>(paths?.has("/projects/{project_id}/versions") ? `/projects/${id}/versions` : null);
   const currentVersion = vs.data?.find((v) => v.is_current);
+  // m1: examples built step by step have no Studio versions — no Studio links for them.
+  const hasStudio = vs.data ? vs.data.length > 0 : !showcaseProject;
   const eng = useEngineering(id, s7.data?.artifact.generated_at ?? null);
   const partner = partnerTitle(eng.data, false);
   const perInst = perInstallation(eng.data, costs);
@@ -328,7 +352,7 @@ function Overview() {
         <MoreMenu
           items={[
             { label: "Open step by step", href: `/projects/${id}?stage=1` },
-            { label: "Back to the Studio", href: `/projects/${id}/studio` },
+            ...(hasStudio ? [{ label: "Back to the Studio", href: `/projects/${id}/studio` }] : []),
           ]}
         />
         <ExportButton projectId={id} label={dossier ? "Download Launch Dossier" : "Export Launch Dossier"} />
@@ -356,6 +380,8 @@ function Overview() {
                   spec={spec}
                   versionRender={currentVersion ? (currentVersion.preview?.render_url ?? null) : undefined}
                   photos={currentVersion?.preview?.photos}
+                  version={currentVersion}
+                  hasStudio={hasStudio}
                 />
               </Boundary>
             ) : (

@@ -64,6 +64,19 @@ export function useVersions(projectId: string) {
   return { versions, error, reload, expect, busy };
 }
 
+/**
+ * m1 (W28b): recorded examples built step by step (demo_desk_lamp, demo_tracker_card) have no Studio versions — no Studio
+ * for them, never "Start the Studio" (a live run). true / false, or null while an example's versions load.
+ */
+export function useStudioAvailable(projectId: string, example: boolean): boolean | null {
+  const vs = useApi<Version[]>(example ? `/projects/${projectId}/versions` : null);
+  if (!example) return true;
+  if (vs.data) return vs.data.length > 0;
+  return vs.error ? true : null;
+}
+
+export const isExampleProject = (id: string, tags?: string[] | null) => id.startsWith("demo_") || !!tags?.includes("Example");
+
 export async function studioStart(projectId: string) {
   return api.post<StudioAccepted>(`/projects/${projectId}/studio/start`);
 }

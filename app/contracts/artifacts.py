@@ -1322,6 +1322,10 @@ class VersionPreview(Model):
     cad_source: str | None = Field(default=None, description="W21: llm:<model> | seed:<family> | previous_version | family:<name>")
     photos: list[ProductPhoto] = Field(default_factory=list, description=(
         "W27: AI product photos of this version (one per shot, newest wins). hero_studio, when present, is also render_url"))
+    photo_stale: bool = Field(default=False, description=(
+        "W29b: the look changed (part edit) and no hero_studio photo of the new look exists yet (no stored viewer / CAD "
+        "reference, or the photo job has not finished): any photo shown is of an older look — say so. Cleared when a "
+        "hero_studio photo of this version is attached"))
 
 
 class Version(Model):
@@ -1412,3 +1416,108 @@ class ProjectPhotos(Model):
 class PhotoAccepted(Model):
     version: int
     shots: list[str]
+
+
+# ---------------------------------------------------------------------------
+# W29 — 3D parts & anatomy (named GLB nodes, structured part edits, illustrative internal layout)
+# ---------------------------------------------------------------------------
+
+PartRole = Literal[
+    "shell_top", "shell_bottom", "strap", "button", "window", "lens", "diffuser", "frame", "arm", "prop", "motor", "pcb",
+    "component", "battery", "antenna", "connector", "cable", "fastener", "other",
+]
+
+ANATOMY_LABEL = "Illustrative internal layout — not a routed PCB"
+
+
+class PartEditable(Model):
+    """One editable parameter of a part (slider): POST /parts/{part_id}/edit {param, value} within [min, max]."""
+
+    param: str = Field(description="Family parameter (fp_*) or AI CAD program parameter name")
+    label: str = Field(description="Human wording, e.g. 'Pod thickness'")
+    min: float
+    max: float
+    step: float
+    unit: str = Field(description="mm, pct …")
+    value: float = Field(description="Current value")
+
+
+class PartMeta(Model):
+    """W29: one part of a version's GLB. The GLB node named `part_id` carries this object as glTF `extras`."""
+
+    part_id: str = Field(description="Stable id within the version = GLB node name, e.g. 'shell_top', 'strap', 'u_ppg_1'")
+    name: str = Field(description="Human name, e.g. 'Top shell', 'MAX30102 PPG sensor'")
+    role: PartRole
+    layer_id: str = Field(description="Anatomy layer this part belongs to (see ProjectAnatomy.layers)")
+    material: str = Field(description="Human material, e.g. 'PC/ABS', 'LSR silicone', 'FR-4'")
+    finish: str | None = Field(default=None, description="e.g. 'soft-touch matte', 'anodised', 'gloss'")
+    colour_hex: str = Field(description="#RRGGBB")
+    measured_bbox_mm: list[float] = Field(min_length=3, max_length=3, description="[x, y, z] extent in mm (GLB axes: +Y up)")
+    centroid_mm: list[float] = Field(min_length=3, max_length=3, description="[x, y, z] bbox centre in mm (GLB axes)")
+    label: Literal["measured", "estimate"] = Field(description=(
+        "measured = geometry measured on our CAD; estimate = illustrative anatomy body (package table / sizing rule)"))
+    bom_item_id: str | None = Field(default=None, description="BOM line this part stands for (stage 3 bom[].id)")
+    lcsc_pn: str | None = None
+    package: str | None = Field(default=None, description="Package string used for the body size, e.g. 'LGA-14', 'USB-C'")
+    unit_price: LabeledValue | None = None
+    editable: list[PartEditable] = Field(default_factory=list)
+    colour_editable: bool = False
+    material_options: list[str] = Field(default_factory=list, description="Material keys accepted by POST /parts/{id}/edit")
+
+
+class ProjectParts(Model):
+    """GET /projects/{id}/parts?version=n"""
+
+    version: int
+    glb_url: str = Field(description="The version's full-product GLB (= preview.glb_url); one node per part")
+    parts: list[PartMeta] = Field(default_factory=list)
+
+
+class PartEditRequest(Model):
+    """POST /projects/{id}/parts/{part_id}/edit — deterministic refine (no LLM). At least one field."""
+
+    colour_hex: str | None = None
+    material: str | None = Field(default=None, description="One of PartMeta.material_options")
+    finish: str | None = None
+    param: str | None = Field(default=None, description="One of PartMeta.editable[].param (requires value)")
+    value: float | None = None
+
+
+class AnatomyLayer(Model):
+    id: str
+    name: str
+    order: int = Field(description="0 = outermost / first to lift")
+    parts: list[str] = Field(default_factory=list, description="part_ids (nodes of the anatomy GLB)")
+    explode_vector: list[float] = Field(min_length=3, max_length=3, description="Unit vector, GLB axes (+Y up)")
+    explode_distance_mm: float
+    caption: str
+
+
+class AnatomyCamera(Model):
+    position_mm: list[float] = Field(min_length=3, max_length=3)
+    target_mm: list[float] = Field(min_length=3, max_length=3)
+    fov_deg: float
+
+
+class AnatomyStep(Model):
+    id: str
+    title: str
+    kicker: str = Field(description="e.g. '01 · The band'")
+    caption: str = Field(description="One line with real BOM / engineering values and their labels")
+    camera: AnatomyCamera
+    layers_exploded: list[str] = Field(default_factory=list)
+    focus_parts: list[str] = Field(default_factory=list)
+
+
+class ProjectAnatomy(Model):
+    """GET /projects/{id}/anatomy?version=n — illustrative internal layout generated from the BOM (deterministic)."""
+
+    version: int
+    glb_url: str = Field(description="Companion anatomy GLB /files/<pid>/anatomy_v<n>.glb (exterior parts + internals)")
+    label: Literal["Illustrative internal layout — not a routed PCB"] = ANATOMY_LABEL
+    kind: Literal["electronics", "construction"] = Field(default="electronics", description=(
+        "construction = solid product (board, furniture): layers are construction layers, not a PCB"))
+    bbox_mm: list[float] = Field(min_length=3, max_length=3, description="[x, y, z] of the whole product, GLB axes")
+    layers: list[AnatomyLayer] = Field(default_factory=list)
+    steps: list[AnatomyStep] = Field(default_factory=list)
+    parts: list[PartMeta] = Field(default_factory=list, description="Every node of the anatomy GLB")

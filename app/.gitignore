@@ -20,3 +20,10 @@ tests/results/qa/**/*.pid
 tests/results/qa/**/*.txt
 tests/results/qa/**/*.pdf
 tests/results/qa/**/*.py
+
+tests/results/final/*
+!tests/results/final/*.png
+!tests/results/final/*.md
+tests/results/final2/*
+!tests/results/final2/*.png
+!tests/results/final2/*.md

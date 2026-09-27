@@ -196,6 +196,36 @@ Placed behind product stills and the 3D view only, never behind text.
 - **Listing photos** (stage 13, and the Studio "⋯" → "Listing photos" dialog): a 4-up grid Packshot · Lifestyle · In hand · Detail, each with its label and a "Download" text link; empty slots read "Not generated yet". "Generate listing photos" is secondary on stage 13, primary in the dialog.
 - **Calm states** (one tinted line, never a red error): no image model → the button is disabled with "No image model is configured here…"; 403 read-only demo, 409 a photo job already running, 429 daily limit, 503 no model — each one plain sentence that says what still works.
 
+### 3D product stage (W28)
+
+The Studio and the Overview show the product on a **react-three-fiber stage** (`web/src/components/viewer3d/`), in the spirit of Apple's product pages and a car configurator: calm, photoreal, touchable.
+
+- **Scene (paper):** transparent canvas over the paper and its graph-paper texture (never a box). Light = one CC0 studio HDRI used for reflections only (`web/public/env/studio_small_09_1k.hdr`, "Studio Small 09" by Poly Haven, CC0, polyhaven.com/a/studio_small_09) + a soft warm key from the upper left + a faint hemisphere fill. A soft grounded shadow sits under the product's footprint (a static radial falloff with a darker contact core, warm ink `#2A2622` at ≈ 50 %; no per-frame cost) and N8AO adds the contact darkening. Tone mapping AgX, sRGB output, physically based lights. Post: N8AO ambient occlusion (half-res, radius ≈ 22 % of the product) and a vignette at 16 % — no bloom, no glow. GLB material extensions (clearcoat, sheen, transmission) render as authored; faceted meshes are re-smoothed with a 30° crease angle. An older Z-up GLB (no part metadata) is stood up (+Y up) and centred.
+- **Camera:** orbit with damping, pan off, zoom limited from the product's size; idle turntable at 12°/s that stops on any interaction and resumes after 6 s; double-click a part to focus it. Camera chips at the bottom left: **¾ · Front · Side · Top · Reset** (28 px round chips, `#EFEDE8` at 80 %), eased transitions (≈ 0.4 s smooth time). DPR capped at 1.5; the frame loop renders on demand and stops when the tab is hidden or the stage is off screen.
+- **Parts:** hovering a part draws a 2 px ink outline and the standard ink tooltip (name, material · finish, size in mono + its trust dot). A click selects it (accent outline = the current state) and opens a floating panel on the right (white, radius 16, `shadow-float`, 300 px): in the Studio **"Edit this part"** — 8 swatches (Warm white `#EDEBE6`, Graphite `#2B2B2D`, Matte black `#111111`, Sage `#9DB09A`, Midnight blue `#23324A`, Sand `#D8C8AE`, Pink `#FFC0CB`, Signal orange `#FF4F00`) + a custom picker, Material / Finish selects, one slider per editable parameter (3 px paper-2 track, 14 px ink thumb, value in mono with the old value struck through), an **ink** "Apply" (the header keeps the screen's one accent action). The colour previews live on the model before Apply. Apply creates a new version like any refine. Errors are one calm amber-tint line (422 range, 409 busy, 403 read-only, 429 limit). In the Overview and for internal parts the panel is a read-only card (package, LCSC, unit price with its label, BOM line link to step 5).
+- **View toggles** (bottom right): **Exploded** (layers travel along their explode vectors plus a calm radial spread; floating labels on 1 px leader lines, one per layer), **X-ray** (exterior shells become a 10–14 % ghost with a fresnel edge; internal parts fully visible), **Anatomy** (ink chip). Selected toggle = ink fill.
+- **Fallback:** `?viewer=basic`, no WebGL2, a lost WebGL context or a load/render error show the previous `<model-viewer>` turntable automatically.
+- **Photo reference (W27):** the Studio capture renders one clean ¾ frame (no outline, no vignette, transparent background) and restores the camera.
+
+### Anatomy mode (W28) — the one dark scene
+
+The only dark surface in the product, and only while the mode is on: the stage takes the app area between the top bar and the status bar (the trust legend stays visible) and walks inside the product like an anatomy atlas. **Exit (Esc) returns to the paper scene with the product assembled.**
+
+| Token | Value | Use |
+|---|---|---|
+| `anatomy-bg` | `#0B0B0C` | Scene background |
+| `anatomy-grid` | cells `#26272A`, sections `#34363A`, fading into the dark | Floor grid |
+| `anatomy-key` / `anatomy-rim` | `#F4F1EA` (key, upper left) / `#DDE6F0` (rim, behind) | Lights; HDRI at 55 % |
+| `anatomy-ghost` | `#C9D2DC`, 2 % body + 17 % fresnel edge | Exterior parts once the product opens |
+| `anatomy-text` | white 100 / 70 / 55 / 35 % | Title / caption / kicker & ruler / hints |
+| `anatomy-outline` | white (selected), `#C9CDD2` (hover), `#8A8F96` (focus parts) | Part outlines |
+
+- **Caption** (top left, max 440 px): kicker in Geist Mono 11 px **uppercase, 0.12 em tracking**, white 55 % ("03 · INSIDE") — the one sanctioned use of letter-spaced mono capitals, in this mode only; title Inter Tight 28/34 600, −0.022 em; one line of caption 16/26 at 70 %. Captions fade up 6 px (420 ms) per step.
+- **Navigation:** scroll inside the stage (captured there — the page never scrolls), ← → / ↑ ↓ keys, or "← Prev · dots · 03 / 07 · Next →" at the bottom centre (Next = white button, ink text). Camera paths ease between the steps' cameras (position, target and lens); layers explode / collapse per step; the step's focus parts are outlined and labelled, a subtle depth of field sits on them.
+- **Scale ruler** (right edge, 280 px): log scale 10 m → 1 mm, decade ticks in mono 10.5 px, the marker ("Field of view ≈ 12.9 cm", white pill, ink mono text) follows the camera frustum width live.
+- **Honesty, always visible** (bottom left, amber dot): "Illustrative internal layout — not a routed PCB" (+ "· internals estimated from the BOM" while the API has no anatomy route). Internal parts carry the Estimate label; exterior parts are Measured on our CAD.
+- Reduced motion: no turntable, instant camera moves and layer changes, no caption animation.
+
 ### Charts
 
 - Cumulative line: ink `#111111`, 1.5 px, 2.5 px dots.
@@ -225,7 +255,7 @@ Placed behind product stills and the 3D view only, never behind text.
 
 ## 7. Motion
 
-UI feedback: 120–200 ms, `cubic-bezier(.2,.7,.2,1)`, on colour, background, shadow, opacity or scale (press 0.96) — properties always named, never `transition: all`. Gallery images scale to 1.03 on hover over 500 ms `cubic-bezier(.2,0,0,1)`. The 3D model fades in over 400 ms and turns at 12°/s. No bounce, no loops, no confetti. Respect `prefers-reduced-motion`: the final state shows at once.
+UI feedback: 120–200 ms, `cubic-bezier(.2,.7,.2,1)`, on colour, background, shadow, opacity or scale (press 0.96) — properties always named, never `transition: all`. Gallery images scale to 1.03 on hover over 500 ms `cubic-bezier(.2,0,0,1)`. The 3D model fades in over 400 ms and turns at 12°/s (idle only; it stops on interaction and resumes after 6 s). A new version cross-fades on the 3D stage (400 ms) once its GLB has loaded; exploded / X-ray / anatomy transitions ease over ≈ 0.4–0.6 s. No bounce, no loops, no confetti. Respect `prefers-reduced-motion`: the final state shows at once.
 
 Exactly **three motion moments** (anime.js v4, loaded on demand in client components, `web/src/lib/motion.ts`), easing `outExpo` or `inOutQuad`, 150–700 ms per element, transform / opacity / height only (no layout shift). Numbers always end exactly on the real value; trust labels and banners never animate.
 1. **Autofill stepper:** a 1 px ink line draws down each phase column as the polled progress arrives (600 ms); a step that completes gets its check stroke drawn (320 ms).
@@ -262,4 +292,4 @@ Exactly **three motion moments** (anime.js v4, loaded on demand in client compon
 - Use letter-spaced mono capitals for labels, or print trust labels as pills next to every number.
 - Use orange for body text or large fills. Use `#C43C00` when orange must be text.
 - Use violet for anything that is not fictional data, or green, blue or amber outside the trust labels, status and severity.
-- Add a dark theme. The design is light only, made for screen share.
+- Add a dark theme. The design is light only, made for screen share. (The one exception is the Anatomy mode scene of the 3D stage, section 5, which exits back to paper.)

@@ -1,0 +1,49 @@
+{
+  "additionalProperties": false,
+  "description": "One editable parameter of a part (slider): POST /parts/{part_id}/edit {param, value} within [min, max].",
+  "properties": {
+    "param": {
+      "description": "Family parameter (fp_*) or AI CAD program parameter name",
+      "title": "Param",
+      "type": "string"
+    },
+    "label": {
+      "description": "Human wording, e.g. 'Pod thickness'",
+      "title": "Label",
+      "type": "string"
+    },
+    "min": {
+      "title": "Min",
+      "type": "number"
+    },
+    "max": {
+      "title": "Max",
+      "type": "number"
+    },
+    "step": {
+      "title": "Step",
+      "type": "number"
+    },
+    "unit": {
+      "description": "mm, pct \u2026",
+      "title": "Unit",
+      "type": "string"
+    },
+    "value": {
+      "description": "Current value",
+      "title": "Value",
+      "type": "number"
+    }
+  },
+  "required": [
+    "param",
+    "label",
+    "min",
+    "max",
+    "step",
+    "unit",
+    "value"
+  ],
+  "title": "PartEditable",
+  "type": "object"
+}

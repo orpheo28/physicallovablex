@@ -38,3 +38,17 @@
 - `test_cad.py` — `uv run pytest api/cad api/dfm`.
 
 Contracts: `contracts/artifacts.py`, `contracts/api.md`, `contracts/stage_runner.md`, `contracts/fixtures.md`. Never edit `contracts/`, `api/main.py`, `pyproject.toml`, `web/package.json` — send a CONTRACT CHANGE REQUEST to the Monitor.
+
+## W29 — finished GLBs, parts, anatomy
+- `glb.py` — every GLB the pipeline writes goes through `glb.finalize` (called by `look.apply_materials` and
+  `families.apply_look`): scene root `product` → one node per part (`part_id`, PartMeta extras) → mesh children
+  `<material role>.<n>`; baked transforms (metres, +Y up), OCCT normals averaged across face seams within 30°, welded
+  vertices, no UVs; PBR + KHR clearcoat / sheen / transmission / ior / specular / emissive_strength per role.
+  Tessellation: `build.glb_tolerance` (linear = size / 2500 mm, 0.12 rad). A finished GLB is only recoloured.
+- `parts.py` — which label is which part: the label call sites (traced in the codegen sandbox and in-process family
+  builds) → variable / comment keywords → semantic role; the P keys each part depends on → editable parameters.
+  `partnames_curated.py` pins the names of the recorded showcase programs (keyed by the program minus its P dict).
+- `anatomy/` — `GET /projects/{id}/anatomy`: package table (`packages.py`), numpy primitives (`mesh.py`), family rules
+  + storyboard (`layout.py`); companion `anatomy_v<n>.glb` + `.json`, cached per version (showcases: precomputed).
+- `_w29_regen.py` — `python -m api.fixtures._showcase w29 [slugs…]` rebuilds the showcase / demo GLBs, bakes /parts
+  extras and anatomy (no LLM). Studio side: `api/studio/parts.py` (GET /parts), `api/studio/edit.py` (POST edit).

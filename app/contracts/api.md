@@ -307,3 +307,79 @@ small / large, bad base64), 404 (project / version), 409 (a photo job of this pr
   carried photo (add `?force=true` to re-shoot anyway).
 - `whoop_kitesurf` showcase: the 4-shot listing kit (packshot_white, lifestyle, in_hand_scale, detail_macro, Blender CAD reference)
   in stage 13 and the Dossier.
+
+## 3D parts & anatomy (W29, additive)
+
+**GLB conventions** (every version GLB `/files/<pid>/v<n>.glb` / `model_v<k>.glb` / `v<n>_ai.glb`, and the anatomy GLB):
+metres, **+Y up** (glTF default), one node per part named `"<part_id>"`; node `extras` = `PartMeta`. Smooth vertex normals
+with a ~30° crease angle (hard edges stay sharp). PBR materials per role; `KHR_materials_clearcoat` (gloss plastics, painted
+metal), `KHR_materials_sheen` (LSR silicone, fabric straps), `KHR_materials_transmission` + `KHR_materials_ior` (diffusers,
+lenses, windows), `KHR_materials_specular` where useful; metals metallic 1, roughness by finish (anodised 0.35, brushed 0.25,
+polished 0.1); soft-touch plastics roughness 0.75. Colours from the version's look. Each GLB < 3 MB.
+
+**`PartMeta`** `{part_id, name, role (shell_top|shell_bottom|strap|button|window|lens|diffuser|frame|arm|prop|motor|pcb|component|
+battery|antenna|connector|cable|fastener|other), layer_id, material, finish, colour_hex, measured_bbox_mm [x,y,z], centroid_mm
+[x,y,z], label ("measured"|"estimate"), bom_item_id?, lcsc_pn?, package?, unit_price? (LabeledValue), editable: [{param, label,
+min, max, step, unit, value}], colour_editable: bool, material_options: [str]}` (mm and GLB axes: x, y = up, z).
+
+| Method | Path | Request | Response | Notes |
+|---|---|---|---|---|
+| GET | `/projects/{id}/parts` | `?version=n` (default current) | `ProjectParts {version, glb_url, parts: PartMeta[]}` | `glb_url` = the version's `preview.glb_url`; exterior parts only (measured on our CAD) |
+| POST | `/projects/{id}/parts/{part_id}/edit` | `PartEditRequest {colour_hex?, material?, finish?, param?, value?}` | `StudioAccepted {version}` (**202**) | deterministic refine, **no LLM**; the new version appears in `GET /projects/{id}/versions` like any refine |
+| GET | `/projects/{id}/anatomy` | `?version=n` | `ProjectAnatomy` | built on first request, cached per version |
+
+**Edit semantics.** Applies to the current version (new version n+1, FIFO with Studio jobs). colour / material / finish → a look
+change only (recoloured GLB; photos follow `look_changed`; costs unchanged unless the material price differs — Estimate from the
+cost price tables). `param` (one of `PartMeta.editable[].param`, `value` within `[min, max]`) → CAD rebuilt (family parameter,
+or the AI CAD program's named parameter literal re-run in the sandbox), measured, BOM / costs / DFM / engineering recomputed like
+a normal refine. `Version.summary` / `changes`: "Strap colour → Sage (#9DB09A)", "Pod thickness 10.0 → 9.0 mm (Measured)", "Shell
+material PC/ABS → Anodised aluminium (+$3.20/unit, Estimate)". Version `message` = the same summary.
+
+**`ProjectAnatomy`** `{version, glb_url, label: "Illustrative internal layout — not a routed PCB", kind: electronics|construction,
+bbox_mm, layers: [{id, name, order, parts: [part_id], explode_vector: [x,y,z] (unit), explode_distance_mm, caption}], steps:
+[{id, title, kicker, caption, camera: {position_mm, target_mm, fov_deg}, layers_exploded: [layer_id], focus_parts: [part_id]}],
+parts: PartMeta[]}`.
+- **Companion GLB**: `glb_url` = `/files/<pid>/anatomy_v<n>.glb` — the exterior parts (same `part_id`s as `/parts`) plus the
+  internal bodies (PCB, components with their package dimensions, battery, motors, cables…), each a named node with `PartMeta`
+  extras (`label: "estimate"` for internals). The version GLB is never modified by anatomy.
+- Layer offsets: the viewer moves every node of a layer by `explode_vector × explode_distance_mm` (mm → m) when exploded;
+  `steps[k].layers_exploded` = the layers exploded at that step. Camera `position_mm` / `target_mm` are in mm in the GLB's own frame
+  (the frame of `centroid_mm`: the CAD origin, product standing on y = 0 — not re-centred), placed from the product bbox.
+- `kind: construction` for solid products (board, furniture): layers are construction layers (foam core, stringer, glass…).
+
+**As implemented (W29 notes).**
+- Node tree: scene root `product` (identity; extras `{pipeline: "w29-glb-1", units: "m", up: "+Y", overrides, part_params}`) →
+  part nodes (name = `part_id`, `translation` = part bbox centre in metres, extras = PartMeta) → one or more **mesh children**
+  named `<material role>.<n>` (the build123d label: body, accent, glass, fabric…). Move / hide the part node, never the mesh.
+  Geometry is baked in world space (no rotation on any node), so exploding = adding `explode_vector × explode_distance_mm / 1000`
+  to the part node's translation.
+- Parts that one program loop draws (10 cyclone cones, feet) are one part with several mesh children; props / motors / arms stay
+  one part each. Part names come from the program (variable / comment at the label call site), else the material role.
+- `version`: omitted = current Studio version. A project without Studio versions (e.g. `demo_desk_lamp`, `demo_tracker_card`)
+  answers `version: 0` = the chosen direction's model (edits need a Studio version → 409).
+- `editable[]`: at most 4 per part, the program `P[...]` keys the part depends on (data flow), ranges = the family clamp ∩
+  [0.5×, 2×] of the current value; an AI-program key that is also a family / enclosure parameter (e.g. `pod_thickness` →
+  pod height, `bin_diameter`) drives both (DFM, weight, costs follow); otherwise only the AI model changes (a note says so).
+- `material_options`: shells `pc_abs | aluminium | stainless_steel | tpu`; straps `lsr_silicone | fabric | tpu`; windows
+  `glass | clear_pc`; others none. Body-colour parts edit the product colour / material (same path as a prompt); other parts get a
+  per-part override stored in the version GLB (`v<n>_ai.glb` or `v<n>.glb`), kept by later recolours.
+- `ProjectAnatomy.kind` (`electronics` | `construction`) and `ProjectAnatomy.parts` (PartMeta of every node of the anatomy GLB;
+  internal bodies `label: "estimate"`, `package` = the LCSC package string or the sizing rule's package) are additive fields.
+  A construction anatomy may show a hull as its laminates (the board's hull part id keeps the deck laminate).
+- Showcases ship precomputed `anatomy_v<n>.{glb,json}` for every version; other projects build on first GET (< 1.5 s).
+
+**Errors** (all routes): 404 unknown project / version / part · 409 a Studio job (refine / edit) or autorun is running
+(edit only) or the project has no Studio version · 422 invalid value (out of range, unknown param / material, bad hex, empty body)
+· 403 `DEMO_READONLY` (edit) · 429 rate limit (edit; shares the `STUDIO_RATE_LIMIT_PER_DAY` bucket).
+
+## W29b (additive)
+- `VersionPreview.photo_stale` — a look-changing part edit starts its version with no photos and `render_url: null`;
+  `photo_stale: true` until a `hero_studio` photo of that version is attached (the UI says "photo shows an older look /
+  not generated yet"). The auto `hero_studio` job starts server-side when a reference of that version is stored
+  (`ref_v<n>.png` / `hero_v<n>.png`) and an image model is configured; otherwise the Studio's viewer-capture POST applies.
+- Colour / material / finish part edits keep stage 6 and the stage-7 shortlist unchanged.
+- Engineering: electronic BOM lines are classified by their part name first (a battery pack whose description mentions
+  the motor is a battery); category "typical" lines never duplicate a kind the BOM has; an `nS … 4.2·n V` pack runs at
+  3.6·n V nominal; the vacuum motor class (180 W) is electrical input power. Runtime = pack mAh × 85 % / I at pack voltage.
+- Anatomy closing step states the whole-product mass (all parts: exterior surface × wall × density + internals, Estimate).
+

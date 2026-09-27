@@ -363,7 +363,7 @@
    "format": "glb",
    "url": "/files/demo_solar_biarritz/model_v1.glb",
    "description": "AI-generated CAD (concept level) — geometry measured on the result — bbox 8258 × 3471 × 1722 mm",
-   "size_bytes": 254104
+   "size_bytes": 78776
   },
   {
    "format": "step",
@@ -381,7 +381,7 @@
    "format": "glb",
    "url": "/files/demo_solar_biarritz/v2.glb",
    "description": "Full product — materials",
-   "size_bytes": 205752
+   "size_bytes": 61620
   },
   {
    "format": "step",
@@ -399,7 +399,7 @@
    "format": "glb",
    "url": "/files/demo_solar_biarritz/v2_enclosure.glb",
    "description": "Product — viewer model",
-   "size_bytes": 197264
+   "size_bytes": 68864
   }
  ]
 }

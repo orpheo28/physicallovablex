@@ -1,0 +1,1007 @@
+{
+ "_v": "a4",
+ "version": 0,
+ "glb_url": "/files/demo_tracker_card/anatomy_v0.glb",
+ "label": "Illustrative internal layout \u2014 not a routed PCB",
+ "kind": "electronics",
+ "bbox_mm": [
+  87.7,
+  4.55,
+  54.0
+ ],
+ "layers": [
+  {
+   "id": "shell_top",
+   "name": "Top shell",
+   "order": 0,
+   "parts": [
+    "shell_top"
+   ],
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 10.4,
+   "caption": "Polycarbonate shell, product 86.0 \u00d7 54.0 \u00d7 2.8 mm (Measured), 0.8 mm wall (Estimate)"
+  },
+  {
+   "id": "pcb",
+   "name": "Main board",
+   "order": 1,
+   "parts": [
+    "main_pcb",
+    "2_4_ghz_chip_antenna_3_2_1_6_mm",
+    "tactile_switch_smd_4_6_1_8_mm",
+    "ble_5_soc_nrf52810",
+    "crystal_32_768_khz_smd3215",
+    "crystal_32_mhz_smd2016",
+    "status_led_0402_white",
+    "mlcc_100_nf_0402_1",
+    "mlcc_100_nf_0402_2",
+    "mlcc_100_nf_0402_3",
+    "mlcc_100_nf_0402_4",
+    "mlcc_100_nf_0402_5",
+    "mlcc_100_nf_0402_6",
+    "mlcc_1_f_0402_1",
+    "mlcc_1_f_0402_2",
+    "piezo_disc_buzzer_12_mm",
+    "thin_lithium_primary_pouch_cell_3_v",
+    "control_pcb_4_layer_0_6_mm_enig",
+    "passives_cluster",
+    "switch_under_button"
+   ],
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 3.6,
+   "caption": "Main board: BLE 5 SoC nRF52810 (LCSC C3606661, $1.57 (Sourced)) \u2014 FR-4 board sized to the cavity (Estimate)"
+  },
+  {
+   "id": "shell_bottom",
+   "name": "Bottom shell",
+   "order": 2,
+   "parts": [
+    "shell_bottom",
+    "button"
+   ],
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 4.8,
+   "caption": "Polycarbonate shell, 0.8 mm wall (Estimate)"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "title": "The tracker",
+   "kicker": "01 \u00b7 The tracker",
+   "caption": "Bluetooth Tracker Card for Wallets \u2014 86.0 \u00d7 54.0 \u00d7 2.8 mm (Measured), 12 electronic BOM lines laid out inside (illustrative internal layout, not a routed PCB)",
+   "camera": {
+    "position_mm": [
+     119.1,
+     75.0,
+     162.1
+    ],
+    "target_mm": [
+     -1.1,
+     0.5,
+     0.0
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [],
+   "focus_parts": []
+  },
+  {
+   "id": "s2",
+   "title": "Top shell lifts",
+   "kicker": "02 \u00b7 Top shell lifts",
+   "caption": "Polycarbonate shell, product 86.0 \u00d7 54.0 \u00d7 2.8 mm (Measured), 0.8 mm wall (Estimate)",
+   "camera": {
+    "position_mm": [
+     120.2,
+     80.9,
+     163.7
+    ],
+    "target_mm": [
+     -1.1,
+     5.7,
+     0.0
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [
+    "shell_top"
+   ],
+   "focus_parts": [
+    "shell_top"
+   ]
+  },
+  {
+   "id": "s3",
+   "title": "Inside the card",
+   "kicker": "03 \u00b7 Inside the card",
+   "caption": "Main board: BLE 5 SoC nRF52810 (LCSC C3606661, $1.57 (Sourced)) \u2014 FR-4 board sized to the cavity (Estimate)",
+   "camera": {
+    "position_mm": [
+     100.0,
+     68.4,
+     136.4
+    ],
+    "target_mm": [
+     -1.1,
+     5.7,
+     0.0
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [
+    "shell_top"
+   ],
+   "focus_parts": [
+    "main_pcb",
+    "2_4_ghz_chip_antenna_3_2_1_6_mm",
+    "tactile_switch_smd_4_6_1_8_mm",
+    "ble_5_soc_nrf52810"
+   ]
+  },
+  {
+   "id": "s4",
+   "title": "Key components",
+   "kicker": "04 \u00b7 Key components",
+   "caption": "Key components: BLE 5 SoC nRF52810 (LCSC C3606661, $1.57 (Sourced)) + Thin lithium primary pouch cell 3 V ($0.60 (Estimate)) + Control PCB 4-layer 0.6 mm ENIG ($0.45 (Estimate))",
+   "camera": {
+    "position_mm": [
+     207.6,
+     130.6,
+     280.3
+    ],
+    "target_mm": [
+     0.0,
+     1.8,
+     0.0
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [
+    "shell_top"
+   ],
+   "focus_parts": [
+    "ble_5_soc_nrf52810",
+    "thin_lithium_primary_pouch_cell_3_v",
+    "main_pcb"
+   ]
+  },
+  {
+   "id": "s5",
+   "title": "Back together",
+   "kicker": "05 \u00b7 Back together",
+   "caption": "Unit cost $4.18 at 2,000 units (Estimate), product mass 16.0 g (Estimate)",
+   "camera": {
+    "position_mm": [
+     -125.4,
+     68.9,
+     161.6
+    ],
+    "target_mm": [
+     -1.1,
+     0.5,
+     0.0
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [],
+   "focus_parts": []
+  }
+ ],
+ "parts": [
+  {
+   "part_id": "shell_bottom",
+   "name": "Bottom shell",
+   "role": "shell_bottom",
+   "layer_id": "shell_bottom",
+   "material": "lower shell",
+   "finish": null,
+   "colour_hex": "#313234",
+   "measured_bbox_mm": [
+    85.6,
+    1.4,
+    54.0
+   ],
+   "centroid_mm": [
+    0.0,
+    0.7,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "m1",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 0.14,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Part weight 2.6 g \u00d7 resin + cycle cost"
+   },
+   "editable": [
+    {
+     "param": "height",
+     "label": "Height",
+     "min": 5.8,
+     "max": 11.5,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 5.8
+    },
+    {
+     "param": "length",
+     "label": "Length",
+     "min": 43.0,
+     "max": 171.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 85.6
+    },
+    {
+     "param": "width",
+     "label": "Width",
+     "min": 27.0,
+     "max": 108.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 54.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ]
+  },
+  {
+   "part_id": "shell_top",
+   "name": "Top shell",
+   "role": "shell_top",
+   "layer_id": "shell_top",
+   "material": "moulded body",
+   "finish": null,
+   "colour_hex": "#1C1D1F",
+   "measured_bbox_mm": [
+    85.6,
+    1.4,
+    54.0
+   ],
+   "centroid_mm": [
+    0.0,
+    2.1,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "m1",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 0.14,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Part weight 2.6 g \u00d7 resin + cycle cost"
+   },
+   "editable": [
+    {
+     "param": "height",
+     "label": "Height",
+     "min": 5.8,
+     "max": 11.5,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 5.8
+    },
+    {
+     "param": "length",
+     "label": "Length",
+     "min": 43.0,
+     "max": 171.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 85.6
+    },
+    {
+     "param": "width",
+     "label": "Width",
+     "min": 27.0,
+     "max": 108.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 54.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ]
+  },
+  {
+   "part_id": "button",
+   "name": "Button",
+   "role": "button",
+   "layer_id": "shell_bottom",
+   "material": "button",
+   "finish": null,
+   "colour_hex": "#1A1B1D",
+   "measured_bbox_mm": [
+    0.6,
+    1.2,
+    9.0
+   ],
+   "centroid_mm": [
+    -42.9,
+    1.4,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "e5",
+   "lcsc_pn": "C393942",
+   "package": null,
+   "unit_price": {
+    "value": 0.0196,
+    "unit": "USD",
+    "label": "sourced",
+    "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C393942.html"
+   },
+   "editable": [],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "main_pcb",
+   "name": "Main PCB",
+   "role": "pcb",
+   "layer_id": "pcb",
+   "material": "FR-4, matte black solder mask",
+   "finish": null,
+   "colour_hex": "#17191C",
+   "measured_bbox_mm": [
+    75.6,
+    1.0,
+    47.16
+   ],
+   "centroid_mm": [
+    0.0,
+    1.7,
+    0.0
+   ],
+   "label": "estimate",
+   "bom_item_id": "e12",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 0.45,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Bare PCB, 2k pcs, 90\u00d755 mm panel share"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "2_4_ghz_chip_antenna_3_2_1_6_mm",
+   "name": "2.4 GHz chip antenna 3.2\u00d71.6 mm",
+   "role": "antenna",
+   "layer_id": "pcb",
+   "material": "Antenna (copper on flex)",
+   "finish": null,
+   "colour_hex": "#C58B3F",
+   "measured_bbox_mm": [
+    12.0,
+    0.27,
+    3.0
+   ],
+   "centroid_mm": [
+    -30.8,
+    2.33,
+    -21.08
+   ],
+   "label": "estimate",
+   "bom_item_id": "e4",
+   "lcsc_pn": "C127629",
+   "package": null,
+   "unit_price": {
+    "value": 0.0894,
+    "unit": "USD",
+    "label": "sourced",
+    "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C127629.html"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "tactile_switch_smd_4_6_1_8_mm",
+   "name": "Tactile switch SMD 4.6\u00d71.8 mm",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "Switch (steel + POM)",
+   "finish": null,
+   "colour_hex": "#8D9095",
+   "measured_bbox_mm": [
+    6.0,
+    0.27,
+    6.0
+   ],
+   "centroid_mm": [
+    -21.0,
+    2.33,
+    -19.58
+   ],
+   "label": "estimate",
+   "bom_item_id": "e5",
+   "lcsc_pn": "C393942",
+   "package": null,
+   "unit_price": {
+    "value": 0.0196,
+    "unit": "USD",
+    "label": "sourced",
+    "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C393942.html"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "ble_5_soc_nrf52810",
+   "name": "BLE 5 SoC nRF52810",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "IC package (epoxy mould)",
+   "finish": null,
+   "colour_hex": "#1B1C1E",
+   "measured_bbox_mm": [
+    5.0,
+    0.27,
+    5.0
+   ],
+   "centroid_mm": [
+    -14.7,
+    2.33,
+    -20.08
+   ],
+   "label": "estimate",
+   "bom_item_id": "e1",
+   "lcsc_pn": "C3606661",
+   "package": "QFN-32",
+   "unit_price": {
+    "value": 1.5745,
+    "unit": "USD",
+    "label": "sourced",
+    "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C3606661.html"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "crystal_32_768_khz_smd3215",
+   "name": "Crystal 32.768 kHz SMD3215",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "IC package (epoxy mould)",
+   "finish": null,
+   "colour_hex": "#1B1C1E",
+   "measured_bbox_mm": [
+    3.0,
+    0.27,
+    3.0
+   ],
+   "centroid_mm": [
+    -9.9,
+    2.33,
+    -21.08
+   ],
+   "label": "estimate",
+   "bom_item_id": "e2",
+   "lcsc_pn": "C32346",
+   "package": null,
+   "unit_price": {
+    "value": 0.1034,
+    "unit": "USD",
+    "label": "sourced",
+    "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C32346.html"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "crystal_32_mhz_smd2016",
+   "name": "Crystal 32 MHz SMD2016",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "IC package (epoxy mould)",
+   "finish": null,
+   "colour_hex": "#1B1C1E",
+   "measured_bbox_mm": [
+    3.0,
+    0.27,
+    3.0
+   ],
+   "centroid_mm": [
+    -6.1,
+    2.33,
+    -21.08
+   ],
+   "label": "estimate",
+   "bom_item_id": "e3",
+   "lcsc_pn": "C718072",
+   "package": null,
+   "unit_price": {
+    "value": 0.0668,
+    "unit": "USD",
+    "label": "sourced",
+    "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C718072.html"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "status_led_0402_white",
+   "name": "Status LED 0402 white",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "IC package (epoxy mould)",
+   "finish": null,
+   "colour_hex": "#1B1C1E",
+   "measured_bbox_mm": [
+    3.0,
+    0.27,
+    3.0
+   ],
+   "centroid_mm": [
+    -2.3,
+    2.33,
+    -21.08
+   ],
+   "label": "estimate",
+   "bom_item_id": "e6",
+   "lcsc_pn": "C20613596",
+   "package": null,
+   "unit_price": {
+    "value": 0.0087,
+    "unit": "USD",
+    "label": "sourced",
+    "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C20613596.html"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "mlcc_100_nf_0402_1",
+   "name": "MLCC 100 nF 0402 1",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "IC package (epoxy mould)",
+   "finish": null,
+   "colour_hex": "#1B1C1E",
+   "measured_bbox_mm": [
+    3.0,
+    0.27,
+    3.0
+   ],
+   "centroid_mm": [
+    1.5,
+    2.33,
+    -21.08
+   ],
+   "label": "estimate",
+   "bom_item_id": "e7",
+   "lcsc_pn": "C1525",
+   "package": null,
+   "unit_price": {
+    "value": 0.0047,
+    "unit": "USD",
+    "label": "sourced",
+    "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C1525.html"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "mlcc_100_nf_0402_2",
+   "name": "MLCC 100 nF 0402 2",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "IC package (epoxy mould)",
+   "finish": null,
+   "colour_hex": "#1B1C1E",
+   "measured_bbox_mm": [
+    3.0,
+    0.27,
+    3.0
+   ],
+   "centroid_mm": [
+    5.3,
+    2.33,
+    -21.08
+   ],
+   "label": "estimate",
+   "bom_item_id": "e7",
+   "lcsc_pn": "C1525",
+   "package": null,
+   "unit_price": {
+    "value": 0.0047,
+    "unit": "USD",
+    "label": "sourced",
+    "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C1525.html"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "mlcc_100_nf_0402_3",
+   "name": "MLCC 100 nF 0402 3",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "IC package (epoxy mould)",
+   "finish": null,
+   "colour_hex": "#1B1C1E",
+   "measured_bbox_mm": [
+    3.0,
+    0.27,
+    3.0
+   ],
+   "centroid_mm": [
+    9.1,
+    2.33,
+    -21.08
+   ],
+   "label": "estimate",
+   "bom_item_id": "e7",
+   "lcsc_pn": "C1525",
+   "package": null,
+   "unit_price": {
+    "value": 0.0047,
+    "unit": "USD",
+    "label": "sourced",
+    "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C1525.html"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "mlcc_100_nf_0402_4",
+   "name": "MLCC 100 nF 0402 4",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "IC package (epoxy mould)",
+   "finish": null,
+   "colour_hex": "#1B1C1E",
+   "measured_bbox_mm": [
+    3.0,
+    0.27,
+    3.0
+   ],
+   "centroid_mm": [
+    12.9,
+    2.33,
+    -21.08
+   ],
+   "label": "estimate",
+   "bom_item_id": "e7",
+   "lcsc_pn": "C1525",
+   "package": null,
+   "unit_price": {
+    "value": 0.0047,
+    "unit": "USD",
+    "label": "sourced",
+    "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C1525.html"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "mlcc_100_nf_0402_5",
+   "name": "MLCC 100 nF 0402 5",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "IC package (epoxy mould)",
+   "finish": null,
+   "colour_hex": "#1B1C1E",
+   "measured_bbox_mm": [
+    3.0,
+    0.27,
+    3.0
+   ],
+   "centroid_mm": [
+    16.7,
+    2.33,
+    -21.08
+   ],
+   "label": "estimate",
+   "bom_item_id": "e7",
+   "lcsc_pn": "C1525",
+   "package": null,
+   "unit_price": {
+    "value": 0.0047,
+    "unit": "USD",
+    "label": "sourced",
+    "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C1525.html"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "mlcc_100_nf_0402_6",
+   "name": "MLCC 100 nF 0402 6",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "IC package (epoxy mould)",
+   "finish": null,
+   "colour_hex": "#1B1C1E",
+   "measured_bbox_mm": [
+    3.0,
+    0.27,
+    3.0
+   ],
+   "centroid_mm": [
+    20.5,
+    2.33,
+    -21.08
+   ],
+   "label": "estimate",
+   "bom_item_id": "e7",
+   "lcsc_pn": "C1525",
+   "package": null,
+   "unit_price": {
+    "value": 0.0047,
+    "unit": "USD",
+    "label": "sourced",
+    "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C1525.html"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "mlcc_1_f_0402_1",
+   "name": "MLCC 1 \u00b5F 0402 1",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "IC package (epoxy mould)",
+   "finish": null,
+   "colour_hex": "#1B1C1E",
+   "measured_bbox_mm": [
+    3.0,
+    0.27,
+    3.0
+   ],
+   "centroid_mm": [
+    24.3,
+    2.33,
+    -21.08
+   ],
+   "label": "estimate",
+   "bom_item_id": "e8",
+   "lcsc_pn": "C52923",
+   "package": null,
+   "unit_price": {
+    "value": 0.0122,
+    "unit": "USD",
+    "label": "sourced",
+    "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C52923.html"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "mlcc_1_f_0402_2",
+   "name": "MLCC 1 \u00b5F 0402 2",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "IC package (epoxy mould)",
+   "finish": null,
+   "colour_hex": "#1B1C1E",
+   "measured_bbox_mm": [
+    3.0,
+    0.27,
+    3.0
+   ],
+   "centroid_mm": [
+    28.1,
+    2.33,
+    -21.08
+   ],
+   "label": "estimate",
+   "bom_item_id": "e8",
+   "lcsc_pn": "C52923",
+   "package": null,
+   "unit_price": {
+    "value": 0.0122,
+    "unit": "USD",
+    "label": "sourced",
+    "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C52923.html"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "piezo_disc_buzzer_12_mm",
+   "name": "Piezo disc buzzer \u00d812 mm",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "IC package (epoxy mould)",
+   "finish": null,
+   "colour_hex": "#1B1C1E",
+   "measured_bbox_mm": [
+    3.0,
+    0.27,
+    3.0
+   ],
+   "centroid_mm": [
+    31.9,
+    2.33,
+    -21.08
+   ],
+   "label": "estimate",
+   "bom_item_id": "e10",
+   "lcsc_pn": "C7201987",
+   "package": "\u63d2\u4ef6,D=13.9mm",
+   "unit_price": {
+    "value": 0.1,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue piezo element, 10k pcs; thin SMD variant not selected"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "thin_lithium_primary_pouch_cell_3_v",
+   "name": "Thin lithium primary pouch cell 3 V",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "IC package (epoxy mould)",
+   "finish": null,
+   "colour_hex": "#1B1C1E",
+   "measured_bbox_mm": [
+    3.0,
+    0.27,
+    3.0
+   ],
+   "centroid_mm": [
+    -35.3,
+    2.33,
+    -14.28
+   ],
+   "label": "estimate",
+   "bom_item_id": "e11",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 0.6,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Thin lithium primary cell (3 V pouch, non-replaceable) $0.60 at 2k MOQ, branded supplier with UN38.3 report"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "control_pcb_4_layer_0_6_mm_enig",
+   "name": "Control PCB 4-layer 0.6 mm ENIG",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "IC package (epoxy mould)",
+   "finish": null,
+   "colour_hex": "#1B1C1E",
+   "measured_bbox_mm": [
+    3.0,
+    0.27,
+    3.0
+   ],
+   "centroid_mm": [
+    -31.5,
+    2.33,
+    -14.28
+   ],
+   "label": "estimate",
+   "bom_item_id": "e12",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 0.45,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Bare PCB, 2k pcs, 90\u00d755 mm panel share"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "passives_cluster",
+   "name": "Passives cluster",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "Ceramic passives",
+   "finish": null,
+   "colour_hex": "#9C8B6E",
+   "measured_bbox_mm": [
+    8.5,
+    0.27,
+    1.6
+   ],
+   "centroid_mm": [
+    -24.95,
+    2.33,
+    -14.98
+   ],
+   "label": "estimate",
+   "bom_item_id": "e9",
+   "lcsc_pn": null,
+   "package": "0402",
+   "unit_price": {
+    "value": 0.03,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Six 0402 RF passives (C/L) at ~$0.005 each; values set at RF tuning"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "switch_under_button",
+   "name": "Switch under button",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "Switch (steel + POM)",
+   "finish": null,
+   "colour_hex": "#8D9095",
+   "measured_bbox_mm": [
+    4.0,
+    2.5,
+    4.0
+   ],
+   "centroid_mm": [
+    -42.9,
+    -0.5,
+    0.0
+   ],
+   "label": "estimate",
+   "bom_item_id": "e5",
+   "lcsc_pn": "C393942",
+   "package": null,
+   "unit_price": {
+    "value": 0.0196,
+    "unit": "USD",
+    "label": "sourced",
+    "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C393942.html"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  }
+ ]
+}

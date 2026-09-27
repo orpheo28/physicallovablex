@@ -55,12 +55,41 @@ def collect(result):
     return parts
 
 
+SITES = {}  # W29: label -> [model.py lines of the frames that set it, innermost first] (part naming)
+
+
+def trace_labels():
+    from build123d import Shape
+
+    orig = Shape.__setattr__
+
+    def tracer(self, name, value):
+        if name == "label" and isinstance(value, str) and value:
+            f, lines = sys._getframe(1), []
+            while f is not None:
+                if f.f_code.co_filename == "model.py":
+                    lines.append(f.f_lineno)
+                f = f.f_back
+            if lines:
+                SITES[value] = lines
+        orig(self, name, value)
+
+    Shape.__setattr__ = tracer
+
+
+def glb_tolerance(bbox_mm):
+    """W29: viewer tessellation (mm, rad) — mirrors api.cad.build.glb_tolerance (this file is stand-alone)."""
+    size = max(bbox_mm) if bbox_mm else 100.0
+    return max(0.02, min(1.5, size / 2500.0)), 0.12
+
+
 def main():
     code_path, out_dir = sys.argv[1], sys.argv[2]
     started = time.monotonic()
     out = {"ok": False, "error": None, "stage": "exec", "parts": []}
     try:
         src = open(code_path, encoding="utf-8").read()
+        trace_labels()
         env_builtins = {n: getattr(builtins, n) for n in SAFE_BUILTINS if hasattr(builtins, n)}
         env_builtins["__import__"] = guarded_import
         ns = {"__builtins__": env_builtins, "__name__": "model"}
@@ -79,6 +108,8 @@ def main():
             label = p.label or f"body.{i + 1}"
             if "." not in label:
                 label = f"{label}.{i + 1}"
+            if label != p.label and p.label in SITES:
+                SITES[label] = SITES[p.label]
             p.label = label
             solids = p.solids()
             vol = sum(abs(s.volume) for s in solids)
@@ -99,11 +130,12 @@ def main():
         out.update(parts=rows, bbox_mm=[round(bb.size.X, 2), round(bb.size.Y, 2), round(bb.size.Z, 2)],
                    bbox_min=[round(bb.min.X, 2), round(bb.min.Y, 2), round(bb.min.Z, 2)],
                    volume_mm3=round(sum(r["volume_mm3"] for r in rows), 1))
+        out["label_sites"] = {r["label"]: SITES.get(r["label"], []) for r in rows}
         out["stage"] = "export"
         export_step(asm, f"{out_dir}/model.step")
         export_stl(asm, f"{out_dir}/model.stl", tolerance=0.05 * max(1.0, max(out["bbox_mm"]) / 400), angular_tolerance=0.2)
-        export_gltf(asm, f"{out_dir}/model.glb", binary=True, linear_deflection=0.05 * max(1.0, max(out["bbox_mm"]) / 400),
-                    angular_deflection=0.2)
+        lin, ang = glb_tolerance(out["bbox_mm"])
+        export_gltf(asm, f"{out_dir}/model.glb", binary=True, linear_deflection=lin, angular_deflection=ang)
         out["ok"] = True
     except BaseException as e:  # noqa: BLE001 — everything goes back to the parent (and the LLM) as text
         tb = traceback.format_exception(type(e), e, e.__traceback__)

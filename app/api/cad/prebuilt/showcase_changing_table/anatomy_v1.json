@@ -1,0 +1,1136 @@
+{
+ "_v": "a4",
+ "version": 1,
+ "glb_url": "/files/demo_changing_table/anatomy_v1.glb",
+ "label": "Illustrative internal layout \u2014 not a routed PCB",
+ "kind": "construction",
+ "bbox_mm": [
+  900.0,
+  1010.0,
+  564.5
+ ],
+ "layers": [
+  {
+   "id": "top",
+   "name": "Top + guard rails",
+   "order": 1,
+   "parts": [
+    "top_shell",
+    "bodies",
+    "bodies_2",
+    "body",
+    "bodies_3",
+    "dark_part",
+    "steel_parts"
+   ],
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 606.0,
+   "caption": "Birch plywood 18 mm, water-based lacquer shell, product 900.0 \u00d7 560.0 \u00d7 1010.0 mm (Measured), 1.8 mm wall (Estimate)"
+  },
+  {
+   "id": "fasteners",
+   "name": "Fasteners",
+   "order": 3,
+   "parts": [
+    "connector_bolt_1_1",
+    "connector_bolt_1_2",
+    "connector_bolt_2_1",
+    "connector_bolt_2_2",
+    "connector_bolt_3_1",
+    "connector_bolt_3_2",
+    "connector_bolt_4_1",
+    "connector_bolt_4_2"
+   ],
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 101.0,
+   "caption": "Furniture assembly fastener set ($3.68 (Estimate))"
+  },
+  {
+   "id": "frame",
+   "name": "Frame + legs",
+   "order": 4,
+   "parts": [
+    "legs",
+    "wood_part",
+    "wood_part_2"
+   ],
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 0.0,
+   "caption": "Frame and legs"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "title": "The piece",
+   "kicker": "01 \u00b7 The piece",
+   "caption": "Safe baby changing table \u2014 900.0 \u00d7 560.0 \u00d7 1010.0 mm (Measured), 7 mechanical BOM lines as construction layers (illustrative)",
+   "camera": {
+    "position_mm": [
+     1646.6,
+     1657.6,
+     2303.0
+    ],
+    "target_mm": [
+     0.0,
+     505.0,
+     -2.2
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [],
+   "focus_parts": []
+  },
+  {
+   "id": "s2",
+   "title": "Top + guard rails",
+   "kicker": "02 \u00b7 Top + guard rails",
+   "caption": "Birch plywood 18 mm, water-based lacquer shell, product 900.0 \u00d7 560.0 \u00d7 1010.0 mm (Measured), 1.8 mm wall (Estimate)",
+   "camera": {
+    "position_mm": [
+     2172.4,
+     2328.6,
+     3039.0
+    ],
+    "target_mm": [
+     0.0,
+     808.0,
+     -2.2
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [
+    "top"
+   ],
+   "focus_parts": [
+    "top_shell",
+    "bodies",
+    "bodies_2",
+    "body",
+    "bodies_3",
+    "dark_part"
+   ]
+  },
+  {
+   "id": "s3",
+   "title": "Fasteners",
+   "kicker": "03 \u00b7 Fasteners",
+   "caption": "Furniture assembly fastener set ($3.68 (Estimate))",
+   "camera": {
+    "position_mm": [
+     2172.4,
+     2328.6,
+     3039.0
+    ],
+    "target_mm": [
+     0.0,
+     808.0,
+     -2.2
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [
+    "top",
+    "fasteners"
+   ],
+   "focus_parts": [
+    "connector_bolt_1_1",
+    "connector_bolt_1_2",
+    "connector_bolt_2_1",
+    "connector_bolt_2_2",
+    "connector_bolt_3_1",
+    "connector_bolt_3_2"
+   ]
+  },
+  {
+   "id": "s4",
+   "title": "Fasteners \u2014 close-up",
+   "kicker": "04 \u00b7 Fasteners \u2014 close-up",
+   "caption": "Furniture assembly fastener set ($3.68 (Estimate))",
+   "camera": {
+    "position_mm": [
+     1412.9,
+     1630.4,
+     1976.6
+    ],
+    "target_mm": [
+     0.0,
+     641.4,
+     -1.5
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [
+    "top",
+    "fasteners"
+   ],
+   "focus_parts": [
+    "connector_bolt_1_1",
+    "connector_bolt_1_2",
+    "connector_bolt_2_1",
+    "connector_bolt_2_2",
+    "connector_bolt_3_1",
+    "connector_bolt_3_2"
+   ]
+  },
+  {
+   "id": "s5",
+   "title": "Back together",
+   "kicker": "05 \u00b7 Back together",
+   "caption": "Unit cost $103.41 at 2,000 units (Estimate), weight 24.66 kg (Estimate)",
+   "camera": {
+    "position_mm": [
+     -1646.6,
+     1657.6,
+     2303.0
+    ],
+    "target_mm": [
+     0.0,
+     505.0,
+     -2.2
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [],
+   "focus_parts": []
+  }
+ ],
+ "parts": [
+  {
+   "part_id": "top_shell",
+   "name": "Top shell",
+   "role": "shell_top",
+   "layer_id": "top",
+   "material": "PC/ABS (UL94 V-0)",
+   "finish": "Satin lacquer",
+   "colour_hex": "#F2F2EF",
+   "measured_bbox_mm": [
+    900.0,
+    18.0,
+    560.0
+   ],
+   "centroid_mm": [
+    0.0,
+    866.0,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "m1",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 20.24,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: CNC-cut birch plywood part(s) from 2440 \u00d7 1220 mm sheet (\u2248 $55 per 18 mm sheet, nested) \u2248 USD 22 (typical 2026 trade price, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "corner_radius",
+     "label": "Corner radius",
+     "min": 17.0,
+     "max": 68.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 34.0
+    },
+    {
+     "param": "depth",
+     "label": "Depth",
+     "min": 350.0,
+     "max": 900.0,
+     "step": 5.0,
+     "unit": "mm",
+     "value": 560.0
+    },
+    {
+     "param": "height",
+     "label": "Height",
+     "min": 438.0,
+     "max": 1050.0,
+     "step": 5.0,
+     "unit": "mm",
+     "value": 875.0
+    },
+    {
+     "param": "length",
+     "label": "Length",
+     "min": 500.0,
+     "max": 1600.0,
+     "step": 5.0,
+     "unit": "mm",
+     "value": 900.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ]
+  },
+  {
+   "part_id": "legs",
+   "name": "Legs",
+   "role": "frame",
+   "layer_id": "frame",
+   "material": "oiled beech",
+   "finish": null,
+   "colour_hex": "#BF9E79",
+   "measured_bbox_mm": [
+    866.0,
+    857.0,
+    482.0
+   ],
+   "centroid_mm": [
+    0.0,
+    428.5,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "m1",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 20.24,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: CNC-cut birch plywood part(s) from 2440 \u00d7 1220 mm sheet (\u2248 $55 per 18 mm sheet, nested) \u2248 USD 22 (typical 2026 trade price, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "leg_thickness",
+     "label": "Leg thickness",
+     "min": 9.0,
+     "max": 36.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 18.0
+    },
+    {
+     "param": "leg_width",
+     "label": "Leg width",
+     "min": 38.0,
+     "max": 152.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 76.0
+    },
+    {
+     "param": "depth",
+     "label": "Depth",
+     "min": 350.0,
+     "max": 900.0,
+     "step": 5.0,
+     "unit": "mm",
+     "value": 560.0
+    },
+    {
+     "param": "height",
+     "label": "Height",
+     "min": 438.0,
+     "max": 1050.0,
+     "step": 5.0,
+     "unit": "mm",
+     "value": 875.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "bodies",
+   "name": "Bodies",
+   "role": "other",
+   "layer_id": "top",
+   "material": "PC/ABS (UL94 V-0)",
+   "finish": "Satin lacquer",
+   "colour_hex": "#F2F2EF",
+   "measured_bbox_mm": [
+    714.0,
+    80.0,
+    482.0
+   ],
+   "centroid_mm": [
+    0.0,
+    817.0,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [
+    {
+     "param": "depth",
+     "label": "Depth",
+     "min": 350.0,
+     "max": 900.0,
+     "step": 5.0,
+     "unit": "mm",
+     "value": 560.0
+    },
+    {
+     "param": "height",
+     "label": "Height",
+     "min": 438.0,
+     "max": 1050.0,
+     "step": 5.0,
+     "unit": "mm",
+     "value": 875.0
+    },
+    {
+     "param": "leg_width",
+     "label": "Leg width",
+     "min": 38.0,
+     "max": 152.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 76.0
+    },
+    {
+     "param": "length",
+     "label": "Length",
+     "min": 500.0,
+     "max": 1600.0,
+     "step": 5.0,
+     "unit": "mm",
+     "value": 900.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ]
+  },
+  {
+   "part_id": "bodies_2",
+   "name": "Bodies",
+   "role": "other",
+   "layer_id": "top",
+   "material": "PC/ABS (UL94 V-0)",
+   "finish": "Satin lacquer",
+   "colour_hex": "#F2F2EF",
+   "measured_bbox_mm": [
+    808.0,
+    80.0,
+    446.0
+   ],
+   "centroid_mm": [
+    0.0,
+    817.0,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [
+    {
+     "param": "depth",
+     "label": "Depth",
+     "min": 350.0,
+     "max": 900.0,
+     "step": 5.0,
+     "unit": "mm",
+     "value": 560.0
+    },
+    {
+     "param": "height",
+     "label": "Height",
+     "min": 438.0,
+     "max": 1050.0,
+     "step": 5.0,
+     "unit": "mm",
+     "value": 875.0
+    },
+    {
+     "param": "leg_thickness",
+     "label": "Leg thickness",
+     "min": 9.0,
+     "max": 36.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 18.0
+    },
+    {
+     "param": "length",
+     "label": "Length",
+     "min": 500.0,
+     "max": 1600.0,
+     "step": 5.0,
+     "unit": "mm",
+     "value": 900.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ]
+  },
+  {
+   "part_id": "body",
+   "name": "Body",
+   "role": "shell_top",
+   "layer_id": "top",
+   "material": "PC/ABS (UL94 V-0)",
+   "finish": "Satin lacquer",
+   "colour_hex": "#F2F2EF",
+   "measured_bbox_mm": [
+    876.0,
+    135.0,
+    18.0
+   ],
+   "centroid_mm": [
+    0.0,
+    942.5,
+    -271.0
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [
+    {
+     "param": "depth",
+     "label": "Depth",
+     "min": 350.0,
+     "max": 900.0,
+     "step": 5.0,
+     "unit": "mm",
+     "value": 560.0
+    },
+    {
+     "param": "guard_height",
+     "label": "Guard height",
+     "min": 68.0,
+     "max": 250.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 135.0
+    },
+    {
+     "param": "guard_thickness",
+     "label": "Guard thickness",
+     "min": 12.0,
+     "max": 30.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 18.0
+    },
+    {
+     "param": "height",
+     "label": "Height",
+     "min": 438.0,
+     "max": 1050.0,
+     "step": 5.0,
+     "unit": "mm",
+     "value": 875.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ]
+  },
+  {
+   "part_id": "bodies_3",
+   "name": "Bodies",
+   "role": "shell_top",
+   "layer_id": "top",
+   "material": "PC/ABS (UL94 V-0)",
+   "finish": "Satin lacquer",
+   "colour_hex": "#F2F2EF",
+   "measured_bbox_mm": [
+    900.0,
+    135.0,
+    514.0
+   ],
+   "centroid_mm": [
+    0.0,
+    942.5,
+    -9.0
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [
+    {
+     "param": "depth",
+     "label": "Depth",
+     "min": 350.0,
+     "max": 900.0,
+     "step": 5.0,
+     "unit": "mm",
+     "value": 560.0
+    },
+    {
+     "param": "guard_height",
+     "label": "Guard height",
+     "min": 68.0,
+     "max": 250.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 135.0
+    },
+    {
+     "param": "guard_thickness",
+     "label": "Guard thickness",
+     "min": 12.0,
+     "max": 30.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 18.0
+    },
+    {
+     "param": "height",
+     "label": "Height",
+     "min": 438.0,
+     "max": 1050.0,
+     "step": 5.0,
+     "unit": "mm",
+     "value": 875.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ]
+  },
+  {
+   "part_id": "wood_part",
+   "name": "Wood part 1",
+   "role": "frame",
+   "layer_id": "frame",
+   "material": "oiled beech",
+   "finish": null,
+   "colour_hex": "#BF9E79",
+   "measured_bbox_mm": [
+    825.0,
+    18.0,
+    488.0
+   ],
+   "centroid_mm": [
+    0.0,
+    215.0,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "m1",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 20.24,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: CNC-cut birch plywood part(s) from 2440 \u00d7 1220 mm sheet (\u2248 $55 per 18 mm sheet, nested) \u2248 USD 22 (typical 2026 trade price, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "depth",
+     "label": "Depth",
+     "min": 350.0,
+     "max": 900.0,
+     "step": 5.0,
+     "unit": "mm",
+     "value": 560.0
+    },
+    {
+     "param": "length",
+     "label": "Length",
+     "min": 500.0,
+     "max": 1600.0,
+     "step": 5.0,
+     "unit": "mm",
+     "value": 900.0
+    },
+    {
+     "param": "shelf_height",
+     "label": "Shelf height",
+     "min": 120.0,
+     "max": 430.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 215.0
+    },
+    {
+     "param": "plywood",
+     "label": "Plywood",
+     "min": 9.0,
+     "max": 36.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 18.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "wood_part_2",
+   "name": "Wood part 2",
+   "role": "frame",
+   "layer_id": "frame",
+   "material": "oiled beech",
+   "finish": null,
+   "colour_hex": "#BF9E79",
+   "measured_bbox_mm": [
+    810.0,
+    48.0,
+    18.0
+   ],
+   "centroid_mm": [
+    0.0,
+    248.0,
+    -238.0
+   ],
+   "label": "measured",
+   "bom_item_id": "m1",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 20.24,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: CNC-cut birch plywood part(s) from 2440 \u00d7 1220 mm sheet (\u2248 $55 per 18 mm sheet, nested) \u2248 USD 22 (typical 2026 trade price, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "depth",
+     "label": "Depth",
+     "min": 350.0,
+     "max": 900.0,
+     "step": 5.0,
+     "unit": "mm",
+     "value": 560.0
+    },
+    {
+     "param": "length",
+     "label": "Length",
+     "min": 500.0,
+     "max": 1600.0,
+     "step": 5.0,
+     "unit": "mm",
+     "value": 900.0
+    },
+    {
+     "param": "shelf_height",
+     "label": "Shelf height",
+     "min": 120.0,
+     "max": 430.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 215.0
+    },
+    {
+     "param": "plywood",
+     "label": "Plywood",
+     "min": 9.0,
+     "max": 36.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 18.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "dark_part",
+   "name": "Dark part",
+   "role": "other",
+   "layer_id": "top",
+   "material": "powder coat",
+   "finish": null,
+   "colour_hex": "#2E3033",
+   "measured_bbox_mm": [
+    826.0,
+    36.0,
+    495.0
+   ],
+   "centroid_mm": [
+    0.0,
+    893.0,
+    16.0
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [
+    {
+     "param": "depth",
+     "label": "Depth",
+     "min": 350.0,
+     "max": 900.0,
+     "step": 5.0,
+     "unit": "mm",
+     "value": 560.0
+    },
+    {
+     "param": "guard_thickness",
+     "label": "Guard thickness",
+     "min": 12.0,
+     "max": 30.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 18.0
+    },
+    {
+     "param": "height",
+     "label": "Height",
+     "min": 438.0,
+     "max": 1050.0,
+     "step": 5.0,
+     "unit": "mm",
+     "value": 875.0
+    },
+    {
+     "param": "length",
+     "label": "Length",
+     "min": 500.0,
+     "max": 1600.0,
+     "step": 5.0,
+     "unit": "mm",
+     "value": 900.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ]
+  },
+  {
+   "part_id": "steel_parts",
+   "name": "Steel parts",
+   "role": "frame",
+   "layer_id": "top",
+   "material": "stainless steel 304",
+   "finish": null,
+   "colour_hex": "#EFEFF0",
+   "measured_bbox_mm": [
+    688.0,
+    76.0,
+    5.0
+   ],
+   "centroid_mm": [
+    0.0,
+    967.0,
+    -282.0
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [
+    {
+     "param": "depth",
+     "label": "Depth",
+     "min": 350.0,
+     "max": 900.0,
+     "step": 5.0,
+     "unit": "mm",
+     "value": 560.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ]
+  },
+  {
+   "part_id": "connector_bolt_1_1",
+   "name": "Connector bolt 1.1",
+   "role": "fastener",
+   "layer_id": "fasteners",
+   "material": "Steel fastener (zinc plated)",
+   "finish": null,
+   "colour_hex": "#B8BBBF",
+   "measured_bbox_mm": [
+    6.0,
+    6.0,
+    50.0
+   ],
+   "centroid_mm": [
+    -413.0,
+    353.5,
+    -227.0
+   ],
+   "label": "estimate",
+   "bom_item_id": "m5",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 3.68,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: fitting kit \u2248 USD 4 (typical 2026 trade price, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "connector_bolt_1_2",
+   "name": "Connector bolt 1.2",
+   "role": "fastener",
+   "layer_id": "fasteners",
+   "material": "Steel fastener (zinc plated)",
+   "finish": null,
+   "colour_hex": "#B8BBBF",
+   "measured_bbox_mm": [
+    6.0,
+    6.0,
+    50.0
+   ],
+   "centroid_mm": [
+    -413.0,
+    929.2,
+    -227.0
+   ],
+   "label": "estimate",
+   "bom_item_id": "m5",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 3.68,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: fitting kit \u2248 USD 4 (typical 2026 trade price, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "connector_bolt_2_1",
+   "name": "Connector bolt 2.1",
+   "role": "fastener",
+   "layer_id": "fasteners",
+   "material": "Steel fastener (zinc plated)",
+   "finish": null,
+   "colour_hex": "#B8BBBF",
+   "measured_bbox_mm": [
+    6.0,
+    6.0,
+    50.0
+   ],
+   "centroid_mm": [
+    413.0,
+    353.5,
+    -227.0
+   ],
+   "label": "estimate",
+   "bom_item_id": "m5",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 3.68,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: fitting kit \u2248 USD 4 (typical 2026 trade price, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "connector_bolt_2_2",
+   "name": "Connector bolt 2.2",
+   "role": "fastener",
+   "layer_id": "fasteners",
+   "material": "Steel fastener (zinc plated)",
+   "finish": null,
+   "colour_hex": "#B8BBBF",
+   "measured_bbox_mm": [
+    6.0,
+    6.0,
+    50.0
+   ],
+   "centroid_mm": [
+    413.0,
+    929.2,
+    -227.0
+   ],
+   "label": "estimate",
+   "bom_item_id": "m5",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 3.68,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: fitting kit \u2248 USD 4 (typical 2026 trade price, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "connector_bolt_3_1",
+   "name": "Connector bolt 3.1",
+   "role": "fastener",
+   "layer_id": "fasteners",
+   "material": "Steel fastener (zinc plated)",
+   "finish": null,
+   "colour_hex": "#B8BBBF",
+   "measured_bbox_mm": [
+    6.0,
+    6.0,
+    50.0
+   ],
+   "centroid_mm": [
+    -413.0,
+    353.5,
+    224.0
+   ],
+   "label": "estimate",
+   "bom_item_id": "m5",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 3.68,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: fitting kit \u2248 USD 4 (typical 2026 trade price, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "connector_bolt_3_2",
+   "name": "Connector bolt 3.2",
+   "role": "fastener",
+   "layer_id": "fasteners",
+   "material": "Steel fastener (zinc plated)",
+   "finish": null,
+   "colour_hex": "#B8BBBF",
+   "measured_bbox_mm": [
+    6.0,
+    6.0,
+    50.0
+   ],
+   "centroid_mm": [
+    -413.0,
+    929.2,
+    224.0
+   ],
+   "label": "estimate",
+   "bom_item_id": "m5",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 3.68,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: fitting kit \u2248 USD 4 (typical 2026 trade price, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "connector_bolt_4_1",
+   "name": "Connector bolt 4.1",
+   "role": "fastener",
+   "layer_id": "fasteners",
+   "material": "Steel fastener (zinc plated)",
+   "finish": null,
+   "colour_hex": "#B8BBBF",
+   "measured_bbox_mm": [
+    6.0,
+    6.0,
+    50.0
+   ],
+   "centroid_mm": [
+    413.0,
+    353.5,
+    224.0
+   ],
+   "label": "estimate",
+   "bom_item_id": "m5",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 3.68,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: fitting kit \u2248 USD 4 (typical 2026 trade price, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "connector_bolt_4_2",
+   "name": "Connector bolt 4.2",
+   "role": "fastener",
+   "layer_id": "fasteners",
+   "material": "Steel fastener (zinc plated)",
+   "finish": null,
+   "colour_hex": "#B8BBBF",
+   "measured_bbox_mm": [
+    6.0,
+    6.0,
+    50.0
+   ],
+   "centroid_mm": [
+    413.0,
+    929.2,
+    224.0
+   ],
+   "label": "estimate",
+   "bom_item_id": "m5",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 3.68,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: fitting kit \u2248 USD 4 (typical 2026 trade price, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  }
+ ]
+}

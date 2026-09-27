@@ -145,6 +145,14 @@ export interface ContractsBundle {
   PhotoJob: PhotoJob;
   ProjectPhotos: ProjectPhotos;
   PhotoAccepted: PhotoAccepted;
+  PartEditable: PartEditable;
+  PartMeta: PartMeta;
+  ProjectParts: ProjectParts;
+  PartEditRequest: PartEditRequest;
+  AnatomyLayer: AnatomyLayer;
+  AnatomyCamera: AnatomyCamera;
+  AnatomyStep: AnatomyStep;
+  ProjectAnatomy: ProjectAnatomy;
   Label: Label;
   StageStatus: StageStatus;
   ProcessType: ProcessType;
@@ -2005,6 +2013,10 @@ export interface VersionPreview {
    * W27: AI product photos of this version (one per shot, newest wins). hero_studio, when present, is also render_url
    */
   photos: ProductPhoto[];
+  /**
+   * W29b: the look changed (part edit) and no hero_studio photo of the new look exists yet (no stored viewer / CAD reference, or the photo job has not finished): any photo shown is of an older look — say so. Cleared when a hero_studio photo of this version is attached
+   */
+  photo_stale: boolean;
 }
 /**
  * This interface was referenced by `ContractsBundle`'s JSON-Schema
@@ -2149,4 +2161,242 @@ export interface ProjectPhotos {
 export interface PhotoAccepted {
   version: number;
   shots: string[];
+}
+/**
+ * One editable parameter of a part (slider): POST /parts/{part_id}/edit {param, value} within [min, max].
+ *
+ * This interface was referenced by `ContractsBundle`'s JSON-Schema
+ * via the `definition` "PartEditable".
+ */
+export interface PartEditable {
+  /**
+   * Family parameter (fp_*) or AI CAD program parameter name
+   */
+  param: string;
+  /**
+   * Human wording, e.g. 'Pod thickness'
+   */
+  label: string;
+  min: number;
+  max: number;
+  step: number;
+  /**
+   * mm, pct …
+   */
+  unit: string;
+  /**
+   * Current value
+   */
+  value: number;
+}
+/**
+ * W29: one part of a version's GLB. The GLB node named `part_id` carries this object as glTF `extras`.
+ *
+ * This interface was referenced by `ContractsBundle`'s JSON-Schema
+ * via the `definition` "PartMeta".
+ */
+export interface PartMeta {
+  /**
+   * Stable id within the version = GLB node name, e.g. 'shell_top', 'strap', 'u_ppg_1'
+   */
+  part_id: string;
+  /**
+   * Human name, e.g. 'Top shell', 'MAX30102 PPG sensor'
+   */
+  name: string;
+  role:
+    | "shell_top"
+    | "shell_bottom"
+    | "strap"
+    | "button"
+    | "window"
+    | "lens"
+    | "diffuser"
+    | "frame"
+    | "arm"
+    | "prop"
+    | "motor"
+    | "pcb"
+    | "component"
+    | "battery"
+    | "antenna"
+    | "connector"
+    | "cable"
+    | "fastener"
+    | "other";
+  /**
+   * Anatomy layer this part belongs to (see ProjectAnatomy.layers)
+   */
+  layer_id: string;
+  /**
+   * Human material, e.g. 'PC/ABS', 'LSR silicone', 'FR-4'
+   */
+  material: string;
+  /**
+   * e.g. 'soft-touch matte', 'anodised', 'gloss'
+   */
+  finish: string | null;
+  /**
+   * #RRGGBB
+   */
+  colour_hex: string;
+  /**
+   * [x, y, z] extent in mm (GLB axes: +Y up)
+   *
+   * @minItems 3
+   * @maxItems 3
+   */
+  measured_bbox_mm: [number, number, number];
+  /**
+   * [x, y, z] bbox centre in mm (GLB axes)
+   *
+   * @minItems 3
+   * @maxItems 3
+   */
+  centroid_mm: [number, number, number];
+  /**
+   * measured = geometry measured on our CAD; estimate = illustrative anatomy body (package table / sizing rule)
+   */
+  label: "measured" | "estimate";
+  /**
+   * BOM line this part stands for (stage 3 bom[].id)
+   */
+  bom_item_id: string | null;
+  lcsc_pn: string | null;
+  /**
+   * Package string used for the body size, e.g. 'LGA-14', 'USB-C'
+   */
+  package: string | null;
+  unit_price: LabeledValue | null;
+  editable: PartEditable[];
+  colour_editable: boolean;
+  /**
+   * Material keys accepted by POST /parts/{id}/edit
+   */
+  material_options: string[];
+}
+/**
+ * GET /projects/{id}/parts?version=n
+ *
+ * This interface was referenced by `ContractsBundle`'s JSON-Schema
+ * via the `definition` "ProjectParts".
+ */
+export interface ProjectParts {
+  version: number;
+  /**
+   * The version's full-product GLB (= preview.glb_url); one node per part
+   */
+  glb_url: string;
+  parts: PartMeta[];
+}
+/**
+ * POST /projects/{id}/parts/{part_id}/edit — deterministic refine (no LLM). At least one field.
+ *
+ * This interface was referenced by `ContractsBundle`'s JSON-Schema
+ * via the `definition` "PartEditRequest".
+ */
+export interface PartEditRequest {
+  colour_hex: string | null;
+  /**
+   * One of PartMeta.material_options
+   */
+  material: string | null;
+  finish: string | null;
+  /**
+   * One of PartMeta.editable[].param (requires value)
+   */
+  param: string | null;
+  value: number | null;
+}
+/**
+ * This interface was referenced by `ContractsBundle`'s JSON-Schema
+ * via the `definition` "AnatomyLayer".
+ */
+export interface AnatomyLayer {
+  id: string;
+  name: string;
+  /**
+   * 0 = outermost / first to lift
+   */
+  order: number;
+  /**
+   * part_ids (nodes of the anatomy GLB)
+   */
+  parts: string[];
+  /**
+   * Unit vector, GLB axes (+Y up)
+   *
+   * @minItems 3
+   * @maxItems 3
+   */
+  explode_vector: [number, number, number];
+  explode_distance_mm: number;
+  caption: string;
+}
+/**
+ * This interface was referenced by `ContractsBundle`'s JSON-Schema
+ * via the `definition` "AnatomyCamera".
+ */
+export interface AnatomyCamera {
+  /**
+   * @minItems 3
+   * @maxItems 3
+   */
+  position_mm: [number, number, number];
+  /**
+   * @minItems 3
+   * @maxItems 3
+   */
+  target_mm: [number, number, number];
+  fov_deg: number;
+}
+/**
+ * This interface was referenced by `ContractsBundle`'s JSON-Schema
+ * via the `definition` "AnatomyStep".
+ */
+export interface AnatomyStep {
+  id: string;
+  title: string;
+  /**
+   * e.g. '01 · The band'
+   */
+  kicker: string;
+  /**
+   * One line with real BOM / engineering values and their labels
+   */
+  caption: string;
+  camera: AnatomyCamera;
+  layers_exploded: string[];
+  focus_parts: string[];
+}
+/**
+ * GET /projects/{id}/anatomy?version=n — illustrative internal layout generated from the BOM (deterministic).
+ *
+ * This interface was referenced by `ContractsBundle`'s JSON-Schema
+ * via the `definition` "ProjectAnatomy".
+ */
+export interface ProjectAnatomy {
+  version: number;
+  /**
+   * Companion anatomy GLB /files/<pid>/anatomy_v<n>.glb (exterior parts + internals)
+   */
+  glb_url: string;
+  label: "Illustrative internal layout — not a routed PCB";
+  /**
+   * construction = solid product (board, furniture): layers are construction layers, not a PCB
+   */
+  kind: "electronics" | "construction";
+  /**
+   * [x, y, z] of the whole product, GLB axes
+   *
+   * @minItems 3
+   * @maxItems 3
+   */
+  bbox_mm: [number, number, number];
+  layers: AnatomyLayer[];
+  steps: AnatomyStep[];
+  /**
+   * Every node of the anatomy GLB
+   */
+  parts: PartMeta[];
 }

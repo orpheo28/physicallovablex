@@ -2,11 +2,12 @@
 
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import type { CostsArtifact, ProductPhoto, Version, VersionPreview } from "@/types/contracts";
-import { photoOf } from "@/lib/photos";
+import { photoOf, stalePhoto, stalePhotoNote } from "@/lib/photos";
 import { fileUrl } from "@/lib/api";
 import { useFileExists } from "@/lib/useApi";
 import { animeNow, reducedMotion } from "@/lib/motion";
-import { ModelViewer } from "../ModelViewer";
+import { Viewer3D } from "../viewer3d/Viewer3D";
+import type { EditHandler } from "../viewer3d/Stage";
 import { RetryImg } from "../RetryImg";
 import { Chevron, LabelBadge, Segmented, Spinner } from "../ui";
 import { Tick, useFlash } from "./Tick";
@@ -33,14 +34,23 @@ export type ViewMode = "3d" | "photo";
  * Photo / 3D toggle state of a version (the toggle sits in the Studio header). The photo is the W27 hero_studio
  * photo of that version (styled from our CAD) when there is one, else the older AI concept render.
  */
-export function useViewMode(v: Version | undefined, live?: ProductPhoto[] | null) {
-  const photo = photoOf(v?.preview?.photos, "hero_studio") ?? (v?.is_current ? photoOf(live, "hero_studio") : null);
-  const render = fileUrl(photo?.url ?? v?.preview?.render_url);
+export function useViewMode(v: Version | undefined, live?: ProductPhoto[] | null, versions?: Version[] | null, updating = false) {
+  // M1: a version whose look has no photo yet shows the latest older photo only on request, under "Photo from vN".
+  const stale = stalePhoto(v, versions);
+  const own = photoOf(v?.preview?.photos, "hero_studio") ?? (v?.is_current ? photoOf(live, "hero_studio") : null);
+  const photo = stale ? stale.photo : own;
+  const render = fileUrl(photo?.url ?? (stale ? null : v?.preview?.render_url));
   const renderOk = useFileExists(render).ok;
-  const [view, setView] = useState<ViewMode>("3d");
+  const staleFrom = stale?.photo?.version ?? null;
+  // Default to 3D while the photo is stale; a choice made on this version (and staleness) sticks.
+  const key = `${v?.n}-${stale ? "stale" : "ok"}`;
+  const [choice, setChoice] = useState<{ key: string; view: ViewMode }>({ key, view: "3d" });
+  const view: ViewMode = choice.key === key ? choice.view : stale ? "3d" : choice.view;
+  const setView = (x: ViewMode) => setChoice({ key, view: x });
   const mode: ViewMode = view === "photo" && renderOk ? "photo" : "3d";
-  const label = photo ? photo.label : "AI concept render, illustrative, not the CAD.";
-  return { mode, setView, renderOk, render, label };
+  const label = photo ? (staleFrom !== null ? `${photo.label} · shows the v${staleFrom} look` : photo.label) : "AI concept render, illustrative, not the CAD.";
+  const staleNote = staleFrom !== null && renderOk ? stalePhotoNote(staleFrom, updating) : null;
+  return { mode, setView, renderOk, render, label, staleNote };
 }
 
 export function ViewToggle({ vm }: { vm: ReturnType<typeof useViewMode> }) {
@@ -58,11 +68,32 @@ export function ViewToggle({ vm }: { vm: ReturnType<typeof useViewMode> }) {
 }
 
 /** The live product: the version's CAD (3D) or its AI concept render, cross-fading when the version changes. */
-export function Viewer({ v, working, alt, vm, photoNote }: { v: Version | undefined; working: number | null; alt: string; vm: ReturnType<typeof useViewMode>; photoNote?: string | null }) {
+export function Viewer({
+  v,
+  working,
+  alt,
+  vm,
+  photoNote,
+  projectId,
+  onEdit,
+  editNote,
+  editViaRoute,
+}: {
+  v: Version | undefined;
+  working: number | null;
+  alt: string;
+  vm: ReturnType<typeof useViewMode>;
+  photoNote?: string | null;
+  projectId?: string;
+  onEdit?: EditHandler;
+  editNote?: string | null;
+  editViaRoute?: boolean;
+}) {
   const p = v?.preview;
   const { mode, render } = vm;
   const stage = useRef<HTMLDivElement>(null);
-  const key = `${v?.n}-${mode}-${mode === "photo" ? render : p?.glb_url}`;
+  // The 3D stage cross-fades versions itself (it keeps the current GLB until the next one is loaded).
+  const key = mode === "photo" ? `${v?.n}-photo-${render}` : "3d";
 
   // Motion: cross-fade the product when the version (or its view) changes.
   const last = useRef(key);
@@ -86,7 +117,18 @@ export function Viewer({ v, working, alt, vm, photoNote }: { v: Version | undefi
             <RetryImg key={render} src={render} alt={`${alt}: ${vm.label}`} className="img-outline h-full max-h-full w-auto max-w-full rounded-md object-contain" />
           </div>
         ) : (
-          <ModelViewer key={p.glb_url ?? "none"} url={p.glb_url} alt={alt} height="100%" />
+          <Viewer3D
+            url={p.glb_url}
+            alt={alt}
+            height="100%"
+            surface="studio"
+            projectId={projectId}
+            version={v?.n}
+            preview={p}
+            onEdit={onEdit}
+            editNote={editNote}
+            editViaRoute={editViaRoute}
+          />
         )}
       </div>
       <div className="absolute left-0 top-0 flex items-center gap-2">
@@ -107,7 +149,7 @@ export function Viewer({ v, working, alt, vm, photoNote }: { v: Version | undefi
         )}
       </div>
       <p className="absolute bottom-0 left-0 max-w-full text-2xs text-ink-3">
-        {mode === "photo" ? vm.label : p ? "Full product, generated from the CAD. Drag to rotate." : ""}
+        {mode === "photo" ? vm.label : p ? "Full product, generated from the CAD. Drag to rotate, click a part to edit it." : ""}
       </p>
     </div>
   );

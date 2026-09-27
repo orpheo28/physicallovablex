@@ -1,0 +1,54 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "name": {
+      "title": "Name",
+      "type": "string"
+    },
+    "order": {
+      "description": "0 = outermost / first to lift",
+      "title": "Order",
+      "type": "integer"
+    },
+    "parts": {
+      "description": "part_ids (nodes of the anatomy GLB)",
+      "items": {
+        "type": "string"
+      },
+      "title": "Parts",
+      "type": "array"
+    },
+    "explode_vector": {
+      "description": "Unit vector, GLB axes (+Y up)",
+      "items": {
+        "type": "number"
+      },
+      "maxItems": 3,
+      "minItems": 3,
+      "title": "Explode Vector",
+      "type": "array"
+    },
+    "explode_distance_mm": {
+      "title": "Explode Distance Mm",
+      "type": "number"
+    },
+    "caption": {
+      "title": "Caption",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "order",
+    "explode_vector",
+    "explode_distance_mm",
+    "caption"
+  ],
+  "title": "AnatomyLayer",
+  "type": "object"
+}

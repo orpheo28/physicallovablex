@@ -435,7 +435,7 @@
    "format": "glb",
    "url": "/files/demo_irrigation_biarritz/model_v1.glb",
    "description": "AI-generated CAD (concept level) — geometry measured on the result — bbox 554 × 74 × 222 mm",
-   "size_bytes": 698224
+   "size_bytes": 449012
   },
   {
    "format": "step",
@@ -453,7 +453,7 @@
    "format": "glb",
    "url": "/files/demo_irrigation_biarritz/v2.glb",
    "description": "Full product — materials",
-   "size_bytes": 774184
+   "size_bytes": 1205792
   },
   {
    "format": "step",
@@ -471,7 +471,7 @@
    "format": "glb",
    "url": "/files/demo_irrigation_biarritz/v2_enclosure.glb",
    "description": "Moulded parts (DFM) — viewer model",
-   "size_bytes": 626492
+   "size_bytes": 435472
   },
   {
    "format": "step",

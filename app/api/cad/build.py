@@ -46,7 +46,7 @@ DEFAULTS: dict[str, float] = {
     "split_ratio": 0.6,
     "boss_count": 4.0,
 }
-BUILD_VERSION = "v1"  # bump to invalidate caches when the geometry code changes
+BUILD_VERSION = "v2"  # bump to invalidate caches when the geometry code changes (v2: W29 GLB tessellation + finishing)
 
 API_DIR = Path(__file__).resolve().parent.parent
 PREBUILT_DIR = Path(__file__).resolve().parent / "prebuilt"
@@ -190,13 +190,25 @@ def build_shape(params: dict[str, Any]):
     return Compound(children=[bottom, top]), [bottom, top]
 
 
+def glb_tolerance(shape_or_bbox) -> tuple[float, float]:
+    """W29 viewer tessellation (linear mm, angular rad): fine enough for smooth curves (0.12 rad ≈ 7° per facet, smooth
+    normals do the rest), linear deflection scaled to the product size so a 1.2 m vacuum stays < 3 MB."""
+    if isinstance(shape_or_bbox, (list, tuple)):
+        size = max(shape_or_bbox) if shape_or_bbox else 100.0
+    else:
+        bb = shape_or_bbox.bounding_box()
+        size = max(bb.size.X, bb.size.Y, bb.size.Z)
+    return max(0.02, min(1.5, size / 2500.0)), 0.12
+
+
 def export_all(shape, stem: Path) -> dict[str, Path]:
     from build123d import export_gltf, export_step, export_stl
 
     out = {"step": stem.with_suffix(".step"), "stl": stem.with_suffix(".stl"), "glb": stem.with_suffix(".glb")}
     export_step(shape, str(out["step"]))
     export_stl(shape, str(out["stl"]), tolerance=0.05, angular_tolerance=0.2)
-    export_gltf(shape, str(out["glb"]), binary=True, linear_deflection=0.05, angular_deflection=0.2)
+    lin, ang = glb_tolerance(shape)
+    export_gltf(shape, str(out["glb"]), binary=True, linear_deflection=lin, angular_deflection=ang)
     for k, f in out.items():
         if not f.exists() or f.stat().st_size == 0:
             raise RuntimeError(f"export {k} produced no file")

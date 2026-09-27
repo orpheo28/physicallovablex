@@ -273,8 +273,14 @@ def pack(name: str, P: dict[str, float], measured_bbox: list[float], density: fl
 # --------------------------------------------------------------------------- build
 
 
-def _parts(name: str, P: dict[str, float], scale=None, context: bool = True) -> list:
-    _, parts = families.module(name).build(P)
+def _parts(name: str, P: dict[str, float], scale=None, context: bool = True, sites: dict | None = None) -> list:
+    from api.cad.parts import trace_labels
+
+    mod = families.module(name)
+    with trace_labels(mod.__file__) as traced:
+        _, parts = mod.build(P)
+    if sites is not None:
+        sites.update(traced)
     if not context:
         parts = [p for p in parts if (p.label or "body").split(".")[0] not in CONTEXT_ROLES]
     if scale:
@@ -287,6 +293,20 @@ def _parts(name: str, P: dict[str, float], scale=None, context: bool = True) -> 
             out.append(q)
         parts = out
     return parts
+
+
+def part_names(name: str, sites: dict, labels: list[str]) -> dict:
+    """W29: label → semantic part of a family build (api.cad.parts, from the family's geometry source)."""
+    import inspect
+    from dataclasses import fields
+
+    from api.cad.parts import names_from_source
+
+    mod = families.module(name)
+    try:
+        return names_from_source(inspect.getsource(mod), sites, labels, param_keys={f.name for f in fields(mod.Params)})
+    except (OSError, TypeError):
+        return {}
 
 
 def board_section_mm(direction) -> float | None:
@@ -323,8 +343,11 @@ def export_product(pid: str, direction_or_name, stem: str, colour: str | None = 
             from api.cad.look import colour_of
 
             colour = colour_of(direction_or_name.finish)
-    parts = _parts(name, P, scale, context)
-    files = export_parts(parts, (out_dir or project_dir(pid)) / stem, family_look(colour or families.DEFAULT_COLOUR.get(name)))
+    sites: dict = {}
+    parts = _parts(name, P, scale, context, sites=sites)
+    files = export_parts(parts, (out_dir or project_dir(pid)) / stem,
+                         family_look(colour or families.DEFAULT_COLOUR.get(name), INFO[name].get("finish", ""), INFO[name]["material"]),
+                         names=part_names(name, sites, [p.label for p in parts]))
     product = [p for p in parts if (p.label or "body").split(".")[0] not in CONTEXT_ROLES]
     return {"files": files, "measured": families.measure_parts(product), "params": P, "family": name}
 

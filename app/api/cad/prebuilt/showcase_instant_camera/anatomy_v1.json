@@ -1,0 +1,1867 @@
+{
+ "_v": "a4",
+ "version": 1,
+ "glb_url": "/files/demo_instant_camera/anatomy_v1.glb",
+ "label": "Illustrative internal layout \u2014 not a routed PCB",
+ "kind": "electronics",
+ "bbox_mm": [
+  151.8,
+  123.5,
+  117.3
+ ],
+ "layers": [
+  {
+   "id": "shell_top",
+   "name": "Top shell",
+   "order": 0,
+   "parts": [
+    "housing",
+    "rubber_part",
+    "dark_part",
+    "lens",
+    "lens_2",
+    "lens_3",
+    "lens_4",
+    "glass_window",
+    "glass_window_2",
+    "steel_part",
+    "window",
+    "light_diffuser",
+    "window_2",
+    "glass_window_3",
+    "usb_c_port",
+    "metal_part",
+    "metal_part_2",
+    "button",
+    "button_2",
+    "button_3",
+    "button_4",
+    "glass_window_4",
+    "status_light"
+   ],
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 301.6,
+   "caption": "PC/ABS shell, product 150.8 \u00d7 119.2 \u00d7 124.0 mm (Measured), 2.0 mm wall (Estimate)"
+  },
+  {
+   "id": "battery",
+   "name": "Battery",
+   "order": 1,
+   "parts": [
+    "li_po_battery_1200_mah"
+   ],
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 197.2,
+   "caption": "1200 mAh Li-po at 3.7 V (sized at 400 Wh/L, Estimate) \u2014 battery life 6.7 h (Estimate)"
+  },
+  {
+   "id": "pcb",
+   "name": "Main board",
+   "order": 2,
+   "parts": [
+    "main_pcb",
+    "flash_assembly",
+    "odm_camera_main_pcb_assembly",
+    "camera_lens",
+    "physical_control_switches",
+    "switch_under_button_1",
+    "switch_under_button_2",
+    "switch_under_button_3",
+    "switch_under_button_4",
+    "image_sensor_lens_module",
+    "odm_camera_main_pcb_assembly_2"
+   ],
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 104.4,
+   "caption": "Main board: ODM camera main PCB assembly ($16.56 (Estimate)) \u2014 FR-4 board sized to the cavity (Estimate)"
+  },
+  {
+   "id": "shell_bottom",
+   "name": "Bottom shell",
+   "order": 3,
+   "parts": [
+    "lower_body"
+   ],
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 139.2,
+   "caption": "PC/ABS shell, 2.0 mm wall (Estimate)"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "title": "The camera",
+   "kicker": "01 \u00b7 The camera",
+   "caption": "Retro instant camera \u2014 150.8 \u00d7 119.2 \u00d7 124.0 mm (Measured), 7 electronic BOM lines laid out inside (illustrative internal layout, not a routed PCB)",
+   "camera": {
+    "position_mm": [
+     265.8,
+     226.6,
+     371.2
+    ],
+    "target_mm": [
+     0.0,
+     61.8,
+     12.4
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [],
+   "focus_parts": []
+  },
+  {
+   "id": "s2",
+   "title": "Top shell lifts",
+   "kicker": "02 \u00b7 Top shell lifts",
+   "caption": "PC/ABS shell, product 150.8 \u00d7 119.2 \u00d7 124.0 mm (Measured), 2.0 mm wall (Estimate)",
+   "camera": {
+    "position_mm": [
+     540.8,
+     549.1,
+     742.5
+    ],
+    "target_mm": [
+     0.0,
+     213.8,
+     12.4
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [
+    "shell_top"
+   ],
+   "focus_parts": [
+    "housing",
+    "rubber_part",
+    "dark_part"
+   ]
+  },
+  {
+   "id": "s3",
+   "title": "Inside the body",
+   "kicker": "03 \u00b7 Inside the body",
+   "caption": "Main board: ODM camera main PCB assembly ($16.56 (Estimate)) \u2014 FR-4 board sized to the cavity (Estimate)",
+   "camera": {
+    "position_mm": [
+     450.7,
+     493.2,
+     620.8
+    ],
+    "target_mm": [
+     0.0,
+     213.8,
+     12.4
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [
+    "shell_top",
+    "battery"
+   ],
+   "focus_parts": [
+    "main_pcb",
+    "flash_assembly",
+    "odm_camera_main_pcb_assembly",
+    "camera_lens"
+   ]
+  },
+  {
+   "id": "s4",
+   "title": "Key components",
+   "kicker": "04 \u00b7 Key components",
+   "caption": "Key components: ODM camera main PCB assembly ($16.56 (Estimate))",
+   "camera": {
+    "position_mm": [
+     429.7,
+     320.4,
+     580.1
+    ],
+    "target_mm": [
+     0.0,
+     54.0,
+     0.0
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [
+    "shell_top",
+    "battery"
+   ],
+   "focus_parts": [
+    "main_pcb",
+    "odm_camera_main_pcb_assembly",
+    "odm_camera_main_pcb_assembly_2"
+   ]
+  },
+  {
+   "id": "s5",
+   "title": "Power \u2014 1200 mAh Li-po",
+   "kicker": "05 \u00b7 Power \u2014 1200 mAh Li-po",
+   "caption": "1200 mAh Li-po at 3.7 V (sized at 400 Wh/L, Estimate) \u2014 battery life 6.7 h (Estimate)",
+   "camera": {
+    "position_mm": [
+     360.5,
+     236.5,
+     486.7
+    ],
+    "target_mm": [
+     0.0,
+     13.0,
+     0.0
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [
+    "shell_top",
+    "battery"
+   ],
+   "focus_parts": [
+    "li_po_battery_1200_mah"
+   ]
+  },
+  {
+   "id": "s6",
+   "title": "Back together",
+   "kicker": "06 \u00b7 Back together",
+   "caption": "Unit cost $65.74 at 2,000 units (Estimate), product mass 376.0 g (Estimate)",
+   "camera": {
+    "position_mm": [
+     -275.2,
+     213.1,
+     370.1
+    ],
+    "target_mm": [
+     0.0,
+     61.8,
+     12.4
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [],
+   "focus_parts": []
+  }
+ ],
+ "parts": [
+  {
+   "part_id": "housing",
+   "name": "Housing",
+   "role": "shell_top",
+   "layer_id": "shell_top",
+   "material": "PC/ABS (UL94 V-0)",
+   "finish": "Leatherette + satin",
+   "colour_hex": "#2B2D30",
+   "measured_bbox_mm": [
+    151.0,
+    116.0,
+    89.0
+   ],
+   "centroid_mm": [
+    0.0,
+    58.0,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "m6",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 0.0276,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: screw \u2248 USD 0.03 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "body_height",
+     "label": "Body height",
+     "min": 58.0,
+     "max": 232.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 116.0
+    },
+    {
+     "param": "corner_radius",
+     "label": "Corner radius",
+     "min": 6.5,
+     "max": 25.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 13.0
+    },
+    {
+     "param": "depth",
+     "label": "Depth",
+     "min": 45.0,
+     "max": 120.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 89.0
+    },
+    {
+     "param": "width",
+     "label": "Width",
+     "min": 76.0,
+     "max": 200.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 151.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ]
+  },
+  {
+   "part_id": "rubber_part",
+   "name": "Rubber part",
+   "role": "other",
+   "layer_id": "shell_top",
+   "material": "TPE rubber",
+   "finish": null,
+   "colour_hex": "#303032",
+   "measured_bbox_mm": [
+    151.8,
+    39.0,
+    89.8
+   ],
+   "centroid_mm": [
+    0.0,
+    27.5,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [
+    {
+     "param": "corner_radius",
+     "label": "Corner radius",
+     "min": 6.5,
+     "max": 25.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 13.0
+    },
+    {
+     "param": "depth",
+     "label": "Depth",
+     "min": 45.0,
+     "max": 120.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 89.0
+    },
+    {
+     "param": "width",
+     "label": "Width",
+     "min": 76.0,
+     "max": 200.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 151.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "lower_body",
+   "name": "Lower body",
+   "role": "shell_bottom",
+   "layer_id": "shell_bottom",
+   "material": "PC/ABS (UL94 V-0)",
+   "finish": "Leatherette + satin",
+   "colour_hex": "#404245",
+   "measured_bbox_mm": [
+    139.0,
+    65.0,
+    2.0
+   ],
+   "centroid_mm": [
+    0.0,
+    78.5,
+    45.35
+   ],
+   "label": "measured",
+   "bom_item_id": "m1",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 1.2238,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Top shell: Moulded shell 150\u00d795\u00d759 mm, wall 2 mm \u2248 68.9 cm\u00b3 \u00d7 1.15 g/cm\u00b3 = 79 g \u00d7 $3.2/kg + $1.08 moulding/finish conversion"
+   },
+   "editable": [
+    {
+     "param": "depth",
+     "label": "Depth",
+     "min": 45.0,
+     "max": 120.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 89.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ]
+  },
+  {
+   "part_id": "dark_part",
+   "name": "Dark part",
+   "role": "other",
+   "layer_id": "shell_top",
+   "material": "powder coat",
+   "finish": null,
+   "colour_hex": "#2E3033",
+   "measured_bbox_mm": [
+    139.0,
+    34.0,
+    2.3
+   ],
+   "centroid_mm": [
+    0.0,
+    24.0,
+    45.6
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [
+    {
+     "param": "depth",
+     "label": "Depth",
+     "min": 45.0,
+     "max": 120.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 89.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ]
+  },
+  {
+   "part_id": "lens",
+   "name": "Lens 1",
+   "role": "lens",
+   "layer_id": "shell_top",
+   "material": "powder coat",
+   "finish": null,
+   "colour_hex": "#2E3033",
+   "measured_bbox_mm": [
+    67.96,
+    67.98,
+    5.0
+   ],
+   "centroid_mm": [
+    0.02,
+    72.0,
+    47.5
+   ],
+   "label": "measured",
+   "bom_item_id": "e2",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 7.36,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: camera module (sensor + lens) \u2248 USD 8 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "lens_height",
+     "label": "Lens height",
+     "min": 36.0,
+     "max": 144.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 72.0
+    },
+    {
+     "param": "depth",
+     "label": "Depth",
+     "min": 45.0,
+     "max": 120.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 89.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "glass",
+    "clear_pc"
+   ]
+  },
+  {
+   "part_id": "lens_2",
+   "name": "Lens 2",
+   "role": "lens",
+   "layer_id": "shell_top",
+   "material": "anodised aluminium",
+   "finish": null,
+   "colour_hex": "#E7E8EB",
+   "measured_bbox_mm": [
+    56.96,
+    56.98,
+    24.0
+   ],
+   "centroid_mm": [
+    0.02,
+    72.0,
+    56.5
+   ],
+   "label": "measured",
+   "bom_item_id": "e2",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 7.36,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: camera module (sensor + lens) \u2248 USD 8 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "lens_height",
+     "label": "Lens height",
+     "min": 36.0,
+     "max": 144.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 72.0
+    },
+    {
+     "param": "lens_length",
+     "label": "Lens length",
+     "min": 12.0,
+     "max": 48.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 24.0
+    },
+    {
+     "param": "depth",
+     "label": "Depth",
+     "min": 45.0,
+     "max": 120.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 89.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "glass",
+    "clear_pc"
+   ]
+  },
+  {
+   "part_id": "lens_3",
+   "name": "Lens 3",
+   "role": "lens",
+   "layer_id": "shell_top",
+   "material": "powder coat",
+   "finish": null,
+   "colour_hex": "#2E3033",
+   "measured_bbox_mm": [
+    58.96,
+    58.98,
+    3.5
+   ],
+   "centroid_mm": [
+    0.02,
+    72.0,
+    67.1
+   ],
+   "label": "measured",
+   "bom_item_id": "e2",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 7.36,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: camera module (sensor + lens) \u2248 USD 8 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "lens_height",
+     "label": "Lens height",
+     "min": 36.0,
+     "max": 144.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 72.0
+    },
+    {
+     "param": "lens_length",
+     "label": "Lens length",
+     "min": 12.0,
+     "max": 48.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 24.0
+    },
+    {
+     "param": "depth",
+     "label": "Depth",
+     "min": 45.0,
+     "max": 120.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 89.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "glass",
+    "clear_pc"
+   ]
+  },
+  {
+   "part_id": "lens_4",
+   "name": "Lens 4",
+   "role": "lens",
+   "layer_id": "shell_top",
+   "material": "anodised aluminium",
+   "finish": null,
+   "colour_hex": "#E7E8EB",
+   "measured_bbox_mm": [
+    50.37,
+    50.38,
+    1.5
+   ],
+   "centroid_mm": [
+    0.02,
+    72.0,
+    69.2
+   ],
+   "label": "measured",
+   "bom_item_id": "e2",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 7.36,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: camera module (sensor + lens) \u2248 USD 8 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "lens_height",
+     "label": "Lens height",
+     "min": 36.0,
+     "max": 144.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 72.0
+    },
+    {
+     "param": "lens_length",
+     "label": "Lens length",
+     "min": 12.0,
+     "max": 48.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 24.0
+    },
+    {
+     "param": "depth",
+     "label": "Depth",
+     "min": 45.0,
+     "max": 120.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 89.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "glass",
+    "clear_pc"
+   ]
+  },
+  {
+   "part_id": "glass_window",
+   "name": "Glass window 1",
+   "role": "window",
+   "layer_id": "shell_top",
+   "material": "dark glass / display",
+   "finish": null,
+   "colour_hex": "#191D22",
+   "measured_bbox_mm": [
+    42.77,
+    42.79,
+    1.1
+   ],
+   "centroid_mm": [
+    0.01,
+    72.0,
+    70.1
+   ],
+   "label": "measured",
+   "bom_item_id": "m3",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 1.104,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: small moulded trim part \u2248 USD 1.2 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "depth",
+     "label": "Depth",
+     "min": 45.0,
+     "max": 120.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 89.0
+    },
+    {
+     "param": "lens_height",
+     "label": "Lens height",
+     "min": 36.0,
+     "max": 144.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 72.0
+    },
+    {
+     "param": "lens_length",
+     "label": "Lens length",
+     "min": 12.0,
+     "max": 48.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 24.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "glass",
+    "clear_pc"
+   ]
+  },
+  {
+   "part_id": "glass_window_2",
+   "name": "Glass window 2",
+   "role": "window",
+   "layer_id": "shell_top",
+   "material": "dark glass / display",
+   "finish": null,
+   "colour_hex": "#191D22",
+   "measured_bbox_mm": [
+    17.99,
+    17.99,
+    0.5
+   ],
+   "centroid_mm": [
+    0.01,
+    72.0,
+    70.75
+   ],
+   "label": "measured",
+   "bom_item_id": "m4",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 0.46,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Placeholder USD 0.50: no price in the BOM and no geometry"
+   },
+   "editable": [
+    {
+     "param": "depth",
+     "label": "Depth",
+     "min": 45.0,
+     "max": 120.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 89.0
+    },
+    {
+     "param": "lens_height",
+     "label": "Lens height",
+     "min": 36.0,
+     "max": 144.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 72.0
+    },
+    {
+     "param": "lens_length",
+     "label": "Lens length",
+     "min": 12.0,
+     "max": 48.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 24.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "glass",
+    "clear_pc"
+   ]
+  },
+  {
+   "part_id": "steel_part",
+   "name": "Steel part",
+   "role": "frame",
+   "layer_id": "shell_top",
+   "material": "stainless steel 304",
+   "finish": null,
+   "colour_hex": "#EFEFF0",
+   "measured_bbox_mm": [
+    48.07,
+    48.09,
+    1.7
+   ],
+   "centroid_mm": [
+    0.01,
+    72.0,
+    69.4
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [
+    {
+     "param": "depth",
+     "label": "Depth",
+     "min": 45.0,
+     "max": 120.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 89.0
+    },
+    {
+     "param": "lens_height",
+     "label": "Lens height",
+     "min": 36.0,
+     "max": 144.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 72.0
+    },
+    {
+     "param": "lens_length",
+     "label": "Lens length",
+     "min": 12.0,
+     "max": 48.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 24.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ]
+  },
+  {
+   "part_id": "window",
+   "name": "Window 1",
+   "role": "window",
+   "layer_id": "shell_top",
+   "material": "powder coat",
+   "finish": null,
+   "colour_hex": "#2E3033",
+   "measured_bbox_mm": [
+    30.0,
+    18.0,
+    3.0
+   ],
+   "centroid_mm": [
+    -49.0,
+    100.0,
+    46.7
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [
+    {
+     "param": "depth",
+     "label": "Depth",
+     "min": 45.0,
+     "max": 120.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 89.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "glass",
+    "clear_pc"
+   ]
+  },
+  {
+   "part_id": "light_diffuser",
+   "name": "Light diffuser",
+   "role": "diffuser",
+   "layer_id": "shell_top",
+   "material": "frosted PC diffuser (lit)",
+   "finish": null,
+   "colour_hex": "#F7F6F3",
+   "measured_bbox_mm": [
+    25.0,
+    13.0,
+    1.2
+   ],
+   "centroid_mm": [
+    -49.0,
+    100.0,
+    48.55
+   ],
+   "label": "measured",
+   "bom_item_id": "m5",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 0.92,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: internal brackets / seals \u2248 USD 1 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "depth",
+     "label": "Depth",
+     "min": 45.0,
+     "max": 120.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 89.0
+    },
+    {
+     "param": "flash_width",
+     "label": "Flash width",
+     "min": 12.5,
+     "max": 50.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 25.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "window_2",
+   "name": "Window 2",
+   "role": "window",
+   "layer_id": "shell_top",
+   "material": "powder coat",
+   "finish": null,
+   "colour_hex": "#2E3033",
+   "measured_bbox_mm": [
+    23.0,
+    19.0,
+    3.0
+   ],
+   "centroid_mm": [
+    51.0,
+    99.0,
+    46.7
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [
+    {
+     "param": "depth",
+     "label": "Depth",
+     "min": 45.0,
+     "max": 120.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 89.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "glass",
+    "clear_pc"
+   ]
+  },
+  {
+   "part_id": "glass_window_3",
+   "name": "Glass window 3",
+   "role": "window",
+   "layer_id": "shell_top",
+   "material": "dark glass / display",
+   "finish": null,
+   "colour_hex": "#191D22",
+   "measured_bbox_mm": [
+    17.0,
+    12.0,
+    1.2
+   ],
+   "centroid_mm": [
+    51.0,
+    99.0,
+    48.55
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [
+    {
+     "param": "depth",
+     "label": "Depth",
+     "min": 45.0,
+     "max": 120.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 89.0
+    },
+    {
+     "param": "viewfinder_width",
+     "label": "Viewfinder width",
+     "min": 8.5,
+     "max": 34.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 17.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "glass",
+    "clear_pc"
+   ]
+  },
+  {
+   "part_id": "usb_c_port",
+   "name": "USB-C port",
+   "role": "connector",
+   "layer_id": "shell_top",
+   "material": "USB-C port",
+   "finish": null,
+   "colour_hex": "#212122",
+   "measured_bbox_mm": [
+    108.0,
+    3.2,
+    1.1
+   ],
+   "centroid_mm": [
+    0.0,
+    26.0,
+    47.15
+   ],
+   "label": "measured",
+   "bom_item_id": "e3",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 11.04,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: instant-film ejector / exposure mechanism \u2248 USD 12 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "depth",
+     "label": "Depth",
+     "min": 45.0,
+     "max": 120.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 89.0
+    },
+    {
+     "param": "film_slot_height",
+     "label": "Film slot height",
+     "min": 1.6,
+     "max": 6.4,
+     "step": 0.1,
+     "unit": "mm",
+     "value": 3.2
+    },
+    {
+     "param": "film_slot_width",
+     "label": "Film slot width",
+     "min": 54.0,
+     "max": 216.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 108.0
+    }
+   ],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "metal_part",
+   "name": "Metal part 1",
+   "role": "frame",
+   "layer_id": "shell_top",
+   "material": "anodised aluminium",
+   "finish": null,
+   "colour_hex": "#E7E8EB",
+   "measured_bbox_mm": [
+    113.0,
+    1.4,
+    1.5
+   ],
+   "centroid_mm": [
+    0.0,
+    29.0,
+    47.8
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [
+    {
+     "param": "depth",
+     "label": "Depth",
+     "min": 45.0,
+     "max": 120.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 89.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ]
+  },
+  {
+   "part_id": "metal_part_2",
+   "name": "Metal part 2",
+   "role": "frame",
+   "layer_id": "shell_top",
+   "material": "anodised aluminium",
+   "finish": null,
+   "colour_hex": "#E7E8EB",
+   "measured_bbox_mm": [
+    113.0,
+    1.4,
+    1.5
+   ],
+   "centroid_mm": [
+    0.0,
+    23.0,
+    47.8
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [
+    {
+     "param": "depth",
+     "label": "Depth",
+     "min": 45.0,
+     "max": 120.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 89.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ]
+  },
+  {
+   "part_id": "button",
+   "name": "Button 1",
+   "role": "button",
+   "layer_id": "shell_top",
+   "material": "PC/ABS (UL94 V-0)",
+   "finish": "Leatherette + satin",
+   "colour_hex": "#292A2D",
+   "measured_bbox_mm": [
+    9.0,
+    5.0,
+    2.0
+   ],
+   "centroid_mm": [
+    59.0,
+    12.0,
+    47.3
+   ],
+   "label": "measured",
+   "bom_item_id": "e6",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 1.656,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: PCB bare board + assembly \u2248 USD 1.8 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "depth",
+     "label": "Depth",
+     "min": 45.0,
+     "max": 120.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 89.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "button_2",
+   "name": "Button 2",
+   "role": "button",
+   "layer_id": "shell_top",
+   "material": "PC/ABS (UL94 V-0)",
+   "finish": "Leatherette + satin",
+   "colour_hex": "#292A2D",
+   "measured_bbox_mm": [
+    11.99,
+    5.0,
+    12.0
+   ],
+   "centroid_mm": [
+    51.0,
+    118.5,
+    19.0
+   ],
+   "label": "measured",
+   "bom_item_id": "e6",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 1.656,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: PCB bare board + assembly \u2248 USD 1.8 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "body_height",
+     "label": "Body height",
+     "min": 58.0,
+     "max": 232.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 116.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "button_3",
+   "name": "Button 3",
+   "role": "button",
+   "layer_id": "shell_top",
+   "material": "anodised aluminium",
+   "finish": null,
+   "colour_hex": "#E7E8EB",
+   "measured_bbox_mm": [
+    19.99,
+    7.0,
+    19.99
+   ],
+   "centroid_mm": [
+    -41.99,
+    119.5,
+    -13.0
+   ],
+   "label": "measured",
+   "bom_item_id": "e6",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 1.656,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: PCB bare board + assembly \u2248 USD 1.8 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "body_height",
+     "label": "Body height",
+     "min": 58.0,
+     "max": 232.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 116.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "button_4",
+   "name": "Button 4",
+   "role": "button",
+   "layer_id": "shell_top",
+   "material": "powder coat",
+   "finish": null,
+   "colour_hex": "#2E3033",
+   "measured_bbox_mm": [
+    13.99,
+    1.0,
+    14.0
+   ],
+   "centroid_mm": [
+    -42.0,
+    123.0,
+    -13.0
+   ],
+   "label": "measured",
+   "bom_item_id": "e6",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 1.656,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: PCB bare board + assembly \u2248 USD 1.8 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "body_height",
+     "label": "Body height",
+     "min": 58.0,
+     "max": 232.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 116.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "glass_window_4",
+   "name": "Glass window 4",
+   "role": "window",
+   "layer_id": "shell_top",
+   "material": "dark glass / display",
+   "finish": null,
+   "colour_hex": "#191D22",
+   "measured_bbox_mm": [
+    18.0,
+    13.0,
+    2.0
+   ],
+   "centroid_mm": [
+    51.0,
+    99.0,
+    -45.3
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [
+    {
+     "param": "depth",
+     "label": "Depth",
+     "min": 45.0,
+     "max": 120.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 89.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "glass",
+    "clear_pc"
+   ]
+  },
+  {
+   "part_id": "status_light",
+   "name": "Status light",
+   "role": "diffuser",
+   "layer_id": "shell_top",
+   "material": "status light pipe",
+   "finish": null,
+   "colour_hex": "#7CDAF3",
+   "measured_bbox_mm": [
+    4.0,
+    4.0,
+    1.5
+   ],
+   "centroid_mm": [
+    -48.0,
+    90.0,
+    -45.2
+   ],
+   "label": "measured",
+   "bom_item_id": "m5",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 0.92,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: internal brackets / seals \u2248 USD 1 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "depth",
+     "label": "Depth",
+     "min": 45.0,
+     "max": 120.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 89.0
+    }
+   ],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "main_pcb",
+   "name": "Main PCB",
+   "role": "pcb",
+   "layer_id": "pcb",
+   "material": "FR-4, matte black solder mask",
+   "finish": null,
+   "colour_hex": "#17191C",
+   "measured_bbox_mm": [
+    132.3,
+    1.6,
+    76.5
+   ],
+   "centroid_mm": [
+    0.0,
+    3.2,
+    0.0
+   ],
+   "label": "estimate",
+   "bom_item_id": "e1",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 16.56,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: camera ODM main board (ISP + MCU) \u2248 USD 18 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "flash_assembly",
+   "name": "Flash assembly",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "Module (shield can)",
+   "finish": null,
+   "colour_hex": "#B9BDC2",
+   "measured_bbox_mm": [
+    20.0,
+    6.0,
+    10.0
+   ],
+   "centroid_mm": [
+    -55.15,
+    7.0,
+    -32.25
+   ],
+   "label": "estimate",
+   "bom_item_id": "e4",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 0.276,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "No match in LCSC snapshot 2026-09-26. Placeholder estimate: USD 0.30 per unit for an electronic line without catalogue match"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "odm_camera_main_pcb_assembly",
+   "name": "ODM camera main PCB assembly",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "Lens module (glass + barrel)",
+   "finish": null,
+   "colour_hex": "#101215",
+   "measured_bbox_mm": [
+    12.0,
+    8.0,
+    12.0
+   ],
+   "centroid_mm": [
+    -38.35,
+    8.0,
+    -31.25
+   ],
+   "label": "estimate",
+   "bom_item_id": "e1",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 16.56,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: camera ODM main board (ISP + MCU) \u2248 USD 18 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "camera_lens",
+   "name": "Camera lens",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "Lens module (glass + barrel)",
+   "finish": null,
+   "colour_hex": "#101215",
+   "measured_bbox_mm": [
+    12.0,
+    8.0,
+    12.0
+   ],
+   "centroid_mm": [
+    -25.55,
+    8.0,
+    -31.25
+   ],
+   "label": "estimate",
+   "bom_item_id": "e2",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 7.36,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: camera module (sensor + lens) \u2248 USD 8 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "physical_control_switches",
+   "name": "Physical control switches",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "Switch (steel + POM)",
+   "finish": null,
+   "colour_hex": "#8D9095",
+   "measured_bbox_mm": [
+    6.0,
+    3.5,
+    6.0
+   ],
+   "centroid_mm": [
+    -15.75,
+    5.75,
+    -34.25
+   ],
+   "label": "estimate",
+   "bom_item_id": "e6",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 1.656,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: PCB bare board + assembly \u2248 USD 1.8 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "li_po_battery_1200_mah",
+   "name": "Li-po battery 1200 mAh",
+   "role": "battery",
+   "layer_id": "battery",
+   "material": "Li-po pouch (aluminium laminate)",
+   "finish": null,
+   "colour_hex": "#C3C7CC",
+   "measured_bbox_mm": [
+    120.54,
+    1.32,
+    69.7
+   ],
+   "centroid_mm": [
+    0.0,
+    12.96,
+    0.0
+   ],
+   "label": "estimate",
+   "bom_item_id": "e5",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 4.2228,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Battery priced by energy: 2000 mAh \u00d7 3.7 V = 7.4 Wh (generic pack) \u00d7 $0.35/Wh + pack overhead"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "switch_under_button_1",
+   "name": "Switch under button 1",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "Switch (steel + POM)",
+   "finish": null,
+   "colour_hex": "#8D9095",
+   "measured_bbox_mm": [
+    4.0,
+    2.5,
+    4.0
+   ],
+   "centroid_mm": [
+    59.0,
+    8.2,
+    47.3
+   ],
+   "label": "estimate",
+   "bom_item_id": "e6",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 1.656,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: PCB bare board + assembly \u2248 USD 1.8 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "switch_under_button_2",
+   "name": "Switch under button 2",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "Switch (steel + POM)",
+   "finish": null,
+   "colour_hex": "#8D9095",
+   "measured_bbox_mm": [
+    4.0,
+    2.5,
+    4.0
+   ],
+   "centroid_mm": [
+    51.0,
+    112.7,
+    19.0
+   ],
+   "label": "estimate",
+   "bom_item_id": "e6",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 1.656,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: PCB bare board + assembly \u2248 USD 1.8 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "switch_under_button_3",
+   "name": "Switch under button 3",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "Switch (steel + POM)",
+   "finish": null,
+   "colour_hex": "#8D9095",
+   "measured_bbox_mm": [
+    4.0,
+    2.5,
+    4.0
+   ],
+   "centroid_mm": [
+    -41.99,
+    112.7,
+    -13.0
+   ],
+   "label": "estimate",
+   "bom_item_id": "e6",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 1.656,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: PCB bare board + assembly \u2248 USD 1.8 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "switch_under_button_4",
+   "name": "Switch under button 4",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "Switch (steel + POM)",
+   "finish": null,
+   "colour_hex": "#8D9095",
+   "measured_bbox_mm": [
+    4.0,
+    2.5,
+    4.0
+   ],
+   "centroid_mm": [
+    -42.0,
+    112.7,
+    -13.0
+   ],
+   "label": "estimate",
+   "bom_item_id": "e6",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 1.656,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: PCB bare board + assembly \u2248 USD 1.8 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "image_sensor_lens_module",
+   "name": "Image sensor + lens module",
+   "role": "lens",
+   "layer_id": "pcb",
+   "material": "Lens module (glass + barrel)",
+   "finish": null,
+   "colour_hex": "#101215",
+   "measured_bbox_mm": [
+    12.0,
+    12.0,
+    8.0
+   ],
+   "centroid_mm": [
+    0.02,
+    72.0,
+    50.5
+   ],
+   "label": "estimate",
+   "bom_item_id": "e2",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 7.36,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: camera module (sensor + lens) \u2248 USD 8 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "odm_camera_main_pcb_assembly_2",
+   "name": "ODM camera main PCB assembly",
+   "role": "component",
+   "layer_id": "pcb",
+   "material": "Module (shield can)",
+   "finish": null,
+   "colour_hex": "#B9BDC2",
+   "measured_bbox_mm": [
+    88.2,
+    28.0,
+    25.5
+   ],
+   "centroid_mm": [
+    0.0,
+    91.6,
+    0.0
+   ],
+   "label": "estimate",
+   "bom_item_id": "e1",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 16.56,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: camera ODM main board (ISP + MCU) \u2248 USD 18 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  }
+ ]
+}

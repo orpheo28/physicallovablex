@@ -427,7 +427,7 @@
    "format": "glb",
    "url": "/files/demo_hair_dryer/model_v1.glb",
    "description": "AI-generated CAD (concept level) — geometry measured on the result — bbox 202 × 64 × 175 mm",
-   "size_bytes": 326676
+   "size_bytes": 288056
   },
   {
    "format": "step",
@@ -445,7 +445,7 @@
    "format": "glb",
    "url": "/files/demo_hair_dryer/v1.glb",
    "description": "Full product — materials",
-   "size_bytes": 192364
+   "size_bytes": 303916
   },
   {
    "format": "step",
@@ -463,7 +463,7 @@
    "format": "glb",
    "url": "/files/demo_hair_dryer/v1_enclosure.glb",
    "description": "Moulded parts (DFM) — viewer model",
-   "size_bytes": 604296
+   "size_bytes": 416340
   },
   {
    "format": "step",

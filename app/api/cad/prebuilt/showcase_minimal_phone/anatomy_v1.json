@@ -1,0 +1,1754 @@
+{
+ "_v": "a4",
+ "version": 1,
+ "glb_url": "/files/demo_minimal_phone/anatomy_v1.glb",
+ "label": "Illustrative internal layout \u2014 not a routed PCB",
+ "kind": "electronics",
+ "bbox_mm": [
+  66.0,
+  11.11,
+  131.07
+ ],
+ "layers": [
+  {
+   "id": "glass",
+   "name": "Cover glass",
+   "order": 0,
+   "parts": [
+    "glass_window",
+    "window",
+    "glass_window_4"
+   ],
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 48.0,
+   "caption": "Front cover glass"
+  },
+  {
+   "id": "display",
+   "name": "Display",
+   "order": 1,
+   "parts": [
+    "display"
+   ],
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 36.0,
+   "caption": "Display ($29.44 (Estimate))"
+  },
+  {
+   "id": "mainboard",
+   "name": "Mainboard",
+   "order": 2,
+   "parts": [
+    "smartphone_odm_mainboard_assembly",
+    "soc_memory_shielded",
+    "antenna_1",
+    "antenna_2",
+    "usb_c_receptacle"
+   ],
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 20.0,
+   "caption": "Smartphone ODM mainboard assembly ($78.20 (Estimate)) + Cellular ($1.38 (Estimate))"
+  },
+  {
+   "id": "battery",
+   "name": "Battery",
+   "order": 3,
+   "parts": [
+    "li_ion_battery_4000_mah"
+   ],
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 12.0,
+   "caption": "4000 mAh Li-po at 3.7 V (sized at 400 Wh/L, Estimate) \u2014 battery life 41.0 h (Estimate)"
+  },
+  {
+   "id": "cameras",
+   "name": "Cameras",
+   "order": 4,
+   "parts": [
+    "front"
+   ],
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 12.0,
+   "caption": "Front ($7.36 (Estimate))"
+  },
+  {
+   "id": "frame",
+   "name": "Frame + back",
+   "order": 5,
+   "parts": [
+    "frame",
+    "glass_window_2",
+    "camera",
+    "glass_window_3",
+    "light_diffuser",
+    "button",
+    "button_2",
+    "usb_c_port",
+    "bottom_shells",
+    "light_diffusers",
+    "light_diffusers_2",
+    "lower_bodies",
+    "light_diffuser_2",
+    "light_diffuser_3",
+    "light_diffuser_4",
+    "light_diffuser_5",
+    "dark_part"
+   ],
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 4.0,
+   "caption": "Aluminium 6063 frame, cover glass shell, product 65.1 \u00d7 131.2 \u00d7 11.4 mm (Measured), 1.2 mm wall (Estimate)"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "title": "The phone",
+   "kicker": "01 \u00b7 The phone",
+   "caption": "Minimalist smartphone \u2014 65.1 \u00d7 131.2 \u00d7 11.4 mm (Measured), 9 electronic BOM lines laid out inside (illustrative internal layout, not a routed PCB)",
+   "camera": {
+    "position_mm": [
+     144.0,
+     212.8,
+     175.4
+    ],
+    "target_mm": [
+     0.5,
+     5.6,
+     0.0
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [],
+   "focus_parts": []
+  },
+  {
+   "id": "s2",
+   "title": "Cover glass",
+   "kicker": "02 \u00b7 Cover glass",
+   "caption": "Front cover glass",
+   "camera": {
+    "position_mm": [
+     154.7,
+     252.3,
+     188.5
+    ],
+    "target_mm": [
+     0.5,
+     29.5,
+     0.0
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [
+    "glass"
+   ],
+   "focus_parts": [
+    "glass_window",
+    "window",
+    "glass_window_4"
+   ]
+  },
+  {
+   "id": "s3",
+   "title": "Display",
+   "kicker": "03 \u00b7 Display",
+   "caption": "Display ($29.44 (Estimate))",
+   "camera": {
+    "position_mm": [
+     154.7,
+     252.3,
+     188.5
+    ],
+    "target_mm": [
+     0.5,
+     29.5,
+     0.0
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [
+    "glass",
+    "display"
+   ],
+   "focus_parts": [
+    "display"
+   ]
+  },
+  {
+   "id": "s4",
+   "title": "Mainboard",
+   "kicker": "04 \u00b7 Mainboard",
+   "caption": "Smartphone ODM mainboard assembly ($78.20 (Estimate)) + Cellular ($1.38 (Estimate))",
+   "camera": {
+    "position_mm": [
+     154.7,
+     252.3,
+     188.5
+    ],
+    "target_mm": [
+     0.5,
+     29.5,
+     0.0
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [
+    "glass",
+    "display",
+    "mainboard"
+   ],
+   "focus_parts": [
+    "smartphone_odm_mainboard_assembly",
+    "soc_memory_shielded",
+    "antenna_1",
+    "antenna_2",
+    "usb_c_receptacle"
+   ]
+  },
+  {
+   "id": "s5",
+   "title": "Battery",
+   "kicker": "05 \u00b7 Battery",
+   "caption": "4000 mAh Li-po at 3.7 V (sized at 400 Wh/L, Estimate) \u2014 battery life 41.0 h (Estimate)",
+   "camera": {
+    "position_mm": [
+     154.7,
+     252.3,
+     188.5
+    ],
+    "target_mm": [
+     0.5,
+     29.5,
+     0.0
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [
+    "glass",
+    "display",
+    "mainboard",
+    "battery"
+   ],
+   "focus_parts": [
+    "li_ion_battery_4000_mah"
+   ]
+  },
+  {
+   "id": "s6",
+   "title": "Cameras",
+   "kicker": "06 \u00b7 Cameras",
+   "caption": "Front ($7.36 (Estimate))",
+   "camera": {
+    "position_mm": [
+     158.6,
+     252.9,
+     193.2
+    ],
+    "target_mm": [
+     0.5,
+     24.6,
+     0.0
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [
+    "glass",
+    "display",
+    "mainboard",
+    "battery",
+    "cameras"
+   ],
+   "focus_parts": [
+    "front"
+   ]
+  },
+  {
+   "id": "s7",
+   "title": "Back together",
+   "kicker": "07 \u00b7 Back together",
+   "caption": "Unit cost $183.90 at 2,000 units (Estimate), product mass 145.0 g (Estimate)",
+   "camera": {
+    "position_mm": [
+     -143.0,
+     212.8,
+     175.4
+    ],
+    "target_mm": [
+     0.5,
+     5.6,
+     0.0
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [],
+   "focus_parts": []
+  }
+ ],
+ "parts": [
+  {
+   "part_id": "frame",
+   "name": "Frame",
+   "role": "frame",
+   "layer_id": "frame",
+   "material": "anodised aluminium",
+   "finish": null,
+   "colour_hex": "#E7E8EB",
+   "measured_bbox_mm": [
+    65.0,
+    8.4,
+    131.0
+   ],
+   "centroid_mm": [
+    0.0,
+    6.1,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [
+    {
+     "param": "bump_height",
+     "label": "Bump height",
+     "min": 1.0,
+     "max": 3.7,
+     "step": 0.1,
+     "unit": "mm",
+     "value": 1.9
+    },
+    {
+     "param": "corner_radius",
+     "label": "Corner radius",
+     "min": 4.5,
+     "max": 16.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 9.0
+    },
+    {
+     "param": "glass_thickness",
+     "label": "Glass thickness",
+     "min": 0.4,
+     "max": 1.3,
+     "step": 0.1,
+     "unit": "mm",
+     "value": 0.7
+    },
+    {
+     "param": "length",
+     "label": "Length",
+     "min": 110.0,
+     "max": 180.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 131.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ]
+  },
+  {
+   "part_id": "glass_window",
+   "name": "Glass window 1",
+   "role": "window",
+   "layer_id": "glass",
+   "material": "dark glass / display",
+   "finish": null,
+   "colour_hex": "#191D22",
+   "measured_bbox_mm": [
+    64.3,
+    0.7,
+    130.3
+   ],
+   "centroid_mm": [
+    0.0,
+    10.65,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "m3",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 4.14,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: cover glass \u2248 USD 4.5 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "glass_thickness",
+     "label": "Glass thickness",
+     "min": 0.4,
+     "max": 1.3,
+     "step": 0.1,
+     "unit": "mm",
+     "value": 0.7
+    },
+    {
+     "param": "bump_height",
+     "label": "Bump height",
+     "min": 1.0,
+     "max": 3.7,
+     "step": 0.1,
+     "unit": "mm",
+     "value": 1.9
+    },
+    {
+     "param": "corner_radius",
+     "label": "Corner radius",
+     "min": 4.5,
+     "max": 16.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 9.0
+    },
+    {
+     "param": "length",
+     "label": "Length",
+     "min": 110.0,
+     "max": 180.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 131.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "glass",
+    "clear_pc"
+   ]
+  },
+  {
+   "part_id": "window",
+   "name": "Window",
+   "role": "window",
+   "layer_id": "glass",
+   "material": "powder coat",
+   "finish": null,
+   "colour_hex": "#2E3033",
+   "measured_bbox_mm": [
+    60.0,
+    0.04,
+    125.0
+   ],
+   "centroid_mm": [
+    0.0,
+    11.03,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "e2",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 29.44,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: 6-inch-class display + touch module \u2248 USD 32 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "bump_height",
+     "label": "Bump height",
+     "min": 1.0,
+     "max": 3.7,
+     "step": 0.1,
+     "unit": "mm",
+     "value": 1.9
+    },
+    {
+     "param": "corner_radius",
+     "label": "Corner radius",
+     "min": 4.5,
+     "max": 16.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 9.0
+    },
+    {
+     "param": "length",
+     "label": "Length",
+     "min": 110.0,
+     "max": 180.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 131.0
+    },
+    {
+     "param": "thickness",
+     "label": "Thickness",
+     "min": 6.0,
+     "max": 14.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 9.1
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "glass",
+    "clear_pc"
+   ]
+  },
+  {
+   "part_id": "glass_window_2",
+   "name": "Glass window 2",
+   "role": "window",
+   "layer_id": "frame",
+   "material": "dark glass / display",
+   "finish": null,
+   "colour_hex": "#191D22",
+   "measured_bbox_mm": [
+    22.0,
+    1.9,
+    22.0
+   ],
+   "centroid_mm": [
+    -16.5,
+    0.95,
+    -49.5
+   ],
+   "label": "measured",
+   "bom_item_id": "m3",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 4.14,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: cover glass \u2248 USD 4.5 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "bump_height",
+     "label": "Bump height",
+     "min": 1.0,
+     "max": 3.7,
+     "step": 0.1,
+     "unit": "mm",
+     "value": 1.9
+    },
+    {
+     "param": "length",
+     "label": "Length",
+     "min": 110.0,
+     "max": 180.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 131.0
+    },
+    {
+     "param": "width",
+     "label": "Width",
+     "min": 55.0,
+     "max": 90.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 65.0
+    },
+    {
+     "param": "camera_island",
+     "label": "Camera island",
+     "min": 11.0,
+     "max": 44.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 22.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "glass",
+    "clear_pc"
+   ]
+  },
+  {
+   "part_id": "camera",
+   "name": "Camera",
+   "role": "component",
+   "layer_id": "frame",
+   "material": "anodised aluminium",
+   "finish": null,
+   "colour_hex": "#E7E8EB",
+   "measured_bbox_mm": [
+    11.59,
+    0.45,
+    11.6
+   ],
+   "centroid_mm": [
+    -18.9,
+    0.24,
+    -51.9
+   ],
+   "label": "measured",
+   "bom_item_id": "e4",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 7.36,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: camera module (sensor + lens) \u2248 USD 8 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "camera_island",
+     "label": "Camera island",
+     "min": 11.0,
+     "max": 44.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 22.0
+    },
+    {
+     "param": "length",
+     "label": "Length",
+     "min": 110.0,
+     "max": 180.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 131.0
+    },
+    {
+     "param": "lens_radius",
+     "label": "Lens radius",
+     "min": 3.0,
+     "max": 11.5,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 5.8
+    },
+    {
+     "param": "width",
+     "label": "Width",
+     "min": 55.0,
+     "max": 90.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 65.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "glass_window_3",
+   "name": "Glass window 3",
+   "role": "window",
+   "layer_id": "frame",
+   "material": "dark glass / display",
+   "finish": null,
+   "colour_hex": "#191D22",
+   "measured_bbox_mm": [
+    9.19,
+    0.25,
+    9.2
+   ],
+   "centroid_mm": [
+    -18.9,
+    0.16,
+    -51.9
+   ],
+   "label": "measured",
+   "bom_item_id": "m3",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 4.14,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: cover glass \u2248 USD 4.5 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "length",
+     "label": "Length",
+     "min": 110.0,
+     "max": 180.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 131.0
+    },
+    {
+     "param": "lens_radius",
+     "label": "Lens radius",
+     "min": 3.0,
+     "max": 11.5,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 5.8
+    },
+    {
+     "param": "width",
+     "label": "Width",
+     "min": 55.0,
+     "max": 90.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 65.0
+    },
+    {
+     "param": "camera_island",
+     "label": "Camera island",
+     "min": 11.0,
+     "max": 44.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 22.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "glass",
+    "clear_pc"
+   ]
+  },
+  {
+   "part_id": "light_diffuser",
+   "name": "Light diffuser 1",
+   "role": "diffuser",
+   "layer_id": "frame",
+   "material": "frosted PC diffuser (lit)",
+   "finish": null,
+   "colour_hex": "#F7F6F3",
+   "measured_bbox_mm": [
+    2.9,
+    0.32,
+    2.9
+   ],
+   "centroid_mm": [
+    -10.6,
+    0.18,
+    -43.5
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [
+    {
+     "param": "length",
+     "label": "Length",
+     "min": 110.0,
+     "max": 180.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 131.0
+    },
+    {
+     "param": "width",
+     "label": "Width",
+     "min": 55.0,
+     "max": 90.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 65.0
+    },
+    {
+     "param": "camera_island",
+     "label": "Camera island",
+     "min": 11.0,
+     "max": 44.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 22.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "button",
+   "name": "Button 1",
+   "role": "button",
+   "layer_id": "frame",
+   "material": "Aluminium 6063-T5 (anodised)",
+   "finish": "Bead-blasted anodised",
+   "colour_hex": "#767679",
+   "measured_bbox_mm": [
+    1.25,
+    2.0,
+    19.0
+   ],
+   "centroid_mm": [
+    32.88,
+    6.1,
+    -24.0
+   ],
+   "label": "measured",
+   "bom_item_id": "e8",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 1.104,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: flex assembly \u2248 USD 1.2 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "bump_height",
+     "label": "Bump height",
+     "min": 1.0,
+     "max": 3.7,
+     "step": 0.1,
+     "unit": "mm",
+     "value": 1.9
+    },
+    {
+     "param": "width",
+     "label": "Width",
+     "min": 55.0,
+     "max": 90.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 65.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "button_2",
+   "name": "Button 2",
+   "role": "button",
+   "layer_id": "frame",
+   "material": "Aluminium 6063-T5 (anodised)",
+   "finish": "Bead-blasted anodised",
+   "colour_hex": "#767679",
+   "measured_bbox_mm": [
+    1.25,
+    2.0,
+    10.0
+   ],
+   "centroid_mm": [
+    32.88,
+    6.1,
+    -2.0
+   ],
+   "label": "measured",
+   "bom_item_id": "e8",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 1.104,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: flex assembly \u2248 USD 1.2 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "bump_height",
+     "label": "Bump height",
+     "min": 1.0,
+     "max": 3.7,
+     "step": 0.1,
+     "unit": "mm",
+     "value": 1.9
+    },
+    {
+     "param": "width",
+     "label": "Width",
+     "min": 55.0,
+     "max": 90.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 65.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "usb_c_port",
+   "name": "USB-C port",
+   "role": "connector",
+   "layer_id": "frame",
+   "material": "USB-C port",
+   "finish": null,
+   "colour_hex": "#212122",
+   "measured_bbox_mm": [
+    9.0,
+    2.8,
+    0.45
+   ],
+   "centroid_mm": [
+    0.0,
+    6.0,
+    65.35
+   ],
+   "label": "measured",
+   "bom_item_id": "e3",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 4.2228,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Battery priced by energy: 2000 mAh \u00d7 3.7 V = 7.4 Wh (generic pack) \u00d7 $0.35/Wh + pack overhead"
+   },
+   "editable": [
+    {
+     "param": "bump_height",
+     "label": "Bump height",
+     "min": 1.0,
+     "max": 3.7,
+     "step": 0.1,
+     "unit": "mm",
+     "value": 1.9
+    },
+    {
+     "param": "length",
+     "label": "Length",
+     "min": 110.0,
+     "max": 180.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 131.0
+    }
+   ],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "bottom_shells",
+   "name": "Bottom shells",
+   "role": "shell_bottom",
+   "layer_id": "frame",
+   "material": "powder coat",
+   "finish": null,
+   "colour_hex": "#2E3033",
+   "measured_bbox_mm": [
+    13.35,
+    1.1,
+    0.35
+   ],
+   "centroid_mm": [
+    19.0,
+    6.0,
+    65.38
+   ],
+   "label": "measured",
+   "bom_item_id": "m2",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 6.3498,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Bottom shell: CNC from billet 131\u00d764\u00d74.4 mm = 37 cm\u00b3 \u00d7 2.7 g/cm\u00b3 = 100 g \u00d7 $3.5/kg + $6.55 machining/finish ($6 + $0.015/cm\u00b3 of billet, assumption)"
+   },
+   "editable": [
+    {
+     "param": "bump_height",
+     "label": "Bump height",
+     "min": 1.0,
+     "max": 3.7,
+     "step": 0.1,
+     "unit": "mm",
+     "value": 1.9
+    },
+    {
+     "param": "length",
+     "label": "Length",
+     "min": 110.0,
+     "max": 180.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 131.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ]
+  },
+  {
+   "part_id": "light_diffusers",
+   "name": "Light diffusers",
+   "role": "diffuser",
+   "layer_id": "frame",
+   "material": "frosted PC diffuser (lit)",
+   "finish": null,
+   "colour_hex": "#F7F6F3",
+   "measured_bbox_mm": [
+    32.8,
+    0.02,
+    113.3
+   ],
+   "centroid_mm": [
+    2.8,
+    11.06,
+    -0.28
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "light_diffusers_2",
+   "name": "Light diffusers",
+   "role": "diffuser",
+   "layer_id": "frame",
+   "material": "frosted PC diffuser (lit)",
+   "finish": null,
+   "colour_hex": "#F7F6F3",
+   "measured_bbox_mm": [
+    1.3,
+    0.02,
+    7.3
+   ],
+   "centroid_mm": [
+    0.0,
+    11.06,
+    -19.0
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [
+    {
+     "param": "bump_height",
+     "label": "Bump height",
+     "min": 1.0,
+     "max": 3.7,
+     "step": 0.1,
+     "unit": "mm",
+     "value": 1.9
+    },
+    {
+     "param": "thickness",
+     "label": "Thickness",
+     "min": 6.0,
+     "max": 14.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 9.1
+    },
+    {
+     "param": "ui_height",
+     "label": "Ui height",
+     "min": 0.035,
+     "max": 0.035,
+     "step": 0.1,
+     "unit": "mm",
+     "value": 0.035
+    }
+   ],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "lower_bodies",
+   "name": "Lower bodies",
+   "role": "shell_bottom",
+   "layer_id": "frame",
+   "material": "Aluminium 6063-T5 (anodised)",
+   "finish": "Bead-blasted anodised",
+   "colour_hex": "#505359",
+   "measured_bbox_mm": [
+    52.0,
+    0.02,
+    10.0
+   ],
+   "centroid_mm": [
+    0.0,
+    11.06,
+    37.0
+   ],
+   "label": "measured",
+   "bom_item_id": "m2",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 6.3498,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Bottom shell: CNC from billet 131\u00d764\u00d74.4 mm = 37 cm\u00b3 \u00d7 2.7 g/cm\u00b3 = 100 g \u00d7 $3.5/kg + $6.55 machining/finish ($6 + $0.015/cm\u00b3 of billet, assumption)"
+   },
+   "editable": [
+    {
+     "param": "bump_height",
+     "label": "Bump height",
+     "min": 1.0,
+     "max": 3.7,
+     "step": 0.1,
+     "unit": "mm",
+     "value": 1.9
+    },
+    {
+     "param": "thickness",
+     "label": "Thickness",
+     "min": 6.0,
+     "max": 14.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 9.1
+    },
+    {
+     "param": "ui_height",
+     "label": "Ui height",
+     "min": 0.035,
+     "max": 0.035,
+     "step": 0.1,
+     "unit": "mm",
+     "value": 0.035
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ]
+  },
+  {
+   "part_id": "light_diffuser_2",
+   "name": "Light diffuser 2",
+   "role": "diffuser",
+   "layer_id": "frame",
+   "material": "frosted PC diffuser (lit)",
+   "finish": null,
+   "colour_hex": "#F7F6F3",
+   "measured_bbox_mm": [
+    4.67,
+    0.02,
+    5.78
+   ],
+   "centroid_mm": [
+    -21.0,
+    11.07,
+    37.0
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [
+    {
+     "param": "bump_height",
+     "label": "Bump height",
+     "min": 1.0,
+     "max": 3.7,
+     "step": 0.1,
+     "unit": "mm",
+     "value": 1.9
+    },
+    {
+     "param": "thickness",
+     "label": "Thickness",
+     "min": 6.0,
+     "max": 14.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 9.1
+    },
+    {
+     "param": "ui_height",
+     "label": "Ui height",
+     "min": 0.035,
+     "max": 0.035,
+     "step": 0.1,
+     "unit": "mm",
+     "value": 0.035
+    }
+   ],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "light_diffuser_3",
+   "name": "Light diffuser 3",
+   "role": "diffuser",
+   "layer_id": "frame",
+   "material": "frosted PC diffuser (lit)",
+   "finish": null,
+   "colour_hex": "#F7F6F3",
+   "measured_bbox_mm": [
+    5.5,
+    0.02,
+    3.5
+   ],
+   "centroid_mm": [
+    -7.0,
+    11.07,
+    36.5
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [
+    {
+     "param": "bump_height",
+     "label": "Bump height",
+     "min": 1.0,
+     "max": 3.7,
+     "step": 0.1,
+     "unit": "mm",
+     "value": 1.9
+    },
+    {
+     "param": "thickness",
+     "label": "Thickness",
+     "min": 6.0,
+     "max": 14.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 9.1
+    },
+    {
+     "param": "ui_height",
+     "label": "Ui height",
+     "min": 0.035,
+     "max": 0.035,
+     "step": 0.1,
+     "unit": "mm",
+     "value": 0.035
+    }
+   ],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "light_diffuser_4",
+   "name": "Light diffuser 4",
+   "role": "diffuser",
+   "layer_id": "frame",
+   "material": "frosted PC diffuser (lit)",
+   "finish": null,
+   "colour_hex": "#F7F6F3",
+   "measured_bbox_mm": [
+    5.1,
+    0.02,
+    5.89
+   ],
+   "centroid_mm": [
+    7.85,
+    11.08,
+    37.0
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [
+    {
+     "param": "bump_height",
+     "label": "Bump height",
+     "min": 1.0,
+     "max": 3.7,
+     "step": 0.1,
+     "unit": "mm",
+     "value": 1.9
+    },
+    {
+     "param": "thickness",
+     "label": "Thickness",
+     "min": 6.0,
+     "max": 14.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 9.1
+    },
+    {
+     "param": "ui_height",
+     "label": "Ui height",
+     "min": 0.035,
+     "max": 0.035,
+     "step": 0.1,
+     "unit": "mm",
+     "value": 0.035
+    }
+   ],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "light_diffuser_5",
+   "name": "Light diffuser 5",
+   "role": "diffuser",
+   "layer_id": "frame",
+   "material": "frosted PC diffuser (lit)",
+   "finish": null,
+   "colour_hex": "#F7F6F3",
+   "measured_bbox_mm": [
+    5.4,
+    0.02,
+    5.0
+   ],
+   "centroid_mm": [
+    21.0,
+    11.07,
+    37.0
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [
+    {
+     "param": "bump_height",
+     "label": "Bump height",
+     "min": 1.0,
+     "max": 3.7,
+     "step": 0.1,
+     "unit": "mm",
+     "value": 1.9
+    },
+    {
+     "param": "thickness",
+     "label": "Thickness",
+     "min": 6.0,
+     "max": 14.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 9.1
+    },
+    {
+     "param": "ui_height",
+     "label": "Ui height",
+     "min": 0.035,
+     "max": 0.035,
+     "step": 0.1,
+     "unit": "mm",
+     "value": 0.035
+    }
+   ],
+   "colour_editable": true,
+   "material_options": []
+  },
+  {
+   "part_id": "dark_part",
+   "name": "Dark part",
+   "role": "other",
+   "layer_id": "frame",
+   "material": "powder coat",
+   "finish": null,
+   "colour_hex": "#2E3033",
+   "measured_bbox_mm": [
+    5.5,
+    0.02,
+    0.55
+   ],
+   "centroid_mm": [
+    21.0,
+    11.1,
+    36.0
+   ],
+   "label": "measured",
+   "bom_item_id": "e7",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 1.104,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: flex assembly \u2248 USD 1.2 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "bump_height",
+     "label": "Bump height",
+     "min": 1.0,
+     "max": 3.7,
+     "step": 0.1,
+     "unit": "mm",
+     "value": 1.9
+    },
+    {
+     "param": "thickness",
+     "label": "Thickness",
+     "min": 6.0,
+     "max": 14.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 9.1
+    },
+    {
+     "param": "ui_height",
+     "label": "Ui height",
+     "min": 0.035,
+     "max": 0.035,
+     "step": 0.1,
+     "unit": "mm",
+     "value": 0.035
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ]
+  },
+  {
+   "part_id": "glass_window_4",
+   "name": "Glass window 4",
+   "role": "window",
+   "layer_id": "glass",
+   "material": "dark glass / display",
+   "finish": null,
+   "colour_hex": "#191D22",
+   "measured_bbox_mm": [
+    2.1,
+    0.02,
+    2.1
+   ],
+   "centroid_mm": [
+    9.0,
+    11.06,
+    -56.5
+   ],
+   "label": "measured",
+   "bom_item_id": "m3",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 4.14,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: cover glass \u2248 USD 4.5 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "bump_height",
+     "label": "Bump height",
+     "min": 1.0,
+     "max": 3.7,
+     "step": 0.1,
+     "unit": "mm",
+     "value": 1.9
+    },
+    {
+     "param": "thickness",
+     "label": "Thickness",
+     "min": 6.0,
+     "max": 14.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 9.1
+    },
+    {
+     "param": "ui_height",
+     "label": "Ui height",
+     "min": 0.035,
+     "max": 0.035,
+     "step": 0.1,
+     "unit": "mm",
+     "value": 0.035
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "glass",
+    "clear_pc"
+   ]
+  },
+  {
+   "part_id": "display",
+   "name": "Display",
+   "role": "component",
+   "layer_id": "display",
+   "material": "Display panel (OLED)",
+   "finish": null,
+   "colour_hex": "#0A0B0D",
+   "measured_bbox_mm": [
+    58.56,
+    1.2,
+    120.65
+   ],
+   "centroid_mm": [
+    0.0,
+    8.9,
+    0.0
+   ],
+   "label": "estimate",
+   "bom_item_id": "e2",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 29.44,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: 6-inch-class display + touch module \u2248 USD 32 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "smartphone_odm_mainboard_assembly",
+   "name": "Smartphone ODM mainboard assembly",
+   "role": "pcb",
+   "layer_id": "mainboard",
+   "material": "FR-4, green solder mask",
+   "finish": null,
+   "colour_hex": "#1E5B3A",
+   "measured_bbox_mm": [
+    54.9,
+    1.0,
+    45.72
+   ],
+   "centroid_mm": [
+    0.0,
+    5.1,
+    27.94
+   ],
+   "label": "estimate",
+   "bom_item_id": "e1",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 78.2,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: phone-class mainboard (SoC + modem + memory), ODM \u2248 USD 85 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "soc_memory_shielded",
+   "name": "SoC + memory (shielded)",
+   "role": "component",
+   "layer_id": "mainboard",
+   "material": "Module (shield can)",
+   "finish": null,
+   "colour_hex": "#B9BDC2",
+   "measured_bbox_mm": [
+    14.0,
+    1.4,
+    14.0
+   ],
+   "centroid_mm": [
+    -9.15,
+    3.9,
+    27.94
+   ],
+   "label": "estimate",
+   "bom_item_id": "e1",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 78.2,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: phone-class mainboard (SoC + modem + memory), ODM \u2248 USD 85 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "li_ion_battery_4000_mah",
+   "name": "Li-ion battery 4000 mAh",
+   "role": "battery",
+   "layer_id": "battery",
+   "material": "Li-po pouch (aluminium laminate)",
+   "finish": null,
+   "colour_hex": "#C3C7CC",
+   "measured_bbox_mm": [
+    50.02,
+    4.2,
+    63.5
+   ],
+   "centroid_mm": [
+    0.0,
+    5.6,
+    -25.4
+   ],
+   "label": "estimate",
+   "bom_item_id": "e3",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 4.2228,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Battery priced by energy: 2000 mAh \u00d7 3.7 V = 7.4 Wh (generic pack) \u00d7 $0.35/Wh + pack overhead"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "front",
+   "name": "Front",
+   "role": "component",
+   "layer_id": "cameras",
+   "material": "Lens module (glass + barrel)",
+   "finish": null,
+   "colour_hex": "#101215",
+   "measured_bbox_mm": [
+    9.0,
+    5.0,
+    9.0
+   ],
+   "centroid_mm": [
+    -18.9,
+    4.6,
+    -51.9
+   ],
+   "label": "estimate",
+   "bom_item_id": "e4",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 7.36,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: camera module (sensor + lens) \u2248 USD 8 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "antenna_1",
+   "name": "Antenna 1",
+   "role": "antenna",
+   "layer_id": "mainboard",
+   "material": "Antenna (copper on flex)",
+   "finish": null,
+   "colour_hex": "#C58B3F",
+   "measured_bbox_mm": [
+    42.7,
+    0.3,
+    1.5
+   ],
+   "centroid_mm": [
+    0.0,
+    6.1,
+    -62.5
+   ],
+   "label": "estimate",
+   "bom_item_id": "e5",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 1.38,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: antenna set \u2248 USD 1.5 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "antenna_2",
+   "name": "Antenna 2",
+   "role": "antenna",
+   "layer_id": "mainboard",
+   "material": "Antenna (copper on flex)",
+   "finish": null,
+   "colour_hex": "#C58B3F",
+   "measured_bbox_mm": [
+    42.7,
+    0.3,
+    1.5
+   ],
+   "centroid_mm": [
+    0.0,
+    6.1,
+    62.5
+   ],
+   "label": "estimate",
+   "bom_item_id": "e5",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 1.38,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: antenna set \u2248 USD 1.5 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "usb_c_receptacle",
+   "name": "USB-C receptacle",
+   "role": "connector",
+   "layer_id": "mainboard",
+   "material": "Connector (stainless shell)",
+   "finish": null,
+   "colour_hex": "#C9CBCE",
+   "measured_bbox_mm": [
+    8.9,
+    3.2,
+    7.3
+   ],
+   "centroid_mm": [
+    0.0,
+    6.1,
+    -59.9
+   ],
+   "label": "estimate",
+   "bom_item_id": "e7",
+   "lcsc_pn": null,
+   "package": "USB-C",
+   "unit_price": {
+    "value": 1.104,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: flex assembly \u2248 USD 1.2 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  }
+ ]
+}

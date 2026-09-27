@@ -15,6 +15,8 @@ import { useApi } from "@/lib/useApi";
 import type { BriefArtifact, CostsArtifact, StageResult } from "@/types/contracts";
 import { startAutorun, useApiPaths } from "@/lib/autofill";
 import { refine, restoreVersion, studioErrorText, studioStart, suggestions, useEngineering, useVersions, perInstallation } from "@/lib/studio";
+import { editAsMessage, partEditErrorText, postPartEdit, SWATCHES, usePartsRoutes } from "@/lib/parts";
+import type { EditHandler } from "@/components/viewer3d/Stage";
 
 const TABS: { id: TabId; label: string; route: string | null }[] = [
   { id: "product", label: "Product", route: null },
@@ -91,6 +93,22 @@ export default function StudioPage() {
     }
   }
 
+  // W28/W29: "touch a component" — a part edit is a new version like any refine (the edit route when served,
+  // else the equivalent prompt).
+  const partRoutes = usePartsRoutes();
+  const onPartEdit: EditHandler = async (part, edit) => {
+    try {
+      if (partRoutes?.edit) await postPartEdit(id, part.part_id, edit);
+      else await refine(id, editAsMessage(part, edit, SWATCHES.find((s) => s.hex === edit.colour_hex)?.name));
+      expect();
+      reload();
+      setSelected(null);
+      return null;
+    } catch (e) {
+      return partRoutes?.edit ? partEditErrorText(e) : studioErrorText(e);
+    }
+  };
+
   async function onStart() {
     setActionError(null);
     try {
@@ -130,7 +148,7 @@ export default function StudioPage() {
 
   const available = (t: (typeof TABS)[number]) => !t.route || !!paths?.has(t.route);
   const photos = useProjectPhotos(id, !!paths?.has("/projects/{project_id}/photos"));
-  const vm = useViewMode(shown, photos.data?.photos);
+  const vm = useViewMode(shown, photos.data?.photos, versions, !showcase && photos.configured);
   const [kitOpen, setKitOpen] = useState(false);
   const [photoNote, setPhotoNote] = useState<string | null>(null);
 
@@ -162,7 +180,7 @@ export default function StudioPage() {
       let blob: Blob | null = null;
       for (let i = 0; i < 24 && mounted.current && !blob; i++) {
         await new Promise((r) => setTimeout(r, 500));
-        blob = await captureViewer(document.querySelector("[data-studio-viewer] model-viewer"));
+        blob = await captureViewer(document.querySelector("[data-studio-viewer] [data-viewer3d], [data-studio-viewer] model-viewer"));
       }
       if (!mounted.current) return;
       try {
@@ -192,6 +210,25 @@ export default function StudioPage() {
         ]
       : []),
   ];
+
+  // m1: a recorded example built step by step has no Studio versions — explain it, never offer a live "Start the Studio".
+  if (showcase && versions && versions.length === 0)
+    return (
+      <div className="flex h-full flex-col items-start justify-center gap-3 px-10" data-no-studio>
+        <p className="title text-lg">{detail ? title : ""}</p>
+        <p className="max-w-[56ch] text-base text-ink-2">
+          This example was made step by step, without Studio versions. Its product, 3D parts, costs and factories are all in the overview and the 13 steps.
+        </p>
+        <div className="flex items-center gap-2">
+          <BtnLink href={`/projects/${id}/wow`} variant="primary">
+            Open overview <Arrow />
+          </BtnLink>
+          <BtnLink href={`/projects/${id}?stage=3`} variant="ghost">
+            3D model &amp; spec
+          </BtnLink>
+        </div>
+      </div>
+    );
 
   return (
     <div className="grid h-full min-h-0 grid-cols-[minmax(380px,430px)_minmax(0,1fr)] min-[1440px]:grid-cols-[minmax(380px,460px)_minmax(0,1fr)]">
@@ -250,7 +287,7 @@ export default function StudioPage() {
           </div>
         )}
         {!versions && !error && <Skeleton className="mx-6 h-full" />}
-        {versions && versions.length === 0 && (
+        {versions && versions.length === 0 && !showcase && (
           <div className="flex h-full flex-col items-start justify-center gap-3 px-6">
             <p className="text-md font-medium">Design this product by conversation</p>
             <p className="text-base text-ink-2">The first version builds the CAD, BOM, costs and a factory shortlist from your prompt. Then ask for any change.</p>
@@ -340,7 +377,25 @@ export default function StudioPage() {
         )}
         <div className="relative min-h-0 flex-1">
           {tab === "product" && (
-            <Viewer v={shown} working={working?.n ?? null} alt={title || "Product"} vm={vm} photoNote={photoRunning ? "Taking the photo, about 12 s…" : photoNote} />
+            <Viewer
+              v={shown}
+              working={working?.n ?? null}
+              alt={title || "Product"}
+              vm={vm}
+              photoNote={photoRunning ? "Taking the photo, about 12 s…" : (photoNote ?? vm.staleNote)}
+              projectId={id}
+              onEdit={onPartEdit}
+              editViaRoute={!!partRoutes?.edit}
+              editNote={
+                previewing && current
+                  ? `Edits apply to the current version. Go back to v${current.n} to edit this part.`
+                  : working
+                    ? `v${working.n} is being built. Apply when it is done.`
+                    : autorunning
+                      ? "Make it is running on this project. Edit when it ends."
+                      : null
+              }
+            />
           )}
           {tab === "engineering" && <EngineeringTab eng={{ ...eng, available: available(TABS[1]) }} />}
           {tab === "code" && <CadCodeTab projectId={id} version={shown} versions={versions ?? []} available={available(TABS[2])} />}

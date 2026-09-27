@@ -213,7 +213,7 @@
       "format": "glb",
       "url": "/files/demo_tracker_card/d3.glb",
       "description": "Full product — materials (viewer model of direction d3)",
-      "size_bytes": 195972
+      "size_bytes": 118112
     },
     {
       "format": "step",
@@ -231,7 +231,7 @@
       "format": "glb",
       "url": "/files/demo_tracker_card/enclosure.glb",
       "description": "Moulded parts (DFM) — Card enclosure model for the 3D viewer",
-      "size_bytes": 191124
+      "size_bytes": 114988
     }
   ],
   "bom": [

@@ -556,6 +556,12 @@
           },
           "title": "Photos",
           "type": "array"
+        },
+        "photo_stale": {
+          "default": false,
+          "description": "W29b: the look changed (part edit) and no hero_studio photo of the new look exists yet (no stored viewer / CAD reference, or the photo job has not finished): any photo shown is of an older look \u2014 say so. Cleared when a hero_studio photo of this version is attached",
+          "title": "Photo Stale",
+          "type": "boolean"
         }
       },
       "title": "VersionPreview",

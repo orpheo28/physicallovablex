@@ -97,6 +97,8 @@ def _refresh_preview(pid: str, n: int) -> None:
         v = store.get_version(pid, n)
         if v is not None and v.preview is not None and v.preview.photos:
             new.photos = list(v.preview.photos)
+        if v is not None and v.preview is not None:
+            new.photo_stale = v.preview.photo_stale and not any(p.shot == "hero_studio" for p in new.photos)  # W29b
         _update_version(pid, n, preview=new)
 
 

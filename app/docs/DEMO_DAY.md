@@ -7,7 +7,7 @@ Why local and not `next dev`: a cold `next dev` compiles the first `/wow` in ~31
 cd ~/Desktop/Hexa_Case/04_LIVRABLE/mvp
 scripts/demo_start.sh
 ```
-What it does, in order: checks ports 8000/3000 are free → starts the API on **:8000** (default `api/data/app.db`) → `POST /demo/reset` (the two demo projects + the 15 fictional partners — 11 factories, 1 integrator, 3 installers — and the 11 showcases) → prints whether the live AI key is configured and the OpenRouter remaining credit → `npm run build` and `npm start` on **:3000** (production mode) → warms `/`, `/about`, `/new`, `/projects`, `/factories` + every factory page, and for **both** demo projects `/wow`, the 13 stages (page + API through the proxy), the Factory Pack, the PDF export and the 3D files → prints **READY** and the URLs. **Ctrl-C** stops API and web. Logs: `$TMPDIR/plx-demo/` (`api.log`, `web.log`, `web-build.log`).
+What it does, in order: checks ports 8000/3000 are free → starts the API on **:8000** with `--timeout-keep-alive 75` (default `api/data/app.db`; same flag as the Dockerfile — without it, a Studio/photo request that runs long enough can hit an idle-connection reset through the Next proxy: QA M3) → `POST /demo/reset` (the two demo projects + the 15 fictional partners — 11 factories, 1 integrator, 3 installers — and the 11 showcases) → prints whether the live AI key is configured and the OpenRouter remaining credit → `npm run build` and `npm start` on **:3000** (production mode) → warms `/`, `/about`, `/new`, `/projects`, `/factories` + every factory page, and for **both** demo projects `/wow`, the 13 stages (page + API through the proxy), the Factory Pack, the PDF export and the 3D files → prints **READY** and the URLs. **Ctrl-C** stops API and web. Logs: `$TMPDIR/plx-demo/` (`api.log`, `web.log`, `web-build.log`).
 
 Open: `http://localhost:3000/?mode=idea` (desk lamp: `/projects/demo_desk_lamp/wow`, tracker card: `/projects/demo_tracker_card/wow`).
 If the script prints `FAIL` lines or does not print READY: read the log it names, fix, re-run. Do not start the demo on a non-READY.
@@ -34,6 +34,11 @@ Options (env): `SKIP_BUILD=1` reuse the last build (fast restart, same ports onl
 - Start from the cached desk lamp (instant). Run a live prompt only if the network and credits are confirmed; it takes ≈ 1 min, talk over it.
 - Label vocabulary to say out loud: Measured (computed on the CAD) · Sourced (real price/rate + date) · Estimate · Fictional — demo data (the factories are invented).
 - A "Cached example" banner on a live run means the AI call failed and the cached example is shown: say so, do not pretend.
+
+## Live budget
+- One idea run through autorun (stage 1 + 2-7) plus 2-3 Studio refines on it costs **≈ $0.60** in OpenRouter usage — cheap enough to run live more than once, but don't loop it for the whole demo.
+- OpenRouter's shown balance posts with a delay: a run's cost can take a minute or more to appear, so `remaining` printed by `scripts/demo_start.sh` (and the balance page) can look unchanged right after a live run — that's normal, not a failed charge.
+- Free to demo on the **showcase gallery** (`/`, then a showcase card), because everything there is pre-recorded in the image, no LLM call: opening a showcase, its **anatomy** view (part breakdown) and browsing its recorded Studio **edit** history. Only clicking **Make it** on a showcase starts a new *live* run and spends credit — do that once, deliberately, not per showcase.
 
 ## Backup plan if the network fails
 - **What still works with no internet:** everything on the two cached examples — 13 stages, the 3D models, the renders and hero shots (prebuilt files on disk in `api/cad/prebuilt/`), Factory Pack, PDF export, factory portal, the CAD build of a new project (build123d runs locally, stages 2–3 without a key). The API, web and data are all local; nothing loads from a CDN at runtime.

@@ -199,7 +199,7 @@
    "format": "glb",
    "url": "/files/demo_whoop_kitesurf/model_v2.glb",
    "description": "AI-generated CAD (concept level) — geometry measured on the result — bbox 80 × 30 × 40 mm",
-   "size_bytes": 152988
+   "size_bytes": 214032
   },
   {
    "format": "step",
@@ -217,7 +217,7 @@
    "format": "glb",
    "url": "/files/demo_whoop_kitesurf/v4.glb",
    "description": "Full product — materials",
-   "size_bytes": 243748
+   "size_bytes": 330912
   },
   {
    "format": "step",
@@ -235,7 +235,7 @@
    "format": "glb",
    "url": "/files/demo_whoop_kitesurf/v4_enclosure.glb",
    "description": "Moulded parts (DFM) — viewer model",
-   "size_bytes": 200056
+   "size_bytes": 120728
   }
  ],
  "bom": [

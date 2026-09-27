@@ -1,0 +1,999 @@
+{
+ "_v": "a4",
+ "version": 2,
+ "glb_url": "/files/demo_solar_biarritz/anatomy_v2.glb",
+ "label": "Illustrative internal layout \u2014 not a routed PCB",
+ "kind": "construction",
+ "bbox_mm": [
+  8258.0,
+  1722.18,
+  3480.81
+ ],
+ "layers": [
+  {
+   "id": "panels",
+   "name": "Panels + shelf",
+   "order": 2,
+   "parts": [
+    "roof_plane",
+    "roof_planes",
+    "roof_planes_2",
+    "roof_planes_3",
+    "roof_planes_4",
+    "top_shell",
+    "window",
+    "light"
+   ],
+   "explode_vector": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "explode_distance_mm": 775.0,
+   "caption": "Anodised aluminium mounting rails ($25.00 (Estimate))"
+  },
+  {
+   "id": "fasteners",
+   "name": "Fasteners",
+   "order": 3,
+   "parts": [
+    "connector_bolt_1_1",
+    "connector_bolt_1_2",
+    "connector_bolt_2_1",
+    "connector_bolt_2_2",
+    "connector_bolt_3_1",
+    "connector_bolt_3_2",
+    "connector_bolt_4_1",
+    "connector_bolt_4_2"
+   ],
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 172.2,
+   "caption": "Stainless-steel mounting fastener set ($20.00 (Estimate))"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "title": "The piece",
+   "kicker": "01 \u00b7 The piece",
+   "caption": "Rooftop solar, Biarritz \u2014 8258.0 \u00d7 3014.9 \u00d7 1758.0 mm (Measured), 7 electronic BOM lines laid out inside (illustrative internal layout, not a routed PCB)",
+   "camera": {
+    "position_mm": [
+     10250.6,
+     8038.8,
+     14529.9
+    ],
+    "target_mm": [
+     0.0,
+     863.4,
+     179.1
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [],
+   "focus_parts": []
+  },
+  {
+   "id": "s2",
+   "title": "Panels + shelf",
+   "kicker": "02 \u00b7 Panels + shelf",
+   "caption": "Anodised aluminium mounting rails ($25.00 (Estimate))",
+   "camera": {
+    "position_mm": [
+     10610.7,
+     8290.9,
+     15419.0
+    ],
+    "target_mm": [
+     0.0,
+     863.4,
+     564.1
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [
+    "panels"
+   ],
+   "focus_parts": [
+    "roof_plane",
+    "roof_planes",
+    "roof_planes_2",
+    "roof_planes_3",
+    "roof_planes_4",
+    "top_shell"
+   ]
+  },
+  {
+   "id": "s3",
+   "title": "Fasteners",
+   "kicker": "03 \u00b7 Fasteners",
+   "caption": "Stainless-steel mounting fastener set ($20.00 (Estimate))",
+   "camera": {
+    "position_mm": [
+     10618.4,
+     8315.0,
+     15429.9
+    ],
+    "target_mm": [
+     0.0,
+     882.1,
+     564.1
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [
+    "panels",
+    "fasteners"
+   ],
+   "focus_parts": [
+    "connector_bolt_1_1",
+    "connector_bolt_1_2",
+    "connector_bolt_2_1",
+    "connector_bolt_2_2",
+    "connector_bolt_3_1",
+    "connector_bolt_3_2"
+   ]
+  },
+  {
+   "id": "s4",
+   "title": "Panels + shelf \u2014 close-up",
+   "kicker": "04 \u00b7 Panels + shelf \u2014 close-up",
+   "caption": "Anodised aluminium mounting rails ($25.00 (Estimate))",
+   "camera": {
+    "position_mm": [
+     11384.8,
+     8832.8,
+     16117.8
+    ],
+    "target_mm": [
+     0.0,
+     863.4,
+     179.1
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [
+    "panels",
+    "fasteners"
+   ],
+   "focus_parts": [
+    "roof_plane",
+    "roof_planes",
+    "roof_planes_2",
+    "roof_planes_3",
+    "roof_planes_4",
+    "top_shell"
+   ]
+  },
+  {
+   "id": "s5",
+   "title": "Back together",
+   "kicker": "05 \u00b7 Back together",
+   "caption": "Unit cost $9597.86 at 10 units (Estimate), weight 182.05 kg (Estimate)",
+   "camera": {
+    "position_mm": [
+     -10250.6,
+     8038.8,
+     14529.9
+    ],
+    "target_mm": [
+     0.0,
+     863.4,
+     179.1
+    ],
+    "fov_deg": 30.0
+   },
+   "layers_exploded": [],
+   "focus_parts": []
+  }
+ ],
+ "parts": [
+  {
+   "part_id": "roof_plane",
+   "name": "Roof plane",
+   "role": "shell_top",
+   "layer_id": "panels",
+   "material": "roof tiles",
+   "finish": null,
+   "colour_hex": "#615955",
+   "measured_bbox_mm": [
+    8258.0,
+    1662.69,
+    3103.24
+   ],
+   "centroid_mm": [
+    0.0,
+    833.68,
+    -4.69
+   ],
+   "label": "measured",
+   "bom_item_id": "e1",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 110.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: 430-450 W monocrystalline module \u2248 USD 110 (typical 2026 trade price, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "roof_eave_height",
+     "label": "Roof eave height",
+     "min": 10.0,
+     "max": 40.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 20.0
+    },
+    {
+     "param": "roof_thickness",
+     "label": "Roof thickness",
+     "min": 10.0,
+     "max": 40.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 20.0
+    },
+    {
+     "param": "roof_pitch_deg",
+     "label": "Roof pitch",
+     "min": 14.0,
+     "max": 50.0,
+     "step": 0.5,
+     "unit": "deg",
+     "value": 28.0
+    },
+    {
+     "param": "module_length",
+     "label": "Module length",
+     "min": 1000.0,
+     "max": 2400.0,
+     "step": 5.0,
+     "unit": "mm",
+     "value": 1722.0
+    }
+   ],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "roof_planes",
+   "name": "Roof planes",
+   "role": "shell_top",
+   "layer_id": "panels",
+   "material": "anodised aluminium",
+   "finish": null,
+   "colour_hex": "#E7E8EB",
+   "measured_bbox_mm": [
+    8168.0,
+    1363.1,
+    2506.44
+   ],
+   "centroid_mm": [
+    0.0,
+    863.7,
+    11.27
+   ],
+   "label": "measured",
+   "bom_item_id": "e1",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 110.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: 430-450 W monocrystalline module \u2248 USD 110 (typical 2026 trade price, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "roof_eave_height",
+     "label": "Roof eave height",
+     "min": 10.0,
+     "max": 40.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 20.0
+    },
+    {
+     "param": "roof_pitch_deg",
+     "label": "Roof pitch",
+     "min": 14.0,
+     "max": 50.0,
+     "step": 0.5,
+     "unit": "deg",
+     "value": 28.0
+    },
+    {
+     "param": "module_length",
+     "label": "Module length",
+     "min": 1000.0,
+     "max": 2400.0,
+     "step": 5.0,
+     "unit": "mm",
+     "value": 1722.0
+    },
+    {
+     "param": "module_width",
+     "label": "Module width",
+     "min": 600.0,
+     "max": 1400.0,
+     "step": 5.0,
+     "unit": "mm",
+     "value": 1134.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ]
+  },
+  {
+   "part_id": "roof_planes_2",
+   "name": "Roof planes",
+   "role": "shell_top",
+   "layer_id": "panels",
+   "material": "stainless steel 304",
+   "finish": null,
+   "colour_hex": "#EFEFF0",
+   "measured_bbox_mm": [
+    7980.0,
+    1372.76,
+    2560.35
+   ],
+   "centroid_mm": [
+    0.0,
+    850.46,
+    4.23
+   ],
+   "label": "measured",
+   "bom_item_id": "e1",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 110.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: 430-450 W monocrystalline module \u2248 USD 110 (typical 2026 trade price, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "roof_eave_height",
+     "label": "Roof eave height",
+     "min": 10.0,
+     "max": 40.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 20.0
+    },
+    {
+     "param": "roof_pitch_deg",
+     "label": "Roof pitch",
+     "min": 14.0,
+     "max": 50.0,
+     "step": 0.5,
+     "unit": "deg",
+     "value": 28.0
+    },
+    {
+     "param": "module_length",
+     "label": "Module length",
+     "min": 1000.0,
+     "max": 2400.0,
+     "step": 5.0,
+     "unit": "mm",
+     "value": 1722.0
+    },
+    {
+     "param": "module_width",
+     "label": "Module width",
+     "min": 600.0,
+     "max": 1400.0,
+     "step": 5.0,
+     "unit": "mm",
+     "value": 1134.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ]
+  },
+  {
+   "part_id": "roof_planes_3",
+   "name": "Roof planes",
+   "role": "shell_top",
+   "layer_id": "panels",
+   "material": "powder coat",
+   "finish": null,
+   "colour_hex": "#1C1D1F",
+   "measured_bbox_mm": [
+    8058.0,
+    1652.74,
+    3072.61
+   ],
+   "centroid_mm": [
+    0.0,
+    898.14,
+    29.58
+   ],
+   "label": "measured",
+   "bom_item_id": "e1",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 110.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: 430-450 W monocrystalline module \u2248 USD 110 (typical 2026 trade price, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "roof_eave_height",
+     "label": "Roof eave height",
+     "min": 10.0,
+     "max": 40.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 20.0
+    },
+    {
+     "param": "roof_pitch_deg",
+     "label": "Roof pitch",
+     "min": 14.0,
+     "max": 50.0,
+     "step": 0.5,
+     "unit": "deg",
+     "value": 28.0
+    },
+    {
+     "param": "module_length",
+     "label": "Module length",
+     "min": 1000.0,
+     "max": 2400.0,
+     "step": 5.0,
+     "unit": "mm",
+     "value": 1722.0
+    },
+    {
+     "param": "module_thickness",
+     "label": "Module thickness",
+     "min": 25.0,
+     "max": 45.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 30.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ]
+  },
+  {
+   "part_id": "roof_planes_4",
+   "name": "Roof planes",
+   "role": "shell_top",
+   "layer_id": "panels",
+   "material": "monocrystalline PV cells under glass",
+   "finish": null,
+   "colour_hex": "#1D273F",
+   "measured_bbox_mm": [
+    7989.0,
+    1597.39,
+    2999.48
+   ],
+   "centroid_mm": [
+    0.0,
+    908.74,
+    35.21
+   ],
+   "label": "measured",
+   "bom_item_id": "e1",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 110.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: 430-450 W monocrystalline module \u2248 USD 110 (typical 2026 trade price, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "roof_eave_height",
+     "label": "Roof eave height",
+     "min": 10.0,
+     "max": 40.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 20.0
+    },
+    {
+     "param": "roof_pitch_deg",
+     "label": "Roof pitch",
+     "min": 14.0,
+     "max": 50.0,
+     "step": 0.5,
+     "unit": "deg",
+     "value": 28.0
+    },
+    {
+     "param": "module_length",
+     "label": "Module length",
+     "min": 1000.0,
+     "max": 2400.0,
+     "step": 5.0,
+     "unit": "mm",
+     "value": 1722.0
+    },
+    {
+     "param": "module_thickness",
+     "label": "Module thickness",
+     "min": 25.0,
+     "max": 45.0,
+     "step": 0.5,
+     "unit": "mm",
+     "value": 30.0
+    }
+   ],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "top_shell",
+   "name": "Top shell",
+   "role": "shell_top",
+   "layer_id": "panels",
+   "material": "powder coat",
+   "finish": null,
+   "colour_hex": "#1C1D1F",
+   "measured_bbox_mm": [
+    460.0,
+    310.0,
+    130.0
+   ],
+   "centroid_mm": [
+    0.0,
+    185.0,
+    1842.0
+   ],
+   "label": "measured",
+   "bom_item_id": "m3",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 1.5,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: module clamp \u2248 USD 1.5 (typical 2026 trade price, not a quote)"
+   },
+   "editable": [
+    {
+     "param": "inverter_depth",
+     "label": "Inverter depth",
+     "min": 65.0,
+     "max": 260.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 130.0
+    },
+    {
+     "param": "inverter_height",
+     "label": "Inverter height",
+     "min": 155.0,
+     "max": 620.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 310.0
+    },
+    {
+     "param": "inverter_width",
+     "label": "Inverter width",
+     "min": 230.0,
+     "max": 920.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 460.0
+    },
+    {
+     "param": "module_length",
+     "label": "Module length",
+     "min": 1000.0,
+     "max": 2400.0,
+     "step": 5.0,
+     "unit": "mm",
+     "value": 1722.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ]
+  },
+  {
+   "part_id": "window",
+   "name": "Window",
+   "role": "window",
+   "layer_id": "panels",
+   "material": "dark glass / display",
+   "finish": null,
+   "colour_hex": "#191D22",
+   "measured_bbox_mm": [
+    180.0,
+    72.0,
+    5.0
+   ],
+   "centroid_mm": [
+    0.0,
+    250.0,
+    1909.0
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [
+    {
+     "param": "inverter_depth",
+     "label": "Inverter depth",
+     "min": 65.0,
+     "max": 260.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 130.0
+    },
+    {
+     "param": "module_length",
+     "label": "Module length",
+     "min": 1000.0,
+     "max": 2400.0,
+     "step": 5.0,
+     "unit": "mm",
+     "value": 1722.0
+    },
+    {
+     "param": "rows",
+     "label": "Rows",
+     "min": 1.0,
+     "max": 4.0,
+     "step": 0.1,
+     "unit": "mm",
+     "value": 2.0
+    }
+   ],
+   "colour_editable": true,
+   "material_options": [
+    "glass",
+    "clear_pc"
+   ]
+  },
+  {
+   "part_id": "light",
+   "name": "Light",
+   "role": "diffuser",
+   "layer_id": "panels",
+   "material": "status light pipe",
+   "finish": null,
+   "colour_hex": "#7CDAF3",
+   "measured_bbox_mm": [
+    14.0,
+    14.0,
+    7.0
+   ],
+   "centroid_mm": [
+    145.0,
+    125.0,
+    1911.0
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [
+    {
+     "param": "inverter_depth",
+     "label": "Inverter depth",
+     "min": 65.0,
+     "max": 260.0,
+     "step": 1.0,
+     "unit": "mm",
+     "value": 130.0
+    },
+    {
+     "param": "module_length",
+     "label": "Module length",
+     "min": 1000.0,
+     "max": 2400.0,
+     "step": 5.0,
+     "unit": "mm",
+     "value": 1722.0
+    },
+    {
+     "param": "rows",
+     "label": "Rows",
+     "min": 1.0,
+     "max": 4.0,
+     "step": 0.1,
+     "unit": "mm",
+     "value": 2.0
+    }
+   ],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "connector_bolt_1_1",
+   "name": "Connector bolt 1.1",
+   "role": "fastener",
+   "layer_id": "fasteners",
+   "material": "Steel fastener (zinc plated)",
+   "finish": null,
+   "colour_hex": "#B8BBBF",
+   "measured_bbox_mm": [
+    6.0,
+    6.0,
+    50.0
+   ],
+   "centroid_mm": [
+    -4109.0,
+    605.1,
+    -1536.31
+   ],
+   "label": "estimate",
+   "bom_item_id": "m5",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 20.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: stainless fastener set \u2248 USD 20 (typical 2026 trade price, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "connector_bolt_1_2",
+   "name": "Connector bolt 1.2",
+   "role": "fastener",
+   "layer_id": "fasteners",
+   "material": "Steel fastener (zinc plated)",
+   "finish": null,
+   "colour_hex": "#B8BBBF",
+   "measured_bbox_mm": [
+    6.0,
+    6.0,
+    50.0
+   ],
+   "centroid_mm": [
+    -4109.0,
+    1586.74,
+    -1536.31
+   ],
+   "label": "estimate",
+   "bom_item_id": "m5",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 20.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: stainless fastener set \u2248 USD 20 (typical 2026 trade price, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "connector_bolt_2_1",
+   "name": "Connector bolt 2.1",
+   "role": "fastener",
+   "layer_id": "fasteners",
+   "material": "Steel fastener (zinc plated)",
+   "finish": null,
+   "colour_hex": "#B8BBBF",
+   "measured_bbox_mm": [
+    6.0,
+    6.0,
+    50.0
+   ],
+   "centroid_mm": [
+    4109.0,
+    605.1,
+    -1536.31
+   ],
+   "label": "estimate",
+   "bom_item_id": "m5",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 20.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: stainless fastener set \u2248 USD 20 (typical 2026 trade price, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "connector_bolt_2_2",
+   "name": "Connector bolt 2.2",
+   "role": "fastener",
+   "layer_id": "fasteners",
+   "material": "Steel fastener (zinc plated)",
+   "finish": null,
+   "colour_hex": "#B8BBBF",
+   "measured_bbox_mm": [
+    6.0,
+    6.0,
+    50.0
+   ],
+   "centroid_mm": [
+    4109.0,
+    1586.74,
+    -1536.31
+   ],
+   "label": "estimate",
+   "bom_item_id": "m5",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 20.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: stainless fastener set \u2248 USD 20 (typical 2026 trade price, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "connector_bolt_3_1",
+   "name": "Connector bolt 3.1",
+   "role": "fastener",
+   "layer_id": "fasteners",
+   "material": "Steel fastener (zinc plated)",
+   "finish": null,
+   "colour_hex": "#B8BBBF",
+   "measured_bbox_mm": [
+    6.0,
+    6.0,
+    50.0
+   ],
+   "centroid_mm": [
+    -4109.0,
+    605.1,
+    1894.5
+   ],
+   "label": "estimate",
+   "bom_item_id": "m5",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 20.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: stainless fastener set \u2248 USD 20 (typical 2026 trade price, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "connector_bolt_3_2",
+   "name": "Connector bolt 3.2",
+   "role": "fastener",
+   "layer_id": "fasteners",
+   "material": "Steel fastener (zinc plated)",
+   "finish": null,
+   "colour_hex": "#B8BBBF",
+   "measured_bbox_mm": [
+    6.0,
+    6.0,
+    50.0
+   ],
+   "centroid_mm": [
+    -4109.0,
+    1586.74,
+    1894.5
+   ],
+   "label": "estimate",
+   "bom_item_id": "m5",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 20.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: stainless fastener set \u2248 USD 20 (typical 2026 trade price, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "connector_bolt_4_1",
+   "name": "Connector bolt 4.1",
+   "role": "fastener",
+   "layer_id": "fasteners",
+   "material": "Steel fastener (zinc plated)",
+   "finish": null,
+   "colour_hex": "#B8BBBF",
+   "measured_bbox_mm": [
+    6.0,
+    6.0,
+    50.0
+   ],
+   "centroid_mm": [
+    4109.0,
+    605.1,
+    1894.5
+   ],
+   "label": "estimate",
+   "bom_item_id": "m5",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 20.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: stainless fastener set \u2248 USD 20 (typical 2026 trade price, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  },
+  {
+   "part_id": "connector_bolt_4_2",
+   "name": "Connector bolt 4.2",
+   "role": "fastener",
+   "layer_id": "fasteners",
+   "material": "Steel fastener (zinc plated)",
+   "finish": null,
+   "colour_hex": "#B8BBBF",
+   "measured_bbox_mm": [
+    6.0,
+    6.0,
+    50.0
+   ],
+   "centroid_mm": [
+    4109.0,
+    1586.74,
+    1894.5
+   ],
+   "label": "estimate",
+   "bom_item_id": "m5",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 20.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: stainless fastener set \u2248 USD 20 (typical 2026 trade price, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": []
+  }
+ ]
+}

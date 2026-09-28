@@ -13,16 +13,20 @@ client = TestClient(app)
 
 
 def test_keyword_gate_refuses_vehicles_not_devices():
-    for p in ("un bateau, pour aller pêcher", "a fishing boat", "une maison en bois", "a sofa for my living room"):
+    for p in ("un bateau, pour aller pêcher", "a fishing boat", "une maison en bois", "a sofa for my living room",
+              "a tractor for my farm", "une app de resto"):
         assert not scope.check(p).in_scope, p
-    for p in ("desk lamp", "a bike light", "détecteur de touche pour la pêche", "a BLE tracker card", "car phone mount"):
+    for p in ("desk lamp", "a bike light", "détecteur de touche pour la pêche", "a BLE tracker card", "car phone mount",
+              # the parametric families stay in scope (showcases: surfboard, changing table, rooftop solar, drone…)
+              "a beginner surfboard", "a baby changing table", "rooftop solar for my house in Biarritz", "a follow-me drone",
+              "a home robot that folds laundry", "a stick vacuum"):
         assert scope.check(p).in_scope, p
 
 
 def test_create_project_refuses_out_of_scope():
     r = client.post("/projects", json={"mode": "idea", "prompt": "un bateau, pour aller pêcher"})
     assert r.status_code == 422
-    assert "small physical products" in r.json()["detail"]
+    assert "not vehicles" in r.json()["detail"]
     assert client.post("/projects", json={"mode": "idea", "prompt": "a warm desk lamp"}).status_code == 201
 
 

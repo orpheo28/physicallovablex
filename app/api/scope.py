@@ -1,9 +1,11 @@
 """Scope gate for new prompts: is this a product the pipeline can build?
 
-The pipeline makes small consumer products: an injection-moulded (or CNC) enclosure around a PCB/battery, about
-10-400 mm, made by a contract manufacturer. A boat, a car, a house, a sofa or an app would otherwise be forced into
-a generic rounded box (the "fishing boat" bug). The fast LLM judges the prompt; without it, a keyword list catches
-the obvious cases. Any error lets the prompt through (the gate must never block an in-scope product).
+The pipeline makes consumer products: moulded electronics (the generic path) plus the parametric families of
+api/cad/codegen/classify.py (boards, children's furniture, rooftop solar, drones, home robots, stick vacuums,
+irrigation kits, hair dryers, cameras, smartphones, wearables). A boat, a car, a house or an app would otherwise be
+forced into a generic rounded box (the "fishing boat" bug). A prompt that classify() maps to a family always passes;
+otherwise the fast LLM judges it, and without it a keyword list catches the obvious cases. Any error lets the prompt
+through (the gate must never block an in-scope product).
 """
 
 from __future__ import annotations
@@ -13,6 +15,7 @@ import re
 
 from pydantic import BaseModel, ConfigDict, Field
 
+from api.cad.codegen.classify import classify
 from api.llm import LLMError, complete_json, is_configured
 
 log = logging.getLogger("scope")
@@ -22,7 +25,7 @@ TIMEOUT_S = 8.0
 # Clearly out of scope, EN + FR. Word-bounded; kept short on purpose (the LLM is the real judge).
 _OUT = re.compile(
     r"\b(boats?|ships?|yachts?|kayaks?|canoes?|sailboats?|bateaux?|barques?|voiliers?|navires?|"
-    r"cars?|trucks?|vans?|motorcycles?|motorbikes?|scooters?|bicycles?|bikes?|voitures?|camions?|motos?|v[ée]los?|"
+    r"cars?|trucks?|vans?|tractors?|tracteurs?|motorcycles?|motorbikes?|scooters?|bicycles?|bikes?|voitures?|camions?|motos?|v[ée]los?|"
     r"planes?|aircraft|airplanes?|helicopters?|avions?|h[ée]licopt[èe]res?|rockets?|fus[ée]es?|"
     r"houses?|buildings?|cabins?|sheds?|maisons?|b[âa]timents?|cabanes?|immeubles?|"
     r"sofas?|couch(es)?|beds?|wardrobes?|canap[ée]s?|lits?|armoires?|"
@@ -41,13 +44,17 @@ _DEVICE = re.compile(
 
 SYSTEM = "You screen product ideas for a hardware manufacturing pipeline. Be strict about scale and category, generous about wording."
 
-PROMPT = """PhysicalLovableX turns a one-sentence idea into a manufacturable product: a moulded or machined enclosure
-(roughly 10-400 mm, handheld to desktop size) around electronics or simple mechanics, made at 500-10,000 units by a
-contract manufacturer. Examples in scope: desk lamp, BLE tracker card, smart ring, pet feeder, air-quality sensor,
-bike light, fish finder, bite alarm for fishing, smart speaker, remote, kitchen scale.
+PROMPT = """PhysicalLovableX turns a one-sentence idea into a manufacturable consumer product made at 500-10,000
+units by contract manufacturers. In scope:
+- small electronics in a moulded or machined case (handheld to desktop appliance): desk lamp, BLE tracker card,
+  pet feeder, air-quality sensor, bike light, fish finder, bite alarm for fishing, smart speaker, remote, scale;
+- these product families: surfboards / kiteboards / paddle boards, children's furniture (changing table, activity
+  table, kids' desk or chair, shelf), rooftop solar arrays, drones, home robots, stick vacuums, garden irrigation
+  kits, hair dryers, cameras, smartphones, wearables (band, ring, watch).
 
-Out of scope: vehicles and boats, buildings, furniture, clothing and textiles, food, software-only products,
-anything far larger than a desktop appliance, weapons, and anything that is not a physical product.
+Out of scope: vehicles and boats (cars, bikes, motorbikes, boats, kayaks, tractors), aircraft other than drones,
+buildings, large furniture (sofa, bed, wardrobe), clothing and textiles, food, software-only products, weapons, and
+anything that is not a physical product.
 
 Founder prompt (any language): {prompt}
 
@@ -68,14 +75,14 @@ class ScopeVerdict(BaseModel):
 
 def _keyword_verdict(prompt: str) -> ScopeVerdict:
     if _OUT.search(prompt) and not _DEVICE.search(prompt):
-        return ScopeVerdict(in_scope=False, reason="This looks larger than, or different from, a small electronic product.")
+        return ScopeVerdict(in_scope=False, reason="This looks like a vehicle, a building or a non-physical product.")
     return ScopeVerdict(in_scope=True)
 
 
 def check(prompt: str) -> ScopeVerdict:
     """Judge one prompt. Never raises."""
     text = (prompt or "").strip()
-    if not text:
+    if not text or classify(text) != "generic":  # a known product family (surfboard, drone, solar…) or a lamp/tracker
         return ScopeVerdict(in_scope=True)
     if not is_configured("fast"):
         return _keyword_verdict(text)
@@ -92,7 +99,8 @@ def check(prompt: str) -> ScopeVerdict:
 
 def message(v: ScopeVerdict) -> str:
     """User-facing refusal (shown under the prompt box)."""
-    head = "PhysicalLovableX makes small physical products (a moulded case around electronics, handheld to desktop size)."
+    head = ("PhysicalLovableX makes consumer products: small electronics, boards, children's furniture, drones, "
+            "home robots, rooftop solar and the like — not vehicles, buildings or software.")
     parts = [head, v.reason.strip()] if v.reason.strip() else [head]
     if v.suggestions:
         parts.append("Try: " + " · ".join(f"“{s.strip()}”" for s in v.suggestions[:3]))

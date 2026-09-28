@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import logging
 import os
+import re
 import threading
 import time
 from datetime import datetime, timezone
@@ -86,11 +87,14 @@ def preset_key(brief) -> str:
     text = " ".join(
         str(x) for x in [getattr(brief, "category", ""), getattr(brief, "product_name", ""), getattr(brief, "prompt", "")]
     ).lower()
-    if any(k in text for k in ("track", "wallet", "card", "tag", "wear", "ring", "key", "earbud", "band")):
+    def has(words: str) -> bool:  # word-bounded ("fishing" is not a ring, "category" not a cat)
+        return re.search(rf"\b(?:{words})\b", text) is not None
+
+    if has(r"track\w*|wallets?|cards?|tags?|wear\w*|rings?|key ?(chain|ring|fob)s?|keys|earbuds?|(wrist)?bands?"):
         return "small"
-    if any(k in text for k in ("lamp", "light", "lighting")):
+    if has(r"lamps?|lights?|lighting"):
         return "lighting"
-    if any(k in text for k in ("bowl", "kitchen", "pet", "dog", "cat", "home", "speaker", "appliance", "plant")):
+    if has(r"bowls?|kitchen|pets?|dogs?|cats?|home|speakers?|appliances?|plants?"):
         return "home"
     return "default"
 

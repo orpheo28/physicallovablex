@@ -44,7 +44,7 @@ User = buyer = founder in Segment A: the public contact is the founder or CEO (T
 | Makers / hobbyists | Not shipping 1,000 units; ICP = founders with commercial intent | `02_RECHERCHE/lecons_inputs.md` |
 
 ## Beachhead scoring (27/09, my scoring, Hypothesis)
-Method: GTM Strategist, "The One GTM Decision You Cannot Afford to Get Wrong" (`GTM_Lessons_Substack_MajaVoje.md`). 1-5 per criterion, access ×2, max 30. Mirrored on deck appendix A8.
+Method: GTM Strategist, "The One GTM Decision You Cannot Afford to Get Wrong" (`GTM_Lessons_Substack_MajaVoje.md`). 1-5 per criterion, access ×2, max 30. Mirrored on deck appendix A4.
 | # | Segment | Pain | Pay | Cycle | Growth | Access ×2 | Total |
 |---|---|---|---|---|---|---|---|
 | 1 | **Late crowdfunded consumer-electronics founders (ECP)** | 5 | 3 | 4 | 4 | 10 | **26** |

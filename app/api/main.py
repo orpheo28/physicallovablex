@@ -39,7 +39,7 @@ from contracts.artifacts import (  # noqa: E402
     UpdateStageRequest,
 )
 
-from api import db, llm  # noqa: E402
+from api import db, llm, scope  # noqa: E402
 from api.auth import Guards  # noqa: E402
 from api.discovery import discover  # noqa: E402
 from api.stages import defaults, runner  # noqa: E402
@@ -116,6 +116,10 @@ def list_projects() -> list[Project]:
 
 @app.post("/projects", response_model=Project, status_code=201)
 def create_project(req: CreateProjectRequest) -> Project:
+    if not req.example and not (req.pasted_bom or "").strip():  # a pasted BOM is already a physical product
+        verdict = scope.check(req.prompt)
+        if not verdict.in_scope:
+            raise HTTPException(422, scope.message(verdict))
     project = Project(
         id=runner.new_project_id(),
         name=req.name or req.prompt.strip()[:60] or "Untitled product",

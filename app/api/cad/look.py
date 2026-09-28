@@ -135,17 +135,22 @@ def apply_materials(glb_path: Path | str, look: dict[str, dict], names: dict | N
 # --------------------------------------------------------------------------- assembly geometry
 
 
+def _has(text: str, words: str) -> bool:
+    return re.search(rf"\b(?:{words})\b", text) is not None
+
+
 def features_for(brief) -> set[str]:
     """Visible non-moulded parts implied by the brief (no LLM)."""
     text = " ".join(str(x) for x in [getattr(brief, "category", ""), getattr(brief, "product_name", ""),
                                      getattr(brief, "one_liner", ""), " ".join(getattr(brief, "key_features", []) or [])]).lower()
     f = {"button", "led"}
-    small = any(k in text for k in ("track", "wallet", "card", "tag", "wear", "ring", "key", "earbud", "band"))
+    # word-bounded: "fishing" is not a ring, "category" not a cat, "water" alone not a bowl (the fishing-boat bug)
+    small = _has(text, r"track\w*|wallets?|cards?|tags?|wear\w*|rings?|key ?(chain|ring|fob)s?|keys|earbuds?|(wrist)?bands?")
     if not small:
         f |= {"feet", "port"}
-    if any(k in text for k in ("lamp", "light", "lighting")):
+    if _has(text, r"lamps?|lights?|lighting"):
         f.add("diffuser")
-    if any(k in text for k in ("bowl", "feeder", "food", "water", "dog", "cat", "pet")):
+    if _has(text, r"bowls?|feeders?|pet food|dog food|cat food|pets?|dogs?|cats?|water dish"):
         f.add("bowl")
         f.discard("button")
     return f

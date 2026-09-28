@@ -1,5 +1,5 @@
 {
- "_v": "a4",
+ "_v": "a6",
  "version": 2,
  "glb_url": "/files/demo_irrigation_biarritz/anatomy_v2.glb",
  "label": "Illustrative internal layout \u2014 not a routed PCB",
@@ -15,21 +15,9 @@
    "name": "Top shell",
    "order": 0,
    "parts": [
-    "housing",
-    "glass_window",
-    "buttons",
-    "status_light",
     "top_shell",
     "top_shell_2",
     "pv_cells",
-    "rubber_parts",
-    "dark_part",
-    "metal_parts",
-    "dark_part_2",
-    "dark_part_3",
-    "rubber_part",
-    "rubber_part_2",
-    "steel_parts",
     "body",
     "pv_cells_2",
     "status_light_2"
@@ -85,8 +73,20 @@
    "name": "Bottom shell",
    "order": 3,
    "parts": [
+    "glass_window",
+    "buttons",
+    "status_light",
+    "rubber_parts",
+    "dark_part",
+    "metal_parts",
+    "dark_part_2",
+    "dark_part_3",
+    "rubber_part",
+    "rubber_part_2",
     "lower_body",
-    "lower_body_2"
+    "lower_body_2",
+    "steel_parts",
+    "controller_housing_gasketed"
    ],
    "explode_vector": [
     0.0,
@@ -95,6 +95,23 @@
    ],
    "explode_distance_mm": 253.7,
    "caption": "ASA shell, 2.0 mm wall (Estimate)"
+  },
+  {
+   "id": "fasteners",
+   "name": "Fasteners",
+   "order": 4,
+   "parts": [
+    "gasket",
+    "m4_x_20_pan_screws_x4",
+    "m4_heat_set_inserts_x4"
+   ],
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 47.5,
+   "caption": "Fasteners \u00b7 3 kinds: Gasket, M4 \u00d7 20 pan screws \u00d74, M4 heat-set inserts \u00d74"
   }
  ],
  "steps": [
@@ -141,9 +158,9 @@
     "shell_top"
    ],
    "focus_parts": [
-    "housing",
-    "glass_window",
-    "buttons"
+    "top_shell",
+    "top_shell_2",
+    "pv_cells"
    ]
   },
   {
@@ -166,7 +183,8 @@
    },
    "layers_exploded": [
     "shell_top",
-    "battery"
+    "battery",
+    "fasteners"
    ],
    "focus_parts": [
     "main_pcb",
@@ -195,7 +213,8 @@
    },
    "layers_exploded": [
     "shell_top",
-    "battery"
+    "battery",
+    "fasteners"
    ],
    "focus_parts": [
     "ao3400a_logic_level_n_channel_mosfet",
@@ -223,7 +242,8 @@
    },
    "layers_exploded": [
     "shell_top",
-    "battery"
+    "battery",
+    "fasteners"
    ],
    "focus_parts": [
     "li_po_battery_2600_mah"
@@ -233,7 +253,7 @@
    "id": "s6",
    "title": "Back together",
    "kicker": "06 \u00b7 Back together",
-   "caption": "Unit cost $44.11 at 2,000 units (Estimate), product mass 410.0 g (Estimate)",
+   "caption": "Unit cost $46.68 at 2,000 units (Estimate), product mass 423.0 g (Estimate)",
    "camera": {
     "position_mm": [
      -662.1,
@@ -253,84 +273,10 @@
  ],
  "parts": [
   {
-   "part_id": "housing",
-   "name": "Housing",
-   "role": "shell_top",
-   "layer_id": "shell_top",
-   "material": "PC/ABS (UL94 V-0)",
-   "finish": "Matte texture",
-   "colour_hex": "#EDEBE6",
-   "measured_bbox_mm": [
-    150.0,
-    190.0,
-    60.0
-   ],
-   "centroid_mm": [
-    0.0,
-    95.0,
-    0.0
-   ],
-   "label": "measured",
-   "bom_item_id": "m4",
-   "lcsc_pn": null,
-   "package": null,
-   "unit_price": {
-    "value": 0.0276,
-    "unit": "USD",
-    "label": "estimate",
-    "source_or_assumption": "Module price model: screw \u2248 USD 0.03 (typical 2026 trade price at ~2k units, not a quote)"
-   },
-   "editable": [
-    {
-     "param": "housing_depth",
-     "label": "Housing depth",
-     "min": 35.0,
-     "max": 120.0,
-     "step": 1.0,
-     "unit": "mm",
-     "value": 60.0
-    },
-    {
-     "param": "housing_height",
-     "label": "Housing height",
-     "min": 95.0,
-     "max": 360.0,
-     "step": 1.0,
-     "unit": "mm",
-     "value": 190.0
-    },
-    {
-     "param": "housing_width",
-     "label": "Housing width",
-     "min": 80.0,
-     "max": 300.0,
-     "step": 1.0,
-     "unit": "mm",
-     "value": 150.0
-    },
-    {
-     "param": "corner_radius",
-     "label": "Corner radius",
-     "min": 7.0,
-     "max": 28.0,
-     "step": 0.5,
-     "unit": "mm",
-     "value": 14.0
-    }
-   ],
-   "colour_editable": true,
-   "material_options": [
-    "pc_abs",
-    "aluminium",
-    "stainless_steel",
-    "tpu"
-   ]
-  },
-  {
    "part_id": "glass_window",
    "name": "Glass window",
    "role": "window",
-   "layer_id": "shell_top",
+   "layer_id": "shell_bottom",
    "material": "dark glass / display",
    "finish": null,
    "colour_hex": "#191D22",
@@ -382,13 +328,21 @@
    "material_options": [
     "glass",
     "clear_pc"
-   ]
+   ],
+   "parent_part_id": "controller_housing_gasketed",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "explode_distance_mm": 24.6
   },
   {
    "part_id": "buttons",
    "name": "Buttons",
    "role": "button",
-   "layer_id": "shell_top",
+   "layer_id": "shell_bottom",
    "material": "PC/ABS (UL94 V-0)",
    "finish": "Matte texture",
    "colour_hex": "#E2E0DC",
@@ -442,13 +396,21 @@
     }
    ],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "controller_housing_gasketed",
+   "joint": "linear",
+   "explode_vector": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "explode_distance_mm": 25.8
   },
   {
    "part_id": "status_light",
    "name": "Status light 1",
    "role": "diffuser",
-   "layer_id": "shell_top",
+   "layer_id": "shell_bottom",
    "material": "status light pipe",
    "finish": null,
    "colour_hex": "#7CDAF3",
@@ -502,7 +464,15 @@
     }
    ],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "controller_housing_gasketed",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "explode_distance_mm": 24.6
   },
   {
    "part_id": "top_shell",
@@ -576,7 +546,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "m4_x_20_pan_screws_x4",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 38.8
   },
   {
    "part_id": "top_shell_2",
@@ -641,7 +619,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "top_shell",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 60.6
   },
   {
    "part_id": "pv_cells",
@@ -696,13 +682,21 @@
     }
    ],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "top_shell_2",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 87.8
   },
   {
    "part_id": "rubber_parts",
    "name": "Rubber parts",
    "role": "other",
-   "layer_id": "shell_top",
+   "layer_id": "shell_bottom",
    "material": "TPE rubber",
    "finish": null,
    "colour_hex": "#303032",
@@ -751,13 +745,21 @@
     }
    ],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "controller_housing_gasketed",
+   "joint": "rigid",
+   "explode_vector": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "explode_distance_mm": 17.0
   },
   {
    "part_id": "dark_part",
    "name": "Dark part 1",
    "role": "other",
-   "layer_id": "shell_top",
+   "layer_id": "shell_bottom",
    "material": "powder coat",
    "finish": null,
    "colour_hex": "#2E3033",
@@ -772,10 +774,15 @@
     0.0
    ],
    "label": "measured",
-   "bom_item_id": null,
+   "bom_item_id": "hw2",
    "lcsc_pn": null,
    "package": null,
-   "unit_price": null,
+   "unit_price": {
+    "value": 0.1012,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
    "editable": [
     {
      "param": "housing_width",
@@ -820,13 +827,21 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "rubber_parts",
+   "joint": "rigid",
+   "explode_vector": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "explode_distance_mm": 128.3
   },
   {
    "part_id": "metal_parts",
    "name": "Metal parts",
    "role": "frame",
-   "layer_id": "shell_top",
+   "layer_id": "shell_bottom",
    "material": "anodised aluminium",
    "finish": null,
    "colour_hex": "#E7E8EB",
@@ -889,13 +904,21 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "dark_part",
+   "joint": "rigid",
+   "explode_vector": [
+    0.9332,
+    0.3593,
+    0.0
+   ],
+   "explode_distance_mm": 137.5
   },
   {
    "part_id": "dark_part_2",
    "name": "Dark part 2",
    "role": "other",
-   "layer_id": "shell_top",
+   "layer_id": "shell_bottom",
    "material": "powder coat",
    "finish": null,
    "colour_hex": "#2E3033",
@@ -910,10 +933,15 @@
     0.0
    ],
    "label": "measured",
-   "bom_item_id": null,
+   "bom_item_id": "hw2",
    "lcsc_pn": null,
    "package": null,
-   "unit_price": null,
+   "unit_price": {
+    "value": 0.1012,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
    "editable": [
     {
      "param": "housing_width",
@@ -958,13 +986,21 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "dark_part",
+   "joint": "rigid",
+   "explode_vector": [
+    0.9639,
+    0.2663,
+    0.0
+   ],
+   "explode_distance_mm": 133.1
   },
   {
    "part_id": "dark_part_3",
    "name": "Dark part 3",
    "role": "other",
-   "layer_id": "shell_top",
+   "layer_id": "shell_bottom",
    "material": "powder coat",
    "finish": null,
    "colour_hex": "#2E3033",
@@ -979,10 +1015,15 @@
     0.0
    ],
    "label": "measured",
-   "bom_item_id": null,
+   "bom_item_id": "hw2",
    "lcsc_pn": null,
    "package": null,
-   "unit_price": null,
+   "unit_price": {
+    "value": 0.1012,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
    "editable": [
     {
      "param": "housing_width",
@@ -1027,13 +1068,21 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "dark_part_2",
+   "joint": "rigid",
+   "explode_vector": [
+    0.9041,
+    0.4272,
+    0.0
+   ],
+   "explode_distance_mm": 141.9
   },
   {
    "part_id": "rubber_part",
    "name": "Rubber part 1",
    "role": "other",
-   "layer_id": "shell_top",
+   "layer_id": "shell_bottom",
    "material": "TPE rubber",
    "finish": null,
    "colour_hex": "#303032",
@@ -1048,10 +1097,15 @@
     0.0
    ],
    "label": "measured",
-   "bom_item_id": null,
+   "bom_item_id": "hw2",
    "lcsc_pn": null,
    "package": null,
-   "unit_price": null,
+   "unit_price": {
+    "value": 0.1012,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
    "editable": [
     {
      "param": "housing_width",
@@ -1091,13 +1145,21 @@
     }
    ],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "dark_part_3",
+   "joint": "rigid",
+   "explode_vector": [
+    0.7983,
+    0.6022,
+    0.0
+   ],
+   "explode_distance_mm": 160.7
   },
   {
    "part_id": "rubber_part_2",
    "name": "Rubber part 2",
    "role": "other",
-   "layer_id": "shell_top",
+   "layer_id": "shell_bottom",
    "material": "TPE rubber",
    "finish": null,
    "colour_hex": "#303032",
@@ -1112,10 +1174,15 @@
     0.0
    ],
    "label": "measured",
-   "bom_item_id": null,
+   "bom_item_id": "hw2",
    "lcsc_pn": null,
    "package": null,
-   "unit_price": null,
+   "unit_price": {
+    "value": 0.1012,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
    "editable": [
     {
      "param": "housing_width",
@@ -1155,7 +1222,15 @@
     }
    ],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "rubber_part",
+   "joint": "rigid",
+   "explode_vector": [
+    0.8679,
+    0.4967,
+    0.0
+   ],
+   "explode_distance_mm": 194.9
   },
   {
    "part_id": "lower_body",
@@ -1229,7 +1304,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "body",
+   "joint": "rigid",
+   "explode_vector": [
+    -0.5524,
+    -0.8336,
+    0.0
+   ],
+   "explode_distance_mm": 64.6
   },
   {
    "part_id": "lower_body_2",
@@ -1294,13 +1377,21 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "lower_body",
+   "joint": "rigid",
+   "explode_vector": [
+    -0.3551,
+    -0.9348,
+    0.0
+   ],
+   "explode_distance_mm": 100.6
   },
   {
    "part_id": "steel_parts",
    "name": "Steel parts",
    "role": "frame",
-   "layer_id": "shell_top",
+   "layer_id": "shell_bottom",
    "material": "stainless steel 304",
    "finish": null,
    "colour_hex": "#EFEFF0",
@@ -1363,7 +1454,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "lower_body_2",
+   "joint": "rigid",
+   "explode_vector": [
+    -0.8206,
+    -0.5715,
+    0.0
+   ],
+   "explode_distance_mm": 43.5
   },
   {
    "part_id": "body",
@@ -1432,7 +1531,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "top_shell",
+   "joint": "rigid",
+   "explode_vector": [
+    -0.6768,
+    0.7362,
+    0.0
+   ],
+   "explode_distance_mm": 52.8
   },
   {
    "part_id": "pv_cells_2",
@@ -1496,7 +1603,15 @@
     }
    ],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "body",
+   "joint": "rigid",
+   "explode_vector": [
+    -0.4958,
+    0.8684,
+    0.0
+   ],
+   "explode_distance_mm": 72.0
   },
   {
    "part_id": "status_light_2",
@@ -1565,7 +1680,180 @@
     }
    ],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "body",
+   "joint": "rigid",
+   "explode_vector": [
+    -0.6134,
+    0.6673,
+    0.4226
+   ],
+   "explode_distance_mm": 58.2
+  },
+  {
+   "part_id": "controller_housing_gasketed",
+   "name": "Controller housing (gasketed)",
+   "role": "shell_bottom",
+   "layer_id": "shell_bottom",
+   "material": "PC/ABS (UL94 V-0)",
+   "finish": "Matte texture",
+   "colour_hex": "#EDEBE6",
+   "measured_bbox_mm": [
+    150.0,
+    190.0,
+    60.0
+   ],
+   "centroid_mm": [
+    0.0,
+    95.0,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "e2",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 0.828,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: microcontroller \u2248 USD 0.9 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 0.0
+  },
+  {
+   "part_id": "gasket",
+   "name": "Gasket",
+   "role": "other",
+   "layer_id": "fasteners",
+   "material": "EPDM 70 Shore A",
+   "finish": null,
+   "colour_hex": "#303032",
+   "measured_bbox_mm": [
+    140.0,
+    2.0,
+    50.0
+   ],
+   "centroid_mm": [
+    0.0,
+    189.5,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "hw1",
+   "lcsc_pn": null,
+   "package": "Parker O-Ring Handbook ORD 5700 140 \u00d7 50, cord 2",
+   "unit_price": {
+    "value": 0.15,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": true,
+   "material_options": [],
+   "parent_part_id": "controller_housing_gasketed",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 24.0
+  },
+  {
+   "part_id": "m4_x_20_pan_screws_x4",
+   "name": "M4 \u00d7 20 pan screws \u00d74",
+   "role": "fastener",
+   "layer_id": "fasteners",
+   "material": "A2 stainless steel",
+   "finish": null,
+   "colour_hex": "#EFEFF0",
+   "measured_bbox_mm": [
+    140.0,
+    23.1,
+    50.0
+   ],
+   "centroid_mm": [
+    0.0,
+    191.55,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "hw3",
+   "lcsc_pn": null,
+   "package": "ISO 14583 M4 \u00d7 20",
+   "unit_price": {
+    "value": 0.035,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": true,
+   "material_options": [],
+   "parent_part_id": "controller_housing_gasketed",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 21.1
+  },
+  {
+   "part_id": "m4_heat_set_inserts_x4",
+   "name": "M4 heat-set inserts \u00d74",
+   "role": "fastener",
+   "layer_id": "fasteners",
+   "material": "brass",
+   "finish": null,
+   "colour_hex": "#E5CB8B",
+   "measured_bbox_mm": [
+    138.3,
+    8.2,
+    48.3
+   ],
+   "centroid_mm": [
+    0.0,
+    185.9,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "k1",
+   "lcsc_pn": null,
+   "package": "McMaster-Carr 94459A170 M4 \u00d7 8.2",
+   "unit_price": {
+    "value": 1.38,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: retail carton + insert \u2248 USD 1.5 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": true,
+   "material_options": [],
+   "parent_part_id": "controller_housing_gasketed",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 27.7
   },
   {
    "part_id": "main_pcb",
@@ -1592,7 +1880,11 @@
    "unit_price": null,
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "capacitive_soil_moisture_probe_module",
@@ -1624,7 +1916,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "microcontroller",
@@ -1656,7 +1952,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "dc_dc_regulator",
@@ -1688,7 +1988,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "flyback_diode",
@@ -1720,7 +2024,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "ao3400a_logic_level_n_channel_mosfet",
@@ -1752,7 +2060,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "passives_cluster",
@@ -1784,7 +2096,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "li_po_battery_2600_mah",
@@ -1816,7 +2132,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "switch_under_buttons",
@@ -1848,7 +2168,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "solenoid_valve_coil",
@@ -1880,7 +2204,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   }
  ]
 }

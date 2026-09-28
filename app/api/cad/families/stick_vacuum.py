@@ -12,7 +12,7 @@ from dataclasses import asdict, dataclass
 
 from build123d import *  # noqa: F403 — the geometry block is also stand-alone seed code
 
-from api.cad.families._common import clamp
+from api.cad.families._common import clamp, with_detail
 
 NAME = "stick_vacuum"
 CATEGORY = "vacuum"
@@ -137,8 +137,54 @@ def build_parts(P):
 # === END GEOMETRY ===
 
 
+# === PRO DETAIL ===
+def pro_details(P, parts):
+    """CAD_DETAIL_LEVEL=pro: motor housing split on its parting line and closed by 3 radial thread-forming screws into
+    bosses, floor-head clamshell screwed from underneath, cantilever snap-fit bin latch with a release button."""
+    from api.cad.stdparts import add_parts, named, parting_split, screw_joint, snap_fit
+
+    hd, hw, hh = P["head_depth"], P["head_width"], P["head_height"]
+    H, wr = P["height"], P["wand_diameter"] / 2
+    bl, br = P["bin_length"], P["bin_diameter"] / 2
+    unit_z0 = H - bl - 40
+    wx = -hd * 0.2
+    bx = wx + wr - br * 0.35 + br * 0.6
+    z_bin = unit_z0 + 40
+    bin_h = bl * 0.55
+    zc = z_bin + bin_h + bl * 0.3
+    mr = P["motor_diameter"] / 2
+    mx = bx - br - mr + 8
+    mz0 = z_bin + bin_h * 0.45
+    mz1 = zc + bl * 0.12
+    # motor housing: two halves on a parting line, 3 radial screws on the rear half (away from the bin)
+    motor = next(q for q in parts if q.label == "body.2")
+    zs = mz0 + (mz1 - mz0) * 0.55
+    motor_lower, motor_upper = parting_split(motor, zs)
+    parts = [q for q in parts if q is not motor]
+    parts.append(lab(named(motor_lower, "Motor housing (lower)", role="shell_bottom"), "body", 2))
+    parts.append(lab(named(motor_upper, "Motor housing (upper)", role="shell_top"), "body", 6))
+    kit = []
+    for deg in (130, 180, 230):
+        a = math.radians(deg)
+        at = (mx + mr * math.cos(a), mr * math.sin(a), zs + 6)
+        kit += screw_joint("M3", at, (-math.cos(a), -math.sin(a), 0), grip=2.2, head="pan", into="pt", boss_len=8, wall=2.2)
+    # floor head: 4 screws from underneath into the upper clamshell
+    for sx, sy in ((1, 1), (1, -1), (-1, 1), (-1, -1)):
+        kit += screw_joint("M3", (sx * hd * 0.32, sy * (hw / 2 - 20), 4.0), (0, 0, 1), grip=2.2, head="pan", into="pt",
+                          boss_len=hh * 0.5, wall=2.2)
+    # bin latch: cantilever snap on the bin cap (+X side) + a release button on the shroud collar
+    latch = snap_fit(14.0, 1.6, 8.0, "pc_abs")
+    kit.append(latch.moved(Location((bx + br + 2.5, 0, z_bin - 12), (0, 0, 1), 180)))
+    kit[-1].std_meta = dict(latch.std_meta, name="Bin latch (snap-fit)", group="bin_latch", look_role="accent")
+    release = Pos(bx + br + 4.5, 0, z_bin + 6) * Box(4, 14, 10)
+    kit.append(named(release, "Bin release button", role="button", look_role="button"))
+    return add_parts(parts, kit, "accent")
+# === END PRO DETAIL ===
+
+
 def build(params: Params | dict | None = None):
     p = params if isinstance(params, Params) else Params(**{k: float(v) for k, v in (params or {}).items()
                                                                if k in Params.__dataclass_fields__})
-    parts = build_parts(asdict(p.clamped()))
+    P = asdict(p.clamped())
+    parts = with_detail(pro_details, P, build_parts(P))  # C1: CAD_DETAIL_LEVEL=pro adds hardware
     return Compound(children=parts), parts

@@ -354,18 +354,6 @@
    "alternative": null
   },
   {
-   "id": "m4",
-   "part": "Enclosure screws",
-   "category": "mechanical",
-   "qty": 4.0,
-   "description": "Corrosion-resistant screws sized to secure the two housing shells.",
-   "manufacturer_pn": null,
-   "lcsc_pn": null,
-   "unit_cost_est": null,
-   "risk": null,
-   "alternative": null
-  },
-  {
    "id": "m5",
    "part": "Cable glands and weather seals",
    "category": "mechanical",
@@ -422,6 +410,40 @@
    },
    "risk": null,
    "alternative": null
+  },
+  {
+   "id": "hw2",
+   "part": "Heat-set threaded insert M4 × 8.2 (OD 6.3 mm), brass — ref. McMaster-Carr 94459A170",
+   "category": "mechanical",
+   "qty": 4.0,
+   "description": "Standard part (McMaster-Carr 94459A170), counted on the CAD: 4 placed",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.11,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "hw3",
+   "part": "Screw M4 × 20 pan head, T20 (ISO 14583), A2 stainless",
+   "category": "mechanical",
+   "qty": 4.0,
+   "description": "Standard part (ISO 14583), counted on the CAD: 4 placed",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.035,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
   }
  ],
  "tolerances": [
@@ -435,7 +457,7 @@
    "format": "glb",
    "url": "/files/demo_irrigation_biarritz/model_v1.glb",
    "description": "AI-generated CAD (concept level) — geometry measured on the result — bbox 554 × 74 × 222 mm",
-   "size_bytes": 449012
+   "size_bytes": 538268
   },
   {
    "format": "step",
@@ -453,7 +475,7 @@
    "format": "glb",
    "url": "/files/demo_irrigation_biarritz/v2.glb",
    "description": "Full product — materials",
-   "size_bytes": 1205792
+   "size_bytes": 1316220
   },
   {
    "format": "step",

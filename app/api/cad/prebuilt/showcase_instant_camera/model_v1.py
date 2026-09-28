@@ -35,7 +35,7 @@ def front_disc(x, y, z, radius, thickness):
     return Pos(x, y, z) * Rot(90, 0, 0) * Cylinder(radius, thickness)
 
 
-def build():
+def _basic_build():
     parts = []
     W, D, H = P["width"], P["depth"], P["body_height"]
     front = -D / 2
@@ -148,4 +148,42 @@ def build():
         "led", 1,
     ))
 
+    return parts
+
+
+# === PRO DETAIL === (C5: the seed family 'camera' CAD_DETAIL_LEVEL=pro block, appended deterministically, no LLM)
+P_PRO = {**{'width': 150.0, 'depth': 95.0, 'height': 118.0, 'corner_radius': 14.0, 'grip_depth': 0.0, 'lens_diameter': 58.0, 'lens_length': 22.0, 'display_width': 0.0, 'instant': 1.0}, **P, **{}}
+
+
+def _f_lab(shape, role, n):
+    shape.label = f"{role}.{n}"
+    return shape
+
+
+def pro_details(P, parts):
+    """CAD_DETAIL_LEVEL=pro: bottom plate split off the body on its parting line and held by 4 countersunk M2 into
+    heat-set inserts, 2 M2 pan screws per end cap, ISO 1222 1/4"-20 tripod socket insert under the lens axis."""
+    from api.cad.stdparts import add_parts, named, parting_split, screw_joint, tripod_insert
+
+    W, D, H = P["width"], P["depth"], P["height"]
+    lx = -W * 0.1 if P["instant"] < 0.5 else 0.0
+    body = next(q for q in parts if q.label == "body.1")
+    zp = min(H * 0.1, 8.0)
+    bottom_plate, upper_body = parting_split(body, zp)
+    parts = [q for q in parts if q is not body]
+    parts.append(_f_lab(named(upper_body, "Camera body", role="shell_top"), "body", 1))
+    parts.append(_f_lab(named(bottom_plate, "Bottom plate", role="shell_bottom"), "body", 2))
+    kit = [tripod_insert().along((lx, 0, 0), (0, 0, 1))]
+    for sx in (1, -1):
+        for sy in (1, -1):
+            kit += screw_joint("M2", (sx * W * 0.38, sy * D * 0.25, 0), (0, 0, 1), grip=zp, head="countersunk")
+        for sz in (0.62, 0.86):  # end caps
+            kit += screw_joint("M2", (sx * W / 2, 0, H * sz), (-sx, 0, 0), grip=1.5, head="pan")
+    return add_parts(parts, kit, "body")
+
+
+def build():
+    r = _basic_build()
+    r = r[1] if isinstance(r, tuple) else r
+    parts = pro_details(P_PRO, list(r) if isinstance(r, list) else list(r.children))
     return parts

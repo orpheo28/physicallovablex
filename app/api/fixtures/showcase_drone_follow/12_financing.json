@@ -4,7 +4,7 @@
  "fallback": false,
  "fallback_reason": null,
  "generated_by": "code",
- "generated_at": "2026-09-27T08:58:58.339646Z",
+ "generated_at": "2026-09-28T11:06:25.473656Z",
  "assumptions": [
   {
    "id": "a1",
@@ -15,7 +15,7 @@
   },
   {
    "id": "a2",
-   "text": "Peak cash need $566,840; 2,900 of it falls in the first 60 days.",
+   "text": "Peak cash need $568,036; 2,900 of it falls in the first 60 days.",
    "label": "estimate",
    "source": null,
    "stage": 12
@@ -69,13 +69,13 @@
    "milestone_id": "m4",
    "description": "Samples (T0, T1, golden) @ Golden sample approval",
    "cash_out": {
-    "value": 6076.29,
+    "value": 6088.39,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Stage 5 cash breakdown, allocated to the milestone"
    },
    "cumulative": {
-    "value": 8976.29,
+    "value": 8988.39,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Running total"
@@ -86,13 +86,13 @@
    "milestone_id": "m6",
    "description": "First production order (2,000 × negotiated FOB) — 30% @ Mass production (2,000 units)",
    "cash_out": {
-    "value": 120450.0,
+    "value": 120708.0,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Stage 5 cash breakdown, allocated to the milestone"
    },
    "cumulative": {
-    "value": 129426.29,
+    "value": 129696.39,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Running total"
@@ -109,7 +109,7 @@
     "source_or_assumption": "Stage 5 cash breakdown, allocated to the milestone"
    },
    "cumulative": {
-    "value": 138926.29,
+    "value": 139196.39,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Running total"
@@ -120,13 +120,13 @@
    "milestone_id": "m7",
    "description": "First production order (2,000 × negotiated FOB) — 70% @ Pre-shipment inspection",
    "cash_out": {
-    "value": 281050.0,
+    "value": 281652.0,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Stage 5 cash breakdown, allocated to the milestone"
    },
    "cumulative": {
-    "value": 419976.29,
+    "value": 420848.39,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Running total"
@@ -143,7 +143,7 @@
     "source_or_assumption": "Stage 5 cash breakdown, allocated to the milestone"
    },
    "cumulative": {
-    "value": 420516.29,
+    "value": 421388.39,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Running total"
@@ -154,13 +154,13 @@
    "milestone_id": "m8",
    "description": "Freight + insurance @ Balance + sea shipment",
    "cash_out": {
-    "value": 4164.0,
+    "value": 4168.0,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Stage 5 cash breakdown, allocated to the milestone"
    },
    "cumulative": {
-    "value": 424680.29,
+    "value": 425556.39,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Running total"
@@ -171,13 +171,13 @@
    "milestone_id": "m8",
    "description": "Duties (HTS + Section 301) @ Balance + sea shipment",
    "cash_out": {
-    "value": 112420.0,
+    "value": 112680.0,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Stage 5 cash breakdown, allocated to the milestone"
    },
    "cumulative": {
-    "value": 537100.29,
+    "value": 538236.39,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Running total"
@@ -188,13 +188,13 @@
    "milestone_id": "m8",
    "description": "Platform / agent fee @ Balance + sea shipment",
    "cash_out": {
-    "value": 28100.0,
+    "value": 28160.0,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Stage 5 cash breakdown, allocated to the milestone"
    },
    "cumulative": {
-    "value": 565200.29,
+    "value": 566396.39,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Running total"
@@ -211,7 +211,7 @@
     "source_or_assumption": "Stage 5 cash breakdown, allocated to the milestone"
    },
    "cumulative": {
-    "value": 566840.29,
+    "value": 568036.39,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Running total"
@@ -219,7 +219,7 @@
   }
  ],
  "total_cash": {
-  "value": 566840.29,
+  "value": 568036.39,
   "unit": "USD",
   "label": "estimate",
   "source_or_assumption": "Sum of the cash curve (approved quote applied)"
@@ -229,7 +229,7 @@
   {
    "kind": "preorders",
    "name": "Preorders / waitlist deposits",
-   "description": "Presell about 588 units at the target price $999.00 (net of ~3.5% card fees) to cover the $566,840 total cash need; refunds if the golden sample slips.",
+   "description": "Presell about 590 units at the target price $999.00 (net of ~3.5% card fees) to cover the $568,036 total cash need; refunds if the golden sample slips.",
    "cost": {
     "value": 3.5,
     "unit": "pct",
@@ -244,13 +244,13 @@
    "cons": [
     "Delivery promise creates refund and legal exposure",
     "Slipping dates hurt trust",
-    "Needs an audience: 588 buyers ≈ 29% of the 2,000-unit first order"
+    "Needs an audience: 590 buyers ≈ 30% of the 2,000-unit first order"
    ]
   },
   {
    "kind": "crowdfunding",
    "name": "Crowdfunding campaign",
-   "description": "Reward-based campaign with a goal around $616,200 so that ~8% platform + processing fees still leave $566,840.",
+   "description": "Reward-based campaign with a goal around $617,500 so that ~8% platform + processing fees still leave $568,036.",
    "cost": {
     "value": 8.0,
     "unit": "pct",
@@ -271,7 +271,7 @@
   {
    "kind": "inventory_financing",
    "name": "Inventory / purchase-order financing",
-   "description": "Lender advances the ~$401,500 first production order against confirmed POs or preorders; repaid from sales.",
+   "description": "Lender advances the ~$402,360 first production order against confirmed POs or preorders; repaid from sales.",
    "cost": {
     "value": 15.0,
     "unit": "pct",
@@ -310,7 +310,7 @@
   {
    "kind": "equity",
    "name": "Angel / pre-seed round",
-   "description": "Raise about $737,000 (total cash + 30% buffer for slips and re-tooling).",
+   "description": "Raise about $739,000 (total cash + 30% buffer for slips and re-tooling).",
    "cost": null,
    "pros": [
     "Buffer for re-tooling and delays",
@@ -344,10 +344,10 @@
   }
  ],
  "stage5_total": {
-  "value": 539566.21,
+  "value": 540666.97,
   "unit": "USD",
   "label": "estimate",
   "source_or_assumption": "Stage 5 total cash needed (budget reference)"
  },
- "reconciliation_note": "Differs from stage 5 by $+27,274 ($566,840 vs $539,566) because the negotiated quote qt_a8423d1784 replaced the estimate: FOB $200.75 vs $190.54 × 2,000, tooling $2,900 vs $3,220, payment terms 30% deposit / 70% before shipment"
+ "reconciliation_note": "Differs from stage 5 by $+27,369 ($568,036 vs $540,667) because the negotiated quote qt_2082b9e988 replaced the estimate: FOB $201.18 vs $190.95 × 2,000, tooling $2,900 vs $3,220, payment terms 30% deposit / 70% before shipment"
 }

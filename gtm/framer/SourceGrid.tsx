@@ -5,6 +5,7 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion"
 // Replaces the Fantom logo wall ("Trusted by some of the big companies").
 // Each cell shows a data source by name, flips to what we take from it, then moves on to the next source.
 // Text only on purpose: no third-party logos, so it never reads as an endorsement.
+// Defaults follow mvp/docs/BRAND.md after W26: sentence-case sans labels (no mono capitals), radius 12, no borders.
 
 interface SourceItem {
     name: string
@@ -91,7 +92,7 @@ export default function SourceGrid(props: SourceGridProps) {
         labelDot = "#2F6FD6",
         labelTint = "#EDF2FB",
         labelInk = "#2556A8",
-        radius = "6px",
+        radius = "12px",
         gap = 12,
         padding = 0,
         cellPadding = 16,
@@ -169,12 +170,10 @@ export default function SourceGrid(props: SourceGridProps) {
                 <span
                     style={{
                         fontFamily: SANS,
-                        fontSize: 11,
+                        fontSize: 12.5,
                         fontWeight: 500,
-                        lineHeight: "16px",
-                        letterSpacing: "0.06em",
+                        lineHeight: "18px",
                         ...tagFont,
-                        textTransform: "uppercase",
                         color: mutedColor,
                     }}
                 >
@@ -367,8 +366,8 @@ addPropertyControls(SourceGrid, {
         type: ControlType.Font,
         title: "Tag Font",
         controls: "extended",
-        defaultFontType: "monospace",
-        defaultValue: { fontSize: 11, letterSpacing: "0.06em", lineHeight: "16px" },
+        defaultFontType: "sans-serif",
+        defaultValue: { fontSize: 12.5, lineHeight: "18px" },
     },
     autoplay: { type: ControlType.Boolean, title: "Autoplay", defaultValue: true },
     rows: { type: ControlType.Number, title: "Rows", defaultValue: 1, min: 1, max: 6, step: 1 },
@@ -437,7 +436,7 @@ addPropertyControls(SourceGrid, {
         defaultValue: "#2556A8",
         hidden: ({ showLabel }: SourceGridProps) => !showLabel,
     },
-    radius: { type: ControlType.BorderRadius, title: "Radius", defaultValue: "6px" },
+    radius: { type: ControlType.BorderRadius, title: "Radius", defaultValue: "12px" },
     gap: { type: ControlType.Number, title: "Grid Gap", defaultValue: 12, min: 0, max: 36, step: 1, unit: "px" },
     padding: { type: ControlType.Number, title: "Outer Padding", defaultValue: 0, min: 0, max: 100, step: 1, unit: "px" },
     cellPadding: { type: ControlType.Number, title: "Cell Padding", defaultValue: 16, min: 0, max: 80, step: 1, unit: "px" },

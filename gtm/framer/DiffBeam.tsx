@@ -8,7 +8,9 @@ import { addPropertyControls, ControlType, RenderTarget } from "framer"
  * Replaces the AI-tool logo hub in "How it works" card 2: the centre is the new
  * version created by a prompt; beams flow out to the six things it rebuilds
  * (CAD, BOM, cost, DFM, certifications, factories), and each chip lights up when its beam arrives.
- * Text chips only: no third-party logos.
+ * Text chips only: no third-party logos. Defaults follow mvp/docs/BRAND.md after W26
+ * (borderless chips on paper-2, lit = accent-soft + accent-ink, centre radius 12).
+ * Place it on a white or paper (#F7F6F3) card: on a paper-2 card the chips blend in.
  *
  * @framerSupportedLayoutWidth any-prefer-fixed
  * @framerSupportedLayoutHeight any-prefer-fixed
@@ -95,17 +97,17 @@ export default function DiffBeam(props: Props) {
         labelFont,
         centerFont,
         captionFont,
-        nodeBackground = "#FFFFFF",
-        nodeBorderColor = "#E6E4DF",
-        nodeTextColor = "#111111",
-        nodeBorderWidth = 1,
+        nodeBackground = "rgba(239, 237, 232, 0.8)",
+        nodeBorderColor = "rgba(0, 0, 0, 0)",
+        nodeTextColor = "#5F5E5A",
+        nodeBorderWidth = 0,
         nodeRadius = 999,
         centerBackground = "#111111",
         centerTextColor = "#FFFFFF",
         captionColor = "#5F5E5A",
         highlight = true,
         highlightBackground = "#FFF1EA",
-        highlightBorder = "#FF4F00",
+        highlightBorder = "rgba(0, 0, 0, 0)",
         highlightText = "#C43C00",
         pathColor = "#111111",
         pathWidth = 1.5,
@@ -345,7 +347,7 @@ export default function DiffBeam(props: Props) {
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
-                        borderRadius: 6,
+                        borderRadius: 12,
                         background: centerBackground,
                         color: centerTextColor,
                         fontFamily: MONO,
@@ -478,10 +480,10 @@ addPropertyControls(DiffBeam, {
     padding: { type: ControlType.Number, title: "Padding", min: 0, max: 200, defaultValue: 24 },
     gap: { type: ControlType.Number, title: "Chip Gap", min: 0, max: 120, defaultValue: 20 },
 
-    nodeBackground: { type: ControlType.Color, title: "Chip Fill", defaultValue: "#FFFFFF" },
-    nodeBorderColor: { type: ControlType.Color, title: "Chip Border", defaultValue: "#E6E4DF" },
-    nodeTextColor: { type: ControlType.Color, title: "Chip Text", defaultValue: "#111111" },
-    nodeBorderWidth: { type: ControlType.Number, title: "Border W", min: 0, max: 4, step: 0.5, defaultValue: 1 },
+    nodeBackground: { type: ControlType.Color, title: "Chip Fill", defaultValue: "rgba(239, 237, 232, 0.8)" },
+    nodeBorderColor: { type: ControlType.Color, title: "Chip Border", defaultValue: "rgba(0, 0, 0, 0)" },
+    nodeTextColor: { type: ControlType.Color, title: "Chip Text", defaultValue: "#5F5E5A" },
+    nodeBorderWidth: { type: ControlType.Number, title: "Border W", min: 0, max: 4, step: 0.5, defaultValue: 0 },
     nodeRadius: { type: ControlType.Number, title: "Chip Radius", min: 0, max: 999, defaultValue: 999 },
     centerBackground: { type: ControlType.Color, title: "Center Fill", defaultValue: "#111111" },
     centerTextColor: { type: ControlType.Color, title: "Center Text", defaultValue: "#FFFFFF" },
@@ -502,7 +504,7 @@ addPropertyControls(DiffBeam, {
     highlightBorder: {
         type: ControlType.Color,
         title: "Lit Border",
-        defaultValue: "#FF4F00",
+        defaultValue: "rgba(0, 0, 0, 0)",
         hidden: ({ highlight }: Props) => !highlight,
     },
     highlightText: {

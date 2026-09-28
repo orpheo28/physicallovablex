@@ -38,6 +38,7 @@ QUESTIONS FOR THE HUMAN: <what the repo cannot know>
 ```
 Order: priorities, tracking, signal performance, decay re-check, ICP log, personas, competitors.
 - **Signal performance:** count sends, replies and calls per signal from `tracking.md`. Flag any signal with 10+ sends and 0 replies: change the hook, not the volume (deck slide 9, W1 rule).
+- **Hook experiments:** fill the weekly row per hook tag and apply the decision rule in `workflows/hook-experiments.md`; refresh the funnel state line in `context/metrics.md`.
 - **Decay:** list accounts whose bucket changes (HOT → WARM…). Never downgrade an account with an open conversation.
 - **Competitors and ICP:** draft only from a coded call or a sourced fact. Otherwise just ask.
 

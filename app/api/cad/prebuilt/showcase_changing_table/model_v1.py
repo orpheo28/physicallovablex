@@ -103,5 +103,45 @@ def build_parts(P):
     return parts
 
 
-def build():
+def _basic_build():
     return build_parts(P)
+
+
+# === PRO DETAIL === (C5: the seed family 'furniture' CAD_DETAIL_LEVEL=pro block, appended deterministically, no LLM)
+P_PRO = {**{'length': 900.0, 'depth': 560.0, 'height': 900.0, 'top_thickness': 24.0, 'corner_radius': 40.0, 'leg_size': 44.0, 'rail_height': 70.0, 'guard_height': 110.0, 'guard_thickness': 18.0, 'guard_sides': 3.0, 'shelf': 1.0, 'shelf_height': 230.0, 'pad': 1.0, 'pad_thickness': 45.0}, **P, **{}}
+
+
+def pro_details(P, parts):
+    """CAD_DETAIL_LEVEL=pro: flat-pack joinery — each apron rail joins its leg with 2 fluted beech dowels Ø8 × 35
+    (DIN 68150) + 1 Minifix 15 cam connector; the top is screwed from inside the rails with 4 × 30 wood screws."""
+    from api.cad.stdparts import add_parts, cam_lock, wood_dowel, wood_screw
+
+    L, D, H = P["length"], P["depth"], P["height"]
+    tt, leg, r = P["top_thickness"], P["leg_size"], P["corner_radius"]
+    inset = max(r * 0.3, 10.0) + leg / 2
+    lx, ly = L / 2 - inset, D / 2 - inset
+    rh, rt = P["rail_height"], 18.0
+    z_rail = H - tt - rh
+    zm = z_rail + rh / 2
+    dowel, cam, screw4 = wood_dowel(8.0), cam_lock(), wood_screw(4.0, 30.0)
+    kit = []
+    for sy in (1, -1):  # front / back rails along X
+        for sx in (1, -1):
+            ex = sx * (lx - leg / 2)
+            for dz in (-rh * 0.25, rh * 0.25):
+                kit.append(dowel.along((ex, sy * ly, zm + dz), (1, 0, 0)))
+            kit.append(screw4.along((sx * lx * 0.5, sy * (ly - rt / 2 - 3), H - tt - 16), (0, 0, 1)))
+    for sx in (1, -1):  # side rails along Y
+        for sy in (1, -1):
+            ey = sy * (ly - leg / 2)
+            for dz in (-rh * 0.25, rh * 0.25):
+                kit.append(dowel.along((sx * lx, ey, zm + dz), (0, 1, 0)))
+            kit.append(screw4.along((sx * (lx - rt / 2 - 3), sy * ly * 0.5, H - tt - 16), (0, 0, 1)))
+    return add_parts(parts, kit, "wood")
+
+
+def build():
+    r = _basic_build()
+    r = r[1] if isinstance(r, tuple) else r
+    parts = pro_details(P_PRO, list(r) if isinstance(r, list) else list(r.children))
+    return parts

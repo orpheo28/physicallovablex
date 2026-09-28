@@ -188,5 +188,32 @@ def build_parts(P):
     parts.append(mark(0, -56, 15, 0.75, number))
     return parts
 
-def build():
+def _basic_build():
     return build_parts(P)
+
+
+# === PRO DETAIL === (C5: the seed family 'smartphone' CAD_DETAIL_LEVEL=pro block, appended deterministically, no LLM)
+P_PRO = {**{'width': 64.0, 'length': 131.0, 'thickness': 8.8, 'corner_radius': 9.0, 'bump_size': 24.0, 'bump_height': 1.8, 'lens_count': 1.0}, **P, **{}}
+
+
+def pro_details(P, parts):
+    """CAD_DETAIL_LEVEL=pro (ODM): 2 countersunk M1.6 at the bottom edge beside the USB-C port into the tapped aluminium
+    frame, 6 M1.6 board screws into tapped bosses of the midframe (internal, seen in anatomy / exploded views)."""
+    from api.cad.stdparts import add_parts, screw_joint
+
+    W, L, T = P["width"], P["length"], P["thickness"]
+    z0 = P["bump_height"]
+    kit = []
+    for sx in (1, -1):
+        kit += screw_joint("M1.6", (sx * 7.0, -L / 2, z0 + T / 2), (0, 1, 0), grip=0.8, head="countersunk", into="tap")
+        for y in (L / 2 - 14, 0.0, -L / 2 + 14):
+            kit += screw_joint("M1.6", (sx * (W / 2 - 5), y, z0 + T * 0.62), (0, 0, -1), grip=0.8, head="pan", into="tap",
+                               boss_len=T * 0.62 - 1.6, wall=1.0)
+    return add_parts(parts, kit, "metal")
+
+
+def build():
+    r = _basic_build()
+    r = r[1] if isinstance(r, tuple) else r
+    parts = pro_details(P_PRO, list(r) if isinstance(r, list) else list(r.children))
+    return parts

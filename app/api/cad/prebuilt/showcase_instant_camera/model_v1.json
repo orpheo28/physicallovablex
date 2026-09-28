@@ -2,7 +2,7 @@
  "status": "ok",
  "version": 1,
  "source": "llm:openai/gpt-6-sol",
- "label": "AI-generated CAD (concept level) \u2014 geometry measured on the result",
+ "label": "AI-generated CAD (concept level) — geometry measured on the result",
  "category": "camera",
  "seed_family": "camera",
  "variant": "instant",
@@ -19,23 +19,12 @@
  "code_path": "api/data/files_w21/p_c8f3bd27c3/model_v1.py",
  "code_url": "/projects/p_c8f3bd27c3/cad/code/1",
  "bbox_mm": [
-  151.8,
+  154.2,
   117.3,
   123.5
  ],
- "volume_mm3": 1695428.1,
+ "volume_mm3": 1692224.2,
  "parts": [
-  {
-   "label": "body.1",
-   "role": "body",
-   "volume_mm3": 1539677.9,
-   "valid": true,
-   "bbox_mm": [
-    151.0,
-    89.0,
-    116.0
-   ]
-  },
   {
    "label": "rubber.1",
    "role": "rubber",
@@ -288,6 +277,572 @@
     1.5,
     4.0
    ]
+  },
+  {
+   "label": "body.1",
+   "role": "body",
+   "volume_mm3": 1431332.4,
+   "valid": true,
+   "bbox_mm": [
+    151.0,
+    89.0,
+    107.85
+   ],
+   "std_meta": {
+    "kind": "feature",
+    "role": "shell_top",
+    "name": "Camera body",
+    "group": "Camera body"
+   }
+  },
+  {
+   "label": "body.2",
+   "role": "body",
+   "volume_mm3": 104357.3,
+   "valid": true,
+   "bbox_mm": [
+    151.0,
+    89.0,
+    7.85
+   ],
+   "std_meta": {
+    "kind": "feature",
+    "role": "shell_bottom",
+    "name": "Bottom plate",
+    "group": "Bottom plate"
+   }
+  },
+  {
+   "label": "brass.125",
+   "role": "brass",
+   "volume_mm3": 267.5,
+   "valid": true,
+   "bbox_mm": [
+    9.5,
+    9.5,
+    7.0
+   ],
+   "std_meta": {
+    "kind": "tripod_insert",
+    "role": "fastener",
+    "standard": "ISO 1222 (1/4\"-20 UNC)",
+    "size": "1/4\"-20",
+    "material": "brass",
+    "bom": {
+     "part": "Tripod socket insert 1/4\"-20 UNC (ISO 1222), brass",
+     "standard": "ISO 1222",
+     "kind": "tripod_insert",
+     "unit_price_usd": 0.25,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "brass",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.126",
+   "role": "steel",
+   "volume_mm3": 48.0,
+   "valid": true,
+   "bbox_mm": [
+    4.45,
+    4.45,
+    14.0
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 14581",
+    "size": "M2",
+    "length_mm": 14.0,
+    "head": "countersunk",
+    "drive": "T6",
+    "thread": "M2×0.4",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M2 × 14 countersunk head, T6 (ISO 14581), A2 stainless",
+     "standard": "ISO 14581",
+     "kind": "screw",
+     "unit_price_usd": 0.02,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "brass.127",
+   "role": "brass",
+   "volume_mm3": 22.3,
+   "valid": true,
+   "bbox_mm": [
+    3.6,
+    3.6,
+    4.0
+   ],
+   "std_meta": {
+    "kind": "insert",
+    "role": "fastener",
+    "standard": "McMaster-Carr 94459A120",
+    "size": "M2",
+    "od_mm": 3.6,
+    "length_mm": 4.0,
+    "hole_mm": 3.2,
+    "material": "brass",
+    "bom": {
+     "part": "Heat-set threaded insert M2 × 4 (OD 3.6 mm), brass — ref. McMaster-Carr 94459A120",
+     "standard": "McMaster-Carr 94459A120",
+     "kind": "insert",
+     "unit_price_usd": 0.06,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "brass",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.128",
+   "role": "steel",
+   "volume_mm3": 48.0,
+   "valid": true,
+   "bbox_mm": [
+    4.45,
+    4.45,
+    14.0
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 14581",
+    "size": "M2",
+    "length_mm": 14.0,
+    "head": "countersunk",
+    "drive": "T6",
+    "thread": "M2×0.4",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M2 × 14 countersunk head, T6 (ISO 14581), A2 stainless",
+     "standard": "ISO 14581",
+     "kind": "screw",
+     "unit_price_usd": 0.02,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "brass.129",
+   "role": "brass",
+   "volume_mm3": 22.3,
+   "valid": true,
+   "bbox_mm": [
+    3.6,
+    3.6,
+    4.0
+   ],
+   "std_meta": {
+    "kind": "insert",
+    "role": "fastener",
+    "standard": "McMaster-Carr 94459A120",
+    "size": "M2",
+    "od_mm": 3.6,
+    "length_mm": 4.0,
+    "hole_mm": 3.2,
+    "material": "brass",
+    "bom": {
+     "part": "Heat-set threaded insert M2 × 4 (OD 3.6 mm), brass — ref. McMaster-Carr 94459A120",
+     "standard": "McMaster-Carr 94459A120",
+     "kind": "insert",
+     "unit_price_usd": 0.06,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "brass",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.130",
+   "role": "steel",
+   "volume_mm3": 36.6,
+   "valid": true,
+   "bbox_mm": [
+    7.6,
+    4.0,
+    4.0
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 14583",
+    "size": "M2",
+    "length_mm": 6.0,
+    "head": "pan",
+    "drive": "T6",
+    "thread": "M2×0.4",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M2 × 6 pan head, T6 (ISO 14583), A2 stainless",
+     "standard": "ISO 14583",
+     "kind": "screw",
+     "unit_price_usd": 0.02,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "brass.131",
+   "role": "brass",
+   "volume_mm3": 22.3,
+   "valid": true,
+   "bbox_mm": [
+    4.0,
+    3.6,
+    3.6
+   ],
+   "std_meta": {
+    "kind": "insert",
+    "role": "fastener",
+    "standard": "McMaster-Carr 94459A120",
+    "size": "M2",
+    "od_mm": 3.6,
+    "length_mm": 4.0,
+    "hole_mm": 3.2,
+    "material": "brass",
+    "bom": {
+     "part": "Heat-set threaded insert M2 × 4 (OD 3.6 mm), brass — ref. McMaster-Carr 94459A120",
+     "standard": "McMaster-Carr 94459A120",
+     "kind": "insert",
+     "unit_price_usd": 0.06,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "brass",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.132",
+   "role": "steel",
+   "volume_mm3": 36.6,
+   "valid": true,
+   "bbox_mm": [
+    7.6,
+    4.0,
+    4.0
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 14583",
+    "size": "M2",
+    "length_mm": 6.0,
+    "head": "pan",
+    "drive": "T6",
+    "thread": "M2×0.4",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M2 × 6 pan head, T6 (ISO 14583), A2 stainless",
+     "standard": "ISO 14583",
+     "kind": "screw",
+     "unit_price_usd": 0.02,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "brass.133",
+   "role": "brass",
+   "volume_mm3": 22.3,
+   "valid": true,
+   "bbox_mm": [
+    4.0,
+    3.6,
+    3.6
+   ],
+   "std_meta": {
+    "kind": "insert",
+    "role": "fastener",
+    "standard": "McMaster-Carr 94459A120",
+    "size": "M2",
+    "od_mm": 3.6,
+    "length_mm": 4.0,
+    "hole_mm": 3.2,
+    "material": "brass",
+    "bom": {
+     "part": "Heat-set threaded insert M2 × 4 (OD 3.6 mm), brass — ref. McMaster-Carr 94459A120",
+     "standard": "McMaster-Carr 94459A120",
+     "kind": "insert",
+     "unit_price_usd": 0.06,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "brass",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.134",
+   "role": "steel",
+   "volume_mm3": 48.0,
+   "valid": true,
+   "bbox_mm": [
+    4.45,
+    4.45,
+    14.0
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 14581",
+    "size": "M2",
+    "length_mm": 14.0,
+    "head": "countersunk",
+    "drive": "T6",
+    "thread": "M2×0.4",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M2 × 14 countersunk head, T6 (ISO 14581), A2 stainless",
+     "standard": "ISO 14581",
+     "kind": "screw",
+     "unit_price_usd": 0.02,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "brass.135",
+   "role": "brass",
+   "volume_mm3": 22.3,
+   "valid": true,
+   "bbox_mm": [
+    3.6,
+    3.6,
+    4.0
+   ],
+   "std_meta": {
+    "kind": "insert",
+    "role": "fastener",
+    "standard": "McMaster-Carr 94459A120",
+    "size": "M2",
+    "od_mm": 3.6,
+    "length_mm": 4.0,
+    "hole_mm": 3.2,
+    "material": "brass",
+    "bom": {
+     "part": "Heat-set threaded insert M2 × 4 (OD 3.6 mm), brass — ref. McMaster-Carr 94459A120",
+     "standard": "McMaster-Carr 94459A120",
+     "kind": "insert",
+     "unit_price_usd": 0.06,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "brass",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.136",
+   "role": "steel",
+   "volume_mm3": 48.0,
+   "valid": true,
+   "bbox_mm": [
+    4.45,
+    4.45,
+    14.0
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 14581",
+    "size": "M2",
+    "length_mm": 14.0,
+    "head": "countersunk",
+    "drive": "T6",
+    "thread": "M2×0.4",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M2 × 14 countersunk head, T6 (ISO 14581), A2 stainless",
+     "standard": "ISO 14581",
+     "kind": "screw",
+     "unit_price_usd": 0.02,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "brass.137",
+   "role": "brass",
+   "volume_mm3": 22.3,
+   "valid": true,
+   "bbox_mm": [
+    3.6,
+    3.6,
+    4.0
+   ],
+   "std_meta": {
+    "kind": "insert",
+    "role": "fastener",
+    "standard": "McMaster-Carr 94459A120",
+    "size": "M2",
+    "od_mm": 3.6,
+    "length_mm": 4.0,
+    "hole_mm": 3.2,
+    "material": "brass",
+    "bom": {
+     "part": "Heat-set threaded insert M2 × 4 (OD 3.6 mm), brass — ref. McMaster-Carr 94459A120",
+     "standard": "McMaster-Carr 94459A120",
+     "kind": "insert",
+     "unit_price_usd": 0.06,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "brass",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.138",
+   "role": "steel",
+   "volume_mm3": 36.6,
+   "valid": true,
+   "bbox_mm": [
+    7.6,
+    4.0,
+    4.0
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 14583",
+    "size": "M2",
+    "length_mm": 6.0,
+    "head": "pan",
+    "drive": "T6",
+    "thread": "M2×0.4",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M2 × 6 pan head, T6 (ISO 14583), A2 stainless",
+     "standard": "ISO 14583",
+     "kind": "screw",
+     "unit_price_usd": 0.02,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "brass.139",
+   "role": "brass",
+   "volume_mm3": 22.3,
+   "valid": true,
+   "bbox_mm": [
+    4.0,
+    3.6,
+    3.6
+   ],
+   "std_meta": {
+    "kind": "insert",
+    "role": "fastener",
+    "standard": "McMaster-Carr 94459A120",
+    "size": "M2",
+    "od_mm": 3.6,
+    "length_mm": 4.0,
+    "hole_mm": 3.2,
+    "material": "brass",
+    "bom": {
+     "part": "Heat-set threaded insert M2 × 4 (OD 3.6 mm), brass — ref. McMaster-Carr 94459A120",
+     "standard": "McMaster-Carr 94459A120",
+     "kind": "insert",
+     "unit_price_usd": 0.06,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "brass",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.140",
+   "role": "steel",
+   "volume_mm3": 36.6,
+   "valid": true,
+   "bbox_mm": [
+    7.6,
+    4.0,
+    4.0
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 14583",
+    "size": "M2",
+    "length_mm": 6.0,
+    "head": "pan",
+    "drive": "T6",
+    "thread": "M2×0.4",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M2 × 6 pan head, T6 (ISO 14583), A2 stainless",
+     "standard": "ISO 14583",
+     "kind": "screw",
+     "unit_price_usd": 0.02,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "brass.141",
+   "role": "brass",
+   "volume_mm3": 22.3,
+   "valid": true,
+   "bbox_mm": [
+    4.0,
+    3.6,
+    3.6
+   ],
+   "std_meta": {
+    "kind": "insert",
+    "role": "fastener",
+    "standard": "McMaster-Carr 94459A120",
+    "size": "M2",
+    "od_mm": 3.6,
+    "length_mm": 4.0,
+    "hole_mm": 3.2,
+    "material": "brass",
+    "bom": {
+     "part": "Heat-set threaded insert M2 × 4 (OD 3.6 mm), brass — ref. McMaster-Carr 94459A120",
+     "standard": "McMaster-Carr 94459A120",
+     "kind": "insert",
+     "unit_price_usd": 0.06,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "brass",
+     "category": "mechanical"
+    }
+   }
   }
  ],
  "target_dims_mm": [
@@ -309,5 +864,89 @@
  "instruction": null,
  "parent_version": null,
  "seconds": 23.41,
- "brief": "product_name: Retro instant camera; one_liner: A retro-styled camera that captures photos and prints them on instant film.; category: other; key_features: Instant-film photo capture; Retro-style body and physical controls; Built-in flash; Automatic film ejection; prompt: A retro instant camera"
+ "brief": "product_name: Retro instant camera; one_liner: A retro-styled camera that captures photos and prints them on instant film.; category: other; key_features: Instant-film photo capture; Retro-style body and physical controls; Built-in flash; Automatic film ejection; prompt: A retro instant camera",
+ "detail_level": "pro",
+ "hardware_bom": [
+  {
+   "part": "Heat-set threaded insert M2 × 4 (OD 3.6 mm), brass — ref. McMaster-Carr 94459A120",
+   "standard": "McMaster-Carr 94459A120",
+   "kind": "insert",
+   "unit_price_usd": 0.06,
+   "price_label": "estimate",
+   "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+   "material": "brass",
+   "category": "mechanical",
+   "qty": 8,
+   "labels": [
+    "brass.127",
+    "brass.129",
+    "brass.131",
+    "brass.133",
+    "brass.135",
+    "brass.137",
+    "brass.139",
+    "brass.141"
+   ],
+   "size": "M2",
+   "id": "hw1",
+   "key": "heat_set_threaded_insert_m2_4_od_3_6_mm_brass_ref_mcmaster_c"
+  },
+  {
+   "part": "Screw M2 × 14 countersunk head, T6 (ISO 14581), A2 stainless",
+   "standard": "ISO 14581",
+   "kind": "screw",
+   "unit_price_usd": 0.02,
+   "price_label": "estimate",
+   "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+   "material": "A2 stainless steel",
+   "category": "mechanical",
+   "qty": 4,
+   "labels": [
+    "steel.126",
+    "steel.128",
+    "steel.134",
+    "steel.136"
+   ],
+   "size": "M2",
+   "id": "hw2",
+   "key": "screw_m2_14_countersunk_head_t6_iso_14581_a2_stainless"
+  },
+  {
+   "part": "Screw M2 × 6 pan head, T6 (ISO 14583), A2 stainless",
+   "standard": "ISO 14583",
+   "kind": "screw",
+   "unit_price_usd": 0.02,
+   "price_label": "estimate",
+   "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+   "material": "A2 stainless steel",
+   "category": "mechanical",
+   "qty": 4,
+   "labels": [
+    "steel.130",
+    "steel.132",
+    "steel.138",
+    "steel.140"
+   ],
+   "size": "M2",
+   "id": "hw3",
+   "key": "screw_m2_6_pan_head_t6_iso_14583_a2_stainless"
+  },
+  {
+   "part": "Tripod socket insert 1/4\"-20 UNC (ISO 1222), brass",
+   "standard": "ISO 1222",
+   "kind": "tripod_insert",
+   "unit_price_usd": 0.25,
+   "price_label": "estimate",
+   "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+   "material": "brass",
+   "category": "mechanical",
+   "qty": 1,
+   "labels": [
+    "brass.125"
+   ],
+   "size": "1/4\"-20",
+   "id": "hw4",
+   "key": "tripod_socket_insert_1_4_20_unc_iso_1222_brass"
+  }
+ ]
 }

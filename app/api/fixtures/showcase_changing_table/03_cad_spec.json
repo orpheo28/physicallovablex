@@ -231,18 +231,6 @@
    "alternative": null
   },
   {
-   "id": "m5",
-   "part": "Furniture assembly fastener set",
-   "category": "mechanical",
-   "qty": 1.0,
-   "description": "Set of screws, bolts, washers and locking nuts sized for the plywood joints; select lengths to avoid exposed points",
-   "manufacturer_pn": null,
-   "lcsc_pn": null,
-   "unit_cost_est": null,
-   "risk": null,
-   "alternative": null
-  },
-  {
    "id": "m6",
    "part": "Anti-tip wall anchor kit",
    "category": "mechanical",
@@ -289,6 +277,40 @@
    "unit_cost_est": null,
    "risk": null,
    "alternative": null
+  },
+  {
+   "id": "hw1",
+   "part": "Fluted beech dowel Ø8 × 35 (DIN 68150)",
+   "category": "mechanical",
+   "qty": 16.0,
+   "description": "Standard part (DIN 68150), counted on the CAD: 16 placed",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.01,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "hw2",
+   "part": "Wood screw 4 × 30 countersunk PZ2, zinc-plated",
+   "category": "mechanical",
+   "qty": 8.0,
+   "description": "Standard part (EN 14592), counted on the CAD: 8 placed",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.03,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
   }
  ],
  "tolerances": [
@@ -302,7 +324,7 @@
    "format": "glb",
    "url": "/files/demo_changing_table/model_v2.glb",
    "description": "AI-generated CAD (concept level) — geometry measured on the result — bbox 900 × 564 × 1010 mm",
-   "size_bytes": 283244
+   "size_bytes": 365080
   },
   {
    "format": "step",
@@ -320,7 +342,7 @@
    "format": "glb",
    "url": "/files/demo_changing_table/v2.glb",
    "description": "Full product — materials",
-   "size_bytes": 583192
+   "size_bytes": 708316
   },
   {
    "format": "step",

@@ -1,7 +1,8 @@
 """Sandbox child process (W19). Run ONLY by api.cad.codegen.sandbox as `python -I -B _runner.py <model.py> <out_dir>`.
 
 Stand-alone on purpose (stdlib + build123d only; `-I` means no project path, no user site, no PYTHON* env).
-Executes an AST-checked program with restricted builtins (imports limited to build123d and math), calls `build()`,
+Executes an AST-checked program with restricted builtins (imports limited to build123d and math, plus named imports
+of the C1 standard-part helpers from api.cad.stdparts), calls `build()`,
 checks the parts are real solids, exports <out_dir>/model.{step,stl,glb} and writes <out_dir>/result.json.
 """
 
@@ -12,6 +13,7 @@ import time
 import traceback
 
 ALLOWED_MODULES = ("build123d", "math")
+STDPARTS = "api.cad.stdparts"  # C1: standard parts + DFM helpers (pure build123d), named imports of SANDBOX_NAMES only
 SAFE_BUILTINS = (
     "abs", "all", "any", "bool", "dict", "divmod", "enumerate", "filter", "float", "frozenset", "int", "isinstance",
     "issubclass", "iter", "len", "list", "map", "max", "min", "next", "pow", "print", "range", "reversed", "round",
@@ -23,9 +25,27 @@ SAFE_BUILTINS = (
 
 
 def guarded_import(name, globals=None, locals=None, fromlist=(), level=0):
+    if level == 0 and name == STDPARTS and fromlist:
+        mod = _import_stdparts()
+        bad = [n for n in fromlist if n not in mod.SANDBOX_NAMES]
+        if bad:
+            raise ImportError(f"from {STDPARTS} import {', '.join(bad)} is not allowed")
+        return mod
     if level != 0 or name.split(".")[0] not in ALLOWED_MODULES:
         raise ImportError(f"import of {name!r} is not allowed (only build123d and math)")
     return __import__(name, globals, locals, fromlist, level)
+
+
+def _import_stdparts():
+    """Import api.cad.stdparts from this checkout (`-I` leaves the project off sys.path): the package imports only
+    build123d / math / dataclasses / os at module level; the program never gets a handle on `api` itself."""
+    import importlib
+    import os
+
+    root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+    if root not in sys.path:
+        sys.path.append(root)
+    return importlib.import_module(STDPARTS)
 
 
 def collect(result):
@@ -120,6 +140,9 @@ def main():
             valid = p.is_valid if not callable(p.is_valid) else p.is_valid()
             rows.append({"label": label, "role": label.split(".")[0], "volume_mm3": round(vol, 1), "valid": bool(valid),
                          "bbox_mm": [round(bb.size.X, 2), round(bb.size.Y, 2), round(bb.size.Z, 2)]})
+            meta = getattr(p, "std_meta", None)  # C5: standard parts (api.cad.stdparts) keep their facts across the process
+            if isinstance(meta, dict) and meta.get("kind"):
+                rows[-1]["std_meta"] = json.loads(json.dumps(meta, default=str))
         if problems:
             raise ValueError("; ".join(problems[:5]))
         if len(parts) > 400:

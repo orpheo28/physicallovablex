@@ -27,3 +27,8 @@ tests/results/final/*
 tests/results/final2/*
 !tests/results/final2/*.png
 !tests/results/final2/*.md
+
+# QA / benchmark scratch (kept on disk, never versioned)
+tests/results/**
+!tests/results/**/*.png
+!tests/results/**/*.md

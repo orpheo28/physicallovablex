@@ -1,1 +1,1 @@
-{"digest": "6f676ff462ff9d9b", "generated_by": "llm:openai/gpt-6-luna", "files": ["README.md", "platformio.ini", "src/connectivity.cpp", "src/connectivity.h", "src/main.cpp", "src/pins.h", "src/sensors.cpp", "src/sensors.h"], "llm_state": "done"}
+{"digest": "50e45c452cdfe54c", "generated_by": "template", "files": ["README.md", "platformio.ini", "src/connectivity.cpp", "src/connectivity.h", "src/main.cpp", "src/pins.h", "src/sensors.cpp", "src/sensors.h"], "llm_state": "none"}

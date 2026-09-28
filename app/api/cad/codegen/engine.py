@@ -22,6 +22,7 @@ import time
 from pathlib import Path
 from typing import Any, Callable
 
+from api.cad.codegen import retrieval
 from api.cad.codegen.classify import classify, seed_for
 from api.cad.codegen.sandbox import run_code
 
@@ -90,6 +91,40 @@ def build():
     led = Pos(L * 0.3, W * 0.2, H) * Cylinder(2.0, 1.5)
     return [lab(upper, "body", 1), lab(lower, "accent", 1), lab(button, "button", 1), lab(led, "led", 1)]
 '''
+
+# C4 (CODEGEN_RAG=1 only): build123d do/don't list appended to SYSTEM — gotchas verified while building examples/.
+RAG_RULES = """
+build123d 0.13 — DO (verified in this sandbox):
+- Build solids with the algebra API above; if you use BuildPart/BuildSketch, return `builder.part`, never the builder.
+- Rest the product on z=0: Box/Cylinder/Cone/Sphere are CENTRED, so pass align=(Align.CENTER, Align.CENTER, Align.MIN)
+  or Pos(0, 0, h / 2) * ...; extrude() of an XY sketch already starts at z=0. Polygon(*pts, align=None) keeps your coords.
+- Place 2D sketches with `Plane.XZ * sketch` (normal -Y, local y = world Z), `Plane.YZ * sketch` (normal +X) or
+  `Plane(origin=..., z_dir=...) * sketch`. Revolve: profile on Plane.XZ with x >= 0 (points (r, z)), about Axis.Z.
+- Sweep: profile at the path start, perpendicular to it: `Plane(origin=path @ 0, z_dir=path % 0) * Circle(r)`;
+  FilletPolyline(*pts, radius=r) makes a bent-tube path; sweeping `Circle(R) - Circle(r)` gives a hollow tube.
+- Threads: `Helix(pitch, height, radius)`; profile on `Plane(origin=h @ 0, x_dir=(1, 0, 0), z_dir=h % 0)` (local +x =
+  radially outward), buried ~0.3 mm in the wall, `sweep(profile, h, is_frenet=True)`; <= 6 turns.
+- Hollow parts: `offset(solid, amount=-wall, openings=solid.faces().sort_by(Axis.Z)[-1])`. Shell FIRST, fillet only
+  edges away from the opening, radius > wall. Draft: extrude UP with a positive taper, then shell.
+- Patterns: `PolarLocations(r, n) * shape` / `GridLocations(dx, dy, nx, ny) * shape` return a LIST (not indexable
+  locations): cut it in one boolean (`body - holes`), fuse with `a + list`. Offset a pattern with
+  `Pos(...) * GridLocations(...) * shape` or `PolarLocations(...) * (Pos(...) * shape)` — `Locations * Pos` is a TypeError.
+- Holes in algebra mode: subtract Cylinder (+ a wider shallow Cylinder = counterbore, + Cone = countersink);
+  CounterBoreHole/Hole only work inside BuildPart.
+- `mirror(shape, about=Plane.YZ)` returns ONLY the mirrored copy: use `half + mirror(half, about=Plane.YZ)`.
+- `split(shape, bisect_by=Plane.XY, keep=Keep.TOP)` — always pass bisect_by (the default is Plane.XZ).
+- Fillet/chamfer simple edges before booleans, each in try/except; radius < half the thinnest wall. `fillet(edges,
+  radius=r)` (function) and `part.fillet(r, edges)` (method) take arguments in opposite order.
+- RectangleRounded(w, h, r) needs r < min(w, h) / 2; SlotOverall(length, width) needs length > width.
+- Keep P consistent with the target size and derive every position from P.
+build123d 0.13 — DON'T:
+- No Text/fonts, no CadQuery (Workplane, `.faces(">Z")` strings, cq.*), no import/export.
+- No twisted lofts of Ellipse sections (silently broken solids): twist SlotOverall / RectangleRounded sections instead.
+  Loft sections must lie on DIFFERENT planes, ordered along the path.
+- No self-intersecting Polygon outlines, no zero-thickness, tangent or coincident-face booleans (overlap parts by
+  >= 0.5 mm, e.g. run a post into a barrel's centre, or leave a gap).
+- No variables named os, sys, socket, type, open, input, vars (the sandbox rejects them); `shape.is_valid` is a property.
+- Do not return sketches, wires or edges from build(): only solids, each with a role label."""
 
 _CODE_RX = re.compile(r"```(?:python|py)?\s*\n(.*?)```", re.DOTALL | re.IGNORECASE)
 
@@ -180,6 +215,13 @@ def _next_version(out: Path) -> int:
     return max(nums, default=0) + 1
 
 
+def system_prompt() -> str:
+    """SYSTEM, plus the standard-part helpers (api.cad.stdparts.PROMPT_SNIPPET) at CAD_DETAIL_LEVEL=pro (C5)."""
+    from api.cad.stdparts import PROMPT_SNIPPET, is_pro
+
+    return SYSTEM + PROMPT_SNIPPET if is_pro() else SYSTEM
+
+
 def _seed(family: str | None, variant: str | None, params: dict | None = None) -> tuple[str, str]:
     """(seed code, seed name). Families of api.cad.families have runnable seed code; others get the generic example.
     `params` (W21): the family parameters of the product being designed (Studio: the chosen direction's)."""
@@ -215,10 +257,39 @@ def _edit_prompt(brief: str, code: str, instruction: str, dims) -> str:
             "requires otherwise. Do not rewrite from scratch. Return the complete updated program.")
 
 
-def _repair_prompt(brief: str, task: str, code: str, error: str) -> str:
+def _repair_prompt(brief: str, task: str, code: str, error: str, hints: str = "") -> str:
     return (f"Product: {brief}\nTask: {task}\n\nYour program failed in our sandbox:\n{error[:3000]}\n\n"
-            f"Program:\n```python\n{code}```\n\nFix it with the smallest change that makes it run and pass the check "
+            f"Program:\n```python\n{code}```\n\n{hints}Fix it with the smallest change that makes it run and pass the check "
             "(if a fillet, loft or boolean failed, simplify or drop that feature). Return the complete program.")
+
+
+# C4 (CODEGEN_RAG=1 only): error text -> targeted fix hint for the repair prompt
+REPAIR_HINTS: list[tuple[re.Pattern, str]] = [(re.compile(p, re.I), h) for p, h in (
+    (r"fillet|chamfer|StdFail_NotDone|BRep_API: command not done",
+     "A fillet/chamfer/boolean failed in OCCT: lower the radius (< half the thinnest wall), select fewer edges, "
+     "apply it before the booleans, or wrap it in try/except and keep the unfilleted shape."),
+    (r"must be > 2\*radius|width and height must", "RectangleRounded(w, h, r) needs r < min(w, h) / 2 — clamp the radius."),
+    (r"no solid volume|2D sketch|expected build123d solids|returned no parts",
+     "build() must return 3D solids: extrude/revolve sketches first; a boolean may have removed everything "
+     "(check the cutter is not bigger than the body) — return only non-empty solids."),
+    (r"Measured bounding box|outside 0\.5",
+     "Scale the dimensions in P to the requested overall size, and check that no part sticks far out (a stray "
+     "offset, a mis-rotated part, or a pattern radius in the wrong units)."),
+    (r"Timeout|ran longer", "Too slow: fuse/cut pattern lists in one boolean, cut fewer holes, drop helix threads "
+                             "and fillets on many edges."),
+    (r"policy violation", "Only `import math` and `from build123d import *`; no names/attributes starting with '_', "
+                          "no open/exec/eval/getattr/type, no export_*/import_* — we export the result."),
+    (r"NameError|is not defined", "A name is not defined: build123d 0.13 has no such class/function (CadQuery "
+                                  "names like Workplane do not exist) — use the API listed in the system prompt."),
+    (r"loft", "loft needs >= 2 sections on DIFFERENT planes, ordered along the path, ideally with the same number of edges."),
+    (r"sweep", "sweep needs the profile at the path start, perpendicular to it: Plane(origin=path @ 0, z_dir=path % 0) * profile."),
+    (r"revolve", "revolve: draw the profile on Plane.XZ with x >= 0 and revolve about Axis.Z; the profile must not cross the axis."),
+)]
+
+
+def repair_hints(error: str) -> str:
+    hits = [h for rx, h in REPAIR_HINTS if rx.search(error or "")]
+    return ("Likely fix:\n" + "\n".join(f"- {h}" for h in hits[:3]) + "\n\n") if hits else ""
 
 
 # --------------------------------------------------------------------------- engine
@@ -236,12 +307,11 @@ def _attempt(code: str, dims, timeout_s: float) -> tuple[dict, str | None]:
 
 def _publish(res: dict, code: str, out: Path, n: int, look: dict, pid: str | None) -> dict[str, Any]:
     from api.cad.build import publish
-    from api.cad.families import apply_look
 
     files: dict[str, Path] = {}
     for k in ("step", "stl", "glb"):
         files[k] = publish(res["files"][k], out / f"model_v{n}.{k}")
-    apply_look(files["glb"], look, names=program_names(code, res))
+    finish_program_glb(files["glb"], look, code, res)
     (out / f"model_v{n}.py").write_text(code, encoding="utf-8")
     shutil.rmtree(res.get("work_dir") or "/nonexistent", ignore_errors=True)
     urls = {k: f"/files/{pid}/model_v{n}.{k}" for k in files} if pid else {}
@@ -249,13 +319,49 @@ def _publish(res: dict, code: str, out: Path, n: int, look: dict, pid: str | Non
 
 
 def program_names(code: str, res: dict) -> dict:
-    """W29: label → semantic part (api.cad.parts) from the program and the label call sites the sandbox traced."""
+    """W29: label → semantic part (api.cad.parts) from the program and the label call sites the sandbox traced.
+    C5: standard parts the program placed (api.cad.stdparts, `std_meta` carried out of the sandbox) are named by
+    api.cad.stdparts.bom.hardware_names (one BOM-linked node per spec, anatomy layer "fasteners")."""
     from api.cad.parts import names_from_source
 
+    sites = res.get("label_sites") or {}
+    mark = code.find("# === PRO DETAIL === (C5:")
+    if mark >= 0:  # C5: a pro block appended to a recorded program only wraps build(): name parts by the program's frames
+        first = code.count("\n", 0, mark) + 1
+        sites = {lb: ([x for x in ln if x < first] or ln) for lb, ln in sites.items()}
     try:
-        return names_from_source(code, res.get("label_sites") or {}, [r["label"] for r in res.get("parts") or []])
+        names = names_from_source(code, sites, [r["label"] for r in res.get("parts") or []])
     except Exception:  # noqa: BLE001 — naming is metadata: default names are still valid parts
+        names = {}
+    hw = program_hardware(res)
+    return {**names, **hw} if hw else names
+
+
+def program_hardware(res: dict) -> dict:
+    """label → hardware info for the standard parts of a sandbox result ({} when the program placed none)."""
+    from types import SimpleNamespace
+
+    rows = [r for r in res.get("parts") or [] if isinstance(r.get("std_meta"), dict)]
+    if not rows:
         return {}
+    try:
+        from api.cad.stdparts.bom import hardware_names
+
+        return hardware_names([SimpleNamespace(label=r["label"], std_meta=r["std_meta"]) for r in rows])
+    except Exception as e:  # noqa: BLE001 — naming is metadata
+        log.info("program hardware names skipped: %s", e)
+        return {}
+
+
+def finish_program_glb(glb_path: Path, look: dict | None, code: str, res: dict) -> None:
+    """Finish a program's GLB: W29 names + look, then the standard parts' BOM facts on their nodes (C1/C5)."""
+    from api.cad.families import apply_look
+    from api.cad.families._common import stamp_hardware
+
+    apply_look(glb_path, look, names=program_names(code, res))
+    hw = program_hardware(res)
+    if hw:
+        stamp_hardware(glb_path, hw)
 
 
 def _fallback_existing(category: str, out: Path, n: int, look: dict, pid: str | None) -> dict[str, Any] | None:
@@ -268,8 +374,8 @@ def _fallback_existing(category: str, out: Path, n: int, look: dict, pid: str | 
 
     params = normalize(PRESETS[3])
     f = build_direction(params, out, name=f"model_v{n}")
+    facts = shape_facts(f["step"])  # the moulded parts (at pro, build_assembly then puts the full product's STEP here)
     build_assembly(params, out / f"model_v{n}.glb", look, set())
-    facts = shape_facts(f["step"])
     files = {"step": f["step"], "stl": f["stl"], "glb": out / f"model_v{n}.glb"}
     return {"files": files, "urls": {k: f"/files/{pid}/model_v{n}.{k}" for k in files} if pid else {},
             "bbox_mm": [round(v, 2) for v in facts["size"]], "volume_mm3": round(facts["volume_mm3"], 1),
@@ -312,11 +418,20 @@ def generate_cad(product_brief: Any, requirements: Any = None, category: str | N
 
     prompt = _edit_prompt(brief, previous_code, instruction or "improve the model", dims_t) if edit else \
         _gen_prompt(brief, req, category, dims_t, seed, seed_name)
+    system, rag = system_prompt(), None
+    if retrieval.enabled():  # C4: retrieved library examples + do/don't list + repair hints (off = prompts unchanged)
+        system += RAG_RULES
+        query = f"{brief} {req} {category} {instruction or ''}"
+        block = retrieval.examples_block(query, k=2 if edit else 4, budget_chars=5000 if edit else 9000,
+                                         exclude_family=None if edit else seed_name)
+        rag = {"examples": retrieval.last_ids(block)}
+        if block:
+            prompt += "\n\n" + block
     for i in range(1 + max(0, max_repairs)):
         a: dict[str, Any] = {"n": i + 1, "kind": "edit" if edit and i == 0 else ("repair" if i else "generate")}
         t = time.monotonic()
         try:
-            reply = call(prompt, SYSTEM)
+            reply = call(prompt, system)
         except LLMError as e:
             a.update(error=f"LLM unavailable: {e}", seconds=round(time.monotonic() - t, 2))
             attempts.append(a)
@@ -336,7 +451,7 @@ def generate_cad(product_brief: Any, requirements: Any = None, category: str | N
         log.info("codegen attempt %d failed: %s", i + 1, err[:300])
         if res.get("work_dir"):
             shutil.rmtree(res["work_dir"], ignore_errors=True)
-        prompt = _repair_prompt(brief, task, cand, err)
+        prompt = _repair_prompt(brief, task, cand, err, repair_hints(err) if rag is not None else "")
 
     if err is None and code is not None and res is not None:
         status = "ok" if len(attempts) == 1 else "repaired"
@@ -385,6 +500,8 @@ def generate_cad(product_brief: Any, requirements: Any = None, category: str | N
         "instruction": instruction, "parent_version": _parent_version(out, previous_code) if edit else None,
         "seconds": round(time.monotonic() - t0, 2),
     }
+    if rag is not None:
+        result["rag"] = rag
     meta = {k: v for k, v in result.items() if k != "code"}
     meta["brief"] = brief[:2000]
     (out / f"model_v{n}.json").write_text(json.dumps(meta, indent=1, default=str), encoding="utf-8")

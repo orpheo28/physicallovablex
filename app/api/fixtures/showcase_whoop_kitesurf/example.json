@@ -7,10 +7,10 @@
  "strategy": "module_assembly",
  "hero_image_url": "/files/demo_whoop_kitesurf/photo_v4_hero_studio.png",
  "glb_url": "/files/demo_whoop_kitesurf/model_v2.glb",
- "one_line_result": "4 versions · AI-written CAD · $27.64/unit @ 2,000 (Estimate) · Module assembly · 13/13 stages",
+ "one_line_result": "4 versions · AI-written CAD · $27.59/unit @ 2,000 (Estimate) · Module assembly · 13/13 stages",
  "unit_basis": "per_unit",
  "unit_cost": {
-  "value": 27.64,
+  "value": 27.59,
   "unit": "USD",
   "label": "estimate",
   "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"

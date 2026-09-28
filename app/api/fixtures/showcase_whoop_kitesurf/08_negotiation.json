@@ -4,7 +4,7 @@
  "fallback": false,
  "fallback_reason": null,
  "generated_by": "code",
- "generated_at": "2026-09-27T08:58:59.426806Z",
+ "generated_at": "2026-09-28T11:06:07.292031Z",
  "assumptions": [
   {
    "id": "a8_network",
@@ -45,7 +45,7 @@
  "stage": 8,
  "rfqs": [
   {
-   "id": "rfq_f42e81ddd9",
+   "id": "rfq_74a42958df",
    "project_id": "demo_whoop_kitesurf",
    "factory_id": "f_lumenpeak",
    "factory_pack_id": "fp_demo_whoop_kitesurf_v2",
@@ -55,11 +55,11 @@
     10000
    ],
    "status": "quoted",
-   "created_at": "2026-09-27T08:58:59.402582Z",
+   "created_at": "2026-09-28T11:06:07.269127Z",
    "label": "fictional"
   },
   {
-   "id": "rfq_cb52bb1a63",
+   "id": "rfq_6aef21fd6c",
    "project_id": "demo_whoop_kitesurf",
    "factory_id": "f_harborlight",
    "factory_pack_id": "fp_demo_whoop_kitesurf_v2",
@@ -69,11 +69,11 @@
     10000
    ],
    "status": "accepted",
-   "created_at": "2026-09-27T08:58:59.403729Z",
+   "created_at": "2026-09-28T11:06:07.270193Z",
    "label": "fictional"
   },
   {
-   "id": "rfq_5506abcc09",
+   "id": "rfq_27d052bbee",
    "project_id": "demo_whoop_kitesurf",
    "factory_id": "f_cobaltriver",
    "factory_pack_id": "fp_demo_whoop_kitesurf_v2",
@@ -83,28 +83,28 @@
     10000
    ],
    "status": "quoted",
-   "created_at": "2026-09-27T08:58:59.404681Z",
+   "created_at": "2026-09-28T11:06:07.271198Z",
    "label": "fictional"
   }
  ],
  "quotes": [
   {
-   "id": "qt_78b5a9ce92",
-   "rfq_id": "rfq_f42e81ddd9",
+   "id": "qt_22354884a2",
+   "rfq_id": "rfq_74a42958df",
    "factory_id": "f_lumenpeak",
    "version": 1,
    "tiers": [
     {
      "quantity": 500,
-     "unit_price_usd": 35.03
+     "unit_price_usd": 34.97
     },
     {
      "quantity": 2000,
-     "unit_price_usd": 33.59
+     "unit_price_usd": 33.53
     },
     {
      "quantity": 10000,
-     "unit_price_usd": 32.26
+     "unit_price_usd": 32.21
     }
    ],
    "tooling_usd": 4200.0,
@@ -115,26 +115,26 @@
     "other subcontracted to a partner shop"
    ],
    "status": "superseded",
-   "created_at": "2026-09-27T08:58:59.406410Z",
+   "created_at": "2026-09-28T11:06:07.272911Z",
    "label": "fictional"
   },
   {
-   "id": "qt_5c075137a2",
-   "rfq_id": "rfq_f42e81ddd9",
+   "id": "qt_dae658eb06",
+   "rfq_id": "rfq_74a42958df",
    "factory_id": "f_lumenpeak",
    "version": 2,
    "tiers": [
     {
      "quantity": 500,
-     "unit_price_usd": 32.23
+     "unit_price_usd": 32.17
     },
     {
      "quantity": 2000,
-     "unit_price_usd": 30.9
+     "unit_price_usd": 30.85
     },
     {
      "quantity": 10000,
-     "unit_price_usd": 29.68
+     "unit_price_usd": 29.63
     }
    ],
    "tooling_usd": 3800.0,
@@ -145,26 +145,26 @@
     "other subcontracted to a partner shop"
    ],
    "status": "superseded",
-   "created_at": "2026-09-27T08:58:59.412279Z",
+   "created_at": "2026-09-28T11:06:07.278258Z",
    "label": "fictional"
   },
   {
-   "id": "qt_4a99d106b3",
-   "rfq_id": "rfq_f42e81ddd9",
+   "id": "qt_8e6cc41937",
+   "rfq_id": "rfq_74a42958df",
    "factory_id": "f_lumenpeak",
    "version": 3,
    "tiers": [
     {
      "quantity": 500,
-     "unit_price_usd": 34.5
+     "unit_price_usd": 34.45
     },
     {
      "quantity": 2000,
-     "unit_price_usd": 33.09
+     "unit_price_usd": 33.03
     },
     {
      "quantity": 10000,
-     "unit_price_usd": 31.78
+     "unit_price_usd": 31.73
     }
    ],
    "tooling_usd": 4100.0,
@@ -175,26 +175,26 @@
     "other subcontracted to a partner shop"
    ],
    "status": "submitted",
-   "created_at": "2026-09-27T08:58:59.414279Z",
+   "created_at": "2026-09-28T11:06:07.279776Z",
    "label": "fictional"
   },
   {
-   "id": "qt_fd03519575",
-   "rfq_id": "rfq_cb52bb1a63",
+   "id": "qt_1223cbc3a3",
+   "rfq_id": "rfq_6aef21fd6c",
    "factory_id": "f_harborlight",
    "version": 1,
    "tiers": [
     {
      "quantity": 500,
-     "unit_price_usd": 32.06
+     "unit_price_usd": 32.0
     },
     {
      "quantity": 2000,
-     "unit_price_usd": 30.75
+     "unit_price_usd": 30.69
     },
     {
      "quantity": 10000,
-     "unit_price_usd": 29.52
+     "unit_price_usd": 29.48
     }
    ],
    "tooling_usd": 3750.0,
@@ -205,26 +205,26 @@
     "other subcontracted to a partner shop"
    ],
    "status": "superseded",
-   "created_at": "2026-09-27T08:58:59.408170Z",
+   "created_at": "2026-09-28T11:06:07.274694Z",
    "label": "fictional"
   },
   {
-   "id": "qt_60aafc8579",
-   "rfq_id": "rfq_cb52bb1a63",
+   "id": "qt_15f605a4f6",
+   "rfq_id": "rfq_6aef21fd6c",
    "factory_id": "f_harborlight",
    "version": 2,
    "tiers": [
     {
      "quantity": 500,
-     "unit_price_usd": 31.1
+     "unit_price_usd": 31.04
     },
     {
      "quantity": 2000,
-     "unit_price_usd": 29.83
+     "unit_price_usd": 29.77
     },
     {
      "quantity": 10000,
-     "unit_price_usd": 28.63
+     "unit_price_usd": 28.6
     }
    ],
    "tooling_usd": 3400.0,
@@ -235,26 +235,26 @@
     "other subcontracted to a partner shop"
    ],
    "status": "superseded",
-   "created_at": "2026-09-27T08:58:59.416045Z",
+   "created_at": "2026-09-28T11:06:07.281495Z",
    "label": "fictional"
   },
   {
-   "id": "qt_89a1a024d9",
-   "rfq_id": "rfq_cb52bb1a63",
+   "id": "qt_65a89e21b8",
+   "rfq_id": "rfq_6aef21fd6c",
    "factory_id": "f_harborlight",
    "version": 3,
    "tiers": [
     {
      "quantity": 500,
-     "unit_price_usd": 31.1
+     "unit_price_usd": 31.04
     },
     {
      "quantity": 2000,
-     "unit_price_usd": 29.83
+     "unit_price_usd": 29.77
     },
     {
      "quantity": 10000,
-     "unit_price_usd": 28.63
+     "unit_price_usd": 28.6
     }
    ],
    "tooling_usd": 3450.0,
@@ -265,26 +265,26 @@
     "other subcontracted to a partner shop"
    ],
    "status": "superseded",
-   "created_at": "2026-09-27T08:58:59.417453Z",
+   "created_at": "2026-09-28T11:06:07.282923Z",
    "label": "fictional"
   },
   {
-   "id": "qt_dfc3c12a9d",
-   "rfq_id": "rfq_cb52bb1a63",
+   "id": "qt_5ac2954880",
+   "rfq_id": "rfq_6aef21fd6c",
    "factory_id": "f_harborlight",
    "version": 4,
    "tiers": [
     {
      "quantity": 500,
-     "unit_price_usd": 30.48
+     "unit_price_usd": 30.42
     },
     {
      "quantity": 2000,
-     "unit_price_usd": 29.23
+     "unit_price_usd": 29.17
     },
     {
      "quantity": 10000,
-     "unit_price_usd": 28.06
+     "unit_price_usd": 28.03
     }
    ],
    "tooling_usd": 3300.0,
@@ -295,26 +295,26 @@
     "other subcontracted to a partner shop"
    ],
    "status": "superseded",
-   "created_at": "2026-09-27T08:58:59.422271Z",
+   "created_at": "2026-09-28T11:06:07.287545Z",
    "label": "fictional"
   },
   {
-   "id": "qt_7754a76df3",
-   "rfq_id": "rfq_cb52bb1a63",
+   "id": "qt_7172f82952",
+   "rfq_id": "rfq_6aef21fd6c",
    "factory_id": "f_harborlight",
    "version": 5,
    "tiers": [
     {
      "quantity": 500,
-     "unit_price_usd": 30.48
+     "unit_price_usd": 30.42
     },
     {
      "quantity": 2000,
-     "unit_price_usd": 29.23
+     "unit_price_usd": 29.17
     },
     {
      "quantity": 10000,
-     "unit_price_usd": 28.06
+     "unit_price_usd": 28.03
     }
    ],
    "tooling_usd": 3450.0,
@@ -325,26 +325,26 @@
     "other subcontracted to a partner shop"
    ],
    "status": "accepted",
-   "created_at": "2026-09-27T08:58:59.423719Z",
+   "created_at": "2026-09-28T11:06:07.288967Z",
    "label": "fictional"
   },
   {
-   "id": "qt_8650fd3eff",
-   "rfq_id": "rfq_5506abcc09",
+   "id": "qt_2516affede",
+   "rfq_id": "rfq_27d052bbee",
    "factory_id": "f_cobaltriver",
    "version": 1,
    "tiers": [
     {
      "quantity": 500,
-     "unit_price_usd": 33.84
+     "unit_price_usd": 33.78
     },
     {
      "quantity": 2000,
-     "unit_price_usd": 32.45
+     "unit_price_usd": 32.4
     },
     {
      "quantity": 10000,
-     "unit_price_usd": 31.16
+     "unit_price_usd": 31.12
     }
    ],
    "tooling_usd": 4100.0,
@@ -355,26 +355,26 @@
     "other subcontracted to a partner shop"
    ],
    "status": "superseded",
-   "created_at": "2026-09-27T08:58:59.410082Z",
+   "created_at": "2026-09-28T11:06:07.276407Z",
    "label": "fictional"
   },
   {
-   "id": "qt_e1601868de",
-   "rfq_id": "rfq_5506abcc09",
+   "id": "qt_a6ca2062d8",
+   "rfq_id": "rfq_27d052bbee",
    "factory_id": "f_cobaltriver",
    "version": 2,
    "tiers": [
     {
      "quantity": 500,
-     "unit_price_usd": 31.13
+     "unit_price_usd": 31.08
     },
     {
      "quantity": 2000,
-     "unit_price_usd": 29.85
+     "unit_price_usd": 29.81
     },
     {
      "quantity": 10000,
-     "unit_price_usd": 28.67
+     "unit_price_usd": 28.63
     }
    ],
    "tooling_usd": 3700.0,
@@ -385,26 +385,26 @@
     "other subcontracted to a partner shop"
    ],
    "status": "superseded",
-   "created_at": "2026-09-27T08:58:59.419061Z",
+   "created_at": "2026-09-28T11:06:07.284582Z",
    "label": "fictional"
   },
   {
-   "id": "qt_5f9263f6f0",
-   "rfq_id": "rfq_5506abcc09",
+   "id": "qt_02a72169db",
+   "rfq_id": "rfq_27d052bbee",
    "factory_id": "f_cobaltriver",
    "version": 3,
    "tiers": [
     {
      "quantity": 500,
-     "unit_price_usd": 33.16
+     "unit_price_usd": 33.1
     },
     {
      "quantity": 2000,
-     "unit_price_usd": 31.8
+     "unit_price_usd": 31.75
     },
     {
      "quantity": 10000,
-     "unit_price_usd": 30.54
+     "unit_price_usd": 30.5
     }
    ],
    "tooling_usd": 4000.0,
@@ -415,14 +415,14 @@
     "other subcontracted to a partner shop"
    ],
    "status": "submitted",
-   "created_at": "2026-09-27T08:58:59.420456Z",
+   "created_at": "2026-09-28T11:06:07.285968Z",
    "label": "fictional"
   }
  ],
  "transcript": [
   {
    "id": "t1",
-   "rfq_id": "rfq_f42e81ddd9",
+   "rfq_id": "rfq_74a42958df",
    "factory_id": "f_lumenpeak",
    "turn": 1,
    "speaker": "platform_agent",
@@ -431,12 +431,12 @@
    "quote_id": null,
    "proposed_changes": {},
    "rationale": null,
-   "created_at": "2026-09-27T08:58:59.403277Z",
+   "created_at": "2026-09-28T11:06:07.269811Z",
    "label": "fictional"
   },
   {
    "id": "t2",
-   "rfq_id": "rfq_cb52bb1a63",
+   "rfq_id": "rfq_6aef21fd6c",
    "factory_id": "f_harborlight",
    "turn": 2,
    "speaker": "platform_agent",
@@ -445,12 +445,12 @@
    "quote_id": null,
    "proposed_changes": {},
    "rationale": null,
-   "created_at": "2026-09-27T08:58:59.404307Z",
+   "created_at": "2026-09-28T11:06:07.270786Z",
    "label": "fictional"
   },
   {
    "id": "t3",
-   "rfq_id": "rfq_5506abcc09",
+   "rfq_id": "rfq_27d052bbee",
    "factory_id": "f_cobaltriver",
    "turn": 3,
    "speaker": "platform_agent",
@@ -459,250 +459,250 @@
    "quote_id": null,
    "proposed_changes": {},
    "rationale": null,
-   "created_at": "2026-09-27T08:58:59.405242Z",
+   "created_at": "2026-09-28T11:06:07.271757Z",
    "label": "fictional"
   },
   {
    "id": "t4",
-   "rfq_id": "rfq_f42e81ddd9",
+   "rfq_id": "rfq_74a42958df",
    "factory_id": "f_lumenpeak",
    "turn": 4,
    "speaker": "factory_agent",
-   "message": "Quote v1: $33.59 at 2,000, tooling $4,200, MOQ 500, 27 days, 50% deposit / 50% before shipment. Note: other subcontracted to a partner shop.",
+   "message": "Quote v1: $33.53 at 2,000, tooling $4,200, MOQ 500, 27 days, 50% deposit / 50% before shipment. Note: other subcontracted to a partner shop.",
    "message_cn": null,
-   "quote_id": "qt_78b5a9ce92",
+   "quote_id": "qt_22354884a2",
    "proposed_changes": {},
    "rationale": null,
-   "created_at": "2026-09-27T08:58:59.407389Z",
+   "created_at": "2026-09-28T11:06:07.273897Z",
    "label": "fictional"
   },
   {
    "id": "t5",
-   "rfq_id": "rfq_cb52bb1a63",
+   "rfq_id": "rfq_6aef21fd6c",
    "factory_id": "f_harborlight",
    "turn": 5,
    "speaker": "factory_agent",
-   "message": "Quote v1: $30.75 at 2,000, tooling $3,750, MOQ 1,000, 33 days, 30% deposit / 70% before shipment. Note: other subcontracted to a partner shop.",
+   "message": "Quote v1: $30.69 at 2,000, tooling $3,750, MOQ 1,000, 33 days, 30% deposit / 70% before shipment. Note: other subcontracted to a partner shop.",
    "message_cn": null,
-   "quote_id": "qt_fd03519575",
+   "quote_id": "qt_1223cbc3a3",
    "proposed_changes": {},
    "rationale": null,
-   "created_at": "2026-09-27T08:58:59.409182Z",
+   "created_at": "2026-09-28T11:06:07.275666Z",
    "label": "fictional"
   },
   {
    "id": "t6",
-   "rfq_id": "rfq_5506abcc09",
+   "rfq_id": "rfq_27d052bbee",
    "factory_id": "f_cobaltriver",
    "turn": 6,
    "speaker": "factory_agent",
-   "message": "Quote v1: $32.45 at 2,000, tooling $4,100, MOQ 1,500, 40 days, 40% deposit / 60% before shipment. Note: other subcontracted to a partner shop.",
+   "message": "Quote v1: $32.40 at 2,000, tooling $4,100, MOQ 1,500, 40 days, 40% deposit / 60% before shipment. Note: other subcontracted to a partner shop.",
    "message_cn": null,
-   "quote_id": "qt_8650fd3eff",
+   "quote_id": "qt_2516affede",
    "proposed_changes": {},
    "rationale": null,
-   "created_at": "2026-09-27T08:58:59.411302Z",
+   "created_at": "2026-09-28T11:06:07.277416Z",
    "label": "fictional"
   },
   {
    "id": "t7",
-   "rfq_id": "rfq_f42e81ddd9",
+   "rfq_id": "rfq_74a42958df",
    "factory_id": "f_lumenpeak",
    "turn": 7,
    "speaker": "platform_agent",
-   "message": "Counter: firm 2,000-unit PO if we get unit price -8.0% (to $30.90 at 2,000), tooling $3,800, 30/70 payment terms.",
+   "message": "Counter: firm 2,000-unit PO if we get unit price -8.0% (to $30.85 at 2,000), tooling $3,800, 30/70 payment terms.",
    "message_cn": null,
-   "quote_id": "qt_5c075137a2",
+   "quote_id": "qt_dae658eb06",
    "proposed_changes": {
     "unit_price_pct": -8.0,
     "tooling_usd": 3800,
     "payment_terms": "30% deposit / 70% before shipment"
    },
-   "rationale": "Cheapest competing quote is $30.75 at 2,000 units; Lumen Peak Micro-Electronics (fictional) is at $33.59. Fastest competitor ships in 33 days. Policy: price, tooling, MOQ ≤ first order, 30/70 terms.",
-   "created_at": "2026-09-27T08:58:59.413052Z",
+   "rationale": "Cheapest competing quote is $30.69 at 2,000 units; Lumen Peak Micro-Electronics (fictional) is at $33.53. Fastest competitor ships in 33 days. Policy: price, tooling, MOQ ≤ first order, 30/70 terms.",
+   "created_at": "2026-09-28T11:06:07.279031Z",
    "label": "fictional"
   },
   {
    "id": "t8",
-   "rfq_id": "rfq_f42e81ddd9",
+   "rfq_id": "rfq_74a42958df",
    "factory_id": "f_lumenpeak",
    "turn": 8,
    "speaker": "factory_agent",
-   "message": "Revised v3: $33.09 at 2,000, tooling $4,100, MOQ 500, 27 days, 40% deposit / 60% before shipment — 1.5% off, that is our floor.",
+   "message": "Revised v3: $33.03 at 2,000, tooling $4,100, MOQ 500, 27 days, 40% deposit / 60% before shipment — 1.5% off, that is our floor.",
    "message_cn": null,
-   "quote_id": "qt_4a99d106b3",
+   "quote_id": "qt_8e6cc41937",
    "proposed_changes": {},
    "rationale": null,
-   "created_at": "2026-09-27T08:58:59.415260Z",
+   "created_at": "2026-09-28T11:06:07.280699Z",
    "label": "fictional"
   },
   {
    "id": "t9",
-   "rfq_id": "rfq_cb52bb1a63",
+   "rfq_id": "rfq_6aef21fd6c",
    "factory_id": "f_harborlight",
    "turn": 9,
    "speaker": "platform_agent",
-   "message": "Counter: firm 2,000-unit PO if we get unit price -3.0% (to $29.83 at 2,000), tooling $3,400, lead time 28 days.",
+   "message": "Counter: firm 2,000-unit PO if we get unit price -3.0% (to $29.77 at 2,000), tooling $3,400, lead time 28 days.",
    "message_cn": null,
-   "quote_id": "qt_60aafc8579",
+   "quote_id": "qt_15f605a4f6",
    "proposed_changes": {
     "unit_price_pct": -3.0,
     "tooling_usd": 3400,
     "lead_time_days": 28
    },
-   "rationale": "Cheapest competing quote is $32.45 at 2,000 units; Harborlight Wearables EMS (fictional) is at $30.75. Fastest competitor ships in 27 days. Policy: price, tooling, MOQ ≤ first order, 30/70 terms.",
-   "created_at": "2026-09-27T08:58:59.416662Z",
+   "rationale": "Cheapest competing quote is $32.40 at 2,000 units; Harborlight Wearables EMS (fictional) is at $30.69. Fastest competitor ships in 27 days. Policy: price, tooling, MOQ ≤ first order, 30/70 terms.",
+   "created_at": "2026-09-28T11:06:07.282185Z",
    "label": "fictional"
   },
   {
    "id": "t10",
-   "rfq_id": "rfq_cb52bb1a63",
+   "rfq_id": "rfq_6aef21fd6c",
    "factory_id": "f_harborlight",
    "turn": 10,
    "speaker": "factory_agent",
-   "message": "Revised v3: $29.83 at 2,000, tooling $3,450, MOQ 1,000, 30 days, 30% deposit / 70% before shipment — accepted your price.",
+   "message": "Revised v3: $29.77 at 2,000, tooling $3,450, MOQ 1,000, 30 days, 30% deposit / 70% before shipment — accepted your price.",
    "message_cn": null,
-   "quote_id": "qt_89a1a024d9",
+   "quote_id": "qt_65a89e21b8",
    "proposed_changes": {},
    "rationale": null,
-   "created_at": "2026-09-27T08:58:59.418340Z",
+   "created_at": "2026-09-28T11:06:07.283842Z",
    "label": "fictional"
   },
   {
    "id": "t11",
-   "rfq_id": "rfq_5506abcc09",
+   "rfq_id": "rfq_27d052bbee",
    "factory_id": "f_cobaltriver",
    "turn": 11,
    "speaker": "platform_agent",
-   "message": "Counter: firm 2,000-unit PO if we get unit price -8.0% (to $29.85 at 2,000), tooling $3,700, lead time 35 days, 30/70 payment terms.",
+   "message": "Counter: firm 2,000-unit PO if we get unit price -8.0% (to $29.81 at 2,000), tooling $3,700, lead time 35 days, 30/70 payment terms.",
    "message_cn": null,
-   "quote_id": "qt_e1601868de",
+   "quote_id": "qt_a6ca2062d8",
    "proposed_changes": {
     "unit_price_pct": -8.0,
     "tooling_usd": 3700,
     "lead_time_days": 35,
     "payment_terms": "30% deposit / 70% before shipment"
    },
-   "rationale": "Cheapest competing quote is $29.83 at 2,000 units; Cobalt River Box-Build EMS (fictional) is at $32.45. Fastest competitor ships in 27 days. Policy: price, tooling, MOQ ≤ first order, 30/70 terms.",
-   "created_at": "2026-09-27T08:58:59.419723Z",
+   "rationale": "Cheapest competing quote is $29.77 at 2,000 units; Cobalt River Box-Build EMS (fictional) is at $32.40. Fastest competitor ships in 27 days. Policy: price, tooling, MOQ ≤ first order, 30/70 terms.",
+   "created_at": "2026-09-28T11:06:07.285261Z",
    "label": "fictional"
   },
   {
    "id": "t12",
-   "rfq_id": "rfq_5506abcc09",
+   "rfq_id": "rfq_27d052bbee",
    "factory_id": "f_cobaltriver",
    "turn": 12,
    "speaker": "factory_agent",
-   "message": "Revised v3: $31.80 at 2,000, tooling $4,000, MOQ 1,500, 37 days, 40% deposit / 60% before shipment — 2.0% off, that is our floor.",
+   "message": "Revised v3: $31.75 at 2,000, tooling $4,000, MOQ 1,500, 37 days, 40% deposit / 60% before shipment — 2.0% off, that is our floor.",
    "message_cn": null,
-   "quote_id": "qt_5f9263f6f0",
+   "quote_id": "qt_02a72169db",
    "proposed_changes": {},
    "rationale": null,
-   "created_at": "2026-09-27T08:58:59.421439Z",
+   "created_at": "2026-09-28T11:06:07.286847Z",
    "label": "fictional"
   },
   {
    "id": "t13",
-   "rfq_id": "rfq_cb52bb1a63",
+   "rfq_id": "rfq_6aef21fd6c",
    "factory_id": "f_harborlight",
    "turn": 13,
    "speaker": "platform_agent",
-   "message": "Final ask: firm 2,000-unit PO if we get unit price -2.0% (to $29.23 at 2,000), tooling $3,300.",
+   "message": "Final ask: firm 2,000-unit PO if we get unit price -2.0% (to $29.17 at 2,000), tooling $3,300.",
    "message_cn": null,
-   "quote_id": "qt_dfc3c12a9d",
+   "quote_id": "qt_5ac2954880",
    "proposed_changes": {
     "unit_price_pct": -2.0,
     "tooling_usd": 3300
    },
-   "rationale": "Cheapest competing quote is $31.80 at 2,000 units; Harborlight Wearables EMS (fictional) is at $29.83. Fastest competitor ships in 27 days. Policy: price, tooling, MOQ ≤ first order, 30/70 terms.",
-   "created_at": "2026-09-27T08:58:59.422932Z",
+   "rationale": "Cheapest competing quote is $31.75 at 2,000 units; Harborlight Wearables EMS (fictional) is at $29.77. Fastest competitor ships in 27 days. Policy: price, tooling, MOQ ≤ first order, 30/70 terms.",
+   "created_at": "2026-09-28T11:06:07.288250Z",
    "label": "fictional"
   },
   {
    "id": "t14",
-   "rfq_id": "rfq_cb52bb1a63",
+   "rfq_id": "rfq_6aef21fd6c",
    "factory_id": "f_harborlight",
    "turn": 14,
    "speaker": "factory_agent",
-   "message": "Revised v5: $29.23 at 2,000, tooling $3,450, MOQ 1,000, 30 days, 30% deposit / 70% before shipment — accepted your price.",
+   "message": "Revised v5: $29.17 at 2,000, tooling $3,450, MOQ 1,000, 30 days, 30% deposit / 70% before shipment — accepted your price.",
    "message_cn": null,
-   "quote_id": "qt_7754a76df3",
+   "quote_id": "qt_7172f82952",
    "proposed_changes": {},
    "rationale": null,
-   "created_at": "2026-09-27T08:58:59.424573Z",
+   "created_at": "2026-09-28T11:06:07.289901Z",
    "label": "fictional"
   },
   {
    "id": "t15",
-   "rfq_id": "rfq_cb52bb1a63",
+   "rfq_id": "rfq_6aef21fd6c",
    "factory_id": "f_harborlight",
    "turn": 15,
    "speaker": "platform_agent",
-   "message": "Recommendation to founder: accept Harborlight Wearables EMS (fictional) v5: $29.23 at 2,000, tooling $3,450, MOQ 1,000, 30 days, 30% deposit / 70% before shipment. Awaiting approval.",
+   "message": "Recommendation to founder: accept Harborlight Wearables EMS (fictional) v5: $29.17 at 2,000, tooling $3,450, MOQ 1,000, 30 days, 30% deposit / 70% before shipment. Awaiting approval.",
    "message_cn": null,
-   "quote_id": "qt_7754a76df3",
+   "quote_id": "qt_7172f82952",
    "proposed_changes": {},
-   "rationale": "Harborlight Wearables EMS (fictional): lowest risk-adjusted cost, $33.83/unit risk-adjusted ($30.96 incl. tooling at 2,000); 93% on-time, 0.9% defects, 30 days, 30% deposit / 70% before shipment. Runner-up Cobalt River Box-Build EMS (fictional): $37.55/unit risk-adjusted ($33.80 incl. tooling at 2,000) — other subcontracted to a partner shop.",
-   "created_at": "2026-09-27T08:58:59.424610Z",
+   "rationale": "Harborlight Wearables EMS (fictional): lowest risk-adjusted cost, $33.77/unit risk-adjusted ($30.90 incl. tooling at 2,000); 93% on-time, 0.9% defects, 30 days, 30% deposit / 70% before shipment. Runner-up Cobalt River Box-Build EMS (fictional): $37.50/unit risk-adjusted ($33.75 incl. tooling at 2,000) — other subcontracted to a partner shop.",
+   "created_at": "2026-09-28T11:06:07.289950Z",
    "label": "fictional"
   },
   {
    "id": "t16",
-   "rfq_id": "rfq_cb52bb1a63",
+   "rfq_id": "rfq_6aef21fd6c",
    "factory_id": "f_harborlight",
    "turn": 16,
    "speaker": "user",
    "message": "Approved quote v5.",
    "message_cn": null,
-   "quote_id": "qt_7754a76df3",
+   "quote_id": "qt_7172f82952",
    "proposed_changes": {},
    "rationale": null,
-   "created_at": "2026-09-27T08:58:59.435184Z",
+   "created_at": "2026-09-28T11:06:07.300855Z",
    "label": "fictional"
   },
   {
    "id": "t17",
-   "rfq_id": "rfq_cb52bb1a63",
+   "rfq_id": "rfq_6aef21fd6c",
    "factory_id": "f_harborlight",
    "turn": 17,
    "speaker": "platform_agent",
-   "message": "Quote accepted — order draft po_7ab69aba1f for 2,000 units at $29.23, tooling $3,450, 30% deposit / 70% before shipment.",
+   "message": "Quote accepted — order draft po_6f940da196 for 2,000 units at $29.17, tooling $3,450, 30% deposit / 70% before shipment.",
    "message_cn": null,
-   "quote_id": "qt_7754a76df3",
+   "quote_id": "qt_7172f82952",
    "proposed_changes": {},
    "rationale": null,
-   "created_at": "2026-09-27T08:58:59.435187Z",
+   "created_at": "2026-09-28T11:06:07.300860Z",
    "label": "fictional"
   }
  ],
  "recommendation": {
   "factory_id": "f_harborlight",
-  "quote_id": "qt_7754a76df3",
-  "rationale": "Harborlight Wearables EMS (fictional): lowest risk-adjusted cost, $33.83/unit risk-adjusted ($30.96 incl. tooling at 2,000); 93% on-time, 0.9% defects, 30 days, 30% deposit / 70% before shipment. Runner-up Cobalt River Box-Build EMS (fictional): $37.55/unit risk-adjusted ($33.80 incl. tooling at 2,000) — other subcontracted to a partner shop."
+  "quote_id": "qt_7172f82952",
+  "rationale": "Harborlight Wearables EMS (fictional): lowest risk-adjusted cost, $33.77/unit risk-adjusted ($30.90 incl. tooling at 2,000); 93% on-time, 0.9% defects, 30 days, 30% deposit / 70% before shipment. Runner-up Cobalt River Box-Build EMS (fictional): $37.50/unit risk-adjusted ($33.75 incl. tooling at 2,000) — other subcontracted to a partner shop."
  },
  "user_approved": true,
  "final_terms": {
   "factory_id": "f_harborlight",
-  "quote_id": "qt_7754a76df3",
+  "quote_id": "qt_7172f82952",
   "quantity": 2000,
   "unit_price": {
-   "value": 29.23,
+   "value": 29.17,
    "unit": "USD",
    "label": "fictional",
-   "source_or_assumption": "Accepted quote v5 (po_7ab69aba1f) — demo data"
+   "source_or_assumption": "Accepted quote v5 (po_6f940da196) — demo data"
   },
   "tooling": {
    "value": 3450.0,
    "unit": "USD",
    "label": "fictional",
-   "source_or_assumption": "Accepted quote v5 (po_7ab69aba1f) — demo data"
+   "source_or_assumption": "Accepted quote v5 (po_6f940da196) — demo data"
   },
   "moq": 1000,
   "lead_time_days": {
    "value": 30.0,
    "unit": "days",
    "label": "fictional",
-   "source_or_assumption": "Accepted quote v5 (po_7ab69aba1f) — demo data"
+   "source_or_assumption": "Accepted quote v5 (po_6f940da196) — demo data"
   },
   "payment_terms": "30% deposit / 70% before shipment"
  }

@@ -284,11 +284,20 @@ def _parts(name: str, P: dict[str, float], scale=None, context: bool = True, sit
     if not context:
         parts = [p for p in parts if (p.label or "body").split(".")[0] not in CONTEXT_ROLES]
     if scale:
+        from build123d import Location
         from build123d import scale as b3d_scale
 
         out = []
         for p in parts:
-            q = b3d_scale(p, by=tuple(scale))
+            meta = getattr(p, "std_meta", None)
+            if meta and meta.get("bom"):  # C5: purchased hardware keeps its real size — re-placed, never stretched
+                c = p.bounding_box().center()
+                q = p.moved(Location((c.X * (scale[0] - 1), c.Y * (scale[1] - 1), c.Z * (scale[2] - 1))))
+                q.std_meta = meta
+            else:
+                q = b3d_scale(p, by=tuple(scale))
+                if meta:
+                    q.std_meta = meta
             q.label = p.label
             out.append(q)
         parts = out

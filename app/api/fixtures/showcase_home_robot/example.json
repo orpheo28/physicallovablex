@@ -7,10 +7,10 @@
  "strategy": "odm_customization",
  "hero_image_url": "/files/demo_home_robot/photo_v1_hero_studio.png",
  "glb_url": "/files/demo_home_robot/model_v1.glb",
- "one_line_result": "1 version · AI-written CAD · $234.74/unit @ 2,000 (Estimate) · ODM customisation · 7/13 stages",
+ "one_line_result": "1 version · AI-written CAD · $239.67/unit @ 2,000 (Estimate) · ODM customisation · 7/13 stages",
  "unit_basis": "per_unit",
  "unit_cost": {
-  "value": 234.74,
+  "value": 239.67,
   "unit": "USD",
   "label": "estimate",
   "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"

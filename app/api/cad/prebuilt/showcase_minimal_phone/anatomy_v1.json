@@ -1,5 +1,5 @@
 {
- "_v": "a4",
+ "_v": "a6",
  "version": 1,
  "glb_url": "/files/demo_minimal_phone/anatomy_v1.glb",
  "label": "Illustrative internal layout \u2014 not a routed PCB",
@@ -121,6 +121,23 @@
    ],
    "explode_distance_mm": 4.0,
    "caption": "Aluminium 6063 frame, cover glass shell, product 65.1 \u00d7 131.2 \u00d7 11.4 mm (Measured), 1.2 mm wall (Estimate)"
+  },
+  {
+   "id": "fasteners",
+   "name": "Fasteners",
+   "order": 6,
+   "parts": [
+    "m1_6_x_5_countersunk_screws_x2",
+    "m1_6_x_4_pan_screws_x6",
+    "screw_bosses"
+   ],
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 32.8,
+   "caption": "Fasteners \u00b7 3 kinds: M1.6 \u00d7 5 countersunk screws \u00d72, M1.6 \u00d7 4 pan screws \u00d76, Screw bosses"
   }
  ],
  "steps": [
@@ -280,7 +297,8 @@
     "display",
     "mainboard",
     "battery",
-    "cameras"
+    "cameras",
+    "fasteners"
    ],
    "focus_parts": [
     "front"
@@ -290,7 +308,7 @@
    "id": "s7",
    "title": "Back together",
    "kicker": "07 \u00b7 Back together",
-   "caption": "Unit cost $183.90 at 2,000 units (Estimate), product mass 145.0 g (Estimate)",
+   "caption": "Unit cost $183.09 at 2,000 units (Estimate), product mass 147.0 g (Estimate)",
    "camera": {
     "position_mm": [
      -143.0,
@@ -376,7 +394,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 0.0
   },
   {
    "part_id": "glass_window",
@@ -448,7 +474,15 @@
    "material_options": [
     "glass",
     "clear_pc"
-   ]
+   ],
+   "parent_part_id": "frame",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 5.2
   },
   {
    "part_id": "window",
@@ -520,7 +554,15 @@
    "material_options": [
     "glass",
     "clear_pc"
-   ]
+   ],
+   "parent_part_id": "glass_window_4",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    0.1314,
+    0.9913
+   ],
+   "explode_distance_mm": 81.7
   },
   {
    "part_id": "glass_window_2",
@@ -592,7 +634,15 @@
    "material_options": [
     "glass",
     "clear_pc"
-   ]
+   ],
+   "parent_part_id": "frame",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 9.0
   },
   {
    "part_id": "camera",
@@ -661,7 +711,15 @@
     }
    ],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "glass_window_2",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 20.4
   },
   {
    "part_id": "glass_window_3",
@@ -733,7 +791,15 @@
    "material_options": [
     "glass",
     "clear_pc"
-   ]
+   ],
+   "parent_part_id": "camera",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 36.3
   },
   {
    "part_id": "light_diffuser",
@@ -788,7 +854,15 @@
     }
    ],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "glass_window_2",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 24.9
   },
   {
    "part_id": "button",
@@ -839,7 +913,15 @@
     }
    ],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "frame",
+   "joint": "linear",
+   "explode_vector": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "explode_distance_mm": 16.5
   },
   {
    "part_id": "button_2",
@@ -890,7 +972,15 @@
     }
    ],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "frame",
+   "joint": "linear",
+   "explode_vector": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "explode_distance_mm": 16.5
   },
   {
    "part_id": "usb_c_port",
@@ -941,7 +1031,15 @@
     }
    ],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "frame",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "explode_distance_mm": 16.0
   },
   {
    "part_id": "bottom_shells",
@@ -997,7 +1095,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "frame",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "explode_distance_mm": 15.9
   },
   {
    "part_id": "light_diffusers",
@@ -1024,7 +1130,15 @@
    "unit_price": null,
    "editable": [],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "glass_window",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 20.9
   },
   {
    "part_id": "light_diffusers_2",
@@ -1079,7 +1193,15 @@
     }
    ],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "glass_window",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 20.9
   },
   {
    "part_id": "lower_bodies",
@@ -1144,7 +1266,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "window",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    0.2075,
+    0.9782
+   ],
+   "explode_distance_mm": 82.7
   },
   {
    "part_id": "light_diffuser_2",
@@ -1199,7 +1329,15 @@
     }
    ],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "lower_bodies",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    0.3766,
+    0.9264
+   ],
+   "explode_distance_mm": 87.4
   },
   {
    "part_id": "light_diffuser_3",
@@ -1254,7 +1392,15 @@
     }
    ],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "lower_bodies",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    0.3766,
+    0.9264
+   ],
+   "explode_distance_mm": 87.4
   },
   {
    "part_id": "light_diffuser_4",
@@ -1309,7 +1455,15 @@
     }
    ],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "lower_bodies",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    0.3766,
+    0.9264
+   ],
+   "explode_distance_mm": 87.4
   },
   {
    "part_id": "light_diffuser_5",
@@ -1364,7 +1518,15 @@
     }
    ],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "lower_bodies",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    0.3766,
+    0.9264
+   ],
+   "explode_distance_mm": 87.4
   },
   {
    "part_id": "dark_part",
@@ -1429,7 +1591,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "lower_bodies",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    0.3766,
+    0.9264
+   ],
+   "explode_distance_mm": 87.4
   },
   {
    "part_id": "glass_window_4",
@@ -1492,7 +1662,140 @@
    "material_options": [
     "glass",
     "clear_pc"
-   ]
+   ],
+   "parent_part_id": "glass_window",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 10.7
+  },
+  {
+   "part_id": "m1_6_x_5_countersunk_screws_x2",
+   "name": "M1.6 \u00d7 5 countersunk screws \u00d72",
+   "role": "fastener",
+   "layer_id": "fasteners",
+   "material": "A2 stainless steel",
+   "finish": null,
+   "colour_hex": "#EFEFF0",
+   "measured_bbox_mm": [
+    17.03,
+    3.03,
+    5.0
+   ],
+   "centroid_mm": [
+    0.0,
+    6.45,
+    63.0
+   ],
+   "label": "measured",
+   "bom_item_id": "hw2",
+   "lcsc_pn": null,
+   "package": "ISO 7046 M1.6 \u00d7 5",
+   "unit_price": {
+    "value": 0.0184,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": true,
+   "material_options": [],
+   "parent_part_id": "frame",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "explode_distance_mm": 18.7
+  },
+  {
+   "part_id": "m1_6_x_4_pan_screws_x6",
+   "name": "M1.6 \u00d7 4 pan screws \u00d76",
+   "role": "fastener",
+   "layer_id": "fasteners",
+   "material": "A2 stainless steel",
+   "finish": null,
+   "colour_hex": "#EFEFF0",
+   "measured_bbox_mm": [
+    58.2,
+    5.0,
+    106.2
+   ],
+   "centroid_mm": [
+    0.0,
+    6.04,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "hw1",
+   "lcsc_pn": null,
+   "package": "ISO 1580 M1.6 \u00d7 4",
+   "unit_price": {
+    "value": 0.02,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": true,
+   "material_options": [],
+   "parent_part_id": "screw_bosses",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 5.2
+  },
+  {
+   "part_id": "screw_bosses",
+   "name": "Screw bosses",
+   "role": "other",
+   "layer_id": "fasteners",
+   "material": "anodised aluminium",
+   "finish": null,
+   "colour_hex": "#E7E8EB",
+   "measured_bbox_mm": [
+    58.2,
+    4.04,
+    106.2
+   ],
+   "centroid_mm": [
+    0.0,
+    4.72,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "hw1",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 0.0184,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ],
+   "parent_part_id": "frame",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 13.5
   },
   {
    "part_id": "display",
@@ -1524,7 +1827,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "smartphone_odm_mainboard_assembly",
@@ -1556,7 +1863,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "soc_memory_shielded",
@@ -1588,7 +1899,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "li_ion_battery_4000_mah",
@@ -1620,7 +1935,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "front",
@@ -1652,7 +1971,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "antenna_1",
@@ -1684,7 +2007,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "antenna_2",
@@ -1716,7 +2043,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "usb_c_receptacle",
@@ -1748,7 +2079,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   }
  ]
 }

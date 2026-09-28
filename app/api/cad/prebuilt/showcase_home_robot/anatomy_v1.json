@@ -1,5 +1,5 @@
 {
- "_v": "a4",
+ "_v": "a6",
  "version": 1,
  "glb_url": "/files/demo_home_robot/anatomy_v1.glb",
  "label": "Illustrative internal layout \u2014 not a routed PCB",
@@ -33,6 +33,7 @@
     "arm_5",
     "arm_6",
     "rubber_parts_2",
+    "rear_access_panel",
     "2d_lidar_module_2"
    ],
    "explode_vector": [
@@ -114,6 +115,28 @@
    ],
    "explode_distance_mm": 834.0,
    "caption": "PC/ABS shell, 2.2 mm wall (Estimate)"
+  },
+  {
+   "id": "fasteners",
+   "name": "Fasteners",
+   "order": 4,
+   "parts": [
+    "ball_bearings_6001_2z_12x28x8_x2",
+    "m5_washers_x2",
+    "m5_x_14_socket_screws_x2",
+    "m4_x_16_socket_screws_x4",
+    "m4_heat_set_inserts_x4",
+    "screw_bosses",
+    "m3_x_10_countersunk_screws_x4",
+    "m3_heat_set_inserts_x4"
+   ],
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 141.2,
+   "caption": "Fasteners \u00b7 8 kinds: Ball bearings 6001-2Z (12\u00d728\u00d78) \u00d72, M5 washers \u00d72, M5 \u00d7 14 socket screws \u00d72, M4 \u00d7 16 socket screws \u00d74\u2026"
   }
  ],
  "steps": [
@@ -185,7 +208,8 @@
    },
    "layers_exploded": [
     "shell_top",
-    "battery"
+    "battery",
+    "fasteners"
    ],
    "focus_parts": [
     "main_pcb",
@@ -214,7 +238,8 @@
    },
    "layers_exploded": [
     "shell_top",
-    "battery"
+    "battery",
+    "fasteners"
    ],
    "focus_parts": [
     "2d_lidar_module",
@@ -242,7 +267,8 @@
    },
    "layers_exploded": [
     "shell_top",
-    "battery"
+    "battery",
+    "fasteners"
    ],
    "focus_parts": [
     "li_po_battery_5000_mah"
@@ -252,7 +278,7 @@
    "id": "s6",
    "title": "Back together",
    "kicker": "06 \u00b7 Back together",
-   "caption": "Unit cost $234.74 at 2,000 units (Estimate), product mass 4.49 kg (Estimate)",
+   "caption": "Unit cost $239.67 at 2,000 units (Estimate), product mass 4.58 kg (Estimate)",
    "camera": {
     "position_mm": [
      -1584.0,
@@ -306,7 +332,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "bottom_shell_3",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 92.1
   },
   {
    "part_id": "rubber_part",
@@ -327,13 +361,26 @@
     0.0
    ],
    "label": "measured",
-   "bom_item_id": null,
+   "bom_item_id": "hw1",
    "lcsc_pn": null,
    "package": null,
-   "unit_price": null,
+   "unit_price": {
+    "value": 0.46,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
    "editable": [],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "bottom_shell",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 176.7
   },
   {
    "part_id": "wheels",
@@ -375,7 +422,15 @@
     }
    ],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "bottom_shell",
+   "joint": "revolute",
+   "explode_vector": [
+    0.0,
+    -0.2936,
+    -0.9559
+   ],
+   "explode_distance_mm": 313.8
   },
   {
    "part_id": "metal_parts",
@@ -422,7 +477,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "bottom_shell",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 192.3
   },
   {
    "part_id": "rubber_parts",
@@ -449,7 +512,15 @@
    "unit_price": null,
    "editable": [],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "bottom_shell",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 181.5
   },
   {
    "part_id": "bottom_shell_2",
@@ -486,7 +557,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "bottom_shell",
+   "joint": "rigid",
+   "explode_vector": [
+    0.649,
+    -0.7608,
+    0.0
+   ],
+   "explode_distance_mm": 121.1
   },
   {
    "part_id": "glass_windows",
@@ -516,7 +595,15 @@
    "material_options": [
     "glass",
     "clear_pc"
-   ]
+   ],
+   "parent_part_id": "bottom_shell",
+   "joint": "rigid",
+   "explode_vector": [
+    0.6028,
+    -0.7979,
+    0.0
+   ],
+   "explode_distance_mm": 115.5
   },
   {
    "part_id": "bottom_shell_3",
@@ -572,7 +659,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 0.0
   },
   {
    "part_id": "top_shell",
@@ -646,7 +741,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "bottom_shell_3",
+   "joint": "rigid",
+   "explode_vector": [
+    -1.0,
+    0.0,
+    0.0
+   ],
+   "explode_distance_mm": 194.9
   },
   {
    "part_id": "bin_lip",
@@ -704,7 +807,15 @@
    "material_options": [
     "glass",
     "clear_pc"
-   ]
+   ],
+   "parent_part_id": "top_shell",
+   "joint": "rigid",
+   "explode_vector": [
+    -0.9294,
+    0.369,
+    0.0
+   ],
+   "explode_distance_mm": 209.7
   },
   {
    "part_id": "glass_window",
@@ -734,7 +845,15 @@
    "material_options": [
     "glass",
     "clear_pc"
-   ]
+   ],
+   "parent_part_id": "bottom_shell_3",
+   "joint": "rigid",
+   "explode_vector": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "explode_distance_mm": 55.1
   },
   {
    "part_id": "status_light",
@@ -766,7 +885,15 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "glass_window",
+   "joint": "rigid",
+   "explode_vector": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "explode_distance_mm": 124.7
   },
   {
    "part_id": "top_shell_2",
@@ -813,7 +940,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "bottom_shell_3",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 47.2
   },
   {
    "part_id": "body",
@@ -873,7 +1008,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "top_shell_2",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 176.9
   },
   {
    "part_id": "window",
@@ -913,7 +1056,15 @@
    "material_options": [
     "glass",
     "clear_pc"
-   ]
+   ],
+   "parent_part_id": "body",
+   "joint": "rigid",
+   "explode_vector": [
+    0.3122,
+    0.95,
+    0.0
+   ],
+   "explode_distance_mm": 186.2
   },
   {
    "part_id": "status_lights",
@@ -950,7 +1101,15 @@
     }
    ],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "window",
+   "joint": "rigid",
+   "explode_vector": [
+    0.5854,
+    0.8107,
+    0.0
+   ],
+   "explode_distance_mm": 218.2
   },
   {
    "part_id": "metal_part",
@@ -971,14 +1130,14 @@
     0.0
    ],
    "label": "measured",
-   "bom_item_id": "e8",
+   "bom_item_id": "hw1",
    "lcsc_pn": null,
    "package": null,
    "unit_price": {
-    "value": 5.98,
+    "value": 0.46,
     "unit": "USD",
     "label": "estimate",
-    "source_or_assumption": "Module price model: robot joint servo \u2248 USD 6.5 (typical 2026 trade price at ~2k units, not a quote)"
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
    },
    "editable": [
     {
@@ -1015,7 +1174,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "body",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 255.0
   },
   {
    "part_id": "dark_part",
@@ -1036,10 +1203,15 @@
     0.0
    ],
    "label": "measured",
-   "bom_item_id": null,
+   "bom_item_id": "hw1",
    "lcsc_pn": null,
    "package": null,
-   "unit_price": null,
+   "unit_price": {
+    "value": 0.46,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
    "editable": [
     {
      "param": "head_height",
@@ -1075,7 +1247,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "metal_part",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 316.8
   },
   {
    "part_id": "glass_window_2",
@@ -1133,7 +1313,15 @@
    "material_options": [
     "glass",
     "clear_pc"
-   ]
+   ],
+   "parent_part_id": "dark_part",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 390.6
   },
   {
    "part_id": "arm",
@@ -1154,14 +1342,14 @@
     165.0
    ],
    "label": "measured",
-   "bom_item_id": "m4",
+   "bom_item_id": "e8",
    "lcsc_pn": null,
    "package": null,
    "unit_price": {
-    "value": 16.56,
+    "value": 5.98,
     "unit": "USD",
     "label": "estimate",
-    "source_or_assumption": "Module price model: arm + gripper mechanics \u2248 USD 18 (typical 2026 trade price at ~2k units, not a quote)"
+    "source_or_assumption": "Module price model: robot joint servo \u2248 USD 6.5 (typical 2026 trade price at ~2k units, not a quote)"
    },
    "editable": [],
    "colour_editable": true,
@@ -1170,7 +1358,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "arm_2",
+   "joint": "rigid",
+   "explode_vector": [
+    -0.1208,
+    0.9927,
+    0.0
+   ],
+   "explode_distance_mm": 519.2
   },
   {
    "part_id": "arm_2",
@@ -1191,10 +1387,15 @@
     174.5
    ],
    "label": "measured",
-   "bom_item_id": null,
+   "bom_item_id": "m4",
    "lcsc_pn": null,
    "package": null,
-   "unit_price": null,
+   "unit_price": {
+    "value": 16.56,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: arm + gripper mechanics \u2248 USD 18 (typical 2026 trade price at ~2k units, not a quote)"
+   },
    "editable": [],
    "colour_editable": true,
    "material_options": [
@@ -1202,7 +1403,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "arm_3",
+   "joint": "rigid",
+   "explode_vector": [
+    -0.1546,
+    0.988,
+    0.0
+   ],
+   "explode_distance_mm": 405.7
   },
   {
    "part_id": "arm_3",
@@ -1234,7 +1443,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "arm_4",
+   "joint": "rigid",
+   "explode_vector": [
+    -0.2922,
+    0.9564,
+    0.0
+   ],
+   "explode_distance_mm": 214.6
   },
   {
    "part_id": "arm_4",
@@ -1266,7 +1483,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "arm_5",
+   "joint": "rigid",
+   "explode_vector": [
+    -0.4408,
+    0.8976,
+    0.0
+   ],
+   "explode_distance_mm": 142.3
   },
   {
    "part_id": "arm_5",
@@ -1298,7 +1523,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "arm_6",
+   "joint": "rigid",
+   "explode_vector": [
+    -0.9994,
+    0.0332,
+    0.0
+   ],
+   "explode_distance_mm": 62.8
   },
   {
    "part_id": "arm_6",
@@ -1330,7 +1563,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "rubber_parts_2",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 2.1
   },
   {
    "part_id": "rubber_parts_2",
@@ -1357,7 +1598,15 @@
    "unit_price": null,
    "editable": [],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "bottom_shell",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 56.9
   },
   {
    "part_id": "metal_parts_2",
@@ -1389,7 +1638,385 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "bottom_shell",
+   "joint": "rigid",
+   "explode_vector": [
+    -0.6093,
+    -0.7929,
+    0.0
+   ],
+   "explode_distance_mm": 116.2
+  },
+  {
+   "part_id": "ball_bearings_6001_2z_12x28x8_x2",
+   "name": "Ball bearings 6001-2Z (12\u00d728\u00d78) \u00d72",
+   "role": "component",
+   "layer_id": "fasteners",
+   "material": "chrome steel 52100",
+   "finish": null,
+   "colour_hex": "#EFEFF0",
+   "measured_bbox_mm": [
+    28.0,
+    28.0,
+    339.2
+   ],
+   "centroid_mm": [
+    0.0,
+    65.0,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "hw1",
+   "lcsc_pn": null,
+   "package": "ISO 15 6001-2Z (12\u00d728\u00d78)",
+   "unit_price": {
+    "value": 0.46,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": true,
+   "material_options": [],
+   "parent_part_id": "bottom_shell",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 176.7
+  },
+  {
+   "part_id": "m5_washers_x2",
+   "name": "M5 washers \u00d72",
+   "role": "fastener",
+   "layer_id": "fasteners",
+   "material": "A2 stainless steel",
+   "finish": null,
+   "colour_hex": "#EFEFF0",
+   "measured_bbox_mm": [
+    10.0,
+    10.0,
+    371.1
+   ],
+   "centroid_mm": [
+    0.0,
+    65.0,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "hw7",
+   "lcsc_pn": null,
+   "package": "ISO 7089 M5",
+   "unit_price": {
+    "value": 0.01,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": true,
+   "material_options": [],
+   "parent_part_id": "bottom_shell",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 165.9
+  },
+  {
+   "part_id": "m5_x_14_socket_screws_x2",
+   "name": "M5 \u00d7 14 socket screws \u00d72",
+   "role": "fastener",
+   "layer_id": "fasteners",
+   "material": "A2 stainless steel",
+   "finish": null,
+   "colour_hex": "#EFEFF0",
+   "measured_bbox_mm": [
+    8.72,
+    8.72,
+    378.9
+   ],
+   "centroid_mm": [
+    0.0,
+    65.0,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "hw5",
+   "lcsc_pn": null,
+   "package": "ISO 4762 M5 \u00d7 14",
+   "unit_price": {
+    "value": 0.0322,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": true,
+   "material_options": [],
+   "parent_part_id": "bottom_shell",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 165.2
+  },
+  {
+   "part_id": "m4_x_16_socket_screws_x4",
+   "name": "M4 \u00d7 16 socket screws \u00d74",
+   "role": "fastener",
+   "layer_id": "fasteners",
+   "material": "A2 stainless steel",
+   "finish": null,
+   "colour_hex": "#EFEFF0",
+   "measured_bbox_mm": [
+    153.59,
+    20.0,
+    153.59
+   ],
+   "centroid_mm": [
+    -0.0,
+    150.75,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "hw5",
+   "lcsc_pn": null,
+   "package": "ISO 4762 M4 \u00d7 16",
+   "unit_price": {
+    "value": 0.0322,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": true,
+   "material_options": [],
+   "parent_part_id": "bottom_shell",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 12.3
+  },
+  {
+   "part_id": "m4_heat_set_inserts_x4",
+   "name": "M4 heat-set inserts \u00d74",
+   "role": "fastener",
+   "layer_id": "fasteners",
+   "material": "brass",
+   "finish": null,
+   "colour_hex": "#E5CB8B",
+   "measured_bbox_mm": [
+    152.67,
+    8.2,
+    152.67
+   ],
+   "centroid_mm": [
+    -0.0,
+    156.85,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "k1",
+   "lcsc_pn": null,
+   "package": "McMaster-Carr 94459A170 M4 \u00d7 8.2",
+   "unit_price": {
+    "value": 1.38,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: retail carton + insert \u2248 USD 1.5 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": true,
+   "material_options": [],
+   "parent_part_id": "bottom_shell",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 19.4
+  },
+  {
+   "part_id": "screw_bosses",
+   "name": "Screw bosses",
+   "role": "other",
+   "layer_id": "fasteners",
+   "material": "PC/ABS (UL94 V-0)",
+   "finish": "Soft-touch paint",
+   "colour_hex": "#F2F2EF",
+   "measured_bbox_mm": [
+    214.64,
+    335.0,
+    157.57
+   ],
+   "centroid_mm": [
+    -28.53,
+    320.25,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "hw4",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 0.023,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ],
+   "parent_part_id": "bottom_shell",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 148.0
+  },
+  {
+   "part_id": "rear_access_panel",
+   "name": "Rear access panel",
+   "role": "shell_top",
+   "layer_id": "shell_top",
+   "material": "PC/ABS (UL94 V-0)",
+   "finish": "Soft-touch paint",
+   "colour_hex": "#C4C4C1",
+   "measured_bbox_mm": [
+    2.0,
+    169.5,
+    135.0
+   ],
+   "centroid_mm": [
+    -136.85,
+    407.0,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "m2",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 6.4195,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Bottom shell: Moulded shell 300\u00d7255\u00d7155 mm, wall 2.2 mm \u2248 429.1 cm\u00b3 \u00d7 1.15 g/cm\u00b3 = 493 g \u00d7 $3.2/kg + $5.40 moulding/finish conversion"
+   },
+   "editable": [],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ],
+   "parent_part_id": "bottom_shell_3",
+   "joint": "rigid",
+   "explode_vector": [
+    -1.0,
+    0.0,
+    0.0
+   ],
+   "explode_distance_mm": 69.0
+  },
+  {
+   "part_id": "m3_x_10_countersunk_screws_x4",
+   "name": "M3 \u00d7 10 countersunk screws \u00d74",
+   "role": "fastener",
+   "layer_id": "fasteners",
+   "material": "A2 stainless steel",
+   "finish": null,
+   "colour_hex": "#EFEFF0",
+   "measured_bbox_mm": [
+    10.0,
+    159.86,
+    125.36
+   ],
+   "centroid_mm": [
+    -132.85,
+    407.0,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "hw4",
+   "lcsc_pn": null,
+   "package": "ISO 14581 M3 \u00d7 10",
+   "unit_price": {
+    "value": 0.023,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": true,
+   "material_options": [],
+   "parent_part_id": "screw_bosses",
+   "joint": "rigid",
+   "explode_vector": [
+    -0.4462,
+    0.8949,
+    0.0
+   ],
+   "explode_distance_mm": 165.4
+  },
+  {
+   "part_id": "m3_heat_set_inserts_x4",
+   "name": "M3 heat-set inserts \u00d74",
+   "role": "fastener",
+   "layer_id": "fasteners",
+   "material": "brass",
+   "finish": null,
+   "colour_hex": "#E5CB8B",
+   "measured_bbox_mm": [
+    5.7,
+    158.2,
+    123.7
+   ],
+   "centroid_mm": [
+    -133.0,
+    407.0,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "k1",
+   "lcsc_pn": null,
+   "package": "McMaster-Carr 94459A140 M3 \u00d7 5.7",
+   "unit_price": {
+    "value": 1.38,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: retail carton + insert \u2248 USD 1.5 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": true,
+   "material_options": [],
+   "parent_part_id": "screw_bosses",
+   "joint": "rigid",
+   "explode_vector": [
+    -0.4336,
+    0.9011,
+    0.0
+   ],
+   "explode_distance_mm": 164.3
   },
   {
    "part_id": "main_pcb",
@@ -1416,7 +2043,11 @@
    "unit_price": null,
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "2d_lidar_module",
@@ -1448,7 +2079,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "embedded_linux_compute_module",
@@ -1480,7 +2115,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "brushed_dc_gearmotor_1",
@@ -1512,7 +2151,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "brushed_dc_gearmotor_2",
@@ -1544,7 +2187,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "arm_joint_servo_actuator_1",
@@ -1576,7 +2223,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "arm_joint_servo_actuator_2",
@@ -1608,7 +2259,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "arm_joint_servo_actuator_3",
@@ -1640,7 +2295,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "rgb_camera_module",
@@ -1672,7 +2331,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "time_of_flight_distance_sensor_1",
@@ -1704,7 +2367,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "time_of_flight_distance_sensor_2",
@@ -1736,7 +2403,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "time_of_flight_distance_sensor_3",
@@ -1768,7 +2439,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "time_of_flight_distance_sensor_4",
@@ -1800,7 +2475,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "battery_management",
@@ -1832,7 +2511,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "six_axis_imu",
@@ -1864,7 +2547,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "dock_charging_interface",
@@ -1896,7 +2583,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "dc_dc_buck_converter_module",
@@ -1928,7 +2619,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "passives_cluster",
@@ -1960,7 +2655,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "li_po_battery_5000_mah",
@@ -1992,7 +2691,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "drive_gearmotor_1",
@@ -2024,7 +2727,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "drive_gearmotor_2",
@@ -2056,7 +2763,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "2d_lidar_module_2",
@@ -2088,7 +2799,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   }
  ]
 }

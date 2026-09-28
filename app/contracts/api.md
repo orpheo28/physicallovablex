@@ -383,3 +383,69 @@ parts: PartMeta[]}`.
   3.6·n V nominal; the vacuum motor class (180 W) is electrical input power. Runtime = pack mAh × 85 % / I at pack voltage.
 - Anatomy closing step states the whole-product mass (all parts: exterior surface × wall × density + internals, Estimate).
 
+
+## Assembly (C2, additive — on by default since pass-7; set `CAD_ASSEMBLY=0` to disable)
+A version's parts connected by **build123d Joints** (RigidJoint / RevoluteJoint / LinearJoint), with **measured** assembly
+checks. On by default since pass-7 (set `CAD_ASSEMBLY=0` to disable: the route answers 404 and nothing else changes,
+engineering digests included). When on,
+`GET /projects/{id}/parts` then also carries `parent_part_id` / `joint` / `explode_vector` / `explode_distance_mm`, stage-5 costs
+add the measured fastener lines (`fx…`) for joints the modelled hardware (`hw…`, C1 standard parts — on by default since
+pass-7; set `CAD_DETAIL_LEVEL=basic` to disable) does not hold, and a lump
+'fastener set / screws' BOM line is replaced by the counted lines (never both).
+
+| Method | Path | Request | Response | Notes |
+|---|---|---|---|---|
+| GET | `/projects/{id}/assembly` | `?version=n` (default current), `?refresh=true` | `ProjectAssembly` | built on first request (≈ 0.5-2 s), cached per version in `FILES_DIR/<pid>/assembly_v<n>.json` |
+
+**`ProjectAssembly`** `{project_id, version, label, source (/files/<pid>/<model>.step), root (part_id), nodes: AssemblyNode[],
+joints: AssemblyJoint[], interferences: AssemblyInterference[], clearances: AssemblyClearance[], fasteners: BOMItem[],
+checks: EngineeringCheck[] (domain "assembly"), summary, engine}`. All coordinates in **mm, GLB axes (+Y up)** like `PartMeta`.
+- `AssemblyNode {part_id (= PartMeta.part_id), name, role, parent, joint_id, rigid_body, volume (Measured mm³), explode_vector
+  (unit), explode_distance_mm}` — one node per part of `/parts`; exactly one root; `explode_*` derived from the joint axis
+  (revolute / linear: along the axis, away from the parent; rigid: the principal axis the child sits on), cumulative down the tree.
+- `AssemblyJoint {id, parent, child, kind: rigid|revolute|linear, method: screwed|snap_fit|inlay|press_fit|bonded|clip|hinge|
+  bearing|slide|latch, dof, origin_mm, axis, range (deg / mm), fasteners: FastenerUse[], rule}` — `rule` says which family /
+  role rule inferred the mate (prop → motor revolute; motor → arm 4 screws; folding arm → hinge (DOF locked in use, `dof: 0`);
+  two shells meeting at a parting line → screws into heat-set inserts (≥ 60 mm) or snap-fit; windows / lenses / lights → inlay;
+  strap → 2 spring bars; wheels / rollers → revolute about their symmetry axis; buttons / triggers → linear 0.5 mm travel;
+  lids → hinge on the rear edge).
+- `FastenerUse {kind: screw|insert|spring_bar|pin|nut|washer, standard, designation, size, length_mm, qty, source}` — `source`
+  = `api.cad.stdparts` (C1 catalogue) when importable, else `built-in table`.
+- `AssemblyInterference {a, b, volume (Measured mm³, OCCT boolean common, tolerance 0.01 mm³), kind, note}`:
+  `interference` (parts in different rigid bodies, over each moving joint's motion study, or the two shells of a parting line
+  overlapping → **fail**), `joint_seat` (overlap between the two parts of one joint, or a button / wheel pocket through its
+  host's rigid body), `static_overlap` (parts of one rigid body interpenetrate — concept geometry, pocket at detail design).
+- `AssemblyClearance {part_id, against, min_clearance (Measured, BRepExtrema), motion, verdict, rule}` — props ≥ 2 mm over 12
+  poses / 360°, rolling parts ≥ 1 mm, buttons pressed 0.5 mm keep ≥ 0.2 mm, parting-line gap ≤ 0.3 mm.
+- `fasteners` — BOM lines `fx1…` aggregated by designation (mechanical; `unit_cost_est` Estimate from the C1 / built-in
+  catalogue at ~2,000 pcs; an LCSC snapshot match would make them Sourced).
+- `checks` (also appended to `EngineeringArtifact.checks` when the flag is on): `asm_interference`, `asm_static_overlap`,
+  `asm_clearance`, `asm_parting_gap`, `asm_fastener_engagement` (material under each screw measured by line ∩ solid; insert
+  needs boss ≥ insert + 0.5 mm, engagement ≥ 80 % of the insert; tapped metal ≥ 1.5·d; thread-forming ≥ 2·d),
+  `asm_fastener_count`, `asm_joint_closure` (every child re-placed by `connect_to`, residual < 0.01 mm), `asm_support`.
+
+**Additive fields.** `EngineeringCheck.domain` += `"assembly"`; `EngineeringArtifact.assembly: ProjectAssembly | null` (travels
+into `FactoryPack.engineering`); `PartMeta.parent_part_id`, `PartMeta.joint`, `PartMeta.explode_vector`,
+`PartMeta.explode_distance_mm` (null until the parts route calls `api.cad.assembly.service.part_extras`).
+
+**Errors.** 404: flag off · unknown project / version · the version's GLB has no labelled STEP next to it (legacy W2 directions;
+since C5 the two cached demos ship a labelled STEP for their chosen direction).
+
+## 2D technical drawings (C3, additive — on by default since pass-7; set `CAD_DRAWINGS=0` to disable)
+| Method | Path | Query | Response | Notes |
+|---|---|---|---|---|
+| GET | `/projects/{id}/drawings` | `?version=n` | `DrawingSheet[]` | built from the version's STEP on first request (0.6–9 s on the showcases), cached per version; 404 unknown project / version, no STEP, or `CAD_DRAWINGS=0` |
+| GET/HEAD | `/files/{id}/drawings/{name}` | – | `image/svg+xml` / `application/pdf` | `v<n>_<sheet>.svg`, `v<n>_<sheet>.pdf` (one page), `v<n>_set.pdf` (every sheet); built on demand when a Factory Pack link arrives first (C5); 404 when off |
+
+- On by default since pass-7. Disabled (`CAD_DRAWINGS=0`): the routes answer 404 and `/projects/{project_id}/drawings` is absent from the OpenAPI
+  schema, so the web hides the Studio "Drawings" tab and the stage 3 link.
+- Sheets: `A1` general assembly (A3: front, left, isometric; balloons = parts-list ITEM tied to the stage-3 BOM line;
+  hidden lines omitted), `P01…` one sheet per distinct part (identical instances grouped, `qty`; largest first, ≤ 12),
+  `M01…` moulded shells when the DFM enclosure STEP is the product's housing (two largest dimensions within 5 % of a part).
+- Every sheet: first-angle projection (ISO E), front / top / left (or section A-A for hollow parts) + isometric (reference,
+  not to scale), A4 or A3 landscape, scale from ISO 5455 standard scales; overall L × W × H measured on the STEP with the
+  ISO 2768-m tolerance; holes / bosses (Ø, count, depth, pattern pitch) and wall thickness measured on the B-rep; fillets
+  as a note; title block (product, part, material, finish, scale, units mm, ISO 2768-m, projection symbol, revision = `v<n>`,
+  date, drawing no., sheet i/N) and the note "Generated from CAD — verify before release"; legend label **Measured**.
+- `FactoryPack.drawings` (additive): the current version's sheets when enabled; the Launch Dossier prints each sheet as a
+  vector page in a "Drawings" chapter (rotated onto A4) and lists them in Factory Pack section 3.

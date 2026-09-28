@@ -1,5 +1,5 @@
 {
- "_v": "a4",
+ "_v": "a6",
  "version": 2,
  "glb_url": "/files/demo_surfboard_beginner/anatomy_v2.glb",
  "label": "Illustrative internal layout \u2014 not a routed PCB",
@@ -78,14 +78,12 @@
    "order": 4,
    "parts": [
     "fin",
-    "rubber_part",
     "fin_2",
-    "rubber_part_2",
     "fin_3",
-    "rubber_part_3",
     "fin_box_1",
     "fin_box_2",
-    "fin_box_3"
+    "fin_box_3",
+    "fin_box_4"
    ],
    "explode_vector": [
     0.0,
@@ -94,6 +92,21 @@
    ],
    "explode_distance_mm": 485.3,
    "caption": "Thruster fin box set ($3.68 (Estimate)) + Thruster surfboard fins ($5.52 (Estimate))"
+  },
+  {
+   "id": "fasteners",
+   "name": "Fasteners",
+   "order": 5,
+   "parts": [
+    "fin_boxes_x3"
+   ],
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 571.5,
+   "caption": "Fasteners \u00b7 1 kinds: Fin boxes \u00d73"
   }
  ],
  "steps": [
@@ -249,22 +262,23 @@
     "deck_glass",
     "core",
     "bottom_glass",
-    "fins"
+    "fins",
+    "fasteners"
    ],
    "focus_parts": [
     "fin",
-    "rubber_part",
     "fin_2",
-    "rubber_part_2",
     "fin_3",
-    "rubber_part_3"
+    "fin_boxes_x3",
+    "fin_box_1",
+    "fin_box_2"
    ]
   },
   {
    "id": "s7",
    "title": "Back together",
    "kicker": "07 \u00b7 Back together",
-   "caption": "Unit cost $224.55 at 2,000 units (Estimate), weight 4.60 kg (Estimate)",
+   "caption": "Unit cost $225.29 at 2,000 units (Estimate), weight 4.60 kg (Estimate)",
    "camera": {
     "position_mm": [
      -1377.3,
@@ -313,7 +327,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 0.0
   },
   {
    "part_id": "fin",
@@ -340,34 +362,15 @@
    "unit_price": null,
    "editable": [],
    "colour_editable": true,
-   "material_options": []
-  },
-  {
-   "part_id": "rubber_part",
-   "name": "Rubber part 1",
-   "role": "other",
-   "layer_id": "fins",
-   "material": "TPE rubber",
-   "finish": null,
-   "colour_hex": "#303032",
-   "measured_bbox_mm": [
-    93.18,
-    2.0,
-    13.0
+   "material_options": [],
+   "parent_part_id": "body",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
    ],
-   "centroid_mm": [
-    -823.0,
-    89.72,
-    137.0
-   ],
-   "label": "measured",
-   "bom_item_id": null,
-   "lcsc_pn": null,
-   "package": null,
-   "unit_price": null,
-   "editable": [],
-   "colour_editable": true,
-   "material_options": []
+   "explode_distance_mm": 327.1
   },
   {
    "part_id": "fin_2",
@@ -394,34 +397,15 @@
    "unit_price": null,
    "editable": [],
    "colour_editable": true,
-   "material_options": []
-  },
-  {
-   "part_id": "rubber_part_2",
-   "name": "Rubber part 2",
-   "role": "other",
-   "layer_id": "fins",
-   "material": "TPE rubber",
-   "finish": null,
-   "colour_hex": "#303032",
-   "measured_bbox_mm": [
-    93.18,
-    2.0,
-    13.0
+   "material_options": [],
+   "parent_part_id": "body",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
    ],
-   "centroid_mm": [
-    -823.0,
-    89.72,
-    -137.0
-   ],
-   "label": "measured",
-   "bom_item_id": null,
-   "lcsc_pn": null,
-   "package": null,
-   "unit_price": null,
-   "editable": [],
-   "colour_editable": true,
-   "material_options": []
+   "explode_distance_mm": 327.1
   },
   {
    "part_id": "fin_3",
@@ -448,34 +432,55 @@
    "unit_price": null,
    "editable": [],
    "colour_editable": true,
-   "material_options": []
-  },
-  {
-   "part_id": "rubber_part_3",
-   "name": "Rubber part 3",
-   "role": "other",
-   "layer_id": "fins",
-   "material": "TPE rubber",
-   "finish": null,
-   "colour_hex": "#303032",
-   "measured_bbox_mm": [
-    108.0,
-    2.0,
-    13.0
-   ],
-   "centroid_mm": [
-    -1008.0,
-    101.5,
+   "material_options": [],
+   "parent_part_id": "body",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    -1.0,
     0.0
    ],
+   "explode_distance_mm": 255.2
+  },
+  {
+   "part_id": "fin_boxes_x3",
+   "name": "Fin boxes \u00d73",
+   "role": "fastener",
+   "layer_id": "fasteners",
+   "material": "glass-filled nylon",
+   "finish": null,
+   "colour_hex": "#2E3033",
+   "measured_bbox_mm": [
+    303.0,
+    27.17,
+    292.0
+   ],
+   "centroid_mm": [
+    -915.5,
+    32.72,
+    -7.0
+   ],
    "label": "measured",
-   "bom_item_id": null,
+   "bom_item_id": "m4",
    "lcsc_pn": null,
-   "package": null,
-   "unit_price": null,
+   "package": "Futures-type single-tab box 118 \u00d7 18",
+   "unit_price": {
+    "value": 3.68,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: fin box / plug \u2248 USD 4 (typical 2026 trade price, not a quote)"
+   },
    "editable": [],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "fin_3",
+   "joint": "rigid",
+   "explode_vector": [
+    0.8727,
+    -0.4882,
+    0.0
+   ],
+   "explode_distance_mm": 522.6
   },
   {
    "part_id": "pu_foam_core_blank",
@@ -507,7 +512,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "bottom_laminate_fibreglass_resin",
@@ -539,7 +548,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "stringer",
@@ -571,7 +584,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "fin_box_1",
@@ -603,7 +620,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "fin_box_2",
@@ -635,7 +656,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "fin_box_3",
@@ -667,7 +692,47 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
+  },
+  {
+   "part_id": "fin_box_4",
+   "name": "Fin box 4",
+   "role": "fastener",
+   "layer_id": "fins",
+   "material": "Fin box (glass-filled nylon)",
+   "finish": null,
+   "colour_hex": "#1F2124",
+   "measured_bbox_mm": [
+    28.0,
+    8.0,
+    10.0
+   ],
+   "centroid_mm": [
+    -915.5,
+    49.3,
+    -7.0
+   ],
+   "label": "estimate",
+   "bom_item_id": "m4",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 3.68,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: fin box / plug \u2248 USD 4 (typical 2026 trade price, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": false,
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "leash_plug",
@@ -699,7 +764,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "traction_pad",
@@ -726,7 +795,11 @@
    "unit_price": null,
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   }
  ]
 }

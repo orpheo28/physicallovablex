@@ -390,18 +390,6 @@
    "alternative": null
   },
   {
-   "id": "m5",
-   "part": "Fastener set",
-   "category": "mechanical",
-   "qty": 1.0,
-   "description": "Screws for shells, arms, and assemblies",
-   "manufacturer_pn": null,
-   "lcsc_pn": null,
-   "unit_cost_est": null,
-   "risk": null,
-   "alternative": null
-  },
-  {
    "id": "k1",
    "part": "Retail carton with protective insert",
    "category": "packaging",
@@ -410,6 +398,108 @@
    "manufacturer_pn": null,
    "lcsc_pn": null,
    "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "hw1",
+   "part": "Heat-set threaded insert M2 × 4 (OD 3.6 mm), brass — ref. McMaster-Carr 94459A120",
+   "category": "mechanical",
+   "qty": 4.0,
+   "description": "Standard part (McMaster-Carr 94459A120), counted on the CAD: 4 placed",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.06,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "hw2",
+   "part": "Hex nut M3 (ISO 4032), A2 stainless",
+   "category": "mechanical",
+   "qty": 8.0,
+   "description": "Standard part (ISO 4032), counted on the CAD: 8 placed",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.012,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "hw3",
+   "part": "Hex nut M5 (ISO 4032), A2 stainless",
+   "category": "mechanical",
+   "qty": 4.0,
+   "description": "Standard part (ISO 4032), counted on the CAD: 4 placed",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.02,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "hw4",
+   "part": "Screw M2 × 10 socket head, 1.5 mm hex (ISO 4762), A2 stainless",
+   "category": "mechanical",
+   "qty": 16.0,
+   "description": "Standard part (ISO 4762), counted on the CAD: 16 placed",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.02,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "hw5",
+   "part": "Screw M2 × 20 pan head, T6 (ISO 14583), A2 stainless",
+   "category": "mechanical",
+   "qty": 4.0,
+   "description": "Standard part (ISO 14583), counted on the CAD: 4 placed",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.02,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "hw6",
+   "part": "Screw M3 × 14 socket head, 2.5 mm hex (ISO 4762), A2 stainless",
+   "category": "mechanical",
+   "qty": 8.0,
+   "description": "Standard part (ISO 4762), counted on the CAD: 8 placed",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.025,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
    "risk": null,
    "alternative": null
   }
@@ -425,7 +515,7 @@
    "format": "glb",
    "url": "/files/demo_drone_follow/model_v1.glb",
    "description": "AI-generated CAD (concept level) — geometry measured on the result — bbox 172 × 260 × 79 mm",
-   "size_bytes": 626188
+   "size_bytes": 873956
   },
   {
    "format": "step",
@@ -443,7 +533,7 @@
    "format": "glb",
    "url": "/files/demo_drone_follow/v2.glb",
    "description": "Full product — materials",
-   "size_bytes": 1099312
+   "size_bytes": 1354356
   },
   {
    "format": "step",

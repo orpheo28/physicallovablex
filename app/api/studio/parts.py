@@ -335,6 +335,15 @@ def enriched(ctx: Ctx) -> list[dict]:
         e["editable"] = [{k: v for k, v in s.items() if k != "target"} for s in editable_for(ctx, e, part_params)]
         e.update({k: v for k, v in bom_link(e, ctx.arts, used).items() if v is not None})
         out.append(e)
+    from api.cad.assembly import service as asm
+
+    if asm.enabled():  # C2/C5: parent in the assembly tree, joint kind, joint-derived explode vector
+        try:
+            extra = asm.part_extras(ctx.pid, ctx.n)
+            for e in out:
+                e.update(extra.get(e["part_id"], {}))
+        except Exception as ex:  # noqa: BLE001 — parts never fail because of the assembly
+            log.info("assembly part extras skipped for %s v%s: %s", ctx.pid, ctx.n, ex)
     return out
 
 

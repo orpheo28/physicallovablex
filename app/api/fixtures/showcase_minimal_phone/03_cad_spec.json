@@ -395,18 +395,6 @@
    "alternative": null
   },
   {
-   "id": "m5",
-   "part": "Housing screw set",
-   "category": "mechanical",
-   "qty": 1.0,
-   "description": "Small handset assembly screws, set quantity and specification per enclosure design",
-   "manufacturer_pn": null,
-   "lcsc_pn": null,
-   "unit_cost_est": null,
-   "risk": null,
-   "alternative": null
-  },
-  {
    "id": "m6",
    "part": "Housing and display adhesive set",
    "category": "mechanical",
@@ -429,6 +417,40 @@
    "unit_cost_est": null,
    "risk": null,
    "alternative": null
+  },
+  {
+   "id": "hw1",
+   "part": "Screw M1.6 × 4 pan head, slot (ISO 1580), A2 stainless",
+   "category": "mechanical",
+   "qty": 6.0,
+   "description": "Standard part (ISO 1580), counted on the CAD: 6 placed",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.02,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "hw2",
+   "part": "Screw M1.6 × 5 countersunk head, PH0 (ISO 7046), A2 stainless",
+   "category": "mechanical",
+   "qty": 2.0,
+   "description": "Standard part (ISO 7046), counted on the CAD: 2 placed",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.02,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
   }
  ],
  "tolerances": [
@@ -442,7 +464,7 @@
    "format": "glb",
    "url": "/files/demo_minimal_phone/model_v1.glb",
    "description": "AI-generated CAD (concept level) — geometry measured on the result — bbox 66 × 131 × 11 mm",
-   "size_bytes": 225480
+   "size_bytes": 303244
   },
   {
    "format": "step",
@@ -460,7 +482,7 @@
    "format": "glb",
    "url": "/files/demo_minimal_phone/v1.glb",
    "description": "Full product — materials",
-   "size_bytes": 207156
+   "size_bytes": 284840
   },
   {
    "format": "step",

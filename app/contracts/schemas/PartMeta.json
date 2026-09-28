@@ -254,6 +254,68 @@
       },
       "title": "Material Options",
       "type": "array"
+    },
+    "parent_part_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "C2 (CAD_ASSEMBLY=1): parent in the assembly tree",
+      "title": "Parent Part Id"
+    },
+    "joint": {
+      "anyOf": [
+        {
+          "enum": [
+            "rigid",
+            "revolute",
+            "linear"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "C2: joint to the parent",
+      "title": "Joint"
+    },
+    "explode_vector": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "number"
+          },
+          "maxItems": 3,
+          "minItems": 3,
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "C2: unit vector (GLB axes) derived from the joint; move the part node by explode_vector \u00d7 explode_distance_mm",
+      "title": "Explode Vector"
+    },
+    "explode_distance_mm": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "C2: cumulative along the assembly tree",
+      "title": "Explode Distance Mm"
     }
   },
   "required": [

@@ -164,7 +164,7 @@
    "format": "glb",
    "url": "/files/demo_drone_follow/model_v1.glb",
    "description": "AI-generated CAD (concept level) — geometry measured on the result — bbox 172 × 260 × 79 mm",
-   "size_bytes": 626188
+   "size_bytes": 873956
   },
   {
    "format": "step",
@@ -182,7 +182,7 @@
    "format": "glb",
    "url": "/files/demo_drone_follow/v2.glb",
    "description": "Full product — materials",
-   "size_bytes": 1099312
+   "size_bytes": 1354356
   },
   {
    "format": "step",
@@ -477,23 +477,6 @@
    "alternative": null
   },
   {
-   "id": "m5",
-   "part": "Fastener set",
-   "category": "mechanical",
-   "qty": 1.0,
-   "description": "Screws for shells, arms, and assemblies",
-   "manufacturer_pn": null,
-   "lcsc_pn": null,
-   "unit_cost_est": {
-    "value": 0.92,
-    "unit": "USD",
-    "label": "estimate",
-    "source_or_assumption": "Module price model: fastener set ≈ USD 1 (typical 2026 trade price at ~2k units, not a quote)"
-   },
-   "risk": null,
-   "alternative": null
-  },
-  {
    "id": "k1",
    "part": "Retail carton with protective insert",
    "category": "packaging",
@@ -506,6 +489,108 @@
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Module price model: retail carton + insert ≈ USD 1.5 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "hw1",
+   "part": "Heat-set threaded insert M2 × 4 (OD 3.6 mm), brass — ref. McMaster-Carr 94459A120",
+   "category": "mechanical",
+   "qty": 4.0,
+   "description": "Standard part (McMaster-Carr 94459A120), counted on the CAD: 4 placed",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.0552,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "hw2",
+   "part": "Hex nut M3 (ISO 4032), A2 stainless",
+   "category": "mechanical",
+   "qty": 8.0,
+   "description": "Standard part (ISO 4032), counted on the CAD: 8 placed",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.011,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "hw3",
+   "part": "Hex nut M5 (ISO 4032), A2 stainless",
+   "category": "mechanical",
+   "qty": 4.0,
+   "description": "Standard part (ISO 4032), counted on the CAD: 4 placed",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.0184,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "hw4",
+   "part": "Screw M2 × 10 socket head, 1.5 mm hex (ISO 4762), A2 stainless",
+   "category": "mechanical",
+   "qty": 16.0,
+   "description": "Standard part (ISO 4762), counted on the CAD: 16 placed",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.0184,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "hw5",
+   "part": "Screw M2 × 20 pan head, T6 (ISO 14583), A2 stainless",
+   "category": "mechanical",
+   "qty": 4.0,
+   "description": "Standard part (ISO 14583), counted on the CAD: 4 placed",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.0184,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "hw6",
+   "part": "Screw M3 × 14 socket head, 2.5 mm hex (ISO 4762), A2 stainless",
+   "category": "mechanical",
+   "qty": 8.0,
+   "description": "Standard part (ISO 4762), counted on the CAD: 8 placed",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.023,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
    },
    "risk": null,
    "alternative": null
@@ -710,16 +795,16 @@
   {
    "quantity": 500,
    "bom_cost": {
-    "value": 176.84,
+    "value": 176.86,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Electronics at LCSC price breaks (LCSC price, 2026-09-26); other lines base × 0.92^0"
    },
    "assembly_cost": {
-    "value": 28.77,
+    "value": 29.19,
     "unit": "USD",
     "label": "estimate",
-    "source_or_assumption": "Assembly + factory overhead/margin: 14.4 min = 6 base + 0.6 × 14 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^0"
+    "source_or_assumption": "Assembly + factory overhead/margin: 17.4 min = 6 base + 0.6 × 19 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^0"
    },
    "packaging_cost": {
     "value": 1.5,
@@ -728,7 +813,7 @@
     "source_or_assumption": "Packaging BOM lines × 0.92^0"
    },
    "unit_cost": {
-    "value": 207.11,
+    "value": 207.55,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
@@ -740,25 +825,25 @@
     "source_or_assumption": "$3,220 tooling ÷ 500"
    },
    "margin_pct": {
-    "value": 71.0,
+    "value": 70.9,
     "unit": "pct",
     "label": "estimate",
-    "source_or_assumption": "($999.00 target − $290.03 landed estimate) ÷ target; before retailer margin, VAT and marketing"
+    "source_or_assumption": "($999.00 target − $290.63 landed estimate) ÷ target; before retailer margin, VAT and marketing"
    }
   },
   {
    "quantity": 2000,
    "bom_cost": {
-    "value": 162.7,
+    "value": 162.71,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Electronics at LCSC price breaks (LCSC price, 2026-09-26); other lines base × 0.92^1"
    },
    "assembly_cost": {
-    "value": 26.47,
+    "value": 26.85,
     "unit": "USD",
     "label": "estimate",
-    "source_or_assumption": "Assembly + factory overhead/margin: 14.4 min = 6 base + 0.6 × 14 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^1"
+    "source_or_assumption": "Assembly + factory overhead/margin: 17.4 min = 6 base + 0.6 × 19 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^1"
    },
    "packaging_cost": {
     "value": 1.38,
@@ -767,7 +852,7 @@
     "source_or_assumption": "Packaging BOM lines × 0.92^1"
    },
    "unit_cost": {
-    "value": 190.54,
+    "value": 190.95,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
@@ -779,25 +864,25 @@
     "source_or_assumption": "$3,220 tooling ÷ 2,000"
    },
    "margin_pct": {
-    "value": 73.8,
+    "value": 73.7,
     "unit": "pct",
     "label": "estimate",
-    "source_or_assumption": "($999.00 target − $261.99 landed estimate) ÷ target; before retailer margin, VAT and marketing"
+    "source_or_assumption": "($999.00 target − $262.54 landed estimate) ÷ target; before retailer margin, VAT and marketing"
    }
   },
   {
    "quantity": 10000,
    "bom_cost": {
-    "value": 149.68,
+    "value": 149.69,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Electronics at LCSC price breaks (LCSC price, 2026-09-26); other lines base × 0.92^2"
    },
    "assembly_cost": {
-    "value": 24.35,
+    "value": 24.71,
     "unit": "USD",
     "label": "estimate",
-    "source_or_assumption": "Assembly + factory overhead/margin: 14.4 min = 6 base + 0.6 × 14 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^2"
+    "source_or_assumption": "Assembly + factory overhead/margin: 17.4 min = 6 base + 0.6 × 19 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^2"
    },
    "packaging_cost": {
     "value": 1.27,
@@ -806,7 +891,7 @@
     "source_or_assumption": "Packaging BOM lines × 0.92^2"
    },
    "unit_cost": {
-    "value": 175.3,
+    "value": 175.67,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
@@ -821,7 +906,7 @@
     "value": 76.0,
     "unit": "pct",
     "label": "estimate",
-    "source_or_assumption": "($999.00 target − $239.67 landed estimate) ÷ target; before retailer margin, VAT and marketing"
+    "source_or_assumption": "($999.00 target − $240.18 landed estimate) ÷ target; before retailer margin, VAT and marketing"
    }
   }
  ],
@@ -1220,7 +1305,7 @@
   "fallback": false,
   "fallback_reason": null,
   "generated_by": "code",
-  "generated_at": "2026-09-27T00:07:42.295441Z",
+  "generated_at": "2026-09-28T11:08:41.286413Z",
   "assumptions": [
    {
     "id": "e1",
@@ -1242,6 +1327,13 @@
     "label": "estimate",
     "source": null,
     "stage": null
+   },
+   {
+    "id": "e5",
+    "text": "Assembly mates are inferred from the part roles and the product family (rules shown per joint); interference, clearance and screw material are measured on the version's STEP",
+    "label": "estimate",
+    "source": null,
+    "stage": null
    }
   ],
   "stage": "engineering",
@@ -1250,7 +1342,7 @@
   "partner_word": "factories",
   "site_install": false,
   "product_name": "Kitesurf follow-me drone",
-  "inputs_digest": "38f5d5589d71f2ae",
+  "inputs_digest": "331f355c0891516a",
   "standards": [
    {
     "code": "Regulation (EU) 2019/945",
@@ -1530,6 +1622,128 @@
     "notes": [
      "Housing seam: compressed gasket (25-30% squeeze) or ultrasonic weld; fasteners outside the sealed volume"
     ]
+   },
+   {
+    "id": "asm_interference",
+    "name": "Interference between moving parts",
+    "domain": "assembly",
+    "value": {
+     "value": 0.0,
+     "unit": "pairs",
+     "label": "measured",
+     "source_or_assumption": "Boolean common of every part pair (OCCT), classified by the assembly joints; total 0.0 mm³"
+    },
+    "threshold": "0 intersecting pairs > 0.01 mm³ between parts that move relative to each other (different rigid bodies, over their motion study) or across a parting line — CAD interference-check practice",
+    "verdict": "pass",
+    "formula": "V(A ∩ B) per pair of solids at the assembled pose and over each moving joint's motion study",
+    "inputs": [
+     {
+      "value": 0.0,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Sum of interference volumes"
+     }
+    ],
+    "notes": []
+   },
+   {
+    "id": "asm_static_overlap",
+    "name": "Overlaps inside rigid bodies (concept geometry)",
+    "domain": "assembly",
+    "value": {
+     "value": 3598.3,
+     "unit": "mm³",
+     "label": "measured",
+     "source_or_assumption": "35 pairs of rigidly joined parts interpenetrate (19 over 5 % of the smaller part)"
+    },
+    "threshold": "Parts of one rigid body should not interpenetrate: overlap > 5 % of the smaller part = concept geometry to pocket at detail design (warn); smaller overlaps are seats (info)",
+    "verdict": "warn",
+    "formula": "V(A ∩ B) for parts of the same rigid body that are not directly joined",
+    "inputs": [],
+    "notes": [
+     "Carbon arm 2 ↔ Upper body shell: 613 mm³",
+     "Carbon arm 3 ↔ Upper body shell: 613 mm³",
+     "Carbon arm 4 ↔ Upper body shell: 613 mm³",
+     "Carbon arm 1 ↔ Upper body shell: 613 mm³",
+     "Carbon arm 3 ↔ M3 × 14 socket screws ×8: 126 mm³",
+     "Carbon arm 4 ↔ M3 × 14 socket screws ×8: 126 mm³",
+     "Carbon arm 1 ↔ M3 × 14 socket screws ×8: 126 mm³",
+     "Brushless motor 3 ↔ M2 × 10 socket screws ×16: 72 mm³",
+     "Brushless motor 4 ↔ M2 × 10 socket screws ×16: 72 mm³",
+     "Brushless motor 1 ↔ M2 × 10 socket screws ×16: 72 mm³"
+    ]
+   },
+   {
+    "id": "asm_clearance",
+    "name": "Minimum clearance of moving parts",
+    "domain": "assembly",
+    "value": {
+     "value": 0.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "BRepExtrema distance from each moving part (with what it carries) to every other part except its joint parent / host, over its motion study"
+    },
+    "threshold": "Propeller ≥ 2 mm from any other part over a full turn (blade flex; multirotor build practice); Rolling / rotating part ≥ 1 mm running clearance to its surroundings (debris, moulding tolerance)",
+    "verdict": "warn",
+    "formula": "min over poses of d(moving subtree, other parts); revolute props 12 poses / 360°, buttons pressed 0.5 mm",
+    "inputs": [],
+    "notes": [
+     "Propeller 1 → Propeller 2: 0.00 mm (revolute 0–360° (12 poses), warn)",
+     "Propeller 2 → M5 nuts ×4: 0.00 mm (revolute 0–360° (12 poses), warn)",
+     "Propeller 3 → M5 nuts ×4: 0.00 mm (revolute 0–360° (12 poses), warn)",
+     "Propeller 4 → M5 nuts ×4: 0.00 mm (revolute 0–360° (12 poses), warn)",
+     "Camera lens → Gimbal yoke: 2.83 mm (revolute -20–20° (5 poses), pass)"
+    ]
+   },
+   {
+    "id": "asm_fastener_count",
+    "name": "Fasteners by standard",
+    "domain": "assembly",
+    "value": {
+     "value": 0.0,
+     "unit": "pcs",
+     "label": "estimate",
+     "source_or_assumption": "Joint rules (screws per parting-line perimeter, motor mounts, spring bars); sizes from the part scale"
+    },
+    "threshold": null,
+    "verdict": "info",
+    "formula": "Σ fasteners over the assembly joints",
+    "inputs": [],
+    "notes": []
+   },
+   {
+    "id": "asm_joint_closure",
+    "name": "Joint closure (build123d Joints)",
+    "domain": "assembly",
+    "value": {
+     "value": 0.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Each child re-placed from its joint frame with build123d RigidJoint / RevoluteJoint / LinearJoint.connect_to; 31 joints"
+    },
+    "threshold": "build123d joints re-place every part at its modelled pose: residual < 0.01 mm",
+    "verdict": "pass",
+    "formula": "|bbox centre after connect_to − modelled bbox centre|",
+    "inputs": [],
+    "notes": []
+   },
+   {
+    "id": "asm_support",
+    "name": "Every part is attached",
+    "domain": "assembly",
+    "value": {
+     "value": 1.0,
+     "unit": "parts",
+     "label": "measured",
+     "source_or_assumption": "Parts with no contact (≤ 0.05 mm, BRepExtrema) with the part they are joined to"
+    },
+    "threshold": "Every part touches the part it is joined to (contact ≤ 0.05 mm)",
+    "verdict": "warn",
+    "formula": "d(child, parent) ≤ 0.05 mm for every joint",
+    "inputs": [],
+    "notes": [
+     "Battery status light floats 0.25 mm from Battery pack"
+    ]
    }
   ],
   "electronics": {
@@ -1625,43 +1839,7 @@
     },
     {
      "id": "p_b7",
-     "name": "4-in-1 ESC 20A",
-     "kind": "load",
-     "parent": "p_bat",
-     "voltage": {
-      "value": 14.4,
-      "unit": "V",
-      "label": "estimate",
-      "source_or_assumption": "VBAT (through its driver)"
-     }
-    },
-    {
-     "id": "p_b8",
-     "name": "BLDC motor 1404",
-     "kind": "load",
-     "parent": "p_bat",
-     "voltage": {
-      "value": 14.4,
-      "unit": "V",
-      "label": "estimate",
-      "source_or_assumption": "VBAT (through its driver)"
-     }
-    },
-    {
-     "id": "p_b9",
      "name": "GNSS receiver module",
-     "kind": "load",
-     "parent": "p_reg",
-     "voltage": {
-      "value": 3.3,
-      "unit": "V",
-      "label": "estimate",
-      "source_or_assumption": "Logic rail"
-     }
-    },
-    {
-     "id": "p_b10",
-     "name": "Camera module 4K with 2-axis gimbal",
      "kind": "load",
      "parent": "p_reg",
      "voltage": {
@@ -1710,26 +1888,8 @@
      "signals": "3.3 V"
     },
     {
-     "source": "LiPo flight battery, 4S",
-     "target": "4-in-1 ESC 20A",
-     "bus": "power",
-     "signals": "14.4 V"
-    },
-    {
-     "source": "LiPo flight battery, 4S",
-     "target": "BLDC motor 1404",
-     "bus": "power",
-     "signals": "14.4 V"
-    },
-    {
      "source": "3.3 V regulator (implied, VBAT 14.4 V)",
      "target": "GNSS receiver module",
-     "bus": "power",
-     "signals": "3.3 V"
-    },
-    {
-     "source": "3.3 V regulator (implied, VBAT 14.4 V)",
-     "target": "Camera module 4K with 2-axis gimbal",
      "bus": "power",
      "signals": "3.3 V"
     },
@@ -1759,27 +1919,9 @@
     },
     {
      "source": "Flight controller STM32F7 with IMU",
-     "target": "4-in-1 ESC 20A",
-     "bus": "pwm",
-     "signals": "PWM, DIR"
-    },
-    {
-     "source": "4-in-1 brushless ESC, 4-channel",
-     "target": "BLDC motor 1404",
-     "bus": "power",
-     "signals": "Motor phases / OUT1, OUT2"
-    },
-    {
-     "source": "Flight controller STM32F7 with IMU",
      "target": "GNSS receiver module",
      "bus": "uart",
      "signals": "TX, RX, 1PPS"
-    },
-    {
-     "source": "Flight controller STM32F7 with IMU",
-     "target": "Camera module 4K with 2-axis gimbal",
-     "bus": "spi",
-     "signals": "SCK, MOSI, MISO, CS"
     },
     {
      "source": "Flight controller STM32F7 with IMU",
@@ -1824,7 +1966,7 @@
       "value": 925.926,
       "unit": "mA",
       "label": "estimate",
-      "source_or_assumption": "4 × 3 W (category default) / 14.4 V / 90% driver"
+      "source_or_assumption": "4 × 3 W (category default) / 14.4 V pack / 90% driver"
      },
      "sleep_current": {
       "value": 0.0,
@@ -1930,62 +2072,6 @@
      }
     },
     {
-     "block": "driver",
-     "part": "4-in-1 ESC 20A",
-     "active_current": {
-      "value": 0.0,
-      "unit": "mA",
-      "label": "estimate",
-      "source_or_assumption": "Typical active current of a driver (assumed typical architecture for the category (not in the BOM))"
-     },
-     "sleep_current": {
-      "value": 1.0,
-      "unit": "µA",
-      "label": "estimate",
-      "source_or_assumption": "Typical sleep/standby current"
-     },
-     "duty_cycle": {
-      "value": 100.0,
-      "unit": "pct",
-      "label": "estimate",
-      "source_or_assumption": "Category duty cycle for 'driver' (Camera drone (quadcopter))"
-     },
-     "average_current": {
-      "value": 0.0,
-      "unit": "mA",
-      "label": "estimate",
-      "source_or_assumption": "active × duty + sleep × (1 − duty)"
-     }
-    },
-    {
-     "block": "motor",
-     "part": "BLDC motor 1404",
-     "active_current": {
-      "value": 231.481,
-      "unit": "mA",
-      "label": "estimate",
-      "source_or_assumption": "1 × 3 W (category default) / 14.4 V / 90% driver"
-     },
-     "sleep_current": {
-      "value": 0.0,
-      "unit": "µA",
-      "label": "estimate",
-      "source_or_assumption": "Typical sleep/standby current"
-     },
-     "duty_cycle": {
-      "value": 100.0,
-      "unit": "pct",
-      "label": "estimate",
-      "source_or_assumption": "Category duty cycle for 'motor' (Camera drone (quadcopter))"
-     },
-     "average_current": {
-      "value": 231.4815,
-      "unit": "mA",
-      "label": "estimate",
-      "source_or_assumption": "active × duty + sleep × (1 − duty)"
-     }
-    },
-    {
      "block": "gnss",
      "part": "GNSS receiver module",
      "active_current": {
@@ -2012,38 +2098,10 @@
       "label": "estimate",
       "source_or_assumption": "active × duty + sleep × (1 − duty)"
      }
-    },
-    {
-     "block": "camera",
-     "part": "Camera module 4K with 2-axis gimbal",
-     "active_current": {
-      "value": 150.0,
-      "unit": "mA",
-      "label": "estimate",
-      "source_or_assumption": "Typical active current of a camera (assumed typical architecture for the category (not in the BOM))"
-     },
-     "sleep_current": {
-      "value": 0.0,
-      "unit": "µA",
-      "label": "estimate",
-      "source_or_assumption": "Typical sleep/standby current"
-     },
-     "duty_cycle": {
-      "value": 100.0,
-      "unit": "pct",
-      "label": "estimate",
-      "source_or_assumption": "Category duty cycle for 'camera' (Camera drone (quadcopter))"
-     },
-     "average_current": {
-      "value": 150.0,
-      "unit": "mA",
-      "label": "estimate",
-      "source_or_assumption": "active × duty + sleep × (1 − duty)"
-     }
     }
    ],
    "average_current": {
-    "value": 1638.4074,
+    "value": 1256.9259,
     "unit": "mA",
     "label": "estimate",
     "source_or_assumption": "Sum of the power-budget lines"
@@ -2061,10 +2119,10 @@
     "source_or_assumption": "Category default 2450 mAh (no capacity in the BOM) — confirm with the cell datasheet"
    },
    "battery_life": {
-    "value": 1.27,
+    "value": 1.66,
     "unit": "h",
     "label": "estimate",
-    "source_or_assumption": "2450 mAh × 85% usable / 1638 mA average"
+    "source_or_assumption": "2450 mAh × 85% usable / 1257 mA average"
    },
    "pcb_note": "PCB layout: next step (human or text-to-PCB)"
   },
@@ -2083,7 +2141,7 @@
     "src/sensors.cpp",
     "src/sensors.h"
    ],
-   "generated_by": "llm:openai/gpt-6-luna",
+   "generated_by": "template",
    "note": "Generated code — not compiled or tested",
    "pending_llm": false
   },
@@ -2109,16 +2167,16 @@
     {
      "item": "PCBA quick-turn (5 boards, 9 BOM lines)",
      "amount": {
-      "value": 218.0,
+      "value": 230.0,
       "unit": "USD",
       "label": "estimate",
-      "source_or_assumption": "5 boards: setup/stencil 25 + 2-layer fab 5 + parts 168.08 (LCSC price at 5× qty where matched, else BOM estimate × 3) + shipping 20 USD"
+      "source_or_assumption": "5 boards: setup/stencil 25 + 2-layer fab 5 + parts 180.00 (LCSC price at 5× qty where matched, else BOM estimate × 3) + shipping 20 USD"
      }
     },
     {
      "item": "Dev-kit bring-up set (firmware before the PCBA arrives)",
      "amount": {
-      "value": 79.0,
+      "value": 55.0,
       "unit": "USD",
       "label": "estimate",
       "source_or_assumption": "Sum of the dev-kit BOM lines"
@@ -2196,44 +2254,8 @@
      }
     },
     {
-     "part": "4-in-1 ESC 20A (module / breakout)",
-     "role": "driver",
-     "qty": 1,
-     "lcsc_pn": null,
-     "unit_price": {
-      "value": 8.0,
-      "unit": "USD",
-      "label": "estimate",
-      "source_or_assumption": "Typical hobby breakout/module price, not in the LCSC snapshot"
-     }
-    },
-    {
-     "part": "BLDC motor 1404 (module / breakout)",
-     "role": "motor",
-     "qty": 1,
-     "lcsc_pn": null,
-     "unit_price": {
-      "value": 8.0,
-      "unit": "USD",
-      "label": "estimate",
-      "source_or_assumption": "Typical hobby breakout/module price, not in the LCSC snapshot"
-     }
-    },
-    {
      "part": "GNSS receiver module (module / breakout)",
      "role": "gnss",
-     "qty": 1,
-     "lcsc_pn": null,
-     "unit_price": {
-      "value": 8.0,
-      "unit": "USD",
-      "label": "estimate",
-      "source_or_assumption": "Typical hobby breakout/module price, not in the LCSC snapshot"
-     }
-    },
-    {
-     "part": "Camera module 4K with 2-axis gimbal (module / breakout)",
-     "role": "camera",
      "qty": 1,
      "lcsc_pn": null,
      "unit_price": {
@@ -2259,7 +2281,7 @@
     "source_or_assumption": "Design freeze 0.5 + PCBA quick-turn incl. shipping 2 + integration 1 + test 0.5 (enclosure and firmware on the dev kit run in parallel)"
    },
    "total_cost": {
-    "value": 490.0,
+    "value": 478.0,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Sum of the prototype cost lines"
@@ -2313,6 +2335,2550 @@
    ]
   },
   "unit_basis": "per_unit",
-  "installation_cost": null
- }
+  "installation_cost": null,
+  "assembly": {
+   "project_id": "demo_drone_follow",
+   "version": 2,
+   "label": "Measured on the version STEP (build123d / OCCT); mates inferred from the family / part roles",
+   "source": "/files/demo_drone_follow/model_v1.step",
+   "root": "upper_body_shell",
+   "nodes": [
+    {
+     "part_id": "nose_panel",
+     "name": "Nose panel",
+     "role": "other",
+     "parent": "upper_body_shell",
+     "joint_id": "j1",
+     "rigid_body": 0,
+     "volume": {
+      "value": 875.0,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "explode_distance_mm": 9.3
+    },
+    {
+     "part_id": "tracking_windows",
+     "name": "Visual-tracking windows",
+     "role": "window",
+     "parent": "nose_panel",
+     "joint_id": "j9",
+     "rigid_body": 0,
+     "volume": {
+      "value": 123.2,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "explode_distance_mm": 21.3
+    },
+    {
+     "part_id": "hinge_1",
+     "name": "Folding hinge 1",
+     "role": "fastener",
+     "parent": "upper_body_shell",
+     "joint_id": "j2",
+     "rigid_body": 0,
+     "volume": {
+      "value": 2010.6,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      0.0,
+      -1.0
+     ],
+     "explode_distance_mm": 14.5
+    },
+    {
+     "part_id": "arm_1",
+     "name": "Carbon arm 1",
+     "role": "arm",
+     "parent": "hinge_1",
+     "joint_id": "j10",
+     "rigid_body": 0,
+     "volume": {
+      "value": 5213.9,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      0.0,
+      -1.0
+     ],
+     "explode_distance_mm": 65.2
+    },
+    {
+     "part_id": "motor_1",
+     "name": "Brushless motor 1",
+     "role": "motor",
+     "parent": "arm_1",
+     "joint_id": "j16",
+     "rigid_body": 0,
+     "volume": {
+      "value": 6870.7,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      0.3266,
+      -0.9452
+     ],
+     "explode_distance_mm": 69.0
+    },
+    {
+     "part_id": "prop_1",
+     "name": "Propeller 1",
+     "role": "prop",
+     "parent": "motor_1",
+     "joint_id": "j23",
+     "rigid_body": 1,
+     "volume": {
+      "value": 2394.7,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      0.4708,
+      -0.8822
+     ],
+     "explode_distance_mm": 73.9
+    },
+    {
+     "part_id": "landing_legs",
+     "name": "Landing legs",
+     "role": "frame",
+     "parent": "arm_3",
+     "joint_id": "j19",
+     "rigid_body": 0,
+     "volume": {
+      "value": 3793.2,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      -0.4808,
+      -0.8769
+     ],
+     "explode_distance_mm": 74.4
+    },
+    {
+     "part_id": "hinge_2",
+     "name": "Folding hinge 2",
+     "role": "fastener",
+     "parent": "upper_body_shell",
+     "joint_id": "j3",
+     "rigid_body": 0,
+     "volume": {
+      "value": 2010.6,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      0.0,
+      1.0
+     ],
+     "explode_distance_mm": 13.8
+    },
+    {
+     "part_id": "arm_2",
+     "name": "Carbon arm 2",
+     "role": "arm",
+     "parent": "hinge_2",
+     "joint_id": "j11",
+     "rigid_body": 0,
+     "volume": {
+      "value": 5213.9,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      0.0,
+      1.0
+     ],
+     "explode_distance_mm": 63.5
+    },
+    {
+     "part_id": "motor_2",
+     "name": "Brushless motor 2",
+     "role": "motor",
+     "parent": "arm_2",
+     "joint_id": "j17",
+     "rigid_body": 0,
+     "volume": {
+      "value": 6870.7,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      0.3347,
+      0.9423
+     ],
+     "explode_distance_mm": 67.3
+    },
+    {
+     "part_id": "prop_2",
+     "name": "Propeller 2",
+     "role": "prop",
+     "parent": "motor_2",
+     "joint_id": "j24",
+     "rigid_body": 2,
+     "volume": {
+      "value": 2394.7,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      0.514,
+      0.8578
+     ],
+     "explode_distance_mm": 74.0
+    },
+    {
+     "part_id": "hinge_3",
+     "name": "Folding hinge 3",
+     "role": "fastener",
+     "parent": "upper_body_shell",
+     "joint_id": "j4",
+     "rigid_body": 0,
+     "volume": {
+      "value": 2010.6,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      0.0,
+      -1.0
+     ],
+     "explode_distance_mm": 14.5
+    },
+    {
+     "part_id": "arm_3",
+     "name": "Carbon arm 3",
+     "role": "arm",
+     "parent": "hinge_3",
+     "joint_id": "j12",
+     "rigid_body": 0,
+     "volume": {
+      "value": 5213.9,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      0.0,
+      -1.0
+     ],
+     "explode_distance_mm": 65.2
+    },
+    {
+     "part_id": "motor_3",
+     "name": "Brushless motor 3",
+     "role": "motor",
+     "parent": "arm_3",
+     "joint_id": "j20",
+     "rigid_body": 0,
+     "volume": {
+      "value": 6870.7,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      0.3449,
+      -0.9386
+     ],
+     "explode_distance_mm": 69.5
+    },
+    {
+     "part_id": "prop_3",
+     "name": "Propeller 3",
+     "role": "prop",
+     "parent": "motor_3",
+     "joint_id": "j27",
+     "rigid_body": 3,
+     "volume": {
+      "value": 2394.7,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      0.5175,
+      -0.8557
+     ],
+     "explode_distance_mm": 76.2
+    },
+    {
+     "part_id": "hinge_4",
+     "name": "Folding hinge 4",
+     "role": "fastener",
+     "parent": "upper_body_shell",
+     "joint_id": "j5",
+     "rigid_body": 0,
+     "volume": {
+      "value": 2010.6,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      0.0,
+      1.0
+     ],
+     "explode_distance_mm": 15.1
+    },
+    {
+     "part_id": "arm_4",
+     "name": "Carbon arm 4",
+     "role": "arm",
+     "parent": "hinge_4",
+     "joint_id": "j13",
+     "rigid_body": 0,
+     "volume": {
+      "value": 5213.9,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      0.0,
+      1.0
+     ],
+     "explode_distance_mm": 66.7
+    },
+    {
+     "part_id": "motor_4",
+     "name": "Brushless motor 4",
+     "role": "motor",
+     "parent": "arm_4",
+     "joint_id": "j21",
+     "rigid_body": 0,
+     "volume": {
+      "value": 6870.7,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      0.3383,
+      0.941
+     ],
+     "explode_distance_mm": 70.8
+    },
+    {
+     "part_id": "prop_4",
+     "name": "Propeller 4",
+     "role": "prop",
+     "parent": "motor_4",
+     "joint_id": "j28",
+     "rigid_body": 4,
+     "volume": {
+      "value": 2394.7,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      0.5093,
+      0.8606
+     ],
+     "explode_distance_mm": 77.5
+    },
+    {
+     "part_id": "battery_pack",
+     "name": "Battery pack",
+     "role": "battery",
+     "parent": "upper_body_shell",
+     "joint_id": "j6",
+     "rigid_body": 0,
+     "volume": {
+      "value": 48880.7,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "explode_distance_mm": 19.2
+    },
+    {
+     "part_id": "battery_light",
+     "name": "Battery status light",
+     "role": "diffuser",
+     "parent": "battery_pack",
+     "joint_id": "j14",
+     "rigid_body": 0,
+     "volume": {
+      "value": 247.5,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "explode_distance_mm": 31.0
+    },
+    {
+     "part_id": "gimbal_yoke",
+     "name": "Gimbal yoke",
+     "role": "component",
+     "parent": "lower_body_shell",
+     "joint_id": "j22",
+     "rigid_body": 0,
+     "volume": {
+      "value": 3282.0,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      -1.0,
+      0.0
+     ],
+     "explode_distance_mm": 49.4
+    },
+    {
+     "part_id": "gimbal_camera",
+     "name": "Gimbal camera",
+     "role": "component",
+     "parent": "gimbal_yoke",
+     "joint_id": "j29",
+     "rigid_body": 0,
+     "volume": {
+      "value": 9202.8,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      -1.0,
+      0.0
+     ],
+     "explode_distance_mm": 72.8
+    },
+    {
+     "part_id": "camera_lens",
+     "name": "Camera lens",
+     "role": "lens",
+     "parent": "gimbal_camera",
+     "joint_id": "j31",
+     "rigid_body": 5,
+     "volume": {
+      "value": 973.9,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.1891,
+      -0.982,
+      0.0
+     ],
+     "explode_distance_mm": 74.1
+    },
+    {
+     "part_id": "lower_body_shell",
+     "name": "Lower body shell",
+     "role": "shell_bottom",
+     "parent": "m2_x_20_pan_screws_x4",
+     "joint_id": "j15",
+     "rigid_body": 0,
+     "volume": {
+      "value": 64275.4,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      -1.0,
+      0.0
+     ],
+     "explode_distance_mm": 31.7
+    },
+    {
+     "part_id": "upper_body_shell",
+     "name": "Upper body shell",
+     "role": "shell_top",
+     "parent": null,
+     "joint_id": null,
+     "rigid_body": 0,
+     "volume": {
+      "value": 89325.7,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "explode_distance_mm": 0.0
+    },
+    {
+     "part_id": "m2_x_20_pan_screws_x4",
+     "name": "M2 × 20 pan screws ×4",
+     "role": "fastener",
+     "parent": "upper_body_shell",
+     "joint_id": "j7",
+     "rigid_body": 0,
+     "volume": {
+      "value": 317.9,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      -1.0,
+      0.0
+     ],
+     "explode_distance_mm": 17.9
+    },
+    {
+     "part_id": "m2_heat_set_inserts_x4",
+     "name": "M2 heat-set inserts ×4",
+     "role": "fastener",
+     "parent": "upper_body_shell",
+     "joint_id": "j8",
+     "rigid_body": 0,
+     "volume": {
+      "value": 89.2,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      -1.0,
+      0.0
+     ],
+     "explode_distance_mm": 13.4
+    },
+    {
+     "part_id": "m3_x_14_socket_screws_x8",
+     "name": "M3 × 14 socket screws ×8",
+     "role": "fastener",
+     "parent": "arm_2",
+     "joint_id": "j18",
+     "rigid_body": 0,
+     "volume": {
+      "value": 1286.2,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      -0.6984,
+      0.0,
+      0.7157
+     ],
+     "explode_distance_mm": 88.7
+    },
+    {
+     "part_id": "m3_nuts_x8",
+     "name": "M3 nuts ×8",
+     "role": "fastener",
+     "parent": "m3_x_14_socket_screws_x8",
+     "joint_id": "j26",
+     "rigid_body": 0,
+     "volume": {
+      "value": 370.7,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      -0.6916,
+      0.1388,
+      0.7088
+     ],
+     "explode_distance_mm": 89.5
+    },
+    {
+     "part_id": "m2_x_10_socket_screws_x16",
+     "name": "M2 × 10 socket screws ×16",
+     "role": "fastener",
+     "parent": "motor_2",
+     "joint_id": "j25",
+     "rigid_body": 0,
+     "volume": {
+      "value": 840.4,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      0.3441,
+      -0.939
+     ],
+     "explode_distance_mm": 65.5
+    },
+    {
+     "part_id": "m5_nuts_x4",
+     "name": "M5 nuts ×4",
+     "role": "fastener",
+     "parent": "prop_1",
+     "joint_id": "j30",
+     "rigid_body": 1,
+     "volume": {
+      "value": 682.3,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      0.5281,
+      0.8492
+     ],
+     "explode_distance_mm": 65.9
+    }
+   ],
+   "joints": [
+    {
+     "id": "j1",
+     "parent": "upper_body_shell",
+     "child": "nose_panel",
+     "kind": "rigid",
+     "method": "snap_fit",
+     "dof": 0,
+     "origin_mm": [
+      45.09,
+      45.86,
+      0.0
+     ],
+     "axis": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Small moulded part: snap-fit / press-fit (small-part rule)"
+    },
+    {
+     "id": "j2",
+     "parent": "upper_body_shell",
+     "child": "hinge_1",
+     "kind": "rigid",
+     "method": "press_fit",
+     "dof": 0,
+     "origin_mm": [
+      25.0,
+      43.02,
+      -17.0
+     ],
+     "axis": [
+      0.0,
+      0.0,
+      -1.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Folding hinge 1 set into Upper body shell: press-fit (insert rule; the host is pocketed around it at detail design)"
+    },
+    {
+     "id": "j3",
+     "parent": "upper_body_shell",
+     "child": "hinge_2",
+     "kind": "rigid",
+     "method": "press_fit",
+     "dof": 0,
+     "origin_mm": [
+      25.0,
+      43.02,
+      17.0
+     ],
+     "axis": [
+      -0.0,
+      -0.0,
+      1.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Folding hinge 2 set into Upper body shell: press-fit (insert rule; the host is pocketed around it at detail design)"
+    },
+    {
+     "id": "j4",
+     "parent": "upper_body_shell",
+     "child": "hinge_3",
+     "kind": "rigid",
+     "method": "press_fit",
+     "dof": 0,
+     "origin_mm": [
+      -25.0,
+      43.02,
+      -17.0
+     ],
+     "axis": [
+      0.0,
+      0.0,
+      -1.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Folding hinge 3 set into Upper body shell: press-fit (insert rule; the host is pocketed around it at detail design)"
+    },
+    {
+     "id": "j5",
+     "parent": "upper_body_shell",
+     "child": "hinge_4",
+     "kind": "rigid",
+     "method": "press_fit",
+     "dof": 0,
+     "origin_mm": [
+      -25.0,
+      43.02,
+      17.0
+     ],
+     "axis": [
+      -0.0,
+      -0.0,
+      1.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Folding hinge 4 set into Upper body shell: press-fit (insert rule; the host is pocketed around it at detail design)"
+    },
+    {
+     "id": "j6",
+     "parent": "upper_body_shell",
+     "child": "battery_pack",
+     "kind": "rigid",
+     "method": "latch",
+     "dof": 0,
+     "origin_mm": [
+      -6.0,
+      58.5,
+      0.0
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Battery pack held by a latch (removable pack rule)"
+    },
+    {
+     "id": "j7",
+     "parent": "upper_body_shell",
+     "child": "m2_x_20_pan_screws_x4",
+     "kind": "rigid",
+     "method": "press_fit",
+     "dof": 0,
+     "origin_mm": [
+      0.0,
+      41.27,
+      -0.0
+     ],
+     "axis": [
+      -0.0,
+      -1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "M2 × 20 pan screws ×4 set into Upper body shell: press-fit (insert rule; the host is pocketed around it at detail design)"
+    },
+    {
+     "id": "j8",
+     "parent": "upper_body_shell",
+     "child": "m2_heat_set_inserts_x4",
+     "kind": "rigid",
+     "method": "press_fit",
+     "dof": 0,
+     "origin_mm": [
+      0.0,
+      40.08,
+      -0.0
+     ],
+     "axis": [
+      -0.0,
+      -1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "M2 heat-set inserts ×4 set into Upper body shell: press-fit (insert rule; the host is pocketed around it at detail design)"
+    },
+    {
+     "id": "j9",
+     "parent": "nose_panel",
+     "child": "tracking_windows",
+     "kind": "rigid",
+     "method": "inlay",
+     "dof": 0,
+     "origin_mm": [
+      46.92,
+      48.0,
+      0.0
+     ],
+     "axis": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Visual-tracking windows set into Nose panel: inlay (insert rule; the host is pocketed around it at detail design)"
+    },
+    {
+     "id": "j10",
+     "parent": "hinge_1",
+     "child": "arm_1",
+     "kind": "revolute",
+     "method": "hinge",
+     "dof": 0,
+     "origin_mm": [
+      26.66,
+      42.9,
+      -19.87
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": [
+      0.0,
+      90.0
+     ],
+     "fasteners": [],
+     "rule": "Folding arm on its hinge (drone family: arms fold for transport, locked open in flight — checked in the flight pose, fold not swept) (DOF locked in use)"
+    },
+    {
+     "id": "j11",
+     "parent": "hinge_2",
+     "child": "arm_2",
+     "kind": "revolute",
+     "method": "hinge",
+     "dof": 0,
+     "origin_mm": [
+      26.66,
+      42.9,
+      19.87
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": [
+      0.0,
+      90.0
+     ],
+     "fasteners": [],
+     "rule": "Folding arm on its hinge (drone family: arms fold for transport, locked open in flight — checked in the flight pose, fold not swept) (DOF locked in use)"
+    },
+    {
+     "id": "j12",
+     "parent": "hinge_3",
+     "child": "arm_3",
+     "kind": "revolute",
+     "method": "hinge",
+     "dof": 0,
+     "origin_mm": [
+      -26.66,
+      42.9,
+      -19.87
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": [
+      0.0,
+      90.0
+     ],
+     "fasteners": [],
+     "rule": "Folding arm on its hinge (drone family: arms fold for transport, locked open in flight — checked in the flight pose, fold not swept) (DOF locked in use)"
+    },
+    {
+     "id": "j13",
+     "parent": "hinge_4",
+     "child": "arm_4",
+     "kind": "revolute",
+     "method": "hinge",
+     "dof": 0,
+     "origin_mm": [
+      -26.66,
+      42.9,
+      19.87
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": [
+      0.0,
+      90.0
+     ],
+     "fasteners": [],
+     "rule": "Folding arm on its hinge (drone family: arms fold for transport, locked open in flight — checked in the flight pose, fold not swept) (DOF locked in use)"
+    },
+    {
+     "id": "j14",
+     "parent": "battery_pack",
+     "child": "battery_light",
+     "kind": "rigid",
+     "method": "inlay",
+     "dof": 0,
+     "origin_mm": [
+      13.5,
+      77.12,
+      7.5
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Battery status light set into Battery pack: inlay (insert rule; the host is pocketed around it at detail design) — NO CONTACT with Battery pack (gap 0.25 mm): attach at detail design"
+    },
+    {
+     "id": "j15",
+     "parent": "m2_x_20_pan_screws_x4",
+     "child": "lower_body_shell",
+     "kind": "rigid",
+     "method": "snap_fit",
+     "dof": 0,
+     "origin_mm": [
+      -0.0,
+      30.93,
+      0.0
+     ],
+     "axis": [
+      -0.0,
+      -1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Small moulded part: snap-fit / press-fit (small-part rule)"
+    },
+    {
+     "id": "j16",
+     "parent": "arm_1",
+     "child": "motor_1",
+     "kind": "rigid",
+     "method": "screwed",
+     "dof": 0,
+     "origin_mm": [
+      64.24,
+      45.15,
+      -84.48
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Motor bolted to its arm: 4 screws into the motor base threads (motor-mount rule) — held by the modelled hardware (M2 × 10 socket screws ×16)"
+    },
+    {
+     "id": "j17",
+     "parent": "arm_2",
+     "child": "motor_2",
+     "kind": "rigid",
+     "method": "screwed",
+     "dof": 0,
+     "origin_mm": [
+      64.24,
+      45.15,
+      84.48
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Motor bolted to its arm: 4 screws into the motor base threads (motor-mount rule) — held by the modelled hardware (M2 × 10 socket screws ×16)"
+    },
+    {
+     "id": "j18",
+     "parent": "arm_2",
+     "child": "m3_x_14_socket_screws_x8",
+     "kind": "rigid",
+     "method": "press_fit",
+     "dof": 0,
+     "origin_mm": [
+      40.83,
+      42.9,
+      44.84
+     ],
+     "axis": [
+      -1.0,
+      -0.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "M3 × 14 socket screws ×8 set into Carbon arm 2: press-fit (insert rule; the host is pocketed around it at detail design)"
+    },
+    {
+     "id": "j19",
+     "parent": "arm_3",
+     "child": "landing_legs",
+     "kind": "rigid",
+     "method": "bonded",
+     "dof": 0,
+     "origin_mm": [
+      -50.61,
+      39.67,
+      -66.75
+     ],
+     "axis": [
+      -0.0,
+      -1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Soft part (rubber / fabric): bonded or press-fitted (seal / pad / foot rule)"
+    },
+    {
+     "id": "j20",
+     "parent": "arm_3",
+     "child": "motor_3",
+     "kind": "rigid",
+     "method": "screwed",
+     "dof": 0,
+     "origin_mm": [
+      -64.24,
+      45.15,
+      -84.48
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Motor bolted to its arm: 4 screws into the motor base threads (motor-mount rule) — held by the modelled hardware (M2 × 10 socket screws ×16)"
+    },
+    {
+     "id": "j21",
+     "parent": "arm_4",
+     "child": "motor_4",
+     "kind": "rigid",
+     "method": "screwed",
+     "dof": 0,
+     "origin_mm": [
+      -64.24,
+      45.15,
+      84.48
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Motor bolted to its arm: 4 screws into the motor base threads (motor-mount rule) — held by the modelled hardware (M2 × 10 socket screws ×16)"
+    },
+    {
+     "id": "j22",
+     "parent": "lower_body_shell",
+     "child": "gimbal_yoke",
+     "kind": "rigid",
+     "method": "screwed",
+     "dof": 0,
+     "origin_mm": [
+      31.96,
+      24.25,
+      0.0
+     ],
+     "axis": [
+      -0.0,
+      -1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Structural part ≥ 20 mm: 2 screws into tapped metal (structural-joint rule) — held by the modelled hardware (M2 heat-set inserts ×4, M2 × 20 pan screws ×4, Upper body shell)"
+    },
+    {
+     "id": "j23",
+     "parent": "motor_1",
+     "child": "prop_1",
+     "kind": "revolute",
+     "method": "bearing",
+     "dof": 1,
+     "origin_mm": [
+      66.2,
+      71.15,
+      -87.85
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": [
+      0.0,
+      360.0
+     ],
+     "fasteners": [],
+     "rule": "Propeller on its motor shaft: revolute about the thin axis of the rotor disc (multirotor family rule)"
+    },
+    {
+     "id": "j24",
+     "parent": "motor_2",
+     "child": "prop_2",
+     "kind": "revolute",
+     "method": "bearing",
+     "dof": 1,
+     "origin_mm": [
+      66.2,
+      71.15,
+      87.85
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": [
+      0.0,
+      360.0
+     ],
+     "fasteners": [],
+     "rule": "Propeller on its motor shaft: revolute about the thin axis of the rotor disc (multirotor family rule)"
+    },
+    {
+     "id": "j25",
+     "parent": "motor_2",
+     "child": "m2_x_10_socket_screws_x16",
+     "kind": "rigid",
+     "method": "press_fit",
+     "dof": 0,
+     "origin_mm": [
+      66.2,
+      45.83,
+      87.85
+     ],
+     "axis": [
+      0.0,
+      0.0,
+      -1.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "M2 × 10 socket screws ×16 set into Brushless motor 2: press-fit (insert rule; the host is pocketed around it at detail design)"
+    },
+    {
+     "id": "j26",
+     "parent": "m3_x_14_socket_screws_x8",
+     "child": "m3_nuts_x8",
+     "kind": "rigid",
+     "method": "press_fit",
+     "dof": 0,
+     "origin_mm": [
+      40.37,
+      47.75,
+      -41.99
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "M3 nuts ×8 set into M3 × 14 socket screws ×8: press-fit (insert rule; the host is pocketed around it at detail design)"
+    },
+    {
+     "id": "j27",
+     "parent": "motor_3",
+     "child": "prop_3",
+     "kind": "revolute",
+     "method": "bearing",
+     "dof": 1,
+     "origin_mm": [
+      -66.2,
+      71.15,
+      -87.85
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": [
+      0.0,
+      360.0
+     ],
+     "fasteners": [],
+     "rule": "Propeller on its motor shaft: revolute about the thin axis of the rotor disc (multirotor family rule)"
+    },
+    {
+     "id": "j28",
+     "parent": "motor_4",
+     "child": "prop_4",
+     "kind": "revolute",
+     "method": "bearing",
+     "dof": 1,
+     "origin_mm": [
+      -66.2,
+      71.15,
+      87.85
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": [
+      0.0,
+      360.0
+     ],
+     "fasteners": [],
+     "rule": "Propeller on its motor shaft: revolute about the thin axis of the rotor disc (multirotor family rule)"
+    },
+    {
+     "id": "j29",
+     "parent": "gimbal_yoke",
+     "child": "gimbal_camera",
+     "kind": "rigid",
+     "method": "screwed",
+     "dof": 0,
+     "origin_mm": [
+      31.96,
+      21.0,
+      0.0
+     ],
+     "axis": [
+      -0.0,
+      -1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Structural part ≥ 20 mm: 2 screws into tapped metal (structural-joint rule) — held by the modelled hardware (Lower body shell, M2 heat-set inserts ×4, M2 × 20 pan screws ×4, Upper body shell)"
+    },
+    {
+     "id": "j30",
+     "parent": "prop_1",
+     "child": "m5_nuts_x4",
+     "kind": "rigid",
+     "method": "press_fit",
+     "dof": 0,
+     "origin_mm": [
+      70.82,
+      74.9,
+      -87.85
+     ],
+     "axis": [
+      -0.0,
+      -0.0,
+      1.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "M5 nuts ×4 set into Propeller 1: press-fit (insert rule; the host is pocketed around it at detail design)"
+    },
+    {
+     "id": "j31",
+     "parent": "gimbal_camera",
+     "child": "camera_lens",
+     "kind": "revolute",
+     "method": "bearing",
+     "dof": 1,
+     "origin_mm": [
+      45.48,
+      13.0,
+      0.0
+     ],
+     "axis": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "range": [
+      -90.0,
+      30.0
+     ],
+     "fasteners": [],
+     "rule": "Gimbal camera in its yoke: tilt axis (2-axis gimbal rule), swept ±20°"
+    }
+   ],
+   "interferences": [
+    {
+     "a": "arm_2",
+     "b": "upper_body_shell",
+     "volume": {
+      "value": 612.82,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "arm_3",
+     "b": "upper_body_shell",
+     "volume": {
+      "value": 612.82,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "arm_4",
+     "b": "upper_body_shell",
+     "volume": {
+      "value": 612.82,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "arm_1",
+     "b": "upper_body_shell",
+     "volume": {
+      "value": 612.82,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "gimbal_camera",
+     "b": "lower_body_shell",
+     "volume": {
+      "value": 154.99,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "arm_3",
+     "b": "m3_x_14_socket_screws_x8",
+     "volume": {
+      "value": 126.43,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "arm_4",
+     "b": "m3_x_14_socket_screws_x8",
+     "volume": {
+      "value": 126.43,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "arm_1",
+     "b": "m3_x_14_socket_screws_x8",
+     "volume": {
+      "value": 126.43,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "motor_3",
+     "b": "m2_x_10_socket_screws_x16",
+     "volume": {
+      "value": 71.64,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "motor_4",
+     "b": "m2_x_10_socket_screws_x16",
+     "volume": {
+      "value": 71.64,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "motor_1",
+     "b": "m2_x_10_socket_screws_x16",
+     "volume": {
+      "value": 71.64,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "gimbal_yoke",
+     "b": "m2_x_20_pan_screws_x4",
+     "volume": {
+      "value": 37.11,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "arm_4",
+     "b": "m2_x_10_socket_screws_x16",
+     "volume": {
+      "value": 29.33,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "arm_1",
+     "b": "m2_x_10_socket_screws_x16",
+     "volume": {
+      "value": 29.33,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "arm_2",
+     "b": "m2_x_10_socket_screws_x16",
+     "volume": {
+      "value": 29.33,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "arm_3",
+     "b": "m2_x_10_socket_screws_x16",
+     "volume": {
+      "value": 29.33,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "landing_legs",
+     "b": "arm_4",
+     "volume": {
+      "value": 23.76,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "arm_1",
+     "b": "landing_legs",
+     "volume": {
+      "value": 23.76,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "landing_legs",
+     "b": "arm_2",
+     "volume": {
+      "value": 23.76,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "hinge_2",
+     "b": "m2_heat_set_inserts_x4",
+     "volume": {
+      "value": 22.3,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "hinge_1",
+     "b": "m2_heat_set_inserts_x4",
+     "volume": {
+      "value": 22.3,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "hinge_4",
+     "b": "m2_heat_set_inserts_x4",
+     "volume": {
+      "value": 22.3,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "hinge_3",
+     "b": "m2_heat_set_inserts_x4",
+     "volume": {
+      "value": 22.3,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "hinge_3",
+     "b": "m2_x_20_pan_screws_x4",
+     "volume": {
+      "value": 19.9,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "hinge_1",
+     "b": "m2_x_20_pan_screws_x4",
+     "volume": {
+      "value": 19.9,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "hinge_2",
+     "b": "m2_x_20_pan_screws_x4",
+     "volume": {
+      "value": 19.9,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "hinge_4",
+     "b": "m2_x_20_pan_screws_x4",
+     "volume": {
+      "value": 19.9,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "arm_4",
+     "b": "m2_heat_set_inserts_x4",
+     "volume": {
+      "value": 0.78,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "arm_1",
+     "b": "m2_heat_set_inserts_x4",
+     "volume": {
+      "value": 0.78,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "arm_2",
+     "b": "m2_heat_set_inserts_x4",
+     "volume": {
+      "value": 0.78,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "arm_3",
+     "b": "m2_heat_set_inserts_x4",
+     "volume": {
+      "value": 0.78,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "arm_4",
+     "b": "m2_x_20_pan_screws_x4",
+     "volume": {
+      "value": 0.04,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "arm_1",
+     "b": "m2_x_20_pan_screws_x4",
+     "volume": {
+      "value": 0.04,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "arm_3",
+     "b": "m2_x_20_pan_screws_x4",
+     "volume": {
+      "value": 0.04,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "arm_2",
+     "b": "m2_x_20_pan_screws_x4",
+     "volume": {
+      "value": 0.04,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "battery_pack",
+     "b": "upper_body_shell",
+     "volume": {
+      "value": 2318.58,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint latch: concept overlap at the mate"
+    },
+    {
+     "a": "hinge_1",
+     "b": "upper_body_shell",
+     "volume": {
+      "value": 1960.29,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint press-fit: concept overlap at the mate"
+    },
+    {
+     "a": "hinge_2",
+     "b": "upper_body_shell",
+     "volume": {
+      "value": 1960.29,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint press-fit: concept overlap at the mate"
+    },
+    {
+     "a": "hinge_3",
+     "b": "upper_body_shell",
+     "volume": {
+      "value": 1960.29,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint press-fit: concept overlap at the mate"
+    },
+    {
+     "a": "hinge_4",
+     "b": "upper_body_shell",
+     "volume": {
+      "value": 1960.29,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint press-fit: concept overlap at the mate"
+    },
+    {
+     "a": "gimbal_yoke",
+     "b": "gimbal_camera",
+     "volume": {
+      "value": 1548.34,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint screwed: concept overlap at the mate"
+    },
+    {
+     "a": "hinge_3",
+     "b": "arm_3",
+     "volume": {
+      "value": 487.92,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint hinge: concept overlap at the mate"
+    },
+    {
+     "a": "hinge_2",
+     "b": "arm_2",
+     "volume": {
+      "value": 487.92,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint hinge: concept overlap at the mate"
+    },
+    {
+     "a": "hinge_4",
+     "b": "arm_4",
+     "volume": {
+      "value": 487.92,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint hinge: concept overlap at the mate"
+    },
+    {
+     "a": "hinge_1",
+     "b": "arm_1",
+     "volume": {
+      "value": 487.92,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint hinge: concept overlap at the mate"
+    },
+    {
+     "a": "arm_2",
+     "b": "motor_2",
+     "volume": {
+      "value": 277.03,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint screwed: concept overlap at the mate"
+    },
+    {
+     "a": "arm_3",
+     "b": "motor_3",
+     "volume": {
+      "value": 277.03,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint screwed: concept overlap at the mate"
+    },
+    {
+     "a": "arm_4",
+     "b": "motor_4",
+     "volume": {
+      "value": 277.03,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint screwed: concept overlap at the mate"
+    },
+    {
+     "a": "arm_1",
+     "b": "motor_1",
+     "volume": {
+      "value": 277.03,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint screwed: concept overlap at the mate"
+    },
+    {
+     "a": "gimbal_yoke",
+     "b": "lower_body_shell",
+     "volume": {
+      "value": 198.0,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint screwed: concept overlap at the mate"
+    },
+    {
+     "a": "motor_1",
+     "b": "prop_1",
+     "volume": {
+      "value": 196.35,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint bearing: concept overlap at the mate"
+    },
+    {
+     "a": "motor_2",
+     "b": "prop_2",
+     "volume": {
+      "value": 196.35,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint bearing: concept overlap at the mate"
+    },
+    {
+     "a": "motor_3",
+     "b": "prop_3",
+     "volume": {
+      "value": 196.35,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint bearing: concept overlap at the mate"
+    },
+    {
+     "a": "motor_4",
+     "b": "prop_4",
+     "volume": {
+      "value": 196.35,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint bearing: concept overlap at the mate"
+    },
+    {
+     "a": "lower_body_shell",
+     "b": "m2_x_20_pan_screws_x4",
+     "volume": {
+      "value": 184.3,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint snap-fit: concept overlap at the mate"
+    },
+    {
+     "a": "arm_2",
+     "b": "m3_x_14_socket_screws_x8",
+     "volume": {
+      "value": 126.43,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint press-fit: concept overlap at the mate"
+    },
+    {
+     "a": "upper_body_shell",
+     "b": "m2_heat_set_inserts_x4",
+     "volume": {
+      "value": 85.1,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint press-fit: concept overlap at the mate"
+    },
+    {
+     "a": "upper_body_shell",
+     "b": "m2_x_20_pan_screws_x4",
+     "volume": {
+      "value": 76.54,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint press-fit: concept overlap at the mate"
+    },
+    {
+     "a": "nose_panel",
+     "b": "upper_body_shell",
+     "volume": {
+      "value": 74.22,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint snap-fit: concept overlap at the mate"
+    },
+    {
+     "a": "motor_2",
+     "b": "m2_x_10_socket_screws_x16",
+     "volume": {
+      "value": 71.64,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint press-fit: concept overlap at the mate"
+    },
+    {
+     "a": "nose_panel",
+     "b": "tracking_windows",
+     "volume": {
+      "value": 44.48,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint inlay: concept overlap at the mate"
+    },
+    {
+     "a": "landing_legs",
+     "b": "arm_3",
+     "volume": {
+      "value": 23.76,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint bonded: concept overlap at the mate"
+    }
+   ],
+   "clearances": [
+    {
+     "part_id": "prop_1",
+     "against": "prop_2",
+     "min_clearance": {
+      "value": 0.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "BRepExtrema distance"
+     },
+     "motion": "revolute 0–360° (12 poses)",
+     "verdict": "warn",
+     "rule": "Propeller ≥ 2 mm from any other part over a full turn (blade flex; multirotor build practice)"
+    },
+    {
+     "part_id": "prop_2",
+     "against": "m5_nuts_x4",
+     "min_clearance": {
+      "value": 0.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "BRepExtrema distance"
+     },
+     "motion": "revolute 0–360° (12 poses)",
+     "verdict": "warn",
+     "rule": "Propeller ≥ 2 mm from any other part over a full turn (blade flex; multirotor build practice)"
+    },
+    {
+     "part_id": "prop_3",
+     "against": "m5_nuts_x4",
+     "min_clearance": {
+      "value": 0.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "BRepExtrema distance"
+     },
+     "motion": "revolute 0–360° (12 poses)",
+     "verdict": "warn",
+     "rule": "Propeller ≥ 2 mm from any other part over a full turn (blade flex; multirotor build practice)"
+    },
+    {
+     "part_id": "prop_4",
+     "against": "m5_nuts_x4",
+     "min_clearance": {
+      "value": 0.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "BRepExtrema distance"
+     },
+     "motion": "revolute 0–360° (12 poses)",
+     "verdict": "warn",
+     "rule": "Propeller ≥ 2 mm from any other part over a full turn (blade flex; multirotor build practice)"
+    },
+    {
+     "part_id": "camera_lens",
+     "against": "gimbal_yoke",
+     "min_clearance": {
+      "value": 2.83,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "BRepExtrema distance"
+     },
+     "motion": "revolute -20–20° (5 poses)",
+     "verdict": "pass",
+     "rule": "Rolling / rotating part ≥ 1 mm running clearance to its surroundings (debris, moulding tolerance)"
+    }
+   ],
+   "fasteners": [],
+   "checks": [
+    {
+     "id": "asm_interference",
+     "name": "Interference between moving parts",
+     "domain": "assembly",
+     "value": {
+      "value": 0.0,
+      "unit": "pairs",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of every part pair (OCCT), classified by the assembly joints; total 0.0 mm³"
+     },
+     "threshold": "0 intersecting pairs > 0.01 mm³ between parts that move relative to each other (different rigid bodies, over their motion study) or across a parting line — CAD interference-check practice",
+     "verdict": "pass",
+     "formula": "V(A ∩ B) per pair of solids at the assembled pose and over each moving joint's motion study",
+     "inputs": [
+      {
+       "value": 0.0,
+       "unit": "mm³",
+       "label": "measured",
+       "source_or_assumption": "Sum of interference volumes"
+      }
+     ],
+     "notes": []
+    },
+    {
+     "id": "asm_static_overlap",
+     "name": "Overlaps inside rigid bodies (concept geometry)",
+     "domain": "assembly",
+     "value": {
+      "value": 3598.3,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "35 pairs of rigidly joined parts interpenetrate (19 over 5 % of the smaller part)"
+     },
+     "threshold": "Parts of one rigid body should not interpenetrate: overlap > 5 % of the smaller part = concept geometry to pocket at detail design (warn); smaller overlaps are seats (info)",
+     "verdict": "warn",
+     "formula": "V(A ∩ B) for parts of the same rigid body that are not directly joined",
+     "inputs": [],
+     "notes": [
+      "Carbon arm 2 ↔ Upper body shell: 613 mm³",
+      "Carbon arm 3 ↔ Upper body shell: 613 mm³",
+      "Carbon arm 4 ↔ Upper body shell: 613 mm³",
+      "Carbon arm 1 ↔ Upper body shell: 613 mm³",
+      "Carbon arm 3 ↔ M3 × 14 socket screws ×8: 126 mm³",
+      "Carbon arm 4 ↔ M3 × 14 socket screws ×8: 126 mm³",
+      "Carbon arm 1 ↔ M3 × 14 socket screws ×8: 126 mm³",
+      "Brushless motor 3 ↔ M2 × 10 socket screws ×16: 72 mm³",
+      "Brushless motor 4 ↔ M2 × 10 socket screws ×16: 72 mm³",
+      "Brushless motor 1 ↔ M2 × 10 socket screws ×16: 72 mm³"
+     ]
+    },
+    {
+     "id": "asm_clearance",
+     "name": "Minimum clearance of moving parts",
+     "domain": "assembly",
+     "value": {
+      "value": 0.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "BRepExtrema distance from each moving part (with what it carries) to every other part except its joint parent / host, over its motion study"
+     },
+     "threshold": "Propeller ≥ 2 mm from any other part over a full turn (blade flex; multirotor build practice); Rolling / rotating part ≥ 1 mm running clearance to its surroundings (debris, moulding tolerance)",
+     "verdict": "warn",
+     "formula": "min over poses of d(moving subtree, other parts); revolute props 12 poses / 360°, buttons pressed 0.5 mm",
+     "inputs": [],
+     "notes": [
+      "Propeller 1 → Propeller 2: 0.00 mm (revolute 0–360° (12 poses), warn)",
+      "Propeller 2 → M5 nuts ×4: 0.00 mm (revolute 0–360° (12 poses), warn)",
+      "Propeller 3 → M5 nuts ×4: 0.00 mm (revolute 0–360° (12 poses), warn)",
+      "Propeller 4 → M5 nuts ×4: 0.00 mm (revolute 0–360° (12 poses), warn)",
+      "Camera lens → Gimbal yoke: 2.83 mm (revolute -20–20° (5 poses), pass)"
+     ]
+    },
+    {
+     "id": "asm_fastener_count",
+     "name": "Fasteners by standard",
+     "domain": "assembly",
+     "value": {
+      "value": 0.0,
+      "unit": "pcs",
+      "label": "estimate",
+      "source_or_assumption": "Joint rules (screws per parting-line perimeter, motor mounts, spring bars); sizes from the part scale"
+     },
+     "threshold": null,
+     "verdict": "info",
+     "formula": "Σ fasteners over the assembly joints",
+     "inputs": [],
+     "notes": []
+    },
+    {
+     "id": "asm_joint_closure",
+     "name": "Joint closure (build123d Joints)",
+     "domain": "assembly",
+     "value": {
+      "value": 0.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Each child re-placed from its joint frame with build123d RigidJoint / RevoluteJoint / LinearJoint.connect_to; 31 joints"
+     },
+     "threshold": "build123d joints re-place every part at its modelled pose: residual < 0.01 mm",
+     "verdict": "pass",
+     "formula": "|bbox centre after connect_to − modelled bbox centre|",
+     "inputs": [],
+     "notes": []
+    },
+    {
+     "id": "asm_support",
+     "name": "Every part is attached",
+     "domain": "assembly",
+     "value": {
+      "value": 1.0,
+      "unit": "parts",
+      "label": "measured",
+      "source_or_assumption": "Parts with no contact (≤ 0.05 mm, BRepExtrema) with the part they are joined to"
+     },
+     "threshold": "Every part touches the part it is joined to (contact ≤ 0.05 mm)",
+     "verdict": "warn",
+     "formula": "d(child, parent) ≤ 0.05 mm for every joint",
+     "inputs": [],
+     "notes": [
+      "Battery status light floats 0.25 mm from Battery pack"
+     ]
+    }
+   ],
+   "summary": "32 parts · 31 joints (5 moving) · 0 interferences · 0 fasteners",
+   "engine": "c2.2"
+  }
+ },
+ "drawings": [
+  {
+   "sheet": "A1",
+   "kind": "assembly",
+   "part_id": null,
+   "title": "Kitesurf follow-me drone — general assembly",
+   "svg_url": "/files/demo_drone_follow/drawings/v2_A1.svg",
+   "pdf_url": "/files/demo_drone_follow/drawings/v2_A1.pdf",
+   "set_pdf_url": "/files/demo_drone_follow/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A3",
+   "scale": "1:5",
+   "bbox_mm": [
+    204.9,
+    302.7,
+    80.0
+   ],
+   "bom_item_id": null,
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P01",
+   "kind": "part",
+   "part_id": "upper_body_shell",
+   "title": "Upper body shell",
+   "svg_url": "/files/demo_drone_follow/drawings/v2_P01.svg",
+   "pdf_url": "/files/demo_drone_follow/drawings/v2_P01.pdf",
+   "set_pdf_url": "/files/demo_drone_follow/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A4",
+   "scale": "1:1",
+   "bbox_mm": [
+    91.52,
+    51.52,
+    20.85
+   ],
+   "bom_item_id": "m1",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P02",
+   "kind": "part",
+   "part_id": "lower_body_shell",
+   "title": "Lower body shell",
+   "svg_url": "/files/demo_drone_follow/drawings/v2_P02.svg",
+   "pdf_url": "/files/demo_drone_follow/drawings/v2_P02.pdf",
+   "set_pdf_url": "/files/demo_drone_follow/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A4",
+   "scale": "1:1",
+   "bbox_mm": [
+    93.27,
+    53.27,
+    13.85
+   ],
+   "bom_item_id": "m1",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P03",
+   "kind": "part",
+   "part_id": "battery_pack",
+   "title": "Battery pack",
+   "svg_url": "/files/demo_drone_follow/drawings/v2_P03.svg",
+   "pdf_url": "/files/demo_drone_follow/drawings/v2_P03.pdf",
+   "set_pdf_url": "/files/demo_drone_follow/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A4",
+   "scale": "1:1",
+   "bbox_mm": [
+    69.0,
+    38.0,
+    19.0
+   ],
+   "bom_item_id": "e5",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P04",
+   "kind": "part",
+   "part_id": "gimbal_camera",
+   "title": "Gimbal camera",
+   "svg_url": "/files/demo_drone_follow/drawings/v2_P04.svg",
+   "pdf_url": "/files/demo_drone_follow/drawings/v2_P04.pdf",
+   "set_pdf_url": "/files/demo_drone_follow/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A4",
+   "scale": "1:1",
+   "bbox_mm": [
+    26.0,
+    26.0,
+    26.0
+   ],
+   "bom_item_id": "e6",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P05",
+   "kind": "part",
+   "part_id": "motor_1",
+   "title": "Brushless motor",
+   "svg_url": "/files/demo_drone_follow/drawings/v2_P05.svg",
+   "pdf_url": "/files/demo_drone_follow/drawings/v2_P05.pdf",
+   "set_pdf_url": "/files/demo_drone_follow/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A4",
+   "scale": "2:1",
+   "bbox_mm": [
+    18.0,
+    18.0,
+    27.0
+   ],
+   "bom_item_id": "e1",
+   "qty": 4,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P06",
+   "kind": "part",
+   "part_id": "arm_1",
+   "title": "Carbon arm",
+   "svg_url": "/files/demo_drone_follow/drawings/v2_P06.svg",
+   "pdf_url": "/files/demo_drone_follow/drawings/v2_P06.pdf",
+   "set_pdf_url": "/files/demo_drone_follow/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A4",
+   "scale": "1:1",
+   "bbox_mm": [
+    48.98,
+    75.37,
+    9.0
+   ],
+   "bom_item_id": "m3",
+   "qty": 4,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P07",
+   "kind": "part",
+   "part_id": "landing_legs",
+   "title": "Landing legs",
+   "svg_url": "/files/demo_drone_follow/drawings/v2_P07.svg",
+   "pdf_url": "/files/demo_drone_follow/drawings/v2_P07.pdf",
+   "set_pdf_url": "/files/demo_drone_follow/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A3",
+   "scale": "1:1",
+   "bbox_mm": [
+    107.42,
+    140.33,
+    41.3
+   ],
+   "bom_item_id": "m4",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P08",
+   "kind": "part",
+   "part_id": "gimbal_yoke",
+   "title": "Gimbal yoke",
+   "svg_url": "/files/demo_drone_follow/drawings/v2_P08.svg",
+   "pdf_url": "/files/demo_drone_follow/drawings/v2_P08.pdf",
+   "set_pdf_url": "/files/demo_drone_follow/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A4",
+   "scale": "1:1",
+   "bbox_mm": [
+    12.0,
+    33.0,
+    19.0
+   ],
+   "bom_item_id": "e7",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P09",
+   "kind": "part",
+   "part_id": "prop_1",
+   "title": "Propeller",
+   "svg_url": "/files/demo_drone_follow/drawings/v2_P09.svg",
+   "pdf_url": "/files/demo_drone_follow/drawings/v2_P09.pdf",
+   "set_pdf_url": "/files/demo_drone_follow/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A4",
+   "scale": "1:1",
+   "bbox_mm": [
+    127.0,
+    12.0,
+    7.5
+   ],
+   "bom_item_id": "e4",
+   "qty": 4,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P10",
+   "kind": "part",
+   "part_id": "hinge_1",
+   "title": "Folding hinge",
+   "svg_url": "/files/demo_drone_follow/drawings/v2_P10.svg",
+   "pdf_url": "/files/demo_drone_follow/drawings/v2_P10.pdf",
+   "set_pdf_url": "/files/demo_drone_follow/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A4",
+   "scale": "2:1",
+   "bbox_mm": [
+    16.0,
+    16.0,
+    10.0
+   ],
+   "bom_item_id": "m3",
+   "qty": 4,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P11",
+   "kind": "part",
+   "part_id": "m3_x_14_socket_screws_x8",
+   "title": "M3 × 14 socket screws ×8",
+   "svg_url": "/files/demo_drone_follow/drawings/v2_P11.svg",
+   "pdf_url": "/files/demo_drone_follow/drawings/v2_P11.pdf",
+   "set_pdf_url": "/files/demo_drone_follow/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A3",
+   "scale": "1:1",
+   "bbox_mm": [
+    90.26,
+    101.13,
+    17.0
+   ],
+   "bom_item_id": "hw4",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P12",
+   "kind": "part",
+   "part_id": "camera_lens",
+   "title": "Camera lens",
+   "svg_url": "/files/demo_drone_follow/drawings/v2_P12.svg",
+   "pdf_url": "/files/demo_drone_follow/drawings/v2_P12.pdf",
+   "set_pdf_url": "/files/demo_drone_follow/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A4",
+   "scale": "2:1",
+   "bbox_mm": [
+    5.05,
+    16.0,
+    16.0
+   ],
+   "bom_item_id": "e6",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  }
+ ]
 }

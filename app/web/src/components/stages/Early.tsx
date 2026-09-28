@@ -12,6 +12,7 @@ import { RetryImg } from "../RetryImg";
 import { useAutofillMax } from "@/lib/autofill";
 import { useProject } from "../project/ProjectContext";
 import { ScrollArea } from "../ScrollArea";
+import { DrawingsLink } from "../studio/DrawingsTab";
 import { Btn, BtnLink, Card, KV, LabelBadge, LV, Pill, Segmented, Spinner, Table, Td, Th } from "../ui";
 import type { StageViewProps } from "./types";
 
@@ -603,6 +604,7 @@ export function SpecView({ artifact: a, project, busy, save }: StageViewProps<Sp
                 {a.cad_files.map((f) => (
                   <FileLink key={f.url} file={f} />
                 ))}
+                <DrawingsLink projectId={project.id} />
               </div>
             </KV>
           </div>

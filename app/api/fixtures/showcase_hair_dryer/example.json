@@ -7,10 +7,10 @@
  "strategy": "module_assembly",
  "hero_image_url": "/files/demo_hair_dryer/photo_v1_hero_studio.png",
  "glb_url": "/files/demo_hair_dryer/model_v1.glb",
- "one_line_result": "1 version · AI-written CAD · $42.93/unit @ 2,000 (Estimate) · Module assembly · 7/13 stages",
+ "one_line_result": "1 version · AI-written CAD · $43.47/unit @ 2,000 (Estimate) · Module assembly · 7/13 stages",
  "unit_basis": "per_unit",
  "unit_cost": {
-  "value": 42.93,
+  "value": 43.47,
   "unit": "USD",
   "label": "estimate",
   "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"

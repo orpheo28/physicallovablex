@@ -27,7 +27,7 @@ from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import mm
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.cidfonts import UnicodeCIDFont
-from reportlab.platypus import KeepTogether, PageBreak, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
+from reportlab.platypus import Flowable, KeepTogether, PageBreak, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
 
 from api.export import translate_cn as cn
 from api.stages.registry import StageContext, provider
@@ -281,6 +281,12 @@ def factory_pack_en(fp: Any) -> list[Any]:
     ))
     f += [h2("3. CAD (STEP) and drawings")]
     f += bullets([f"{c.format.upper()} — {c.url}" + (f" ({c.description})" if c.description else "") for c in fp.cad_files], "small") or [P("—")]
+    if getattr(fp, "drawings", None):
+        f.append(P(f"Drawings (v{fp.drawings[0].version}, {len(fp.drawings)} sheets, printed in the Drawings chapter) — "
+                   "Generated from CAD — verify before release.", "small"))
+        f.append(table(["Sheet", "Title", "Size", "Scale", "Qty", "BOM", "PDF"],
+                       [[d.sheet, mixed(d.title), d.size, d.scale, str(d.qty), d.bom_item_id or "—", mixed(d.pdf_url)] for d in fp.drawings],
+                       [0.07, 0.33, 0.06, 0.08, 0.05, 0.07, 0.34]))
     f += [h2("4. BOM with component risk and alternatives")]
     f.append(table(
         ["Part", "Qty", "Unit cost", "LCSC", "Risk", "Alternative"],
@@ -622,6 +628,50 @@ def build_strategy_section(bs: Any) -> list[Any]:
     return f
 
 
+def checks_table(checks: list) -> Any:
+    return table(["Check", "Result", "Threshold", "Verdict", "Formula / assumption"],
+                 [[mixed(c.name), lvs(c.value), mixed(c.threshold or "—"), verdict_chip(c.verdict),
+                   mixed(c.formula) + f'<br/><font size="6" color="#6b7280">{mixed(c.value.source_or_assumption)}</font>'
+                   + "".join(f"<br/>• {mixed(n)}" for n in c.notes)] for c in checks],
+                 [0.17, 0.15, 0.2, 0.08, 0.4])
+
+
+def assembly_section(asm: Any, checks: list) -> list[Any]:
+    """C2/C5: the assembly measured on the CAD (pack.engineering.assembly): checks, joint tree, interferences, fasteners."""
+    if asm is None and not checks:
+        return []
+    f: list[Any] = [h2("Assembly (measured on the CAD)")]
+    if asm is not None:
+        f.append(P(mixed(f"{asm.summary} · engine {asm.engine} · source {asm.source}"), "small"))
+    if checks:
+        f.append(checks_table(checks))
+    if asm is None:
+        return f
+    names = {n.part_id: n.name for n in asm.nodes}
+    if asm.joints:
+        f.append(sp(4))
+        rows = []
+        for j in asm.joints[:40]:
+            fx = ", ".join(f"{x.qty} × {x.designation} {x.kind}" for x in (j.fasteners or [])) or "—"
+            rows.append([mixed(names.get(j.child, j.child)), mixed(names.get(j.parent, j.parent)),
+                         mixed(f"{j.kind} · {j.method}" + (f" · {j.dof} DOF" if j.dof else "")), mixed(fx)])
+        f.append(table(["Part", "Joined to", "Joint", "Fasteners (rule)"], rows, [0.26, 0.26, 0.22, 0.26]))
+        if len(asm.joints) > 40:
+            f.append(P(f"… {len(asm.joints) - 40} more joints in the assembly JSON.", "muted"))
+    bad = [x for x in asm.interferences if x.kind == "interference"]
+    if bad:
+        f.append(sp(4))
+        f.append(table(["Interference", "Volume", "Note"],
+                       [[mixed(f"{names.get(x.a, x.a)} × {names.get(x.b, x.b)}"), lvs(x.volume), mixed(x.note)] for x in bad],
+                       [0.4, 0.15, 0.45]))
+    if asm.fasteners:
+        f.append(sp(4))
+        f.append(table(["Fastener line", "Qty", "Unit price"],
+                       [[mixed(b.part), num(b.qty), lv_src(b.unit_cost_est) if b.unit_cost_est else "—"] for b in asm.fasteners],
+                       [0.6, 0.1, 0.3]))
+    return f
+
+
 def engineering_section(ctx: StageContext, fp: Any) -> list[Any]:
     """Chapter 'Engineering & prototype path': checks table, standards, power budget, prototype path, firmware note."""
     eng = getattr(fp, "engineering", None)
@@ -641,11 +691,8 @@ def engineering_section(ctx: StageContext, fp: Any) -> list[Any]:
     f.append(M(mixed("Concept-level engineering: every figure carries its label and formula. Validate with the listed tests before tooling."), "banner_blue"))
     f += build_strategy_section(getattr(eng, "build_strategy", None))
     f += [h2("Physics checks")]
-    f.append(table(["Check", "Result", "Threshold", "Verdict", "Formula / assumption"],
-                   [[mixed(c.name), lvs(c.value), mixed(c.threshold or "—"), verdict_chip(c.verdict),
-                     mixed(c.formula) + f'<br/><font size="6" color="#6b7280">{mixed(c.value.source_or_assumption)}</font>'
-                     + "".join(f"<br/>• {mixed(n)}" for n in c.notes)] for c in eng.checks],
-                   [0.17, 0.15, 0.2, 0.08, 0.4]))
+    f.append(checks_table([c for c in eng.checks if str(getattr(c, "domain", "")) != "assembly"]))
+    f += assembly_section(getattr(eng, "assembly", None), [c for c in eng.checks if str(getattr(c, "domain", "")) == "assembly"])
     if eng.solar is not None:
         s = eng.solar
         f += [h2("Solar yield (PVGIS)"), kv([
@@ -794,6 +841,45 @@ def listing_photos_section(ctx: StageContext) -> list[Any]:
     return f
 
 
+class _SheetPage(Flowable):
+    """C3: one drawing sheet (A3/A4 landscape, vector) rotated onto the portrait dossier page, scaled to fit."""
+
+    def __init__(self, sheet: Any):
+        super().__init__()
+        self.sheet = sheet
+
+    def wrap(self, aw: float, ah: float) -> tuple[float, float]:
+        w, h = self.sheet.w * mm, self.sheet.h * mm
+        self.k = min(aw / h, (ah - 8 * mm) / w)
+        return h * self.k, w * self.k
+
+    def draw(self) -> None:
+        c = self.canv
+        c.saveState()
+        c.translate(self.sheet.h * mm * self.k, 0)
+        c.rotate(90)
+        c.scale(self.k, self.k)
+        self.sheet.draw_pdf(c)
+        c.restoreState()
+
+
+def drawings_section(ctx: StageContext) -> list[Any]:
+    """C3 (CAD_DRAWINGS=1): the current version's technical drawings, one page per sheet (vector)."""
+    from api.cad.drawings import sheets_for_pdf
+
+    sheets = sheets_for_pdf(ctx.project.id)
+    if not sheets:
+        return []
+    f: list[Any] = [PageBreak(), h1("Drawings", outline="Drawings"),
+                    M(mixed(f"{len(sheets)} sheets generated from the CAD (STEP): orthographic views (first angle), "
+                            "isometric, dimensions measured on the model (Measured), general tolerances ISO 2768-m. "
+                            "Generated from CAD — verify before release. Pages are rotated; the full-size PDF and SVG "
+                            "of each sheet are listed in the Factory Pack section 3."), "banner_blue")]
+    for sh in sheets:
+        f += [PageBreak(), _SheetPage(sh)]
+    return f
+
+
 def cached_stages(ctx: StageContext) -> list[int]:
     """Stages 1-7 that served a cached example (fallback) — they drive the wow screen and the Factory Pack."""
     return [n for n in range(1, 8) if (a := ctx.artifact(n)) is not None and a.fallback]
@@ -846,6 +932,10 @@ def build_pdf(ctx: StageContext) -> bytes:
     story.append(PageBreak())
     story += factory_pack_en(fp)
     story += factory_pack_cn(fp)
+    try:
+        story += drawings_section(ctx)
+    except Exception as e:  # noqa: BLE001 — the dossier never breaks on the drawings chapter
+        log.warning("drawings chapter failed: %s", e)
     for n in range(1, 14):
         story += stage_section(ctx, n)
     try:

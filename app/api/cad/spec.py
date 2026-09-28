@@ -195,6 +195,39 @@ def bom_template(brief, material: str) -> BomDraft:
     return BomDraft.model_construct(bom=items, electronics_blocks=blocks, electronics_edges=edges)
 
 
+def hardware_lines(fam: str | None, direction, params: dict) -> list[dict]:
+    """C1/C5 (CAD_DETAIL_LEVEL=pro): the standard parts the product's CAD places, counted on the model — family pro
+    block, or the screws / inserts / bosses of a W2 / W17 two-shell enclosure. [] at basic."""
+    from api.cad.stdparts import bom as hw_bom
+    from api.cad.stdparts import is_pro
+
+    if not is_pro():
+        return []
+    try:
+        if fam:
+            return hw_bom.family_lines(fam, family_mode.fparams(direction))
+        from api.cad.stdparts.enclosure import enclosure_details
+
+        return hw_bom.bom_lines(enclosure_details(params))
+    except Exception as e:  # noqa: BLE001 — the BOM never fails because of the hardware lines
+        log.info("hardware BOM lines skipped: %s", e)
+        return []
+
+
+def with_hardware(items: list[BOMItem], lines: list[dict]) -> list[BOMItem]:
+    """Spec BOM + counted hardware lines (ids hw<n>, same as the GLB nodes); a lump 'fastener set / screws' line is
+    replaced by the counted screws (never both)."""
+    if not lines:
+        return items
+    from api.cad.assembly.service import is_generic_fastener
+    from api.cad.stdparts import bom as hw_bom
+
+    merged = hw_bom.merge_into(items, lines)
+    if any(r["kind"] in ("screw", "pt_screw", "wood_screw") for r in lines):
+        merged = [b for b in merged if not is_generic_fastener(b)]
+    return merged
+
+
 def _to_items(lines) -> list[BOMItem]:
     out = []
     for x in lines:
@@ -312,6 +345,13 @@ def run(ctx: StageContext) -> SpecArtifact:
                                          electronics_edges=draft.electronics_edges)
         assumptions.append(Assumption(id="a3_5", label="estimate", stage=3,
                                       text=f"BOM = the {len(pasted)} lines of the pasted prototype BOM" + (f" + {len(extra)} proposed lines for missing categories" if extra else "")))
+    hw = hardware_lines(fam, direction, params)
+    if hw:
+        draft = BomDraft.model_construct(bom=with_hardware(_to_items(draft.bom), hw), electronics_blocks=draft.electronics_blocks,
+                                         electronics_edges=draft.electronics_edges)
+        assumptions.append(Assumption(id="a3_6", label="estimate", stage=3, text=(
+            f"{sum(int(r['qty']) for r in hw)} standard parts ({len(hw)} BOM lines, ids hw…) counted on the CAD at "
+            "CAD_DETAIL_LEVEL=pro: sizes from ISO / catalogue tables, unit prices catalogue order of magnitude (Estimate)")))
     wall = LabeledValue(value=params["wall"], unit="mm", label="estimate",
                         source_or_assumption="Design parameter (nominal wall); measured in DFM stage 4")
     if solid:
@@ -336,8 +376,16 @@ def run(ctx: StageContext) -> SpecArtifact:
     else:
         assumptions.append(Assumption(id="a3_4", label="estimate", stage=3,
                                       text="No electronic BOM line: no PCB part; the block diagram lists functional sub-assemblies"))
-    parts.append(SpecPart(id="p4", name="Screws M2.5 × 6 self-tapping", material="Steel", finish="Black zinc",
-                          process_hint=ProcessType.other, quantity=int(params["boss_count"]) or 4))
+    screws = next((r for r in hw if r["kind"] == "screw"), None) if not fam else None
+    if screws:  # pro: the counted screws of the enclosure (through the bottom bosses into heat-set inserts)
+        parts.append(SpecPart(id="p4", name=screws["part"].split(",")[0], material="Steel", finish="Zinc plated",
+                              process_hint=ProcessType.other, quantity=int(screws["qty"])))
+    else:
+        parts.append(SpecPart(id="p4", name="Screws M2.5 × 6 self-tapping", material="Steel", finish="Black zinc",
+                              process_hint=ProcessType.other, quantity=int(params["boss_count"]) or 4))
+    from api.cad.build import pro_clearance
+
+    clear = pro_clearance(params) if not fam else None
 
     size_of = lambda k: files[k].stat().st_size  # noqa: E731
     extra = []
@@ -358,7 +406,8 @@ def run(ctx: StageContext) -> SpecArtifact:
         direction_id=direction.id, overall_dimensions=overall, weight=weight, parts=parts,
         electronics_blocks=list(draft.electronics_blocks), electronics_edges=list(draft.electronics_edges),
         bom=_to_items(draft.bom),
-        tolerances=["General ISO 2768-m", "Shell mating faces ±0.1 mm", "Boss pilot Ø2.2 +0.05/0 mm",
+        tolerances=["General ISO 2768-m", "Shell mating faces ±0.1 mm",
+                    f"Boss clearance hole Ø{clear:g} (ISO 273 medium), inserts per datasheet" if clear else "Boss pilot Ø2.2 +0.05/0 mm",
                     "Split-line step ≤ 0.1 mm"],
         cad_files=cad_files,
     )

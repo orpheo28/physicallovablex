@@ -1,0 +1,812 @@
+{
+ "board:None": {
+  "bbox_mm": [
+   1850.0,
+   530.77,
+   222.34
+  ],
+  "labels": [
+   "body.1",
+   "fin.1",
+   "fin.2",
+   "fin.3",
+   "rubber.1",
+   "rubber.2",
+   "rubber.3",
+   "rubber.4"
+  ],
+  "seed_sha": "9d7e9a3e53984de8f1c2cc8ee32c965a3005f170",
+  "volume_mm3": 37486069.3
+ },
+ "board:kite": {
+  "bbox_mm": [
+   1380.0,
+   420.0,
+   137.27
+  ],
+  "labels": [
+   "body.1",
+   "fin.1",
+   "fin.2",
+   "fin.3",
+   "fin.4",
+   "rubber.1",
+   "rubber.2",
+   "rubber.3",
+   "rubber.4",
+   "rubber.5",
+   "accent.6",
+   "rubber.7",
+   "accent.8"
+  ],
+  "seed_sha": "0d222ac9aebbca5f6e61046df6b4e1850b6f1e24",
+  "volume_mm3": 9727815.5
+ },
+ "board:surf": {
+  "bbox_mm": [
+   1850.0,
+   530.77,
+   222.34
+  ],
+  "labels": [
+   "body.1",
+   "fin.1",
+   "fin.2",
+   "fin.3",
+   "rubber.1",
+   "rubber.2",
+   "rubber.3",
+   "rubber.4"
+  ],
+  "seed_sha": "9d7e9a3e53984de8f1c2cc8ee32c965a3005f170",
+  "volume_mm3": 37486069.3
+ },
+ "camera:None": {
+  "bbox_mm": [
+   124.8,
+   80.5,
+   84.0
+  ],
+  "labels": [
+   "body.1",
+   "rubber.1",
+   "rubber.2",
+   "metal.1",
+   "coat.1",
+   "glass.1",
+   "glass.2",
+   "button.1",
+   "metal.2",
+   "glass.3",
+   "diffuser.1",
+   "led.1"
+  ],
+  "seed_sha": "2cb9773951e75e615bdbf7510ec2d2f22c60d8fe",
+  "volume_mm3": 598034.5
+ },
+ "camera:compact": {
+  "bbox_mm": [
+   124.8,
+   80.5,
+   84.0
+  ],
+  "labels": [
+   "body.1",
+   "rubber.1",
+   "rubber.2",
+   "metal.1",
+   "coat.1",
+   "glass.1",
+   "glass.2",
+   "button.1",
+   "metal.2",
+   "glass.3",
+   "diffuser.1",
+   "led.1"
+  ],
+  "seed_sha": "2cb9773951e75e615bdbf7510ec2d2f22c60d8fe",
+  "volume_mm3": 598034.5
+ },
+ "camera:instant": {
+  "bbox_mm": [
+   150.8,
+   119.2,
+   124.0
+  ],
+  "labels": [
+   "body.1",
+   "rubber.1",
+   "metal.1",
+   "coat.1",
+   "glass.1",
+   "button.1",
+   "metal.2",
+   "glass.3",
+   "diffuser.1",
+   "coat.2",
+   "led.1"
+  ],
+  "seed_sha": "3633a195901c49e9dda9f14e6253bca797182905",
+  "volume_mm3": 1763771.5
+ },
+ "drone:None": {
+  "bbox_mm": [
+   338.16,
+   376.88,
+   117.5
+  ],
+  "labels": [
+   "body.1",
+   "coat.1",
+   "metal.1",
+   "accent.1",
+   "accent.11",
+   "rubber.1",
+   "rubber.11",
+   "coat.2",
+   "metal.2",
+   "accent.2",
+   "accent.12",
+   "rubber.2",
+   "rubber.12",
+   "coat.3",
+   "metal.3",
+   "accent.3",
+   "accent.13",
+   "rubber.3",
+   "rubber.13",
+   "coat.4",
+   "metal.4",
+   "accent.4",
+   "accent.14",
+   "rubber.4",
+   "rubber.14",
+   "accent.30",
+   "led.1",
+   "coat.20",
+   "coat.21",
+   "glass.1"
+  ],
+  "seed_sha": "21499f6d69c43b88d877ddc03c19dbf8815e5eed",
+  "volume_mm3": 805993.4
+ },
+ "drone:follow": {
+  "bbox_mm": [
+   338.16,
+   376.88,
+   117.5
+  ],
+  "labels": [
+   "body.1",
+   "coat.1",
+   "metal.1",
+   "accent.1",
+   "accent.11",
+   "rubber.1",
+   "rubber.11",
+   "coat.2",
+   "metal.2",
+   "accent.2",
+   "accent.12",
+   "rubber.2",
+   "rubber.12",
+   "coat.3",
+   "metal.3",
+   "accent.3",
+   "accent.13",
+   "rubber.3",
+   "rubber.13",
+   "coat.4",
+   "metal.4",
+   "accent.4",
+   "accent.14",
+   "rubber.4",
+   "rubber.14",
+   "accent.30",
+   "led.1",
+   "coat.20",
+   "coat.21",
+   "glass.1"
+  ],
+  "seed_sha": "21499f6d69c43b88d877ddc03c19dbf8815e5eed",
+  "volume_mm3": 805993.4
+ },
+ "drone:mini": {
+  "bbox_mm": [
+   234.25,
+   261.87,
+   93.9
+  ],
+  "labels": [
+   "body.1",
+   "coat.1",
+   "metal.1",
+   "accent.1",
+   "accent.11",
+   "rubber.1",
+   "rubber.11",
+   "coat.2",
+   "metal.2",
+   "accent.2",
+   "accent.12",
+   "rubber.2",
+   "rubber.12",
+   "coat.3",
+   "metal.3",
+   "accent.3",
+   "accent.13",
+   "rubber.3",
+   "rubber.13",
+   "coat.4",
+   "metal.4",
+   "accent.4",
+   "accent.14",
+   "rubber.4",
+   "rubber.14",
+   "accent.30",
+   "led.1",
+   "coat.20",
+   "coat.21",
+   "glass.1"
+  ],
+  "seed_sha": "284595e3ba131ba50d89e613301a26985b8ecaaf",
+  "volume_mm3": 357121.2
+ },
+ "furniture:None": {
+  "bbox_mm": [
+   900.0,
+   560.0,
+   1010.0
+  ],
+  "labels": [
+   "wood.1",
+   "wood.2",
+   "wood.3",
+   "wood.4",
+   "wood.5",
+   "body.1",
+   "body.2",
+   "body.3",
+   "body.4",
+   "body.5",
+   "body.6",
+   "body.7",
+   "wood.6",
+   "fabric.1",
+   "fabric.2",
+   "fabric.3"
+  ],
+  "seed_sha": "9638af0f469897e33dd3aaa84446b8f3f054d491",
+  "volume_mm3": 51841328.6
+ },
+ "furniture:activity_table": {
+  "bbox_mm": [
+   800.0,
+   600.0,
+   525.0
+  ],
+  "labels": [
+   "wood.1",
+   "wood.2",
+   "wood.3",
+   "wood.4",
+   "wood.5",
+   "body.1",
+   "body.2",
+   "body.3",
+   "body.4",
+   "body.5",
+   "body.6",
+   "body.7"
+  ],
+  "seed_sha": "957e6b87fa95cb91037947da39155da99eed9d87",
+  "volume_mm3": 16689042.9
+ },
+ "furniture:changing_table": {
+  "bbox_mm": [
+   900.0,
+   560.0,
+   1010.0
+  ],
+  "labels": [
+   "wood.1",
+   "wood.2",
+   "wood.3",
+   "wood.4",
+   "wood.5",
+   "body.1",
+   "body.2",
+   "body.3",
+   "body.4",
+   "body.5",
+   "body.6",
+   "body.7",
+   "wood.6",
+   "fabric.1",
+   "fabric.2",
+   "fabric.3"
+  ],
+  "seed_sha": "9638af0f469897e33dd3aaa84446b8f3f054d491",
+  "volume_mm3": 51841328.6
+ },
+ "hair_dryer:None": {
+  "bbox_mm": [
+   259.6,
+   80.0,
+   218.32
+  ],
+  "labels": [
+   "body.1",
+   "accent.1",
+   "coat.1",
+   "coat.2",
+   "accent.2",
+   "body.2",
+   "button.1",
+   "button.2",
+   "led.1",
+   "rubber.1"
+  ],
+  "seed_sha": "c33816416d50f10cd69a0ddf87c66f0debedacb2",
+  "volume_mm3": 1158382.4
+ },
+ "hair_dryer:compact": {
+  "bbox_mm": [
+   209.6,
+   68.0,
+   178.61
+  ],
+  "labels": [
+   "body.1",
+   "accent.1",
+   "coat.1",
+   "coat.2",
+   "accent.2",
+   "body.2",
+   "button.1",
+   "button.2",
+   "led.1",
+   "rubber.1"
+  ],
+  "seed_sha": "aa4a7e841ab9692968998fffea14935d9f8e6ce9",
+  "volume_mm3": 716224.7
+ },
+ "hair_dryer:pistol": {
+  "bbox_mm": [
+   259.6,
+   80.0,
+   218.32
+  ],
+  "labels": [
+   "body.1",
+   "accent.1",
+   "coat.1",
+   "coat.2",
+   "accent.2",
+   "body.2",
+   "button.1",
+   "button.2",
+   "led.1",
+   "rubber.1"
+  ],
+  "seed_sha": "c33816416d50f10cd69a0ddf87c66f0debedacb2",
+  "volume_mm3": 1158382.4
+ },
+ "home_robot:None": {
+  "bbox_mm": [
+   717.4,
+   468.0,
+   1083.95
+  ],
+  "labels": [
+   "accent.1",
+   "rubber.1",
+   "rubber.2",
+   "metal.1",
+   "rubber.3",
+   "metal.2",
+   "rubber.4",
+   "rubber.5",
+   "body.1",
+   "glass.1",
+   "led.1",
+   "coat.1",
+   "body.2",
+   "glass.2",
+   "led.2",
+   "led.3",
+   "metal.3",
+   "coat.2",
+   "glass.3",
+   "coat.3",
+   "body.3",
+   "coat.4",
+   "body.4",
+   "coat.5",
+   "metal.4",
+   "rubber.6",
+   "rubber.7"
+  ],
+  "seed_sha": "f722a5e317ef5334d7724634529e4c81aa4262b0",
+  "volume_mm3": 68757633.7
+ },
+ "home_robot:compact": {
+  "bbox_mm": [
+   348.0,
+   348.0,
+   607.0
+  ],
+  "labels": [
+   "accent.1",
+   "rubber.1",
+   "rubber.2",
+   "metal.1",
+   "rubber.3",
+   "metal.2",
+   "rubber.4",
+   "rubber.5",
+   "body.1",
+   "glass.1",
+   "led.1",
+   "coat.1",
+   "body.2",
+   "glass.2",
+   "led.2",
+   "led.3",
+   "metal.3",
+   "coat.2",
+   "glass.3"
+  ],
+  "seed_sha": "81b962d0cdc5799f621ff7b27b468c6012a50d28",
+  "volume_mm3": 21258183.9
+ },
+ "home_robot:helper": {
+  "bbox_mm": [
+   717.4,
+   468.0,
+   1083.95
+  ],
+  "labels": [
+   "accent.1",
+   "rubber.1",
+   "rubber.2",
+   "metal.1",
+   "rubber.3",
+   "metal.2",
+   "rubber.4",
+   "rubber.5",
+   "body.1",
+   "glass.1",
+   "led.1",
+   "coat.1",
+   "body.2",
+   "glass.2",
+   "led.2",
+   "led.3",
+   "metal.3",
+   "coat.2",
+   "glass.3",
+   "coat.3",
+   "body.3",
+   "coat.4",
+   "body.4",
+   "coat.5",
+   "metal.4",
+   "rubber.6",
+   "rubber.7"
+  ],
+  "seed_sha": "f722a5e317ef5334d7724634529e4c81aa4262b0",
+  "volume_mm3": 68757633.7
+ },
+ "irrigation:None": {
+  "bbox_mm": [
+   544.0,
+   74.0,
+   221.5
+  ],
+  "labels": [
+   "body.1",
+   "accent.1",
+   "glass.1",
+   "button.1",
+   "button.2",
+   "button.3",
+   "led.1",
+   "cell.1",
+   "rubber.1",
+   "rubber.2",
+   "accent.2",
+   "accent.3",
+   "coat.1",
+   "coat.2",
+   "coat.3",
+   "coat.4",
+   "coat.5",
+   "rubber.3",
+   "rubber.4",
+   "accent.4",
+   "accent.5",
+   "accent.6",
+   "steel.1",
+   "steel.2",
+   "body.2",
+   "cell.2",
+   "led.2"
+  ],
+  "seed_sha": "aff5ea37428480d2ae3d019d90c254f0820f0e4e",
+  "volume_mm3": 2345819.6
+ },
+ "irrigation:kit": {
+  "bbox_mm": [
+   544.0,
+   74.0,
+   221.5
+  ],
+  "labels": [
+   "body.1",
+   "accent.1",
+   "glass.1",
+   "button.1",
+   "button.2",
+   "button.3",
+   "led.1",
+   "cell.1",
+   "rubber.1",
+   "rubber.2",
+   "accent.2",
+   "accent.3",
+   "coat.1",
+   "coat.2",
+   "coat.3",
+   "coat.4",
+   "coat.5",
+   "rubber.3",
+   "rubber.4",
+   "accent.4",
+   "accent.5",
+   "accent.6",
+   "steel.1",
+   "steel.2",
+   "body.2",
+   "cell.2",
+   "led.2"
+  ],
+  "seed_sha": "aff5ea37428480d2ae3d019d90c254f0820f0e4e",
+  "volume_mm3": 2345819.6
+ },
+ "smartphone:None": {
+  "bbox_mm": [
+   72.6,
+   147.2,
+   10.8
+  ],
+  "labels": [
+   "metal.1",
+   "glass.1",
+   "glass.2",
+   "metal.2",
+   "glass.3",
+   "metal.3",
+   "glass.4",
+   "diffuser.1",
+   "button.1",
+   "button.2",
+   "port.1",
+   "coat.1",
+   "coat.2",
+   "coat.3",
+   "coat.4",
+   "coat.5"
+  ],
+  "seed_sha": "7319dd132eef72a83a9501e8495b9bff2f8be79d",
+  "volume_mm3": 87197.7
+ },
+ "smartphone:mini": {
+  "bbox_mm": [
+   65.1,
+   131.2,
+   11.4
+  ],
+  "labels": [
+   "metal.1",
+   "glass.1",
+   "glass.2",
+   "metal.2",
+   "glass.3",
+   "diffuser.1",
+   "button.1",
+   "button.2",
+   "port.1",
+   "coat.1",
+   "coat.2",
+   "coat.3",
+   "coat.4",
+   "coat.5"
+  ],
+  "seed_sha": "5f6f16433d8e3db8a65828770ccc0aac44e5f61a",
+  "volume_mm3": 74244.6
+ },
+ "smartphone:slab": {
+  "bbox_mm": [
+   72.6,
+   147.2,
+   10.8
+  ],
+  "labels": [
+   "metal.1",
+   "glass.1",
+   "glass.2",
+   "metal.2",
+   "glass.3",
+   "metal.3",
+   "glass.4",
+   "diffuser.1",
+   "button.1",
+   "button.2",
+   "port.1",
+   "coat.1",
+   "coat.2",
+   "coat.3",
+   "coat.4",
+   "coat.5"
+  ],
+  "seed_sha": "7319dd132eef72a83a9501e8495b9bff2f8be79d",
+  "volume_mm3": 87197.7
+ },
+ "solar_array:None": {
+  "bbox_mm": [
+   6650.0,
+   7558.67,
+   4982.0
+  ],
+  "labels": [
+   "wall.1",
+   "roof.1",
+   "metal.1",
+   "metal.2",
+   "metal.101",
+   "cell.1",
+   "metal.102",
+   "cell.2",
+   "metal.103",
+   "cell.3",
+   "metal.104",
+   "cell.4",
+   "metal.105",
+   "cell.5",
+   "metal.3",
+   "metal.4",
+   "metal.106",
+   "cell.6",
+   "metal.107",
+   "cell.7",
+   "metal.108",
+   "cell.8",
+   "metal.109",
+   "cell.9",
+   "metal.110",
+   "cell.10"
+  ],
+  "seed_sha": "a717b46b689aed4f508c3a306fb9486cd5199039",
+  "volume_mm3": 176693528221.1
+ },
+ "solar_array:roof": {
+  "bbox_mm": [
+   6650.0,
+   7558.67,
+   4982.0
+  ],
+  "labels": [
+   "wall.1",
+   "roof.1",
+   "metal.1",
+   "metal.2",
+   "metal.101",
+   "cell.1",
+   "metal.102",
+   "cell.2",
+   "metal.103",
+   "cell.3",
+   "metal.104",
+   "cell.4",
+   "metal.105",
+   "cell.5",
+   "metal.3",
+   "metal.4",
+   "metal.106",
+   "cell.6",
+   "metal.107",
+   "cell.7",
+   "metal.108",
+   "cell.8",
+   "metal.109",
+   "cell.9",
+   "metal.110",
+   "cell.10"
+  ],
+  "seed_sha": "a717b46b689aed4f508c3a306fb9486cd5199039",
+  "volume_mm3": 176693528221.1
+ },
+ "stick_vacuum:None": {
+  "bbox_mm": [
+   247.6,
+   250.0,
+   1190.5
+  ],
+  "labels": [
+   "accent.1",
+   "rubber.1",
+   "clear.1",
+   "rubber.3",
+   "rubber.2",
+   "metal.1",
+   "accent.2",
+   "metal.2",
+   "accent.3",
+   "clear.2",
+   "accent.4",
+   "metal.3",
+   "accent.5",
+   "accent.6",
+   "accent.7",
+   "accent.8",
+   "accent.9",
+   "accent.10",
+   "accent.11",
+   "accent.12",
+   "accent.13",
+   "accent.14",
+   "body.1",
+   "body.2",
+   "coat.1",
+   "body.3",
+   "body.4",
+   "button.1",
+   "accent.40",
+   "body.5"
+  ],
+  "seed_sha": "b4e3897d5a4272a2229b27e51c35a357cdb1ddfc",
+  "volume_mm3": 5833028.6
+ },
+ "stick_vacuum:stick": {
+  "bbox_mm": [
+   247.6,
+   250.0,
+   1190.5
+  ],
+  "labels": [
+   "accent.1",
+   "rubber.1",
+   "clear.1",
+   "rubber.3",
+   "rubber.2",
+   "metal.1",
+   "accent.2",
+   "metal.2",
+   "accent.3",
+   "clear.2",
+   "accent.4",
+   "metal.3",
+   "accent.5",
+   "accent.6",
+   "accent.7",
+   "accent.8",
+   "accent.9",
+   "accent.10",
+   "accent.11",
+   "accent.12",
+   "accent.13",
+   "accent.14",
+   "body.1",
+   "body.2",
+   "coat.1",
+   "body.3",
+   "body.4",
+   "button.1",
+   "accent.40",
+   "body.5"
+  ],
+  "seed_sha": "b4e3897d5a4272a2229b27e51c35a357cdb1ddfc",
+  "volume_mm3": 5833028.6
+ }
+}

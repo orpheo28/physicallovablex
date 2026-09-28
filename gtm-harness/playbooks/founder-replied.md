@@ -1,6 +1,6 @@
 # Playbook: a founder replied
 
-**Trigger:** any reply to a campaign message or a warm-track message. Log the reply in `03_DISCOVERY/envoi/SUIVI.md` first, the same hour.
+**Trigger:** any reply to a campaign message or a warm-track message. Log the reply in `03_DISCOVERY/envoi/SUIVI.md` first, the same hour. Classify and draft the answer with `skills/reply-handler` (within 2 hours, objections mapped to A1-A4); this playbook covers the call.
 
 ## Step 1: read the reply type
 | Reply | Action |

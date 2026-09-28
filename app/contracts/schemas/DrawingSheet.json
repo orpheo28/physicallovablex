@@ -1,0 +1,122 @@
+{
+  "additionalProperties": false,
+  "description": "C3 (additive): one 2D technical drawing sheet of a version \u2014 GET /projects/{id}/drawings?version=n (CAD_DRAWINGS=1).\nOrthographic views (first angle) + isometric, dimensions measured on the STEP, ISO 2768-m title block.",
+  "properties": {
+    "sheet": {
+      "description": "Sheet id within the version: 'A1' assembly, 'P01'\u2026 parts, 'M01'\u2026 moulded shells (DFM model)",
+      "title": "Sheet",
+      "type": "string"
+    },
+    "kind": {
+      "enum": [
+        "assembly",
+        "part",
+        "moulded"
+      ],
+      "title": "Kind",
+      "type": "string"
+    },
+    "part_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "GLB part_id (PartMeta.part_id) drawn on a part sheet; None on the assembly",
+      "title": "Part Id"
+    },
+    "title": {
+      "title": "Title",
+      "type": "string"
+    },
+    "svg_url": {
+      "description": "/files/<pid>/drawings/v<n>_<sheet>.svg",
+      "title": "Svg Url",
+      "type": "string"
+    },
+    "pdf_url": {
+      "description": "/files/<pid>/drawings/v<n>_<sheet>.pdf (vector, one page)",
+      "title": "Pdf Url",
+      "type": "string"
+    },
+    "set_pdf_url": {
+      "description": "/files/<pid>/drawings/v<n>_set.pdf \u2014 every sheet of the version, one PDF",
+      "title": "Set Pdf Url",
+      "type": "string"
+    },
+    "version": {
+      "title": "Version",
+      "type": "integer"
+    },
+    "size": {
+      "enum": [
+        "A3",
+        "A4"
+      ],
+      "title": "Size",
+      "type": "string"
+    },
+    "scale": {
+      "description": "Scale of the orthographic views, ISO 5455 standard, e.g. '1:2'",
+      "title": "Scale",
+      "type": "string"
+    },
+    "bbox_mm": {
+      "description": "Overall [x, y, z] measured on the STEP (Z up)",
+      "items": {
+        "type": "number"
+      },
+      "maxItems": 3,
+      "minItems": 3,
+      "title": "Bbox Mm",
+      "type": "array"
+    },
+    "bom_item_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Bom Item Id"
+    },
+    "qty": {
+      "default": 1,
+      "title": "Qty",
+      "type": "integer"
+    },
+    "label": {
+      "const": "measured",
+      "default": "measured",
+      "title": "Label",
+      "type": "string"
+    },
+    "note": {
+      "const": "Generated from CAD \u2014 verify before release",
+      "default": "Generated from CAD \u2014 verify before release",
+      "title": "Note",
+      "type": "string"
+    }
+  },
+  "required": [
+    "sheet",
+    "kind",
+    "title",
+    "svg_url",
+    "pdf_url",
+    "set_pdf_url",
+    "version",
+    "size",
+    "scale",
+    "bbox_mm"
+  ],
+  "title": "DrawingSheet",
+  "type": "object"
+}

@@ -291,25 +291,6 @@
    }
   },
   {
-   "bom_item_id": "m3",
-   "part": "M2.5 screws",
-   "qty_per_unit": 4.0,
-   "unit_price": {
-    "value": 0.0276,
-    "unit": "USD",
-    "label": "estimate",
-    "source_or_assumption": "Module price model: screw ≈ USD 0.03 (typical 2026 trade price at ~2k units, not a quote)"
-   },
-   "lcsc_pn": null,
-   "stock": null,
-   "extended": {
-    "value": 0.1104,
-    "unit": "USD",
-    "label": "estimate",
-    "source_or_assumption": "4 × 0.0276"
-   }
-  },
-  {
    "bom_item_id": "m4",
    "part": "Wrist strap and attachment hardware",
    "qty_per_unit": 1.0,
@@ -384,6 +365,25 @@
     "label": "estimate",
     "source_or_assumption": "1 × 0.2760"
    }
+  },
+  {
+   "bom_item_id": "fx1",
+   "part": "Spring bar Ø1.5×27 mm (Spring bar Ø1.5 mm, 316L stainless (watch-strap type))",
+   "qty_per_unit": 2.0,
+   "unit_price": {
+    "value": 0.0368,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "lcsc_pn": null,
+   "stock": null,
+   "extended": {
+    "value": 0.0736,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "2 × 0.0368"
+   }
   }
  ],
  "volume_factor": {
@@ -396,7 +396,7 @@
   {
    "quantity": 500,
    "bom_cost": {
-    "value": 21.5,
+    "value": 21.46,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Electronics at LCSC price breaks (LCSC price, 2026-09-26); other lines base × 0.92^0"
@@ -414,7 +414,7 @@
     "source_or_assumption": "Packaging BOM lines × 0.92^0"
    },
    "unit_cost": {
-    "value": 28.82,
+    "value": 28.77,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
@@ -429,19 +429,19 @@
     "value": 76.0,
     "unit": "pct",
     "label": "estimate",
-    "source_or_assumption": "($199.00 target − $47.83 landed estimate) ÷ target; before retailer margin, VAT and marketing"
+    "source_or_assumption": "($199.00 target − $47.76 landed estimate) ÷ target; before retailer margin, VAT and marketing"
    }
   },
   {
    "quantity": 2000,
    "bom_cost": {
-    "value": 20.76,
+    "value": 20.73,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Electronics at LCSC price breaks (LCSC price, 2026-09-26); other lines base × 0.92^1"
    },
    "assembly_cost": {
-    "value": 5.22,
+    "value": 5.21,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Assembly + factory overhead/margin: 14.4 min = 6 base + 0.6 × 14 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^1"
@@ -453,7 +453,7 @@
     "source_or_assumption": "Packaging BOM lines × 0.92^1"
    },
    "unit_cost": {
-    "value": 27.64,
+    "value": 27.59,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
@@ -468,13 +468,13 @@
     "value": 80.1,
     "unit": "pct",
     "label": "estimate",
-    "source_or_assumption": "($199.00 target − $39.60 landed estimate) ÷ target; before retailer margin, VAT and marketing"
+    "source_or_assumption": "($199.00 target − $39.54 landed estimate) ÷ target; before retailer margin, VAT and marketing"
    }
   },
   {
    "quantity": 10000,
    "bom_cost": {
-    "value": 20.07,
+    "value": 20.03,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Electronics at LCSC price breaks (LCSC price, 2026-09-26); other lines base × 0.92^2"
@@ -492,7 +492,7 @@
     "source_or_assumption": "Packaging BOM lines × 0.92^2"
    },
    "unit_cost": {
-    "value": 26.54,
+    "value": 26.5,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
@@ -507,7 +507,7 @@
     "value": 81.7,
     "unit": "pct",
     "label": "estimate",
-    "source_or_assumption": "($199.00 target − $36.45 landed estimate) ÷ target; before retailer margin, VAT and marketing"
+    "source_or_assumption": "($199.00 target − $36.39 landed estimate) ÷ target; before retailer margin, VAT and marketing"
    }
   }
  ],
@@ -558,7 +558,7 @@
  },
  "reference_quantity": 2000,
  "total_cash_needed": {
-  "value": 91396.6,
+  "value": 91290.69,
   "unit": "USD",
   "label": "estimate",
   "source_or_assumption": "Sum of cash_breakdown"
@@ -585,19 +585,19 @@
   {
    "name": "Samples (T0, T1, golden)",
    "amount": {
-    "value": 1189.07,
+    "value": 1187.8,
     "unit": "USD",
     "label": "estimate",
-    "source_or_assumption": "3 rounds × (10 units × $27.64 + $120 express shipping)"
+    "source_or_assumption": "3 rounds × (10 units × $27.59 + $120 express shipping)"
    }
   },
   {
    "name": "First production order (2,000 × FOB)",
    "amount": {
-    "value": 55271.53,
+    "value": 55186.89,
     "unit": "USD",
     "label": "estimate",
-    "source_or_assumption": "2,000 × $27.64 ex-works"
+    "source_or_assumption": "2,000 × $27.59 ex-works"
    }
   },
   {
@@ -621,7 +621,7 @@
   {
    "name": "Duties (HTS + Section 301)",
    "amount": {
-    "value": 13820.0,
+    "value": 13800.0,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "HTS 9031.80.80.85: USITC HTS 9031.80.80.85 general rate Free, https://hts.usitc.gov/search?query=9031.80.80.85, fetched 2026-09-26; IEEPA 0; Section 122 off"
@@ -656,6 +656,6 @@
   "value": 99.0,
   "unit": "units",
   "label": "estimate",
-  "source_or_assumption": "(tooling + certification + samples = $15,919) ÷ ($199.00 target − $37.73 variable landed cost)"
+  "source_or_assumption": "(tooling + certification + samples = $15,918) ÷ ($199.00 target − $37.67 variable landed cost)"
  }
 }

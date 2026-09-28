@@ -1,5 +1,5 @@
 {
- "_v": "a4",
+ "_v": "a6",
  "version": 2,
  "glb_url": "/files/demo_changing_table/anatomy_v2.glb",
  "label": "Illustrative internal layout \u2014 not a routed PCB",
@@ -58,7 +58,9 @@
     "connector_bolt_3_1",
     "connector_bolt_3_2",
     "connector_bolt_4_1",
-    "connector_bolt_4_2"
+    "connector_bolt_4_2",
+    "beech_dowels_8_x_35_x16",
+    "wood_screws_4_x_30_x8"
    ],
    "explode_vector": [
     0.0,
@@ -66,7 +68,7 @@
     0.0
    ],
    "explode_distance_mm": 101.0,
-   "caption": "Furniture assembly fastener set ($3.68 (Estimate))"
+   "caption": "Wood screw 4 \u00d7 30 countersunk PZ2 ($0.03 (Estimate))"
   },
   {
    "id": "frame",
@@ -91,7 +93,7 @@
    "id": "s1",
    "title": "The piece",
    "kicker": "01 \u00b7 The piece",
-   "caption": "Safe baby changing table \u2014 900.0 \u00d7 560.0 \u00d7 1010.0 mm (Measured), 8 mechanical BOM lines as construction layers (illustrative)",
+   "caption": "Safe baby changing table \u2014 900.0 \u00d7 560.0 \u00d7 1010.0 mm (Measured), 9 mechanical BOM lines as construction layers (illustrative)",
    "camera": {
     "position_mm": [
      1646.6,
@@ -168,7 +170,7 @@
    "id": "s4",
    "title": "Fasteners",
    "kicker": "04 \u00b7 Fasteners",
-   "caption": "Furniture assembly fastener set ($3.68 (Estimate))",
+   "caption": "Wood screw 4 \u00d7 30 countersunk PZ2 ($0.03 (Estimate))",
    "camera": {
     "position_mm": [
      2310.2,
@@ -200,7 +202,7 @@
    "id": "s5",
    "title": "Back together",
    "kicker": "05 \u00b7 Back together",
-   "caption": "Unit cost $122.53 at 2,000 units (Estimate), weight 24.66 kg (Estimate)",
+   "caption": "Unit cost $118.80 at 2,000 units (Estimate), weight 24.66 kg (Estimate)",
    "camera": {
     "position_mm": [
      -1646.6,
@@ -291,7 +293,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "dark_part",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 39.4
   },
   {
    "part_id": "legs",
@@ -360,7 +370,15 @@
     }
    ],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "top_shell",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 597.9
   },
   {
    "part_id": "bodies",
@@ -429,7 +447,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "top_shell",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 186.5
   },
   {
    "part_id": "bodies_2",
@@ -498,7 +524,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "top_shell",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 186.5
   },
   {
    "part_id": "body",
@@ -567,7 +601,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "top_shell",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 98.8
   },
   {
    "part_id": "bodies_3",
@@ -636,7 +678,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "body",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    0.2356,
+    0.9718
+   ],
+   "explode_distance_mm": 419.3
   },
   {
    "part_id": "wood_part",
@@ -705,7 +755,15 @@
     }
    ],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "legs",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 666.0
   },
   {
    "part_id": "wood_part_2",
@@ -774,7 +832,15 @@
     }
    ],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "wood_part",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 538.0
   },
   {
    "part_id": "top_shells",
@@ -842,7 +908,15 @@
     "lsr_silicone",
     "fabric",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "wood_part",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 491.8
   },
   {
    "part_id": "dark_part",
@@ -863,10 +937,15 @@
     16.0
    ],
    "label": "measured",
-   "bom_item_id": null,
+   "bom_item_id": "hw1",
    "lcsc_pn": null,
    "package": null,
-   "unit_price": null,
+   "unit_price": {
+    "value": 0.0092,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
    "editable": [
     {
      "param": "depth",
@@ -911,7 +990,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 0.0
   },
   {
    "part_id": "steel_parts",
@@ -953,7 +1040,95 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "body",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    0.6954,
+    -0.7186
+   ],
+   "explode_distance_mm": 142.1
+  },
+  {
+   "part_id": "beech_dowels_8_x_35_x16",
+   "name": "Beech dowels \u00d88 \u00d7 35 \u00d716",
+   "role": "fastener",
+   "layer_id": "fasteners",
+   "material": "fluted beech",
+   "finish": null,
+   "colour_hex": "#DFC8AA",
+   "measured_bbox_mm": [
+    843.6,
+    48.0,
+    503.6
+   ],
+   "centroid_mm": [
+    0.0,
+    817.0,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "hw1",
+   "lcsc_pn": null,
+   "package": "DIN 68150 \u00d88 \u00d7 35",
+   "unit_price": {
+    "value": 0.0092,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": true,
+   "material_options": [],
+   "parent_part_id": "legs",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 470.0
+  },
+  {
+   "part_id": "wood_screws_4_x_30_x8",
+   "name": "Wood screws 4 \u00d7 30 \u00d78",
+   "role": "fastener",
+   "layer_id": "fasteners",
+   "material": "zinc-plated steel",
+   "finish": null,
+   "colour_hex": "#EFEFF0",
+   "measured_bbox_mm": [
+    819.68,
+    30.0,
+    479.68
+   ],
+   "centroid_mm": [
+    0.0,
+    853.8,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "m1",
+   "lcsc_pn": null,
+   "package": "Chipboard screw 4 \u00d7 30",
+   "unit_price": {
+    "value": 20.24,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Category price estimate: CNC-cut birch plywood part(s) from 2440 \u00d7 1220 mm sheet (\u2248 $55 per 18 mm sheet, nested) \u2248 USD 22 (typical 2026 trade price, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": true,
+   "material_options": [],
+   "parent_part_id": "top_shell",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 156.5
   },
   {
    "part_id": "connector_bolt_1_1",
@@ -974,18 +1149,22 @@
     -227.0
    ],
    "label": "estimate",
-   "bom_item_id": "m5",
+   "bom_item_id": "hw1",
    "lcsc_pn": null,
    "package": null,
    "unit_price": {
-    "value": 3.68,
+    "value": 0.0092,
     "unit": "USD",
     "label": "estimate",
-    "source_or_assumption": "Category price estimate: fitting kit \u2248 USD 4 (typical 2026 trade price, not a quote)"
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "connector_bolt_1_2",
@@ -1006,18 +1185,22 @@
     -227.0
    ],
    "label": "estimate",
-   "bom_item_id": "m5",
+   "bom_item_id": "hw1",
    "lcsc_pn": null,
    "package": null,
    "unit_price": {
-    "value": 3.68,
+    "value": 0.0092,
     "unit": "USD",
     "label": "estimate",
-    "source_or_assumption": "Category price estimate: fitting kit \u2248 USD 4 (typical 2026 trade price, not a quote)"
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "connector_bolt_2_1",
@@ -1038,18 +1221,22 @@
     -227.0
    ],
    "label": "estimate",
-   "bom_item_id": "m5",
+   "bom_item_id": "hw1",
    "lcsc_pn": null,
    "package": null,
    "unit_price": {
-    "value": 3.68,
+    "value": 0.0092,
     "unit": "USD",
     "label": "estimate",
-    "source_or_assumption": "Category price estimate: fitting kit \u2248 USD 4 (typical 2026 trade price, not a quote)"
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "connector_bolt_2_2",
@@ -1070,18 +1257,22 @@
     -227.0
    ],
    "label": "estimate",
-   "bom_item_id": "m5",
+   "bom_item_id": "hw1",
    "lcsc_pn": null,
    "package": null,
    "unit_price": {
-    "value": 3.68,
+    "value": 0.0092,
     "unit": "USD",
     "label": "estimate",
-    "source_or_assumption": "Category price estimate: fitting kit \u2248 USD 4 (typical 2026 trade price, not a quote)"
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "connector_bolt_3_1",
@@ -1102,18 +1293,22 @@
     224.0
    ],
    "label": "estimate",
-   "bom_item_id": "m5",
+   "bom_item_id": "hw1",
    "lcsc_pn": null,
    "package": null,
    "unit_price": {
-    "value": 3.68,
+    "value": 0.0092,
     "unit": "USD",
     "label": "estimate",
-    "source_or_assumption": "Category price estimate: fitting kit \u2248 USD 4 (typical 2026 trade price, not a quote)"
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "connector_bolt_3_2",
@@ -1134,18 +1329,22 @@
     224.0
    ],
    "label": "estimate",
-   "bom_item_id": "m5",
+   "bom_item_id": "hw1",
    "lcsc_pn": null,
    "package": null,
    "unit_price": {
-    "value": 3.68,
+    "value": 0.0092,
     "unit": "USD",
     "label": "estimate",
-    "source_or_assumption": "Category price estimate: fitting kit \u2248 USD 4 (typical 2026 trade price, not a quote)"
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "connector_bolt_4_1",
@@ -1166,18 +1365,22 @@
     224.0
    ],
    "label": "estimate",
-   "bom_item_id": "m5",
+   "bom_item_id": "hw1",
    "lcsc_pn": null,
    "package": null,
    "unit_price": {
-    "value": 3.68,
+    "value": 0.0092,
     "unit": "USD",
     "label": "estimate",
-    "source_or_assumption": "Category price estimate: fitting kit \u2248 USD 4 (typical 2026 trade price, not a quote)"
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "connector_bolt_4_2",
@@ -1198,18 +1401,22 @@
     224.0
    ],
    "label": "estimate",
-   "bom_item_id": "m5",
+   "bom_item_id": "hw1",
    "lcsc_pn": null,
    "package": null,
    "unit_price": {
-    "value": 3.68,
+    "value": 0.0092,
     "unit": "USD",
     "label": "estimate",
-    "source_or_assumption": "Category price estimate: fitting kit \u2248 USD 4 (typical 2026 trade price, not a quote)"
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   }
  ]
 }

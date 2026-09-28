@@ -48,7 +48,7 @@ def _ai_look(d) -> dict:
 
 def _regen_program(pre: Path, k: int, look: dict) -> bool:
     from api.cad.build import publish
-    from api.cad.codegen.engine import program_names
+    from api.cad.codegen.engine import finish_program_glb
     from api.cad.codegen.sandbox import run_code
 
     code = (pre / f"model_v{k}.py").read_text(encoding="utf-8")
@@ -58,7 +58,11 @@ def _regen_program(pre: Path, k: int, look: dict) -> bool:
         return False
     dst = pre / f"model_v{k}.glb"
     publish(res["files"]["glb"], dst)
-    glb.finalize(dst, look, names=program_names(code, res))
+    if (pre / f"model_v{k}.step").exists():  # C5: the labelled STEP follows the program (pro hardware, assembly, drawings)
+        publish(res["files"]["step"], pre / f"model_v{k}.step")
+    if (pre / f"model_v{k}.stl").exists():
+        publish(res["files"]["stl"], pre / f"model_v{k}.stl")
+    finish_program_glb(dst, look, code, res)
     shutil.rmtree(res.get("work_dir") or "/nonexistent", ignore_errors=True)
     return True
 
@@ -73,6 +77,8 @@ def _regen_family_glb(pid: str, d, brief, dst: Path) -> bool:
         with tempfile.TemporaryDirectory() as tmp:
             res = family_mode.export_product(pid, d, "full", out_dir=Path(tmp))
             publish(res["files"]["glb"], dst)
+            if dst.with_suffix(".step").exists():  # C5: the labelled STEP follows the GLB (assembly checks, drawings)
+                publish(res["files"]["step"], dst.with_suffix(".step"))
         return True
     p = normalize(d.cad_parameters or {})
     f17 = FAMILIES.get(int(p["family"]))

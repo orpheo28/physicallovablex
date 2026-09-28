@@ -164,7 +164,7 @@
    "format": "glb",
    "url": "/files/demo_stick_vacuum/model_v2.glb",
    "description": "AI-generated CAD (concept level) — geometry measured on the result — bbox 265 × 250 × 1180 mm",
-   "size_bytes": 614260
+   "size_bytes": 707500
   },
   {
    "format": "step",
@@ -182,7 +182,7 @@
    "format": "glb",
    "url": "/files/demo_stick_vacuum/v2.glb",
    "description": "Full product — materials",
-   "size_bytes": 1156792
+   "size_bytes": 1257112
   },
   {
    "format": "step",
@@ -440,23 +440,6 @@
    "alternative": null
   },
   {
-   "id": "m8",
-   "part": "Assembly screws",
-   "category": "mechanical",
-   "qty": 12.0,
-   "description": "Assorted screws for housing and subassembly fastening; final sizes to be determined.",
-   "manufacturer_pn": null,
-   "lcsc_pn": null,
-   "unit_cost_est": {
-    "value": 0.0276,
-    "unit": "USD",
-    "label": "estimate",
-    "source_or_assumption": "Module price model: screw ≈ USD 0.03 (typical 2026 trade price at ~2k units, not a quote)"
-   },
-   "risk": null,
-   "alternative": null
-  },
-  {
    "id": "k1",
    "part": "Retail carton with protective inserts",
    "category": "packaging",
@@ -486,6 +469,23 @@
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Module price model: printed guide ≈ USD 0.3 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "hw1",
+   "part": "Thread-forming screw DELTA PT 3 × 8 pan head (plastics), zinc-plated steel",
+   "category": "mechanical",
+   "qty": 7.0,
+   "description": "Standard part (EJOT DELTA PT), counted on the CAD: 7 placed",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.023,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
    },
    "risk": null,
    "alternative": null
@@ -677,16 +677,16 @@
   {
    "quantity": 500,
    "bom_cost": {
-    "value": 89.23,
+    "value": 90.45,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Electronics at LCSC price breaks (LCSC price, 2026-09-26); other lines base × 0.92^0"
    },
    "assembly_cost": {
-    "value": 15.59,
+    "value": 16.36,
     "unit": "USD",
     "label": "estimate",
-    "source_or_assumption": "Assembly + factory overhead/margin: 13.8 min = 6 base + 0.6 × 13 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^0"
+    "source_or_assumption": "Assembly + factory overhead/margin: 18.0 min = 6 base + 0.6 × 20 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^0"
    },
    "packaging_cost": {
     "value": 1.8,
@@ -695,7 +695,7 @@
     "source_or_assumption": "Packaging BOM lines × 0.92^0"
    },
    "unit_cost": {
-    "value": 106.62,
+    "value": 108.6,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
@@ -707,25 +707,25 @@
     "source_or_assumption": "$6,000 tooling ÷ 500"
    },
    "margin_pct": {
-    "value": 30.2,
+    "value": 29.1,
     "unit": "pct",
     "label": "estimate",
-    "source_or_assumption": "($249.00 target − $173.83 landed estimate) ÷ target; before retailer margin, VAT and marketing"
+    "source_or_assumption": "($249.00 target − $176.51 landed estimate) ÷ target; before retailer margin, VAT and marketing"
    }
   },
   {
    "quantity": 2000,
    "bom_cost": {
-    "value": 82.09,
+    "value": 83.21,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Electronics at LCSC price breaks (LCSC price, 2026-09-26); other lines base × 0.92^1"
    },
    "assembly_cost": {
-    "value": 14.34,
+    "value": 15.05,
     "unit": "USD",
     "label": "estimate",
-    "source_or_assumption": "Assembly + factory overhead/margin: 13.8 min = 6 base + 0.6 × 13 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^1"
+    "source_or_assumption": "Assembly + factory overhead/margin: 18.0 min = 6 base + 0.6 × 20 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^1"
    },
    "packaging_cost": {
     "value": 1.66,
@@ -734,7 +734,7 @@
     "source_or_assumption": "Packaging BOM lines × 0.92^1"
    },
    "unit_cost": {
-    "value": 98.09,
+    "value": 99.91,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
@@ -746,25 +746,25 @@
     "source_or_assumption": "$6,000 tooling ÷ 2,000"
    },
    "margin_pct": {
-    "value": 39.0,
+    "value": 38.0,
     "unit": "pct",
     "label": "estimate",
-    "source_or_assumption": "($249.00 target − $151.89 landed estimate) ÷ target; before retailer margin, VAT and marketing"
+    "source_or_assumption": "($249.00 target − $154.36 landed estimate) ÷ target; before retailer margin, VAT and marketing"
    }
   },
   {
    "quantity": 10000,
    "bom_cost": {
-    "value": 75.52,
+    "value": 76.55,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Electronics at LCSC price breaks (LCSC price, 2026-09-26); other lines base × 0.92^2"
    },
    "assembly_cost": {
-    "value": 13.19,
+    "value": 13.84,
     "unit": "USD",
     "label": "estimate",
-    "source_or_assumption": "Assembly + factory overhead/margin: 13.8 min = 6 base + 0.6 × 13 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^2"
+    "source_or_assumption": "Assembly + factory overhead/margin: 18.0 min = 6 base + 0.6 × 20 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^2"
    },
    "packaging_cost": {
     "value": 1.52,
@@ -773,7 +773,7 @@
     "source_or_assumption": "Packaging BOM lines × 0.92^2"
    },
    "unit_cost": {
-    "value": 90.24,
+    "value": 91.92,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
@@ -785,10 +785,10 @@
     "source_or_assumption": "$6,000 tooling ÷ 10,000"
    },
    "margin_pct": {
-    "value": 45.0,
+    "value": 44.1,
     "unit": "pct",
     "label": "estimate",
-    "source_or_assumption": "($249.00 target − $136.90 landed estimate) ÷ target; before retailer margin, VAT and marketing"
+    "source_or_assumption": "($249.00 target − $139.17 landed estimate) ÷ target; before retailer margin, VAT and marketing"
    }
   }
  ],
@@ -1187,7 +1187,7 @@
   "fallback": false,
   "fallback_reason": null,
   "generated_by": "code",
-  "generated_at": "2026-09-26T23:58:23.601058Z",
+  "generated_at": "2026-09-28T11:08:11.438698Z",
   "assumptions": [
    {
     "id": "e1",
@@ -1209,6 +1209,13 @@
     "label": "estimate",
     "source": null,
     "stage": null
+   },
+   {
+    "id": "e5",
+    "text": "Assembly mates are inferred from the part roles and the product family (rules shown per joint); interference, clearance and screw material are measured on the version's STEP",
+    "label": "estimate",
+    "source": null,
+    "stage": null
    }
   ],
   "stage": "engineering",
@@ -1217,7 +1224,7 @@
   "partner_word": "factories",
   "site_install": false,
   "product_name": "Cordless stick vacuum",
-  "inputs_digest": "85371bdd5469a723",
+  "inputs_digest": "1ca8b9beafbd22d1",
   "standards": [
    {
     "code": "IEC 60335-1",
@@ -1397,23 +1404,23 @@
     "name": "Battery life / runtime from the power budget",
     "domain": "power",
     "value": {
-     "value": 0.07,
+     "value": 0.26,
      "unit": "h",
      "label": "estimate",
-     "source_or_assumption": "2600 mAh × 85% usable / 3.175e+04 mA average"
+     "source_or_assumption": "2600 mAh × 85% usable / 8341 mA average"
     },
     "threshold": "≥ 0.5 h pass, ≥ 50% of it warn (category target, Estimate)",
-    "verdict": "fail",
+    "verdict": "warn",
     "formula": "t = capacity × 85% usable / Σ(active × duty + sleep × (1 − duty))",
     "inputs": [
      {
       "value": 2600.0,
       "unit": "mAh",
       "label": "estimate",
-      "source_or_assumption": "Capacity from the BOM line 'Li-ion pack 6S 2600 mAh 25.2V'"
+      "source_or_assumption": "Category default 2600 mAh (no capacity in the BOM) — confirm with the cell datasheet"
      },
      {
-      "value": 31754.0387,
+      "value": 8341.3403,
       "unit": "mA",
       "label": "estimate",
       "source_or_assumption": "Sum of the power-budget lines"
@@ -1484,6 +1491,161 @@
      }
     ],
     "notes": []
+   },
+   {
+    "id": "asm_interference",
+    "name": "Interference between moving parts",
+    "domain": "assembly",
+    "value": {
+     "value": 0.0,
+     "unit": "pairs",
+     "label": "measured",
+     "source_or_assumption": "Boolean common of every part pair (OCCT), classified by the assembly joints; total 0.0 mm³"
+    },
+    "threshold": "0 intersecting pairs > 0.01 mm³ between parts that move relative to each other (different rigid bodies, over their motion study) or across a parting line — CAD interference-check practice",
+    "verdict": "pass",
+    "formula": "V(A ∩ B) per pair of solids at the assembled pose and over each moving joint's motion study",
+    "inputs": [
+     {
+      "value": 0.0,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Sum of interference volumes"
+     }
+    ],
+    "notes": []
+   },
+   {
+    "id": "asm_static_overlap",
+    "name": "Overlaps inside rigid bodies (concept geometry)",
+    "domain": "assembly",
+    "value": {
+     "value": 75606.6,
+     "unit": "mm³",
+     "label": "measured",
+     "source_or_assumption": "15 pairs of rigidly joined parts interpenetrate (7 over 5 % of the smaller part)"
+    },
+    "threshold": "Parts of one rigid body should not interpenetrate: overlap > 5 % of the smaller part = concept geometry to pocket at detail design (warn); smaller overlaps are seats (info)",
+    "verdict": "warn",
+    "formula": "V(A ∩ B) for parts of the same rigid body that are not directly joined",
+    "inputs": [],
+    "notes": [
+     "Wand release collar ↔ Bin base ring: 20810 mm³",
+     "Bin seal ↔ Cyclone shroud: 16632 mm³",
+     "Battery strut ↔ Motor housing (lower): 11292 mm³",
+     "Floor head housing ↔ Swivel joint: 4691 mm³",
+     "Floor head window ↔ Swivel neck: 2238 mm³",
+     "Floor head housing ↔ PT 3 × 8 thread-forming screws ×7: 220 mm³",
+     "Motor housing (upper) ↔ PT 3 × 8 thread-forming screws ×7: 165 mm³"
+    ]
+   },
+   {
+    "id": "asm_clearance",
+    "name": "Minimum clearance of moving parts",
+    "domain": "assembly",
+    "value": {
+     "value": 12.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Lower bound: no moving part has a neighbour within 12 mm (or no moving joint)"
+    },
+    "threshold": "Push button pressed to the end of its travel keeps ≥ 0.2 mm to neighbouring parts (ISO 20457 moulded tolerances); Rolling / rotating part ≥ 1 mm running clearance to its surroundings (debris, moulding tolerance)",
+    "verdict": "pass",
+    "formula": "min over poses of d(moving subtree, other parts); revolute props 12 poses / 360°, buttons pressed 0.5 mm",
+    "inputs": [],
+    "notes": []
+   },
+   {
+    "id": "asm_fastener_engagement",
+    "name": "Screw engagement vs insert / thread",
+    "domain": "assembly",
+    "value": {
+     "value": 3.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Material under each screw measured by a line ∩ solid on both parts; flange capped at 2·d (counterbore), screw = shortest ISO length reaching the insert / thread"
+    },
+    "threshold": "Heat-set insert: boss holds the insert + 0.5 mm and the screw engages ≥ 80 % of it (McMaster-Carr 94459A insert data); tapped metal ≥ 1.5·d; thread-forming screw in plastic ≥ 2·d (EJOT DELTA PT design guide)",
+    "verdict": "pass",
+    "formula": "engagement = min(insert length, screw length − flange); boss depth = material of the threaded part",
+    "inputs": [
+     {
+      "value": 6.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Smallest boss / thread material measured"
+     }
+    ],
+    "notes": [
+     "Swivel neck → Floor head housing: 2 × M2×8 + insert M2×4, engagement ≥ 4.0 mm, pass",
+     "Swivel joint → Swivel neck: 2 × M2×8 (tapped), engagement ≥ 4.0 mm, pass",
+     "Aluminium wand → Swivel joint: 4 × M4×14 (tapped), engagement ≥ 6.0 mm, pass",
+     "Motor vent → Motor housing (upper): 2 × M2×8 + insert M2×4, engagement ≥ 4.0 mm, pass",
+     "Grip bridge → Motor housing (upper): 2 × M2×8 + insert M2×4, engagement ≥ 4.0 mm, pass",
+     "Wand release collar → Aluminium wand: 2 × M2×8 (tapped), engagement ≥ 4.0 mm, pass",
+     "Motor cap → Motor vent: 2 × M2×6 (tapped), engagement ≥ 3.0 mm, pass",
+     "Battery base plate → Battery pack: 2 × M2.5×8 + insert M2.5×4, engagement ≥ 4.0 mm, pass",
+     "Motor housing (lower) → Battery pack: 2 × M2.5×10 + insert M2.5×4, engagement ≥ 4.0 mm, pass",
+     "Cyclone shroud → Motor housing (lower): 2 × M2.5×10 (tapped), engagement ≥ 5.0 mm, pass",
+     "Cyclone cones → Cyclone shroud: 2 × M2.5×10 (tapped), engagement ≥ 5.0 mm, pass (1 position(s) without material on both parts)",
+     "Cyclone core → Cyclone shroud: 2 × M2×8 (tapped), engagement ≥ 4.0 mm, pass"
+    ]
+   },
+   {
+    "id": "asm_fastener_count",
+    "name": "Fasteners by standard",
+    "domain": "assembly",
+    "value": {
+     "value": 40.0,
+     "unit": "pcs",
+     "label": "estimate",
+     "source_or_assumption": "Joint rules (screws per parting-line perimeter, motor mounts, spring bars); sizes from the part scale"
+    },
+    "threshold": null,
+    "verdict": "info",
+    "formula": "Σ fasteners over the assembly joints",
+    "inputs": [],
+    "notes": [
+     "4 × insert M2.5×4 (Heat-set brass insert (catalogue class))",
+     "8 × insert M2×4 (Heat-set brass insert (McMaster-Carr 94459A120))",
+     "6 × screw M2.5×10 (ISO 14583 (hexalobular pan head), A2 stainless)",
+     "2 × screw M2.5×8 (ISO 14583 (hexalobular pan head), A2 stainless)",
+     "2 × screw M2×6 (ISO 14583 (hexalobular pan head), A2 stainless)",
+     "14 × screw M2×8 (ISO 14583 (hexalobular pan head), A2 stainless)",
+     "4 × screw M4×14 (ISO 14583 (hexalobular pan head), A2 stainless)"
+    ]
+   },
+   {
+    "id": "asm_joint_closure",
+    "name": "Joint closure (build123d Joints)",
+    "domain": "assembly",
+    "value": {
+     "value": 0.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Each child re-placed from its joint frame with build123d RigidJoint / RevoluteJoint / LinearJoint.connect_to; 31 joints"
+    },
+    "threshold": "build123d joints re-place every part at its modelled pose: residual < 0.01 mm",
+    "verdict": "pass",
+    "formula": "|bbox centre after connect_to − modelled bbox centre|",
+    "inputs": [],
+    "notes": []
+   },
+   {
+    "id": "asm_support",
+    "name": "Every part is attached",
+    "domain": "assembly",
+    "value": {
+     "value": 0.0,
+     "unit": "parts",
+     "label": "measured",
+     "source_or_assumption": "Parts with no contact (≤ 0.05 mm, BRepExtrema) with the part they are joined to"
+    },
+    "threshold": "Every part touches the part it is joined to (contact ≤ 0.05 mm)",
+    "verdict": "pass",
+    "formula": "d(child, parent) ≤ 0.05 mm for every joint",
+    "inputs": [],
+    "notes": []
    }
   ],
   "electronics": {
@@ -1497,7 +1659,7 @@
      "kind": "charger",
      "parent": null,
      "voltage": {
-      "value": 25.2,
+      "value": 21.6,
       "unit": "V",
       "label": "estimate",
       "source_or_assumption": "Charges the cell; output = VBAT"
@@ -1505,14 +1667,14 @@
     },
     {
      "id": "p_bat",
-     "name": "Li-ion pack 6S 2600 mAh 25.2V",
+     "name": "21.6 V (6S) rechargeable Li-ion battery pack with protection",
      "kind": "storage",
      "parent": "p_chg",
      "voltage": {
-      "value": 25.2,
+      "value": 21.6,
       "unit": "V",
       "label": "estimate",
-      "source_or_assumption": "Voltage from the BOM line 'Li-ion pack 6S 2600 mAh 25.2V'"
+      "source_or_assumption": "Voltage from the BOM line '21.6 V (6S) rechargeable Li-ion battery pack with protection' (6 cells in series)"
      }
     },
     {
@@ -1528,36 +1690,12 @@
      }
     },
     {
-     "id": "p_b1",
-     "name": "21.6 V (6S) rechargeable Li-ion battery pack with protection",
-     "kind": "load",
-     "parent": "p_bat",
-     "voltage": {
-      "value": 25.2,
-      "unit": "V",
-      "label": "estimate",
-      "source_or_assumption": "VBAT (through its driver)"
-     }
-    },
-    {
      "id": "p_b2",
      "name": "High-speed BLDC vacuum motor assembly",
      "kind": "load",
      "parent": "p_bat",
      "voltage": {
-      "value": 25.2,
-      "unit": "V",
-      "label": "estimate",
-      "source_or_assumption": "VBAT (through its driver)"
-     }
-    },
-    {
-     "id": "p_b3",
-     "name": "Pistol-grip trigger switch",
-     "kind": "load",
-     "parent": "p_bat",
-     "voltage": {
-      "value": 25.2,
+      "value": 21.6,
       "unit": "V",
       "label": "estimate",
       "source_or_assumption": "VBAT (through its driver)"
@@ -1565,11 +1703,11 @@
     },
     {
      "id": "p_b4",
-     "name": "Suction BLDC motor 180W",
+     "name": "BLDC motor driver",
      "kind": "load",
      "parent": "p_bat",
      "voltage": {
-      "value": 25.2,
+      "value": 21.6,
       "unit": "V",
       "label": "estimate",
       "source_or_assumption": "VBAT (through its driver)"
@@ -1577,18 +1715,6 @@
     },
     {
      "id": "p_b5",
-     "name": "BLDC motor driver",
-     "kind": "load",
-     "parent": "p_bat",
-     "voltage": {
-      "value": 25.2,
-      "unit": "V",
-      "label": "estimate",
-      "source_or_assumption": "VBAT (through its driver)"
-     }
-    },
-    {
-     "id": "p_b6",
      "name": "MCU 32-bit",
      "kind": "load",
      "parent": "p_reg",
@@ -1600,7 +1726,7 @@
      }
     },
     {
-     "id": "p_b10",
+     "id": "p_b8",
      "name": "Status LED",
      "kind": "load",
      "parent": "p_reg",
@@ -1615,45 +1741,27 @@
    "connections": [
     {
      "source": "BMS 6S",
-     "target": "Li-ion pack 6S 2600 mAh 25.2V",
+     "target": "21.6 V (6S) rechargeable Li-ion battery pack with protection",
      "bus": "power",
-     "signals": "25.2 V"
+     "signals": "21.6 V"
     },
     {
-     "source": "Li-ion pack 6S 2600 mAh 25.2V",
+     "source": "21.6 V (6S) rechargeable Li-ion battery pack with protection",
      "target": "Buck converter 3.3V",
      "bus": "power",
      "signals": "3.3 V"
     },
     {
-     "source": "Li-ion pack 6S 2600 mAh 25.2V",
-     "target": "21.6 V (6S) rechargeable Li-ion battery pack with protection",
-     "bus": "power",
-     "signals": "25.2 V"
-    },
-    {
-     "source": "Li-ion pack 6S 2600 mAh 25.2V",
+     "source": "21.6 V (6S) rechargeable Li-ion battery pack with protection",
      "target": "High-speed BLDC vacuum motor assembly",
      "bus": "power",
-     "signals": "25.2 V"
+     "signals": "21.6 V"
     },
     {
-     "source": "Li-ion pack 6S 2600 mAh 25.2V",
-     "target": "Pistol-grip trigger switch",
-     "bus": "power",
-     "signals": "25.2 V"
-    },
-    {
-     "source": "Li-ion pack 6S 2600 mAh 25.2V",
-     "target": "Suction BLDC motor 180W",
-     "bus": "power",
-     "signals": "25.2 V"
-    },
-    {
-     "source": "Li-ion pack 6S 2600 mAh 25.2V",
+     "source": "21.6 V (6S) rechargeable Li-ion battery pack with protection",
      "target": "BLDC motor driver",
      "bus": "power",
-     "signals": "25.2 V"
+     "signals": "21.6 V"
     },
     {
      "source": "Buck converter 3.3V",
@@ -1669,27 +1777,15 @@
     },
     {
      "source": "BLDC motor driver",
-     "target": "21.6 V (6S) rechargeable Li-ion battery pack with protection",
-     "bus": "power",
-     "signals": "Motor phases / OUT1, OUT2"
-    },
-    {
-     "source": "BLDC motor driver",
      "target": "High-speed BLDC vacuum motor assembly",
      "bus": "power",
      "signals": "Motor phases / OUT1, OUT2"
     },
     {
-     "source": "BLDC motor driver",
+     "source": "MCU 32-bit",
      "target": "Pistol-grip trigger switch",
-     "bus": "power",
-     "signals": "Motor phases / OUT1, OUT2"
-    },
-    {
-     "source": "BLDC motor driver",
-     "target": "Suction BLDC motor 180W",
-     "bus": "power",
-     "signals": "Motor phases / OUT1, OUT2"
+     "bus": "gpio",
+     "signals": "BTN (pull-up, wake)"
     },
     {
      "source": "MCU 32-bit",
@@ -1719,40 +1815,12 @@
    "power_budget": [
     {
      "block": "motor",
-     "part": "21.6 V (6S) rechargeable Li-ion battery pack with protection",
-     "active_current": {
-      "value": 7936.508,
-      "unit": "mA",
-      "label": "estimate",
-      "source_or_assumption": "1 × 180 W (category default) / 25.2 V / 90% driver"
-     },
-     "sleep_current": {
-      "value": 0.0,
-      "unit": "µA",
-      "label": "estimate",
-      "source_or_assumption": "Typical sleep/standby current"
-     },
-     "duty_cycle": {
-      "value": 100.0,
-      "unit": "pct",
-      "label": "estimate",
-      "source_or_assumption": "Category duty cycle for 'motor' (Cordless stick vacuum)"
-     },
-     "average_current": {
-      "value": 7936.5079,
-      "unit": "mA",
-      "label": "estimate",
-      "source_or_assumption": "active × duty + sleep × (1 − duty)"
-     }
-    },
-    {
-     "block": "motor",
      "part": "High-speed BLDC vacuum motor assembly",
      "active_current": {
-      "value": 7936.508,
+      "value": 8333.333,
       "unit": "mA",
       "label": "estimate",
-      "source_or_assumption": "1 × 180 W (category default) / 25.2 V / 90% driver"
+      "source_or_assumption": "1 × 180 W (category default) / 21.6 V pack (electrical input power)"
      },
      "sleep_current": {
       "value": 0.0,
@@ -1767,63 +1835,7 @@
       "source_or_assumption": "Category duty cycle for 'motor' (Cordless stick vacuum)"
      },
      "average_current": {
-      "value": 7936.5079,
-      "unit": "mA",
-      "label": "estimate",
-      "source_or_assumption": "active × duty + sleep × (1 − duty)"
-     }
-    },
-    {
-     "block": "motor",
-     "part": "Pistol-grip trigger switch",
-     "active_current": {
-      "value": 7936.508,
-      "unit": "mA",
-      "label": "estimate",
-      "source_or_assumption": "1 × 180 W (category default) / 25.2 V / 90% driver"
-     },
-     "sleep_current": {
-      "value": 0.0,
-      "unit": "µA",
-      "label": "estimate",
-      "source_or_assumption": "Typical sleep/standby current"
-     },
-     "duty_cycle": {
-      "value": 100.0,
-      "unit": "pct",
-      "label": "estimate",
-      "source_or_assumption": "Category duty cycle for 'motor' (Cordless stick vacuum)"
-     },
-     "average_current": {
-      "value": 7936.5079,
-      "unit": "mA",
-      "label": "estimate",
-      "source_or_assumption": "active × duty + sleep × (1 − duty)"
-     }
-    },
-    {
-     "block": "motor",
-     "part": "Suction BLDC motor 180W",
-     "active_current": {
-      "value": 7936.508,
-      "unit": "mA",
-      "label": "estimate",
-      "source_or_assumption": "1 × 180 W / 25.2 V / 90% driver"
-     },
-     "sleep_current": {
-      "value": 0.0,
-      "unit": "µA",
-      "label": "estimate",
-      "source_or_assumption": "Typical sleep/standby current"
-     },
-     "duty_cycle": {
-      "value": 100.0,
-      "unit": "pct",
-      "label": "estimate",
-      "source_or_assumption": "Category duty cycle for 'motor' (Cordless stick vacuum)"
-     },
-     "average_current": {
-      "value": 7936.5079,
+      "value": 8333.3333,
       "unit": "mA",
       "label": "estimate",
       "source_or_assumption": "active × duty + sleep × (1 − duty)"
@@ -1971,28 +1983,28 @@
     }
    ],
    "average_current": {
-    "value": 31754.0387,
+    "value": 8341.3403,
     "unit": "mA",
     "label": "estimate",
     "source_or_assumption": "Sum of the power-budget lines"
    },
    "battery_voltage": {
-    "value": 25.2,
+    "value": 21.6,
     "unit": "V",
     "label": "estimate",
-    "source_or_assumption": "Voltage from the BOM line 'Li-ion pack 6S 2600 mAh 25.2V'"
+    "source_or_assumption": "Voltage from the BOM line '21.6 V (6S) rechargeable Li-ion battery pack with protection' (6 cells in series)"
    },
    "battery_capacity": {
     "value": 2600.0,
     "unit": "mAh",
     "label": "estimate",
-    "source_or_assumption": "Capacity from the BOM line 'Li-ion pack 6S 2600 mAh 25.2V'"
+    "source_or_assumption": "Category default 2600 mAh (no capacity in the BOM) — confirm with the cell datasheet"
    },
    "battery_life": {
-    "value": 0.07,
+    "value": 0.26,
     "unit": "h",
     "label": "estimate",
-    "source_or_assumption": "2600 mAh × 85% usable / 3.175e+04 mA average"
+    "source_or_assumption": "2600 mAh × 85% usable / 8341 mA average"
    },
    "pcb_note": "PCB layout: next step (human or text-to-PCB)"
   },
@@ -2011,7 +2023,7 @@
     "src/sensors.cpp",
     "src/sensors.h"
    ],
-   "generated_by": "llm:openai/gpt-6-luna",
+   "generated_by": "template",
    "note": "Generated code — not compiled or tested",
    "pending_llm": false
   },
@@ -2037,16 +2049,16 @@
     {
      "item": "PCBA quick-turn (5 boards, 5 BOM lines)",
      "amount": {
-      "value": 104.0,
+      "value": 116.0,
       "unit": "USD",
       "label": "estimate",
-      "source_or_assumption": "5 boards: setup/stencil 25 + 2-layer fab 5 + parts 54.27 (LCSC price at 5× qty where matched, else BOM estimate × 3) + shipping 20 USD"
+      "source_or_assumption": "5 boards: setup/stencil 25 + 2-layer fab 5 + parts 66.17 (LCSC price at 5× qty where matched, else BOM estimate × 3) + shipping 20 USD"
      }
     },
     {
      "item": "Dev-kit bring-up set (firmware before the PCBA arrives)",
      "amount": {
-      "value": 47.0,
+      "value": 31.0,
       "unit": "USD",
       "label": "estimate",
       "source_or_assumption": "Sum of the dev-kit BOM lines"
@@ -2076,43 +2088,7 @@
      }
     },
     {
-     "part": "21.6 V (6S) rechargeable Li-ion battery pack with protection (module / breakout)",
-     "role": "motor",
-     "qty": 1,
-     "lcsc_pn": null,
-     "unit_price": {
-      "value": 8.0,
-      "unit": "USD",
-      "label": "estimate",
-      "source_or_assumption": "Typical hobby breakout/module price, not in the LCSC snapshot"
-     }
-    },
-    {
      "part": "High-speed BLDC vacuum motor assembly (module / breakout)",
-     "role": "motor",
-     "qty": 1,
-     "lcsc_pn": null,
-     "unit_price": {
-      "value": 8.0,
-      "unit": "USD",
-      "label": "estimate",
-      "source_or_assumption": "Typical hobby breakout/module price, not in the LCSC snapshot"
-     }
-    },
-    {
-     "part": "Pistol-grip trigger switch → ZX-QC-LT33703526 on a breakout",
-     "role": "motor",
-     "qty": 1,
-     "lcsc_pn": "C7419911",
-     "unit_price": {
-      "value": 0.02,
-      "unit": "USD",
-      "label": "sourced",
-      "source_or_assumption": "LCSC price, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C7419911.html (chip only; add ~8 USD breakout)"
-     }
-    },
-    {
-     "part": "Suction BLDC motor 180W (module / breakout)",
      "role": "motor",
      "qty": 1,
      "lcsc_pn": null,
@@ -2163,7 +2139,7 @@
     "source_or_assumption": "Design freeze 0.5 + PCBA quick-turn incl. shipping 2 + integration 1 + test 0.5 (enclosure and firmware on the dev kit run in parallel)"
    },
    "total_cost": {
-    "value": 427.0,
+    "value": 423.0,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Sum of the prototype cost lines"
@@ -2215,6 +2191,2755 @@
    ]
   },
   "unit_basis": "per_unit",
-  "installation_cost": null
- }
+  "installation_cost": null,
+  "assembly": {
+   "project_id": "demo_stick_vacuum",
+   "version": 2,
+   "label": "Measured on the version STEP (build123d / OCCT); mates inferred from the family / part roles",
+   "source": "/files/demo_stick_vacuum/model_v2.step",
+   "root": "floor_head",
+   "nodes": [
+    {
+     "part_id": "floor_head",
+     "name": "Floor head housing",
+     "role": "other",
+     "parent": null,
+     "joint_id": null,
+     "rigid_body": 0,
+     "volume": {
+      "value": 1516918.3,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "explode_distance_mm": 0.0
+    },
+    {
+     "part_id": "brush_roll",
+     "name": "Brush roll",
+     "role": "other",
+     "parent": "floor_head",
+     "joint_id": "j1",
+     "rigid_body": 1,
+     "volume": {
+      "value": 321422.6,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      0.0,
+      1.0
+     ],
+     "explode_distance_mm": 169.2
+    },
+    {
+     "part_id": "floor_head_window",
+     "name": "Floor head window",
+     "role": "window",
+     "parent": "floor_head",
+     "joint_id": "j2",
+     "rigid_body": 0,
+     "volume": {
+      "value": 48150.5,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "explode_distance_mm": 32.4
+    },
+    {
+     "part_id": "rear_wheels",
+     "name": "Rear wheels",
+     "role": "other",
+     "parent": "floor_head",
+     "joint_id": "j3",
+     "rigid_body": 2,
+     "volume": {
+      "value": 16964.6,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      0.0,
+      1.0
+     ],
+     "explode_distance_mm": 170.4
+    },
+    {
+     "part_id": "swivel_joint",
+     "name": "Swivel joint",
+     "role": "frame",
+     "parent": "swivel_neck",
+     "joint_id": "j6",
+     "rigid_body": 0,
+     "volume": {
+      "value": 73622.2,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "explode_distance_mm": 65.3
+    },
+    {
+     "part_id": "swivel_neck",
+     "name": "Swivel neck",
+     "role": "frame",
+     "parent": "floor_head",
+     "joint_id": "j4",
+     "rigid_body": 0,
+     "volume": {
+      "value": 32672.6,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "explode_distance_mm": 24.6
+    },
+    {
+     "part_id": "wand",
+     "name": "Aluminium wand",
+     "role": "frame",
+     "parent": "swivel_joint",
+     "joint_id": "j9",
+     "rigid_body": 0,
+     "volume": {
+      "value": 979875.3,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "explode_distance_mm": 593.7
+    },
+    {
+     "part_id": "release_collar",
+     "name": "Wand release collar",
+     "role": "other",
+     "parent": "wand",
+     "joint_id": "j12",
+     "rigid_body": 0,
+     "volume": {
+      "value": 90477.9,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "explode_distance_mm": 635.1
+    },
+    {
+     "part_id": "wand_release",
+     "name": "Wand release button",
+     "role": "button",
+     "parent": "wand",
+     "joint_id": "j13",
+     "rigid_body": 3,
+     "volume": {
+      "value": 3060.0,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      -0.0595,
+      0.9982,
+      0.0
+     ],
+     "explode_distance_mm": 594.8
+    },
+    {
+     "part_id": "dust_bin",
+     "name": "Clear dust bin",
+     "role": "window",
+     "parent": "release_collar",
+     "joint_id": "j16",
+     "rigid_body": 0,
+     "volume": {
+      "value": 1246282.4,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "explode_distance_mm": 723.2
+    },
+    {
+     "part_id": "filter",
+     "name": "Washable filter",
+     "role": "other",
+     "parent": "dust_bin",
+     "joint_id": "j19",
+     "rigid_body": 0,
+     "volume": {
+      "value": 90338.1,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "explode_distance_mm": 812.9
+    },
+    {
+     "part_id": "bin_base",
+     "name": "Bin base ring",
+     "role": "other",
+     "parent": "dust_bin",
+     "joint_id": "j20",
+     "rigid_body": 0,
+     "volume": {
+      "value": 158524.8,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "explode_distance_mm": 696.9
+    },
+    {
+     "part_id": "bin_release",
+     "name": "Bin release catch",
+     "role": "button",
+     "parent": "bin_base",
+     "joint_id": "j26",
+     "rigid_body": 5,
+     "volume": {
+      "value": 7200.0,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "explode_distance_mm": 741.9
+    },
+    {
+     "part_id": "bin_seal",
+     "name": "Bin seal",
+     "role": "other",
+     "parent": "dust_bin",
+     "joint_id": "j21",
+     "rigid_body": 0,
+     "volume": {
+      "value": 102070.3,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "explode_distance_mm": 759.2
+    },
+    {
+     "part_id": "cyclone_shroud",
+     "name": "Cyclone shroud",
+     "role": "other",
+     "parent": "motor_housing_lower",
+     "joint_id": "j28",
+     "rigid_body": 0,
+     "volume": {
+      "value": 523171.8,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0637,
+      0.998,
+      0.0
+     ],
+     "explode_distance_mm": 639.0
+    },
+    {
+     "part_id": "cyclones",
+     "name": "Cyclone cones",
+     "role": "other",
+     "parent": "cyclone_shroud",
+     "joint_id": "j29",
+     "rigid_body": 0,
+     "volume": {
+      "value": 32240.3,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0592,
+      0.9982,
+      0.0
+     ],
+     "explode_distance_mm": 688.1
+    },
+    {
+     "part_id": "cyclone_core",
+     "name": "Cyclone core",
+     "role": "other",
+     "parent": "cyclone_shroud",
+     "joint_id": "j30",
+     "rigid_body": 0,
+     "volume": {
+      "value": 45861.2,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0596,
+      0.9982,
+      0.0
+     ],
+     "explode_distance_mm": 683.0
+    },
+    {
+     "part_id": "exhaust_cap",
+     "name": "Exhaust cap",
+     "role": "other",
+     "parent": "cyclone_core",
+     "joint_id": "j31",
+     "rigid_body": 0,
+     "volume": {
+      "value": 9975.2,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0569,
+      0.9984,
+      0.0
+     ],
+     "explode_distance_mm": 715.9
+    },
+    {
+     "part_id": "motor_vent",
+     "name": "Motor vent",
+     "role": "other",
+     "parent": "motor_housing_upper",
+     "joint_id": "j10",
+     "rigid_body": 0,
+     "volume": {
+      "value": 14862.6,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "explode_distance_mm": 745.3
+    },
+    {
+     "part_id": "motor_cap",
+     "name": "Motor cap",
+     "role": "other",
+     "parent": "motor_vent",
+     "joint_id": "j14",
+     "rigid_body": 0,
+     "volume": {
+      "value": 2258.5,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "explode_distance_mm": 777.1
+    },
+    {
+     "part_id": "pistol_grip",
+     "name": "Pistol grip",
+     "role": "other",
+     "parent": "grip_bridge",
+     "joint_id": "j15",
+     "rigid_body": 0,
+     "volume": {
+      "value": 142184.5,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      -0.0586,
+      0.9983,
+      0.0
+     ],
+     "explode_distance_mm": 616.6
+    },
+    {
+     "part_id": "grip_bridge",
+     "name": "Grip bridge",
+     "role": "frame",
+     "parent": "motor_housing_upper",
+     "joint_id": "j11",
+     "rigid_body": 0,
+     "volume": {
+      "value": 31416.3,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      -0.0501,
+      0.9987,
+      0.0
+     ],
+     "explode_distance_mm": 721.4
+    },
+    {
+     "part_id": "trigger",
+     "name": "Trigger",
+     "role": "button",
+     "parent": "pistol_grip",
+     "joint_id": "j17",
+     "rigid_body": 4,
+     "volume": {
+      "value": 8960.0,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0145,
+      0.9999,
+      0.0
+     ],
+     "explode_distance_mm": 615.6
+    },
+    {
+     "part_id": "battery_pack",
+     "name": "Battery pack",
+     "role": "battery",
+     "parent": "pistol_grip",
+     "joint_id": "j18",
+     "rigid_body": 0,
+     "volume": {
+      "value": 367923.2,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      -0.0633,
+      0.998,
+      0.0
+     ],
+     "explode_distance_mm": 570.7
+    },
+    {
+     "part_id": "battery_base",
+     "name": "Battery base plate",
+     "role": "other",
+     "parent": "battery_pack",
+     "joint_id": "j22",
+     "rigid_body": 0,
+     "volume": {
+      "value": 16928.0,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      -0.0671,
+      0.9977,
+      0.0
+     ],
+     "explode_distance_mm": 538.4
+    },
+    {
+     "part_id": "battery_strut",
+     "name": "Battery strut",
+     "role": "frame",
+     "parent": "battery_pack",
+     "joint_id": "j23",
+     "rigid_body": 0,
+     "volume": {
+      "value": 26949.6,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0568,
+      0.9984,
+      0.0
+     ],
+     "explode_distance_mm": 570.5
+    },
+    {
+     "part_id": "charge_light",
+     "name": "Charge indicator",
+     "role": "diffuser",
+     "parent": "battery_pack",
+     "joint_id": "j24",
+     "rigid_body": 0,
+     "volume": {
+      "value": 420.0,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      -0.0632,
+      0.9965,
+      0.0556
+     ],
+     "explode_distance_mm": 571.6
+    },
+    {
+     "part_id": "motor_housing_lower",
+     "name": "Motor housing (lower)",
+     "role": "shell_bottom",
+     "parent": "battery_pack",
+     "joint_id": "j25",
+     "rigid_body": 0,
+     "volume": {
+      "value": 368557.0,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      -0.0565,
+      0.9984,
+      0.0
+     ],
+     "explode_distance_mm": 638.8
+    },
+    {
+     "part_id": "motor_housing_upper",
+     "name": "Motor housing (upper)",
+     "role": "shell_top",
+     "parent": "screw_bosses",
+     "joint_id": "j7",
+     "rigid_body": 0,
+     "volume": {
+      "value": 300898.8,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "explode_distance_mm": 720.5
+    },
+    {
+     "part_id": "pt_3_x_8_thread_forming_screws_x7",
+     "name": "PT 3 × 8 thread-forming screws ×7",
+     "role": "fastener",
+     "parent": "screw_bosses",
+     "joint_id": "j8",
+     "rigid_body": 0,
+     "volume": {
+      "value": 761.3,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      -0.1785,
+      0.9839,
+      0.0
+     ],
+     "explode_distance_mm": 678.9
+    },
+    {
+     "part_id": "screw_bosses",
+     "name": "Screw bosses",
+     "role": "other",
+     "parent": "floor_head",
+     "joint_id": "j5",
+     "rigid_body": 0,
+     "volume": {
+      "value": 2966.9,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "explode_distance_mm": 667.9
+    },
+    {
+     "part_id": "bin_latch_snap_fit",
+     "name": "Bin latch (snap-fit)",
+     "role": "other",
+     "parent": "bin_base",
+     "joint_id": "j27",
+     "rigid_body": 0,
+     "volume": {
+      "value": 218.1,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0461,
+      0.9989,
+      0.0
+     ],
+     "explode_distance_mm": 697.6
+    }
+   ],
+   "joints": [
+    {
+     "id": "j1",
+     "parent": "floor_head",
+     "child": "brush_roll",
+     "kind": "revolute",
+     "method": "bearing",
+     "dof": 1,
+     "origin_mm": [
+      25.3,
+      23.0,
+      0.0
+     ],
+     "axis": [
+      -0.0,
+      -0.0,
+      1.0
+     ],
+     "range": [
+      0.0,
+      360.0
+     ],
+     "fasteners": [],
+     "rule": "Wheel / roller on an axle: revolute about its symmetry axis (rolling part rule)"
+    },
+    {
+     "id": "j2",
+     "parent": "floor_head",
+     "child": "floor_head_window",
+     "kind": "rigid",
+     "method": "inlay",
+     "dof": 0,
+     "origin_mm": [
+      9.2,
+      56.5,
+      0.0
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Floor head window set into Floor head housing: inlay (insert rule; the host is pocketed around it at detail design)"
+    },
+    {
+     "id": "j3",
+     "parent": "floor_head",
+     "child": "rear_wheels",
+     "kind": "revolute",
+     "method": "bearing",
+     "dof": 1,
+     "origin_mm": [
+      -40.25,
+      17.0,
+      0.0
+     ],
+     "axis": [
+      -0.0,
+      -0.0,
+      1.0
+     ],
+     "range": [
+      0.0,
+      360.0
+     ],
+     "fasteners": [],
+     "rule": "Wheel / roller on an axle: revolute about its symmetry axis (rolling part rule)"
+    },
+    {
+     "id": "j4",
+     "parent": "floor_head",
+     "child": "swivel_neck",
+     "kind": "rigid",
+     "method": "screwed",
+     "dof": 0,
+     "origin_mm": [
+      -23.0,
+      54.0,
+      0.0
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [
+      {
+       "kind": "screw",
+       "standard": "ISO 14583 (hexalobular pan head), A2 stainless",
+       "designation": "M2×8",
+       "size": "M2",
+       "length_mm": 8.0,
+       "qty": 2,
+       "source": "api.cad.stdparts"
+      },
+      {
+       "kind": "insert",
+       "standard": "Heat-set brass insert (McMaster-Carr 94459A120)",
+       "designation": "M2×4",
+       "size": "M2",
+       "length_mm": 4.0,
+       "qty": 2,
+       "source": "api.cad.stdparts"
+      }
+     ],
+     "rule": "Structural part ≥ 20 mm: 2 screws into heat-set inserts (structural-joint rule)"
+    },
+    {
+     "id": "j5",
+     "parent": "floor_head",
+     "child": "screw_bosses",
+     "kind": "rigid",
+     "method": "screwed",
+     "dof": 0,
+     "origin_mm": [
+      0.0,
+      20.7,
+      0.0
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Structural part ≥ 20 mm: 4 screws into heat-set inserts (structural-joint rule) — held by the modelled hardware (Motor housing (upper), PT 3 × 8 thread-forming screws ×7)"
+    },
+    {
+     "id": "j6",
+     "parent": "swivel_neck",
+     "child": "swivel_joint",
+     "kind": "rigid",
+     "method": "screwed",
+     "dof": 0,
+     "origin_mm": [
+      -23.0,
+      63.0,
+      0.0
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [
+      {
+       "kind": "screw",
+       "standard": "ISO 14583 (hexalobular pan head), A2 stainless",
+       "designation": "M2×8",
+       "size": "M2",
+       "length_mm": 8.0,
+       "qty": 2,
+       "source": "api.cad.stdparts"
+      }
+     ],
+     "rule": "Structural part ≥ 20 mm: 2 screws into tapped metal (structural-joint rule)"
+    },
+    {
+     "id": "j7",
+     "parent": "screw_bosses",
+     "child": "motor_housing_upper",
+     "kind": "rigid",
+     "method": "screwed",
+     "dof": 0,
+     "origin_mm": [
+      -98.04,
+      1104.32,
+      0.0
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Structural part ≥ 20 mm: 2 screws into heat-set inserts (structural-joint rule) — held by the modelled hardware (PT 3 × 8 thread-forming screws ×7)"
+    },
+    {
+     "id": "j8",
+     "parent": "screw_bosses",
+     "child": "pt_3_x_8_thread_forming_screws_x7",
+     "kind": "rigid",
+     "method": "press_fit",
+     "dof": 0,
+     "origin_mm": [
+      -34.75,
+      556.01,
+      0.0
+     ],
+     "axis": [
+      -1.0,
+      -0.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "PT 3 × 8 thread-forming screws ×7 set into Screw bosses: press-fit (insert rule; the host is pocketed around it at detail design)"
+    },
+    {
+     "id": "j9",
+     "parent": "swivel_joint",
+     "child": "wand",
+     "kind": "rigid",
+     "method": "screwed",
+     "dof": 0,
+     "origin_mm": [
+      -23.0,
+      89.0,
+      0.0
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [
+      {
+       "kind": "screw",
+       "standard": "ISO 14583 (hexalobular pan head), A2 stainless",
+       "designation": "M4×14",
+       "size": "M4",
+       "length_mm": 14.0,
+       "qty": 4,
+       "source": "api.cad.stdparts"
+      }
+     ],
+     "rule": "Structural part ≥ 20 mm: 4 screws into tapped metal (structural-joint rule)"
+    },
+    {
+     "id": "j10",
+     "parent": "motor_housing_upper",
+     "child": "motor_vent",
+     "kind": "rigid",
+     "method": "screwed",
+     "dof": 0,
+     "origin_mm": [
+      -74.0,
+      1170.6,
+      0.0
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [
+      {
+       "kind": "screw",
+       "standard": "ISO 14583 (hexalobular pan head), A2 stainless",
+       "designation": "M2×8",
+       "size": "M2",
+       "length_mm": 8.0,
+       "qty": 2,
+       "source": "api.cad.stdparts"
+      },
+      {
+       "kind": "insert",
+       "standard": "Heat-set brass insert (McMaster-Carr 94459A120)",
+       "designation": "M2×4",
+       "size": "M2",
+       "length_mm": 4.0,
+       "qty": 2,
+       "source": "api.cad.stdparts"
+      }
+     ],
+     "rule": "Structural part ≥ 20 mm: 2 screws into heat-set inserts (structural-joint rule)"
+    },
+    {
+     "id": "j11",
+     "parent": "motor_housing_upper",
+     "child": "grip_bridge",
+     "kind": "rigid",
+     "method": "screwed",
+     "dof": 0,
+     "origin_mm": [
+      -95.26,
+      1154.44,
+      0.0
+     ],
+     "axis": [
+      -1.0,
+      -0.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [
+      {
+       "kind": "screw",
+       "standard": "ISO 14583 (hexalobular pan head), A2 stainless",
+       "designation": "M2×8",
+       "size": "M2",
+       "length_mm": 8.0,
+       "qty": 2,
+       "source": "api.cad.stdparts"
+      },
+      {
+       "kind": "insert",
+       "standard": "Heat-set brass insert (McMaster-Carr 94459A120)",
+       "designation": "M2×4",
+       "size": "M2",
+       "length_mm": 4.0,
+       "qty": 2,
+       "source": "api.cad.stdparts"
+      }
+     ],
+     "rule": "Structural part ≥ 20 mm: 2 screws into heat-set inserts (structural-joint rule)"
+    },
+    {
+     "id": "j12",
+     "parent": "wand",
+     "child": "release_collar",
+     "kind": "rigid",
+     "method": "screwed",
+     "dof": 0,
+     "origin_mm": [
+      -23.0,
+      920.0,
+      0.0
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [
+      {
+       "kind": "screw",
+       "standard": "ISO 14583 (hexalobular pan head), A2 stainless",
+       "designation": "M2×8",
+       "size": "M2",
+       "length_mm": 8.0,
+       "qty": 2,
+       "source": "api.cad.stdparts"
+      }
+     ],
+     "rule": "Structural part ≥ 20 mm: 2 screws into tapped metal (structural-joint rule)"
+    },
+    {
+     "id": "j13",
+     "parent": "wand",
+     "child": "wand_release",
+     "kind": "linear",
+     "method": "slide",
+     "dof": 1,
+     "origin_mm": [
+      -38.75,
+      933.25,
+      -0.0
+     ],
+     "axis": [
+      -1.0,
+      -0.0,
+      0.0
+     ],
+     "range": [
+      0.0,
+      0.5
+     ],
+     "fasteners": [],
+     "rule": "Push button / trigger: linear travel 0.5 mm into its housing (tactile switch travel)"
+    },
+    {
+     "id": "j14",
+     "parent": "motor_vent",
+     "child": "motor_cap",
+     "kind": "rigid",
+     "method": "screwed",
+     "dof": 0,
+     "origin_mm": [
+      -74.0,
+      1173.85,
+      0.0
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [
+      {
+       "kind": "screw",
+       "standard": "ISO 14583 (hexalobular pan head), A2 stainless",
+       "designation": "M2×6",
+       "size": "M2",
+       "length_mm": 6.0,
+       "qty": 2,
+       "source": "api.cad.stdparts"
+      }
+     ],
+     "rule": "Structural part ≥ 20 mm: 2 screws into tapped metal (structural-joint rule)"
+    },
+    {
+     "id": "j15",
+     "parent": "grip_bridge",
+     "child": "pistol_grip",
+     "kind": "rigid",
+     "method": "screwed",
+     "dof": 0,
+     "origin_mm": [
+      -117.46,
+      1145.61,
+      0.0
+     ],
+     "axis": [
+      -0.0,
+      -1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Structural part ≥ 20 mm: 4 screws into heat-set inserts (structural-joint rule) — held by the modelled hardware (Motor housing (upper), PT 3 × 8 thread-forming screws ×7, Screw bosses)"
+    },
+    {
+     "id": "j16",
+     "parent": "release_collar",
+     "child": "dust_bin",
+     "kind": "rigid",
+     "method": "inlay",
+     "dof": 0,
+     "origin_mm": [
+      1.0,
+      950.0,
+      0.0
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Clear dust bin set into Wand release collar: inlay (insert rule; the host is pocketed around it at detail design)"
+    },
+    {
+     "id": "j17",
+     "parent": "pistol_grip",
+     "child": "trigger",
+     "kind": "linear",
+     "method": "slide",
+     "dof": 1,
+     "origin_mm": [
+      -141.9,
+      1085.6,
+      0.0
+     ],
+     "axis": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "range": [
+      0.0,
+      0.5
+     ],
+     "fasteners": [],
+     "rule": "Push button / trigger: linear travel 0.5 mm into its housing (tactile switch travel)"
+    },
+    {
+     "id": "j18",
+     "parent": "pistol_grip",
+     "child": "battery_pack",
+     "kind": "rigid",
+     "method": "latch",
+     "dof": 0,
+     "origin_mm": [
+      -166.87,
+      1010.66,
+      0.0
+     ],
+     "axis": [
+      -0.0,
+      -1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Battery pack held by a latch (removable pack rule)"
+    },
+    {
+     "id": "j19",
+     "parent": "dust_bin",
+     "child": "filter",
+     "kind": "rigid",
+     "method": "bonded",
+     "dof": 0,
+     "origin_mm": [
+      10.0,
+      1016.75,
+      0.0
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Soft part (rubber / fabric): bonded or press-fitted (seal / pad / foot rule)"
+    },
+    {
+     "id": "j20",
+     "parent": "dust_bin",
+     "child": "bin_base",
+     "kind": "rigid",
+     "method": "snap_fit",
+     "dof": 0,
+     "origin_mm": [
+      10.0,
+      951.75,
+      0.0
+     ],
+     "axis": [
+      -0.0,
+      -1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Small moulded part: snap-fit / press-fit (small-part rule)"
+    },
+    {
+     "id": "j21",
+     "parent": "dust_bin",
+     "child": "bin_seal",
+     "kind": "rigid",
+     "method": "bonded",
+     "dof": 0,
+     "origin_mm": [
+      10.0,
+      1072.5,
+      0.0
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Soft part (rubber / fabric): bonded or press-fitted (seal / pad / foot rule)"
+    },
+    {
+     "id": "j22",
+     "parent": "battery_pack",
+     "child": "battery_base",
+     "kind": "rigid",
+     "method": "screwed",
+     "dof": 0,
+     "origin_mm": [
+      -140.6,
+      963.6,
+      0.0
+     ],
+     "axis": [
+      -0.0,
+      -1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [
+      {
+       "kind": "screw",
+       "standard": "ISO 14583 (hexalobular pan head), A2 stainless",
+       "designation": "M2.5×8",
+       "size": "M2.5",
+       "length_mm": 8.0,
+       "qty": 2,
+       "source": "api.cad.stdparts"
+      },
+      {
+       "kind": "insert",
+       "standard": "Heat-set brass insert (catalogue class)",
+       "designation": "M2.5×4",
+       "size": "M2.5",
+       "length_mm": 4.0,
+       "qty": 2,
+       "source": "api.cad.stdparts"
+      }
+     ],
+     "rule": "Structural part ≥ 20 mm: 2 screws into heat-set inserts (structural-joint rule)"
+    },
+    {
+     "id": "j23",
+     "parent": "battery_pack",
+     "child": "battery_strut",
+     "kind": "rigid",
+     "method": "screwed",
+     "dof": 0,
+     "origin_mm": [
+      -100.5,
+      999.5,
+      0.0
+     ],
+     "axis": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Structural part ≥ 20 mm: 2 screws into heat-set inserts (structural-joint rule) — held by the modelled hardware (Motor housing (lower))"
+    },
+    {
+     "id": "j24",
+     "parent": "battery_pack",
+     "child": "charge_light",
+     "kind": "rigid",
+     "method": "inlay",
+     "dof": 0,
+     "origin_mm": [
+      -104.6,
+      1010.1,
+      28.25
+     ],
+     "axis": [
+      -0.0,
+      -0.0,
+      1.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Charge indicator set into Battery pack: inlay (insert rule; the host is pocketed around it at detail design)"
+    },
+    {
+     "id": "j25",
+     "parent": "battery_pack",
+     "child": "motor_housing_lower",
+     "kind": "rigid",
+     "method": "screwed",
+     "dof": 0,
+     "origin_mm": [
+      -97.8,
+      1015.01,
+      0.0
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [
+      {
+       "kind": "screw",
+       "standard": "ISO 14583 (hexalobular pan head), A2 stainless",
+       "designation": "M2.5×10",
+       "size": "M2.5",
+       "length_mm": 10.0,
+       "qty": 2,
+       "source": "api.cad.stdparts"
+      },
+      {
+       "kind": "insert",
+       "standard": "Heat-set brass insert (catalogue class)",
+       "designation": "M2.5×4",
+       "size": "M2.5",
+       "length_mm": 4.0,
+       "qty": 2,
+       "source": "api.cad.stdparts"
+      }
+     ],
+     "rule": "Structural part ≥ 20 mm: 2 screws into heat-set inserts (structural-joint rule)"
+    },
+    {
+     "id": "j26",
+     "parent": "bin_base",
+     "child": "bin_release",
+     "kind": "linear",
+     "method": "slide",
+     "dof": 1,
+     "origin_mm": [
+      62.5,
+      949.5,
+      0.0
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": [
+      0.0,
+      0.5
+     ],
+     "fasteners": [],
+     "rule": "Push button / trigger: linear travel 0.5 mm into its housing (tactile switch travel)"
+    },
+    {
+     "id": "j27",
+     "parent": "bin_base",
+     "child": "bin_latch_snap_fit",
+     "kind": "rigid",
+     "method": "snap_fit",
+     "dof": 0,
+     "origin_mm": [
+      66.82,
+      945.25,
+      0.0
+     ],
+     "axis": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Small moulded part: snap-fit / press-fit (small-part rule)"
+    },
+    {
+     "id": "j28",
+     "parent": "motor_housing_lower",
+     "child": "cyclone_shroud",
+     "kind": "rigid",
+     "method": "screwed",
+     "dof": 0,
+     "origin_mm": [
+      -39.76,
+      1087.34,
+      0.0
+     ],
+     "axis": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [
+      {
+       "kind": "screw",
+       "standard": "ISO 14583 (hexalobular pan head), A2 stainless",
+       "designation": "M2.5×10",
+       "size": "M2.5",
+       "length_mm": 10.0,
+       "qty": 2,
+       "source": "api.cad.stdparts"
+      }
+     ],
+     "rule": "Structural part ≥ 20 mm: 2 screws into tapped metal (structural-joint rule)"
+    },
+    {
+     "id": "j29",
+     "parent": "cyclone_shroud",
+     "child": "cyclones",
+     "kind": "rigid",
+     "method": "screwed",
+     "dof": 0,
+     "origin_mm": [
+      52.22,
+      1145.5,
+      0.0
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [
+      {
+       "kind": "screw",
+       "standard": "ISO 14583 (hexalobular pan head), A2 stainless",
+       "designation": "M2.5×10",
+       "size": "M2.5",
+       "length_mm": 10.0,
+       "qty": 2,
+       "source": "api.cad.stdparts"
+      }
+     ],
+     "rule": "Structural part ≥ 20 mm: 2 screws into tapped metal (structural-joint rule)"
+    },
+    {
+     "id": "j30",
+     "parent": "cyclone_shroud",
+     "child": "cyclone_core",
+     "kind": "rigid",
+     "method": "screwed",
+     "dof": 0,
+     "origin_mm": [
+      10.0,
+      1143.5,
+      0.0
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [
+      {
+       "kind": "screw",
+       "standard": "ISO 14583 (hexalobular pan head), A2 stainless",
+       "designation": "M2×8",
+       "size": "M2",
+       "length_mm": 8.0,
+       "qty": 2,
+       "source": "api.cad.stdparts"
+      }
+     ],
+     "rule": "Structural part ≥ 20 mm: 2 screws into tapped metal (structural-joint rule)"
+    },
+    {
+     "id": "j31",
+     "parent": "cyclone_core",
+     "child": "exhaust_cap",
+     "kind": "rigid",
+     "method": "screwed",
+     "dof": 0,
+     "origin_mm": [
+      10.0,
+      1178.25,
+      0.0
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [
+      {
+       "kind": "screw",
+       "standard": "ISO 14583 (hexalobular pan head), A2 stainless",
+       "designation": "M2×8",
+       "size": "M2",
+       "length_mm": 8.0,
+       "qty": 2,
+       "source": "api.cad.stdparts"
+      },
+      {
+       "kind": "insert",
+       "standard": "Heat-set brass insert (McMaster-Carr 94459A120)",
+       "designation": "M2×4",
+       "size": "M2",
+       "length_mm": 4.0,
+       "qty": 2,
+       "source": "api.cad.stdparts"
+      }
+     ],
+     "rule": "Structural part ≥ 20 mm: 2 screws into heat-set inserts (structural-joint rule)"
+    }
+   ],
+   "interferences": [
+    {
+     "a": "release_collar",
+     "b": "bin_base",
+     "volume": {
+      "value": 20809.91,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "bin_seal",
+     "b": "cyclone_shroud",
+     "volume": {
+      "value": 16632.29,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "dust_bin",
+     "b": "motor_housing_lower",
+     "volume": {
+      "value": 13223.8,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "battery_strut",
+     "b": "motor_housing_lower",
+     "volume": {
+      "value": 11291.78,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "floor_head",
+     "b": "swivel_joint",
+     "volume": {
+      "value": 4691.45,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "bin_seal",
+     "b": "motor_housing_lower",
+     "volume": {
+      "value": 2348.26,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "floor_head_window",
+     "b": "swivel_neck",
+     "volume": {
+      "value": 2237.62,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "floor_head_window",
+     "b": "swivel_joint",
+     "volume": {
+      "value": 1727.42,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "wand",
+     "b": "bin_base",
+     "volume": {
+      "value": 1701.17,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "motor_vent",
+     "b": "grip_bridge",
+     "volume": {
+      "value": 277.74,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "cyclone_shroud",
+     "b": "motor_housing_upper",
+     "volume": {
+      "value": 272.04,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "floor_head",
+     "b": "pt_3_x_8_thread_forming_screws_x7",
+     "volume": {
+      "value": 220.43,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "motor_housing_upper",
+     "b": "pt_3_x_8_thread_forming_screws_x7",
+     "volume": {
+      "value": 165.16,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "charge_light",
+     "b": "motor_housing_lower",
+     "volume": {
+      "value": 3.88,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "pistol_grip",
+     "b": "motor_housing_upper",
+     "volume": {
+      "value": 3.64,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "floor_head",
+     "b": "brush_roll",
+     "volume": {
+      "value": 315834.16,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint bearing: concept overlap at the mate"
+    },
+    {
+     "a": "dust_bin",
+     "b": "filter",
+     "volume": {
+      "value": 90338.07,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint bonded: concept overlap at the mate"
+    },
+    {
+     "a": "dust_bin",
+     "b": "bin_seal",
+     "volume": {
+      "value": 78816.28,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint bonded: concept overlap at the mate"
+    },
+    {
+     "a": "wand",
+     "b": "release_collar",
+     "volume": {
+      "value": 45364.6,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint screwed: concept overlap at the mate"
+    },
+    {
+     "a": "floor_head",
+     "b": "floor_head_window",
+     "volume": {
+      "value": 36112.88,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint inlay: concept overlap at the mate"
+    },
+    {
+     "a": "dust_bin",
+     "b": "bin_base",
+     "volume": {
+      "value": 34482.12,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint snap-fit: concept overlap at the mate"
+    },
+    {
+     "a": "swivel_joint",
+     "b": "swivel_neck",
+     "volume": {
+      "value": 27207.75,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint screwed: concept overlap at the mate"
+    },
+    {
+     "a": "swivel_joint",
+     "b": "wand",
+     "volume": {
+      "value": 25101.96,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint screwed: concept overlap at the mate"
+    },
+    {
+     "a": "grip_bridge",
+     "b": "motor_housing_upper",
+     "volume": {
+      "value": 19801.96,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint screwed: concept overlap at the mate"
+    },
+    {
+     "a": "pistol_grip",
+     "b": "battery_pack",
+     "volume": {
+      "value": 18957.93,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint latch: concept overlap at the mate"
+    },
+    {
+     "a": "floor_head",
+     "b": "rear_wheels",
+     "volume": {
+      "value": 16458.84,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint bearing: concept overlap at the mate"
+    },
+    {
+     "a": "battery_pack",
+     "b": "motor_housing_lower",
+     "volume": {
+      "value": 16079.7,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint screwed: concept overlap at the mate"
+    },
+    {
+     "a": "motor_vent",
+     "b": "motor_housing_upper",
+     "volume": {
+      "value": 12385.51,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint screwed: concept overlap at the mate"
+    },
+    {
+     "a": "battery_pack",
+     "b": "battery_strut",
+     "volume": {
+      "value": 12336.2,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint screwed: concept overlap at the mate"
+    },
+    {
+     "a": "floor_head",
+     "b": "swivel_neck",
+     "volume": {
+      "value": 10053.1,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint screwed: concept overlap at the mate"
+    },
+    {
+     "a": "pistol_grip",
+     "b": "trigger",
+     "volume": {
+      "value": 8410.62,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint slide: concept overlap at the mate"
+    },
+    {
+     "a": "cyclone_shroud",
+     "b": "cyclone_core",
+     "volume": {
+      "value": 4827.5,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint screwed: concept overlap at the mate"
+    },
+    {
+     "a": "dust_bin",
+     "b": "bin_release",
+     "volume": {
+      "value": 4215.67,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Pocket / well of Bin release catch through Clear dust bin (same rigid body as its joint parent)"
+    },
+    {
+     "a": "battery_pack",
+     "b": "battery_base",
+     "volume": {
+      "value": 4138.4,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint screwed: concept overlap at the mate"
+    },
+    {
+     "a": "pistol_grip",
+     "b": "grip_bridge",
+     "volume": {
+      "value": 3752.99,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint screwed: concept overlap at the mate"
+    },
+    {
+     "a": "release_collar",
+     "b": "wand_release",
+     "volume": {
+      "value": 3060.0,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Pocket / well of Wand release button through Wand release collar (same rigid body as its joint parent)"
+    },
+    {
+     "a": "cyclone_core",
+     "b": "exhaust_cap",
+     "volume": {
+      "value": 3017.19,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint screwed: concept overlap at the mate"
+    },
+    {
+     "a": "floor_head",
+     "b": "screw_bosses",
+     "volume": {
+      "value": 2423.05,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint screwed: concept overlap at the mate"
+    },
+    {
+     "a": "bin_base",
+     "b": "bin_release",
+     "volume": {
+      "value": 2032.03,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint slide: concept overlap at the mate"
+    },
+    {
+     "a": "wand",
+     "b": "wand_release",
+     "volume": {
+      "value": 1507.19,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint slide: concept overlap at the mate"
+    },
+    {
+     "a": "brush_roll",
+     "b": "screw_bosses",
+     "volume": {
+      "value": 1205.44,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Pocket / well of Brush roll through Screw bosses (same rigid body as its joint parent)"
+    },
+    {
+     "a": "wand_release",
+     "b": "bin_base",
+     "volume": {
+      "value": 900.0,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Pocket / well of Wand release button through Bin base ring (same rigid body as its joint parent)"
+    },
+    {
+     "a": "cyclone_shroud",
+     "b": "motor_housing_lower",
+     "volume": {
+      "value": 864.62,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint screwed: concept overlap at the mate"
+    },
+    {
+     "a": "motor_housing_upper",
+     "b": "screw_bosses",
+     "volume": {
+      "value": 543.87,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint screwed: concept overlap at the mate"
+    },
+    {
+     "a": "rear_wheels",
+     "b": "screw_bosses",
+     "volume": {
+      "value": 520.1,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Pocket / well of Rear wheels through Screw bosses (same rigid body as its joint parent)"
+    },
+    {
+     "a": "motor_vent",
+     "b": "motor_cap",
+     "volume": {
+      "value": 376.41,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint screwed: concept overlap at the mate"
+    },
+    {
+     "a": "battery_pack",
+     "b": "charge_light",
+     "volume": {
+      "value": 210.0,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint inlay: concept overlap at the mate"
+    },
+    {
+     "a": "bin_release",
+     "b": "bin_latch_snap_fit",
+     "volume": {
+      "value": 106.48,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Pocket / well of Bin release catch through Bin latch (snap-fit) (same rigid body as its joint parent)"
+    },
+    {
+     "a": "pt_3_x_8_thread_forming_screws_x7",
+     "b": "screw_bosses",
+     "volume": {
+      "value": 100.68,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint press-fit: concept overlap at the mate"
+    },
+    {
+     "a": "brush_roll",
+     "b": "pt_3_x_8_thread_forming_screws_x7",
+     "volume": {
+      "value": 90.24,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Pocket / well of Brush roll through PT 3 × 8 thread-forming screws ×7 (same rigid body as its joint parent)"
+    },
+    {
+     "a": "rear_wheels",
+     "b": "pt_3_x_8_thread_forming_screws_x7",
+     "volume": {
+      "value": 90.06,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Pocket / well of Rear wheels through PT 3 × 8 thread-forming screws ×7 (same rigid body as its joint parent)"
+    },
+    {
+     "a": "bin_base",
+     "b": "bin_latch_snap_fit",
+     "volume": {
+      "value": 66.31,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint snap-fit: concept overlap at the mate"
+    }
+   ],
+   "clearances": [
+    {
+     "part_id": "brush_roll",
+     "against": "—",
+     "min_clearance": {
+      "value": 12.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "BRepExtrema distance: nothing within 12 mm (lower bound)"
+     },
+     "motion": "static",
+     "verdict": "pass",
+     "rule": "Rolling / rotating part ≥ 1 mm running clearance to its surroundings (debris, moulding tolerance)"
+    },
+    {
+     "part_id": "rear_wheels",
+     "against": "—",
+     "min_clearance": {
+      "value": 12.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "BRepExtrema distance: nothing within 12 mm (lower bound)"
+     },
+     "motion": "static",
+     "verdict": "pass",
+     "rule": "Rolling / rotating part ≥ 1 mm running clearance to its surroundings (debris, moulding tolerance)"
+    },
+    {
+     "part_id": "wand_release",
+     "against": "—",
+     "min_clearance": {
+      "value": 12.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "BRepExtrema distance: nothing within 12 mm (lower bound)"
+     },
+     "motion": "linear 0–0.5 mm (3 poses)",
+     "verdict": "pass",
+     "rule": "Push button pressed to the end of its travel keeps ≥ 0.2 mm to neighbouring parts (ISO 20457 moulded tolerances)"
+    },
+    {
+     "part_id": "trigger",
+     "against": "—",
+     "min_clearance": {
+      "value": 12.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "BRepExtrema distance: nothing within 12 mm (lower bound)"
+     },
+     "motion": "linear 0–0.5 mm (3 poses)",
+     "verdict": "pass",
+     "rule": "Push button pressed to the end of its travel keeps ≥ 0.2 mm to neighbouring parts (ISO 20457 moulded tolerances)"
+    },
+    {
+     "part_id": "bin_release",
+     "against": "—",
+     "min_clearance": {
+      "value": 12.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "BRepExtrema distance: nothing within 12 mm (lower bound)"
+     },
+     "motion": "linear 0–0.5 mm (3 poses)",
+     "verdict": "pass",
+     "rule": "Push button pressed to the end of its travel keeps ≥ 0.2 mm to neighbouring parts (ISO 20457 moulded tolerances)"
+    }
+   ],
+   "fasteners": [
+    {
+     "id": "fx1",
+     "part": "Heat-set threaded insert M2.5×4 (Heat-set brass insert (catalogue class))",
+     "category": "mechanical",
+     "qty": 4.0,
+     "description": "Fastener aggregated from the assembly joints (api.cad.stdparts)",
+     "manufacturer_pn": null,
+     "lcsc_pn": null,
+     "unit_cost_est": {
+      "value": 0.07,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+     },
+     "risk": null,
+     "alternative": null
+    },
+    {
+     "id": "fx2",
+     "part": "Heat-set threaded insert M2×4 (Heat-set brass insert (McMaster-Carr 94459A120))",
+     "category": "mechanical",
+     "qty": 8.0,
+     "description": "Fastener aggregated from the assembly joints (api.cad.stdparts)",
+     "manufacturer_pn": null,
+     "lcsc_pn": null,
+     "unit_cost_est": {
+      "value": 0.06,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+     },
+     "risk": null,
+     "alternative": null
+    },
+    {
+     "id": "fx3",
+     "part": "Screw M2.5 × 10 pan head T-drive (ISO 14583 (hexalobular pan head), A2 stainless)",
+     "category": "mechanical",
+     "qty": 6.0,
+     "description": "Fastener aggregated from the assembly joints (api.cad.stdparts)",
+     "manufacturer_pn": null,
+     "lcsc_pn": null,
+     "unit_cost_est": {
+      "value": 0.022,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+     },
+     "risk": null,
+     "alternative": null
+    },
+    {
+     "id": "fx4",
+     "part": "Screw M2.5 × 8 pan head T-drive (ISO 14583 (hexalobular pan head), A2 stainless)",
+     "category": "mechanical",
+     "qty": 2.0,
+     "description": "Fastener aggregated from the assembly joints (api.cad.stdparts)",
+     "manufacturer_pn": null,
+     "lcsc_pn": null,
+     "unit_cost_est": {
+      "value": 0.022,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+     },
+     "risk": null,
+     "alternative": null
+    },
+    {
+     "id": "fx5",
+     "part": "Screw M2 × 6 pan head T-drive (ISO 14583 (hexalobular pan head), A2 stainless)",
+     "category": "mechanical",
+     "qty": 2.0,
+     "description": "Fastener aggregated from the assembly joints (api.cad.stdparts)",
+     "manufacturer_pn": null,
+     "lcsc_pn": null,
+     "unit_cost_est": {
+      "value": 0.02,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+     },
+     "risk": null,
+     "alternative": null
+    },
+    {
+     "id": "fx6",
+     "part": "Screw M2 × 8 pan head T-drive (ISO 14583 (hexalobular pan head), A2 stainless)",
+     "category": "mechanical",
+     "qty": 14.0,
+     "description": "Fastener aggregated from the assembly joints (api.cad.stdparts)",
+     "manufacturer_pn": null,
+     "lcsc_pn": null,
+     "unit_cost_est": {
+      "value": 0.02,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+     },
+     "risk": null,
+     "alternative": null
+    },
+    {
+     "id": "fx7",
+     "part": "Screw M4 × 14 pan head T-drive (ISO 14583 (hexalobular pan head), A2 stainless)",
+     "category": "mechanical",
+     "qty": 4.0,
+     "description": "Fastener aggregated from the assembly joints (api.cad.stdparts)",
+     "manufacturer_pn": null,
+     "lcsc_pn": null,
+     "unit_cost_est": {
+      "value": 0.035,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+     },
+     "risk": null,
+     "alternative": null
+    }
+   ],
+   "checks": [
+    {
+     "id": "asm_interference",
+     "name": "Interference between moving parts",
+     "domain": "assembly",
+     "value": {
+      "value": 0.0,
+      "unit": "pairs",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of every part pair (OCCT), classified by the assembly joints; total 0.0 mm³"
+     },
+     "threshold": "0 intersecting pairs > 0.01 mm³ between parts that move relative to each other (different rigid bodies, over their motion study) or across a parting line — CAD interference-check practice",
+     "verdict": "pass",
+     "formula": "V(A ∩ B) per pair of solids at the assembled pose and over each moving joint's motion study",
+     "inputs": [
+      {
+       "value": 0.0,
+       "unit": "mm³",
+       "label": "measured",
+       "source_or_assumption": "Sum of interference volumes"
+      }
+     ],
+     "notes": []
+    },
+    {
+     "id": "asm_static_overlap",
+     "name": "Overlaps inside rigid bodies (concept geometry)",
+     "domain": "assembly",
+     "value": {
+      "value": 75606.6,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "15 pairs of rigidly joined parts interpenetrate (7 over 5 % of the smaller part)"
+     },
+     "threshold": "Parts of one rigid body should not interpenetrate: overlap > 5 % of the smaller part = concept geometry to pocket at detail design (warn); smaller overlaps are seats (info)",
+     "verdict": "warn",
+     "formula": "V(A ∩ B) for parts of the same rigid body that are not directly joined",
+     "inputs": [],
+     "notes": [
+      "Wand release collar ↔ Bin base ring: 20810 mm³",
+      "Bin seal ↔ Cyclone shroud: 16632 mm³",
+      "Battery strut ↔ Motor housing (lower): 11292 mm³",
+      "Floor head housing ↔ Swivel joint: 4691 mm³",
+      "Floor head window ↔ Swivel neck: 2238 mm³",
+      "Floor head housing ↔ PT 3 × 8 thread-forming screws ×7: 220 mm³",
+      "Motor housing (upper) ↔ PT 3 × 8 thread-forming screws ×7: 165 mm³"
+     ]
+    },
+    {
+     "id": "asm_clearance",
+     "name": "Minimum clearance of moving parts",
+     "domain": "assembly",
+     "value": {
+      "value": 12.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Lower bound: no moving part has a neighbour within 12 mm (or no moving joint)"
+     },
+     "threshold": "Push button pressed to the end of its travel keeps ≥ 0.2 mm to neighbouring parts (ISO 20457 moulded tolerances); Rolling / rotating part ≥ 1 mm running clearance to its surroundings (debris, moulding tolerance)",
+     "verdict": "pass",
+     "formula": "min over poses of d(moving subtree, other parts); revolute props 12 poses / 360°, buttons pressed 0.5 mm",
+     "inputs": [],
+     "notes": []
+    },
+    {
+     "id": "asm_fastener_engagement",
+     "name": "Screw engagement vs insert / thread",
+     "domain": "assembly",
+     "value": {
+      "value": 3.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Material under each screw measured by a line ∩ solid on both parts; flange capped at 2·d (counterbore), screw = shortest ISO length reaching the insert / thread"
+     },
+     "threshold": "Heat-set insert: boss holds the insert + 0.5 mm and the screw engages ≥ 80 % of it (McMaster-Carr 94459A insert data); tapped metal ≥ 1.5·d; thread-forming screw in plastic ≥ 2·d (EJOT DELTA PT design guide)",
+     "verdict": "pass",
+     "formula": "engagement = min(insert length, screw length − flange); boss depth = material of the threaded part",
+     "inputs": [
+      {
+       "value": 6.0,
+       "unit": "mm",
+       "label": "measured",
+       "source_or_assumption": "Smallest boss / thread material measured"
+      }
+     ],
+     "notes": [
+      "Swivel neck → Floor head housing: 2 × M2×8 + insert M2×4, engagement ≥ 4.0 mm, pass",
+      "Swivel joint → Swivel neck: 2 × M2×8 (tapped), engagement ≥ 4.0 mm, pass",
+      "Aluminium wand → Swivel joint: 4 × M4×14 (tapped), engagement ≥ 6.0 mm, pass",
+      "Motor vent → Motor housing (upper): 2 × M2×8 + insert M2×4, engagement ≥ 4.0 mm, pass",
+      "Grip bridge → Motor housing (upper): 2 × M2×8 + insert M2×4, engagement ≥ 4.0 mm, pass",
+      "Wand release collar → Aluminium wand: 2 × M2×8 (tapped), engagement ≥ 4.0 mm, pass",
+      "Motor cap → Motor vent: 2 × M2×6 (tapped), engagement ≥ 3.0 mm, pass",
+      "Battery base plate → Battery pack: 2 × M2.5×8 + insert M2.5×4, engagement ≥ 4.0 mm, pass",
+      "Motor housing (lower) → Battery pack: 2 × M2.5×10 + insert M2.5×4, engagement ≥ 4.0 mm, pass",
+      "Cyclone shroud → Motor housing (lower): 2 × M2.5×10 (tapped), engagement ≥ 5.0 mm, pass",
+      "Cyclone cones → Cyclone shroud: 2 × M2.5×10 (tapped), engagement ≥ 5.0 mm, pass (1 position(s) without material on both parts)",
+      "Cyclone core → Cyclone shroud: 2 × M2×8 (tapped), engagement ≥ 4.0 mm, pass"
+     ]
+    },
+    {
+     "id": "asm_fastener_count",
+     "name": "Fasteners by standard",
+     "domain": "assembly",
+     "value": {
+      "value": 40.0,
+      "unit": "pcs",
+      "label": "estimate",
+      "source_or_assumption": "Joint rules (screws per parting-line perimeter, motor mounts, spring bars); sizes from the part scale"
+     },
+     "threshold": null,
+     "verdict": "info",
+     "formula": "Σ fasteners over the assembly joints",
+     "inputs": [],
+     "notes": [
+      "4 × insert M2.5×4 (Heat-set brass insert (catalogue class))",
+      "8 × insert M2×4 (Heat-set brass insert (McMaster-Carr 94459A120))",
+      "6 × screw M2.5×10 (ISO 14583 (hexalobular pan head), A2 stainless)",
+      "2 × screw M2.5×8 (ISO 14583 (hexalobular pan head), A2 stainless)",
+      "2 × screw M2×6 (ISO 14583 (hexalobular pan head), A2 stainless)",
+      "14 × screw M2×8 (ISO 14583 (hexalobular pan head), A2 stainless)",
+      "4 × screw M4×14 (ISO 14583 (hexalobular pan head), A2 stainless)"
+     ]
+    },
+    {
+     "id": "asm_joint_closure",
+     "name": "Joint closure (build123d Joints)",
+     "domain": "assembly",
+     "value": {
+      "value": 0.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Each child re-placed from its joint frame with build123d RigidJoint / RevoluteJoint / LinearJoint.connect_to; 31 joints"
+     },
+     "threshold": "build123d joints re-place every part at its modelled pose: residual < 0.01 mm",
+     "verdict": "pass",
+     "formula": "|bbox centre after connect_to − modelled bbox centre|",
+     "inputs": [],
+     "notes": []
+    },
+    {
+     "id": "asm_support",
+     "name": "Every part is attached",
+     "domain": "assembly",
+     "value": {
+      "value": 0.0,
+      "unit": "parts",
+      "label": "measured",
+      "source_or_assumption": "Parts with no contact (≤ 0.05 mm, BRepExtrema) with the part they are joined to"
+     },
+     "threshold": "Every part touches the part it is joined to (contact ≤ 0.05 mm)",
+     "verdict": "pass",
+     "formula": "d(child, parent) ≤ 0.05 mm for every joint",
+     "inputs": [],
+     "notes": []
+    }
+   ],
+   "summary": "32 parts · 31 joints (5 moving) · 0 interferences · 40 fasteners",
+   "engine": "c2.2"
+  }
+ },
+ "drawings": [
+  {
+   "sheet": "A1",
+   "kind": "assembly",
+   "part_id": null,
+   "title": "Cordless stick vacuum — general assembly",
+   "svg_url": "/files/demo_stick_vacuum/drawings/v2_A1.svg",
+   "pdf_url": "/files/demo_stick_vacuum/drawings/v2_A1.pdf",
+   "set_pdf_url": "/files/demo_stick_vacuum/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A3",
+   "scale": "1:10",
+   "bbox_mm": [
+    264.9,
+    250.0,
+    1180.4
+   ],
+   "bom_item_id": null,
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P01",
+   "kind": "part",
+   "part_id": "floor_head",
+   "title": "Floor head housing",
+   "svg_url": "/files/demo_stick_vacuum/drawings/v2_P01.svg",
+   "pdf_url": "/files/demo_stick_vacuum/drawings/v2_P01.pdf",
+   "set_pdf_url": "/files/demo_stick_vacuum/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A3",
+   "scale": "1:2",
+   "bbox_mm": [
+    115.0,
+    250.0,
+    54.0
+   ],
+   "bom_item_id": "m1",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P02",
+   "kind": "part",
+   "part_id": "dust_bin",
+   "title": "Clear dust bin",
+   "svg_url": "/files/demo_stick_vacuum/drawings/v2_P02.svg",
+   "pdf_url": "/files/demo_stick_vacuum/drawings/v2_P02.pdf",
+   "set_pdf_url": "/files/demo_stick_vacuum/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A3",
+   "scale": "1:2",
+   "bbox_mm": [
+    112.0,
+    112.0,
+    126.5
+   ],
+   "bom_item_id": "m3",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P03",
+   "kind": "part",
+   "part_id": "wand",
+   "title": "Aluminium wand",
+   "svg_url": "/files/demo_stick_vacuum/drawings/v2_P03.svg",
+   "pdf_url": "/files/demo_stick_vacuum/drawings/v2_P03.pdf",
+   "set_pdf_url": "/files/demo_stick_vacuum/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A3",
+   "scale": "1:5",
+   "bbox_mm": [
+    38.0,
+    38.0,
+    864.0
+   ],
+   "bom_item_id": "m2",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P04",
+   "kind": "part",
+   "part_id": "cyclone_shroud",
+   "title": "Cyclone shroud",
+   "svg_url": "/files/demo_stick_vacuum/drawings/v2_P04.svg",
+   "pdf_url": "/files/demo_stick_vacuum/drawings/v2_P04.pdf",
+   "set_pdf_url": "/files/demo_stick_vacuum/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A3",
+   "scale": "1:1",
+   "bbox_mm": [
+    103.04,
+    103.04,
+    69.0
+   ],
+   "bom_item_id": "m2",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P05",
+   "kind": "part",
+   "part_id": "motor_housing_lower",
+   "title": "Motor housing (lower)",
+   "svg_url": "/files/demo_stick_vacuum/drawings/v2_P05.svg",
+   "pdf_url": "/files/demo_stick_vacuum/drawings/v2_P05.pdf",
+   "set_pdf_url": "/files/demo_stick_vacuum/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A3",
+   "scale": "1:1",
+   "bbox_mm": [
+    72.0,
+    72.0,
+    91.25
+   ],
+   "bom_item_id": "m1",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P06",
+   "kind": "part",
+   "part_id": "battery_pack",
+   "title": "Battery pack",
+   "svg_url": "/files/demo_stick_vacuum/drawings/v2_P06.svg",
+   "pdf_url": "/files/demo_stick_vacuum/drawings/v2_P06.pdf",
+   "set_pdf_url": "/files/demo_stick_vacuum/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A3",
+   "scale": "1:1",
+   "bbox_mm": [
+    110.0,
+    58.0,
+    60.0
+   ],
+   "bom_item_id": "e1",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P07",
+   "kind": "part",
+   "part_id": "brush_roll",
+   "title": "Brush roll",
+   "svg_url": "/files/demo_stick_vacuum/drawings/v2_P07.svg",
+   "pdf_url": "/files/demo_stick_vacuum/drawings/v2_P07.pdf",
+   "set_pdf_url": "/files/demo_stick_vacuum/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A3",
+   "scale": "1:2",
+   "bbox_mm": [
+    42.0,
+    232.0,
+    42.0
+   ],
+   "bom_item_id": "e4",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P08",
+   "kind": "part",
+   "part_id": "motor_housing_upper",
+   "title": "Motor housing (upper)",
+   "svg_url": "/files/demo_stick_vacuum/drawings/v2_P08.svg",
+   "pdf_url": "/files/demo_stick_vacuum/drawings/v2_P08.pdf",
+   "set_pdf_url": "/files/demo_stick_vacuum/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A3",
+   "scale": "1:1",
+   "bbox_mm": [
+    72.0,
+    72.0,
+    74.63
+   ],
+   "bom_item_id": "m1",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P09",
+   "kind": "part",
+   "part_id": "bin_base",
+   "title": "Bin base ring",
+   "svg_url": "/files/demo_stick_vacuum/drawings/v2_P09.svg",
+   "pdf_url": "/files/demo_stick_vacuum/drawings/v2_P09.pdf",
+   "set_pdf_url": "/files/demo_stick_vacuum/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A3",
+   "scale": "1:1",
+   "bbox_mm": [
+    116.0,
+    116.0,
+    15.0
+   ],
+   "bom_item_id": "e3",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P10",
+   "kind": "part",
+   "part_id": "pistol_grip",
+   "title": "Pistol grip",
+   "svg_url": "/files/demo_stick_vacuum/drawings/v2_P10.svg",
+   "pdf_url": "/files/demo_stick_vacuum/drawings/v2_P10.pdf",
+   "set_pdf_url": "/files/demo_stick_vacuum/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A4",
+   "scale": "1:2",
+   "bbox_mm": [
+    77.57,
+    34.0,
+    159.77
+   ],
+   "bom_item_id": "e4",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P11",
+   "kind": "part",
+   "part_id": "bin_seal",
+   "title": "Bin seal",
+   "svg_url": "/files/demo_stick_vacuum/drawings/v2_P11.svg",
+   "pdf_url": "/files/demo_stick_vacuum/drawings/v2_P11.pdf",
+   "set_pdf_url": "/files/demo_stick_vacuum/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A3",
+   "scale": "1:1",
+   "bbox_mm": [
+    114.0,
+    114.0,
+    10.0
+   ],
+   "bom_item_id": null,
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P12",
+   "kind": "part",
+   "part_id": "release_collar",
+   "title": "Wand release collar",
+   "svg_url": "/files/demo_stick_vacuum/drawings/v2_P12.svg",
+   "pdf_url": "/files/demo_stick_vacuum/drawings/v2_P12.pdf",
+   "set_pdf_url": "/files/demo_stick_vacuum/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A4",
+   "scale": "1:1",
+   "bbox_mm": [
+    48.0,
+    48.0,
+    50.0
+   ],
+   "bom_item_id": "m2",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  }
+ ]
 }

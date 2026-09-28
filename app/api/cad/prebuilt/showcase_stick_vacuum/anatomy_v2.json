@@ -1,12 +1,12 @@
 {
- "_v": "a4",
+ "_v": "a6",
  "version": 2,
  "glb_url": "/files/demo_stick_vacuum/anatomy_v2.glb",
  "label": "Illustrative internal layout \u2014 not a routed PCB",
  "kind": "electronics",
  "bbox_mm": [
   269.6,
-  1179.99,
+  1180.4,
   250.0
  ],
  "layers": [
@@ -18,7 +18,6 @@
     "release_collar",
     "wand_release",
     "exhaust_cap",
-    "motor_pod",
     "motor_vent",
     "motor_cap",
     "pistol_grip",
@@ -26,7 +25,9 @@
     "trigger",
     "battery_base",
     "battery_strut",
-    "charge_light"
+    "charge_light",
+    "motor_housing_lower",
+    "motor_housing_upper"
    ],
    "explode_vector": [
     0.0,
@@ -135,6 +136,23 @@
    ],
    "explode_distance_mm": 0.0,
    "caption": "Motorized floor head assembly ($11.04 (Estimate)) + Aluminium wand ($3.68 (Estimate))"
+  },
+  {
+   "id": "fasteners",
+   "name": "Fasteners",
+   "order": 6,
+   "parts": [
+    "pt_3_x_8_thread_forming_screws_x7",
+    "screw_bosses",
+    "bin_latch_snap_fit"
+   ],
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 276.4,
+   "caption": "Fasteners \u00b7 3 kinds: PT 3 \u00d7 8 thread-forming screws \u00d77, Screw bosses, Bin latch (snap-fit)"
   }
  ],
  "steps": [
@@ -145,13 +163,13 @@
    "caption": "Cordless stick vacuum \u2014 247.6 \u00d7 250.0 \u00d7 1190.5 mm (Measured), 5 electronic BOM lines laid out inside (illustrative internal layout, not a routed PCB)",
    "camera": {
     "position_mm": [
-     1415.8,
-     1035.0,
-     2067.2
+     1416.2,
+     1034.9,
+     2067.8
     ],
     "target_mm": [
      -60.8,
-     592.0,
+     591.8,
      0.0
     ],
     "fov_deg": 30.0
@@ -199,14 +217,15 @@
     ],
     "target_mm": [
      -74.0,
-     1077.5,
+     1077.6,
      0.0
     ],
     "fov_deg": 30.0
    },
    "layers_exploded": [
     "housing",
-    "bin"
+    "bin",
+    "fasteners"
    ],
    "focus_parts": [
     "high_speed_bldc_vacuum_motor_assembly",
@@ -233,7 +252,8 @@
    },
    "layers_exploded": [
     "housing",
-    "battery"
+    "battery",
+    "fasteners"
    ],
    "focus_parts": [
     "18650_cell_1",
@@ -252,13 +272,13 @@
    "caption": "Cyclone ($5.52 (Estimate)) + Washable filter ($1.84 (Estimate))",
    "camera": {
     "position_mm": [
-     435.6,
-     1322.6,
-     573.9
+     436.6,
+     1322.8,
+     574.9
     ],
     "target_mm": [
-     10.5,
-     1059.0,
+     10.7,
+     1058.8,
      0.0
     ],
     "fov_deg": 30.0
@@ -277,7 +297,7 @@
    "id": "s6",
    "title": "Back together",
    "kicker": "06 \u00b7 Back together",
-   "caption": "Unit cost $98.09 at 2,000 units (Estimate), product mass 1.43 kg (Estimate)",
+   "caption": "Unit cost $99.91 at 2,000 units (Estimate), product mass 1.45 kg (Estimate)",
    "camera": {
     "position_mm": [
      -563.8,
@@ -359,7 +379,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 0.0
   },
   {
    "part_id": "brush_roll",
@@ -410,7 +438,15 @@
     }
    ],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "floor_head",
+   "joint": "revolute",
+   "explode_vector": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "explode_distance_mm": 169.2
   },
   {
    "part_id": "floor_head_window",
@@ -473,7 +509,15 @@
    "material_options": [
     "glass",
     "clear_pc"
-   ]
+   ],
+   "parent_part_id": "floor_head",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 32.4
   },
   {
    "part_id": "rear_wheels",
@@ -519,7 +563,15 @@
     }
    ],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "floor_head",
+   "joint": "revolute",
+   "explode_vector": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "explode_distance_mm": 170.4
   },
   {
    "part_id": "swivel_joint",
@@ -575,7 +627,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "swivel_neck",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 65.3
   },
   {
    "part_id": "swivel_neck",
@@ -626,7 +686,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "floor_head",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 24.6
   },
   {
    "part_id": "wand",
@@ -700,7 +768,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "swivel_joint",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 593.7
   },
   {
    "part_id": "release_collar",
@@ -774,7 +850,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "wand",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 635.1
   },
   {
    "part_id": "wand_release",
@@ -834,7 +918,15 @@
     }
    ],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "wand",
+   "joint": "linear",
+   "explode_vector": [
+    -0.0595,
+    0.9982,
+    0.0
+   ],
+   "explode_distance_mm": 594.8
   },
   {
    "part_id": "dust_bin",
@@ -906,7 +998,15 @@
    "material_options": [
     "glass",
     "clear_pc"
-   ]
+   ],
+   "parent_part_id": "release_collar",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 723.2
   },
   {
    "part_id": "filter",
@@ -979,7 +1079,15 @@
     "lsr_silicone",
     "fabric",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "dust_bin",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 812.9
   },
   {
    "part_id": "bin_base",
@@ -1053,7 +1161,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "dust_bin",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 696.9
   },
   {
    "part_id": "bin_release",
@@ -1117,7 +1233,15 @@
     }
    ],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "bin_base",
+   "joint": "linear",
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 741.9
   },
   {
    "part_id": "bin_seal",
@@ -1181,7 +1305,15 @@
     }
    ],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "dust_bin",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 759.2
   },
   {
    "part_id": "cyclone_shroud",
@@ -1255,7 +1387,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "motor_housing_lower",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0637,
+    0.998,
+    0.0
+   ],
+   "explode_distance_mm": 639.0
   },
   {
    "part_id": "cyclones",
@@ -1329,7 +1469,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "cyclone_shroud",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0592,
+    0.9982,
+    0.0
+   ],
+   "explode_distance_mm": 688.1
   },
   {
    "part_id": "cyclone_core",
@@ -1403,7 +1551,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "cyclone_shroud",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0596,
+    0.9982,
+    0.0
+   ],
+   "explode_distance_mm": 683.0
   },
   {
    "part_id": "exhaust_cap",
@@ -1472,76 +1628,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
-  },
-  {
-   "part_id": "motor_pod",
-   "name": "Motor pod",
-   "role": "motor",
-   "layer_id": "housing",
-   "material": "PC/ABS (UL94 V-0)",
-   "finish": "Satin",
-   "colour_hex": "#9A9DA1",
-   "measured_bbox_mm": [
-    71.96,
-    166.18,
-    71.98
    ],
-   "centroid_mm": [
-    -73.98,
-    1090.01,
+   "parent_part_id": "cyclone_core",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0569,
+    0.9984,
     0.0
    ],
-   "label": "measured",
-   "bom_item_id": "e1",
-   "lcsc_pn": null,
-   "package": null,
-   "unit_price": {
-    "value": 19.228,
-    "unit": "USD",
-    "label": "estimate",
-    "source_or_assumption": "Battery priced by energy: 2500 mAh \u00d7 21.6 V = 54.0 Wh (6S appliance pack) \u00d7 $0.35/Wh + pack overhead"
-   },
-   "editable": [
-    {
-     "param": "motor_diameter",
-     "label": "Motor diameter",
-     "min": 50.0,
-     "max": 100.0,
-     "step": 1.0,
-     "unit": "mm",
-     "value": 72.0
-    },
-    {
-     "param": "bin_diameter",
-     "label": "Bin diameter",
-     "min": 70.0,
-     "max": 140.0,
-     "step": 1.0,
-     "unit": "mm",
-     "value": 112.0
-    },
-    {
-     "param": "bin_length",
-     "label": "Bin length",
-     "min": 150.0,
-     "max": 320.0,
-     "step": 1.0,
-     "unit": "mm",
-     "value": 230.0
-    },
-    {
-     "param": "head_depth",
-     "label": "Head depth",
-     "min": 80.0,
-     "max": 160.0,
-     "step": 1.0,
-     "unit": "mm",
-     "value": 115.0
-    }
-   ],
-   "colour_editable": true,
-   "material_options": []
+   "explode_distance_mm": 715.9
   },
   {
    "part_id": "motor_vent",
@@ -1615,7 +1710,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "motor_housing_upper",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 745.3
   },
   {
    "part_id": "motor_cap",
@@ -1689,7 +1792,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "motor_vent",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 777.1
   },
   {
    "part_id": "pistol_grip",
@@ -1763,7 +1874,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "grip_bridge",
+   "joint": "rigid",
+   "explode_vector": [
+    -0.0586,
+    0.9983,
+    0.0
+   ],
+   "explode_distance_mm": 616.6
   },
   {
    "part_id": "grip_bridge",
@@ -1837,7 +1956,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "motor_housing_upper",
+   "joint": "rigid",
+   "explode_vector": [
+    -0.0501,
+    0.9987,
+    0.0
+   ],
+   "explode_distance_mm": 721.4
   },
   {
    "part_id": "trigger",
@@ -1906,7 +2033,15 @@
     }
    ],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "pistol_grip",
+   "joint": "linear",
+   "explode_vector": [
+    0.0145,
+    0.9999,
+    0.0
+   ],
+   "explode_distance_mm": 615.6
   },
   {
    "part_id": "battery_pack",
@@ -1975,7 +2110,15 @@
     }
    ],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "pistol_grip",
+   "joint": "rigid",
+   "explode_vector": [
+    -0.0633,
+    0.998,
+    0.0
+   ],
+   "explode_distance_mm": 570.7
   },
   {
    "part_id": "battery_base",
@@ -2049,7 +2192,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "battery_pack",
+   "joint": "rigid",
+   "explode_vector": [
+    -0.0671,
+    0.9977,
+    0.0
+   ],
+   "explode_distance_mm": 538.4
   },
   {
    "part_id": "battery_strut",
@@ -2123,7 +2274,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "battery_pack",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0568,
+    0.9984,
+    0.0
+   ],
+   "explode_distance_mm": 570.5
   },
   {
    "part_id": "charge_light",
@@ -2192,7 +2351,230 @@
     }
    ],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "battery_pack",
+   "joint": "rigid",
+   "explode_vector": [
+    -0.0632,
+    0.9965,
+    0.0556
+   ],
+   "explode_distance_mm": 571.6
+  },
+  {
+   "part_id": "motor_housing_lower",
+   "name": "Motor housing (lower)",
+   "role": "shell_bottom",
+   "layer_id": "housing",
+   "material": "PC/ABS (UL94 V-0)",
+   "finish": "Satin",
+   "colour_hex": "#9A9DA1",
+   "measured_bbox_mm": [
+    71.96,
+    91.25,
+    71.98
+   ],
+   "centroid_mm": [
+    -73.98,
+    1052.55,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "m1",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 11.04,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: motorised floor head with brush roll \u2248 USD 12 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ],
+   "parent_part_id": "battery_pack",
+   "joint": "rigid",
+   "explode_vector": [
+    -0.0565,
+    0.9984,
+    0.0
+   ],
+   "explode_distance_mm": 638.8
+  },
+  {
+   "part_id": "motor_housing_upper",
+   "name": "Motor housing (upper)",
+   "role": "shell_top",
+   "layer_id": "housing",
+   "material": "PC/ABS (UL94 V-0)",
+   "finish": "Satin",
+   "colour_hex": "#9A9DA1",
+   "measured_bbox_mm": [
+    71.96,
+    74.63,
+    71.98
+   ],
+   "centroid_mm": [
+    -73.98,
+    1135.79,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "m1",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 11.04,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Module price model: motorised floor head with brush roll \u2248 USD 12 (typical 2026 trade price at ~2k units, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ],
+   "parent_part_id": "screw_bosses",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 720.5
+  },
+  {
+   "part_id": "pt_3_x_8_thread_forming_screws_x7",
+   "name": "PT 3 \u00d7 8 thread-forming screws \u00d77",
+   "role": "fastener",
+   "layer_id": "fasteners",
+   "material": "A2 stainless steel",
+   "finish": null,
+   "colour_hex": "#EFEFF0",
+   "measured_bbox_mm": [
+    152.0,
+    1105.52,
+    215.6
+   ],
+   "centroid_mm": [
+    -36.4,
+    554.36,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "hw1",
+   "lcsc_pn": null,
+   "package": "EJOT DELTA PT PT 3 \u00d7 8",
+   "unit_price": {
+    "value": 0.023,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": true,
+   "material_options": [],
+   "parent_part_id": "screw_bosses",
+   "joint": "rigid",
+   "explode_vector": [
+    -0.1785,
+    0.9839,
+    0.0
+   ],
+   "explode_distance_mm": 678.9
+  },
+  {
+   "part_id": "screw_bosses",
+   "name": "Screw bosses",
+   "role": "other",
+   "layer_id": "fasteners",
+   "material": "PC/ABS (UL94 V-0)",
+   "finish": "Satin",
+   "colour_hex": "#7C7E81",
+   "measured_bbox_mm": [
+    147.6,
+    1101.12,
+    216.0
+   ],
+   "centroid_mm": [
+    -34.0,
+    556.76,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "hw1",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 0.023,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ],
+   "parent_part_id": "floor_head",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 667.9
+  },
+  {
+   "part_id": "bin_latch_snap_fit",
+   "name": "Bin latch (snap-fit)",
+   "role": "other",
+   "layer_id": "fasteners",
+   "material": "PC/ABS (UL94 V-0)",
+   "finish": "Satin",
+   "colour_hex": "#7C7E81",
+   "measured_bbox_mm": [
+    3.65,
+    14.0,
+    8.0
+   ],
+   "centroid_mm": [
+    67.47,
+    945.0,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ],
+   "parent_part_id": "bin_base",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0461,
+    0.9989,
+    0.0
+   ],
+   "explode_distance_mm": 697.6
   },
   {
    "part_id": "high_speed_bldc_vacuum_motor_assembly",
@@ -2224,7 +2606,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "impeller",
@@ -2256,7 +2642,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "18650_cell_1",
@@ -2288,7 +2678,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "18650_cell_2",
@@ -2320,7 +2714,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "18650_cell_3",
@@ -2352,7 +2750,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "18650_cell_4",
@@ -2384,7 +2786,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "18650_cell_5",
@@ -2416,7 +2822,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "18650_cell_6",
@@ -2448,7 +2858,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "motor_control_pcb",
@@ -2480,7 +2894,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "pistol_grip_trigger_switch",
@@ -2512,7 +2930,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "high_speed_bldc_vacuum_motor_assembly_2",
@@ -2544,7 +2966,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "battery_lead",
@@ -2571,7 +2997,11 @@
    "unit_price": null,
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "battery_lead_2",
@@ -2598,7 +3028,11 @@
    "unit_price": null,
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "motor_phase_leads",
@@ -2610,7 +3044,7 @@
    "colour_hex": "#1D1D1F",
    "measured_bbox_mm": [
     32.88,
-    65.67,
+    65.66,
     4.0
    ],
    "centroid_mm": [
@@ -2625,7 +3059,11 @@
    "unit_price": null,
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   }
  ]
 }

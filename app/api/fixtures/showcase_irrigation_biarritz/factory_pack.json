@@ -164,7 +164,7 @@
    "format": "glb",
    "url": "/files/demo_irrigation_biarritz/model_v1.glb",
    "description": "AI-generated CAD (concept level) — geometry measured on the result — bbox 554 × 74 × 222 mm",
-   "size_bytes": 449012
+   "size_bytes": 538268
   },
   {
    "format": "step",
@@ -182,7 +182,7 @@
    "format": "glb",
    "url": "/files/demo_irrigation_biarritz/v2.glb",
    "description": "Full product — materials",
-   "size_bytes": 1205792
+   "size_bytes": 1316220
   },
   {
    "format": "step",
@@ -416,23 +416,6 @@
    "alternative": null
   },
   {
-   "id": "m4",
-   "part": "Enclosure screws",
-   "category": "mechanical",
-   "qty": 4.0,
-   "description": "Corrosion-resistant screws sized to secure the two housing shells.",
-   "manufacturer_pn": null,
-   "lcsc_pn": null,
-   "unit_cost_est": {
-    "value": 0.0276,
-    "unit": "USD",
-    "label": "estimate",
-    "source_or_assumption": "Module price model: screw ≈ USD 0.03 (typical 2026 trade price at ~2k units, not a quote)"
-   },
-   "risk": null,
-   "alternative": null
-  },
-  {
    "id": "m5",
    "part": "Cable glands and weather seals",
    "category": "mechanical",
@@ -508,6 +491,40 @@
      "not matched to the LCSC snapshot 2026-09-26: availability and price unverified"
     ]
    },
+   "alternative": null
+  },
+  {
+   "id": "hw2",
+   "part": "Heat-set threaded insert M4 × 8.2 (OD 6.3 mm), brass — ref. McMaster-Carr 94459A170",
+   "category": "mechanical",
+   "qty": 4.0,
+   "description": "Standard part (McMaster-Carr 94459A170), counted on the CAD: 4 placed",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.1012,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "hw3",
+   "part": "Screw M4 × 20 pan head, T20 (ISO 14583), A2 stainless",
+   "category": "mechanical",
+   "qty": 4.0,
+   "description": "Standard part (ISO 14583), counted on the CAD: 4 placed",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.0322,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "risk": null,
    "alternative": null
   }
  ],
@@ -759,16 +776,16 @@
   {
    "quantity": 500,
    "bom_cost": {
-    "value": 38.42,
+    "value": 40.2,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Electronics at LCSC price breaks (LCSC price, 2026-09-26); other lines base × 0.92^0"
    },
    "assembly_cost": {
-    "value": 8.0,
+    "value": 9.03,
     "unit": "USD",
     "label": "estimate",
-    "source_or_assumption": "Assembly + factory overhead/margin: 14.4 min = 6 base + 0.6 × 14 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^0"
+    "source_or_assumption": "Assembly + factory overhead/margin: 19.8 min = 6 base + 0.6 × 23 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^0"
    },
    "packaging_cost": {
     "value": 1.5,
@@ -777,7 +794,7 @@
     "source_or_assumption": "Packaging BOM lines × 0.92^0"
    },
    "unit_cost": {
-    "value": 47.93,
+    "value": 50.72,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
@@ -789,25 +806,25 @@
     "source_or_assumption": "$3,600 tooling ÷ 500"
    },
    "margin_pct": {
-    "value": 45.2,
+    "value": 42.5,
     "unit": "pct",
     "label": "estimate",
-    "source_or_assumption": "($139.32 target − $76.28 landed estimate) ÷ target; before retailer margin, VAT and marketing"
+    "source_or_assumption": "($139.32 target − $80.06 landed estimate) ÷ target; before retailer margin, VAT and marketing"
    }
   },
   {
    "quantity": 2000,
    "bom_cost": {
-    "value": 35.36,
+    "value": 36.99,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Electronics at LCSC price breaks (LCSC price, 2026-09-26); other lines base × 0.92^1"
    },
    "assembly_cost": {
-    "value": 7.37,
+    "value": 8.31,
     "unit": "USD",
     "label": "estimate",
-    "source_or_assumption": "Assembly + factory overhead/margin: 14.4 min = 6 base + 0.6 × 14 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^1"
+    "source_or_assumption": "Assembly + factory overhead/margin: 19.8 min = 6 base + 0.6 × 23 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^1"
    },
    "packaging_cost": {
     "value": 1.38,
@@ -816,7 +833,7 @@
     "source_or_assumption": "Packaging BOM lines × 0.92^1"
    },
    "unit_cost": {
-    "value": 44.11,
+    "value": 46.68,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
@@ -828,25 +845,25 @@
     "source_or_assumption": "$3,600 tooling ÷ 2,000"
    },
    "margin_pct": {
-    "value": 53.5,
+    "value": 51.0,
     "unit": "pct",
     "label": "estimate",
-    "source_or_assumption": "($139.32 target − $64.73 landed estimate) ÷ target; before retailer margin, VAT and marketing"
+    "source_or_assumption": "($139.32 target − $68.21 landed estimate) ÷ target; before retailer margin, VAT and marketing"
    }
   },
   {
    "quantity": 10000,
    "bom_cost": {
-    "value": 32.57,
+    "value": 34.07,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Electronics at LCSC price breaks (LCSC price, 2026-09-26); other lines base × 0.92^2"
    },
    "assembly_cost": {
-    "value": 6.78,
+    "value": 7.65,
     "unit": "USD",
     "label": "estimate",
-    "source_or_assumption": "Assembly + factory overhead/margin: 14.4 min = 6 base + 0.6 × 14 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^2"
+    "source_or_assumption": "Assembly + factory overhead/margin: 19.8 min = 6 base + 0.6 × 23 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^2"
    },
    "packaging_cost": {
     "value": 1.27,
@@ -855,7 +872,7 @@
     "source_or_assumption": "Packaging BOM lines × 0.92^2"
    },
    "unit_cost": {
-    "value": 40.62,
+    "value": 42.99,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
@@ -867,10 +884,10 @@
     "source_or_assumption": "$3,600 tooling ÷ 10,000"
    },
    "margin_pct": {
-    "value": 58.5,
+    "value": 56.2,
     "unit": "pct",
     "label": "estimate",
-    "source_or_assumption": "($139.32 target − $57.76 landed estimate) ÷ target; before retailer margin, VAT and marketing"
+    "source_or_assumption": "($139.32 target − $60.98 landed estimate) ÷ target; before retailer margin, VAT and marketing"
    }
   }
  ],
@@ -1269,7 +1286,7 @@
   "fallback": false,
   "fallback_reason": null,
   "generated_by": "code",
-  "generated_at": "2026-09-27T00:00:31.767174Z",
+  "generated_at": "2026-09-28T11:08:15.611113Z",
   "assumptions": [
    {
     "id": "e1",
@@ -1284,6 +1301,13 @@
     "label": "estimate",
     "source": null,
     "stage": null
+   },
+   {
+    "id": "e5",
+    "text": "Assembly mates are inferred from the part roles and the product family (rules shown per joint); interference, clearance and screw material are measured on the version's STEP",
+    "label": "estimate",
+    "source": null,
+    "stage": null
    }
   ],
   "stage": "engineering",
@@ -1292,7 +1316,7 @@
   "partner_word": "factories",
   "site_install": false,
   "product_name": "Smart garden irrigation",
-  "inputs_digest": "234b9d602cf54881",
+  "inputs_digest": "202863a9653bf875",
   "standards": [
    {
     "code": "IEC 60529",
@@ -1500,10 +1524,10 @@
     "name": "Battery life / runtime from the power budget",
     "domain": "power",
     "value": {
-     "value": 218.8,
+     "value": 4978.8,
      "unit": "days",
      "label": "estimate",
-     "source_or_assumption": "2600 mAh × 85% usable / 0.4209 mA average"
+     "source_or_assumption": "2600 mAh × 85% usable / 0.0185 mA average"
     },
     "threshold": "≥ 182.5 days pass, ≥ 50% of it warn (category target, Estimate)",
     "verdict": "pass",
@@ -1516,13 +1540,164 @@
       "source_or_assumption": "Category default 2600 mAh (no capacity in the BOM) — confirm with the cell datasheet"
      },
      {
-      "value": 0.4209,
+      "value": 0.0185,
       "unit": "mA",
       "label": "estimate",
       "source_or_assumption": "Sum of the power-budget lines"
      }
     ],
     "notes": []
+   },
+   {
+    "id": "asm_interference",
+    "name": "Interference between moving parts",
+    "domain": "assembly",
+    "value": {
+     "value": 0.0,
+     "unit": "pairs",
+     "label": "measured",
+     "source_or_assumption": "Boolean common of every part pair (OCCT), classified by the assembly joints; total 0.0 mm³"
+    },
+    "threshold": "0 intersecting pairs > 0.01 mm³ between parts that move relative to each other (different rigid bodies, over their motion study) or across a parting line — CAD interference-check practice",
+    "verdict": "pass",
+    "formula": "V(A ∩ B) per pair of solids at the assembled pose and over each moving joint's motion study",
+    "inputs": [
+     {
+      "value": 0.0,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Sum of interference volumes"
+     }
+    ],
+    "notes": []
+   },
+   {
+    "id": "asm_static_overlap",
+    "name": "Overlaps inside rigid bodies (concept geometry)",
+    "domain": "assembly",
+    "value": {
+     "value": 103.2,
+     "unit": "mm³",
+     "label": "measured",
+     "source_or_assumption": "3 pairs of rigidly joined parts interpenetrate (1 over 5 % of the smaller part)"
+    },
+    "threshold": "Parts of one rigid body should not interpenetrate: overlap > 5 % of the smaller part = concept geometry to pocket at detail design (warn); smaller overlaps are seats (info)",
+    "verdict": "warn",
+    "formula": "V(A ∩ B) for parts of the same rigid body that are not directly joined",
+    "inputs": [],
+    "notes": [
+     "Gasket ↔ M4 heat-set inserts ×4: 34 mm³"
+    ]
+   },
+   {
+    "id": "asm_clearance",
+    "name": "Minimum clearance of moving parts",
+    "domain": "assembly",
+    "value": {
+     "value": 12.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Lower bound: no moving part has a neighbour within 12 mm (or no moving joint)"
+    },
+    "threshold": "Push button pressed to the end of its travel keeps ≥ 0.2 mm to neighbouring parts (ISO 20457 moulded tolerances)",
+    "verdict": "pass",
+    "formula": "min over poses of d(moving subtree, other parts); revolute props 12 poses / 360°, buttons pressed 0.5 mm",
+    "inputs": [],
+    "notes": []
+   },
+   {
+    "id": "asm_fastener_engagement",
+    "name": "Screw engagement vs insert / thread",
+    "domain": "assembly",
+    "value": {
+     "value": 4.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Material under each screw measured by a line ∩ solid on both parts; flange capped at 2·d (counterbore), screw = shortest ISO length reaching the insert / thread"
+    },
+    "threshold": "Heat-set insert: boss holds the insert + 0.5 mm and the screw engages ≥ 80 % of it (McMaster-Carr 94459A insert data); tapped metal ≥ 1.5·d; thread-forming screw in plastic ≥ 2·d (EJOT DELTA PT design guide)",
+    "verdict": "fail",
+    "formula": "engagement = min(insert length, screw length − flange); boss depth = material of the threaded part",
+    "inputs": [
+     {
+      "value": 2.02,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Smallest boss / thread material measured"
+     }
+    ],
+    "notes": [
+     "Metal parts → Dark part 1: 4 × M3×12 (tapped), engagement ≥ 0.0 mm, warn (4 position(s) without material on both parts)",
+     "Dark part 2 → Dark part 1: 2 × M2.5×10 + insert M2.5×4, engagement ≥ 4.0 mm, pass",
+     "Top shell 2 → Top shell 1: 2 × M2.5×8 + insert M2.5×4, engagement ≥ 4.0 mm, pass (1 position(s) without material on both parts)",
+     "Dark part 3 → Dark part 2: 2 × M2×8 + insert M2×4, engagement ≥ 4.0 mm, pass (1 position(s) without material on both parts)",
+     "PV cells → Top shell 2: 2 × M2.5×5 + insert M2.5×4, engagement ≥ 4.0 mm, fail",
+     "Lower body 1 → Body: 2 × M2.5×10 + insert M2.5×4, engagement ≥ 4.0 mm, pass (1 position(s) without material on both parts)",
+     "PV cells 1 → Body: 2 × M2×6 + insert M2×4, engagement ≥ 4.0 mm, pass",
+     "Lower body 2 → Lower body 1: 2 × M2×8 + insert M2×4, engagement ≥ 4.0 mm, pass"
+    ]
+   },
+   {
+    "id": "asm_fastener_count",
+    "name": "Fasteners by standard",
+    "domain": "assembly",
+    "value": {
+     "value": 32.0,
+     "unit": "pcs",
+     "label": "estimate",
+     "source_or_assumption": "Joint rules (screws per parting-line perimeter, motor mounts, spring bars); sizes from the part scale"
+    },
+    "threshold": null,
+    "verdict": "info",
+    "formula": "Σ fasteners over the assembly joints",
+    "inputs": [],
+    "notes": [
+     "8 × insert M2.5×4 (Heat-set brass insert (catalogue class))",
+     "6 × insert M2×4 (Heat-set brass insert (McMaster-Carr 94459A120))",
+     "4 × screw M2.5×10 (ISO 14583 (hexalobular pan head), A2 stainless)",
+     "2 × screw M2.5×5 (ISO 14583 (hexalobular pan head), A2 stainless)",
+     "2 × screw M2.5×8 (ISO 14583 (hexalobular pan head), A2 stainless)",
+     "2 × screw M2×6 (ISO 14583 (hexalobular pan head), A2 stainless)",
+     "4 × screw M2×8 (ISO 14583 (hexalobular pan head), A2 stainless)",
+     "4 × screw M3×12 (ISO 14583 (hexalobular pan head), A2 stainless)"
+    ]
+   },
+   {
+    "id": "asm_joint_closure",
+    "name": "Joint closure (build123d Joints)",
+    "domain": "assembly",
+    "value": {
+     "value": 0.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Each child re-placed from its joint frame with build123d RigidJoint / RevoluteJoint / LinearJoint.connect_to; 22 joints"
+    },
+    "threshold": "build123d joints re-place every part at its modelled pose: residual < 0.01 mm",
+    "verdict": "pass",
+    "formula": "|bbox centre after connect_to − modelled bbox centre|",
+    "inputs": [],
+    "notes": []
+   },
+   {
+    "id": "asm_support",
+    "name": "Every part is attached",
+    "domain": "assembly",
+    "value": {
+     "value": 4.0,
+     "unit": "parts",
+     "label": "measured",
+     "source_or_assumption": "Parts with no contact (≤ 0.05 mm, BRepExtrema) with the part they are joined to"
+    },
+    "threshold": "Every part touches the part it is joined to (contact ≤ 0.05 mm)",
+    "verdict": "warn",
+    "formula": "d(child, parent) ≤ 0.05 mm for every joint",
+    "inputs": [],
+    "notes": [
+     "Buttons floats 0.50 mm from Controller housing (gasketed)",
+     "Status light 1 floats 0.50 mm from Controller housing (gasketed)",
+     "Dark part 1 floats 81.00 mm from Rubber parts",
+     "Body floats 87.00 mm from Top shell 1"
+    ]
    }
   ],
   "electronics": {
@@ -1531,10 +1706,22 @@
    "radio": [],
    "power_tree": [
     {
+     "id": "p_src",
+     "name": "Solar panel, 6 V nominal, approximately 5 W",
+     "kind": "source",
+     "parent": null,
+     "voltage": {
+      "value": 6.0,
+      "unit": "V",
+      "label": "estimate",
+      "source_or_assumption": "SOLAR input nominal"
+     }
+    },
+    {
      "id": "p_bat",
      "name": "Rechargeable battery",
      "kind": "storage",
-     "parent": null,
+     "parent": "p_src",
      "voltage": {
       "value": 3.0,
       "unit": "V",
@@ -1552,18 +1739,6 @@
       "unit": "V",
       "label": "estimate",
       "source_or_assumption": "Logic rail for MCU and sensors"
-     }
-    },
-    {
-     "id": "p_b1",
-     "name": "Solar panel, 6 V nominal, approximately 5 W",
-     "kind": "load",
-     "parent": "p_bat",
-     "voltage": {
-      "value": 3.0,
-      "unit": "V",
-      "label": "estimate",
-      "source_or_assumption": "VBAT (through its driver)"
      }
     },
     {
@@ -1589,32 +1764,20 @@
       "label": "estimate",
       "source_or_assumption": "Logic rail"
      }
-    },
-    {
-     "id": "p_b5",
-     "name": "Resistors, capacitors, connectors, and manual override switch",
-     "kind": "load",
-     "parent": "p_reg",
-     "voltage": {
-      "value": 3.3,
-      "unit": "V",
-      "label": "estimate",
-      "source_or_assumption": "Logic rail"
-     }
     }
    ],
    "connections": [
+    {
+     "source": "Solar panel, 6 V nominal, approximately 5 W",
+     "target": "Rechargeable battery",
+     "bus": "power",
+     "signals": "3 V"
+    },
     {
      "source": "Rechargeable battery",
      "target": "DC-DC regulator, 5 V output",
      "bus": "power",
      "signals": "3.3 V"
-    },
-    {
-     "source": "Rechargeable battery",
-     "target": "Solar panel, 6 V nominal, approximately 5 W",
-     "bus": "power",
-     "signals": "3 V"
     },
     {
      "source": "DC-DC regulator, 5 V output",
@@ -1629,18 +1792,6 @@
      "signals": "3.3 V"
     },
     {
-     "source": "DC-DC regulator, 5 V output",
-     "target": "Resistors, capacitors, connectors, and manual override switch",
-     "bus": "power",
-     "signals": "3.3 V"
-    },
-    {
-     "source": "Microcontroller, ATmega328P-AU",
-     "target": "Solar panel, 6 V nominal, approximately 5 W",
-     "bus": "gpio",
-     "signals": "IN1, IN2 (H-bridge)"
-    },
-    {
      "source": "Microcontroller, ATmega328P-AU",
      "target": "Capacitive soil-moisture probe module, analog output",
      "bus": "adc",
@@ -1650,7 +1801,7 @@
      "source": "Microcontroller, ATmega328P-AU",
      "target": "Resistors, capacitors, connectors, and manual override switch",
      "bus": "gpio",
-     "signals": "GPIO"
+     "signals": "BTN (pull-up, wake)"
     },
     {
      "source": "Microcontroller, ATmega328P-AU",
@@ -1660,34 +1811,6 @@
     }
    ],
    "power_budget": [
-    {
-     "block": "valve",
-     "part": "Solar panel, 6 V nominal, approximately 5 W",
-     "active_current": {
-      "value": 1851.852,
-      "unit": "mA",
-      "label": "estimate",
-      "source_or_assumption": "1 × 5 W / 3 V / 90% driver"
-     },
-     "sleep_current": {
-      "value": 0.0,
-      "unit": "µA",
-      "label": "estimate",
-      "source_or_assumption": "Typical sleep/standby current"
-     },
-     "duty_cycle": {
-      "value": 0.02,
-      "unit": "pct",
-      "label": "estimate",
-      "source_or_assumption": "Category duty cycle for 'valve' (Smart irrigation controller (outdoor, water))"
-     },
-     "average_current": {
-      "value": 0.3704,
-      "unit": "mA",
-      "label": "estimate",
-      "source_or_assumption": "active × duty + sleep × (1 − duty)"
-     }
-    },
     {
      "block": "mcu",
      "part": "Microcontroller, ATmega328P-AU",
@@ -1745,34 +1868,6 @@
      }
     },
     {
-     "block": "mcu",
-     "part": "Resistors, capacitors, connectors, and manual override switch",
-     "active_current": {
-      "value": 6.0,
-      "unit": "mA",
-      "label": "estimate",
-      "source_or_assumption": "Typical active current of a MCU (from the BOM)"
-     },
-     "sleep_current": {
-      "value": 2.0,
-      "unit": "µA",
-      "label": "estimate",
-      "source_or_assumption": "Typical sleep/standby current"
-     },
-     "duty_cycle": {
-      "value": 0.5,
-      "unit": "pct",
-      "label": "estimate",
-      "source_or_assumption": "Category duty cycle for 'mcu' (Smart irrigation controller (outdoor, water))"
-     },
-     "average_current": {
-      "value": 0.032,
-      "unit": "mA",
-      "label": "estimate",
-      "source_or_assumption": "active × duty + sleep × (1 − duty)"
-     }
-    },
-    {
      "block": "regulator",
      "part": "DC-DC regulator, 5 V output",
      "active_current": {
@@ -1802,7 +1897,7 @@
     }
    ],
    "average_current": {
-    "value": 0.4209,
+    "value": 0.0185,
     "unit": "mA",
     "label": "estimate",
     "source_or_assumption": "Sum of the power-budget lines"
@@ -1820,10 +1915,10 @@
     "source_or_assumption": "Category default 2600 mAh (no capacity in the BOM) — confirm with the cell datasheet"
    },
    "battery_life": {
-    "value": 218.8,
+    "value": 4978.8,
     "unit": "days",
     "label": "estimate",
-    "source_or_assumption": "2600 mAh × 85% usable / 0.4209 mA average"
+    "source_or_assumption": "2600 mAh × 85% usable / 0.0185 mA average"
    },
    "pcb_note": "PCB layout: next step (human or text-to-PCB)"
   },
@@ -1842,7 +1937,7 @@
     "src/sensors.cpp",
     "src/sensors.h"
    ],
-   "generated_by": "llm:openai/gpt-6-luna",
+   "generated_by": "template",
    "note": "Generated code — not compiled or tested",
    "pending_llm": false
   },
@@ -1868,16 +1963,16 @@
     {
      "item": "PCBA quick-turn (5 boards, 9 BOM lines)",
      "amount": {
-      "value": 100.0,
+      "value": 112.0,
       "unit": "USD",
       "label": "estimate",
-      "source_or_assumption": "5 boards: setup/stencil 25 + 2-layer fab 5 + parts 49.86 (LCSC price at 5× qty where matched, else BOM estimate × 3) + shipping 20 USD"
+      "source_or_assumption": "5 boards: setup/stencil 25 + 2-layer fab 5 + parts 61.77 (LCSC price at 5× qty where matched, else BOM estimate × 3) + shipping 20 USD"
      }
     },
     {
      "item": "Dev-kit bring-up set (firmware before the PCBA arrives)",
      "amount": {
-      "value": 22.0,
+      "value": 14.0,
       "unit": "USD",
       "label": "estimate",
       "source_or_assumption": "Sum of the dev-kit BOM lines"
@@ -1904,18 +1999,6 @@
       "unit": "USD",
       "label": "estimate",
       "source_or_assumption": "Typical distributor price for this dev board class"
-     }
-    },
-    {
-     "part": "Solar panel, 6 V nominal, approximately 5 W (module / breakout)",
-     "role": "valve",
-     "qty": 1,
-     "lcsc_pn": null,
-     "unit_price": {
-      "value": 8.0,
-      "unit": "USD",
-      "label": "estimate",
-      "source_or_assumption": "Typical hobby breakout/module price, not in the LCSC snapshot"
      }
     },
     {
@@ -1946,7 +2029,7 @@
     "source_or_assumption": "Design freeze 0.5 + PCBA quick-turn incl. shipping 2 + integration 1 + test 0.5 (enclosure and firmware on the dev kit run in parallel)"
    },
    "total_cost": {
-    "value": 233.0,
+    "value": 237.0,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Sum of the prototype cost lines"
@@ -1996,6 +2079,1826 @@
    ]
   },
   "unit_basis": "per_unit",
-  "installation_cost": null
- }
+  "installation_cost": null,
+  "assembly": {
+   "project_id": "demo_irrigation_biarritz",
+   "version": 2,
+   "label": "Measured on the version STEP (build123d / OCCT); mates inferred from the family / part roles",
+   "source": "/files/demo_irrigation_biarritz/model_v1.step",
+   "root": "controller_housing_gasketed",
+   "nodes": [
+    {
+     "part_id": "glass_window",
+     "name": "Glass window",
+     "role": "window",
+     "parent": "controller_housing_gasketed",
+     "joint_id": "j1",
+     "rigid_body": 0,
+     "volume": {
+      "value": 12722.4,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      0.0,
+      1.0
+     ],
+     "explode_distance_mm": 24.6
+    },
+    {
+     "part_id": "buttons",
+     "name": "Buttons",
+     "role": "button",
+     "parent": "controller_housing_gasketed",
+     "joint_id": "j2",
+     "rigid_body": 1,
+     "volume": {
+      "value": 3817.0,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      0.0,
+      1.0
+     ],
+     "explode_distance_mm": 25.8
+    },
+    {
+     "part_id": "status_light",
+     "name": "Status light 1",
+     "role": "diffuser",
+     "parent": "controller_housing_gasketed",
+     "joint_id": "j3",
+     "rigid_body": 0,
+     "volume": {
+      "value": 84.8,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      0.0,
+      1.0
+     ],
+     "explode_distance_mm": 24.6
+    },
+    {
+     "part_id": "top_shell",
+     "name": "Top shell 1",
+     "role": "shell_top",
+     "parent": "m4_x_20_pan_screws_x4",
+     "joint_id": "j9",
+     "rigid_body": 0,
+     "volume": {
+      "value": 97715.8,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "explode_distance_mm": 38.8
+    },
+    {
+     "part_id": "top_shell_2",
+     "name": "Top shell 2",
+     "role": "shell_top",
+     "parent": "top_shell",
+     "joint_id": "j12",
+     "rigid_body": 0,
+     "volume": {
+      "value": 18178.0,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "explode_distance_mm": 60.6
+    },
+    {
+     "part_id": "pv_cells",
+     "name": "PV cells",
+     "role": "other",
+     "parent": "top_shell_2",
+     "joint_id": "j15",
+     "rigid_body": 0,
+     "volume": {
+      "value": 5068.8,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "explode_distance_mm": 87.8
+    },
+    {
+     "part_id": "rubber_parts",
+     "name": "Rubber parts",
+     "role": "other",
+     "parent": "controller_housing_gasketed",
+     "joint_id": "j4",
+     "rigid_body": 0,
+     "volume": {
+      "value": 4310.3,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "explode_distance_mm": 17.0
+    },
+    {
+     "part_id": "dark_part",
+     "name": "Dark part 1",
+     "role": "other",
+     "parent": "rubber_parts",
+     "joint_id": "j8",
+     "rigid_body": 0,
+     "volume": {
+      "value": 164214.1,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "explode_distance_mm": 128.3
+    },
+    {
+     "part_id": "metal_parts",
+     "name": "Metal parts",
+     "role": "frame",
+     "parent": "dark_part",
+     "joint_id": "j10",
+     "rigid_body": 0,
+     "volume": {
+      "value": 66438.9,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.9332,
+      0.3593,
+      0.0
+     ],
+     "explode_distance_mm": 137.5
+    },
+    {
+     "part_id": "dark_part_2",
+     "name": "Dark part 2",
+     "role": "other",
+     "parent": "dark_part",
+     "joint_id": "j11",
+     "rigid_body": 0,
+     "volume": {
+      "value": 119980.3,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.9639,
+      0.2663,
+      0.0
+     ],
+     "explode_distance_mm": 133.1
+    },
+    {
+     "part_id": "dark_part_3",
+     "name": "Dark part 3",
+     "role": "other",
+     "parent": "dark_part_2",
+     "joint_id": "j14",
+     "rigid_body": 0,
+     "volume": {
+      "value": 23220.7,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.9041,
+      0.4272,
+      0.0
+     ],
+     "explode_distance_mm": 141.9
+    },
+    {
+     "part_id": "rubber_part",
+     "name": "Rubber part 1",
+     "role": "other",
+     "parent": "dark_part_3",
+     "joint_id": "j19",
+     "rigid_body": 0,
+     "volume": {
+      "value": 23355.1,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.7983,
+      0.6022,
+      0.0
+     ],
+     "explode_distance_mm": 160.7
+    },
+    {
+     "part_id": "rubber_part_2",
+     "name": "Rubber part 2",
+     "role": "other",
+     "parent": "rubber_part",
+     "joint_id": "j21",
+     "rigid_body": 0,
+     "volume": {
+      "value": 1508.0,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.8679,
+      0.4967,
+      0.0
+     ],
+     "explode_distance_mm": 194.9
+    },
+    {
+     "part_id": "lower_body",
+     "name": "Lower body 1",
+     "role": "shell_bottom",
+     "parent": "body",
+     "joint_id": "j16",
+     "rigid_body": 0,
+     "volume": {
+      "value": 23629.3,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      -0.5524,
+      -0.8336,
+      0.0
+     ],
+     "explode_distance_mm": 64.6
+    },
+    {
+     "part_id": "lower_body_2",
+     "name": "Lower body 2",
+     "role": "shell_bottom",
+     "parent": "lower_body",
+     "joint_id": "j20",
+     "rigid_body": 0,
+     "volume": {
+      "value": 5732.1,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      -0.3551,
+      -0.9348,
+      0.0
+     ],
+     "explode_distance_mm": 100.6
+    },
+    {
+     "part_id": "steel_parts",
+     "name": "Steel parts",
+     "role": "frame",
+     "parent": "lower_body_2",
+     "joint_id": "j22",
+     "rigid_body": 0,
+     "volume": {
+      "value": 695.0,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      -0.8206,
+      -0.5715,
+      0.0
+     ],
+     "explode_distance_mm": 43.5
+    },
+    {
+     "part_id": "body",
+     "name": "Body",
+     "role": "other",
+     "parent": "top_shell",
+     "joint_id": "j13",
+     "rigid_body": 0,
+     "volume": {
+      "value": 69409.8,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      -0.6768,
+      0.7362,
+      0.0
+     ],
+     "explode_distance_mm": 52.8
+    },
+    {
+     "part_id": "pv_cells_2",
+     "name": "PV cells 1",
+     "role": "other",
+     "parent": "body",
+     "joint_id": "j17",
+     "rigid_body": 0,
+     "volume": {
+      "value": 1182.4,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      -0.4958,
+      0.8684,
+      0.0
+     ],
+     "explode_distance_mm": 72.0
+    },
+    {
+     "part_id": "status_light_2",
+     "name": "Status light 2",
+     "role": "diffuser",
+     "parent": "body",
+     "joint_id": "j18",
+     "rigid_body": 0,
+     "volume": {
+      "value": 58.9,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      -0.6134,
+      0.6673,
+      0.4226
+     ],
+     "explode_distance_mm": 58.2
+    },
+    {
+     "part_id": "controller_housing_gasketed",
+     "name": "Controller housing (gasketed)",
+     "role": "shell_bottom",
+     "parent": null,
+     "joint_id": null,
+     "rigid_body": 0,
+     "volume": {
+      "value": 1675853.2,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "explode_distance_mm": 0.0
+    },
+    {
+     "part_id": "gasket",
+     "name": "Gasket",
+     "role": "other",
+     "parent": "controller_housing_gasketed",
+     "joint_id": "j5",
+     "rigid_body": 0,
+     "volume": {
+      "value": 1433.1,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "explode_distance_mm": 24.0
+    },
+    {
+     "part_id": "m4_x_20_pan_screws_x4",
+     "name": "M4 × 20 pan screws ×4",
+     "role": "fastener",
+     "parent": "controller_housing_gasketed",
+     "joint_id": "j6",
+     "rigid_body": 0,
+     "volume": {
+      "value": 1545.3,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "explode_distance_mm": 21.1
+    },
+    {
+     "part_id": "m4_heat_set_inserts_x4",
+     "name": "M4 heat-set inserts ×4",
+     "role": "fastener",
+     "parent": "controller_housing_gasketed",
+     "joint_id": "j7",
+     "rigid_body": 0,
+     "volume": {
+      "value": 518.8,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "explode_distance_mm": 27.7
+    }
+   ],
+   "joints": [
+    {
+     "id": "j1",
+     "parent": "controller_housing_gasketed",
+     "child": "glass_window",
+     "kind": "rigid",
+     "method": "inlay",
+     "dof": 0,
+     "origin_mm": [
+      0.0,
+      129.2,
+      29.75
+     ],
+     "axis": [
+      -0.0,
+      -0.0,
+      1.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Glass window set into Controller housing (gasketed): inlay (insert rule; the host is pocketed around it at detail design)"
+    },
+    {
+     "id": "j2",
+     "parent": "controller_housing_gasketed",
+     "child": "buttons",
+     "kind": "linear",
+     "method": "slide",
+     "dof": 1,
+     "origin_mm": [
+      -21.0,
+      79.8,
+      30.25
+     ],
+     "axis": [
+      -0.0,
+      -0.0,
+      1.0
+     ],
+     "range": [
+      0.0,
+      0.5
+     ],
+     "fasteners": [],
+     "rule": "Push button / trigger: linear travel 0.5 mm into its housing (tactile switch travel) — NO CONTACT with Controller housing (gasketed) (gap 0.50 mm): attach at detail design"
+    },
+    {
+     "id": "j3",
+     "parent": "controller_housing_gasketed",
+     "child": "status_light",
+     "kind": "rigid",
+     "method": "inlay",
+     "dof": 0,
+     "origin_mm": [
+      57.0,
+      167.2,
+      30.25
+     ],
+     "axis": [
+      -0.0,
+      -0.0,
+      1.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Status light 1 set into Controller housing (gasketed): inlay (insert rule; the host is pocketed around it at detail design) — NO CONTACT with Controller housing (gasketed) (gap 0.50 mm): attach at detail design"
+    },
+    {
+     "id": "j4",
+     "parent": "controller_housing_gasketed",
+     "child": "rubber_parts",
+     "kind": "rigid",
+     "method": "bonded",
+     "dof": 0,
+     "origin_mm": [
+      75.0,
+      19.6,
+      12.0
+     ],
+     "axis": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Soft part (rubber / fabric): bonded or press-fitted (seal / pad / foot rule)"
+    },
+    {
+     "id": "j5",
+     "parent": "controller_housing_gasketed",
+     "child": "gasket",
+     "kind": "rigid",
+     "method": "bonded",
+     "dof": 0,
+     "origin_mm": [
+      -61.0,
+      188.5,
+      23.0
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Soft part (rubber / fabric): bonded or press-fitted (seal / pad / foot rule)"
+    },
+    {
+     "id": "j6",
+     "parent": "controller_housing_gasketed",
+     "child": "m4_x_20_pan_screws_x4",
+     "kind": "rigid",
+     "method": "press_fit",
+     "dof": 0,
+     "origin_mm": [
+      0.0,
+      185.0,
+      0.0
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "M4 × 20 pan screws ×4 set into Controller housing (gasketed): press-fit (insert rule; the host is pocketed around it at detail design)"
+    },
+    {
+     "id": "j7",
+     "parent": "controller_housing_gasketed",
+     "child": "m4_heat_set_inserts_x4",
+     "kind": "rigid",
+     "method": "press_fit",
+     "dof": 0,
+     "origin_mm": [
+      0.0,
+      185.9,
+      0.0
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "M4 heat-set inserts ×4 set into Controller housing (gasketed): press-fit (insert rule; the host is pocketed around it at detail design)"
+    },
+    {
+     "id": "j8",
+     "parent": "rubber_parts",
+     "child": "dark_part",
+     "kind": "rigid",
+     "method": "screwed",
+     "dof": 0,
+     "origin_mm": [
+      255.0,
+      22.18,
+      0.0
+     ],
+     "axis": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Structural part ≥ 20 mm: 4 screws into heat-set inserts (structural-joint rule) — NO CONTACT with Rubber parts (gap 81.00 mm): attach at detail design"
+    },
+    {
+     "id": "j9",
+     "parent": "m4_x_20_pan_screws_x4",
+     "child": "top_shell",
+     "kind": "rigid",
+     "method": "snap_fit",
+     "dof": 0,
+     "origin_mm": [
+      0.0,
+      199.88,
+      -0.0
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Small moulded part: snap-fit / press-fit (small-part rule)"
+    },
+    {
+     "id": "j10",
+     "parent": "dark_part",
+     "child": "metal_parts",
+     "kind": "rigid",
+     "method": "screwed",
+     "dof": 0,
+     "origin_mm": [
+      255.0,
+      22.18,
+      0.0
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [
+      {
+       "kind": "screw",
+       "standard": "ISO 14583 (hexalobular pan head), A2 stainless",
+       "designation": "M3×12",
+       "size": "M3",
+       "length_mm": 12.0,
+       "qty": 4,
+       "source": "api.cad.stdparts"
+      }
+     ],
+     "rule": "Structural part ≥ 20 mm: 4 screws into tapped metal (structural-joint rule)"
+    },
+    {
+     "id": "j11",
+     "parent": "dark_part",
+     "child": "dark_part_2",
+     "kind": "rigid",
+     "method": "screwed",
+     "dof": 0,
+     "origin_mm": [
+      255.0,
+      22.18,
+      -0.0
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [
+      {
+       "kind": "screw",
+       "standard": "ISO 14583 (hexalobular pan head), A2 stainless",
+       "designation": "M2.5×10",
+       "size": "M2.5",
+       "length_mm": 10.0,
+       "qty": 2,
+       "source": "api.cad.stdparts"
+      },
+      {
+       "kind": "insert",
+       "standard": "Heat-set brass insert (catalogue class)",
+       "designation": "M2.5×4",
+       "size": "M2.5",
+       "length_mm": 4.0,
+       "qty": 2,
+       "source": "api.cad.stdparts"
+      }
+     ],
+     "rule": "Structural part ≥ 20 mm: 2 screws into heat-set inserts (structural-joint rule)"
+    },
+    {
+     "id": "j12",
+     "parent": "top_shell",
+     "child": "top_shell_2",
+     "kind": "rigid",
+     "method": "screwed",
+     "dof": 0,
+     "origin_mm": [
+      74.5,
+      210.66,
+      -25.3
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [
+      {
+       "kind": "screw",
+       "standard": "ISO 14583 (hexalobular pan head), A2 stainless",
+       "designation": "M2.5×8",
+       "size": "M2.5",
+       "length_mm": 8.0,
+       "qty": 2,
+       "source": "api.cad.stdparts"
+      },
+      {
+       "kind": "insert",
+       "standard": "Heat-set brass insert (catalogue class)",
+       "designation": "M2.5×4",
+       "size": "M2.5",
+       "length_mm": 4.0,
+       "qty": 2,
+       "source": "api.cad.stdparts"
+      }
+     ],
+     "rule": "Structural part ≥ 20 mm: 2 screws into heat-set inserts (structural-joint rule)"
+    },
+    {
+     "id": "j13",
+     "parent": "top_shell",
+     "child": "body",
+     "kind": "rigid",
+     "method": "screwed",
+     "dof": 0,
+     "origin_mm": [
+      -192.0,
+      195.8,
+      0.0
+     ],
+     "axis": [
+      -1.0,
+      -0.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Structural part ≥ 20 mm: 2 screws into heat-set inserts (structural-joint rule) — NO CONTACT with Top shell 1 (gap 87.00 mm): attach at detail design"
+    },
+    {
+     "id": "j14",
+     "parent": "dark_part_2",
+     "child": "dark_part_3",
+     "kind": "rigid",
+     "method": "screwed",
+     "dof": 0,
+     "origin_mm": [
+      274.2,
+      42.22,
+      0.0
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [
+      {
+       "kind": "screw",
+       "standard": "ISO 14583 (hexalobular pan head), A2 stainless",
+       "designation": "M2×8",
+       "size": "M2",
+       "length_mm": 8.0,
+       "qty": 2,
+       "source": "api.cad.stdparts"
+      },
+      {
+       "kind": "insert",
+       "standard": "Heat-set brass insert (McMaster-Carr 94459A120)",
+       "designation": "M2×4",
+       "size": "M2",
+       "length_mm": 4.0,
+       "qty": 2,
+       "source": "api.cad.stdparts"
+      }
+     ],
+     "rule": "Structural part ≥ 20 mm: 2 screws into heat-set inserts (structural-joint rule)"
+    },
+    {
+     "id": "j15",
+     "parent": "top_shell_2",
+     "child": "pv_cells",
+     "kind": "rigid",
+     "method": "screwed",
+     "dof": 0,
+     "origin_mm": [
+      -37.5,
+      207.58,
+      16.14
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [
+      {
+       "kind": "screw",
+       "standard": "ISO 14583 (hexalobular pan head), A2 stainless",
+       "designation": "M2.5×5",
+       "size": "M2.5",
+       "length_mm": 5.0,
+       "qty": 2,
+       "source": "api.cad.stdparts"
+      },
+      {
+       "kind": "insert",
+       "standard": "Heat-set brass insert (catalogue class)",
+       "designation": "M2.5×4",
+       "size": "M2.5",
+       "length_mm": 4.0,
+       "qty": 2,
+       "source": "api.cad.stdparts"
+      }
+     ],
+     "rule": "Structural part ≥ 20 mm: 2 screws into heat-set inserts (structural-joint rule)"
+    },
+    {
+     "id": "j16",
+     "parent": "body",
+     "child": "lower_body",
+     "kind": "rigid",
+     "method": "screwed",
+     "dof": 0,
+     "origin_mm": [
+      -201.9,
+      171.6,
+      4.5
+     ],
+     "axis": [
+      -0.0,
+      -1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [
+      {
+       "kind": "screw",
+       "standard": "ISO 14583 (hexalobular pan head), A2 stainless",
+       "designation": "M2.5×10",
+       "size": "M2.5",
+       "length_mm": 10.0,
+       "qty": 2,
+       "source": "api.cad.stdparts"
+      },
+      {
+       "kind": "insert",
+       "standard": "Heat-set brass insert (catalogue class)",
+       "designation": "M2.5×4",
+       "size": "M2.5",
+       "length_mm": 4.0,
+       "qty": 2,
+       "source": "api.cad.stdparts"
+      }
+     ],
+     "rule": "Structural part ≥ 20 mm: 2 screws into heat-set inserts (structural-joint rule)"
+    },
+    {
+     "id": "j17",
+     "parent": "body",
+     "child": "pv_cells_2",
+     "kind": "rigid",
+     "method": "screwed",
+     "dof": 0,
+     "origin_mm": [
+      -178.8,
+      220.0,
+      0.0
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [
+      {
+       "kind": "screw",
+       "standard": "ISO 14583 (hexalobular pan head), A2 stainless",
+       "designation": "M2×6",
+       "size": "M2",
+       "length_mm": 6.0,
+       "qty": 2,
+       "source": "api.cad.stdparts"
+      },
+      {
+       "kind": "insert",
+       "standard": "Heat-set brass insert (McMaster-Carr 94459A120)",
+       "designation": "M2×4",
+       "size": "M2",
+       "length_mm": 4.0,
+       "qty": 2,
+       "source": "api.cad.stdparts"
+      }
+     ],
+     "rule": "Structural part ≥ 20 mm: 2 screws into heat-set inserts (structural-joint rule)"
+    },
+    {
+     "id": "j18",
+     "parent": "body",
+     "child": "status_light_2",
+     "kind": "rigid",
+     "method": "inlay",
+     "dof": 0,
+     "origin_mm": [
+      -192.0,
+      198.22,
+      21.25
+     ],
+     "axis": [
+      -0.0,
+      -0.0,
+      1.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Status light 2 set into Body: inlay (insert rule; the host is pocketed around it at detail design)"
+    },
+    {
+     "id": "j19",
+     "parent": "dark_part_3",
+     "child": "rubber_part",
+     "kind": "rigid",
+     "method": "bonded",
+     "dof": 0,
+     "origin_mm": [
+      267.03,
+      62.26,
+      0.0
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Soft part (rubber / fabric): bonded or press-fitted (seal / pad / foot rule)"
+    },
+    {
+     "id": "j20",
+     "parent": "lower_body",
+     "child": "lower_body_2",
+     "kind": "rigid",
+     "method": "screwed",
+     "dof": 0,
+     "origin_mm": [
+      -192.0,
+      39.5,
+      0.0
+     ],
+     "axis": [
+      -0.0,
+      -1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [
+      {
+       "kind": "screw",
+       "standard": "ISO 14583 (hexalobular pan head), A2 stainless",
+       "designation": "M2×8",
+       "size": "M2",
+       "length_mm": 8.0,
+       "qty": 2,
+       "source": "api.cad.stdparts"
+      },
+      {
+       "kind": "insert",
+       "standard": "Heat-set brass insert (McMaster-Carr 94459A120)",
+       "designation": "M2×4",
+       "size": "M2",
+       "length_mm": 4.0,
+       "qty": 2,
+       "source": "api.cad.stdparts"
+      }
+     ],
+     "rule": "Structural part ≥ 20 mm: 2 screws into heat-set inserts (structural-joint rule)"
+    },
+    {
+     "id": "j21",
+     "parent": "rubber_part",
+     "child": "rubber_part_2",
+     "kind": "rigid",
+     "method": "bonded",
+     "dof": 0,
+     "origin_mm": [
+      262.53,
+      78.96,
+      0.0
+     ],
+     "axis": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Soft part (rubber / fabric): bonded or press-fitted (seal / pad / foot rule)"
+    },
+    {
+     "id": "j22",
+     "parent": "lower_body_2",
+     "child": "steel_parts",
+     "kind": "rigid",
+     "method": "snap_fit",
+     "dof": 0,
+     "origin_mm": [
+      -192.0,
+      29.76,
+      5.2
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Small moulded part: snap-fit / press-fit (small-part rule)"
+    }
+   ],
+   "interferences": [
+    {
+     "a": "gasket",
+     "b": "m4_x_20_pan_screws_x4",
+     "volume": {
+      "value": 53.93,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "gasket",
+     "b": "m4_heat_set_inserts_x4",
+     "volume": {
+      "value": 33.97,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "lower_body",
+     "b": "steel_parts",
+     "volume": {
+      "value": 15.33,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "dark_part",
+     "b": "dark_part_2",
+     "volume": {
+      "value": 68922.97,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint screwed: concept overlap at the mate"
+    },
+    {
+     "a": "dark_part",
+     "b": "metal_parts",
+     "volume": {
+      "value": 50230.18,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint screwed: concept overlap at the mate"
+    },
+    {
+     "a": "glass_window",
+     "b": "controller_housing_gasketed",
+     "volume": {
+      "value": 2120.4,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint inlay: concept overlap at the mate"
+    },
+    {
+     "a": "rubber_part",
+     "b": "rubber_part_2",
+     "volume": {
+      "value": 747.23,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint bonded: concept overlap at the mate"
+    },
+    {
+     "a": "controller_housing_gasketed",
+     "b": "m4_heat_set_inserts_x4",
+     "volume": {
+      "value": 467.16,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint press-fit: concept overlap at the mate"
+    },
+    {
+     "a": "top_shell",
+     "b": "m4_x_20_pan_screws_x4",
+     "volume": {
+      "value": 447.81,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint snap-fit: concept overlap at the mate"
+    },
+    {
+     "a": "controller_housing_gasketed",
+     "b": "m4_x_20_pan_screws_x4",
+     "volume": {
+      "value": 440.02,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint press-fit: concept overlap at the mate"
+    },
+    {
+     "a": "lower_body",
+     "b": "lower_body_2",
+     "volume": {
+      "value": 178.2,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint screwed: concept overlap at the mate"
+    },
+    {
+     "a": "lower_body_2",
+     "b": "steel_parts",
+     "volume": {
+      "value": 131.56,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint snap-fit: concept overlap at the mate"
+    },
+    {
+     "a": "body",
+     "b": "status_light_2",
+     "volume": {
+      "value": 28.75,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint inlay: concept overlap at the mate"
+    }
+   ],
+   "clearances": [
+    {
+     "part_id": "buttons",
+     "against": "—",
+     "min_clearance": {
+      "value": 12.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "BRepExtrema distance: nothing within 12 mm (lower bound)"
+     },
+     "motion": "linear 0–0.5 mm (3 poses)",
+     "verdict": "pass",
+     "rule": "Push button pressed to the end of its travel keeps ≥ 0.2 mm to neighbouring parts (ISO 20457 moulded tolerances)"
+    }
+   ],
+   "fasteners": [
+    {
+     "id": "fx1",
+     "part": "Heat-set threaded insert M2.5×4 (Heat-set brass insert (catalogue class))",
+     "category": "mechanical",
+     "qty": 8.0,
+     "description": "Fastener aggregated from the assembly joints (api.cad.stdparts)",
+     "manufacturer_pn": null,
+     "lcsc_pn": null,
+     "unit_cost_est": {
+      "value": 0.07,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+     },
+     "risk": null,
+     "alternative": null
+    },
+    {
+     "id": "fx2",
+     "part": "Heat-set threaded insert M2×4 (Heat-set brass insert (McMaster-Carr 94459A120))",
+     "category": "mechanical",
+     "qty": 6.0,
+     "description": "Fastener aggregated from the assembly joints (api.cad.stdparts)",
+     "manufacturer_pn": null,
+     "lcsc_pn": null,
+     "unit_cost_est": {
+      "value": 0.06,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+     },
+     "risk": null,
+     "alternative": null
+    },
+    {
+     "id": "fx3",
+     "part": "Screw M2.5 × 10 pan head T-drive (ISO 14583 (hexalobular pan head), A2 stainless)",
+     "category": "mechanical",
+     "qty": 4.0,
+     "description": "Fastener aggregated from the assembly joints (api.cad.stdparts)",
+     "manufacturer_pn": null,
+     "lcsc_pn": null,
+     "unit_cost_est": {
+      "value": 0.022,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+     },
+     "risk": null,
+     "alternative": null
+    },
+    {
+     "id": "fx4",
+     "part": "Screw M2.5 × 5 pan head T-drive (ISO 14583 (hexalobular pan head), A2 stainless)",
+     "category": "mechanical",
+     "qty": 2.0,
+     "description": "Fastener aggregated from the assembly joints (api.cad.stdparts)",
+     "manufacturer_pn": null,
+     "lcsc_pn": null,
+     "unit_cost_est": {
+      "value": 0.022,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+     },
+     "risk": null,
+     "alternative": null
+    },
+    {
+     "id": "fx5",
+     "part": "Screw M2.5 × 8 pan head T-drive (ISO 14583 (hexalobular pan head), A2 stainless)",
+     "category": "mechanical",
+     "qty": 2.0,
+     "description": "Fastener aggregated from the assembly joints (api.cad.stdparts)",
+     "manufacturer_pn": null,
+     "lcsc_pn": null,
+     "unit_cost_est": {
+      "value": 0.022,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+     },
+     "risk": null,
+     "alternative": null
+    },
+    {
+     "id": "fx6",
+     "part": "Screw M2 × 6 pan head T-drive (ISO 14583 (hexalobular pan head), A2 stainless)",
+     "category": "mechanical",
+     "qty": 2.0,
+     "description": "Fastener aggregated from the assembly joints (api.cad.stdparts)",
+     "manufacturer_pn": null,
+     "lcsc_pn": null,
+     "unit_cost_est": {
+      "value": 0.02,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+     },
+     "risk": null,
+     "alternative": null
+    },
+    {
+     "id": "fx7",
+     "part": "Screw M2 × 8 pan head T-drive (ISO 14583 (hexalobular pan head), A2 stainless)",
+     "category": "mechanical",
+     "qty": 4.0,
+     "description": "Fastener aggregated from the assembly joints (api.cad.stdparts)",
+     "manufacturer_pn": null,
+     "lcsc_pn": null,
+     "unit_cost_est": {
+      "value": 0.02,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+     },
+     "risk": null,
+     "alternative": null
+    },
+    {
+     "id": "fx8",
+     "part": "Screw M3 × 12 pan head T-drive (ISO 14583 (hexalobular pan head), A2 stainless)",
+     "category": "mechanical",
+     "qty": 4.0,
+     "description": "Fastener aggregated from the assembly joints (api.cad.stdparts)",
+     "manufacturer_pn": null,
+     "lcsc_pn": null,
+     "unit_cost_est": {
+      "value": 0.025,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+     },
+     "risk": null,
+     "alternative": null
+    }
+   ],
+   "checks": [
+    {
+     "id": "asm_interference",
+     "name": "Interference between moving parts",
+     "domain": "assembly",
+     "value": {
+      "value": 0.0,
+      "unit": "pairs",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of every part pair (OCCT), classified by the assembly joints; total 0.0 mm³"
+     },
+     "threshold": "0 intersecting pairs > 0.01 mm³ between parts that move relative to each other (different rigid bodies, over their motion study) or across a parting line — CAD interference-check practice",
+     "verdict": "pass",
+     "formula": "V(A ∩ B) per pair of solids at the assembled pose and over each moving joint's motion study",
+     "inputs": [
+      {
+       "value": 0.0,
+       "unit": "mm³",
+       "label": "measured",
+       "source_or_assumption": "Sum of interference volumes"
+      }
+     ],
+     "notes": []
+    },
+    {
+     "id": "asm_static_overlap",
+     "name": "Overlaps inside rigid bodies (concept geometry)",
+     "domain": "assembly",
+     "value": {
+      "value": 103.2,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "3 pairs of rigidly joined parts interpenetrate (1 over 5 % of the smaller part)"
+     },
+     "threshold": "Parts of one rigid body should not interpenetrate: overlap > 5 % of the smaller part = concept geometry to pocket at detail design (warn); smaller overlaps are seats (info)",
+     "verdict": "warn",
+     "formula": "V(A ∩ B) for parts of the same rigid body that are not directly joined",
+     "inputs": [],
+     "notes": [
+      "Gasket ↔ M4 heat-set inserts ×4: 34 mm³"
+     ]
+    },
+    {
+     "id": "asm_clearance",
+     "name": "Minimum clearance of moving parts",
+     "domain": "assembly",
+     "value": {
+      "value": 12.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Lower bound: no moving part has a neighbour within 12 mm (or no moving joint)"
+     },
+     "threshold": "Push button pressed to the end of its travel keeps ≥ 0.2 mm to neighbouring parts (ISO 20457 moulded tolerances)",
+     "verdict": "pass",
+     "formula": "min over poses of d(moving subtree, other parts); revolute props 12 poses / 360°, buttons pressed 0.5 mm",
+     "inputs": [],
+     "notes": []
+    },
+    {
+     "id": "asm_fastener_engagement",
+     "name": "Screw engagement vs insert / thread",
+     "domain": "assembly",
+     "value": {
+      "value": 4.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Material under each screw measured by a line ∩ solid on both parts; flange capped at 2·d (counterbore), screw = shortest ISO length reaching the insert / thread"
+     },
+     "threshold": "Heat-set insert: boss holds the insert + 0.5 mm and the screw engages ≥ 80 % of it (McMaster-Carr 94459A insert data); tapped metal ≥ 1.5·d; thread-forming screw in plastic ≥ 2·d (EJOT DELTA PT design guide)",
+     "verdict": "fail",
+     "formula": "engagement = min(insert length, screw length − flange); boss depth = material of the threaded part",
+     "inputs": [
+      {
+       "value": 2.02,
+       "unit": "mm",
+       "label": "measured",
+       "source_or_assumption": "Smallest boss / thread material measured"
+      }
+     ],
+     "notes": [
+      "Metal parts → Dark part 1: 4 × M3×12 (tapped), engagement ≥ 0.0 mm, warn (4 position(s) without material on both parts)",
+      "Dark part 2 → Dark part 1: 2 × M2.5×10 + insert M2.5×4, engagement ≥ 4.0 mm, pass",
+      "Top shell 2 → Top shell 1: 2 × M2.5×8 + insert M2.5×4, engagement ≥ 4.0 mm, pass (1 position(s) without material on both parts)",
+      "Dark part 3 → Dark part 2: 2 × M2×8 + insert M2×4, engagement ≥ 4.0 mm, pass (1 position(s) without material on both parts)",
+      "PV cells → Top shell 2: 2 × M2.5×5 + insert M2.5×4, engagement ≥ 4.0 mm, fail",
+      "Lower body 1 → Body: 2 × M2.5×10 + insert M2.5×4, engagement ≥ 4.0 mm, pass (1 position(s) without material on both parts)",
+      "PV cells 1 → Body: 2 × M2×6 + insert M2×4, engagement ≥ 4.0 mm, pass",
+      "Lower body 2 → Lower body 1: 2 × M2×8 + insert M2×4, engagement ≥ 4.0 mm, pass"
+     ]
+    },
+    {
+     "id": "asm_fastener_count",
+     "name": "Fasteners by standard",
+     "domain": "assembly",
+     "value": {
+      "value": 32.0,
+      "unit": "pcs",
+      "label": "estimate",
+      "source_or_assumption": "Joint rules (screws per parting-line perimeter, motor mounts, spring bars); sizes from the part scale"
+     },
+     "threshold": null,
+     "verdict": "info",
+     "formula": "Σ fasteners over the assembly joints",
+     "inputs": [],
+     "notes": [
+      "8 × insert M2.5×4 (Heat-set brass insert (catalogue class))",
+      "6 × insert M2×4 (Heat-set brass insert (McMaster-Carr 94459A120))",
+      "4 × screw M2.5×10 (ISO 14583 (hexalobular pan head), A2 stainless)",
+      "2 × screw M2.5×5 (ISO 14583 (hexalobular pan head), A2 stainless)",
+      "2 × screw M2.5×8 (ISO 14583 (hexalobular pan head), A2 stainless)",
+      "2 × screw M2×6 (ISO 14583 (hexalobular pan head), A2 stainless)",
+      "4 × screw M2×8 (ISO 14583 (hexalobular pan head), A2 stainless)",
+      "4 × screw M3×12 (ISO 14583 (hexalobular pan head), A2 stainless)"
+     ]
+    },
+    {
+     "id": "asm_joint_closure",
+     "name": "Joint closure (build123d Joints)",
+     "domain": "assembly",
+     "value": {
+      "value": 0.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Each child re-placed from its joint frame with build123d RigidJoint / RevoluteJoint / LinearJoint.connect_to; 22 joints"
+     },
+     "threshold": "build123d joints re-place every part at its modelled pose: residual < 0.01 mm",
+     "verdict": "pass",
+     "formula": "|bbox centre after connect_to − modelled bbox centre|",
+     "inputs": [],
+     "notes": []
+    },
+    {
+     "id": "asm_support",
+     "name": "Every part is attached",
+     "domain": "assembly",
+     "value": {
+      "value": 4.0,
+      "unit": "parts",
+      "label": "measured",
+      "source_or_assumption": "Parts with no contact (≤ 0.05 mm, BRepExtrema) with the part they are joined to"
+     },
+     "threshold": "Every part touches the part it is joined to (contact ≤ 0.05 mm)",
+     "verdict": "warn",
+     "formula": "d(child, parent) ≤ 0.05 mm for every joint",
+     "inputs": [],
+     "notes": [
+      "Buttons floats 0.50 mm from Controller housing (gasketed)",
+      "Status light 1 floats 0.50 mm from Controller housing (gasketed)",
+      "Dark part 1 floats 81.00 mm from Rubber parts",
+      "Body floats 87.00 mm from Top shell 1"
+     ]
+    }
+   ],
+   "summary": "23 parts · 22 joints (1 moving) · 0 interferences · 32 fasteners",
+   "engine": "c2.2"
+  }
+ },
+ "drawings": [
+  {
+   "sheet": "A1",
+   "kind": "assembly",
+   "part_id": null,
+   "title": "Smart garden irrigation — general assembly",
+   "svg_url": "/files/demo_irrigation_biarritz/drawings/v2_A1.svg",
+   "pdf_url": "/files/demo_irrigation_biarritz/drawings/v2_A1.pdf",
+   "set_pdf_url": "/files/demo_irrigation_biarritz/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A3",
+   "scale": "1:5",
+   "bbox_mm": [
+    554.0,
+    74.42,
+    221.5
+   ],
+   "bom_item_id": null,
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P01",
+   "kind": "part",
+   "part_id": "controller_housing_gasketed",
+   "title": "Controller housing (gasketed)",
+   "svg_url": "/files/demo_irrigation_biarritz/drawings/v2_P01.svg",
+   "pdf_url": "/files/demo_irrigation_biarritz/drawings/v2_P01.pdf",
+   "set_pdf_url": "/files/demo_irrigation_biarritz/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A3",
+   "scale": "1:2",
+   "bbox_mm": [
+    150.0,
+    60.0,
+    190.0
+   ],
+   "bom_item_id": "e2",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P02",
+   "kind": "part",
+   "part_id": "dark_part",
+   "title": "Detail part 1 — powder coat",
+   "svg_url": "/files/demo_irrigation_biarritz/drawings/v2_P02.svg",
+   "pdf_url": "/files/demo_irrigation_biarritz/drawings/v2_P02.pdf",
+   "set_pdf_url": "/files/demo_irrigation_biarritz/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A3",
+   "scale": "1:1",
+   "bbox_mm": [
+    170.0,
+    35.07,
+    35.07
+   ],
+   "bom_item_id": "hw2",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P03",
+   "kind": "part",
+   "part_id": "dark_part_2",
+   "title": "Detail part 2 — powder coat",
+   "svg_url": "/files/demo_irrigation_biarritz/drawings/v2_P03.svg",
+   "pdf_url": "/files/demo_irrigation_biarritz/drawings/v2_P03.pdf",
+   "set_pdf_url": "/files/demo_irrigation_biarritz/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A4",
+   "scale": "1:1",
+   "bbox_mm": [
+    71.4,
+    43.42,
+    40.08
+   ],
+   "bom_item_id": "hw2",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P04",
+   "kind": "part",
+   "part_id": "top_shell",
+   "title": "Top shell",
+   "svg_url": "/files/demo_irrigation_biarritz/drawings/v2_P04.svg",
+   "pdf_url": "/files/demo_irrigation_biarritz/drawings/v2_P04.pdf",
+   "set_pdf_url": "/files/demo_irrigation_biarritz/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A3",
+   "scale": "1:1",
+   "bbox_mm": [
+    166.0,
+    74.42,
+    16.96
+   ],
+   "bom_item_id": "m1",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P05",
+   "kind": "part",
+   "part_id": "body",
+   "title": "Housing — ASA",
+   "svg_url": "/files/demo_irrigation_biarritz/drawings/v2_P05.svg",
+   "pdf_url": "/files/demo_irrigation_biarritz/drawings/v2_P05.pdf",
+   "set_pdf_url": "/files/demo_irrigation_biarritz/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A4",
+   "scale": "1:1",
+   "bbox_mm": [
+    44.0,
+    44.0,
+    48.4
+   ],
+   "bom_item_id": null,
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P06",
+   "kind": "part",
+   "part_id": "metal_parts",
+   "title": "Structural part — anodised aluminium",
+   "svg_url": "/files/demo_irrigation_biarritz/drawings/v2_P06.svg",
+   "pdf_url": "/files/demo_irrigation_biarritz/drawings/v2_P06.pdf",
+   "set_pdf_url": "/files/demo_irrigation_biarritz/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A3",
+   "scale": "1:1",
+   "bbox_mm": [
+    170.0,
+    38.41,
+    44.35
+   ],
+   "bom_item_id": null,
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P07",
+   "kind": "part",
+   "part_id": "lower_body",
+   "title": "Lower housing 1 — ASA",
+   "svg_url": "/files/demo_irrigation_biarritz/drawings/v2_P07.svg",
+   "pdf_url": "/files/demo_irrigation_biarritz/drawings/v2_P07.pdf",
+   "set_pdf_url": "/files/demo_irrigation_biarritz/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A3",
+   "scale": "1:1",
+   "bbox_mm": [
+    19.8,
+    9.0,
+    132.6
+   ],
+   "bom_item_id": "e2",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P08",
+   "kind": "part",
+   "part_id": "rubber_part",
+   "title": "Detail part 1 — TPE rubber",
+   "svg_url": "/files/demo_irrigation_biarritz/drawings/v2_P08.svg",
+   "pdf_url": "/files/demo_irrigation_biarritz/drawings/v2_P08.pdf",
+   "set_pdf_url": "/files/demo_irrigation_biarritz/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A4",
+   "scale": "1:1",
+   "bbox_mm": [
+    30.06,
+    30.06,
+    33.4
+   ],
+   "bom_item_id": "hw2",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P09",
+   "kind": "part",
+   "part_id": "dark_part_3",
+   "title": "Detail part 3 — powder coat",
+   "svg_url": "/files/demo_irrigation_biarritz/drawings/v2_P09.svg",
+   "pdf_url": "/files/demo_irrigation_biarritz/drawings/v2_P09.pdf",
+   "set_pdf_url": "/files/demo_irrigation_biarritz/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A4",
+   "scale": "1:1",
+   "bbox_mm": [
+    38.41,
+    38.41,
+    20.04
+   ],
+   "bom_item_id": "hw2",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P10",
+   "kind": "part",
+   "part_id": "top_shell_2",
+   "title": "Top shell",
+   "svg_url": "/files/demo_irrigation_biarritz/drawings/v2_P10.svg",
+   "pdf_url": "/files/demo_irrigation_biarritz/drawings/v2_P10.pdf",
+   "set_pdf_url": "/files/demo_irrigation_biarritz/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A3",
+   "scale": "1:1",
+   "bbox_mm": [
+    149.0,
+    60.79,
+    9.42
+   ],
+   "bom_item_id": "m1",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P11",
+   "kind": "part",
+   "part_id": "glass_window",
+   "title": "Glass window",
+   "svg_url": "/files/demo_irrigation_biarritz/drawings/v2_P11.svg",
+   "pdf_url": "/files/demo_irrigation_biarritz/drawings/v2_P11.pdf",
+   "set_pdf_url": "/files/demo_irrigation_biarritz/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A4",
+   "scale": "1:1",
+   "bbox_mm": [
+    93.0,
+    3.0,
+    45.6
+   ],
+   "bom_item_id": null,
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P12",
+   "kind": "part",
+   "part_id": "lower_body_2",
+   "title": "Lower housing 2 — ASA",
+   "svg_url": "/files/demo_irrigation_biarritz/drawings/v2_P12.svg",
+   "pdf_url": "/files/demo_irrigation_biarritz/drawings/v2_P12.pdf",
+   "set_pdf_url": "/files/demo_irrigation_biarritz/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A4",
+   "scale": "1:1",
+   "bbox_mm": [
+    22.88,
+    22.88,
+    40.0
+   ],
+   "bom_item_id": "m2",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  }
+ ]
 }

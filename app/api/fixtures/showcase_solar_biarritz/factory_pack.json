@@ -1126,7 +1126,7 @@
   "fallback": false,
   "fallback_reason": null,
   "generated_by": "code",
-  "generated_at": "2026-09-27T00:23:05.746585Z",
+  "generated_at": "2026-09-28T11:08:18.128166Z",
   "assumptions": [
    {
     "id": "e1",
@@ -1141,6 +1141,13 @@
     "label": "estimate",
     "source": null,
     "stage": null
+   },
+   {
+    "id": "e5",
+    "text": "Assembly mates are inferred from the part roles and the product family (rules shown per joint); interference, clearance and screw material are measured on the version's STEP",
+    "label": "estimate",
+    "source": null,
+    "stage": null
    }
   ],
   "stage": "engineering",
@@ -1149,7 +1156,7 @@
   "partner_word": "installers",
   "site_install": true,
   "product_name": "Rooftop solar, Biarritz",
-  "inputs_digest": "370c3fc7c1bbc58d",
+  "inputs_digest": "f9ae5fe24c93309f",
   "standards": [
    {
     "code": "IEC 61215-1",
@@ -1293,23 +1300,23 @@
      "value": 8.6,
      "unit": "years",
      "label": "estimate",
-     "source_or_assumption": "install cost 10,621 EUR / savings 1,235 EUR/yr, no subsidy, no tariff inflation"
+     "source_or_assumption": "install cost $11,471 / savings $1,334/yr, no subsidy, no tariff inflation"
     },
     "threshold": "≤ 12 years pass; ≤ 18 warn; else fail",
     "verdict": "pass",
-    "formula": "payback = install cost / (annual kWh × blended EUR/kWh)",
+    "formula": "payback = install cost / (annual kWh × blended EUR/kWh × FX)",
     "inputs": [
      {
-      "value": 10621.0,
-      "unit": "EUR",
+      "value": 11471.0,
+      "unit": "USD",
       "label": "estimate",
-      "source_or_assumption": "5.59 kWp × 1.9 EUR/Wp turnkey residential (EU 2026 range 1.5-2.5 EUR/Wp)"
+      "source_or_assumption": "5.59 kWp × 1.9 EUR/Wp turnkey residential (EU 2026 range 1.5-2.5 EUR/Wp) × 1.08 USD/EUR (assumed FX)"
      },
      {
-      "value": 1235.0,
-      "unit": "EUR/yr",
+      "value": 1334.0,
+      "unit": "USD/yr",
       "label": "estimate",
-      "source_or_assumption": "6860 kWh/yr × 0.18 EUR/kWh (60% self-consumed at 0.25 + 40% exported at 0.075)"
+      "source_or_assumption": "6860 kWh/yr × 0.18 EUR/kWh (60% self-consumed at 0.25 + 40% exported at 0.075) × 1.08 USD/EUR"
      }
     ],
     "notes": []
@@ -1338,6 +1345,144 @@
     "notes": [
      "Check wind uplift and snow load per Eurocode EN 1991-1-4 / 1991-1-3 with the installer"
     ]
+   },
+   {
+    "id": "asm_interference",
+    "name": "Interference between moving parts",
+    "domain": "assembly",
+    "value": {
+     "value": 0.0,
+     "unit": "pairs",
+     "label": "measured",
+     "source_or_assumption": "Boolean common of every part pair (OCCT), classified by the assembly joints; total 0.0 mm³"
+    },
+    "threshold": "0 intersecting pairs > 0.01 mm³ between parts that move relative to each other (different rigid bodies, over their motion study) or across a parting line — CAD interference-check practice",
+    "verdict": "pass",
+    "formula": "V(A ∩ B) per pair of solids at the assembled pose and over each moving joint's motion study",
+    "inputs": [
+     {
+      "value": 0.0,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Sum of interference volumes"
+     }
+    ],
+    "notes": []
+   },
+   {
+    "id": "asm_static_overlap",
+    "name": "Overlaps inside rigid bodies (concept geometry)",
+    "domain": "assembly",
+    "value": {
+     "value": 0.0,
+     "unit": "mm³",
+     "label": "measured",
+     "source_or_assumption": "0 pairs of rigidly joined parts interpenetrate (0 over 5 % of the smaller part)"
+    },
+    "threshold": "Parts of one rigid body should not interpenetrate: overlap > 5 % of the smaller part = concept geometry to pocket at detail design (warn); smaller overlaps are seats (info)",
+    "verdict": "info",
+    "formula": "V(A ∩ B) for parts of the same rigid body that are not directly joined",
+    "inputs": [],
+    "notes": []
+   },
+   {
+    "id": "asm_clearance",
+    "name": "Minimum clearance of moving parts",
+    "domain": "assembly",
+    "value": {
+     "value": 12.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Lower bound: no moving part has a neighbour within 12 mm (or no moving joint)"
+    },
+    "threshold": "Moving parts clear their surroundings",
+    "verdict": "info",
+    "formula": "min over poses of d(moving subtree, other parts); revolute props 12 poses / 360°, buttons pressed 0.5 mm",
+    "inputs": [],
+    "notes": []
+   },
+   {
+    "id": "asm_fastener_engagement",
+    "name": "Screw engagement vs insert / thread",
+    "domain": "assembly",
+    "value": {
+     "value": 8.2,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Material under each screw measured by a line ∩ solid on both parts; flange capped at 2·d (counterbore), screw = shortest ISO length reaching the insert / thread"
+    },
+    "threshold": "Heat-set insert: boss holds the insert + 0.5 mm and the screw engages ≥ 80 % of it (McMaster-Carr 94459A insert data); tapped metal ≥ 1.5·d; thread-forming screw in plastic ≥ 2·d (EJOT DELTA PT design guide)",
+    "verdict": "fail",
+    "formula": "engagement = min(insert length, screw length − flange); boss depth = material of the threaded part",
+    "inputs": [
+     {
+      "value": 4.53,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Smallest boss / thread material measured"
+     }
+    ],
+    "notes": [
+     "Roof planes → Roof plane: 4 × M4×16 (tapped), engagement ≥ 0.0 mm, warn (4 position(s) without material on both parts)",
+     "Roof planes → Roof planes: 4 × M4×16 (tapped), engagement ≥ 0.0 mm, warn (4 position(s) without material on both parts)",
+     "Roof planes → Roof planes: 4 × M4×16 (tapped), engagement ≥ 0.0 mm, warn (4 position(s) without material on both parts)",
+     "Roof planes → Roof planes: 4 × M4×14 + insert M4×8.2, engagement ≥ 8.2 mm, fail"
+    ]
+   },
+   {
+    "id": "asm_fastener_count",
+    "name": "Fasteners by standard",
+    "domain": "assembly",
+    "value": {
+     "value": 20.0,
+     "unit": "pcs",
+     "label": "estimate",
+     "source_or_assumption": "Joint rules (screws per parting-line perimeter, motor mounts, spring bars); sizes from the part scale"
+    },
+    "threshold": null,
+    "verdict": "info",
+    "formula": "Σ fasteners over the assembly joints",
+    "inputs": [],
+    "notes": [
+     "4 × insert M4×8.2 (Heat-set brass insert (McMaster-Carr 94459A170))",
+     "4 × screw M4×14 (ISO 14583 (hexalobular pan head), A2 stainless)",
+     "12 × screw M4×16 (ISO 14583 (hexalobular pan head), A2 stainless)"
+    ]
+   },
+   {
+    "id": "asm_joint_closure",
+    "name": "Joint closure (build123d Joints)",
+    "domain": "assembly",
+    "value": {
+     "value": 0.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Each child re-placed from its joint frame with build123d RigidJoint / RevoluteJoint / LinearJoint.connect_to; 7 joints"
+    },
+    "threshold": "build123d joints re-place every part at its modelled pose: residual < 0.01 mm",
+    "verdict": "pass",
+    "formula": "|bbox centre after connect_to − modelled bbox centre|",
+    "inputs": [],
+    "notes": []
+   },
+   {
+    "id": "asm_support",
+    "name": "Every part is attached",
+    "domain": "assembly",
+    "value": {
+     "value": 2.0,
+     "unit": "parts",
+     "label": "measured",
+     "source_or_assumption": "Parts with no contact (≤ 0.05 mm, BRepExtrema) with the part they are joined to"
+    },
+    "threshold": "Every part touches the part it is joined to (contact ≤ 0.05 mm)",
+    "verdict": "warn",
+    "formula": "d(child, parent) ≤ 0.05 mm for every joint",
+    "inputs": [],
+    "notes": [
+     "Light floats 341.62 mm from Roof planes",
+     "Top shell floats 0.50 mm from Light"
+    ]
    }
   ],
   "electronics": null,
@@ -1355,19 +1500,19 @@
     {
      "item": "Pilot installation 5.59 kWp",
      "amount": {
-      "value": 10621.0,
-      "unit": "EUR",
+      "value": 11471.0,
+      "unit": "USD",
       "label": "estimate",
-      "source_or_assumption": "5.59 kWp × 1.9 EUR/Wp turnkey residential (EU 2026 range 1.5-2.5 EUR/Wp)"
+      "source_or_assumption": "5.59 kWp × 1.9 EUR/Wp turnkey residential (EU 2026 range 1.5-2.5 EUR/Wp) × 1.08 USD/EUR (assumed FX)"
      }
     },
     {
      "item": "Site survey + structural check",
      "amount": {
-      "value": 450.0,
-      "unit": "EUR",
+      "value": 486.0,
+      "unit": "USD",
       "label": "estimate",
-      "source_or_assumption": "Installer survey visit + engineer note (typical, Estimate)"
+      "source_or_assumption": "Installer survey visit + engineer note, 450 EUR typical × 1.08 USD/EUR (Estimate)"
      }
     }
    ],
@@ -1386,8 +1531,8 @@
     "source_or_assumption": "Survey 1 + permits/grid request 3-4 (runs in parallel with procurement) + install 1 + commissioning 1"
    },
    "total_cost": {
-    "value": 11071.0,
-    "unit": "EUR",
+    "value": 11957.0,
+    "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Pilot installation + survey"
    }
@@ -1508,22 +1653,22 @@
     }
    ],
    "install_cost": {
-    "value": 10621.0,
-    "unit": "EUR",
+    "value": 11471.0,
+    "unit": "USD",
     "label": "estimate",
-    "source_or_assumption": "5.59 kWp × 1.9 EUR/Wp turnkey residential (EU 2026 range 1.5-2.5 EUR/Wp)"
+    "source_or_assumption": "5.59 kWp × 1.9 EUR/Wp turnkey residential (EU 2026 range 1.5-2.5 EUR/Wp) × 1.08 USD/EUR (assumed FX)"
    },
    "annual_savings": {
-    "value": 1235.0,
-    "unit": "EUR/yr",
+    "value": 1334.0,
+    "unit": "USD/yr",
     "label": "estimate",
-    "source_or_assumption": "6860 kWh/yr × 0.18 EUR/kWh (60% self-consumed at 0.25 + 40% exported at 0.075)"
+    "source_or_assumption": "6860 kWh/yr × 0.18 EUR/kWh (60% self-consumed at 0.25 + 40% exported at 0.075) × 1.08 USD/EUR"
    },
    "payback": {
     "value": 8.6,
     "unit": "years",
     "label": "estimate",
-    "source_or_assumption": "install cost 10,621 EUR / savings 1,235 EUR/yr, no subsidy, no tariff inflation"
+    "source_or_assumption": "install cost $11,471 / savings $1,334/yr, no subsidy, no tariff inflation"
    },
    "pvgis_url": "https://re.jrc.ec.europa.eu/api/v5_3/PVcalc?lat=43.4832&lon=-1.5586&peakpower=1&loss=14&angle=30&aspect=0&outputformat=json"
   },
@@ -1579,10 +1724,10 @@
     "source_or_assumption": "Typical minimum order for a first run in this category — per site"
    },
    "entry_cost": {
-    "value": 10621.0,
-    "unit": "EUR",
+    "value": 11471.0,
+    "unit": "USD",
     "label": "estimate",
-    "source_or_assumption": "Turnkey install cost of the solar design (5.59 kWp × 1.9 EUR/Wp turnkey residential (EU 2026 range 1.5-2.5 EUR/Wp))"
+    "source_or_assumption": "Turnkey install cost of the solar design (5.59 kWp × 1.9 EUR/Wp turnkey residential (EU 2026 range 1.5-2.5 EUR/Wp) × 1.08 USD/EUR (assumed FX))"
    },
    "lead_time": {
     "value": 6.0,
@@ -1602,7 +1747,804 @@
     "Module figures assume catalogue modules with their own certifications"
    ]
   },
-  "unit_basis": "per_unit",
-  "installation_cost": null
- }
+  "unit_basis": "per_installation",
+  "installation_cost": {
+   "value": 17343.5,
+   "unit": "USD",
+   "label": "estimate",
+   "source_or_assumption": "Installed price of one installation (5.59 kWp + battery): PV turnkey $11,471 + battery system $5,872 (equipment × 1.35)"
+  },
+  "assembly": {
+   "project_id": "demo_solar_biarritz",
+   "version": 2,
+   "label": "Measured on the version STEP (build123d / OCCT); mates inferred from the family / part roles",
+   "source": "/files/demo_solar_biarritz/model_v1.step",
+   "root": "roof_plane",
+   "nodes": [
+    {
+     "part_id": "roof_plane",
+     "name": "Roof plane",
+     "role": "shell_top",
+     "parent": null,
+     "joint_id": null,
+     "rigid_body": 0,
+     "volume": {
+      "value": 578720640.0,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "explode_distance_mm": 0.0
+    },
+    {
+     "part_id": "roof_planes",
+     "name": "Roof planes",
+     "role": "shell_top",
+     "parent": "roof_plane",
+     "joint_id": "j1",
+     "rigid_body": 0,
+     "volume": {
+      "value": 59593728.0,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "explode_distance_mm": 1192.4
+    },
+    {
+     "part_id": "roof_planes_2",
+     "name": "Roof planes",
+     "role": "shell_top",
+     "parent": "roof_planes",
+     "joint_id": "j2",
+     "rigid_body": 0,
+     "volume": {
+      "value": 1192320.0,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      -1.0,
+      0.0
+     ],
+     "explode_distance_mm": 622.2
+    },
+    {
+     "part_id": "roof_planes_3",
+     "name": "Roof planes",
+     "role": "shell_top",
+     "parent": "roof_planes",
+     "joint_id": "j3",
+     "rigid_body": 0,
+     "volume": {
+      "value": 180341168.0,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "explode_distance_mm": 2627.2
+    },
+    {
+     "part_id": "roof_planes_4",
+     "name": "Roof planes",
+     "role": "shell_top",
+     "parent": "roof_planes_3",
+     "joint_id": "j4",
+     "rigid_body": 0,
+     "volume": {
+      "value": 98584920.0,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "explode_distance_mm": 4576.6
+    },
+    {
+     "part_id": "top_shell",
+     "name": "Top shell",
+     "role": "shell_top",
+     "parent": "light",
+     "joint_id": "j6",
+     "rigid_body": 0,
+     "volume": {
+      "value": 18538000.0,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      -0.3413,
+      0.9181,
+      0.2014
+     ],
+     "explode_distance_mm": 2861.5
+    },
+    {
+     "part_id": "window",
+     "name": "Window",
+     "role": "window",
+     "parent": "top_shell",
+     "joint_id": "j7",
+     "rigid_body": 0,
+     "volume": {
+      "value": 64800.0,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      -0.304,
+      0.8177,
+      0.4888
+     ],
+     "explode_distance_mm": 3212.8
+    },
+    {
+     "part_id": "light",
+     "name": "Light",
+     "role": "diffuser",
+     "parent": "roof_planes_3",
+     "joint_id": "j5",
+     "rigid_body": 0,
+     "volume": {
+      "value": 1372.0,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      0.9768,
+      0.2143
+     ],
+     "explode_distance_mm": 2689.7
+    }
+   ],
+   "joints": [
+    {
+     "id": "j1",
+     "parent": "roof_plane",
+     "child": "roof_planes",
+     "kind": "rigid",
+     "method": "screwed",
+     "dof": 0,
+     "origin_mm": [
+      -4084.0,
+      667.21,
+      329.69
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [
+      {
+       "kind": "screw",
+       "standard": "ISO 14583 (hexalobular pan head), A2 stainless",
+       "designation": "M4×16",
+       "size": "M4",
+       "length_mm": 16.0,
+       "qty": 4,
+       "source": "api.cad.stdparts"
+      }
+     ],
+     "rule": "Structural part ≥ 20 mm: 4 screws into tapped metal (structural-joint rule)"
+    },
+    {
+     "id": "j2",
+     "parent": "roof_planes",
+     "child": "roof_planes_2",
+     "kind": "rigid",
+     "method": "screwed",
+     "dof": 0,
+     "origin_mm": [
+      0.0,
+      850.46,
+      4.23
+     ],
+     "axis": [
+      -0.0,
+      -1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [
+      {
+       "kind": "screw",
+       "standard": "ISO 14583 (hexalobular pan head), A2 stainless",
+       "designation": "M4×16",
+       "size": "M4",
+       "length_mm": 16.0,
+       "qty": 4,
+       "source": "api.cad.stdparts"
+      }
+     ],
+     "rule": "Structural part ≥ 20 mm: 4 screws into tapped metal (structural-joint rule)"
+    },
+    {
+     "id": "j3",
+     "parent": "roof_planes",
+     "child": "roof_planes_3",
+     "kind": "rigid",
+     "method": "screwed",
+     "dof": 0,
+     "origin_mm": [
+      -567.0,
+      224.54,
+      1264.49
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [
+      {
+       "kind": "screw",
+       "standard": "ISO 14583 (hexalobular pan head), A2 stainless",
+       "designation": "M4×16",
+       "size": "M4",
+       "length_mm": 16.0,
+       "qty": 4,
+       "source": "api.cad.stdparts"
+      }
+     ],
+     "rule": "Structural part ≥ 20 mm: 4 screws into tapped metal (structural-joint rule)"
+    },
+    {
+     "id": "j4",
+     "parent": "roof_planes_3",
+     "child": "roof_planes_4",
+     "kind": "rigid",
+     "method": "screwed",
+     "dof": 0,
+     "origin_mm": [
+      0.0,
+      908.74,
+      35.21
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [
+      {
+       "kind": "screw",
+       "standard": "ISO 14583 (hexalobular pan head), A2 stainless",
+       "designation": "M4×14",
+       "size": "M4",
+       "length_mm": 14.0,
+       "qty": 4,
+       "source": "api.cad.stdparts"
+      },
+      {
+       "kind": "insert",
+       "standard": "Heat-set brass insert (McMaster-Carr 94459A170)",
+       "designation": "M4×8.2",
+       "size": "M4",
+       "length_mm": 8.2,
+       "qty": 4,
+       "source": "api.cad.stdparts"
+      }
+     ],
+     "rule": "Structural part ≥ 20 mm: 4 screws into heat-set inserts (structural-joint rule)"
+    },
+    {
+     "id": "j5",
+     "parent": "roof_planes_3",
+     "child": "light",
+     "kind": "rigid",
+     "method": "inlay",
+     "dof": 0,
+     "origin_mm": [
+      145.0,
+      125.0,
+      1911.0
+     ],
+     "axis": [
+      -0.0,
+      -0.0,
+      1.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Light set into Roof planes: inlay (insert rule; the host is pocketed around it at detail design) — NO CONTACT with Roof planes (gap 341.62 mm): attach at detail design"
+    },
+    {
+     "id": "j6",
+     "parent": "light",
+     "child": "top_shell",
+     "kind": "rigid",
+     "method": "snap_fit",
+     "dof": 0,
+     "origin_mm": [
+      138.0,
+      118.0,
+      1907.25
+     ],
+     "axis": [
+      -1.0,
+      -0.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Small moulded part: snap-fit / press-fit (small-part rule) — NO CONTACT with Light (gap 0.50 mm): attach at detail design"
+    },
+    {
+     "id": "j7",
+     "parent": "top_shell",
+     "child": "window",
+     "kind": "rigid",
+     "method": "inlay",
+     "dof": 0,
+     "origin_mm": [
+      0.0,
+      250.0,
+      1906.75
+     ],
+     "axis": [
+      -0.0,
+      -0.0,
+      1.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Window set into Top shell: inlay (insert rule; the host is pocketed around it at detail design)"
+    }
+   ],
+   "interferences": [
+    {
+     "a": "roof_planes",
+     "b": "roof_planes_2",
+     "volume": {
+      "value": 393984.0,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint screwed: concept overlap at the mate"
+    },
+    {
+     "a": "roof_planes_3",
+     "b": "roof_planes_4",
+     "volume": {
+      "value": 152152.0,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint screwed: concept overlap at the mate"
+    },
+    {
+     "a": "top_shell",
+     "b": "window",
+     "volume": {
+      "value": 6480.0,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint inlay: concept overlap at the mate"
+    }
+   ],
+   "clearances": [],
+   "fasteners": [
+    {
+     "id": "fx1",
+     "part": "Heat-set threaded insert M4×8.2 (Heat-set brass insert (McMaster-Carr 94459A170))",
+     "category": "mechanical",
+     "qty": 4.0,
+     "description": "Fastener aggregated from the assembly joints (api.cad.stdparts)",
+     "manufacturer_pn": null,
+     "lcsc_pn": null,
+     "unit_cost_est": {
+      "value": 0.11,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+     },
+     "risk": null,
+     "alternative": null
+    },
+    {
+     "id": "fx2",
+     "part": "Screw M4 × 14 pan head T-drive (ISO 14583 (hexalobular pan head), A2 stainless)",
+     "category": "mechanical",
+     "qty": 4.0,
+     "description": "Fastener aggregated from the assembly joints (api.cad.stdparts)",
+     "manufacturer_pn": null,
+     "lcsc_pn": null,
+     "unit_cost_est": {
+      "value": 0.035,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+     },
+     "risk": null,
+     "alternative": null
+    },
+    {
+     "id": "fx3",
+     "part": "Screw M4 × 16 pan head T-drive (ISO 14583 (hexalobular pan head), A2 stainless)",
+     "category": "mechanical",
+     "qty": 12.0,
+     "description": "Fastener aggregated from the assembly joints (api.cad.stdparts)",
+     "manufacturer_pn": null,
+     "lcsc_pn": null,
+     "unit_cost_est": {
+      "value": 0.035,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+     },
+     "risk": null,
+     "alternative": null
+    }
+   ],
+   "checks": [
+    {
+     "id": "asm_interference",
+     "name": "Interference between moving parts",
+     "domain": "assembly",
+     "value": {
+      "value": 0.0,
+      "unit": "pairs",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of every part pair (OCCT), classified by the assembly joints; total 0.0 mm³"
+     },
+     "threshold": "0 intersecting pairs > 0.01 mm³ between parts that move relative to each other (different rigid bodies, over their motion study) or across a parting line — CAD interference-check practice",
+     "verdict": "pass",
+     "formula": "V(A ∩ B) per pair of solids at the assembled pose and over each moving joint's motion study",
+     "inputs": [
+      {
+       "value": 0.0,
+       "unit": "mm³",
+       "label": "measured",
+       "source_or_assumption": "Sum of interference volumes"
+      }
+     ],
+     "notes": []
+    },
+    {
+     "id": "asm_static_overlap",
+     "name": "Overlaps inside rigid bodies (concept geometry)",
+     "domain": "assembly",
+     "value": {
+      "value": 0.0,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "0 pairs of rigidly joined parts interpenetrate (0 over 5 % of the smaller part)"
+     },
+     "threshold": "Parts of one rigid body should not interpenetrate: overlap > 5 % of the smaller part = concept geometry to pocket at detail design (warn); smaller overlaps are seats (info)",
+     "verdict": "info",
+     "formula": "V(A ∩ B) for parts of the same rigid body that are not directly joined",
+     "inputs": [],
+     "notes": []
+    },
+    {
+     "id": "asm_clearance",
+     "name": "Minimum clearance of moving parts",
+     "domain": "assembly",
+     "value": {
+      "value": 12.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Lower bound: no moving part has a neighbour within 12 mm (or no moving joint)"
+     },
+     "threshold": "Moving parts clear their surroundings",
+     "verdict": "info",
+     "formula": "min over poses of d(moving subtree, other parts); revolute props 12 poses / 360°, buttons pressed 0.5 mm",
+     "inputs": [],
+     "notes": []
+    },
+    {
+     "id": "asm_fastener_engagement",
+     "name": "Screw engagement vs insert / thread",
+     "domain": "assembly",
+     "value": {
+      "value": 8.2,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Material under each screw measured by a line ∩ solid on both parts; flange capped at 2·d (counterbore), screw = shortest ISO length reaching the insert / thread"
+     },
+     "threshold": "Heat-set insert: boss holds the insert + 0.5 mm and the screw engages ≥ 80 % of it (McMaster-Carr 94459A insert data); tapped metal ≥ 1.5·d; thread-forming screw in plastic ≥ 2·d (EJOT DELTA PT design guide)",
+     "verdict": "fail",
+     "formula": "engagement = min(insert length, screw length − flange); boss depth = material of the threaded part",
+     "inputs": [
+      {
+       "value": 4.53,
+       "unit": "mm",
+       "label": "measured",
+       "source_or_assumption": "Smallest boss / thread material measured"
+      }
+     ],
+     "notes": [
+      "Roof planes → Roof plane: 4 × M4×16 (tapped), engagement ≥ 0.0 mm, warn (4 position(s) without material on both parts)",
+      "Roof planes → Roof planes: 4 × M4×16 (tapped), engagement ≥ 0.0 mm, warn (4 position(s) without material on both parts)",
+      "Roof planes → Roof planes: 4 × M4×16 (tapped), engagement ≥ 0.0 mm, warn (4 position(s) without material on both parts)",
+      "Roof planes → Roof planes: 4 × M4×14 + insert M4×8.2, engagement ≥ 8.2 mm, fail"
+     ]
+    },
+    {
+     "id": "asm_fastener_count",
+     "name": "Fasteners by standard",
+     "domain": "assembly",
+     "value": {
+      "value": 20.0,
+      "unit": "pcs",
+      "label": "estimate",
+      "source_or_assumption": "Joint rules (screws per parting-line perimeter, motor mounts, spring bars); sizes from the part scale"
+     },
+     "threshold": null,
+     "verdict": "info",
+     "formula": "Σ fasteners over the assembly joints",
+     "inputs": [],
+     "notes": [
+      "4 × insert M4×8.2 (Heat-set brass insert (McMaster-Carr 94459A170))",
+      "4 × screw M4×14 (ISO 14583 (hexalobular pan head), A2 stainless)",
+      "12 × screw M4×16 (ISO 14583 (hexalobular pan head), A2 stainless)"
+     ]
+    },
+    {
+     "id": "asm_joint_closure",
+     "name": "Joint closure (build123d Joints)",
+     "domain": "assembly",
+     "value": {
+      "value": 0.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Each child re-placed from its joint frame with build123d RigidJoint / RevoluteJoint / LinearJoint.connect_to; 7 joints"
+     },
+     "threshold": "build123d joints re-place every part at its modelled pose: residual < 0.01 mm",
+     "verdict": "pass",
+     "formula": "|bbox centre after connect_to − modelled bbox centre|",
+     "inputs": [],
+     "notes": []
+    },
+    {
+     "id": "asm_support",
+     "name": "Every part is attached",
+     "domain": "assembly",
+     "value": {
+      "value": 2.0,
+      "unit": "parts",
+      "label": "measured",
+      "source_or_assumption": "Parts with no contact (≤ 0.05 mm, BRepExtrema) with the part they are joined to"
+     },
+     "threshold": "Every part touches the part it is joined to (contact ≤ 0.05 mm)",
+     "verdict": "warn",
+     "formula": "d(child, parent) ≤ 0.05 mm for every joint",
+     "inputs": [],
+     "notes": [
+      "Light floats 341.62 mm from Roof planes",
+      "Top shell floats 0.50 mm from Light"
+     ]
+    }
+   ],
+   "summary": "8 parts · 7 joints (0 moving) · 0 interferences · 20 fasteners",
+   "engine": "c2.2"
+  }
+ },
+ "drawings": [
+  {
+   "sheet": "A1",
+   "kind": "assembly",
+   "part_id": null,
+   "title": "Rooftop solar, Biarritz — general assembly",
+   "svg_url": "/files/demo_solar_biarritz/drawings/v2_A1.svg",
+   "pdf_url": "/files/demo_solar_biarritz/drawings/v2_A1.pdf",
+   "set_pdf_url": "/files/demo_solar_biarritz/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A3",
+   "scale": "1:50",
+   "bbox_mm": [
+    8258.0,
+    3470.81,
+    1722.17
+   ],
+   "bom_item_id": null,
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P01",
+   "kind": "part",
+   "part_id": "roof_plane",
+   "title": "Roof plane",
+   "svg_url": "/files/demo_solar_biarritz/drawings/v2_P01.svg",
+   "pdf_url": "/files/demo_solar_biarritz/drawings/v2_P01.pdf",
+   "set_pdf_url": "/files/demo_solar_biarritz/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A3",
+   "scale": "1:50",
+   "bbox_mm": [
+    8258.0,
+    3103.24,
+    1662.69
+   ],
+   "bom_item_id": "e1",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P02",
+   "kind": "part",
+   "part_id": "roof_planes_3",
+   "title": "Roof planes",
+   "svg_url": "/files/demo_solar_biarritz/drawings/v2_P02.svg",
+   "pdf_url": "/files/demo_solar_biarritz/drawings/v2_P02.pdf",
+   "set_pdf_url": "/files/demo_solar_biarritz/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A3",
+   "scale": "1:50",
+   "bbox_mm": [
+    8058.0,
+    3072.61,
+    1652.74
+   ],
+   "bom_item_id": "e1",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P03",
+   "kind": "part",
+   "part_id": "roof_planes_4",
+   "title": "Roof planes",
+   "svg_url": "/files/demo_solar_biarritz/drawings/v2_P03.svg",
+   "pdf_url": "/files/demo_solar_biarritz/drawings/v2_P03.pdf",
+   "set_pdf_url": "/files/demo_solar_biarritz/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A3",
+   "scale": "1:50",
+   "bbox_mm": [
+    7989.0,
+    2999.48,
+    1597.39
+   ],
+   "bom_item_id": "e1",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P04",
+   "kind": "part",
+   "part_id": "roof_planes",
+   "title": "Roof planes",
+   "svg_url": "/files/demo_solar_biarritz/drawings/v2_P04.svg",
+   "pdf_url": "/files/demo_solar_biarritz/drawings/v2_P04.pdf",
+   "set_pdf_url": "/files/demo_solar_biarritz/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A3",
+   "scale": "1:50",
+   "bbox_mm": [
+    8168.0,
+    2506.44,
+    1363.1
+   ],
+   "bom_item_id": "e1",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P05",
+   "kind": "part",
+   "part_id": "top_shell",
+   "title": "Top shell",
+   "svg_url": "/files/demo_solar_biarritz/drawings/v2_P05.svg",
+   "pdf_url": "/files/demo_solar_biarritz/drawings/v2_P05.pdf",
+   "set_pdf_url": "/files/demo_solar_biarritz/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A3",
+   "scale": "1:5",
+   "bbox_mm": [
+    460.0,
+    130.0,
+    310.0
+   ],
+   "bom_item_id": "m3",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P06",
+   "kind": "part",
+   "part_id": "roof_planes_2",
+   "title": "Roof planes",
+   "svg_url": "/files/demo_solar_biarritz/drawings/v2_P06.svg",
+   "pdf_url": "/files/demo_solar_biarritz/drawings/v2_P06.pdf",
+   "set_pdf_url": "/files/demo_solar_biarritz/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A3",
+   "scale": "1:50",
+   "bbox_mm": [
+    7980.0,
+    2560.35,
+    1372.76
+   ],
+   "bom_item_id": "e1",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P07",
+   "kind": "part",
+   "part_id": "window",
+   "title": "Window",
+   "svg_url": "/files/demo_solar_biarritz/drawings/v2_P07.svg",
+   "pdf_url": "/files/demo_solar_biarritz/drawings/v2_P07.pdf",
+   "set_pdf_url": "/files/demo_solar_biarritz/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A3",
+   "scale": "1:1",
+   "bbox_mm": [
+    180.0,
+    5.0,
+    72.0
+   ],
+   "bom_item_id": null,
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P08",
+   "kind": "part",
+   "part_id": "light",
+   "title": "Light",
+   "svg_url": "/files/demo_solar_biarritz/drawings/v2_P08.svg",
+   "pdf_url": "/files/demo_solar_biarritz/drawings/v2_P08.pdf",
+   "set_pdf_url": "/files/demo_solar_biarritz/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A4",
+   "scale": "2:1",
+   "bbox_mm": [
+    14.0,
+    7.0,
+    14.0
+   ],
+   "bom_item_id": null,
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  }
+ ]
 }

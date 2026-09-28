@@ -2,7 +2,7 @@
  "status": "ok",
  "version": 2,
  "source": "llm:openai/gpt-6-sol",
- "label": "AI-generated CAD (concept level) \u2014 geometry measured on the result",
+ "label": "AI-generated CAD (concept level) — geometry measured on the result",
  "category": "board",
  "seed_family": "board",
  "variant": "surf",
@@ -23,7 +23,7 @@
   573.41,
   203.46
  ],
- "volume_mm3": 71682657.9,
+ "volume_mm3": 71743692.7,
  "parts": [
   {
    "label": "body.1",
@@ -48,17 +48,6 @@
    ]
   },
   {
-   "label": "rubber.1",
-   "role": "rubber",
-   "volume_mm3": 2422.6,
-   "valid": true,
-   "bbox_mm": [
-    93.18,
-    13.0,
-    2.0
-   ]
-  },
-  {
    "label": "fin.2",
    "role": "fin",
    "volume_mm3": 20863.3,
@@ -67,17 +56,6 @@
     96.63,
     7.0,
     88.0
-   ]
-  },
-  {
-   "label": "rubber.2",
-   "role": "rubber",
-   "volume_mm3": 2422.6,
-   "valid": true,
-   "bbox_mm": [
-    93.18,
-    13.0,
-    2.0
    ]
   },
   {
@@ -92,15 +70,88 @@
    ]
   },
   {
-   "label": "rubber.3",
-   "role": "rubber",
-   "volume_mm3": 2808.0,
+   "label": "coat.104",
+   "role": "coat",
+   "volume_mm3": 22896.0,
    "valid": true,
    "bbox_mm": [
-    108.0,
-    13.0,
-    2.0
-   ]
+    118.0,
+    18.0,
+    16.0
+   ],
+   "std_meta": {
+    "kind": "fin_box",
+    "role": "fastener",
+    "standard": "Futures-type single-tab box (catalogue)",
+    "size": "118 × 18",
+    "material": "glass-filled nylon",
+    "bom": {
+     "part": "Fin box, single tab (Futures-type), glass-filled nylon",
+     "standard": "catalogue",
+     "kind": "fin_box",
+     "unit_price_usd": 3.5,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "PA-GF",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "coat.105",
+   "role": "coat",
+   "volume_mm3": 22896.0,
+   "valid": true,
+   "bbox_mm": [
+    118.0,
+    18.0,
+    16.0
+   ],
+   "std_meta": {
+    "kind": "fin_box",
+    "role": "fastener",
+    "standard": "Futures-type single-tab box (catalogue)",
+    "size": "118 × 18",
+    "material": "glass-filled nylon",
+    "bom": {
+     "part": "Fin box, single tab (Futures-type), glass-filled nylon",
+     "standard": "catalogue",
+     "kind": "fin_box",
+     "unit_price_usd": 3.5,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "PA-GF",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "coat.106",
+   "role": "coat",
+   "volume_mm3": 22896.0,
+   "valid": true,
+   "bbox_mm": [
+    118.0,
+    18.0,
+    16.0
+   ],
+   "std_meta": {
+    "kind": "fin_box",
+    "role": "fastener",
+    "standard": "Futures-type single-tab box (catalogue)",
+    "size": "118 × 18",
+    "material": "glass-filled nylon",
+    "bom": {
+     "part": "Fin box, single tab (Futures-type), glass-filled nylon",
+     "standard": "catalogue",
+     "kind": "fin_box",
+     "unit_price_usd": 3.5,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "PA-GF",
+     "category": "mechanical"
+    }
+   }
   }
  ],
  "target_dims_mm": null,
@@ -118,5 +169,27 @@
  "instruction": "wider nose",
  "parent_version": 1,
  "seconds": 14.16,
- "brief": "product_name: Beginner surfboard 7'6\"; one_liner: A 7'6\" surfboard shaped for beginner stability and paddling.; category: mechanical; key_features: 7'6\" board length; Beginner-oriented stable outline; Buoyant shape for easier paddling; Hydrodynamic hull and rails; prompt: A hydrodynamic surfboard for beginners, 7'6\""
+ "brief": "product_name: Beginner surfboard 7'6\"; one_liner: A 7'6\" surfboard shaped for beginner stability and paddling.; category: mechanical; key_features: 7'6\" board length; Beginner-oriented stable outline; Buoyant shape for easier paddling; Hydrodynamic hull and rails; prompt: A hydrodynamic surfboard for beginners, 7'6\"",
+ "detail_level": "pro",
+ "hardware_bom": [
+  {
+   "part": "Fin box, single tab (Futures-type), glass-filled nylon",
+   "standard": "catalogue",
+   "kind": "fin_box",
+   "unit_price_usd": 3.5,
+   "price_label": "estimate",
+   "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+   "material": "PA-GF",
+   "category": "mechanical",
+   "qty": 3,
+   "labels": [
+    "coat.104",
+    "coat.105",
+    "coat.106"
+   ],
+   "size": "118 × 18",
+   "id": "hw1",
+   "key": "fin_box_single_tab_futures_type_glass_filled_nylon"
+  }
+ ]
 }

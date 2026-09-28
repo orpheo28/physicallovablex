@@ -7,10 +7,10 @@
  "strategy": "module_assembly",
  "hero_image_url": "/files/demo_irrigation_biarritz/photo_v2_hero_studio.png",
  "glb_url": "/files/demo_irrigation_biarritz/model_v1.glb",
- "one_line_result": "2 versions · AI-written CAD · $44.11/unit @ 2,000 (Estimate) · Module assembly · 13/13 stages",
+ "one_line_result": "2 versions · AI-written CAD · $46.68/unit @ 2,000 (Estimate) · Module assembly · 13/13 stages",
  "unit_basis": "per_unit",
  "unit_cost": {
-  "value": 44.11,
+  "value": 46.68,
   "unit": "USD",
   "label": "estimate",
   "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"

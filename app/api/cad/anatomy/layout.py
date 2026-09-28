@@ -738,8 +738,14 @@ def plan_vacuum(facts: Facts) -> Plan:
     B = Builder(facts, "pcb_green")
     parts = facts.parts
     motors = sorted(_role(parts, "motor"), key=lambda p: -np.prod(p["measured_bbox_mm"]))
-    pod = motors[0] if motors else sorted(parts, key=lambda p: -np.prod(p["measured_bbox_mm"]))[0]
-    plo, phi = _bb(pod)
+    halves = [p for p in parts if re.search(r"motor", p["name"], re.I) and p["role"] in ("shell_top", "shell_bottom")]
+    pod = motors[0] if motors else (halves[0] if halves else sorted(parts, key=lambda p: -np.prod(p["measured_bbox_mm"]))[0])
+    if motors:
+        plo, phi = _bb(motors[0])
+    elif halves:  # C5 pro: the motor pod is split on its parting line into two housing halves
+        plo, phi = union_bb(halves)
+    else:
+        plo, phi = _bb(pod)
     pc = (plo + phi) / 2
     ax = int(np.argmax(phi - plo))
     r = float(min(np.delete(phi - plo, ax))) / 2 * 0.72

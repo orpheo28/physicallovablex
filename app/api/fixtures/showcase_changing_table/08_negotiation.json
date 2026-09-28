@@ -4,7 +4,7 @@
  "fallback": false,
  "fallback_reason": null,
  "generated_by": "code",
- "generated_at": "2026-09-27T08:58:58.105301Z",
+ "generated_at": "2026-09-28T11:06:09.436683Z",
  "assumptions": [
   {
    "id": "a8_network",
@@ -45,7 +45,7 @@
  "stage": 8,
  "rfqs": [
   {
-   "id": "rfq_c13666ed28",
+   "id": "rfq_e49d4cdffb",
    "project_id": "demo_changing_table",
    "factory_id": "i_soleilatlantique",
    "factory_pack_id": "fp_demo_changing_table_v2",
@@ -55,11 +55,11 @@
     10000
    ],
    "status": "quoted",
-   "created_at": "2026-09-27T08:58:58.082917Z",
+   "created_at": "2026-09-28T11:06:09.412992Z",
    "label": "fictional"
   },
   {
-   "id": "rfq_f1029fda25",
+   "id": "rfq_4d46bdd628",
    "project_id": "demo_changing_table",
    "factory_id": "f_lumenpeak",
    "factory_pack_id": "fp_demo_changing_table_v2",
@@ -69,11 +69,11 @@
     10000
    ],
    "status": "quoted",
-   "created_at": "2026-09-27T08:58:58.083815Z",
+   "created_at": "2026-09-28T11:06:09.414106Z",
    "label": "fictional"
   },
   {
-   "id": "rfq_a4b7c0ab91",
+   "id": "rfq_52e34ee277",
    "project_id": "demo_changing_table",
    "factory_id": "f_skyforge",
    "factory_pack_id": "fp_demo_changing_table_v2",
@@ -83,28 +83,28 @@
     10000
    ],
    "status": "accepted",
-   "created_at": "2026-09-27T08:58:58.084868Z",
+   "created_at": "2026-09-28T11:06:09.415196Z",
    "label": "fictional"
   }
  ],
  "quotes": [
   {
-   "id": "qt_89d082c2b2",
-   "rfq_id": "rfq_c13666ed28",
+   "id": "qt_0094bfbd8c",
+   "rfq_id": "rfq_e49d4cdffb",
    "factory_id": "i_soleilatlantique",
    "version": 1,
    "tiers": [
     {
      "quantity": 500,
-     "unit_price_usd": 152.48
+     "unit_price_usd": 147.83
     },
     {
      "quantity": 2000,
-     "unit_price_usd": 140.27
+     "unit_price_usd": 136.0
     },
     {
      "quantity": 10000,
-     "unit_price_usd": 129.05
+     "unit_price_usd": 125.13
     }
    ],
    "tooling_usd": 0.0,
@@ -116,26 +116,26 @@
     "assembly subcontracted to a partner shop"
    ],
    "status": "superseded",
-   "created_at": "2026-09-27T08:58:58.086486Z",
+   "created_at": "2026-09-28T11:06:09.416958Z",
    "label": "fictional"
   },
   {
-   "id": "qt_c855d3d2e9",
-   "rfq_id": "rfq_c13666ed28",
+   "id": "qt_0d05981529",
+   "rfq_id": "rfq_e49d4cdffb",
    "factory_id": "i_soleilatlantique",
    "version": 2,
    "tiers": [
     {
      "quantity": 500,
-     "unit_price_usd": 145.47
+     "unit_price_usd": 141.03
     },
     {
      "quantity": 2000,
-     "unit_price_usd": 133.82
+     "unit_price_usd": 129.74
     },
     {
      "quantity": 10000,
-     "unit_price_usd": 123.11
+     "unit_price_usd": 119.37
     }
    ],
    "tooling_usd": 0.0,
@@ -147,26 +147,26 @@
     "assembly subcontracted to a partner shop"
    ],
    "status": "superseded",
-   "created_at": "2026-09-27T08:58:58.091569Z",
+   "created_at": "2026-09-28T11:06:09.422427Z",
    "label": "fictional"
   },
   {
-   "id": "qt_03ba1af7f1",
-   "rfq_id": "rfq_c13666ed28",
+   "id": "qt_2f0e4592e2",
+   "rfq_id": "rfq_e49d4cdffb",
    "factory_id": "i_soleilatlantique",
    "version": 3,
    "tiers": [
     {
      "quantity": 500,
-     "unit_price_usd": 145.47
+     "unit_price_usd": 141.03
     },
     {
      "quantity": 2000,
-     "unit_price_usd": 133.82
+     "unit_price_usd": 129.74
     },
     {
      "quantity": 10000,
-     "unit_price_usd": 123.11
+     "unit_price_usd": 119.37
     }
    ],
    "tooling_usd": 0.0,
@@ -178,26 +178,26 @@
     "assembly subcontracted to a partner shop"
    ],
    "status": "submitted",
-   "created_at": "2026-09-27T08:58:58.093016Z",
+   "created_at": "2026-09-28T11:06:09.424074Z",
    "label": "fictional"
   },
   {
-   "id": "qt_537fb78751",
-   "rfq_id": "rfq_f1029fda25",
+   "id": "qt_c42e6637fc",
+   "rfq_id": "rfq_4d46bdd628",
    "factory_id": "f_lumenpeak",
    "version": 1,
    "tiers": [
     {
      "quantity": 500,
-     "unit_price_usd": 161.88
+     "unit_price_usd": 156.94
     },
     {
      "quantity": 2000,
-     "unit_price_usd": 148.92
+     "unit_price_usd": 144.39
     },
     {
      "quantity": 10000,
-     "unit_price_usd": 137.01
+     "unit_price_usd": 132.84
     }
    ],
    "tooling_usd": 0.0,
@@ -208,26 +208,26 @@
     "other subcontracted to a partner shop"
    ],
    "status": "superseded",
-   "created_at": "2026-09-27T08:58:58.088105Z",
+   "created_at": "2026-09-28T11:06:09.418686Z",
    "label": "fictional"
   },
   {
-   "id": "qt_d20d8c4988",
-   "rfq_id": "rfq_f1029fda25",
+   "id": "qt_f66c71f1a8",
+   "rfq_id": "rfq_4d46bdd628",
    "factory_id": "f_lumenpeak",
    "version": 2,
    "tiers": [
     {
      "quantity": 500,
-     "unit_price_usd": 148.93
+     "unit_price_usd": 144.38
     },
     {
      "quantity": 2000,
-     "unit_price_usd": 137.01
+     "unit_price_usd": 132.84
     },
     {
      "quantity": 10000,
-     "unit_price_usd": 126.05
+     "unit_price_usd": 122.21
     }
    ],
    "tooling_usd": 0.0,
@@ -238,26 +238,26 @@
     "other subcontracted to a partner shop"
    ],
    "status": "superseded",
-   "created_at": "2026-09-27T08:58:58.094637Z",
+   "created_at": "2026-09-28T11:06:09.425779Z",
    "label": "fictional"
   },
   {
-   "id": "qt_6f00e8c687",
-   "rfq_id": "rfq_f1029fda25",
+   "id": "qt_77f96dd01b",
+   "rfq_id": "rfq_4d46bdd628",
    "factory_id": "f_lumenpeak",
    "version": 3,
    "tiers": [
     {
      "quantity": 500,
-     "unit_price_usd": 159.45
+     "unit_price_usd": 154.59
     },
     {
      "quantity": 2000,
-     "unit_price_usd": 146.69
+     "unit_price_usd": 142.22
     },
     {
      "quantity": 10000,
-     "unit_price_usd": 134.95
+     "unit_price_usd": 130.85
     }
    ],
    "tooling_usd": 0.0,
@@ -268,26 +268,26 @@
     "other subcontracted to a partner shop"
    ],
    "status": "submitted",
-   "created_at": "2026-09-27T08:58:58.095967Z",
+   "created_at": "2026-09-28T11:06:09.427314Z",
    "label": "fictional"
   },
   {
-   "id": "qt_777fa1496f",
-   "rfq_id": "rfq_a4b7c0ab91",
+   "id": "qt_bed0673134",
+   "rfq_id": "rfq_52e34ee277",
    "factory_id": "f_skyforge",
    "version": 1,
    "tiers": [
     {
      "quantity": 500,
-     "unit_price_usd": 145.42
+     "unit_price_usd": 140.98
     },
     {
      "quantity": 2000,
-     "unit_price_usd": 133.78
+     "unit_price_usd": 129.71
     },
     {
      "quantity": 10000,
-     "unit_price_usd": 123.08
+     "unit_price_usd": 119.33
     }
    ],
    "tooling_usd": 0.0,
@@ -298,26 +298,26 @@
     "other subcontracted to a partner shop"
    ],
    "status": "superseded",
-   "created_at": "2026-09-27T08:58:58.089757Z",
+   "created_at": "2026-09-28T11:06:09.420515Z",
    "label": "fictional"
   },
   {
-   "id": "qt_869c9325bf",
-   "rfq_id": "rfq_a4b7c0ab91",
+   "id": "qt_825e67ef04",
+   "rfq_id": "rfq_52e34ee277",
    "factory_id": "f_skyforge",
    "version": 2,
    "tiers": [
     {
      "quantity": 500,
-     "unit_price_usd": 141.06
+     "unit_price_usd": 136.75
     },
     {
      "quantity": 2000,
-     "unit_price_usd": 129.77
+     "unit_price_usd": 125.82
     },
     {
      "quantity": 10000,
-     "unit_price_usd": 119.39
+     "unit_price_usd": 115.75
     }
    ],
    "tooling_usd": 0.0,
@@ -328,26 +328,26 @@
     "other subcontracted to a partner shop"
    ],
    "status": "superseded",
-   "created_at": "2026-09-27T08:58:58.098042Z",
+   "created_at": "2026-09-28T11:06:09.429090Z",
    "label": "fictional"
   },
   {
-   "id": "qt_7e182a21db",
-   "rfq_id": "rfq_a4b7c0ab91",
+   "id": "qt_7e2331a1b0",
+   "rfq_id": "rfq_52e34ee277",
    "factory_id": "f_skyforge",
    "version": 3,
    "tiers": [
     {
      "quantity": 500,
-     "unit_price_usd": 141.06
+     "unit_price_usd": 136.75
     },
     {
      "quantity": 2000,
-     "unit_price_usd": 129.77
+     "unit_price_usd": 125.82
     },
     {
      "quantity": 10000,
-     "unit_price_usd": 119.39
+     "unit_price_usd": 115.75
     }
    ],
    "tooling_usd": 0.0,
@@ -358,26 +358,26 @@
     "other subcontracted to a partner shop"
    ],
    "status": "superseded",
-   "created_at": "2026-09-27T08:58:58.099429Z",
+   "created_at": "2026-09-28T11:06:09.430601Z",
    "label": "fictional"
   },
   {
-   "id": "qt_12888de25b",
-   "rfq_id": "rfq_a4b7c0ab91",
+   "id": "qt_29b7e1df29",
+   "rfq_id": "rfq_52e34ee277",
    "factory_id": "f_skyforge",
    "version": 4,
    "tiers": [
     {
      "quantity": 500,
-     "unit_price_usd": 138.24
+     "unit_price_usd": 134.01
     },
     {
      "quantity": 2000,
-     "unit_price_usd": 127.17
+     "unit_price_usd": 123.3
     },
     {
      "quantity": 10000,
-     "unit_price_usd": 117.0
+     "unit_price_usd": 113.44
     }
    ],
    "tooling_usd": 0.0,
@@ -388,26 +388,26 @@
     "other subcontracted to a partner shop"
    ],
    "status": "superseded",
-   "created_at": "2026-09-27T08:58:58.101171Z",
+   "created_at": "2026-09-28T11:06:09.432297Z",
    "label": "fictional"
   },
   {
-   "id": "qt_05abac3365",
-   "rfq_id": "rfq_a4b7c0ab91",
+   "id": "qt_0365aa6864",
+   "rfq_id": "rfq_52e34ee277",
    "factory_id": "f_skyforge",
    "version": 5,
    "tiers": [
     {
      "quantity": 500,
-     "unit_price_usd": 140.33
+     "unit_price_usd": 136.05
     },
     {
      "quantity": 2000,
-     "unit_price_usd": 129.1
+     "unit_price_usd": 125.17
     },
     {
      "quantity": 10000,
-     "unit_price_usd": 118.77
+     "unit_price_usd": 115.15
     }
    ],
    "tooling_usd": 0.0,
@@ -418,14 +418,14 @@
     "other subcontracted to a partner shop"
    ],
    "status": "accepted",
-   "created_at": "2026-09-27T08:58:58.102430Z",
+   "created_at": "2026-09-28T11:06:09.433694Z",
    "label": "fictional"
   }
  ],
  "transcript": [
   {
    "id": "t1",
-   "rfq_id": "rfq_c13666ed28",
+   "rfq_id": "rfq_e49d4cdffb",
    "factory_id": "i_soleilatlantique",
    "turn": 1,
    "speaker": "platform_agent",
@@ -434,12 +434,12 @@
    "quote_id": null,
    "proposed_changes": {},
    "rationale": null,
-   "created_at": "2026-09-27T08:58:58.083447Z",
+   "created_at": "2026-09-28T11:06:09.413657Z",
    "label": "fictional"
   },
   {
    "id": "t2",
-   "rfq_id": "rfq_f1029fda25",
+   "rfq_id": "rfq_4d46bdd628",
    "factory_id": "f_lumenpeak",
    "turn": 2,
    "speaker": "platform_agent",
@@ -448,12 +448,12 @@
    "quote_id": null,
    "proposed_changes": {},
    "rationale": null,
-   "created_at": "2026-09-27T08:58:58.084427Z",
+   "created_at": "2026-09-28T11:06:09.414708Z",
    "label": "fictional"
   },
   {
    "id": "t3",
-   "rfq_id": "rfq_a4b7c0ab91",
+   "rfq_id": "rfq_52e34ee277",
    "factory_id": "f_skyforge",
    "turn": 3,
    "speaker": "platform_agent",
@@ -462,245 +462,245 @@
    "quote_id": null,
    "proposed_changes": {},
    "rationale": null,
-   "created_at": "2026-09-27T08:58:58.085443Z",
+   "created_at": "2026-09-28T11:06:09.415800Z",
    "label": "fictional"
   },
   {
    "id": "t4",
-   "rfq_id": "rfq_c13666ed28",
+   "rfq_id": "rfq_e49d4cdffb",
    "factory_id": "i_soleilatlantique",
    "turn": 4,
    "speaker": "factory_agent",
-   "message": "Quote v1: $140.27 at 2,000, tooling $0, MOQ 1, 27 days, 30% deposit / 70% before shipment. Note: cnc subcontracted to a partner shop; assembly subcontracted to a partner shop.",
+   "message": "Quote v1: $136.00 at 2,000, tooling $0, MOQ 1, 27 days, 30% deposit / 70% before shipment. Note: cnc subcontracted to a partner shop; assembly subcontracted to a partner shop.",
    "message_cn": null,
-   "quote_id": "qt_89d082c2b2",
+   "quote_id": "qt_0094bfbd8c",
    "proposed_changes": {},
    "rationale": null,
-   "created_at": "2026-09-27T08:58:58.087385Z",
+   "created_at": "2026-09-28T11:06:09.417997Z",
    "label": "fictional"
   },
   {
    "id": "t5",
-   "rfq_id": "rfq_f1029fda25",
+   "rfq_id": "rfq_4d46bdd628",
    "factory_id": "f_lumenpeak",
    "turn": 5,
    "speaker": "factory_agent",
-   "message": "Quote v1: $148.92 at 2,000, tooling $0, MOQ 500, 27 days, 50% deposit / 50% before shipment. Note: other subcontracted to a partner shop.",
+   "message": "Quote v1: $144.39 at 2,000, tooling $0, MOQ 500, 27 days, 50% deposit / 50% before shipment. Note: other subcontracted to a partner shop.",
    "message_cn": null,
-   "quote_id": "qt_537fb78751",
+   "quote_id": "qt_c42e6637fc",
    "proposed_changes": {},
    "rationale": null,
-   "created_at": "2026-09-27T08:58:58.089039Z",
+   "created_at": "2026-09-28T11:06:09.419742Z",
    "label": "fictional"
   },
   {
    "id": "t6",
-   "rfq_id": "rfq_a4b7c0ab91",
+   "rfq_id": "rfq_52e34ee277",
    "factory_id": "f_skyforge",
    "turn": 6,
    "speaker": "factory_agent",
-   "message": "Quote v1: $133.78 at 2,000, tooling $0, MOQ 300, 41 days, 30% deposit / 70% before shipment. Note: other subcontracted to a partner shop.",
+   "message": "Quote v1: $129.71 at 2,000, tooling $0, MOQ 300, 41 days, 30% deposit / 70% before shipment. Note: other subcontracted to a partner shop.",
    "message_cn": null,
-   "quote_id": "qt_777fa1496f",
+   "quote_id": "qt_bed0673134",
    "proposed_changes": {},
    "rationale": null,
-   "created_at": "2026-09-27T08:58:58.090716Z",
+   "created_at": "2026-09-28T11:06:09.421551Z",
    "label": "fictional"
   },
   {
    "id": "t7",
-   "rfq_id": "rfq_c13666ed28",
+   "rfq_id": "rfq_e49d4cdffb",
    "factory_id": "i_soleilatlantique",
    "turn": 7,
    "speaker": "platform_agent",
-   "message": "Counter: firm 2,000-unit PO if we get unit price -4.6% (to $133.82 at 2,000).",
+   "message": "Counter: firm 2,000-unit PO if we get unit price -4.6% (to $129.74 at 2,000).",
    "message_cn": null,
-   "quote_id": "qt_c855d3d2e9",
+   "quote_id": "qt_0d05981529",
    "proposed_changes": {
     "unit_price_pct": -4.6
    },
-   "rationale": "Cheapest competing quote is $133.78 at 2,000 units; Soleil Atlantique Installations (fictional) is at $140.27. Fastest competitor ships in 27 days. Policy: price, tooling, MOQ ≤ first order, 30/70 terms.",
-   "created_at": "2026-09-27T08:58:58.092173Z",
+   "rationale": "Cheapest competing quote is $129.71 at 2,000 units; Soleil Atlantique Installations (fictional) is at $136.00. Fastest competitor ships in 27 days. Policy: price, tooling, MOQ ≤ first order, 30/70 terms.",
+   "created_at": "2026-09-28T11:06:09.423262Z",
    "label": "fictional"
   },
   {
    "id": "t8",
-   "rfq_id": "rfq_c13666ed28",
+   "rfq_id": "rfq_e49d4cdffb",
    "factory_id": "i_soleilatlantique",
    "turn": 8,
    "speaker": "factory_agent",
-   "message": "Revised v3: $133.82 at 2,000, tooling $0, MOQ 1, 27 days, 30% deposit / 70% before shipment — accepted your price.",
+   "message": "Revised v3: $129.74 at 2,000, tooling $0, MOQ 1, 27 days, 30% deposit / 70% before shipment — accepted your price.",
    "message_cn": null,
-   "quote_id": "qt_03ba1af7f1",
+   "quote_id": "qt_2f0e4592e2",
    "proposed_changes": {},
    "rationale": null,
-   "created_at": "2026-09-27T08:58:58.093906Z",
+   "created_at": "2026-09-28T11:06:09.425018Z",
    "label": "fictional"
   },
   {
    "id": "t9",
-   "rfq_id": "rfq_f1029fda25",
+   "rfq_id": "rfq_4d46bdd628",
    "factory_id": "f_lumenpeak",
    "turn": 9,
    "speaker": "platform_agent",
-   "message": "Counter: firm 2,000-unit PO if we get unit price -8.0% (to $137.01 at 2,000), 30/70 payment terms.",
+   "message": "Counter: firm 2,000-unit PO if we get unit price -8.0% (to $132.84 at 2,000), 30/70 payment terms.",
    "message_cn": null,
-   "quote_id": "qt_d20d8c4988",
+   "quote_id": "qt_f66c71f1a8",
    "proposed_changes": {
     "unit_price_pct": -8.0,
     "payment_terms": "30% deposit / 70% before shipment"
    },
-   "rationale": "Cheapest competing quote is $133.78 at 2,000 units; Lumen Peak Micro-Electronics (fictional) is at $148.92. Fastest competitor ships in 27 days. Policy: price, tooling, MOQ ≤ first order, 30/70 terms.",
-   "created_at": "2026-09-27T08:58:58.095278Z",
+   "rationale": "Cheapest competing quote is $129.71 at 2,000 units; Lumen Peak Micro-Electronics (fictional) is at $144.39. Fastest competitor ships in 27 days. Policy: price, tooling, MOQ ≤ first order, 30/70 terms.",
+   "created_at": "2026-09-28T11:06:09.426494Z",
    "label": "fictional"
   },
   {
    "id": "t10",
-   "rfq_id": "rfq_f1029fda25",
+   "rfq_id": "rfq_4d46bdd628",
    "factory_id": "f_lumenpeak",
    "turn": 10,
    "speaker": "factory_agent",
-   "message": "Revised v3: $146.69 at 2,000, tooling $0, MOQ 500, 27 days, 40% deposit / 60% before shipment — 1.5% off, that is our floor.",
+   "message": "Revised v3: $142.22 at 2,000, tooling $0, MOQ 500, 27 days, 40% deposit / 60% before shipment — 1.5% off, that is our floor.",
    "message_cn": null,
-   "quote_id": "qt_6f00e8c687",
+   "quote_id": "qt_77f96dd01b",
    "proposed_changes": {},
    "rationale": null,
-   "created_at": "2026-09-27T08:58:58.097212Z",
+   "created_at": "2026-09-28T11:06:09.428292Z",
    "label": "fictional"
   },
   {
    "id": "t11",
-   "rfq_id": "rfq_a4b7c0ab91",
+   "rfq_id": "rfq_52e34ee277",
    "factory_id": "f_skyforge",
    "turn": 11,
    "speaker": "platform_agent",
-   "message": "Counter: firm 2,000-unit PO if we get unit price -3.0% (to $129.77 at 2,000), lead time 36 days.",
+   "message": "Counter: firm 2,000-unit PO if we get unit price -3.0% (to $125.82 at 2,000), lead time 36 days.",
    "message_cn": null,
-   "quote_id": "qt_869c9325bf",
+   "quote_id": "qt_825e67ef04",
    "proposed_changes": {
     "unit_price_pct": -3.0,
     "lead_time_days": 36
    },
-   "rationale": "Cheapest competing quote is $133.82 at 2,000 units; Skyforge Robotics Integrators (fictional) is at $133.78. Fastest competitor ships in 27 days. Policy: price, tooling, MOQ ≤ first order, 30/70 terms.",
-   "created_at": "2026-09-27T08:58:58.098683Z",
+   "rationale": "Cheapest competing quote is $129.74 at 2,000 units; Skyforge Robotics Integrators (fictional) is at $129.71. Fastest competitor ships in 27 days. Policy: price, tooling, MOQ ≤ first order, 30/70 terms.",
+   "created_at": "2026-09-28T11:06:09.429779Z",
    "label": "fictional"
   },
   {
    "id": "t12",
-   "rfq_id": "rfq_a4b7c0ab91",
+   "rfq_id": "rfq_52e34ee277",
    "factory_id": "f_skyforge",
    "turn": 12,
    "speaker": "factory_agent",
-   "message": "Revised v3: $129.77 at 2,000, tooling $0, MOQ 300, 38 days, 30% deposit / 70% before shipment — accepted your price.",
+   "message": "Revised v3: $125.82 at 2,000, tooling $0, MOQ 300, 38 days, 30% deposit / 70% before shipment — accepted your price.",
    "message_cn": null,
-   "quote_id": "qt_7e182a21db",
+   "quote_id": "qt_7e2331a1b0",
    "proposed_changes": {},
    "rationale": null,
-   "created_at": "2026-09-27T08:58:58.100473Z",
+   "created_at": "2026-09-28T11:06:09.431549Z",
    "label": "fictional"
   },
   {
    "id": "t13",
-   "rfq_id": "rfq_a4b7c0ab91",
+   "rfq_id": "rfq_52e34ee277",
    "factory_id": "f_skyforge",
    "turn": 13,
    "speaker": "platform_agent",
-   "message": "Final ask: firm 2,000-unit PO if we get unit price -2.0% (to $127.17 at 2,000), lead time 33 days.",
+   "message": "Final ask: firm 2,000-unit PO if we get unit price -2.0% (to $123.30 at 2,000), lead time 33 days.",
    "message_cn": null,
-   "quote_id": "qt_12888de25b",
+   "quote_id": "qt_29b7e1df29",
    "proposed_changes": {
     "unit_price_pct": -2.0,
     "lead_time_days": 33
    },
-   "rationale": "Cheapest competing quote is $133.82 at 2,000 units; Skyforge Robotics Integrators (fictional) is at $129.77. Fastest competitor ships in 27 days. Policy: price, tooling, MOQ ≤ first order, 30/70 terms.",
-   "created_at": "2026-09-27T08:58:58.101759Z",
+   "rationale": "Cheapest competing quote is $129.74 at 2,000 units; Skyforge Robotics Integrators (fictional) is at $125.82. Fastest competitor ships in 27 days. Policy: price, tooling, MOQ ≤ first order, 30/70 terms.",
+   "created_at": "2026-09-28T11:06:09.432927Z",
    "label": "fictional"
   },
   {
    "id": "t14",
-   "rfq_id": "rfq_a4b7c0ab91",
+   "rfq_id": "rfq_52e34ee277",
    "factory_id": "f_skyforge",
    "turn": 14,
    "speaker": "factory_agent",
-   "message": "Revised v5: $129.10 at 2,000, tooling $0, MOQ 300, 38 days, 30% deposit / 70% before shipment — 0.5% off, that is our floor.",
+   "message": "Revised v5: $125.17 at 2,000, tooling $0, MOQ 300, 38 days, 30% deposit / 70% before shipment — 0.5% off, that is our floor.",
    "message_cn": null,
-   "quote_id": "qt_05abac3365",
+   "quote_id": "qt_0365aa6864",
    "proposed_changes": {},
    "rationale": null,
-   "created_at": "2026-09-27T08:58:58.103240Z",
+   "created_at": "2026-09-28T11:06:09.434564Z",
    "label": "fictional"
   },
   {
    "id": "t15",
-   "rfq_id": "rfq_a4b7c0ab91",
+   "rfq_id": "rfq_52e34ee277",
    "factory_id": "f_skyforge",
    "turn": 15,
    "speaker": "platform_agent",
-   "message": "Recommendation to founder: accept Skyforge Robotics Integrators (fictional) v5: $129.10 at 2,000, tooling $0, MOQ 300, 38 days, 30% deposit / 70% before shipment. Awaiting approval.",
+   "message": "Recommendation to founder: accept Skyforge Robotics Integrators (fictional) v5: $125.17 at 2,000, tooling $0, MOQ 300, 38 days, 30% deposit / 70% before shipment. Awaiting approval.",
    "message_cn": null,
-   "quote_id": "qt_05abac3365",
+   "quote_id": "qt_0365aa6864",
    "proposed_changes": {},
-   "rationale": "Skyforge Robotics Integrators (fictional): lowest risk-adjusted cost, $144.98/unit risk-adjusted ($129.10 incl. tooling at 2,000); 91% on-time, 1.1% defects, 38 days, 30% deposit / 70% before shipment. Runner-up Soleil Atlantique Installations (fictional): $150.82/unit risk-adjusted ($133.82 incl. tooling at 2,000) — cnc subcontracted to a partner shop; assembly subcontracted to a partner shop.",
-   "created_at": "2026-09-27T08:58:58.103284Z",
+   "rationale": "Skyforge Robotics Integrators (fictional): lowest risk-adjusted cost, $140.57/unit risk-adjusted ($125.17 incl. tooling at 2,000); 91% on-time, 1.1% defects, 38 days, 30% deposit / 70% before shipment. Runner-up Soleil Atlantique Installations (fictional): $146.22/unit risk-adjusted ($129.74 incl. tooling at 2,000) — cnc subcontracted to a partner shop; assembly subcontracted to a partner shop.",
+   "created_at": "2026-09-28T11:06:09.434609Z",
    "label": "fictional"
   },
   {
    "id": "t16",
-   "rfq_id": "rfq_a4b7c0ab91",
+   "rfq_id": "rfq_52e34ee277",
    "factory_id": "f_skyforge",
    "turn": 16,
    "speaker": "user",
    "message": "Approved quote v5.",
    "message_cn": null,
-   "quote_id": "qt_05abac3365",
+   "quote_id": "qt_0365aa6864",
    "proposed_changes": {},
    "rationale": null,
-   "created_at": "2026-09-27T08:58:58.113910Z",
+   "created_at": "2026-09-28T11:06:09.445672Z",
    "label": "fictional"
   },
   {
    "id": "t17",
-   "rfq_id": "rfq_a4b7c0ab91",
+   "rfq_id": "rfq_52e34ee277",
    "factory_id": "f_skyforge",
    "turn": 17,
    "speaker": "platform_agent",
-   "message": "Quote accepted — order draft po_17b1637a7c for 2,000 units at $129.10, tooling $0, 30% deposit / 70% before shipment.",
+   "message": "Quote accepted — order draft po_051b623510 for 2,000 units at $125.17, tooling $0, 30% deposit / 70% before shipment.",
    "message_cn": null,
-   "quote_id": "qt_05abac3365",
+   "quote_id": "qt_0365aa6864",
    "proposed_changes": {},
    "rationale": null,
-   "created_at": "2026-09-27T08:58:58.113913Z",
+   "created_at": "2026-09-28T11:06:09.445677Z",
    "label": "fictional"
   }
  ],
  "recommendation": {
   "factory_id": "f_skyforge",
-  "quote_id": "qt_05abac3365",
-  "rationale": "Skyforge Robotics Integrators (fictional): lowest risk-adjusted cost, $144.98/unit risk-adjusted ($129.10 incl. tooling at 2,000); 91% on-time, 1.1% defects, 38 days, 30% deposit / 70% before shipment. Runner-up Soleil Atlantique Installations (fictional): $150.82/unit risk-adjusted ($133.82 incl. tooling at 2,000) — cnc subcontracted to a partner shop; assembly subcontracted to a partner shop."
+  "quote_id": "qt_0365aa6864",
+  "rationale": "Skyforge Robotics Integrators (fictional): lowest risk-adjusted cost, $140.57/unit risk-adjusted ($125.17 incl. tooling at 2,000); 91% on-time, 1.1% defects, 38 days, 30% deposit / 70% before shipment. Runner-up Soleil Atlantique Installations (fictional): $146.22/unit risk-adjusted ($129.74 incl. tooling at 2,000) — cnc subcontracted to a partner shop; assembly subcontracted to a partner shop."
  },
  "user_approved": true,
  "final_terms": {
   "factory_id": "f_skyforge",
-  "quote_id": "qt_05abac3365",
+  "quote_id": "qt_0365aa6864",
   "quantity": 2000,
   "unit_price": {
-   "value": 129.1,
+   "value": 125.17,
    "unit": "USD",
    "label": "fictional",
-   "source_or_assumption": "Accepted quote v5 (po_17b1637a7c) — demo data"
+   "source_or_assumption": "Accepted quote v5 (po_051b623510) — demo data"
   },
   "tooling": {
    "value": 0.0,
    "unit": "USD",
    "label": "fictional",
-   "source_or_assumption": "Accepted quote v5 (po_17b1637a7c) — demo data"
+   "source_or_assumption": "Accepted quote v5 (po_051b623510) — demo data"
   },
   "moq": 300,
   "lead_time_days": {
    "value": 38.0,
    "unit": "days",
    "label": "fictional",
-   "source_or_assumption": "Accepted quote v5 (po_17b1637a7c) — demo data"
+   "source_or_assumption": "Accepted quote v5 (po_051b623510) — demo data"
   },
   "payment_terms": "30% deposit / 70% before shipment"
  }

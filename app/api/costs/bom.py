@@ -112,4 +112,7 @@ def load_bom(ctx: StageContext, order_qty: int = 2000) -> tuple[list[BOMItem], s
         if not items:
             name, items = template_bom(text)
             notes = [f"Template BOM for category '{name}' (no spec BOM available): review before relying on it"]
+    from api.cad.assembly.service import costs_hook
+
+    items = costs_hook(ctx, items)  # C2/C5: measured fastener lines (no-op with CAD_ASSEMBLY=0), never twice
     return match_bom(items, order_qty), gen, notes

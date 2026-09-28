@@ -1,12 +1,12 @@
 {
- "_v": "a4",
+ "_v": "a6",
  "version": 0,
  "glb_url": "/files/demo_desk_lamp/anatomy_v0.glb",
  "label": "Illustrative internal layout \u2014 not a routed PCB",
  "kind": "electronics",
  "bbox_mm": [
   180.0,
-  341.2,
+  342.4,
   120.0
  ],
  "layers": [
@@ -15,11 +15,11 @@
    "name": "Top shell",
    "order": 0,
    "parts": [
-    "shell_top",
+    "body_1",
     "metal_1",
-    "diffuser",
+    "diffuser_1",
     "metal_2",
-    "body_1_2"
+    "body_2"
    ],
    "explode_vector": [
     0.0,
@@ -82,9 +82,9 @@
    "name": "Bottom shell",
    "order": 3,
    "parts": [
-    "shell_bottom",
-    "feet",
-    "accent_1_2"
+    "accent_1",
+    "rubber_1",
+    "accent_2"
    ],
    "explode_vector": [
     0.0,
@@ -93,6 +93,23 @@
    ],
    "explode_distance_mm": 408.0,
    "caption": "Aluminium 6063 + PC/ABS shell, 1.5 mm wall (Estimate)"
+  },
+  {
+   "id": "fasteners",
+   "name": "Fasteners",
+   "order": 4,
+   "parts": [
+    "m3_x_20_pan_screws_x4",
+    "m3_heat_set_inserts_x4",
+    "screw_bosses"
+   ],
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 75.0,
+   "caption": "Fasteners \u00b7 3 kinds: M3 \u00d7 20 pan screws \u00d74, M3 heat-set inserts \u00d74, Screw bosses"
   }
  ],
  "steps": [
@@ -103,13 +120,13 @@
    "caption": "Magnetic Rechargeable Desk Lamp \u2014 180.0 \u00d7 120.0 \u00d7 341.2 mm (Measured), 8 electronic BOM lines laid out inside (illustrative internal layout, not a routed PCB)",
    "camera": {
     "position_mm": [
-     470.7,
-     461.2,
-     635.4
+     471.9,
+     461.4,
+     637.0
     ],
     "target_mm": [
      0.0,
-     169.4,
+     168.8,
      0.0
     ],
     "fov_deg": 30.0
@@ -124,13 +141,13 @@
    "caption": "Aluminium 6063 + PC/ABS shell, product 180.0 \u00d7 120.0 \u00d7 341.2 mm (Measured), 1.5 mm wall (Estimate)",
    "camera": {
     "position_mm": [
-     1449.5,
-     1510.1,
-     1956.9
+     1450.9,
+     1510.4,
+     1958.7
     ],
     "target_mm": [
      0.0,
-     611.4,
+     610.8,
      0.0
     ],
     "fov_deg": 30.0
@@ -139,9 +156,9 @@
     "shell_top"
    ],
    "focus_parts": [
-    "shell_top",
+    "body_1",
     "metal_1",
-    "diffuser"
+    "diffuser_1"
    ]
   },
   {
@@ -151,20 +168,21 @@
    "caption": "Main board: Touch-dimming MCU ($0.25 (Estimate)) \u2014 FR-4 board sized to the cavity (Estimate)",
    "camera": {
     "position_mm": [
-     1207.9,
-     1360.3,
-     1630.7
+     1209.1,
+     1360.4,
+     1632.3
     ],
     "target_mm": [
      0.0,
-     611.4,
+     610.8,
      0.0
     ],
     "fov_deg": 30.0
    },
    "layers_exploded": [
     "shell_top",
-    "battery"
+    "battery",
+    "fasteners"
    ],
    "focus_parts": [
     "main_pcb",
@@ -193,7 +211,8 @@
    },
    "layers_exploded": [
     "shell_top",
-    "battery"
+    "battery",
+    "fasteners"
    ],
    "focus_parts": [
     "main_pcb",
@@ -221,7 +240,8 @@
    },
    "layers_exploded": [
     "shell_top",
-    "battery"
+    "battery",
+    "fasteners"
    ],
    "focus_parts": [
     "li_po_battery_3000_mah"
@@ -231,16 +251,16 @@
    "id": "s6",
    "title": "Back together",
    "kicker": "06 \u00b7 Back together",
-   "caption": "Unit cost $12.50 at 2,000 units (Estimate), product mass 241.0 g (Estimate)",
+   "caption": "Unit cost $12.50 at 2,000 units (Estimate), product mass 304.0 g (Estimate)",
    "camera": {
     "position_mm": [
-     -487.3,
-     437.4,
-     633.4
+     -488.5,
+     437.5,
+     635.0
     ],
     "target_mm": [
      0.0,
-     169.4,
+     168.8,
      0.0
     ],
     "fov_deg": 30.0
@@ -251,12 +271,12 @@
  ],
  "parts": [
   {
-   "part_id": "shell_bottom",
-   "name": "Bottom shell",
+   "part_id": "accent_1",
+   "name": "Lower body",
    "role": "shell_bottom",
    "layer_id": "shell_bottom",
-   "material": "lower shell",
-   "finish": null,
+   "material": "Aluminium 6063 + PC/ABS",
+   "finish": "MT-11010 texture, warm white",
    "colour_hex": "#C0BEBA",
    "measured_bbox_mm": [
     120.0,
@@ -269,59 +289,39 @@
     0.0
    ],
    "label": "measured",
-   "bom_item_id": "m4",
+   "bom_item_id": "m1",
    "lcsc_pn": null,
    "package": null,
    "unit_price": {
-    "value": 1.1,
+    "value": 0.95,
     "unit": "USD",
     "label": "estimate",
-    "source_or_assumption": "Part weight 35 g"
+    "source_or_assumption": "Part weight 28 g \u00d7 resin + cycle cost"
    },
-   "editable": [
-    {
-     "param": "height",
-     "label": "Height",
-     "min": 15.0,
-     "max": 60.0,
-     "step": 0.5,
-     "unit": "mm",
-     "value": 30.0
-    },
-    {
-     "param": "length",
-     "label": "Length",
-     "min": 50.0,
-     "max": 200.0,
-     "step": 1.0,
-     "unit": "mm",
-     "value": 100.0
-    },
-    {
-     "param": "width",
-     "label": "Width",
-     "min": 35.0,
-     "max": 140.0,
-     "step": 1.0,
-     "unit": "mm",
-     "value": 70.0
-    }
-   ],
+   "editable": [],
    "colour_editable": true,
    "material_options": [
     "pc_abs",
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "body_1",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 52.3
   },
   {
-   "part_id": "shell_top",
-   "name": "Top shell",
+   "part_id": "body_1",
+   "name": "Body",
    "role": "shell_top",
    "layer_id": "shell_top",
-   "material": "moulded body",
-   "finish": null,
+   "material": "Aluminium 6063 + PC/ABS",
+   "finish": "MT-11010 texture, warm white",
    "colour_hex": "#EDEBE6",
    "measured_bbox_mm": [
     120.0,
@@ -343,42 +343,22 @@
     "label": "estimate",
     "source_or_assumption": "Part weight 35 g"
    },
-   "editable": [
-    {
-     "param": "height",
-     "label": "Height",
-     "min": 15.0,
-     "max": 60.0,
-     "step": 0.5,
-     "unit": "mm",
-     "value": 30.0
-    },
-    {
-     "param": "length",
-     "label": "Length",
-     "min": 50.0,
-     "max": 200.0,
-     "step": 1.0,
-     "unit": "mm",
-     "value": 100.0
-    },
-    {
-     "param": "width",
-     "label": "Width",
-     "min": 35.0,
-     "max": 140.0,
-     "step": 1.0,
-     "unit": "mm",
-     "value": 70.0
-    }
-   ],
+   "editable": [],
    "colour_editable": true,
    "material_options": [
     "pc_abs",
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "metal_1",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 18.9
   },
   {
    "part_id": "metal_1",
@@ -389,7 +369,7 @@
    "finish": null,
    "colour_hex": "#E7E8EB",
    "measured_bbox_mm": [
-    15.99,
+    16.0,
     300.0,
     16.0
    ],
@@ -399,10 +379,15 @@
     0.0
    ],
    "label": "measured",
-   "bom_item_id": null,
+   "bom_item_id": "hw1",
    "lcsc_pn": null,
    "package": null,
-   "unit_price": null,
+   "unit_price": {
+    "value": 0.08,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
    "editable": [],
    "colour_editable": true,
    "material_options": [
@@ -410,10 +395,18 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 0.0
   },
   {
-   "part_id": "diffuser",
+   "part_id": "diffuser_1",
    "name": "Light diffuser",
    "role": "diffuser",
    "layer_id": "shell_top",
@@ -442,7 +435,15 @@
    },
    "editable": [],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "metal_1",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 36.5
   },
   {
    "part_id": "metal_2",
@@ -453,7 +454,7 @@
    "finish": null,
    "colour_hex": "#E7E8EB",
    "measured_bbox_mm": [
-    11.99,
+    12.0,
     1.2,
     12.0
    ],
@@ -463,10 +464,15 @@
     38.0
    ],
    "label": "measured",
-   "bom_item_id": null,
+   "bom_item_id": "hw1",
    "lcsc_pn": null,
    "package": null,
-   "unit_price": null,
+   "unit_price": {
+    "value": 0.08,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
    "editable": [],
    "colour_editable": true,
    "material_options": [
@@ -474,42 +480,63 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "body_1",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 17.8
   },
   {
-   "part_id": "feet",
-   "name": "Rubber feet",
+   "part_id": "rubber_1",
+   "name": "Rubber part",
    "role": "other",
    "layer_id": "shell_bottom",
    "material": "TPE rubber",
    "finish": null,
    "colour_hex": "#303032",
    "measured_bbox_mm": [
-    99.94,
+    99.98,
     1.2,
-    99.97
+    99.99
    ],
    "centroid_mm": [
-    0.03,
+    0.01,
     -0.6,
     0.0
    ],
    "label": "measured",
-   "bom_item_id": null,
+   "bom_item_id": "hw1",
    "lcsc_pn": null,
    "package": null,
-   "unit_price": null,
+   "unit_price": {
+    "value": 0.08,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
    "editable": [],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "accent_1",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 89.0
   },
   {
-   "part_id": "accent_1_2",
-   "name": "Lower body",
+   "part_id": "accent_2",
+   "name": "Lower body 2",
    "role": "shell_bottom",
    "layer_id": "shell_bottom",
-   "material": "lower shell",
-   "finish": null,
+   "material": "Aluminium 6063 + PC/ABS",
+   "finish": "MT-11010 texture, warm white",
    "colour_hex": "#C0BEBA",
    "measured_bbox_mm": [
     180.0,
@@ -522,15 +549,10 @@
     0.0
    ],
    "label": "measured",
-   "bom_item_id": "m1",
+   "bom_item_id": null,
    "lcsc_pn": null,
    "package": null,
-   "unit_price": {
-    "value": 0.95,
-    "unit": "USD",
-    "label": "estimate",
-    "source_or_assumption": "Part weight 28 g \u00d7 resin + cycle cost"
-   },
+   "unit_price": null,
    "editable": [],
    "colour_editable": true,
    "material_options": [
@@ -538,15 +560,23 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "metal_1",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 31.9
   },
   {
-   "part_id": "body_1_2",
-   "name": "Body",
+   "part_id": "body_2",
+   "name": "Body 2",
    "role": "shell_top",
    "layer_id": "shell_top",
-   "material": "moulded body",
-   "finish": null,
+   "material": "Aluminium 6063 + PC/ABS",
+   "finish": "MT-11010 texture, warm white",
    "colour_hex": "#EDEBE6",
    "measured_bbox_mm": [
     180.0,
@@ -570,7 +600,140 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "accent_2",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 72.3
+  },
+  {
+   "part_id": "m3_x_20_pan_screws_x4",
+   "name": "M3 \u00d7 20 pan screws \u00d74",
+   "role": "fastener",
+   "layer_id": "fasteners",
+   "material": "A2 stainless steel",
+   "finish": null,
+   "colour_hex": "#EFEFF0",
+   "measured_bbox_mm": [
+    105.41,
+    22.4,
+    105.41
+   ],
+   "centroid_mm": [
+    0.0,
+    8.8,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "hw2",
+   "lcsc_pn": null,
+   "package": "ISO 14583 M3 \u00d7 20",
+   "unit_price": {
+    "value": 0.025,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": true,
+   "material_options": [],
+   "parent_part_id": "screw_bosses",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 93.7
+  },
+  {
+   "part_id": "m3_heat_set_inserts_x4",
+   "name": "M3 heat-set inserts \u00d74",
+   "role": "fastener",
+   "layer_id": "fasteners",
+   "material": "brass",
+   "finish": null,
+   "colour_hex": "#EDEBE6",
+   "measured_bbox_mm": [
+    104.51,
+    5.7,
+    104.51
+   ],
+   "centroid_mm": [
+    0.0,
+    15.05,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "hw1",
+   "lcsc_pn": null,
+   "package": "McMaster-Carr 94459A140 M3 \u00d7 5.7",
+   "unit_price": {
+    "value": 0.08,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": true,
+   "material_options": [],
+   "parent_part_id": "screw_bosses",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 83.7
+  },
+  {
+   "part_id": "screw_bosses",
+   "name": "Screw bosses",
+   "role": "other",
+   "layer_id": "fasteners",
+   "material": "Aluminium 6063 + PC/ABS",
+   "finish": "MT-11010 texture, warm white",
+   "colour_hex": "#EDEBE6",
+   "measured_bbox_mm": [
+    107.81,
+    7.6,
+    107.81
+   ],
+   "centroid_mm": [
+    0.0,
+    16.0,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "hw2",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 0.025,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ],
+   "parent_part_id": "body_1",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 44.2
   },
   {
    "part_id": "main_pcb",
@@ -602,7 +765,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "usb_c_receptacle_16p_smd",
@@ -634,7 +801,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "white_led_2835_4000k_0_3_w_1",
@@ -666,7 +837,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "white_led_2835_4000k_0_3_w_2",
@@ -698,7 +873,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "white_led_2835_4000k_0_3_w_3",
@@ -730,7 +909,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "white_led_2835_4000k_0_3_w_4",
@@ -762,7 +945,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "white_led_2835_4000k_0_3_w_5",
@@ -794,7 +981,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "white_led_2835_4000k_0_3_w_6",
@@ -826,7 +1017,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "white_led_2835_4000k_0_3_w_7",
@@ -858,7 +1053,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "white_led_2835_4000k_0_3_w_8",
@@ -890,7 +1089,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "white_led_2835_4000k_0_3_w_9",
@@ -922,7 +1125,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "white_led_2835_4000k_0_3_w_10",
@@ -954,7 +1161,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "white_led_2835_4000k_0_3_w_11",
@@ -986,7 +1197,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "white_led_2835_4000k_0_3_w_12",
@@ -1018,7 +1233,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "aluminium_mcpcb_for_led_bar_170_12_mm",
@@ -1050,7 +1269,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "li_ion_charger_ic_tp4056",
@@ -1082,7 +1305,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "n_mosfet_ao3400a",
@@ -1114,7 +1341,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "passives_cluster",
@@ -1146,7 +1377,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "li_po_battery_3000_mah",
@@ -1178,7 +1413,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "led_board_cob",
@@ -1210,7 +1449,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   }
  ]
 }

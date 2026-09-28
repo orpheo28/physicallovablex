@@ -21,6 +21,9 @@ A working name for an idea Hexa WTF is scoping, not a launched company. **The St
 ## Positioning (`context/positioning.md`, `context/competitors.md`)
 **"From idea or prototype to 1,000 units shipped, without speaking the factory's language."** We do the translation (DFM, components, certification, a spec in the factory's language), then commit to a landed price. Never in cold outreach. Real competitor: "my contact in Shenzhen"; threat #1: Alibaba's Accio; Monce (Paris) is factory-side and complementary.
 
+## Metrics (`context/metrics.md`)
+**North Star (lighthouse):** products with a real factory quote obtained from a Factory Pack (outcome, not revenue or logins; Lovable's "daily active apps" logic). Plan funnel: 150 messages → 30 replies → 15 calls → 10 packs accepted → 3 commitments (own targets, Hypothesis). No LTV, no paid acquisition while the conversion window is > 3 months.
+
 ## Current priorities (week of 27/09; refresh with `skills/weekly-update`)
 1. **Campaign 01 send:** ~32 sendable cold drafts of 36 (`03_DISCOVERY/envoi/A_ENVOYER.md`); a human sends and logs in `SUIVI.md`; follow-up after 48 h (`RELANCE.md`). 0 logged on 27/09.
 2. **Warm track:** 10 network messages, target 2 calls before Mon 28/09 11:30 (`RESEAU.md`; names never enter this repo).
@@ -41,13 +44,17 @@ A working name for an idea Hexa WTF is scoping, not a launched company. **The St
 - English, one page per file, no empty files, no generic templates.
 - **Privacy:** no contact lists, no warm-network names, no raw transcripts, no founder files, no API keys in this repo (`outputs/accounts.csv` keeps public names and URLs only; emails removed 27/09). Nothing here sends, publishes or pushes; a human does.
 
+## Borrowed playbooks (detail and sources in `README.md`)
+Elena Verna / Lovable: engagement North Star, free > paid, growth is a trust problem, no LTV early. Anton Osika: open launch. Maja Voje: 1 ICP + 1 offer + 1 channel, one case study, AEO. Diode (a16z): sell the end product, open the compiler. Applied Intuition (a16z): horizontal provider, distribution through players who already hold trust.
+
 ## Map
 ```
-context/  profile · icp · signals · positioning · competitors · personas/(founder, factory, partner)
+context/  profile · icp · signals · positioning · competitors · metrics · personas/(founder, factory, partner)
    │
-skills/   icp-scoring → account-research → signal-to-sequence → (human sends) → call-debrief → weekly-update
-          pvp-teardown (after a call only)
-workflows/ signal-routing · campaign-build · enrichment        playbooks/ new-signal-response · founder-replied · factory-intro
+skills/   icp-scoring → account-research → signal-to-sequence | pvp-pack → (human sends) → reply-handler → call-debrief → weekly-update
+          pvp-teardown (after a call only) · aeo-check (monthly, post-go only)
+workflows/ signal-routing · campaign-build · enrichment · hook-experiments
+playbooks/ new-signal-response · founder-replied · factory-intro · lighthouse-ambassadors · free-as-marketing (Phase 2) · build-in-public (post-go)
 outputs/  accounts.csv (mirror, 45 rows) · research/ · pvp/ · campaign-01-discovery/ · RUN_LOG.md · weekly-log.md
 Truth outside: 03_DISCOVERY/comptes.csv (55 rows) · envoi/SUIVI.md · A_ENVOYER.md · RELANCE.md · RESEAU.md · verbatims.md
 ```

@@ -83,6 +83,17 @@ PHOTO_RATE_LIMIT_PER_DAY=30     # Studio photo (image-model) jobs per visitor IP
 Memory check (W21, `docker run --memory=1g`, one Studio start with AI CAD running in the API process + its sandbox child, three product families in a row, fake LLM endpoint): **container peak 810 MB** (cgroup `memory.peak`, incl. page cache), anonymous memory peak 678 MB, API peak RSS 649 MB, sandbox child ≈ 450 MB RSS of which most is shared OCP libraries; `oom_kill 0`. Idle API: 496 MB RSS.
 Showcase gallery: after `POST /demo/reset` (or a fresh volume with `SEED_DEMO_ON_EMPTY=1`), `GET /examples` lists the recorded showcases (`demo_<slug>`); opening them costs nothing (every stage, version, AI CAD program and engineering result is cached in the image).
 
+**C5 additions (pro CAD, on by default — nothing to set):**
+```
+CAD_DETAIL_LEVEL=pro            # standard parts (ISO screws, heat-set inserts, nuts, bearings, dowels…) + DFM detail; basic = pass-6 CAD
+CAD_ASSEMBLY=1                  # assembly tree + measured interference / clearance / screw checks, fastener BOM lines; 0 = off
+CAD_DRAWINGS=1                  # dimensioned 2D drawings (Studio tab, Factory Pack, Dossier chapter); 0 = off
+CODEGEN_RAG=0                   # keep 0: no measured gain (docs/CAD_BENCH.md)
+```
+All four are code defaults; set them on Railway only to switch one off (rollback to pass-6 behaviour: `CAD_DETAIL_LEVEL=basic`,
+`CAD_ASSEMBLY=0`, `CAD_DRAWINGS=0`). Cost: the first GET of a version's assembly takes 1-10 s and its drawings 1-9 s (then cached
+under `FILES_DIR`); the showcases ship with their assembly-checked pro CAD, engineering cache and Factory Pack drawings list.
+
 **Zero-cost public mode:** add `DEMO_READONLY=1` (live AI runs → 403 "Read-only demo"; cached demos, factory portal, PDF and 3D keep working; key not needed).
 
 ## 4. Vercel — the web app

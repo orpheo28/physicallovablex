@@ -15,6 +15,11 @@ Rule = tuple[str, str, str, str, Callable[[int], int] | None]
 
 
 def signature(code: str) -> str:
+    """Hash of the program without its parameter values (P) — and without a C5 pro block appended to it (the
+    recorded program's parts keep their curated names at CAD_DETAIL_LEVEL=pro)."""
+    i = code.find("# === PRO DETAIL === (C5:")
+    if i >= 0:
+        code = re.sub(r"^def _basic_build\(\):", "def build():", code[:i].rstrip() + "\n", count=1, flags=re.M)
     try:
         tree = ast.parse(code)
     except SyntaxError:

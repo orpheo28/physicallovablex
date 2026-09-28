@@ -2,7 +2,7 @@
  "status": "ok",
  "version": 1,
  "source": "llm:openai/gpt-6-sol",
- "label": "AI-generated CAD (concept level) \u2014 geometry measured on the result",
+ "label": "AI-generated CAD (concept level) — geometry measured on the result",
  "category": "drone",
  "seed_family": "drone",
  "variant": "mini",
@@ -19,23 +19,12 @@
  "code_path": "api/data/files_w21/p_21f381d053/model_v1.py",
  "code_url": "/projects/p_21f381d053/cad/code/1",
  "bbox_mm": [
-  172.4,
-  259.57,
-  79.15
+  204.9,
+  302.7,
+  80.0
  ],
- "volume_mm3": 281507.9,
+ "volume_mm3": 290525.3,
  "parts": [
-  {
-   "label": "body.1",
-   "role": "body",
-   "volume_mm3": 154968.1,
-   "valid": true,
-   "bbox_mm": [
-    93.27,
-    53.27,
-    35.0
-   ]
-  },
   {
    "label": "coat.1",
    "role": "coat",
@@ -83,11 +72,11 @@
   {
    "label": "coat.11",
    "role": "coat",
-   "volume_mm3": 3514.4,
+   "volume_mm3": 5213.9,
    "valid": true,
    "bbox_mm": [
-    32.98,
-    53.35,
+    48.98,
+    75.37,
     9.0
    ]
   },
@@ -171,11 +160,11 @@
   {
    "label": "coat.12",
    "role": "coat",
-   "volume_mm3": 3514.4,
+   "volume_mm3": 5213.9,
    "valid": true,
    "bbox_mm": [
-    32.98,
-    53.35,
+    48.98,
+    75.37,
     9.0
    ]
   },
@@ -259,11 +248,11 @@
   {
    "label": "coat.13",
    "role": "coat",
-   "volume_mm3": 3514.4,
+   "volume_mm3": 5213.9,
    "valid": true,
    "bbox_mm": [
-    32.98,
-    53.35,
+    48.98,
+    75.37,
     9.0
    ]
   },
@@ -347,11 +336,11 @@
   {
    "label": "coat.14",
    "role": "coat",
-   "volume_mm3": 3514.4,
+   "volume_mm3": 5213.9,
    "valid": true,
    "bbox_mm": [
-    32.98,
-    53.35,
+    48.98,
+    75.37,
     9.0
    ]
   },
@@ -508,6 +497,1420 @@
     12.0,
     12.0
    ]
+  },
+  {
+   "label": "body.1",
+   "role": "body",
+   "volume_mm3": 64275.4,
+   "valid": true,
+   "bbox_mm": [
+    93.27,
+    53.27,
+    13.85
+   ],
+   "std_meta": {
+    "kind": "feature",
+    "role": "shell_bottom",
+    "name": "Lower body shell",
+    "group": "Lower body shell"
+   }
+  },
+  {
+   "label": "body.2",
+   "role": "body",
+   "volume_mm3": 89325.7,
+   "valid": true,
+   "bbox_mm": [
+    91.52,
+    51.52,
+    20.85
+   ],
+   "std_meta": {
+    "kind": "feature",
+    "role": "shell_top",
+    "name": "Upper body shell",
+    "group": "Upper body shell"
+   }
+  },
+  {
+   "label": "steel.145",
+   "role": "steel",
+   "volume_mm3": 79.5,
+   "valid": true,
+   "bbox_mm": [
+    4.0,
+    4.0,
+    21.6
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 14583",
+    "size": "M2",
+    "length_mm": 20.0,
+    "head": "pan",
+    "drive": "T6",
+    "thread": "M2×0.4",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M2 × 20 pan head, T6 (ISO 14583), A2 stainless",
+     "standard": "ISO 14583",
+     "kind": "screw",
+     "unit_price_usd": 0.02,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "brass.146",
+   "role": "brass",
+   "volume_mm3": 22.3,
+   "valid": true,
+   "bbox_mm": [
+    3.6,
+    3.6,
+    4.0
+   ],
+   "std_meta": {
+    "kind": "insert",
+    "role": "fastener",
+    "standard": "McMaster-Carr 94459A120",
+    "size": "M2",
+    "od_mm": 3.6,
+    "length_mm": 4.0,
+    "hole_mm": 3.2,
+    "material": "brass",
+    "bom": {
+     "part": "Heat-set threaded insert M2 × 4 (OD 3.6 mm), brass — ref. McMaster-Carr 94459A120",
+     "standard": "McMaster-Carr 94459A120",
+     "kind": "insert",
+     "unit_price_usd": 0.06,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "brass",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.147",
+   "role": "steel",
+   "volume_mm3": 79.5,
+   "valid": true,
+   "bbox_mm": [
+    4.0,
+    4.0,
+    21.6
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 14583",
+    "size": "M2",
+    "length_mm": 20.0,
+    "head": "pan",
+    "drive": "T6",
+    "thread": "M2×0.4",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M2 × 20 pan head, T6 (ISO 14583), A2 stainless",
+     "standard": "ISO 14583",
+     "kind": "screw",
+     "unit_price_usd": 0.02,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "brass.148",
+   "role": "brass",
+   "volume_mm3": 22.3,
+   "valid": true,
+   "bbox_mm": [
+    3.6,
+    3.6,
+    4.0
+   ],
+   "std_meta": {
+    "kind": "insert",
+    "role": "fastener",
+    "standard": "McMaster-Carr 94459A120",
+    "size": "M2",
+    "od_mm": 3.6,
+    "length_mm": 4.0,
+    "hole_mm": 3.2,
+    "material": "brass",
+    "bom": {
+     "part": "Heat-set threaded insert M2 × 4 (OD 3.6 mm), brass — ref. McMaster-Carr 94459A120",
+     "standard": "McMaster-Carr 94459A120",
+     "kind": "insert",
+     "unit_price_usd": 0.06,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "brass",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.149",
+   "role": "steel",
+   "volume_mm3": 79.5,
+   "valid": true,
+   "bbox_mm": [
+    4.0,
+    4.0,
+    21.6
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 14583",
+    "size": "M2",
+    "length_mm": 20.0,
+    "head": "pan",
+    "drive": "T6",
+    "thread": "M2×0.4",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M2 × 20 pan head, T6 (ISO 14583), A2 stainless",
+     "standard": "ISO 14583",
+     "kind": "screw",
+     "unit_price_usd": 0.02,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "brass.150",
+   "role": "brass",
+   "volume_mm3": 22.3,
+   "valid": true,
+   "bbox_mm": [
+    3.6,
+    3.6,
+    4.0
+   ],
+   "std_meta": {
+    "kind": "insert",
+    "role": "fastener",
+    "standard": "McMaster-Carr 94459A120",
+    "size": "M2",
+    "od_mm": 3.6,
+    "length_mm": 4.0,
+    "hole_mm": 3.2,
+    "material": "brass",
+    "bom": {
+     "part": "Heat-set threaded insert M2 × 4 (OD 3.6 mm), brass — ref. McMaster-Carr 94459A120",
+     "standard": "McMaster-Carr 94459A120",
+     "kind": "insert",
+     "unit_price_usd": 0.06,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "brass",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.151",
+   "role": "steel",
+   "volume_mm3": 79.5,
+   "valid": true,
+   "bbox_mm": [
+    4.0,
+    4.0,
+    21.6
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 14583",
+    "size": "M2",
+    "length_mm": 20.0,
+    "head": "pan",
+    "drive": "T6",
+    "thread": "M2×0.4",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M2 × 20 pan head, T6 (ISO 14583), A2 stainless",
+     "standard": "ISO 14583",
+     "kind": "screw",
+     "unit_price_usd": 0.02,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "brass.152",
+   "role": "brass",
+   "volume_mm3": 22.3,
+   "valid": true,
+   "bbox_mm": [
+    3.6,
+    3.6,
+    4.0
+   ],
+   "std_meta": {
+    "kind": "insert",
+    "role": "fastener",
+    "standard": "McMaster-Carr 94459A120",
+    "size": "M2",
+    "od_mm": 3.6,
+    "length_mm": 4.0,
+    "hole_mm": 3.2,
+    "material": "brass",
+    "bom": {
+     "part": "Heat-set threaded insert M2 × 4 (OD 3.6 mm), brass — ref. McMaster-Carr 94459A120",
+     "standard": "McMaster-Carr 94459A120",
+     "kind": "insert",
+     "unit_price_usd": 0.06,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "brass",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.153",
+   "role": "steel",
+   "volume_mm3": 160.8,
+   "valid": true,
+   "bbox_mm": [
+    5.68,
+    5.68,
+    17.0
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 4762",
+    "size": "M3",
+    "length_mm": 14.0,
+    "head": "socket",
+    "drive": "2.5 mm hex",
+    "thread": "M3×0.5",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M3 × 14 socket head, 2.5 mm hex (ISO 4762), A2 stainless",
+     "standard": "ISO 4762",
+     "kind": "screw",
+     "unit_price_usd": 0.025,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.154",
+   "role": "steel",
+   "volume_mm3": 46.3,
+   "valid": true,
+   "bbox_mm": [
+    6.35,
+    5.5,
+    2.4
+   ],
+   "std_meta": {
+    "kind": "nut",
+    "role": "fastener",
+    "standard": "ISO 4032",
+    "size": "M3",
+    "height_mm": 2.4,
+    "across_flats_mm": 5.5,
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Hex nut M3 (ISO 4032), A2 stainless",
+     "standard": "ISO 4032",
+     "kind": "nut",
+     "unit_price_usd": 0.012,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.155",
+   "role": "steel",
+   "volume_mm3": 160.8,
+   "valid": true,
+   "bbox_mm": [
+    5.68,
+    5.68,
+    17.0
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 4762",
+    "size": "M3",
+    "length_mm": 14.0,
+    "head": "socket",
+    "drive": "2.5 mm hex",
+    "thread": "M3×0.5",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M3 × 14 socket head, 2.5 mm hex (ISO 4762), A2 stainless",
+     "standard": "ISO 4762",
+     "kind": "screw",
+     "unit_price_usd": 0.025,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.156",
+   "role": "steel",
+   "volume_mm3": 46.3,
+   "valid": true,
+   "bbox_mm": [
+    6.35,
+    5.5,
+    2.4
+   ],
+   "std_meta": {
+    "kind": "nut",
+    "role": "fastener",
+    "standard": "ISO 4032",
+    "size": "M3",
+    "height_mm": 2.4,
+    "across_flats_mm": 5.5,
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Hex nut M3 (ISO 4032), A2 stainless",
+     "standard": "ISO 4032",
+     "kind": "nut",
+     "unit_price_usd": 0.012,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.157",
+   "role": "steel",
+   "volume_mm3": 52.5,
+   "valid": true,
+   "bbox_mm": [
+    3.98,
+    3.98,
+    12.0
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 4762",
+    "size": "M2",
+    "length_mm": 10.0,
+    "head": "socket",
+    "drive": "1.5 mm hex",
+    "thread": "M2×0.4",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M2 × 10 socket head, 1.5 mm hex (ISO 4762), A2 stainless",
+     "standard": "ISO 4762",
+     "kind": "screw",
+     "unit_price_usd": 0.02,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.158",
+   "role": "steel",
+   "volume_mm3": 52.5,
+   "valid": true,
+   "bbox_mm": [
+    3.98,
+    3.98,
+    12.0
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 4762",
+    "size": "M2",
+    "length_mm": 10.0,
+    "head": "socket",
+    "drive": "1.5 mm hex",
+    "thread": "M2×0.4",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M2 × 10 socket head, 1.5 mm hex (ISO 4762), A2 stainless",
+     "standard": "ISO 4762",
+     "kind": "screw",
+     "unit_price_usd": 0.02,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.159",
+   "role": "steel",
+   "volume_mm3": 52.5,
+   "valid": true,
+   "bbox_mm": [
+    3.98,
+    3.98,
+    12.0
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 4762",
+    "size": "M2",
+    "length_mm": 10.0,
+    "head": "socket",
+    "drive": "1.5 mm hex",
+    "thread": "M2×0.4",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M2 × 10 socket head, 1.5 mm hex (ISO 4762), A2 stainless",
+     "standard": "ISO 4762",
+     "kind": "screw",
+     "unit_price_usd": 0.02,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.160",
+   "role": "steel",
+   "volume_mm3": 52.5,
+   "valid": true,
+   "bbox_mm": [
+    3.98,
+    3.98,
+    12.0
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 4762",
+    "size": "M2",
+    "length_mm": 10.0,
+    "head": "socket",
+    "drive": "1.5 mm hex",
+    "thread": "M2×0.4",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M2 × 10 socket head, 1.5 mm hex (ISO 4762), A2 stainless",
+     "standard": "ISO 4762",
+     "kind": "screw",
+     "unit_price_usd": 0.02,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.161",
+   "role": "steel",
+   "volume_mm3": 170.6,
+   "valid": true,
+   "bbox_mm": [
+    9.24,
+    8.0,
+    4.7
+   ],
+   "std_meta": {
+    "kind": "nut",
+    "role": "fastener",
+    "standard": "ISO 4032",
+    "size": "M5",
+    "height_mm": 4.7,
+    "across_flats_mm": 8.0,
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Hex nut M5 (ISO 4032), A2 stainless",
+     "standard": "ISO 4032",
+     "kind": "nut",
+     "unit_price_usd": 0.02,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.162",
+   "role": "steel",
+   "volume_mm3": 160.8,
+   "valid": true,
+   "bbox_mm": [
+    5.68,
+    5.68,
+    17.0
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 4762",
+    "size": "M3",
+    "length_mm": 14.0,
+    "head": "socket",
+    "drive": "2.5 mm hex",
+    "thread": "M3×0.5",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M3 × 14 socket head, 2.5 mm hex (ISO 4762), A2 stainless",
+     "standard": "ISO 4762",
+     "kind": "screw",
+     "unit_price_usd": 0.025,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.163",
+   "role": "steel",
+   "volume_mm3": 46.3,
+   "valid": true,
+   "bbox_mm": [
+    6.35,
+    5.5,
+    2.4
+   ],
+   "std_meta": {
+    "kind": "nut",
+    "role": "fastener",
+    "standard": "ISO 4032",
+    "size": "M3",
+    "height_mm": 2.4,
+    "across_flats_mm": 5.5,
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Hex nut M3 (ISO 4032), A2 stainless",
+     "standard": "ISO 4032",
+     "kind": "nut",
+     "unit_price_usd": 0.012,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.164",
+   "role": "steel",
+   "volume_mm3": 160.8,
+   "valid": true,
+   "bbox_mm": [
+    5.68,
+    5.68,
+    17.0
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 4762",
+    "size": "M3",
+    "length_mm": 14.0,
+    "head": "socket",
+    "drive": "2.5 mm hex",
+    "thread": "M3×0.5",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M3 × 14 socket head, 2.5 mm hex (ISO 4762), A2 stainless",
+     "standard": "ISO 4762",
+     "kind": "screw",
+     "unit_price_usd": 0.025,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.165",
+   "role": "steel",
+   "volume_mm3": 46.3,
+   "valid": true,
+   "bbox_mm": [
+    6.35,
+    5.5,
+    2.4
+   ],
+   "std_meta": {
+    "kind": "nut",
+    "role": "fastener",
+    "standard": "ISO 4032",
+    "size": "M3",
+    "height_mm": 2.4,
+    "across_flats_mm": 5.5,
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Hex nut M3 (ISO 4032), A2 stainless",
+     "standard": "ISO 4032",
+     "kind": "nut",
+     "unit_price_usd": 0.012,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.166",
+   "role": "steel",
+   "volume_mm3": 52.5,
+   "valid": true,
+   "bbox_mm": [
+    3.98,
+    3.98,
+    12.0
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 4762",
+    "size": "M2",
+    "length_mm": 10.0,
+    "head": "socket",
+    "drive": "1.5 mm hex",
+    "thread": "M2×0.4",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M2 × 10 socket head, 1.5 mm hex (ISO 4762), A2 stainless",
+     "standard": "ISO 4762",
+     "kind": "screw",
+     "unit_price_usd": 0.02,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.167",
+   "role": "steel",
+   "volume_mm3": 52.5,
+   "valid": true,
+   "bbox_mm": [
+    3.98,
+    3.98,
+    12.0
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 4762",
+    "size": "M2",
+    "length_mm": 10.0,
+    "head": "socket",
+    "drive": "1.5 mm hex",
+    "thread": "M2×0.4",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M2 × 10 socket head, 1.5 mm hex (ISO 4762), A2 stainless",
+     "standard": "ISO 4762",
+     "kind": "screw",
+     "unit_price_usd": 0.02,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.168",
+   "role": "steel",
+   "volume_mm3": 52.5,
+   "valid": true,
+   "bbox_mm": [
+    3.98,
+    3.98,
+    12.0
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 4762",
+    "size": "M2",
+    "length_mm": 10.0,
+    "head": "socket",
+    "drive": "1.5 mm hex",
+    "thread": "M2×0.4",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M2 × 10 socket head, 1.5 mm hex (ISO 4762), A2 stainless",
+     "standard": "ISO 4762",
+     "kind": "screw",
+     "unit_price_usd": 0.02,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.169",
+   "role": "steel",
+   "volume_mm3": 52.5,
+   "valid": true,
+   "bbox_mm": [
+    3.98,
+    3.98,
+    12.0
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 4762",
+    "size": "M2",
+    "length_mm": 10.0,
+    "head": "socket",
+    "drive": "1.5 mm hex",
+    "thread": "M2×0.4",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M2 × 10 socket head, 1.5 mm hex (ISO 4762), A2 stainless",
+     "standard": "ISO 4762",
+     "kind": "screw",
+     "unit_price_usd": 0.02,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.170",
+   "role": "steel",
+   "volume_mm3": 170.6,
+   "valid": true,
+   "bbox_mm": [
+    9.24,
+    8.0,
+    4.7
+   ],
+   "std_meta": {
+    "kind": "nut",
+    "role": "fastener",
+    "standard": "ISO 4032",
+    "size": "M5",
+    "height_mm": 4.7,
+    "across_flats_mm": 8.0,
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Hex nut M5 (ISO 4032), A2 stainless",
+     "standard": "ISO 4032",
+     "kind": "nut",
+     "unit_price_usd": 0.02,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.171",
+   "role": "steel",
+   "volume_mm3": 160.8,
+   "valid": true,
+   "bbox_mm": [
+    5.68,
+    5.68,
+    17.0
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 4762",
+    "size": "M3",
+    "length_mm": 14.0,
+    "head": "socket",
+    "drive": "2.5 mm hex",
+    "thread": "M3×0.5",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M3 × 14 socket head, 2.5 mm hex (ISO 4762), A2 stainless",
+     "standard": "ISO 4762",
+     "kind": "screw",
+     "unit_price_usd": 0.025,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.172",
+   "role": "steel",
+   "volume_mm3": 46.3,
+   "valid": true,
+   "bbox_mm": [
+    6.35,
+    5.5,
+    2.4
+   ],
+   "std_meta": {
+    "kind": "nut",
+    "role": "fastener",
+    "standard": "ISO 4032",
+    "size": "M3",
+    "height_mm": 2.4,
+    "across_flats_mm": 5.5,
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Hex nut M3 (ISO 4032), A2 stainless",
+     "standard": "ISO 4032",
+     "kind": "nut",
+     "unit_price_usd": 0.012,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.173",
+   "role": "steel",
+   "volume_mm3": 160.8,
+   "valid": true,
+   "bbox_mm": [
+    5.68,
+    5.68,
+    17.0
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 4762",
+    "size": "M3",
+    "length_mm": 14.0,
+    "head": "socket",
+    "drive": "2.5 mm hex",
+    "thread": "M3×0.5",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M3 × 14 socket head, 2.5 mm hex (ISO 4762), A2 stainless",
+     "standard": "ISO 4762",
+     "kind": "screw",
+     "unit_price_usd": 0.025,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.174",
+   "role": "steel",
+   "volume_mm3": 46.3,
+   "valid": true,
+   "bbox_mm": [
+    6.35,
+    5.5,
+    2.4
+   ],
+   "std_meta": {
+    "kind": "nut",
+    "role": "fastener",
+    "standard": "ISO 4032",
+    "size": "M3",
+    "height_mm": 2.4,
+    "across_flats_mm": 5.5,
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Hex nut M3 (ISO 4032), A2 stainless",
+     "standard": "ISO 4032",
+     "kind": "nut",
+     "unit_price_usd": 0.012,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.175",
+   "role": "steel",
+   "volume_mm3": 52.5,
+   "valid": true,
+   "bbox_mm": [
+    3.98,
+    3.98,
+    12.0
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 4762",
+    "size": "M2",
+    "length_mm": 10.0,
+    "head": "socket",
+    "drive": "1.5 mm hex",
+    "thread": "M2×0.4",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M2 × 10 socket head, 1.5 mm hex (ISO 4762), A2 stainless",
+     "standard": "ISO 4762",
+     "kind": "screw",
+     "unit_price_usd": 0.02,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.176",
+   "role": "steel",
+   "volume_mm3": 52.5,
+   "valid": true,
+   "bbox_mm": [
+    3.98,
+    3.98,
+    12.0
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 4762",
+    "size": "M2",
+    "length_mm": 10.0,
+    "head": "socket",
+    "drive": "1.5 mm hex",
+    "thread": "M2×0.4",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M2 × 10 socket head, 1.5 mm hex (ISO 4762), A2 stainless",
+     "standard": "ISO 4762",
+     "kind": "screw",
+     "unit_price_usd": 0.02,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.177",
+   "role": "steel",
+   "volume_mm3": 52.5,
+   "valid": true,
+   "bbox_mm": [
+    3.98,
+    3.98,
+    12.0
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 4762",
+    "size": "M2",
+    "length_mm": 10.0,
+    "head": "socket",
+    "drive": "1.5 mm hex",
+    "thread": "M2×0.4",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M2 × 10 socket head, 1.5 mm hex (ISO 4762), A2 stainless",
+     "standard": "ISO 4762",
+     "kind": "screw",
+     "unit_price_usd": 0.02,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.178",
+   "role": "steel",
+   "volume_mm3": 52.5,
+   "valid": true,
+   "bbox_mm": [
+    3.98,
+    3.98,
+    12.0
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 4762",
+    "size": "M2",
+    "length_mm": 10.0,
+    "head": "socket",
+    "drive": "1.5 mm hex",
+    "thread": "M2×0.4",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M2 × 10 socket head, 1.5 mm hex (ISO 4762), A2 stainless",
+     "standard": "ISO 4762",
+     "kind": "screw",
+     "unit_price_usd": 0.02,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.179",
+   "role": "steel",
+   "volume_mm3": 170.6,
+   "valid": true,
+   "bbox_mm": [
+    9.24,
+    8.0,
+    4.7
+   ],
+   "std_meta": {
+    "kind": "nut",
+    "role": "fastener",
+    "standard": "ISO 4032",
+    "size": "M5",
+    "height_mm": 4.7,
+    "across_flats_mm": 8.0,
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Hex nut M5 (ISO 4032), A2 stainless",
+     "standard": "ISO 4032",
+     "kind": "nut",
+     "unit_price_usd": 0.02,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.180",
+   "role": "steel",
+   "volume_mm3": 160.8,
+   "valid": true,
+   "bbox_mm": [
+    5.68,
+    5.68,
+    17.0
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 4762",
+    "size": "M3",
+    "length_mm": 14.0,
+    "head": "socket",
+    "drive": "2.5 mm hex",
+    "thread": "M3×0.5",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M3 × 14 socket head, 2.5 mm hex (ISO 4762), A2 stainless",
+     "standard": "ISO 4762",
+     "kind": "screw",
+     "unit_price_usd": 0.025,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.181",
+   "role": "steel",
+   "volume_mm3": 46.3,
+   "valid": true,
+   "bbox_mm": [
+    6.35,
+    5.5,
+    2.4
+   ],
+   "std_meta": {
+    "kind": "nut",
+    "role": "fastener",
+    "standard": "ISO 4032",
+    "size": "M3",
+    "height_mm": 2.4,
+    "across_flats_mm": 5.5,
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Hex nut M3 (ISO 4032), A2 stainless",
+     "standard": "ISO 4032",
+     "kind": "nut",
+     "unit_price_usd": 0.012,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.182",
+   "role": "steel",
+   "volume_mm3": 160.8,
+   "valid": true,
+   "bbox_mm": [
+    5.68,
+    5.68,
+    17.0
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 4762",
+    "size": "M3",
+    "length_mm": 14.0,
+    "head": "socket",
+    "drive": "2.5 mm hex",
+    "thread": "M3×0.5",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M3 × 14 socket head, 2.5 mm hex (ISO 4762), A2 stainless",
+     "standard": "ISO 4762",
+     "kind": "screw",
+     "unit_price_usd": 0.025,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.183",
+   "role": "steel",
+   "volume_mm3": 46.3,
+   "valid": true,
+   "bbox_mm": [
+    6.35,
+    5.5,
+    2.4
+   ],
+   "std_meta": {
+    "kind": "nut",
+    "role": "fastener",
+    "standard": "ISO 4032",
+    "size": "M3",
+    "height_mm": 2.4,
+    "across_flats_mm": 5.5,
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Hex nut M3 (ISO 4032), A2 stainless",
+     "standard": "ISO 4032",
+     "kind": "nut",
+     "unit_price_usd": 0.012,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.184",
+   "role": "steel",
+   "volume_mm3": 52.5,
+   "valid": true,
+   "bbox_mm": [
+    3.98,
+    3.98,
+    12.0
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 4762",
+    "size": "M2",
+    "length_mm": 10.0,
+    "head": "socket",
+    "drive": "1.5 mm hex",
+    "thread": "M2×0.4",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M2 × 10 socket head, 1.5 mm hex (ISO 4762), A2 stainless",
+     "standard": "ISO 4762",
+     "kind": "screw",
+     "unit_price_usd": 0.02,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.185",
+   "role": "steel",
+   "volume_mm3": 52.5,
+   "valid": true,
+   "bbox_mm": [
+    3.98,
+    3.98,
+    12.0
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 4762",
+    "size": "M2",
+    "length_mm": 10.0,
+    "head": "socket",
+    "drive": "1.5 mm hex",
+    "thread": "M2×0.4",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M2 × 10 socket head, 1.5 mm hex (ISO 4762), A2 stainless",
+     "standard": "ISO 4762",
+     "kind": "screw",
+     "unit_price_usd": 0.02,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.186",
+   "role": "steel",
+   "volume_mm3": 52.5,
+   "valid": true,
+   "bbox_mm": [
+    3.98,
+    3.98,
+    12.0
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 4762",
+    "size": "M2",
+    "length_mm": 10.0,
+    "head": "socket",
+    "drive": "1.5 mm hex",
+    "thread": "M2×0.4",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M2 × 10 socket head, 1.5 mm hex (ISO 4762), A2 stainless",
+     "standard": "ISO 4762",
+     "kind": "screw",
+     "unit_price_usd": 0.02,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.187",
+   "role": "steel",
+   "volume_mm3": 52.5,
+   "valid": true,
+   "bbox_mm": [
+    3.98,
+    3.98,
+    12.0
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 4762",
+    "size": "M2",
+    "length_mm": 10.0,
+    "head": "socket",
+    "drive": "1.5 mm hex",
+    "thread": "M2×0.4",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M2 × 10 socket head, 1.5 mm hex (ISO 4762), A2 stainless",
+     "standard": "ISO 4762",
+     "kind": "screw",
+     "unit_price_usd": 0.02,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.188",
+   "role": "steel",
+   "volume_mm3": 170.6,
+   "valid": true,
+   "bbox_mm": [
+    9.24,
+    8.0,
+    4.7
+   ],
+   "std_meta": {
+    "kind": "nut",
+    "role": "fastener",
+    "standard": "ISO 4032",
+    "size": "M5",
+    "height_mm": 4.7,
+    "across_flats_mm": 8.0,
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Hex nut M5 (ISO 4032), A2 stainless",
+     "standard": "ISO 4032",
+     "kind": "nut",
+     "unit_price_usd": 0.02,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
   }
  ],
  "target_dims_mm": [
@@ -529,5 +1932,148 @@
  "instruction": null,
  "parent_version": null,
  "seconds": 28.99,
- "brief": "product_name: Kitesurf follow-me drone; one_liner: A foldable battery-powered drone that follows a kitesurfer to record video.; category: other; key_features: Foldable airframe; Autonomous follow-me filming; Onboard video recording; Tracking suited to a moving kitesurfer; prompt: A foldable drone for kitesurf follow-me shots"
+ "brief": "product_name: Kitesurf follow-me drone; one_liner: A foldable battery-powered drone that follows a kitesurfer to record video.; category: other; key_features: Foldable airframe; Autonomous follow-me filming; Onboard video recording; Tracking suited to a moving kitesurfer; prompt: A foldable drone for kitesurf follow-me shots",
+ "detail_level": "pro",
+ "hardware_bom": [
+  {
+   "part": "Heat-set threaded insert M2 × 4 (OD 3.6 mm), brass — ref. McMaster-Carr 94459A120",
+   "standard": "McMaster-Carr 94459A120",
+   "kind": "insert",
+   "unit_price_usd": 0.06,
+   "price_label": "estimate",
+   "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+   "material": "brass",
+   "category": "mechanical",
+   "qty": 4,
+   "labels": [
+    "brass.146",
+    "brass.148",
+    "brass.150",
+    "brass.152"
+   ],
+   "size": "M2",
+   "id": "hw1",
+   "key": "heat_set_threaded_insert_m2_4_od_3_6_mm_brass_ref_mcmaster_c"
+  },
+  {
+   "part": "Hex nut M3 (ISO 4032), A2 stainless",
+   "standard": "ISO 4032",
+   "kind": "nut",
+   "unit_price_usd": 0.012,
+   "price_label": "estimate",
+   "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+   "material": "A2 stainless steel",
+   "category": "mechanical",
+   "qty": 8,
+   "labels": [
+    "steel.154",
+    "steel.156",
+    "steel.163",
+    "steel.165",
+    "steel.172",
+    "steel.174",
+    "steel.181",
+    "steel.183"
+   ],
+   "size": "M3",
+   "id": "hw2",
+   "key": "hex_nut_m3_iso_4032_a2_stainless"
+  },
+  {
+   "part": "Hex nut M5 (ISO 4032), A2 stainless",
+   "standard": "ISO 4032",
+   "kind": "nut",
+   "unit_price_usd": 0.02,
+   "price_label": "estimate",
+   "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+   "material": "A2 stainless steel",
+   "category": "mechanical",
+   "qty": 4,
+   "labels": [
+    "steel.161",
+    "steel.170",
+    "steel.179",
+    "steel.188"
+   ],
+   "size": "M5",
+   "id": "hw3",
+   "key": "hex_nut_m5_iso_4032_a2_stainless"
+  },
+  {
+   "part": "Screw M2 × 10 socket head, 1.5 mm hex (ISO 4762), A2 stainless",
+   "standard": "ISO 4762",
+   "kind": "screw",
+   "unit_price_usd": 0.02,
+   "price_label": "estimate",
+   "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+   "material": "A2 stainless steel",
+   "category": "mechanical",
+   "qty": 16,
+   "labels": [
+    "steel.157",
+    "steel.158",
+    "steel.159",
+    "steel.160",
+    "steel.166",
+    "steel.167",
+    "steel.168",
+    "steel.169",
+    "steel.175",
+    "steel.176",
+    "steel.177",
+    "steel.178",
+    "steel.184",
+    "steel.185",
+    "steel.186",
+    "steel.187"
+   ],
+   "size": "M2",
+   "id": "hw4",
+   "key": "screw_m2_10_socket_head_1_5_mm_hex_iso_4762_a2_stainless"
+  },
+  {
+   "part": "Screw M2 × 20 pan head, T6 (ISO 14583), A2 stainless",
+   "standard": "ISO 14583",
+   "kind": "screw",
+   "unit_price_usd": 0.02,
+   "price_label": "estimate",
+   "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+   "material": "A2 stainless steel",
+   "category": "mechanical",
+   "qty": 4,
+   "labels": [
+    "steel.145",
+    "steel.147",
+    "steel.149",
+    "steel.151"
+   ],
+   "size": "M2",
+   "id": "hw5",
+   "key": "screw_m2_20_pan_head_t6_iso_14583_a2_stainless"
+  },
+  {
+   "part": "Screw M3 × 14 socket head, 2.5 mm hex (ISO 4762), A2 stainless",
+   "standard": "ISO 4762",
+   "kind": "screw",
+   "unit_price_usd": 0.025,
+   "price_label": "estimate",
+   "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+   "material": "A2 stainless steel",
+   "category": "mechanical",
+   "qty": 8,
+   "labels": [
+    "steel.153",
+    "steel.155",
+    "steel.162",
+    "steel.164",
+    "steel.171",
+    "steel.173",
+    "steel.180",
+    "steel.182"
+   ],
+   "size": "M3",
+   "id": "hw6",
+   "key": "screw_m3_14_socket_head_2_5_mm_hex_iso_4762_a2_stainless"
+  }
+ ]
 }

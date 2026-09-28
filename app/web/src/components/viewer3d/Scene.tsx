@@ -119,7 +119,11 @@ export function Product({
       const v = new THREE.Vector3();
       const l = layerOf.get(p.id);
       if (l && (all || (look.exploded as Set<string>).has(l.id))) v.set(...l.explode_vector).multiplyScalar(l.explode_distance_mm / 1000);
-      if (all) {
+      const m = meta.get(p.id);
+      if (all && m?.explode_vector && m.explode_distance_mm) {
+        // C2: the assembly's own explode direction (from the joint axis, cumulative along the tree).
+        v.add(new THREE.Vector3(...m.explode_vector).multiplyScalar(m.explode_distance_mm / 1000));
+      } else if (all) {
         // A calm radial spread on top of the layers (or alone when there is no layer data).
         const r = p.centroid.clone().sub(ix.center);
         if (l) r.y = 0;
@@ -128,7 +132,7 @@ export function Product({
       out.set(p.id, v);
     });
     return out;
-  }, [ix, partsCount, layers, look.exploded]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [ix, partsCount, layers, look.exploded, meta]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Exploded / anatomy framing: the bounding sphere of every visible part at its target offset.
   useEffect(() => {

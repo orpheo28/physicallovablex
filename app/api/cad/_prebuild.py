@@ -57,9 +57,36 @@ def _two_shells(p: dict) -> list:
     p = normalize(p)
     fam, L, W, H, wall, d = int(p["family"]), p["length"], p["width"], p["height"], p["wall"], p["draft_deg"]
     hb = H * p["split_ratio"]
-    bottom = _shell_half(fam, L, W, p["fillet"], hb, wall, d, p["edge_fillet"], int(p["boss_count"]))
+    from api.cad.build import pro_clearance
+
+    bottom = _shell_half(fam, L, W, p["fillet"], hb, wall, d, p["edge_fillet"], int(p["boss_count"]), pro_clearance(p))
     top = _shell_half(fam, L, W, p["fillet"], H - hb, wall, d, p["edge_fillet"], 0).mirror(Plane.XY).moved(Location((0, 0, H)))
     return [_labelled(bottom, "accent", 1), _labelled(top, "body", 1)]
+
+
+def _card_weld_lip():
+    """Energy director of the welded ID-1 card at its real 0.5 mm wall (enclosure_details would use the generator's
+    1.2 mm wall clamp): on the bottom-shell rim, mid-wall, at the split height."""
+    from build123d import Location
+
+    from api.cad.stdparts import dfm
+
+    wall = 0.5
+    lip = dfm.weld_lip(85.6 - wall, 54.0 - wall, max(3.5 - wall / 2, 0.5), base=min(0.6, wall * 0.4))
+    placed = lip.moved(Location((0, 0, 1.4)))
+    placed.std_meta = dict(lip.std_meta, name="Ultrasonic weld energy director", group="weld_lip")
+    return [placed]
+
+
+def _pro_export(parts: list, params: dict, stem: Path, look: dict, details: list | None = None) -> None:
+    """C5 (CAD_DETAIL_LEVEL=pro): the chosen demo direction + its enclosure hardware (api.cad.stdparts.enclosure),
+    exported with a labelled STEP next to the GLB (assembly checks, drawings); the STL is not kept."""
+    from api.cad.families import export_parts
+    from api.cad.stdparts import joints
+    from api.cad.stdparts.enclosure import enclosure_details
+
+    export_parts(joints.add_parts(parts, details if details is not None else enclosure_details(params), "body"), stem, look)
+    stem.with_suffix(".stl").unlink(missing_ok=True)
 
 
 def _look(did: str, table: dict) -> dict:
@@ -82,7 +109,13 @@ def desk_lamp() -> None:
     diffuser = _labelled(Pos(0, 0, 321.6) * extrude(RectangleRounded(160, 26, 6), 0.8), "diffuser", 1)
     button = _labelled(Pos(0, -38, 22.2) * Cylinder(6, 1.2), "metal", 2)
     ring = _labelled(Pos(0, 0, -0.6) * (Cylinder(50, 1.2) - Cylinder(44, 1.2)), "rubber", 1)
-    export_look(base_parts + [stem, diffuser, button, ring] + head_parts, out / "d1.glb", _look("d1", LAMP_LOOK))
+    from api.cad.stdparts import is_pro
+
+    if is_pro():  # the head's shells get their own labels (one part per solid in the labelled STEP / parts list)
+        head_pro = [_labelled(s, s.label.split(".")[0], 2) for s in head_parts]
+        _pro_export(base_parts + [stem, diffuser, button, ring] + head_pro, base, out / "d1", _look("d1", LAMP_LOOK))
+    else:
+        export_look(base_parts + [stem, diffuser, button, ring] + head_parts, out / "d1.glb", _look("d1", LAMP_LOOK))
 
     # enclosure = the moulded parts of d1, side by side (head housing next to the base shell)
     moulded = _two_shells(base) + [s.moved(Location((0, 100, 0))) for s in _two_shells(head)]
@@ -130,7 +163,14 @@ def tracker_card() -> None:
     card = _card_parts()
     export_look(card, out / "enclosure.glb", _look("d3", TRACKER_LOOK))
     edge_button = _labelled(Pos(-85.6 / 2 - 0.1, 0, 1.4) * Box(0.6, 9, 1.2), "button", 1)
-    export_look(_card_parts() + [edge_button], out / "d3.glb", _look("d3", TRACKER_LOOK))
+    from api.cad.stdparts import is_pro
+
+    if is_pro():  # welded card: energy director on the bottom-shell rim (no screws)
+        card3 = dict(family=2, length=85.6, width=54.0, height=2.8, fillet=3.5, edge_fillet=0.3, wall=0.5, draft_deg=1.0,
+                     boss_count=0, split_ratio=0.5)
+        _pro_export(_card_parts() + [edge_button], card3, out / "d3", _look("d3", TRACKER_LOOK), _card_weld_lip())
+    else:
+        export_look(_card_parts() + [edge_button], out / "d3.glb", _look("d3", TRACKER_LOOK))
     _clean(out)
 
 
@@ -159,10 +199,14 @@ def _unlabelled(parts: list):
 
 
 def _clean(out) -> None:
+    from api.cad.stdparts import is_pro
+
     shutil.rmtree(out / "_cache", ignore_errors=True)
+    keep = {"demo_desk_lamp": "d1", "demo_tracker_card": "d3"}.get(out.name) if is_pro() else None  # C5: chosen direction
     for k in ("step", "stl"):
         for i in (1, 2, 3):
-            (out / f"d{i}.{k}").unlink(missing_ok=True)
+            if not (k == "step" and f"d{i}" == keep):
+                (out / f"d{i}.{k}").unlink(missing_ok=True)
 
 
 # --------------------------------------------------------------------------- AI concept renders

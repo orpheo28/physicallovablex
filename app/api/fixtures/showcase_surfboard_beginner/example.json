@@ -7,10 +7,10 @@
  "strategy": "full_design",
  "hero_image_url": "/files/demo_surfboard_beginner/photo_v2_hero_studio.png",
  "glb_url": "/files/demo_surfboard_beginner/model_v2.glb",
- "one_line_result": "2 versions · AI-written CAD · $224.55/unit @ 2,000 (Estimate) · Full design · 13/13 stages",
+ "one_line_result": "2 versions · AI-written CAD · $225.29/unit @ 2,000 (Estimate) · Full design · 13/13 stages",
  "unit_basis": "per_unit",
  "unit_cost": {
-  "value": 224.55,
+  "value": 225.29,
   "unit": "USD",
   "label": "estimate",
   "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"

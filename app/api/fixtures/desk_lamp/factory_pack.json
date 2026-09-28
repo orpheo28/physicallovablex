@@ -1,983 +1,3002 @@
 {
-  "id": "fp_desk_lamp_v1",
-  "project_id": "demo_desk_lamp",
-  "version": 1,
-  "created_at": "2026-09-26T12:00:00Z",
-  "fallback": false,
-  "cached_note": null,
-  "fallback_stages": [],
-  "product_name": "Magnetic Rechargeable Desk Lamp",
-  "product_summary": "A minimalist cordless desk lamp whose LED head snaps magnetically onto an aluminium stem and detaches as a portable light. Target: 2,000 units first run, US + EU.",
-  "product_summary_cn": "极简无线台灯，LED灯头通过磁吸固定在铝制灯杆上，可拆下作为便携灯使用。首批2,000台，目标市场：美国和欧盟。",
-  "target_markets": [
-    "US",
-    "EU"
-  ],
-  "spec": {
-    "overall_dimensions": {
-      "length": {
-        "value": 180.0,
-        "unit": "mm",
-        "label": "measured",
-        "source_or_assumption": "Bounding box of the committed full-product CAD model /files/demo_desk_lamp/d1.glb (build123d/OCCT export)"
-      },
-      "width": {
-        "value": 120.0,
-        "unit": "mm",
-        "label": "measured",
-        "source_or_assumption": "Bounding box of the committed full-product CAD model /files/demo_desk_lamp/d1.glb (build123d/OCCT export)"
-      },
-      "height": {
-        "value": 341.2,
-        "unit": "mm",
-        "label": "measured",
-        "source_or_assumption": "Bounding box of the committed full-product CAD model /files/demo_desk_lamp/d1.glb (build123d/OCCT export)"
-      }
+ "id": "fp_desk_lamp_v1",
+ "project_id": "demo_desk_lamp",
+ "version": 1,
+ "created_at": "2026-09-26T12:00:00Z",
+ "fallback": false,
+ "cached_note": null,
+ "fallback_stages": [],
+ "product_name": "Magnetic Rechargeable Desk Lamp",
+ "product_summary": "A minimalist cordless desk lamp whose LED head snaps magnetically onto an aluminium stem and detaches as a portable light. Target: 2,000 units first run, US + EU.",
+ "product_summary_cn": "极简无线台灯，LED灯头通过磁吸固定在铝制灯杆上，可拆下作为便携灯使用。首批2,000台，目标市场：美国和欧盟。",
+ "target_markets": [
+  "US",
+  "EU"
+ ],
+ "spec": {
+  "overall_dimensions": {
+   "length": {
+    "value": 180.0,
+    "unit": "mm",
+    "label": "measured",
+    "source_or_assumption": "Bounding box of the committed full-product CAD model /files/demo_desk_lamp/d1.glb (build123d/OCCT export)"
+   },
+   "width": {
+    "value": 120.0,
+    "unit": "mm",
+    "label": "measured",
+    "source_or_assumption": "Bounding box of the committed full-product CAD model /files/demo_desk_lamp/d1.glb (build123d/OCCT export)"
+   },
+   "height": {
+    "value": 341.2,
+    "unit": "mm",
+    "label": "measured",
+    "source_or_assumption": "Bounding box of the committed full-product CAD model /files/demo_desk_lamp/d1.glb (build123d/OCCT export)"
+   }
+  },
+  "weight": {
+   "value": 690.0,
+   "unit": "g",
+   "label": "estimate",
+   "source_or_assumption": "Sum of part weight estimates"
+  },
+  "parts": [
+   {
+    "id": "p1",
+    "name": "Head housing",
+    "material": "PC/ABS (UL94 V-0)",
+    "finish": "MT-11010 texture",
+    "process_hint": "injection_molding",
+    "tolerance": "±0.1 mm on magnet pockets",
+    "dimensions": {
+     "length": {
+      "value": 180.0,
+      "unit": "mm",
+      "label": "estimate",
+      "source_or_assumption": "Design parameter"
+     },
+     "width": {
+      "value": 40.0,
+      "unit": "mm",
+      "label": "estimate",
+      "source_or_assumption": "Design parameter"
+     },
+     "height": {
+      "value": 18.0,
+      "unit": "mm",
+      "label": "estimate",
+      "source_or_assumption": "Design parameter"
+     }
     },
-    "weight": {
+    "wall_thickness": {
+     "value": 2.0,
+     "unit": "mm",
+     "label": "estimate",
+     "source_or_assumption": "Design parameter"
+    },
+    "quantity": 1
+   },
+   {
+    "id": "p2",
+    "name": "Diffuser",
+    "material": "Opal PC",
+    "finish": "Frosted",
+    "process_hint": "injection_molding",
+    "tolerance": "±0.15 mm",
+    "dimensions": {
+     "length": {
+      "value": 172.0,
+      "unit": "mm",
+      "label": "estimate",
+      "source_or_assumption": "Design parameter"
+     },
+     "width": {
+      "value": 14.0,
+      "unit": "mm",
+      "label": "estimate",
+      "source_or_assumption": "Design parameter"
+     },
+     "height": {
+      "value": 4.0,
+      "unit": "mm",
+      "label": "estimate",
+      "source_or_assumption": "Design parameter"
+     }
+    },
+    "wall_thickness": {
+     "value": 1.5,
+     "unit": "mm",
+     "label": "estimate",
+     "source_or_assumption": "Design parameter"
+    },
+    "quantity": 1
+   },
+   {
+    "id": "p3",
+    "name": "Stem",
+    "material": "Aluminium 6063-T5",
+    "finish": "Bead-blasted, anodised black",
+    "process_hint": "extrusion",
+    "tolerance": "±0.2 mm length",
+    "dimensions": {
+     "length": {
+      "value": 16.0,
+      "unit": "mm",
+      "label": "estimate",
+      "source_or_assumption": "Design parameter"
+     },
+     "width": {
+      "value": 16.0,
+      "unit": "mm",
+      "label": "estimate",
+      "source_or_assumption": "Design parameter"
+     },
+     "height": {
+      "value": 300.0,
+      "unit": "mm",
+      "label": "estimate",
+      "source_or_assumption": "Design parameter"
+     }
+    },
+    "wall_thickness": {
+     "value": 1.5,
+     "unit": "mm",
+     "label": "estimate",
+     "source_or_assumption": "Design parameter"
+    },
+    "quantity": 1
+   },
+   {
+    "id": "p4",
+    "name": "Base shell",
+    "material": "PC/ABS (UL94 V-0)",
+    "finish": "MT-11010 texture",
+    "process_hint": "injection_molding",
+    "tolerance": "±0.1 mm on USB-C opening",
+    "dimensions": {
+     "length": {
+      "value": 120.0,
+      "unit": "mm",
+      "label": "estimate",
+      "source_or_assumption": "Design parameter"
+     },
+     "width": {
+      "value": 120.0,
+      "unit": "mm",
+      "label": "estimate",
+      "source_or_assumption": "Design parameter"
+     },
+     "height": {
+      "value": 22.0,
+      "unit": "mm",
+      "label": "estimate",
+      "source_or_assumption": "Design parameter"
+     }
+    },
+    "wall_thickness": {
+     "value": 2.2,
+     "unit": "mm",
+     "label": "estimate",
+     "source_or_assumption": "Design parameter"
+    },
+    "quantity": 1
+   },
+   {
+    "id": "p5",
+    "name": "Weight plate",
+    "material": "SPCC steel 3 mm",
+    "finish": "Zinc plated",
+    "process_hint": "sheet_metal",
+    "tolerance": "±0.2 mm",
+    "dimensions": {
+     "length": {
+      "value": 110.0,
+      "unit": "mm",
+      "label": "estimate",
+      "source_or_assumption": "Design parameter"
+     },
+     "width": {
+      "value": 110.0,
+      "unit": "mm",
+      "label": "estimate",
+      "source_or_assumption": "Design parameter"
+     },
+     "height": {
+      "value": 3.0,
+      "unit": "mm",
+      "label": "estimate",
+      "source_or_assumption": "Design parameter"
+     }
+    },
+    "wall_thickness": null,
+    "quantity": 1
+   },
+   {
+    "id": "p6",
+    "name": "PCBA (control + LED bar)",
+    "material": "FR-4 + aluminium MCPCB",
+    "finish": "HASL lead-free",
+    "process_hint": "pcba",
+    "tolerance": null,
+    "dimensions": null,
+    "wall_thickness": null,
+    "quantity": 1
+   }
+  ],
+  "tolerances": [
+   "General ISO 2768-m",
+   "Magnet pockets ±0.1 mm",
+   "Head/stem air gap 0.3 ± 0.1 mm"
+  ]
+ },
+ "cad_files": [
+  {
+   "format": "glb",
+   "url": "/files/demo_desk_lamp/d1.glb",
+   "description": "Full product — materials (viewer model of direction d1)",
+   "size_bytes": 1096396
+  },
+  {
+   "format": "step",
+   "url": "/files/demo_desk_lamp/enclosure.step",
+   "description": "Moulded parts (DFM) — Enclosure B-rep (build123d): moulded head housing + base shell, 1.5° draft, M2.5 bosses — open in any CAD tool",
+   "size_bytes": 454039
+  },
+  {
+   "format": "stl",
+   "url": "/files/demo_desk_lamp/enclosure.stl",
+   "description": "Moulded parts (DFM) — Enclosure mesh for 3D-printed prototypes",
+   "size_bytes": 1146884
+  },
+  {
+   "format": "glb",
+   "url": "/files/demo_desk_lamp/enclosure.glb",
+   "description": "Moulded parts (DFM) — Enclosure model for the 3D viewer",
+   "size_bytes": 952408
+  }
+ ],
+ "bom": [
+  {
+   "id": "e1",
+   "part": "White LED 2835 4000K 0.3 W",
+   "category": "electronic",
+   "qty": 24.0,
+   "description": null,
+   "manufacturer_pn": null,
+   "lcsc_pn": "C210311",
+   "unit_cost_est": {
+    "value": 0.0077,
+    "unit": "USD",
+    "label": "sourced",
+    "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C210311.html"
+   },
+   "risk": {
+    "level": "low",
+    "reasons": [
+     "Stock 1.09M"
+    ]
+   },
+   "alternative": "Any 2835 4000K CRI>90 bin"
+  },
+  {
+   "id": "e2",
+   "part": "Li-ion charger IC TP4056 (ESOP-8)",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": null,
+   "manufacturer_pn": null,
+   "lcsc_pn": "C725790",
+   "unit_cost_est": {
+    "value": 0.0505,
+    "unit": "USD",
+    "label": "sourced",
+    "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C725790.html"
+   },
+   "risk": {
+    "level": "low",
+    "reasons": [
+     "Stock 288k",
+     "Multi-source"
+    ]
+   },
+   "alternative": "TP4056-MS (C7473158)"
+  },
+  {
+   "id": "e3",
+   "part": "USB-C receptacle 16P SMD",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": null,
+   "manufacturer_pn": null,
+   "lcsc_pn": "C2765186",
+   "unit_cost_est": {
+    "value": 0.0598,
+    "unit": "USD",
+    "label": "sourced",
+    "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C2765186.html"
+   },
+   "risk": {
+    "level": "low",
+    "reasons": [
+     "Stock 1.17M"
+    ]
+   },
+   "alternative": "TYPE-C16PIN (C393939)"
+  },
+  {
+   "id": "e4",
+   "part": "N-MOSFET AO3400A (LED PWM)",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": null,
+   "manufacturer_pn": null,
+   "lcsc_pn": "C20917",
+   "unit_cost_est": {
+    "value": 0.0529,
+    "unit": "USD",
+    "label": "sourced",
+    "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C20917.html"
+   },
+   "risk": {
+    "level": "low",
+    "reasons": [
+     "LCSC basic part"
+    ]
+   },
+   "alternative": "AO3400A (C347475)"
+  },
+  {
+   "id": "e5",
+   "part": "Touch-dimming MCU (8-bit, SOP-8)",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": null,
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.25,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Part not selected yet; typical 8-bit MCU price"
+   },
+   "risk": {
+    "level": "medium",
+    "reasons": [
+     "Part not selected"
+    ]
+   },
+   "alternative": "Pick from LCSC basic parts"
+  },
+  {
+   "id": "e6",
+   "part": "Li-ion cell 18650 3000 mAh",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": null,
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 2.4,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Branded cell with UN38.3 report, 2k MOQ"
+   },
+   "risk": {
+    "level": "high",
+    "reasons": [
+     "Counterfeit/unbranded cell risk",
+     "UN38.3 report required",
+     "Air-freight restrictions"
+    ]
+   },
+   "alternative": "Tier-1 branded 18650 with UN38.3 + IEC 62133-2 reports"
+  },
+  {
+   "id": "e7",
+   "part": "Aluminium MCPCB for LED bar 170×12 mm",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": null,
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.35,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "JLCPCB aluminium PCB, 2k pcs"
+   },
+   "risk": {
+    "level": "low",
+    "reasons": []
+   },
+   "alternative": null
+  },
+  {
+   "id": "e8",
+   "part": "Control PCB 2-layer + passives, assembled",
+   "category": "electronic",
+   "qty": 1.0,
+   "description": null,
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.6,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "PCBA incl. passives, 2k pcs"
+   },
+   "risk": {
+    "level": "low",
+    "reasons": []
+   },
+   "alternative": null
+  },
+  {
+   "id": "m1",
+   "part": "Head housing, PC/ABS, textured",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": null,
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.95,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Part weight 28 g × resin + cycle cost"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m2",
+   "part": "Opal PC diffuser",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": null,
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.3,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Part weight 9 g"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m3",
+   "part": "Stem, aluminium 6063 extrusion, anodised",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": null,
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 1.6,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "300 mm cut length + anodising"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m4",
+   "part": "Base shell, PC/ABS",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": null,
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 1.1,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Part weight 35 g"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m5",
+   "part": "Steel weight plate, zinc-plated",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": null,
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.7,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Stamped 3 mm steel, 380 g"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "m6",
+   "part": "N52 neodymium magnet Ø10×3 mm",
+   "category": "mechanical",
+   "qty": 4.0,
+   "description": null,
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.08,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue magnet, 10k pcs"
+   },
+   "risk": {
+    "level": "medium",
+    "reasons": [
+     "Rare-earth price volatility"
+    ]
+   },
+   "alternative": "N45 grade at slightly lower pull force"
+  },
+  {
+   "id": "m8",
+   "part": "Silicone foot pad",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": null,
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.12,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Die-cut silicone"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "k1",
+   "part": "Retail box + moulded pulp insert",
+   "category": "packaging",
+   "qty": 1.0,
+   "description": null,
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.9,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Rigid 2-piece box, 1-colour print"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "k2",
+   "part": "USB-C cable 1 m",
+   "category": "packaging",
+   "qty": 1.0,
+   "description": null,
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.45,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Generic USB-C to USB-C 3 A"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "hw1",
+   "part": "Heat-set threaded insert M3 × 5.7 (OD 4.7 mm), brass — ref. McMaster-Carr 94459A140",
+   "category": "mechanical",
+   "qty": 4.0,
+   "description": "Standard part (McMaster-Carr 94459A140), counted on the CAD: 4 placed",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.08,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "hw2",
+   "part": "Screw M3 × 20 pan head, T10 (ISO 14583), A2 stainless",
+   "category": "mechanical",
+   "qty": 4.0,
+   "description": "Standard part (ISO 14583), counted on the CAD: 4 placed",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.025,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  }
+ ],
+ "dfm_alerts": [
+  {
+   "id": "m1",
+   "severity": "minor",
+   "category": "draft",
+   "method": "measured",
+   "part_id": "p1",
+   "description": "Minimum wall draft is 1.43°: enough for a polished finish, short of the ~3° a textured finish ('MT-11010 texture') needs.",
+   "fix": "Increase draft to 3° on textured faces, or specify a lighter texture / polished finish.",
+   "rule_citation": "Draft ≥1° plus 1° per 0.025 mm texture depth — Protolabs injection molding design guidelines; measured with text-to-cad DFM skill (mold_tool.py, MIT) ported to OCCT",
+   "measurement": {
+    "value": 1.429,
+    "unit": "deg",
+    "label": "measured",
+    "source_or_assumption": "Min wall draft vs pull +Z: lowest-draft B-rep wall face ≥ 113.37 mm² (curved, 148.02 mm² at [-49.91, -49.91, 7.11]) — text-to-cad DFM skill (mold_tool.py, MIT) ported to OCCT"
+   },
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "m2",
+   "severity": "minor",
+   "category": "projection",
+   "method": "measured",
+   "part_id": "p1",
+   "description": "Projected area along +Z: 21162 mm² (part silhouette, per cavity). Estimated clamp force ≈ 108.2 t (Estimate: area in² × 3.0 t/in² for PC/ABS × 1.1 safety) — per cavity; a family tool moulding both shells in one shot roughly doubles it.",
+   "fix": "Quote on a press ≥ 130 t; keep both shells in one family mould only if tonnage allows.",
+   "rule_citation": "Clamp force ≈ projected area × cavity-pressure factor (2-5 t/in²) — Protolabs injection molding design guidelines; silhouette raster from text-to-cad DFM skill (mold_tool.py, MIT) ported to OCCT",
+   "measurement": {
+    "value": 21162.1,
+    "unit": "mm2",
+    "label": "measured",
+    "source_or_assumption": "Silhouette along +Z, raster 0.45 mm — text-to-cad DFM skill (mold_tool.py, MIT) ported to OCCT"
+   },
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "m3",
+   "severity": "minor",
+   "category": "wall_thickness",
+   "method": "measured",
+   "part_id": "p1",
+   "description": "Measured wall 2.00-2.20 mm is within the PC/ABS 1.2-3.5 mm range; keep bosses/ribs ≤ 60% of nominal wall to avoid sink.",
+   "fix": "No change to nominal wall; core bosses and ribs to ≤ 60% of the wall.",
+   "rule_citation": "PC/ABS wall 1.2-3.5 mm, ribs/bosses ≤ 60% of wall — Protolabs injection molding design guidelines",
+   "measurement": {
+    "value": 2.0,
+    "unit": "mm",
+    "label": "measured",
+    "source_or_assumption": "5th percentile of 12120 ray samples into the material (median 2.2 mm)"
+   },
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "i4",
+   "severity": "major",
+   "category": "tolerance",
+   "method": "ai_reviewed",
+   "part_id": "p3",
+   "description": "Magnetic head/stem coupling needs a controlled air gap; anodising adds ~20 µm per side.",
+   "fix": "Specify 0.3 ± 0.1 mm air gap after finishing and mask pogo contact area before anodising.",
+   "rule_citation": "Type II anodising build-up ~50% outward growth — MIL-A-8625 guidance",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "i5",
+   "severity": "critical",
+   "category": "assembly",
+   "method": "ai_reviewed",
+   "part_id": "p4",
+   "description": "18650 cell sits against the LED driver area; heat and pinch risk during assembly.",
+   "fix": "Add a cell cradle rib with 2 mm clearance and a thermal barrier; cell protection circuit mandatory.",
+   "rule_citation": "IEC 62133-2 cell protection and thermal abuse clauses",
+   "measurement": null,
+   "resolved": false,
+   "resolution": null
+  }
+ ],
+ "certifications": [
+  {
+   "market": "US",
+   "standard": "FCC Part 15B (unintentional radiator)",
+   "applies_because": "MCU clock + PWM LED driver",
+   "required": true,
+   "cost_est": {
+    "value": 2500.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Accredited lab quote range, demo assumption"
+   },
+   "lead_time_weeks": {
+    "value": 4.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Typical lab queue"
+   }
+  },
+  {
+   "market": "EU",
+   "standard": "CE — EMC 2014/30/EU, RoHS, EN 62471 photobiological safety",
+   "applies_because": "Electronic lighting product sold in the EU",
+   "required": true,
+   "cost_est": {
+    "value": 3000.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Accredited lab quote range, demo assumption"
+   },
+   "lead_time_weeks": {
+    "value": 5.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Typical lab queue"
+   }
+  },
+  {
+   "market": "Global",
+   "standard": "UN38.3 (battery transport) + IEC 62133-2",
+   "applies_because": "Contains a Li-ion 18650 cell",
+   "required": true,
+   "cost_est": {
+    "value": 1800.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "IEC 62133-2 test at pack level; UN38.3 summary from cell supplier"
+   },
+   "lead_time_weeks": {
+    "value": 4.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Typical lab queue"
+   }
+  }
+ ],
+ "target_quantities": [
+  500,
+  2000,
+  10000
+ ],
+ "cost_estimate": [
+  {
+   "quantity": 500,
+   "bom_cost": {
+    "value": 9.14,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "BOM at 500 × 0.92^0"
+   },
+   "assembly_cost": {
+    "value": 3.1,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Assembly + factory overhead/margin: $3.10 per unit at 500"
+   },
+   "packaging_cost": {
+    "value": 1.35,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Packaging BOM lines"
+   },
+   "unit_cost": {
+    "value": 13.59,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "BOM + assembly + packaging (ex-works)"
+   },
+   "tooling_amortisation": {
+    "value": 20.2,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "$10,100 / 500"
+   },
+   "margin_pct": {
+    "value": 55.8,
+    "unit": "pct",
+    "label": "estimate",
+    "source_or_assumption": "($96.12 target − $42.49 landed estimate) / target"
+   }
+  },
+  {
+   "quantity": 2000,
+   "bom_cost": {
+    "value": 8.41,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "BOM at 500 × 0.92^1"
+   },
+   "assembly_cost": {
+    "value": 2.85,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Assembly + factory overhead/margin: $3.10 per unit at 500"
+   },
+   "packaging_cost": {
+    "value": 1.24,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Packaging BOM lines"
+   },
+   "unit_cost": {
+    "value": 12.5,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "BOM + assembly + packaging (ex-works)"
+   },
+   "tooling_amortisation": {
+    "value": 5.05,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "$10,100 / 2000"
+   },
+   "margin_pct": {
+    "value": 73.9,
+    "unit": "pct",
+    "label": "estimate",
+    "source_or_assumption": "($96.12 target − $25.06 landed estimate) / target"
+   }
+  },
+  {
+   "quantity": 10000,
+   "bom_cost": {
+    "value": 7.73,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "BOM at 500 × 0.92^2"
+   },
+   "assembly_cost": {
+    "value": 2.62,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Assembly + factory overhead/margin: $3.10 per unit at 500"
+   },
+   "packaging_cost": {
+    "value": 1.14,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Packaging BOM lines"
+   },
+   "unit_cost": {
+    "value": 11.5,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "BOM + assembly + packaging (ex-works)"
+   },
+   "tooling_amortisation": {
+    "value": 1.01,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "$10,100 / 10000"
+   },
+   "margin_pct": {
+    "value": 80.1,
+    "unit": "pct",
+    "label": "estimate",
+    "source_or_assumption": "($96.12 target − $19.08 landed estimate) / target"
+   }
+  }
+ ],
+ "questions": [
+  {
+   "id": "fq1",
+   "en": "Can you hold ±0.1 mm on the magnet pockets of the PC/ABS head housing?",
+   "cn": "PC/ABS灯头外壳的磁铁槽能否保证±0.1 mm公差？",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  },
+  {
+   "id": "fq2",
+   "en": "Please confirm the 18650 cell supplier and share its UN38.3 test summary and IEC 62133-2 report.",
+   "cn": "请确认18650电芯供应商，并提供UN38.3测试摘要及IEC 62133-2报告。",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  },
+  {
+   "id": "fq3",
+   "en": "What draft angle do you recommend on the MT-11010 textured faces?",
+   "cn": "对于MT-11010纹理面，贵司建议的拔模角度是多少？",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  },
+  {
+   "id": "fq4",
+   "en": "Is anodising of the aluminium stem done in-house, and what colour tolerance (ΔE) can you hold?",
+   "cn": "铝灯杆的阳极氧化是否在厂内完成？可控制的色差(ΔE)是多少？",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  },
+  {
+   "id": "fq5",
+   "en": "Quote tooling as single-cavity P20 steel with 100k shot life, and give the 2-cavity option.",
+   "cn": "请按单腔P20钢模具（寿命10万模次）报价，并提供双腔方案价格。",
+   "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
+  }
+ ],
+ "assumption_register": [
+  {
+   "id": "a1",
+   "text": "EUR→USD at 1.08 for the €89 target price",
+   "label": "estimate",
+   "source": null,
+   "stage": 1
+  },
+  {
+   "id": "a2",
+   "text": "Volume curve: unit cost × 0.92 per tier step (500 → 2,000 → 10,000)",
+   "label": "estimate",
+   "source": "Demo assumption (PRD §11)",
+   "stage": 5
+  },
+  {
+   "id": "a3",
+   "text": "Assembly + factory overhead/margin: $3.10 per unit at 500",
+   "label": "estimate",
+   "source": null,
+   "stage": 5
+  },
+  {
+   "id": "a4",
+   "text": "Pre-shipment inspection $268 per man-day",
+   "label": "sourced",
+   "source": "V-Trust, https://www.v-trust.com/en/our-network, checked 2026-09-26",
+   "stage": 10
+  },
+  {
+   "id": "a5",
+   "text": "Platform/agent fee 7% of FOB (benchmark 5-10%)",
+   "label": "estimate",
+   "source": "Dragon Sourcing benchmark 5-10%",
+   "stage": 11
+  },
+  {
+   "id": "a6",
+   "text": "HTS 8513.10.40.00: general duty 3.5% (Lamps — Other — precedent CBP ruling N248128 (2013-12-12): The tariff classification of an LED Table Lamp and Flashlight)",
+   "label": "sourced",
+   "source": "USITC HTS 8513.10.40.00 general rate 3.5%, https://hts.usitc.gov/search?query=8513.10.40.00, fetched 2026-09-26",
+   "stage": 11
+  },
+  {
+   "id": "a7",
+   "text": "IEEPA duties not collected since 24/02/2026; de minimis suspended; Section 122 surcharge off (toggle)",
+   "label": "sourced",
+   "source": "CBP CSMS 67834313 (https://content.govdelivery.com/accounts/USDHSCBP/bulletins/40b11c9); Federal Register 24/06/2026",
+   "stage": 11
+  },
+  {
+   "id": "a8",
+   "text": "Sea LCL Shenzhen → Los Angeles, $0.85/unit, 32 days door to 3PL",
+   "label": "fictional",
+   "source": "demo data",
+   "stage": 11
+  },
+  {
+   "id": "a9",
+   "text": "Simple single-cavity P20 molds $1,800-3,500 each",
+   "label": "estimate",
+   "source": "Zetar Mold 2026 range $1,000-3,000 (vendor, medium)",
+   "stage": 5
+  },
+  {
+   "id": "a10",
+   "text": "Measured DFM checks assume a straight two-half tool pulling along ±Z (split line in the XY plane)",
+   "label": "estimate",
+   "source": "api/dfm/measure.py on api/cad/prebuilt/demo_desk_lamp/enclosure.step",
+   "stage": 4
+  },
+  {
+   "id": "a11",
+   "text": "Section 301 China 25% on HTS 8513.10.40.00",
+   "label": "sourced",
+   "source": "Section 301 China, heading 9903.88.03 (+25%): USITC HTS, https://hts.usitc.gov/search?query=9903.88.03, fetched 2026-09-26; heading cited with HTS 8513.10.4000 in CBP ruling N350173 (2025-07-09). Coverage on the entry date to be confirmed by a customs broker",
+   "stage": 11
+  }
+ ],
+ "engineering": {
+  "project_id": "demo_desk_lamp",
+  "status": "draft",
+  "fallback": false,
+  "fallback_reason": null,
+  "generated_by": "code",
+  "generated_at": "2026-09-28T11:17:20.375670Z",
+  "assumptions": [
+   {
+    "id": "e1",
+    "text": "Engineering category 'Portable / desk luminaire' detected from the product description",
+    "label": "estimate",
+    "source": null,
+    "stage": null
+   },
+   {
+    "id": "e4",
+    "text": "Physics checks are concept-level (rigid-body statics, rules of thumb): validate with the listed tests",
+    "label": "estimate",
+    "source": null,
+    "stage": null
+   },
+   {
+    "id": "e5",
+    "text": "Assembly mates are inferred from the part roles and the product family (rules shown per joint); interference, clearance and screw material are measured on the version's STEP",
+    "label": "estimate",
+    "source": null,
+    "stage": null
+   }
+  ],
+  "stage": "engineering",
+  "category": "lighting",
+  "category_title": "Portable / desk luminaire",
+  "partner_word": "factories",
+  "site_install": false,
+  "product_name": "Magnetic Rechargeable Desk Lamp",
+  "inputs_digest": "c84006923562f4ae",
+  "standards": [
+   {
+    "code": "IEC 60598-1",
+    "title": "Luminaires — Part 1: General requirements and tests",
+    "applies_because": "Luminaire safety, general requirements (incl. stability of portable luminaires)",
+    "url": "https://webstore.iec.ch/en/publication/66620",
+    "citation_label": "sourced",
+    "citation_note": "https://webstore.iec.ch/en/publication/66620, page checked 2026-09-27"
+   },
+   {
+    "code": "IEC 62471",
+    "title": "Photobiological safety of lamps and lamp systems",
+    "applies_because": "Photobiological safety (blue-light hazard) of the LED source",
+    "url": null,
+    "citation_label": "estimate",
+    "citation_note": "Standard to be confirmed (edition and applicability) — no verified citation URL"
+   },
+   {
+    "code": "IEC 62133-2",
+    "title": "Secondary cells and batteries containing alkaline or other non-acid electrolytes — Safety — Part 2: Lithium systems",
+    "applies_because": "Rechargeable Li-ion cell",
+    "url": "https://webstore.iec.ch/en/publication/32662",
+    "citation_label": "sourced",
+    "citation_note": "https://webstore.iec.ch/en/publication/32662, page checked 2026-09-27"
+   },
+   {
+    "code": "UN 38.3",
+    "title": "UN Manual of Tests and Criteria, section 38.3 (lithium batteries)",
+    "applies_because": "Li-ion cell shipped inside the product",
+    "url": "https://unece.org/transport/dangerous-goods/rev8-files",
+    "citation_label": "sourced",
+    "citation_note": "https://unece.org/transport/dangerous-goods/rev8-files, page checked 2026-09-27"
+   },
+   {
+    "code": "47 CFR Part 15",
+    "title": "FCC Part 15 — Radio Frequency Devices",
+    "applies_because": "Digital device / PWM driver emissions (FCC 15B)",
+    "url": "https://www.ecfr.gov/current/title-47/chapter-I/subchapter-A/part-15",
+    "citation_label": "sourced",
+    "citation_note": "https://www.ecfr.gov/current/title-47/chapter-I/subchapter-A/part-15, page checked 2026-09-27"
+   },
+   {
+    "code": "IEC 61000-6-3",
+    "title": "Electromagnetic compatibility (EMC) — Part 6-3: Generic standards — Emission standard for residential environments",
+    "applies_because": "EMC emissions, residential",
+    "url": "https://webstore.iec.ch/en/publication/71262",
+    "citation_label": "sourced",
+    "citation_note": "https://webstore.iec.ch/en/publication/71262, page checked 2026-09-27"
+   }
+  ],
+  "risks": [
+   {
+    "id": "r1",
+    "risk": "Lamp tips over when the arm is extended",
+    "mitigation": "Steel weight plate in the base, low centre of mass, anti-slip feet",
+    "severity": "major"
+   },
+   {
+    "id": "r2",
+    "risk": "LED board runs hot in a closed head",
+    "mitigation": "Aluminium MCPCB on the metal stem as heat spreader, thermal derating in firmware",
+    "severity": "major"
+   },
+   {
+    "id": "r3",
+    "risk": "Visible PWM flicker",
+    "mitigation": "PWM ≥ 20 kHz or constant-current dimming",
+    "severity": "minor"
+   },
+   {
+    "id": "r4",
+    "risk": "Charging while in use overheats the cell",
+    "mitigation": "Charger IC thermal regulation, NTC on the cell",
+    "severity": "major"
+   }
+  ],
+  "tests": [
+   {
+    "id": "t1",
+    "name": "Stability on an inclined plane",
+    "kind": "tip_over",
+    "method": "Luminaire on the inclined plane in its least favourable position",
+    "standard": "IEC 60598-1"
+   },
+   {
+    "id": "t2",
+    "name": "Temperature rise of LED head and cell",
+    "kind": "thermal",
+    "method": "Full brightness until steady state, thermocouples",
+    "standard": "IEC 60598-1"
+   },
+   {
+    "id": "t3",
+    "name": "Photobiological risk group",
+    "kind": "other",
+    "method": "Spectroradiometer measurement",
+    "standard": "IEC 62471"
+   },
+   {
+    "id": "t4",
+    "name": "Drop 0.75 m",
+    "kind": "drop",
+    "method": "Portable luminaire drop, functional check",
+    "standard": null
+   },
+   {
+    "id": "t5",
+    "name": "EMC emissions",
+    "kind": "electrical",
+    "method": "Accredited lab",
+    "standard": "47 CFR Part 15 / IEC 61000-6-3"
+   }
+  ],
+  "checks": [
+   {
+    "id": "tip_over",
+    "name": "Static tip-over angle (narrowest side)",
+    "domain": "stability",
+    "value": {
+     "value": 30.4,
+     "unit": "deg",
+     "label": "estimate",
+     "source_or_assumption": "atan(b / h): b = min(L, W)/2 = 60 mm (Measured), h = 0.3 × H = 102 mm (centre-of-mass height ratio is an Estimate)"
+    },
+    "threshold": "≥ 10° pass, ≥ 6° warn (design target, Estimate)",
+    "verdict": "pass",
+    "formula": "θ = atan(b / h_COM), rigid body on its base, least favourable direction",
+    "inputs": [
+     {
+      "value": 180.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the committed full-product CAD model /files/demo_desk_lamp/d1.glb (build123d/OCCT export)"
+     },
+     {
+      "value": 120.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the committed full-product CAD model /files/demo_desk_lamp/d1.glb (build123d/OCCT export)"
+     },
+     {
+      "value": 341.2,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the committed full-product CAD model /files/demo_desk_lamp/d1.glb (build123d/OCCT export)"
+     }
+    ],
+    "notes": []
+   },
+   {
+    "id": "battery_life",
+    "name": "Battery life / runtime from the power budget",
+    "domain": "power",
+    "value": {
+     "value": 2.36,
+     "unit": "h",
+     "label": "estimate",
+     "source_or_assumption": "3000 mAh × 85% usable / 1083 mA average"
+    },
+    "threshold": "≥ 3 h pass, ≥ 50% of it warn (category target, Estimate)",
+    "verdict": "warn",
+    "formula": "t = capacity × 85% usable / Σ(active × duty + sleep × (1 − duty))",
+    "inputs": [
+     {
+      "value": 3000.0,
+      "unit": "mAh",
+      "label": "estimate",
+      "source_or_assumption": "Capacity from the BOM line 'Li-ion cell 18650 3000 mAh'"
+     },
+     {
+      "value": 1082.5831,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "Sum of the power-budget lines"
+     }
+    ],
+    "notes": []
+   },
+   {
+    "id": "thermal",
+    "name": "Surface temperature rise at sustained load",
+    "domain": "thermal",
+    "value": {
+     "value": 3.2,
+     "unit": "K",
+     "label": "estimate",
+     "source_or_assumption": "8.01 W dissipated / (10 W/m²K × 2479 cm² bbox surface)"
+    },
+    "threshold": "≤ 15 K pass, ≤ 25 K warn (touch comfort target; limits per IEC 62368-1 / 60335-1 to confirm)",
+    "verdict": "pass",
+    "formula": "ΔT = P / (h A), all electrical power ends as heat, natural convection",
+    "inputs": [
+     {
+      "value": 180.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the committed full-product CAD model /files/demo_desk_lamp/d1.glb (build123d/OCCT export)"
+     },
+     {
+      "value": 120.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the committed full-product CAD model /files/demo_desk_lamp/d1.glb (build123d/OCCT export)"
+     },
+     {
+      "value": 341.2,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Bounding box of the committed full-product CAD model /files/demo_desk_lamp/d1.glb (build123d/OCCT export)"
+     },
+     {
+      "value": 1082.5831,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "Sum of the power-budget lines"
+     }
+    ],
+    "notes": []
+   },
+   {
+    "id": "mass",
+    "name": "Product mass",
+    "domain": "mass",
+    "value": {
+     "value": 690.0,
+     "unit": "g",
+     "label": "estimate",
+     "source_or_assumption": "Sum of part weight estimates"
+    },
+    "threshold": "≤ 1500 g pass, ≤ 1875 g warn (category comfort target, Estimate)",
+    "verdict": "pass",
+    "formula": "Stage 3 weight (measured enclosure volume × density + parts)",
+    "inputs": [
+     {
       "value": 690.0,
       "unit": "g",
       "label": "estimate",
       "source_or_assumption": "Sum of part weight estimates"
-    },
-    "parts": [
-      {
-        "id": "p1",
-        "name": "Head housing",
-        "material": "PC/ABS (UL94 V-0)",
-        "finish": "MT-11010 texture",
-        "process_hint": "injection_molding",
-        "tolerance": "±0.1 mm on magnet pockets",
-        "dimensions": {
-          "length": {
-            "value": 180.0,
-            "unit": "mm",
-            "label": "estimate",
-            "source_or_assumption": "Design parameter"
-          },
-          "width": {
-            "value": 40.0,
-            "unit": "mm",
-            "label": "estimate",
-            "source_or_assumption": "Design parameter"
-          },
-          "height": {
-            "value": 18.0,
-            "unit": "mm",
-            "label": "estimate",
-            "source_or_assumption": "Design parameter"
-          }
-        },
-        "wall_thickness": {
-          "value": 2.0,
-          "unit": "mm",
-          "label": "estimate",
-          "source_or_assumption": "Design parameter"
-        },
-        "quantity": 1
-      },
-      {
-        "id": "p2",
-        "name": "Diffuser",
-        "material": "Opal PC",
-        "finish": "Frosted",
-        "process_hint": "injection_molding",
-        "tolerance": "±0.15 mm",
-        "dimensions": {
-          "length": {
-            "value": 172.0,
-            "unit": "mm",
-            "label": "estimate",
-            "source_or_assumption": "Design parameter"
-          },
-          "width": {
-            "value": 14.0,
-            "unit": "mm",
-            "label": "estimate",
-            "source_or_assumption": "Design parameter"
-          },
-          "height": {
-            "value": 4.0,
-            "unit": "mm",
-            "label": "estimate",
-            "source_or_assumption": "Design parameter"
-          }
-        },
-        "wall_thickness": {
-          "value": 1.5,
-          "unit": "mm",
-          "label": "estimate",
-          "source_or_assumption": "Design parameter"
-        },
-        "quantity": 1
-      },
-      {
-        "id": "p3",
-        "name": "Stem",
-        "material": "Aluminium 6063-T5",
-        "finish": "Bead-blasted, anodised black",
-        "process_hint": "extrusion",
-        "tolerance": "±0.2 mm length",
-        "dimensions": {
-          "length": {
-            "value": 16.0,
-            "unit": "mm",
-            "label": "estimate",
-            "source_or_assumption": "Design parameter"
-          },
-          "width": {
-            "value": 16.0,
-            "unit": "mm",
-            "label": "estimate",
-            "source_or_assumption": "Design parameter"
-          },
-          "height": {
-            "value": 300.0,
-            "unit": "mm",
-            "label": "estimate",
-            "source_or_assumption": "Design parameter"
-          }
-        },
-        "wall_thickness": {
-          "value": 1.5,
-          "unit": "mm",
-          "label": "estimate",
-          "source_or_assumption": "Design parameter"
-        },
-        "quantity": 1
-      },
-      {
-        "id": "p4",
-        "name": "Base shell",
-        "material": "PC/ABS (UL94 V-0)",
-        "finish": "MT-11010 texture",
-        "process_hint": "injection_molding",
-        "tolerance": "±0.1 mm on USB-C opening",
-        "dimensions": {
-          "length": {
-            "value": 120.0,
-            "unit": "mm",
-            "label": "estimate",
-            "source_or_assumption": "Design parameter"
-          },
-          "width": {
-            "value": 120.0,
-            "unit": "mm",
-            "label": "estimate",
-            "source_or_assumption": "Design parameter"
-          },
-          "height": {
-            "value": 22.0,
-            "unit": "mm",
-            "label": "estimate",
-            "source_or_assumption": "Design parameter"
-          }
-        },
-        "wall_thickness": {
-          "value": 2.2,
-          "unit": "mm",
-          "label": "estimate",
-          "source_or_assumption": "Design parameter"
-        },
-        "quantity": 1
-      },
-      {
-        "id": "p5",
-        "name": "Weight plate",
-        "material": "SPCC steel 3 mm",
-        "finish": "Zinc plated",
-        "process_hint": "sheet_metal",
-        "tolerance": "±0.2 mm",
-        "dimensions": {
-          "length": {
-            "value": 110.0,
-            "unit": "mm",
-            "label": "estimate",
-            "source_or_assumption": "Design parameter"
-          },
-          "width": {
-            "value": 110.0,
-            "unit": "mm",
-            "label": "estimate",
-            "source_or_assumption": "Design parameter"
-          },
-          "height": {
-            "value": 3.0,
-            "unit": "mm",
-            "label": "estimate",
-            "source_or_assumption": "Design parameter"
-          }
-        },
-        "wall_thickness": null,
-        "quantity": 1
-      },
-      {
-        "id": "p6",
-        "name": "PCBA (control + LED bar)",
-        "material": "FR-4 + aluminium MCPCB",
-        "finish": "HASL lead-free",
-        "process_hint": "pcba",
-        "tolerance": null,
-        "dimensions": null,
-        "wall_thickness": null,
-        "quantity": 1
-      }
+     },
+     {
+      "value": 116.2,
+      "unit": "cm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume of enclosure.step (build123d / OCCT)"
+     }
     ],
-    "tolerances": [
-      "General ISO 2768-m",
-      "Magnet pockets ±0.1 mm",
-      "Head/stem air gap 0.3 ± 0.1 mm"
+    "notes": []
+   },
+   {
+    "id": "asm_interference",
+    "name": "Interference between moving parts",
+    "domain": "assembly",
+    "value": {
+     "value": 0.0,
+     "unit": "pairs",
+     "label": "measured",
+     "source_or_assumption": "Boolean common of every part pair (OCCT), classified by the assembly joints; total 0.0 mm³"
+    },
+    "threshold": "0 intersecting pairs > 0.01 mm³ between parts that move relative to each other (different rigid bodies, over their motion study) or across a parting line — CAD interference-check practice",
+    "verdict": "pass",
+    "formula": "V(A ∩ B) per pair of solids at the assembled pose and over each moving joint's motion study",
+    "inputs": [
+     {
+      "value": 0.0,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Sum of interference volumes"
+     }
+    ],
+    "notes": []
+   },
+   {
+    "id": "asm_static_overlap",
+    "name": "Overlaps inside rigid bodies (concept geometry)",
+    "domain": "assembly",
+    "value": {
+     "value": 1657.7,
+     "unit": "mm³",
+     "label": "measured",
+     "source_or_assumption": "3 pairs of rigidly joined parts interpenetrate (1 over 5 % of the smaller part)"
+    },
+    "threshold": "Parts of one rigid body should not interpenetrate: overlap > 5 % of the smaller part = concept geometry to pocket at detail design (warn); smaller overlaps are seats (info)",
+    "verdict": "warn",
+    "formula": "V(A ∩ B) for parts of the same rigid body that are not directly joined",
+    "inputs": [],
+    "notes": [
+     "Light diffuser ↔ Lower body 2: 1652 mm³"
     ]
+   },
+   {
+    "id": "asm_clearance",
+    "name": "Minimum clearance of moving parts",
+    "domain": "assembly",
+    "value": {
+     "value": 12.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Lower bound: no moving part has a neighbour within 12 mm (or no moving joint)"
+    },
+    "threshold": "Moving parts clear their surroundings",
+    "verdict": "info",
+    "formula": "min over poses of d(moving subtree, other parts); revolute props 12 poses / 360°, buttons pressed 0.5 mm",
+    "inputs": [],
+    "notes": []
+   },
+   {
+    "id": "asm_parting_gap",
+    "name": "Shell parting-line gap",
+    "domain": "assembly",
+    "value": {
+     "value": 0.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "BRepExtrema distance between the two shells of each parting line"
+    },
+    "threshold": "Shells meet at the parting line: gap ≤ 0.3 mm (visible-gap limit for moulded enclosures)",
+    "verdict": "pass",
+    "formula": "d(top shell, bottom shell); an overlap is reported as an interference",
+    "inputs": [],
+    "notes": [
+     "Lower body / Body: 0.00 mm",
+     "Body 2 / Lower body 2: 0.00 mm"
+    ]
+   },
+   {
+    "id": "asm_fastener_engagement",
+    "name": "Screw engagement vs insert / thread",
+    "domain": "assembly",
+    "value": {
+     "value": 5.7,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Material under each screw measured by a line ∩ solid on both parts; flange capped at 2·d (counterbore), screw = shortest ISO length reaching the insert / thread"
+    },
+    "threshold": "Heat-set insert: boss holds the insert + 0.5 mm and the screw engages ≥ 80 % of it (McMaster-Carr 94459A insert data); tapped metal ≥ 1.5·d; thread-forming screw in plastic ≥ 2·d (EJOT DELTA PT design guide)",
+    "verdict": "fail",
+    "formula": "engagement = min(insert length, screw length − flange); boss depth = material of the threaded part",
+    "inputs": [
+     {
+      "value": 2.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Smallest boss / thread material measured"
+     }
+    ],
+    "notes": [
+     "Body → Metal part: 2 × M2.5×10 (tapped), engagement ≥ 0.0 mm, warn (2 position(s) without material on both parts)",
+     "Lower body 2 → Metal part: 4 × M3×8 (tapped), engagement ≥ 6.0 mm, pass (2 position(s) without material on both parts)",
+     "Body 2 → Lower body 2: 6 × M3×8 + insert M3×5.7, engagement ≥ 5.7 mm, fail"
+    ]
+   },
+   {
+    "id": "asm_fastener_count",
+    "name": "Fasteners by standard",
+    "domain": "assembly",
+    "value": {
+     "value": 18.0,
+     "unit": "pcs",
+     "label": "estimate",
+     "source_or_assumption": "Joint rules (screws per parting-line perimeter, motor mounts, spring bars); sizes from the part scale"
+    },
+    "threshold": null,
+    "verdict": "info",
+    "formula": "Σ fasteners over the assembly joints",
+    "inputs": [],
+    "notes": [
+     "6 × insert M3×5.7 (Heat-set brass insert (McMaster-Carr 94459A140))",
+     "2 × screw M2.5×10 (ISO 14583 (hexalobular pan head), A2 stainless)",
+     "10 × screw M3×8 (ISO 14583 (hexalobular pan head), A2 stainless)"
+    ]
+   },
+   {
+    "id": "asm_joint_closure",
+    "name": "Joint closure (build123d Joints)",
+    "domain": "assembly",
+    "value": {
+     "value": 0.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Each child re-placed from its joint frame with build123d RigidJoint / RevoluteJoint / LinearJoint.connect_to; 10 joints"
+    },
+    "threshold": "build123d joints re-place every part at its modelled pose: residual < 0.01 mm",
+    "verdict": "pass",
+    "formula": "|bbox centre after connect_to − modelled bbox centre|",
+    "inputs": [],
+    "notes": []
+   },
+   {
+    "id": "asm_support",
+    "name": "Every part is attached",
+    "domain": "assembly",
+    "value": {
+     "value": 0.0,
+     "unit": "parts",
+     "label": "measured",
+     "source_or_assumption": "Parts with no contact (≤ 0.05 mm, BRepExtrema) with the part they are joined to"
+    },
+    "threshold": "Every part touches the part it is joined to (contact ≤ 0.05 mm)",
+    "verdict": "pass",
+    "formula": "d(child, parent) ≤ 0.05 mm for every joint",
+    "inputs": [],
+    "notes": []
+   }
+  ],
+  "electronics": {
+   "mcu_family": "avr",
+   "mcu_part": "Touch-dimming MCU (8-bit, SOP-8)",
+   "radio": [],
+   "power_tree": [
+    {
+     "id": "p_src",
+     "name": "USB-C receptacle 16P SMD",
+     "kind": "source",
+     "parent": null,
+     "voltage": {
+      "value": 5.0,
+      "unit": "V",
+      "label": "estimate",
+      "source_or_assumption": "USB input nominal"
+     }
+    },
+    {
+     "id": "p_chg",
+     "name": "Li-ion charger IC TP4056 (ESOP-8)",
+     "kind": "charger",
+     "parent": "p_src",
+     "voltage": {
+      "value": 3.7,
+      "unit": "V",
+      "label": "estimate",
+      "source_or_assumption": "Charges the cell; output = VBAT"
+     }
+    },
+    {
+     "id": "p_bat",
+     "name": "Li-ion cell 18650 3000 mAh",
+     "kind": "storage",
+     "parent": "p_chg",
+     "voltage": {
+      "value": 3.7,
+      "unit": "V",
+      "label": "estimate",
+      "source_or_assumption": "Li-ion/Li-Po nominal 3.7 V"
+     }
+    },
+    {
+     "id": "p_reg",
+     "name": "3.3 V regulator (implied, VBAT 3.7 V)",
+     "kind": "regulator",
+     "parent": "p_bat",
+     "voltage": {
+      "value": 3.3,
+      "unit": "V",
+      "label": "estimate",
+      "source_or_assumption": "Logic rail for MCU and sensors"
+     }
+    },
+    {
+     "id": "p_b1",
+     "name": "White LED 2835 4000K 0.3 W",
+     "kind": "load",
+     "parent": "p_bat",
+     "voltage": {
+      "value": 3.7,
+      "unit": "V",
+      "label": "estimate",
+      "source_or_assumption": "VBAT (through its driver)"
+     }
+    },
+    {
+     "id": "p_b4",
+     "name": "Touch-dimming MCU (8-bit, SOP-8)",
+     "kind": "load",
+     "parent": "p_reg",
+     "voltage": {
+      "value": 3.3,
+      "unit": "V",
+      "label": "estimate",
+      "source_or_assumption": "Logic rail"
+     }
+    }
+   ],
+   "connections": [
+    {
+     "source": "USB-C receptacle 16P SMD",
+     "target": "Li-ion charger IC TP4056 (ESOP-8)",
+     "bus": "power",
+     "signals": "3.7 V"
+    },
+    {
+     "source": "Li-ion charger IC TP4056 (ESOP-8)",
+     "target": "Li-ion cell 18650 3000 mAh",
+     "bus": "power",
+     "signals": "3.7 V"
+    },
+    {
+     "source": "Li-ion cell 18650 3000 mAh",
+     "target": "3.3 V regulator (implied, VBAT 3.7 V)",
+     "bus": "power",
+     "signals": "3.3 V"
+    },
+    {
+     "source": "Li-ion cell 18650 3000 mAh",
+     "target": "White LED 2835 4000K 0.3 W",
+     "bus": "power",
+     "signals": "3.7 V"
+    },
+    {
+     "source": "3.3 V regulator (implied, VBAT 3.7 V)",
+     "target": "Touch-dimming MCU (8-bit, SOP-8)",
+     "bus": "power",
+     "signals": "3.3 V"
+    },
+    {
+     "source": "Touch-dimming MCU (8-bit, SOP-8)",
+     "target": "White LED 2835 4000K 0.3 W",
+     "bus": "pwm",
+     "signals": "PWM → MOSFET/CC driver gate"
+    },
+    {
+     "source": "Touch-dimming MCU (8-bit, SOP-8)",
+     "target": "Li-ion charger IC TP4056 (ESOP-8)",
+     "bus": "gpio",
+     "signals": "CHG_STAT, PGOOD"
+    },
+    {
+     "source": "USB-C receptacle 16P SMD",
+     "target": "Touch-dimming MCU (8-bit, SOP-8)",
+     "bus": "gpio",
+     "signals": "VBUS_DET"
+    },
+    {
+     "source": "Touch-dimming MCU (8-bit, SOP-8)",
+     "target": "Battery voltage divider",
+     "bus": "adc",
+     "signals": "VBAT_SENSE (fuel estimate)"
+    }
+   ],
+   "power_budget": [
+    {
+     "block": "led_power",
+     "part": "White LED 2835 4000K 0.3 W",
+     "active_current": {
+      "value": 2162.162,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "24 × 0.3 W / 3.7 V / 90% driver"
+     },
+     "sleep_current": {
+      "value": 0.0,
+      "unit": "µA",
+      "label": "estimate",
+      "source_or_assumption": "Typical sleep/standby current"
+     },
+     "duty_cycle": {
+      "value": 50.0,
+      "unit": "pct",
+      "label": "estimate",
+      "source_or_assumption": "Category duty cycle for 'led_power' (Portable / desk luminaire)"
+     },
+     "average_current": {
+      "value": 1081.0811,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "active × duty + sleep × (1 − duty)"
+     }
+    },
+    {
+     "block": "mcu",
+     "part": "Touch-dimming MCU (8-bit, SOP-8)",
+     "active_current": {
+      "value": 1.5,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "Typical active current of a MCU (from the BOM)"
+     },
+     "sleep_current": {
+      "value": 1.0,
+      "unit": "µA",
+      "label": "estimate",
+      "source_or_assumption": "Typical sleep/standby current"
+     },
+     "duty_cycle": {
+      "value": 100.0,
+      "unit": "pct",
+      "label": "estimate",
+      "source_or_assumption": "Category duty cycle for 'mcu' (Portable / desk luminaire)"
+     },
+     "average_current": {
+      "value": 1.5,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "active × duty + sleep × (1 − duty)"
+     }
+    },
+    {
+     "block": "charger",
+     "part": "Li-ion charger IC TP4056 (ESOP-8)",
+     "active_current": {
+      "value": 0.0,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "Pass-through part"
+     },
+     "sleep_current": {
+      "value": 2.0,
+      "unit": "µA",
+      "label": "estimate",
+      "source_or_assumption": "Typical quiescent current"
+     },
+     "duty_cycle": {
+      "value": 100.0,
+      "unit": "pct",
+      "label": "estimate",
+      "source_or_assumption": "Always on"
+     },
+     "average_current": {
+      "value": 0.002,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "Quiescent current"
+     }
+    }
+   ],
+   "average_current": {
+    "value": 1082.5831,
+    "unit": "mA",
+    "label": "estimate",
+    "source_or_assumption": "Sum of the power-budget lines"
+   },
+   "battery_voltage": {
+    "value": 3.7,
+    "unit": "V",
+    "label": "estimate",
+    "source_or_assumption": "Li-ion/Li-Po nominal 3.7 V"
+   },
+   "battery_capacity": {
+    "value": 3000.0,
+    "unit": "mAh",
+    "label": "estimate",
+    "source_or_assumption": "Capacity from the BOM line 'Li-ion cell 18650 3000 mAh'"
+   },
+   "battery_life": {
+    "value": 2.36,
+    "unit": "h",
+    "label": "estimate",
+    "source_or_assumption": "3000 mAh × 85% usable / 1083 mA average"
+   },
+   "pcb_note": "PCB layout: next step (human or text-to-PCB)"
   },
-  "cad_files": [
+  "firmware": {
+   "framework": "arduino",
+   "mcu_family": "avr",
+   "connectivity": "none (touch dimming)",
+   "url": "/files/demo_desk_lamp/firmware.zip",
+   "files": [
+    "README.md",
+    "platformio.ini",
+    "src/connectivity.cpp",
+    "src/connectivity.h",
+    "src/main.cpp",
+    "src/pins.h",
+    "src/sensors.cpp",
+    "src/sensors.h"
+   ],
+   "generated_by": "template",
+   "note": "Generated code — not compiled or tested",
+   "pending_llm": false
+  },
+  "prototype": {
+   "enclosure_method": "SLA resin head + FDM base, aluminium stem from stock tube",
+   "enclosure_volume": {
+    "value": 116.2,
+    "unit": "cm³",
+    "label": "measured",
+    "source_or_assumption": "Solid volume of enclosure.step (build123d / OCCT)"
+   },
+   "units": 2,
+   "cost_lines": [
     {
-      "format": "glb",
-      "url": "/files/demo_desk_lamp/d1.glb",
-      "description": "Full product — materials (viewer model of direction d1)",
-      "size_bytes": 504504
-    },
-    {
-      "format": "step",
-      "url": "/files/demo_desk_lamp/enclosure.step",
-      "description": "Moulded parts (DFM) — Enclosure B-rep (build123d): moulded head housing + base shell, 1.5° draft, M2.5 bosses — open in any CAD tool",
-      "size_bytes": 454039
-    },
-    {
-      "format": "stl",
-      "url": "/files/demo_desk_lamp/enclosure.stl",
-      "description": "Moulded parts (DFM) — Enclosure mesh for 3D-printed prototypes",
-      "size_bytes": 1146884
-    },
-    {
-      "format": "glb",
-      "url": "/files/demo_desk_lamp/enclosure.glb",
-      "description": "Moulded parts (DFM) — Enclosure model for the 3D viewer",
-      "size_bytes": 459424
-    }
-  ],
-  "bom": [
-    {
-      "id": "e1",
-      "part": "White LED 2835 4000K 0.3 W",
-      "category": "electronic",
-      "qty": 24.0,
-      "description": null,
-      "manufacturer_pn": null,
-      "lcsc_pn": "C210311",
-      "unit_cost_est": {
-        "value": 0.0077,
-        "unit": "USD",
-        "label": "sourced",
-        "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C210311.html"
-      },
-      "risk": {
-        "level": "low",
-        "reasons": [
-          "Stock 1.09M"
-        ]
-      },
-      "alternative": "Any 2835 4000K CRI>90 bin"
-    },
-    {
-      "id": "e2",
-      "part": "Li-ion charger IC TP4056 (ESOP-8)",
-      "category": "electronic",
-      "qty": 1.0,
-      "description": null,
-      "manufacturer_pn": null,
-      "lcsc_pn": "C725790",
-      "unit_cost_est": {
-        "value": 0.0505,
-        "unit": "USD",
-        "label": "sourced",
-        "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C725790.html"
-      },
-      "risk": {
-        "level": "low",
-        "reasons": [
-          "Stock 288k",
-          "Multi-source"
-        ]
-      },
-      "alternative": "TP4056-MS (C7473158)"
-    },
-    {
-      "id": "e3",
-      "part": "USB-C receptacle 16P SMD",
-      "category": "electronic",
-      "qty": 1.0,
-      "description": null,
-      "manufacturer_pn": null,
-      "lcsc_pn": "C2765186",
-      "unit_cost_est": {
-        "value": 0.0598,
-        "unit": "USD",
-        "label": "sourced",
-        "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C2765186.html"
-      },
-      "risk": {
-        "level": "low",
-        "reasons": [
-          "Stock 1.17M"
-        ]
-      },
-      "alternative": "TYPE-C16PIN (C393939)"
-    },
-    {
-      "id": "e4",
-      "part": "N-MOSFET AO3400A (LED PWM)",
-      "category": "electronic",
-      "qty": 1.0,
-      "description": null,
-      "manufacturer_pn": null,
-      "lcsc_pn": "C20917",
-      "unit_cost_est": {
-        "value": 0.0529,
-        "unit": "USD",
-        "label": "sourced",
-        "source_or_assumption": "LCSC price via jlcsearch, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C20917.html"
-      },
-      "risk": {
-        "level": "low",
-        "reasons": [
-          "LCSC basic part"
-        ]
-      },
-      "alternative": "AO3400A (C347475)"
-    },
-    {
-      "id": "e5",
-      "part": "Touch-dimming MCU (8-bit, SOP-8)",
-      "category": "electronic",
-      "qty": 1.0,
-      "description": null,
-      "manufacturer_pn": null,
-      "lcsc_pn": null,
-      "unit_cost_est": {
-        "value": 0.25,
-        "unit": "USD",
-        "label": "estimate",
-        "source_or_assumption": "Part not selected yet; typical 8-bit MCU price"
-      },
-      "risk": {
-        "level": "medium",
-        "reasons": [
-          "Part not selected"
-        ]
-      },
-      "alternative": "Pick from LCSC basic parts"
-    },
-    {
-      "id": "e6",
-      "part": "Li-ion cell 18650 3000 mAh",
-      "category": "electronic",
-      "qty": 1.0,
-      "description": null,
-      "manufacturer_pn": null,
-      "lcsc_pn": null,
-      "unit_cost_est": {
-        "value": 2.4,
-        "unit": "USD",
-        "label": "estimate",
-        "source_or_assumption": "Branded cell with UN38.3 report, 2k MOQ"
-      },
-      "risk": {
-        "level": "high",
-        "reasons": [
-          "Counterfeit/unbranded cell risk",
-          "UN38.3 report required",
-          "Air-freight restrictions"
-        ]
-      },
-      "alternative": "Tier-1 branded 18650 with UN38.3 + IEC 62133-2 reports"
-    },
-    {
-      "id": "e7",
-      "part": "Aluminium MCPCB for LED bar 170×12 mm",
-      "category": "electronic",
-      "qty": 1.0,
-      "description": null,
-      "manufacturer_pn": null,
-      "lcsc_pn": null,
-      "unit_cost_est": {
-        "value": 0.35,
-        "unit": "USD",
-        "label": "estimate",
-        "source_or_assumption": "JLCPCB aluminium PCB, 2k pcs"
-      },
-      "risk": {
-        "level": "low",
-        "reasons": []
-      },
-      "alternative": null
-    },
-    {
-      "id": "e8",
-      "part": "Control PCB 2-layer + passives, assembled",
-      "category": "electronic",
-      "qty": 1.0,
-      "description": null,
-      "manufacturer_pn": null,
-      "lcsc_pn": null,
-      "unit_cost_est": {
-        "value": 0.6,
-        "unit": "USD",
-        "label": "estimate",
-        "source_or_assumption": "PCBA incl. passives, 2k pcs"
-      },
-      "risk": {
-        "level": "low",
-        "reasons": []
-      },
-      "alternative": null
-    },
-    {
-      "id": "m1",
-      "part": "Head housing, PC/ABS, textured",
-      "category": "mechanical",
-      "qty": 1.0,
-      "description": null,
-      "manufacturer_pn": null,
-      "lcsc_pn": null,
-      "unit_cost_est": {
-        "value": 0.95,
-        "unit": "USD",
-        "label": "estimate",
-        "source_or_assumption": "Part weight 28 g × resin + cycle cost"
-      },
-      "risk": null,
-      "alternative": null
-    },
-    {
-      "id": "m2",
-      "part": "Opal PC diffuser",
-      "category": "mechanical",
-      "qty": 1.0,
-      "description": null,
-      "manufacturer_pn": null,
-      "lcsc_pn": null,
-      "unit_cost_est": {
-        "value": 0.3,
-        "unit": "USD",
-        "label": "estimate",
-        "source_or_assumption": "Part weight 9 g"
-      },
-      "risk": null,
-      "alternative": null
-    },
-    {
-      "id": "m3",
-      "part": "Stem, aluminium 6063 extrusion, anodised",
-      "category": "mechanical",
-      "qty": 1.0,
-      "description": null,
-      "manufacturer_pn": null,
-      "lcsc_pn": null,
-      "unit_cost_est": {
-        "value": 1.6,
-        "unit": "USD",
-        "label": "estimate",
-        "source_or_assumption": "300 mm cut length + anodising"
-      },
-      "risk": null,
-      "alternative": null
-    },
-    {
-      "id": "m4",
-      "part": "Base shell, PC/ABS",
-      "category": "mechanical",
-      "qty": 1.0,
-      "description": null,
-      "manufacturer_pn": null,
-      "lcsc_pn": null,
-      "unit_cost_est": {
-        "value": 1.1,
-        "unit": "USD",
-        "label": "estimate",
-        "source_or_assumption": "Part weight 35 g"
-      },
-      "risk": null,
-      "alternative": null
-    },
-    {
-      "id": "m5",
-      "part": "Steel weight plate, zinc-plated",
-      "category": "mechanical",
-      "qty": 1.0,
-      "description": null,
-      "manufacturer_pn": null,
-      "lcsc_pn": null,
-      "unit_cost_est": {
-        "value": 0.7,
-        "unit": "USD",
-        "label": "estimate",
-        "source_or_assumption": "Stamped 3 mm steel, 380 g"
-      },
-      "risk": null,
-      "alternative": null
-    },
-    {
-      "id": "m6",
-      "part": "N52 neodymium magnet Ø10×3 mm",
-      "category": "mechanical",
-      "qty": 4.0,
-      "description": null,
-      "manufacturer_pn": null,
-      "lcsc_pn": null,
-      "unit_cost_est": {
-        "value": 0.08,
-        "unit": "USD",
-        "label": "estimate",
-        "source_or_assumption": "Catalogue magnet, 10k pcs"
-      },
-      "risk": {
-        "level": "medium",
-        "reasons": [
-          "Rare-earth price volatility"
-        ]
-      },
-      "alternative": "N45 grade at slightly lower pull force"
-    },
-    {
-      "id": "m7",
-      "part": "Fastener set (M2/M3 screws)",
-      "category": "mechanical",
-      "qty": 1.0,
-      "description": null,
-      "manufacturer_pn": null,
-      "lcsc_pn": null,
-      "unit_cost_est": {
-        "value": 0.1,
-        "unit": "USD",
-        "label": "estimate",
-        "source_or_assumption": "Standard fasteners"
-      },
-      "risk": null,
-      "alternative": null
-    },
-    {
-      "id": "m8",
-      "part": "Silicone foot pad",
-      "category": "mechanical",
-      "qty": 1.0,
-      "description": null,
-      "manufacturer_pn": null,
-      "lcsc_pn": null,
-      "unit_cost_est": {
-        "value": 0.12,
-        "unit": "USD",
-        "label": "estimate",
-        "source_or_assumption": "Die-cut silicone"
-      },
-      "risk": null,
-      "alternative": null
-    },
-    {
-      "id": "k1",
-      "part": "Retail box + moulded pulp insert",
-      "category": "packaging",
-      "qty": 1.0,
-      "description": null,
-      "manufacturer_pn": null,
-      "lcsc_pn": null,
-      "unit_cost_est": {
-        "value": 0.9,
-        "unit": "USD",
-        "label": "estimate",
-        "source_or_assumption": "Rigid 2-piece box, 1-colour print"
-      },
-      "risk": null,
-      "alternative": null
-    },
-    {
-      "id": "k2",
-      "part": "USB-C cable 1 m",
-      "category": "packaging",
-      "qty": 1.0,
-      "description": null,
-      "manufacturer_pn": null,
-      "lcsc_pn": null,
-      "unit_cost_est": {
-        "value": 0.45,
-        "unit": "USD",
-        "label": "estimate",
-        "source_or_assumption": "Generic USB-C to USB-C 3 A"
-      },
-      "risk": null,
-      "alternative": null
-    }
-  ],
-  "dfm_alerts": [
-    {
-      "id": "m1",
-      "severity": "minor",
-      "category": "draft",
-      "method": "measured",
-      "part_id": "p1",
-      "description": "Minimum wall draft is 1.43°: enough for a polished finish, short of the ~3° a textured finish ('MT-11010 texture') needs.",
-      "fix": "Increase draft to 3° on textured faces, or specify a lighter texture / polished finish.",
-      "rule_citation": "Draft ≥1° plus 1° per 0.025 mm texture depth — Protolabs injection molding design guidelines; measured with text-to-cad DFM skill (mold_tool.py, MIT) ported to OCCT",
-      "measurement": {
-        "value": 1.429,
-        "unit": "deg",
-        "label": "measured",
-        "source_or_assumption": "Min wall draft vs pull +Z: lowest-draft B-rep wall face ≥ 113.37 mm² (curved, 148.02 mm² at [-49.91, -49.91, 7.11]) — text-to-cad DFM skill (mold_tool.py, MIT) ported to OCCT"
-      },
-      "resolved": false,
-      "resolution": null
-    },
-    {
-      "id": "m2",
-      "severity": "minor",
-      "category": "projection",
-      "method": "measured",
-      "part_id": "p1",
-      "description": "Projected area along +Z: 21162 mm² (part silhouette, per cavity). Estimated clamp force ≈ 108.2 t (Estimate: area in² × 3.0 t/in² for PC/ABS × 1.1 safety) — per cavity; a family tool moulding both shells in one shot roughly doubles it.",
-      "fix": "Quote on a press ≥ 130 t; keep both shells in one family mould only if tonnage allows.",
-      "rule_citation": "Clamp force ≈ projected area × cavity-pressure factor (2-5 t/in²) — Protolabs injection molding design guidelines; silhouette raster from text-to-cad DFM skill (mold_tool.py, MIT) ported to OCCT",
-      "measurement": {
-        "value": 21162.1,
-        "unit": "mm2",
-        "label": "measured",
-        "source_or_assumption": "Silhouette along +Z, raster 0.45 mm — text-to-cad DFM skill (mold_tool.py, MIT) ported to OCCT"
-      },
-      "resolved": false,
-      "resolution": null
-    },
-    {
-      "id": "m3",
-      "severity": "minor",
-      "category": "wall_thickness",
-      "method": "measured",
-      "part_id": "p1",
-      "description": "Measured wall 2.00-2.20 mm is within the PC/ABS 1.2-3.5 mm range; keep bosses/ribs ≤ 60% of nominal wall to avoid sink.",
-      "fix": "No change to nominal wall; core bosses and ribs to ≤ 60% of the wall.",
-      "rule_citation": "PC/ABS wall 1.2-3.5 mm, ribs/bosses ≤ 60% of wall — Protolabs injection molding design guidelines",
-      "measurement": {
-        "value": 2.0,
-        "unit": "mm",
-        "label": "measured",
-        "source_or_assumption": "5th percentile of 12120 ray samples into the material (median 2.2 mm)"
-      },
-      "resolved": false,
-      "resolution": null
-    },
-    {
-      "id": "i4",
-      "severity": "major",
-      "category": "tolerance",
-      "method": "ai_reviewed",
-      "part_id": "p3",
-      "description": "Magnetic head/stem coupling needs a controlled air gap; anodising adds ~20 µm per side.",
-      "fix": "Specify 0.3 ± 0.1 mm air gap after finishing and mask pogo contact area before anodising.",
-      "rule_citation": "Type II anodising build-up ~50% outward growth — MIL-A-8625 guidance",
-      "measurement": null,
-      "resolved": false,
-      "resolution": null
-    },
-    {
-      "id": "i5",
-      "severity": "critical",
-      "category": "assembly",
-      "method": "ai_reviewed",
-      "part_id": "p4",
-      "description": "18650 cell sits against the LED driver area; heat and pinch risk during assembly.",
-      "fix": "Add a cell cradle rib with 2 mm clearance and a thermal barrier; cell protection circuit mandatory.",
-      "rule_citation": "IEC 62133-2 cell protection and thermal abuse clauses",
-      "measurement": null,
-      "resolved": false,
-      "resolution": null
-    }
-  ],
-  "certifications": [
-    {
-      "market": "US",
-      "standard": "FCC Part 15B (unintentional radiator)",
-      "applies_because": "MCU clock + PWM LED driver",
-      "required": true,
-      "cost_est": {
-        "value": 2500.0,
-        "unit": "USD",
-        "label": "estimate",
-        "source_or_assumption": "Accredited lab quote range, demo assumption"
-      },
-      "lead_time_weeks": {
-        "value": 4.0,
-        "unit": "weeks",
-        "label": "estimate",
-        "source_or_assumption": "Typical lab queue"
-      }
-    },
-    {
-      "market": "EU",
-      "standard": "CE — EMC 2014/30/EU, RoHS, EN 62471 photobiological safety",
-      "applies_because": "Electronic lighting product sold in the EU",
-      "required": true,
-      "cost_est": {
-        "value": 3000.0,
-        "unit": "USD",
-        "label": "estimate",
-        "source_or_assumption": "Accredited lab quote range, demo assumption"
-      },
-      "lead_time_weeks": {
-        "value": 5.0,
-        "unit": "weeks",
-        "label": "estimate",
-        "source_or_assumption": "Typical lab queue"
-      }
-    },
-    {
-      "market": "Global",
-      "standard": "UN38.3 (battery transport) + IEC 62133-2",
-      "applies_because": "Contains a Li-ion 18650 cell",
-      "required": true,
-      "cost_est": {
-        "value": 1800.0,
-        "unit": "USD",
-        "label": "estimate",
-        "source_or_assumption": "IEC 62133-2 test at pack level; UN38.3 summary from cell supplier"
-      },
-      "lead_time_weeks": {
-        "value": 4.0,
-        "unit": "weeks",
-        "label": "estimate",
-        "source_or_assumption": "Typical lab queue"
-      }
-    }
-  ],
-  "target_quantities": [
-    500,
-    2000,
-    10000
-  ],
-  "cost_estimate": [
-    {
-      "quantity": 500,
-      "bom_cost": {
-        "value": 9.14,
-        "unit": "USD",
-        "label": "estimate",
-        "source_or_assumption": "BOM at 500 × 0.92^0"
-      },
-      "assembly_cost": {
-        "value": 3.1,
-        "unit": "USD",
-        "label": "estimate",
-        "source_or_assumption": "Assembly + factory overhead/margin: $3.10 per unit at 500"
-      },
-      "packaging_cost": {
-        "value": 1.35,
-        "unit": "USD",
-        "label": "estimate",
-        "source_or_assumption": "Packaging BOM lines"
-      },
-      "unit_cost": {
-        "value": 13.59,
-        "unit": "USD",
-        "label": "estimate",
-        "source_or_assumption": "BOM + assembly + packaging (ex-works)"
-      },
-      "tooling_amortisation": {
-        "value": 20.2,
-        "unit": "USD",
-        "label": "estimate",
-        "source_or_assumption": "$10,100 / 500"
-      },
-      "margin_pct": {
-        "value": 55.8,
-        "unit": "pct",
-        "label": "estimate",
-        "source_or_assumption": "($96.12 target − $42.49 landed estimate) / target"
-      }
-    },
-    {
-      "quantity": 2000,
-      "bom_cost": {
-        "value": 8.41,
-        "unit": "USD",
-        "label": "estimate",
-        "source_or_assumption": "BOM at 500 × 0.92^1"
-      },
-      "assembly_cost": {
-        "value": 2.85,
-        "unit": "USD",
-        "label": "estimate",
-        "source_or_assumption": "Assembly + factory overhead/margin: $3.10 per unit at 500"
-      },
-      "packaging_cost": {
-        "value": 1.24,
-        "unit": "USD",
-        "label": "estimate",
-        "source_or_assumption": "Packaging BOM lines"
-      },
-      "unit_cost": {
-        "value": 12.5,
-        "unit": "USD",
-        "label": "estimate",
-        "source_or_assumption": "BOM + assembly + packaging (ex-works)"
-      },
-      "tooling_amortisation": {
-        "value": 5.05,
-        "unit": "USD",
-        "label": "estimate",
-        "source_or_assumption": "$10,100 / 2000"
-      },
-      "margin_pct": {
-        "value": 73.9,
-        "unit": "pct",
-        "label": "estimate",
-        "source_or_assumption": "($96.12 target − $25.06 landed estimate) / target"
-      }
-    },
-    {
-      "quantity": 10000,
-      "bom_cost": {
-        "value": 7.73,
-        "unit": "USD",
-        "label": "estimate",
-        "source_or_assumption": "BOM at 500 × 0.92^2"
-      },
-      "assembly_cost": {
-        "value": 2.62,
-        "unit": "USD",
-        "label": "estimate",
-        "source_or_assumption": "Assembly + factory overhead/margin: $3.10 per unit at 500"
-      },
-      "packaging_cost": {
-        "value": 1.14,
-        "unit": "USD",
-        "label": "estimate",
-        "source_or_assumption": "Packaging BOM lines"
-      },
-      "unit_cost": {
-        "value": 11.5,
-        "unit": "USD",
-        "label": "estimate",
-        "source_or_assumption": "BOM + assembly + packaging (ex-works)"
-      },
-      "tooling_amortisation": {
-        "value": 1.01,
-        "unit": "USD",
-        "label": "estimate",
-        "source_or_assumption": "$10,100 / 10000"
-      },
-      "margin_pct": {
-        "value": 80.1,
-        "unit": "pct",
-        "label": "estimate",
-        "source_or_assumption": "($96.12 target − $19.08 landed estimate) / target"
-      }
-    }
-  ],
-  "questions": [
-    {
-      "id": "fq1",
-      "en": "Can you hold ±0.1 mm on the magnet pockets of the PC/ABS head housing?",
-      "cn": "PC/ABS灯头外壳的磁铁槽能否保证±0.1 mm公差？",
-      "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
-    },
-    {
-      "id": "fq2",
-      "en": "Please confirm the 18650 cell supplier and share its UN38.3 test summary and IEC 62133-2 report.",
-      "cn": "请确认18650电芯供应商，并提供UN38.3测试摘要及IEC 62133-2报告。",
-      "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
-    },
-    {
-      "id": "fq3",
-      "en": "What draft angle do you recommend on the MT-11010 textured faces?",
-      "cn": "对于MT-11010纹理面，贵司建议的拔模角度是多少？",
-      "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
-    },
-    {
-      "id": "fq4",
-      "en": "Is anodising of the aluminium stem done in-house, and what colour tolerance (ΔE) can you hold?",
-      "cn": "铝灯杆的阳极氧化是否在厂内完成？可控制的色差(ΔE)是多少？",
-      "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
-    },
-    {
-      "id": "fq5",
-      "en": "Quote tooling as single-cavity P20 steel with 100k shot life, and give the 2-cavity option.",
-      "cn": "请按单腔P20钢模具（寿命10万模次）报价，并提供双腔方案价格。",
-      "cn_review_note": "Machine-translated — to be reviewed by a native speaker"
-    }
-  ],
-  "assumption_register": [
-    {
-      "id": "a1",
-      "text": "EUR→USD at 1.08 for the €89 target price",
+     "item": "Enclosure: SLA resin head + FDM base, aluminium stem from stock tube",
+     "amount": {
+      "value": 120.0,
+      "unit": "USD",
       "label": "estimate",
-      "source": null,
-      "stage": 1
+      "source_or_assumption": "2 × (25 USD setup + 0.3 USD/cm³ × 116.2 cm³ measured volume)"
+     }
     },
     {
-      "id": "a2",
-      "text": "Volume curve: unit cost × 0.92 per tier step (500 → 2,000 → 10,000)",
+     "item": "PCBA quick-turn (5 boards, 8 BOM lines)",
+     "amount": {
+      "value": 106.0,
+      "unit": "USD",
       "label": "estimate",
-      "source": "Demo assumption (PRD §11)",
-      "stage": 5
+      "source_or_assumption": "5 boards: setup/stencil 25 + 2-layer fab 5 + parts 56.35 (LCSC price at 5× qty where matched, else BOM estimate × 3) + shipping 20 USD"
+     }
     },
     {
-      "id": "a3",
-      "text": "Assembly + factory overhead/margin: $3.10 per unit at 500",
+     "item": "Dev-kit bring-up set (firmware before the PCBA arrives)",
+     "amount": {
+      "value": 6.0,
+      "unit": "USD",
       "label": "estimate",
-      "source": null,
-      "stage": 5
+      "source_or_assumption": "Sum of the dev-kit BOM lines"
+     }
     },
     {
-      "id": "a4",
-      "text": "Pre-shipment inspection $268 per man-day",
+     "item": "Batteries, cables, fasteners, consumables",
+     "amount": {
+      "value": 40.0,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Flat allowance"
+     }
+    }
+   ],
+   "devkit_bom": [
+    {
+     "part": "ATtiny/ATmega Arduino-compatible board",
+     "role": "MCU + radio dev board",
+     "qty": 1,
+     "lcsc_pn": null,
+     "unit_price": {
+      "value": 6.0,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Typical distributor price for this dev board class"
+     }
+    },
+    {
+     "part": "White LED 2835 4000K 0.3 W → A2835W3H2-D01-8D2AB2 on a breakout",
+     "role": "led_power",
+     "qty": 1,
+     "lcsc_pn": "C7423441",
+     "unit_price": {
+      "value": 0.01,
+      "unit": "USD",
       "label": "sourced",
-      "source": "V-Trust, https://www.v-trust.com/en/our-network, checked 2026-09-26",
-      "stage": 10
-    },
-    {
-      "id": "a5",
-      "text": "Platform/agent fee 7% of FOB (benchmark 5-10%)",
-      "label": "estimate",
-      "source": "Dragon Sourcing benchmark 5-10%",
-      "stage": 11
-    },
-    {
-      "id": "a6",
-      "text": "HTS 8513.10.40.00: general duty 3.5% (Lamps — Other — precedent CBP ruling N248128 (2013-12-12): The tariff classification of an LED Table Lamp and Flashlight)",
-      "label": "sourced",
-      "source": "USITC HTS 8513.10.40.00 general rate 3.5%, https://hts.usitc.gov/search?query=8513.10.40.00, fetched 2026-09-26",
-      "stage": 11
-    },
-    {
-      "id": "a7",
-      "text": "IEEPA duties not collected since 24/02/2026; de minimis suspended; Section 122 surcharge off (toggle)",
-      "label": "sourced",
-      "source": "CBP CSMS 67834313 (https://content.govdelivery.com/accounts/USDHSCBP/bulletins/40b11c9); Federal Register 24/06/2026",
-      "stage": 11
-    },
-    {
-      "id": "a8",
-      "text": "Sea LCL Shenzhen → Los Angeles, $0.85/unit, 32 days door to 3PL",
-      "label": "fictional",
-      "source": "demo data",
-      "stage": 11
-    },
-    {
-      "id": "a9",
-      "text": "Simple single-cavity P20 molds $1,800-3,500 each",
-      "label": "estimate",
-      "source": "Zetar Mold 2026 range $1,000-3,000 (vendor, medium)",
-      "stage": 5
-    },
-    {
-      "id": "a10",
-      "text": "Measured DFM checks assume a straight two-half tool pulling along ±Z (split line in the XY plane)",
-      "label": "estimate",
-      "source": "api/dfm/measure.py on api/cad/prebuilt/demo_desk_lamp/enclosure.step",
-      "stage": 4
-    },
-    {
-      "id": "a11",
-      "text": "Section 301 China 25% on HTS 8513.10.40.00",
-      "label": "sourced",
-      "source": "Section 301 China, heading 9903.88.03 (+25%): USITC HTS, https://hts.usitc.gov/search?query=9903.88.03, fetched 2026-09-26; heading cited with HTS 8513.10.4000 in CBP ruling N350173 (2025-07-09). Coverage on the entry date to be confirmed by a customs broker",
-      "stage": 11
+      "source_or_assumption": "LCSC price, snapshot 2026-09-26, https://www.lcsc.com/product-detail/C7423441.html (chip only; add ~8 USD breakout)"
+     }
     }
-  ]
+   ],
+   "assembly_steps": [
+    "Bench the LED bar + driver with a lab supply, check flicker and temperature",
+    "Print head and base; cut the stem from stock aluminium tube",
+    "Assemble the quick-turn PCBA and the 18650 cell holder",
+    "Inclined-plane stability check with the arm in the worst position",
+    "Thermal run at full brightness for 1 h",
+    "PCB layout: next step (human or text-to-PCB) — the schematic follows the power tree and connection list above"
+   ],
+   "timeline_weeks": {
+    "value": 4.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Design freeze 0.5 + PCBA quick-turn incl. shipping 2 + integration 1 + test 0.5 (enclosure and firmware on the dev kit run in parallel)"
+   },
+   "total_cost": {
+    "value": 272.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Sum of the prototype cost lines"
+   }
+  },
+  "solar": null,
+  "installers": [],
+  "build_strategy": {
+   "strategy": "full_design",
+   "title": "Full design",
+   "explanation": "You design the whole product: every part, the BOM and (if any) the simple electronics are yours, and a factory builds to your CAD and drawings. This is how mechanical products and simple electronics are made.",
+   "customisable": [
+    "Enclosure, diffuser, CMF",
+    "LED board and driver (simple electronics)"
+   ],
+   "not_customisable": [
+    "LED driver IC and LEDs from catalogues"
+   ],
+   "moq": {
+    "value": 1000.0,
+    "unit": "units",
+    "label": "estimate",
+    "source_or_assumption": "Typical minimum order for a first run in this category — factory MOQ range"
+   },
+   "entry_cost": {
+    "value": 25000.0,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Typical first production run for this category (2 moulds ≈ $15-20k, PCBA NRE, lab tests ≈ $5k) — industry range, not a quote"
+   },
+   "lead_time": {
+    "value": 16.0,
+    "unit": "weeks",
+    "label": "estimate",
+    "source_or_assumption": "Frozen design → first production units (tooling, samples, certification), typical"
+   },
+   "path": [
+    "Freeze CAD, order P20 steel moulds",
+    "T1 samples → fixes → golden sample",
+    "Safety + EMC tests",
+    "First run"
+   ],
+   "certifications_note": "Product-level tests (IEC 60598 / EMC) on your design.",
+   "assumptions": [
+    "Estimates for a first production run; real MOQs and NRE come from quotes",
+    "Full-design figures assume tooling sized for the first run"
+   ]
+  },
+  "unit_basis": "per_unit",
+  "installation_cost": null,
+  "assembly": {
+   "project_id": "demo_desk_lamp",
+   "version": 0,
+   "label": "Measured on the version STEP (build123d / OCCT); mates inferred from the family / part roles",
+   "source": "/files/demo_desk_lamp/d1.step",
+   "root": "metal_1",
+   "nodes": [
+    {
+     "part_id": "accent_1",
+     "name": "Lower body",
+     "role": "shell_bottom",
+     "parent": "body_1",
+     "joint_id": "j4",
+     "rigid_body": 0,
+     "volume": {
+      "value": 40730.3,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      -1.0,
+      0.0
+     ],
+     "explode_distance_mm": 52.3
+    },
+    {
+     "part_id": "body_1",
+     "name": "Body",
+     "role": "shell_top",
+     "parent": "metal_1",
+     "joint_id": "j1",
+     "rigid_body": 0,
+     "volume": {
+      "value": 36347.9,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      -1.0,
+      0.0
+     ],
+     "explode_distance_mm": 18.9
+    },
+    {
+     "part_id": "metal_1",
+     "name": "Metal part",
+     "role": "frame",
+     "parent": null,
+     "joint_id": null,
+     "rigid_body": 0,
+     "volume": {
+      "value": 60318.6,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "explode_distance_mm": 0.0
+    },
+    {
+     "part_id": "diffuser_1",
+     "name": "Light diffuser",
+     "role": "diffuser",
+     "parent": "metal_1",
+     "joint_id": "j2",
+     "rigid_body": 0,
+     "volume": {
+      "value": 3303.3,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "explode_distance_mm": 36.5
+    },
+    {
+     "part_id": "metal_2",
+     "name": "Metal part 2",
+     "role": "frame",
+     "parent": "body_1",
+     "joint_id": "j5",
+     "rigid_body": 0,
+     "volume": {
+      "value": 135.7,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "explode_distance_mm": 17.8
+    },
+    {
+     "part_id": "rubber_1",
+     "name": "Rubber part",
+     "role": "other",
+     "parent": "accent_1",
+     "joint_id": "j8",
+     "rigid_body": 0,
+     "volume": {
+      "value": 2126.2,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      -1.0,
+      0.0
+     ],
+     "explode_distance_mm": 89.0
+    },
+    {
+     "part_id": "accent_2",
+     "name": "Lower body 2",
+     "role": "shell_bottom",
+     "parent": "metal_1",
+     "joint_id": "j3",
+     "rigid_body": 0,
+     "volume": {
+      "value": 20994.9,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "explode_distance_mm": 31.9
+    },
+    {
+     "part_id": "body_2",
+     "name": "Body 2",
+     "role": "shell_top",
+     "parent": "accent_2",
+     "joint_id": "j7",
+     "rigid_body": 0,
+     "volume": {
+      "value": 18082.0,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "explode_distance_mm": 72.3
+    },
+    {
+     "part_id": "m3_x_20_pan_screws_x4",
+     "name": "M3 × 20 pan screws ×4",
+     "role": "fastener",
+     "parent": "screw_bosses",
+     "joint_id": "j9",
+     "rigid_body": 0,
+     "volume": {
+      "value": 765.6,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      -1.0,
+      0.0
+     ],
+     "explode_distance_mm": 93.7
+    },
+    {
+     "part_id": "m3_heat_set_inserts_x4",
+     "name": "M3 heat-set inserts ×4",
+     "role": "fastener",
+     "parent": "screw_bosses",
+     "joint_id": "j10",
+     "rigid_body": 0,
+     "volume": {
+      "value": 189.6,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      -1.0,
+      0.0
+     ],
+     "explode_distance_mm": 83.7
+    },
+    {
+     "part_id": "screw_bosses",
+     "name": "Screw bosses",
+     "role": "other",
+     "parent": "body_1",
+     "joint_id": "j6",
+     "rigid_body": 0,
+     "volume": {
+      "value": 1106.5,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      -1.0,
+      0.0
+     ],
+     "explode_distance_mm": 44.2
+    }
+   ],
+   "joints": [
+    {
+     "id": "j1",
+     "parent": "metal_1",
+     "child": "body_1",
+     "kind": "rigid",
+     "method": "screwed",
+     "dof": 0,
+     "origin_mm": [
+      8.0,
+      22.0,
+      0.0
+     ],
+     "axis": [
+      -0.0,
+      -1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [
+      {
+       "kind": "screw",
+       "standard": "ISO 14583 (hexalobular pan head), A2 stainless",
+       "designation": "M2.5×10",
+       "size": "M2.5",
+       "length_mm": 10.0,
+       "qty": 2,
+       "source": "api.cad.stdparts"
+      }
+     ],
+     "rule": "Structural part ≥ 20 mm: 2 screws into tapped metal (structural-joint rule)"
+    },
+    {
+     "id": "j2",
+     "parent": "metal_1",
+     "child": "diffuser_1",
+     "kind": "rigid",
+     "method": "inlay",
+     "dof": 0,
+     "origin_mm": [
+      0.0,
+      321.8,
+      0.0
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Light diffuser set into Metal part: inlay (insert rule; the host is pocketed around it at detail design)"
+    },
+    {
+     "id": "j3",
+     "parent": "metal_1",
+     "child": "accent_2",
+     "kind": "rigid",
+     "method": "screwed",
+     "dof": 0,
+     "origin_mm": [
+      8.0,
+      322.0,
+      0.0
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [
+      {
+       "kind": "screw",
+       "standard": "ISO 14583 (hexalobular pan head), A2 stainless",
+       "designation": "M3×8",
+       "size": "M3",
+       "length_mm": 8.0,
+       "qty": 4,
+       "source": "api.cad.stdparts"
+      }
+     ],
+     "rule": "Structural part ≥ 20 mm: 4 screws into tapped metal (structural-joint rule)"
+    },
+    {
+     "id": "j4",
+     "parent": "body_1",
+     "child": "accent_1",
+     "kind": "rigid",
+     "method": "screwed",
+     "dof": 0,
+     "origin_mm": [
+      -60.0,
+      13.2,
+      40.0
+     ],
+     "axis": [
+      -0.0,
+      -1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Two shells at a parting line: screws into heat-set inserts, one boss every ~80 mm of perimeter (min 4) — moulded-enclosure rule — held by the modelled hardware (M3 heat-set inserts ×4, M3 × 20 pan screws ×4, Screw bosses)"
+    },
+    {
+     "id": "j5",
+     "parent": "body_1",
+     "child": "metal_2",
+     "kind": "rigid",
+     "method": "snap_fit",
+     "dof": 0,
+     "origin_mm": [
+      0.0,
+      21.8,
+      38.0
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Small moulded part: snap-fit / press-fit (small-part rule)"
+    },
+    {
+     "id": "j6",
+     "parent": "body_1",
+     "child": "screw_bosses",
+     "kind": "rigid",
+     "method": "screwed",
+     "dof": 0,
+     "origin_mm": [
+      0.0,
+      16.5,
+      -0.0
+     ],
+     "axis": [
+      -0.0,
+      -1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Structural part ≥ 20 mm: 2 screws into heat-set inserts (structural-joint rule) — held by the modelled hardware (M3 heat-set inserts ×4, M3 × 20 pan screws ×4)"
+    },
+    {
+     "id": "j7",
+     "parent": "accent_2",
+     "child": "body_2",
+     "kind": "rigid",
+     "method": "screwed",
+     "dof": 0,
+     "origin_mm": [
+      -90.0,
+      332.8,
+      10.0
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [
+      {
+       "kind": "screw",
+       "standard": "ISO 14583 (hexalobular pan head), A2 stainless",
+       "designation": "M3×8",
+       "size": "M3",
+       "length_mm": 8.0,
+       "qty": 6,
+       "source": "api.cad.stdparts"
+      },
+      {
+       "kind": "insert",
+       "standard": "Heat-set brass insert (McMaster-Carr 94459A140)",
+       "designation": "M3×5.7",
+       "size": "M3",
+       "length_mm": 5.7,
+       "qty": 6,
+       "source": "api.cad.stdparts"
+      }
+     ],
+     "rule": "Two shells at a parting line: screws into heat-set inserts, one boss every ~80 mm of perimeter (min 4) — moulded-enclosure rule"
+    },
+    {
+     "id": "j8",
+     "parent": "accent_1",
+     "child": "rubber_1",
+     "kind": "rigid",
+     "method": "bonded",
+     "dof": 0,
+     "origin_mm": [
+      50.0,
+      0.0,
+      0.0
+     ],
+     "axis": [
+      -0.0,
+      -1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Soft part (rubber / fabric): bonded or press-fitted (seal / pad / foot rule)"
+    },
+    {
+     "id": "j9",
+     "parent": "screw_bosses",
+     "child": "m3_x_20_pan_screws_x4",
+     "kind": "rigid",
+     "method": "press_fit",
+     "dof": 0,
+     "origin_mm": [
+      0.0,
+      19.65,
+      -0.0
+     ],
+     "axis": [
+      -0.0,
+      -1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "M3 × 20 pan screws ×4 set into Screw bosses: press-fit (insert rule; the host is pocketed around it at detail design)"
+    },
+    {
+     "id": "j10",
+     "parent": "screw_bosses",
+     "child": "m3_heat_set_inserts_x4",
+     "kind": "rigid",
+     "method": "press_fit",
+     "dof": 0,
+     "origin_mm": [
+      0.0,
+      15.05,
+      -0.0
+     ],
+     "axis": [
+      -0.0,
+      -1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "M3 heat-set inserts ×4 set into Screw bosses: press-fit (insert rule; the host is pocketed around it at detail design)"
+    }
+   ],
+   "interferences": [
+    {
+     "a": "diffuser_1",
+     "b": "accent_2",
+     "volume": {
+      "value": 1651.64,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "body_1",
+     "b": "m3_x_20_pan_screws_x4",
+     "volume": {
+      "value": 5.51,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "accent_1",
+     "b": "screw_bosses",
+     "volume": {
+      "value": 0.58,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "metal_1",
+     "b": "diffuser_1",
+     "volume": {
+      "value": 80.42,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint inlay: concept overlap at the mate"
+    },
+    {
+     "a": "m3_heat_set_inserts_x4",
+     "b": "screw_bosses",
+     "volume": {
+      "value": 67.45,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint press-fit: concept overlap at the mate"
+    },
+    {
+     "a": "body_1",
+     "b": "metal_2",
+     "volume": {
+      "value": 45.24,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint snap-fit: concept overlap at the mate"
+    },
+    {
+     "a": "body_1",
+     "b": "screw_bosses",
+     "volume": {
+      "value": 13.78,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint screwed: concept overlap at the mate"
+    },
+    {
+     "a": "m3_x_20_pan_screws_x4",
+     "b": "screw_bosses",
+     "volume": {
+      "value": 8.27,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint press-fit: concept overlap at the mate"
+    }
+   ],
+   "clearances": [
+    {
+     "part_id": "accent_1",
+     "against": "body_1",
+     "min_clearance": {
+      "value": 0.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "BRepExtrema distance"
+     },
+     "motion": "static (parting line)",
+     "verdict": "pass",
+     "rule": "Shells meet at the parting line: gap ≤ 0.3 mm (visible-gap limit for moulded enclosures)"
+    },
+    {
+     "part_id": "body_2",
+     "against": "accent_2",
+     "min_clearance": {
+      "value": 0.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "BRepExtrema distance"
+     },
+     "motion": "static (parting line)",
+     "verdict": "pass",
+     "rule": "Shells meet at the parting line: gap ≤ 0.3 mm (visible-gap limit for moulded enclosures)"
+    }
+   ],
+   "fasteners": [
+    {
+     "id": "fx1",
+     "part": "Heat-set threaded insert M3×5.7 (Heat-set brass insert (McMaster-Carr 94459A140))",
+     "category": "mechanical",
+     "qty": 6.0,
+     "description": "Fastener aggregated from the assembly joints (api.cad.stdparts)",
+     "manufacturer_pn": null,
+     "lcsc_pn": null,
+     "unit_cost_est": {
+      "value": 0.08,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+     },
+     "risk": null,
+     "alternative": null
+    },
+    {
+     "id": "fx2",
+     "part": "Screw M2.5 × 10 pan head T-drive (ISO 14583 (hexalobular pan head), A2 stainless)",
+     "category": "mechanical",
+     "qty": 2.0,
+     "description": "Fastener aggregated from the assembly joints (api.cad.stdparts)",
+     "manufacturer_pn": null,
+     "lcsc_pn": null,
+     "unit_cost_est": {
+      "value": 0.022,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+     },
+     "risk": null,
+     "alternative": null
+    },
+    {
+     "id": "fx3",
+     "part": "Screw M3 × 8 pan head T-drive (ISO 14583 (hexalobular pan head), A2 stainless)",
+     "category": "mechanical",
+     "qty": 10.0,
+     "description": "Fastener aggregated from the assembly joints (api.cad.stdparts)",
+     "manufacturer_pn": null,
+     "lcsc_pn": null,
+     "unit_cost_est": {
+      "value": 0.025,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+     },
+     "risk": null,
+     "alternative": null
+    }
+   ],
+   "checks": [
+    {
+     "id": "asm_interference",
+     "name": "Interference between moving parts",
+     "domain": "assembly",
+     "value": {
+      "value": 0.0,
+      "unit": "pairs",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of every part pair (OCCT), classified by the assembly joints; total 0.0 mm³"
+     },
+     "threshold": "0 intersecting pairs > 0.01 mm³ between parts that move relative to each other (different rigid bodies, over their motion study) or across a parting line — CAD interference-check practice",
+     "verdict": "pass",
+     "formula": "V(A ∩ B) per pair of solids at the assembled pose and over each moving joint's motion study",
+     "inputs": [
+      {
+       "value": 0.0,
+       "unit": "mm³",
+       "label": "measured",
+       "source_or_assumption": "Sum of interference volumes"
+      }
+     ],
+     "notes": []
+    },
+    {
+     "id": "asm_static_overlap",
+     "name": "Overlaps inside rigid bodies (concept geometry)",
+     "domain": "assembly",
+     "value": {
+      "value": 1657.7,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "3 pairs of rigidly joined parts interpenetrate (1 over 5 % of the smaller part)"
+     },
+     "threshold": "Parts of one rigid body should not interpenetrate: overlap > 5 % of the smaller part = concept geometry to pocket at detail design (warn); smaller overlaps are seats (info)",
+     "verdict": "warn",
+     "formula": "V(A ∩ B) for parts of the same rigid body that are not directly joined",
+     "inputs": [],
+     "notes": [
+      "Light diffuser ↔ Lower body 2: 1652 mm³"
+     ]
+    },
+    {
+     "id": "asm_clearance",
+     "name": "Minimum clearance of moving parts",
+     "domain": "assembly",
+     "value": {
+      "value": 12.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Lower bound: no moving part has a neighbour within 12 mm (or no moving joint)"
+     },
+     "threshold": "Moving parts clear their surroundings",
+     "verdict": "info",
+     "formula": "min over poses of d(moving subtree, other parts); revolute props 12 poses / 360°, buttons pressed 0.5 mm",
+     "inputs": [],
+     "notes": []
+    },
+    {
+     "id": "asm_parting_gap",
+     "name": "Shell parting-line gap",
+     "domain": "assembly",
+     "value": {
+      "value": 0.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "BRepExtrema distance between the two shells of each parting line"
+     },
+     "threshold": "Shells meet at the parting line: gap ≤ 0.3 mm (visible-gap limit for moulded enclosures)",
+     "verdict": "pass",
+     "formula": "d(top shell, bottom shell); an overlap is reported as an interference",
+     "inputs": [],
+     "notes": [
+      "Lower body / Body: 0.00 mm",
+      "Body 2 / Lower body 2: 0.00 mm"
+     ]
+    },
+    {
+     "id": "asm_fastener_engagement",
+     "name": "Screw engagement vs insert / thread",
+     "domain": "assembly",
+     "value": {
+      "value": 5.7,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Material under each screw measured by a line ∩ solid on both parts; flange capped at 2·d (counterbore), screw = shortest ISO length reaching the insert / thread"
+     },
+     "threshold": "Heat-set insert: boss holds the insert + 0.5 mm and the screw engages ≥ 80 % of it (McMaster-Carr 94459A insert data); tapped metal ≥ 1.5·d; thread-forming screw in plastic ≥ 2·d (EJOT DELTA PT design guide)",
+     "verdict": "fail",
+     "formula": "engagement = min(insert length, screw length − flange); boss depth = material of the threaded part",
+     "inputs": [
+      {
+       "value": 2.0,
+       "unit": "mm",
+       "label": "measured",
+       "source_or_assumption": "Smallest boss / thread material measured"
+      }
+     ],
+     "notes": [
+      "Body → Metal part: 2 × M2.5×10 (tapped), engagement ≥ 0.0 mm, warn (2 position(s) without material on both parts)",
+      "Lower body 2 → Metal part: 4 × M3×8 (tapped), engagement ≥ 6.0 mm, pass (2 position(s) without material on both parts)",
+      "Body 2 → Lower body 2: 6 × M3×8 + insert M3×5.7, engagement ≥ 5.7 mm, fail"
+     ]
+    },
+    {
+     "id": "asm_fastener_count",
+     "name": "Fasteners by standard",
+     "domain": "assembly",
+     "value": {
+      "value": 18.0,
+      "unit": "pcs",
+      "label": "estimate",
+      "source_or_assumption": "Joint rules (screws per parting-line perimeter, motor mounts, spring bars); sizes from the part scale"
+     },
+     "threshold": null,
+     "verdict": "info",
+     "formula": "Σ fasteners over the assembly joints",
+     "inputs": [],
+     "notes": [
+      "6 × insert M3×5.7 (Heat-set brass insert (McMaster-Carr 94459A140))",
+      "2 × screw M2.5×10 (ISO 14583 (hexalobular pan head), A2 stainless)",
+      "10 × screw M3×8 (ISO 14583 (hexalobular pan head), A2 stainless)"
+     ]
+    },
+    {
+     "id": "asm_joint_closure",
+     "name": "Joint closure (build123d Joints)",
+     "domain": "assembly",
+     "value": {
+      "value": 0.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Each child re-placed from its joint frame with build123d RigidJoint / RevoluteJoint / LinearJoint.connect_to; 10 joints"
+     },
+     "threshold": "build123d joints re-place every part at its modelled pose: residual < 0.01 mm",
+     "verdict": "pass",
+     "formula": "|bbox centre after connect_to − modelled bbox centre|",
+     "inputs": [],
+     "notes": []
+    },
+    {
+     "id": "asm_support",
+     "name": "Every part is attached",
+     "domain": "assembly",
+     "value": {
+      "value": 0.0,
+      "unit": "parts",
+      "label": "measured",
+      "source_or_assumption": "Parts with no contact (≤ 0.05 mm, BRepExtrema) with the part they are joined to"
+     },
+     "threshold": "Every part touches the part it is joined to (contact ≤ 0.05 mm)",
+     "verdict": "pass",
+     "formula": "d(child, parent) ≤ 0.05 mm for every joint",
+     "inputs": [],
+     "notes": []
+    }
+   ],
+   "summary": "11 parts · 10 joints (0 moving) · 0 interferences · 18 fasteners",
+   "engine": "c2.2"
+  }
+ },
+ "drawings": [
+  {
+   "sheet": "A1",
+   "kind": "assembly",
+   "part_id": null,
+   "title": "Magnetic Rechargeable Desk Lamp — general assembly",
+   "svg_url": "/files/demo_desk_lamp/drawings/v0_A1.svg",
+   "pdf_url": "/files/demo_desk_lamp/drawings/v0_A1.pdf",
+   "set_pdf_url": "/files/demo_desk_lamp/drawings/v0_set.pdf",
+   "version": 0,
+   "size": "A3",
+   "scale": "1:5",
+   "bbox_mm": [
+    180.0,
+    120.0,
+    342.4
+   ],
+   "bom_item_id": null,
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P01",
+   "kind": "part",
+   "part_id": "metal_1",
+   "title": "Structural part — anodised aluminium",
+   "svg_url": "/files/demo_desk_lamp/drawings/v0_P01.svg",
+   "pdf_url": "/files/demo_desk_lamp/drawings/v0_P01.pdf",
+   "set_pdf_url": "/files/demo_desk_lamp/drawings/v0_set.pdf",
+   "version": 0,
+   "size": "A3",
+   "scale": "1:2",
+   "bbox_mm": [
+    16.0,
+    16.0,
+    300.0
+   ],
+   "bom_item_id": "hw1",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P02",
+   "kind": "part",
+   "part_id": "accent_1",
+   "title": "Lower housing — Aluminium 6063 + PC/ABS",
+   "svg_url": "/files/demo_desk_lamp/drawings/v0_P02.svg",
+   "pdf_url": "/files/demo_desk_lamp/drawings/v0_P02.pdf",
+   "set_pdf_url": "/files/demo_desk_lamp/drawings/v0_set.pdf",
+   "version": 0,
+   "size": "A3",
+   "scale": "1:1",
+   "bbox_mm": [
+    120.0,
+    120.0,
+    13.2
+   ],
+   "bom_item_id": "m1",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P03",
+   "kind": "part",
+   "part_id": "body_1",
+   "title": "Housing — Aluminium 6063 + PC/ABS",
+   "svg_url": "/files/demo_desk_lamp/drawings/v0_P03.svg",
+   "pdf_url": "/files/demo_desk_lamp/drawings/v0_P03.pdf",
+   "set_pdf_url": "/files/demo_desk_lamp/drawings/v0_set.pdf",
+   "version": 0,
+   "size": "A3",
+   "scale": "1:1",
+   "bbox_mm": [
+    120.0,
+    120.0,
+    8.8
+   ],
+   "bom_item_id": "m4",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P04",
+   "kind": "part",
+   "part_id": "accent_2",
+   "title": "Lower housing 2 — Aluminium 6063 + PC/ABS",
+   "svg_url": "/files/demo_desk_lamp/drawings/v0_P04.svg",
+   "pdf_url": "/files/demo_desk_lamp/drawings/v0_P04.pdf",
+   "set_pdf_url": "/files/demo_desk_lamp/drawings/v0_set.pdf",
+   "version": 0,
+   "size": "A4",
+   "scale": "1:1",
+   "bbox_mm": [
+    180.0,
+    40.0,
+    10.8
+   ],
+   "bom_item_id": null,
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P05",
+   "kind": "part",
+   "part_id": "body_2",
+   "title": "Housing 2 — Aluminium 6063 + PC/ABS",
+   "svg_url": "/files/demo_desk_lamp/drawings/v0_P05.svg",
+   "pdf_url": "/files/demo_desk_lamp/drawings/v0_P05.pdf",
+   "set_pdf_url": "/files/demo_desk_lamp/drawings/v0_set.pdf",
+   "version": 0,
+   "size": "A4",
+   "scale": "1:1",
+   "bbox_mm": [
+    180.0,
+    40.0,
+    7.2
+   ],
+   "bom_item_id": null,
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P06",
+   "kind": "part",
+   "part_id": "diffuser_1",
+   "title": "Light diffuser",
+   "svg_url": "/files/demo_desk_lamp/drawings/v0_P06.svg",
+   "pdf_url": "/files/demo_desk_lamp/drawings/v0_P06.pdf",
+   "set_pdf_url": "/files/demo_desk_lamp/drawings/v0_set.pdf",
+   "version": 0,
+   "size": "A4",
+   "scale": "1:1",
+   "bbox_mm": [
+    160.0,
+    26.0,
+    0.8
+   ],
+   "bom_item_id": "m2",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P07",
+   "kind": "part",
+   "part_id": "rubber_1",
+   "title": "Detail part — TPE rubber",
+   "svg_url": "/files/demo_desk_lamp/drawings/v0_P07.svg",
+   "pdf_url": "/files/demo_desk_lamp/drawings/v0_P07.pdf",
+   "set_pdf_url": "/files/demo_desk_lamp/drawings/v0_set.pdf",
+   "version": 0,
+   "size": "A3",
+   "scale": "1:1",
+   "bbox_mm": [
+    100.0,
+    100.0,
+    1.2
+   ],
+   "bom_item_id": "hw1",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P08",
+   "kind": "part",
+   "part_id": "screw_bosses",
+   "title": "Screw bosses",
+   "svg_url": "/files/demo_desk_lamp/drawings/v0_P08.svg",
+   "pdf_url": "/files/demo_desk_lamp/drawings/v0_P08.pdf",
+   "set_pdf_url": "/files/demo_desk_lamp/drawings/v0_set.pdf",
+   "version": 0,
+   "size": "A3",
+   "scale": "1:1",
+   "bbox_mm": [
+    107.81,
+    107.81,
+    7.6
+   ],
+   "bom_item_id": "hw2",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P09",
+   "kind": "part",
+   "part_id": "m3_x_20_pan_screws_x4",
+   "title": "M3 × 20 pan screws ×4",
+   "svg_url": "/files/demo_desk_lamp/drawings/v0_P09.svg",
+   "pdf_url": "/files/demo_desk_lamp/drawings/v0_P09.pdf",
+   "set_pdf_url": "/files/demo_desk_lamp/drawings/v0_set.pdf",
+   "version": 0,
+   "size": "A3",
+   "scale": "1:1",
+   "bbox_mm": [
+    105.41,
+    105.41,
+    22.4
+   ],
+   "bom_item_id": "hw2",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P10",
+   "kind": "part",
+   "part_id": "m3_heat_set_inserts_x4",
+   "title": "M3 heat-set inserts ×4",
+   "svg_url": "/files/demo_desk_lamp/drawings/v0_P10.svg",
+   "pdf_url": "/files/demo_desk_lamp/drawings/v0_P10.pdf",
+   "set_pdf_url": "/files/demo_desk_lamp/drawings/v0_set.pdf",
+   "version": 0,
+   "size": "A3",
+   "scale": "1:1",
+   "bbox_mm": [
+    104.51,
+    104.51,
+    5.7
+   ],
+   "bom_item_id": "hw1",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P11",
+   "kind": "part",
+   "part_id": "metal_2",
+   "title": "Structural part 2 — anodised aluminium",
+   "svg_url": "/files/demo_desk_lamp/drawings/v0_P11.svg",
+   "pdf_url": "/files/demo_desk_lamp/drawings/v0_P11.pdf",
+   "set_pdf_url": "/files/demo_desk_lamp/drawings/v0_set.pdf",
+   "version": 0,
+   "size": "A4",
+   "scale": "5:1",
+   "bbox_mm": [
+    12.0,
+    12.0,
+    1.2
+   ],
+   "bom_item_id": "hw1",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "M01",
+   "kind": "moulded",
+   "part_id": "2",
+   "title": "2 — moulded (DFM model)",
+   "svg_url": "/files/demo_desk_lamp/drawings/v0_M01.svg",
+   "pdf_url": "/files/demo_desk_lamp/drawings/v0_M01.pdf",
+   "set_pdf_url": "/files/demo_desk_lamp/drawings/v0_set.pdf",
+   "version": 0,
+   "size": "A4",
+   "scale": "1:1",
+   "bbox_mm": [
+    180.0,
+    40.0,
+    10.8
+   ],
+   "bom_item_id": null,
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "M02",
+   "kind": "moulded",
+   "part_id": "0",
+   "title": "0 — moulded (DFM model)",
+   "svg_url": "/files/demo_desk_lamp/drawings/v0_M02.svg",
+   "pdf_url": "/files/demo_desk_lamp/drawings/v0_M02.pdf",
+   "set_pdf_url": "/files/demo_desk_lamp/drawings/v0_set.pdf",
+   "version": 0,
+   "size": "A3",
+   "scale": "1:1",
+   "bbox_mm": [
+    120.0,
+    120.0,
+    13.2
+   ],
+   "bom_item_id": null,
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "M03",
+   "kind": "moulded",
+   "part_id": "3",
+   "title": "3 — moulded (DFM model)",
+   "svg_url": "/files/demo_desk_lamp/drawings/v0_M03.svg",
+   "pdf_url": "/files/demo_desk_lamp/drawings/v0_M03.pdf",
+   "set_pdf_url": "/files/demo_desk_lamp/drawings/v0_set.pdf",
+   "version": 0,
+   "size": "A4",
+   "scale": "1:1",
+   "bbox_mm": [
+    180.0,
+    40.0,
+    7.2
+   ],
+   "bom_item_id": null,
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "M04",
+   "kind": "moulded",
+   "part_id": "1",
+   "title": "1 — moulded (DFM model)",
+   "svg_url": "/files/demo_desk_lamp/drawings/v0_M04.svg",
+   "pdf_url": "/files/demo_desk_lamp/drawings/v0_M04.pdf",
+   "set_pdf_url": "/files/demo_desk_lamp/drawings/v0_set.pdf",
+   "version": 0,
+   "size": "A3",
+   "scale": "1:1",
+   "bbox_mm": [
+    120.0,
+    120.0,
+    8.8
+   ],
+   "bom_item_id": null,
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  }
+ ]
 }

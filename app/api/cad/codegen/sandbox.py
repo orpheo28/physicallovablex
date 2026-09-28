@@ -33,6 +33,9 @@ from typing import Any
 
 RUNNER = Path(__file__).resolve().parent / "_runner.py"
 ALLOWED_IMPORTS = {"build123d", "math"}
+# C1: `from api.cad.stdparts import <name>, …` (standard parts + DFM helpers, pure build123d) — named imports of the
+# listed helpers only; `import api…` / star imports / any other api module stay forbidden (the runner re-checks).
+STDPARTS_MODULE = "api.cad.stdparts"
 FORBIDDEN_NAMES = {
     "open", "exec", "eval", "compile", "__import__", "getattr", "setattr", "delattr", "globals", "locals", "vars",
     "input", "breakpoint", "help", "exit", "quit", "memoryview", "type",
@@ -67,6 +70,12 @@ def check_code(code: str) -> list[str]:
             for a in node.names:
                 if a.name.split(".")[0] not in ALLOWED_IMPORTS:
                     bad(node, f"import {a.name!r} is not allowed (only build123d and math)")
+        elif isinstance(node, ast.ImportFrom) and node.module == STDPARTS_MODULE and not node.level:
+            from api.cad.stdparts import SANDBOX_NAMES
+
+            for a in node.names:
+                if a.name not in SANDBOX_NAMES:
+                    bad(node, f"from api.cad.stdparts import {a.name!r} is not allowed (helpers: {', '.join(sorted(SANDBOX_NAMES))})")
         elif isinstance(node, ast.ImportFrom):
             if node.level or (node.module or "").split(".")[0] not in ALLOWED_IMPORTS:
                 bad(node, f"from {node.module!r} import … is not allowed (only build123d and math)")

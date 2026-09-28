@@ -32,7 +32,7 @@ def softened(shape, radius):
     except Exception:
         return shape
 
-def build():
+def _basic_build():
     parts = []
     hw, hd, hh = P["head_width"], P["head_depth"], P["head_height"]
 
@@ -181,4 +181,61 @@ def build():
         Pos(bottom[0] + 66, -29, bottom[2] + 7) *
         Box(20, 3, 7), "led", 1
     ))
+    return parts
+
+
+# === PRO DETAIL === (C5: the seed family 'stick_vacuum' CAD_DETAIL_LEVEL=pro block, appended deterministically, no LLM)
+P_PRO = {**{'height': 1180.0, 'wand_diameter': 38.0, 'bin_diameter': 96.0, 'bin_length': 230.0, 'cyclone_count': 10.0, 'motor_diameter': 72.0, 'handle_length': 150.0, 'head_width': 250.0, 'head_depth': 115.0, 'head_height': 58.0}, **P, **{}}
+
+
+def _f_lab(shape, role, n):
+    shape.label = f"{role}.{n}"
+    return shape
+
+
+def pro_details(P, parts):
+    """CAD_DETAIL_LEVEL=pro: motor housing split on its parting line and closed by 3 radial thread-forming screws into
+    bosses, floor-head clamshell screwed from underneath, cantilever snap-fit bin latch with a release button."""
+    from api.cad.stdparts import add_parts, named, parting_split, screw_joint, snap_fit
+
+    hd, hw, hh = P["head_depth"], P["head_width"], P["head_height"]
+    H, wr = P["height"], P["wand_diameter"] / 2
+    bl, br = P["bin_length"], P["bin_diameter"] / 2
+    unit_z0 = H - bl - 40
+    wx = -hd * 0.2
+    bx = wx + wr - br * 0.35 + br * 0.6
+    z_bin = unit_z0 + 40
+    bin_h = bl * 0.55
+    zc = z_bin + bin_h + bl * 0.3
+    mr = P["motor_diameter"] / 2
+    mx = bx - br - mr + 8
+    mz0 = z_bin + bin_h * 0.45
+    mz1 = zc + bl * 0.12
+    # motor housing: two halves on a parting line, 3 radial screws on the rear half (away from the bin)
+    motor = next(q for q in parts if q.label == "body.2")
+    zs = mz0 + (mz1 - mz0) * 0.55
+    motor_lower, motor_upper = parting_split(motor, zs)
+    parts = [q for q in parts if q is not motor]
+    parts.append(_f_lab(named(motor_lower, "Motor housing (lower)", role="shell_bottom"), "body", 2))
+    parts.append(_f_lab(named(motor_upper, "Motor housing (upper)", role="shell_top"), "body", 6))
+    kit = []
+    for deg in (130, 180, 230):
+        a = math.radians(deg)
+        at = (mx + mr * math.cos(a), mr * math.sin(a), zs + 6)
+        kit += screw_joint("M3", at, (-math.cos(a), -math.sin(a), 0), grip=2.2, head="pan", into="pt", boss_len=8, wall=2.2)
+    # floor head: 4 screws from underneath into the upper clamshell
+    for sx, sy in ((1, 1), (1, -1), (-1, 1), (-1, -1)):
+        kit += screw_joint("M3", (sx * hd * 0.32, sy * (hw / 2 - 20), 4.0), (0, 0, 1), grip=2.2, head="pan", into="pt",
+                          boss_len=hh * 0.5, wall=2.2)
+    # bin latch: cantilever snap on the bin cap (+X side) + a release button on the shroud collar
+    latch = snap_fit(14.0, 1.6, 8.0, "pc_abs")
+    kit.append(latch.moved(Location((bx + br + 2.5, 0, z_bin - 12), (0, 0, 1), 180)))
+    kit[-1].std_meta = dict(latch.std_meta, name="Bin latch (snap-fit)", group="bin_latch", look_role="accent")
+    return add_parts(parts, kit, "accent")
+
+
+def build():
+    r = _basic_build()
+    r = r[1] if isinstance(r, tuple) else r
+    parts = pro_details(P_PRO, list(r) if isinstance(r, list) else list(r.children))
     return parts

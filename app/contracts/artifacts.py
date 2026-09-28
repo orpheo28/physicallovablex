@@ -888,6 +888,30 @@ class StructuredSpec(Model):
     tolerances: list[str]
 
 
+DRAWINGS_NOTE = "Generated from CAD — verify before release"
+
+
+class DrawingSheet(Model):
+    """C3 (additive): one 2D technical drawing sheet of a version — GET /projects/{id}/drawings?version=n (CAD_DRAWINGS=1).
+    Orthographic views (first angle) + isometric, dimensions measured on the STEP, ISO 2768-m title block."""
+
+    sheet: str = Field(description="Sheet id within the version: 'A1' assembly, 'P01'… parts, 'M01'… moulded shells (DFM model)")
+    kind: Literal["assembly", "part", "moulded"]
+    part_id: str | None = Field(default=None, description="GLB part_id (PartMeta.part_id) drawn on a part sheet; None on the assembly")
+    title: str
+    svg_url: str = Field(description="/files/<pid>/drawings/v<n>_<sheet>.svg")
+    pdf_url: str = Field(description="/files/<pid>/drawings/v<n>_<sheet>.pdf (vector, one page)")
+    set_pdf_url: str = Field(description="/files/<pid>/drawings/v<n>_set.pdf — every sheet of the version, one PDF")
+    version: int
+    size: Literal["A3", "A4"]
+    scale: str = Field(description="Scale of the orthographic views, ISO 5455 standard, e.g. '1:2'")
+    bbox_mm: list[float] = Field(min_length=3, max_length=3, description="Overall [x, y, z] measured on the STEP (Z up)")
+    bom_item_id: str | None = None
+    qty: int = 1
+    label: Literal["measured"] = "measured"
+    note: Literal["Generated from CAD — verify before release"] = DRAWINGS_NOTE
+
+
 class FactoryPack(Model):
     id: str
     project_id: str
@@ -921,6 +945,8 @@ class FactoryPack(Model):
     assumption_register: list[Assumption]
     # 10. Engineering & prototype path (W20, additive): checks, standards, power budget, prototype path, firmware note
     engineering: EngineeringArtifact | None = None
+    # 3b. Drawings (C3, additive; CAD_DRAWINGS=1): the version's 2D sheets (SVG + PDF), measured on the STEP
+    drawings: list[DrawingSheet] = Field(default_factory=list)
 
 
 # ---------------------------------------------------------------------------
@@ -1107,13 +1133,95 @@ class EngineeringCheck(Model):
     id: str
     name: str
     domain: Literal["stability", "hydrodynamics", "power", "ingress", "airflow", "fluid", "solar", "thermal", "mass", "geometry",
-                    "flight", "regulatory"]
+                    "flight", "regulatory", "assembly"]
     value: LabeledValue
     threshold: str | None = Field(default=None, description="Human wording of the pass/warn/fail rule, e.g. '≥ 15° (design target)'")
     verdict: CheckVerdict
     formula: str = Field(description="Formula and assumptions, with the inputs' labels")
     inputs: list[LabeledValue] = Field(default_factory=list, description="Inputs of the formula (each labeled)")
     notes: list[str] = Field(default_factory=list, description="e.g. the sealing checklist of an IP check")
+
+
+# ---------------------------------------------------------------------------
+# Assembly (C2, additive) — GET /projects/{id}/assembly?version=n; EngineeringArtifact.assembly; behind CAD_ASSEMBLY=1
+# ---------------------------------------------------------------------------
+
+
+class FastenerUse(Model):
+    """One fastener kind used at a joint (screw + its insert are two rows)."""
+
+    kind: Literal["screw", "insert", "spring_bar", "pin", "nut", "washer"]
+    standard: str = Field(description="e.g. 'ISO 14583 (hexalobular pan head)', 'Heat-set brass insert'")
+    designation: str = Field(description="e.g. 'M2.5×8', 'M2.5×4.0'")
+    size: str = Field(description="Thread / nominal size, e.g. 'M2.5'")
+    length_mm: float
+    qty: int
+    source: str = Field(description="'api.cad.stdparts' (C1 catalogue) or 'built-in table' (C2 fallback)")
+
+
+class AssemblyJoint(Model):
+    id: str
+    parent: str = Field(description="part_id of the parent (the part that carries the joint)")
+    child: str = Field(description="part_id placed by the joint")
+    kind: Literal["rigid", "revolute", "linear"] = Field(description="build123d RigidJoint / RevoluteJoint / LinearJoint")
+    method: Literal["screwed", "snap_fit", "inlay", "press_fit", "bonded", "clip", "hinge", "bearing", "slide", "latch"]
+    dof: int = Field(description="Degrees of freedom of the child relative to the parent (0 rigid, 1 revolute / linear)")
+    origin_mm: list[float] = Field(min_length=3, max_length=3, description="Joint origin, mm, GLB axes (+Y up)")
+    axis: list[float] | None = Field(default=None, min_length=3, max_length=3, description="Unit joint axis, GLB axes")
+    range: list[float] | None = Field(default=None, min_length=2, max_length=2, description="Motion range: deg (revolute) or mm (linear)")
+    fasteners: list[FastenerUse] = Field(default_factory=list)
+    rule: str = Field(description="Why this mate: the family / role rule that inferred it")
+
+
+class AssemblyNode(Model):
+    part_id: str = Field(description="= PartMeta.part_id of the version GLB")
+    name: str
+    role: str
+    parent: str | None = Field(default=None, description="Parent part_id (None = assembly root)")
+    joint_id: str | None = None
+    rigid_body: int = Field(description="Parts with the same number move together (connected by rigid joints)")
+    volume: LabeledValue = Field(description="Measured solid volume, mm³")
+    explode_vector: list[float] = Field(min_length=3, max_length=3, description="Unit vector, GLB axes; derived from the joint")
+    explode_distance_mm: float = Field(description="Cumulative along the tree (a child moves with its parent)")
+
+
+class AssemblyInterference(Model):
+    a: str
+    b: str
+    volume: LabeledValue = Field(description="Boolean intersection volume, mm³ (Measured; tolerance 0.01 mm³)")
+    kind: Literal["interference", "joint_seat", "static_overlap"] = Field(description=(
+        "interference = parts that move relative to each other (different rigid bodies, not joint partners) or the two shells "
+        "of a parting line overlap → fail; joint_seat = overlap between the two parts of one joint (seat / insertion depth of "
+        "concept geometry); static_overlap = parts of one rigid body interpenetrate (concept geometry, pocket at detail design)"))
+    note: str = ""
+
+
+class AssemblyClearance(Model):
+    part_id: str = Field(description="Moving part (or the smaller part of an adjacent pair)")
+    against: str
+    min_clearance: LabeledValue = Field(description="Minimum distance, mm (Measured with BRepExtrema; over the motion range when moving)")
+    motion: str = Field(description="e.g. 'revolute 0-360° (12 steps)', 'linear 0-0.8 mm', 'static'")
+    verdict: CheckVerdict
+    rule: str
+
+
+class ProjectAssembly(Model):
+    """GET /projects/{id}/assembly?version=n — parts connected by build123d joints, with measured assembly checks."""
+
+    project_id: str
+    version: int
+    label: str = "Measured on the version STEP (build123d / OCCT); mates inferred from the family / part roles"
+    source: str = Field(description="STEP the solids were read from, e.g. /files/<pid>/model_v2.step")
+    root: str = Field(description="part_id of the assembly root")
+    nodes: list[AssemblyNode]
+    joints: list[AssemblyJoint]
+    interferences: list[AssemblyInterference] = Field(default_factory=list, description="Every overlapping pair > 0.01 mm³, classified")
+    clearances: list[AssemblyClearance] = Field(default_factory=list)
+    fasteners: list[BOMItem] = Field(default_factory=list, description=(
+        "Fastener BOM lines aggregated by designation (ids 'fx<n>'; Estimate price unless LCSC-matched → Sourced)"))
+    checks: list[EngineeringCheck] = Field(default_factory=list, description="domain 'assembly'")
+    summary: str = Field(description="One line, e.g. '28 parts · 27 joints (3 moving) · 0 interferences · 16 fasteners'")
+    engine: str = Field(description="Assembly engine version (cache key)")
 
 
 class PowerNode(Model):
@@ -1255,6 +1363,9 @@ class EngineeringArtifact(ArtifactBase):
         "W21b: what one 'unit' is for this product — per_installation for site installs (rooftop solar): costs are per site"))
     installation_cost: LabeledValue | None = Field(default=None, description=(
         "W21b: turnkey cost of one installation (per_installation only; = solar.install_cost)"))
+    assembly: ProjectAssembly | None = Field(default=None, description=(
+        "C2 (CAD_ASSEMBLY=1): assembly tree, joints, measured interference / clearance / fastener checks (also in `checks`, "
+        "domain 'assembly'); travels into the Factory Pack with `FactoryPack.engineering`"))
 
 
 # ---------------------------------------------------------------------------
@@ -1463,6 +1574,11 @@ class PartMeta(Model):
     editable: list[PartEditable] = Field(default_factory=list)
     colour_editable: bool = False
     material_options: list[str] = Field(default_factory=list, description="Material keys accepted by POST /parts/{id}/edit")
+    parent_part_id: str | None = Field(default=None, description="C2 (CAD_ASSEMBLY=1): parent in the assembly tree")
+    joint: Literal["rigid", "revolute", "linear"] | None = Field(default=None, description="C2: joint to the parent")
+    explode_vector: list[float] | None = Field(default=None, min_length=3, max_length=3, description=(
+        "C2: unit vector (GLB axes) derived from the joint; move the part node by explode_vector × explode_distance_mm"))
+    explode_distance_mm: float | None = Field(default=None, description="C2: cumulative along the assembly tree")
 
 
 class ProjectParts(Model):

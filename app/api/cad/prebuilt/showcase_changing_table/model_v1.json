@@ -2,7 +2,7 @@
  "status": "ok",
  "version": 1,
  "source": "llm:openai/gpt-6-sol",
- "label": "AI-generated CAD (concept level) \u2014 geometry measured on the result",
+ "label": "AI-generated CAD (concept level) — geometry measured on the result",
  "category": "furniture_child",
  "seed_family": "furniture",
  "variant": "changing_table",
@@ -23,7 +23,7 @@
   564.5,
   1010.0
  ],
- "volume_mm3": 43011261.4,
+ "volume_mm3": 43040423.8,
  "parts": [
   {
    "label": "body.1",
@@ -211,6 +211,678 @@
     5.0,
     76.0
    ]
+  },
+  {
+   "label": "hardwood.117",
+   "role": "hardwood",
+   "volume_mm3": 1714.4,
+   "valid": true,
+   "bbox_mm": [
+    35.0,
+    8.0,
+    8.0
+   ],
+   "std_meta": {
+    "kind": "wood_dowel",
+    "role": "fastener",
+    "standard": "DIN 68150",
+    "size": "Ø8 × 35",
+    "material": "fluted beech",
+    "bom": {
+     "part": "Fluted beech dowel Ø8 × 35 (DIN 68150)",
+     "standard": "DIN 68150",
+     "kind": "wood_dowel",
+     "unit_price_usd": 0.01,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "beech",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "hardwood.118",
+   "role": "hardwood",
+   "volume_mm3": 1714.4,
+   "valid": true,
+   "bbox_mm": [
+    35.0,
+    8.0,
+    8.0
+   ],
+   "std_meta": {
+    "kind": "wood_dowel",
+    "role": "fastener",
+    "standard": "DIN 68150",
+    "size": "Ø8 × 35",
+    "material": "fluted beech",
+    "bom": {
+     "part": "Fluted beech dowel Ø8 × 35 (DIN 68150)",
+     "standard": "DIN 68150",
+     "kind": "wood_dowel",
+     "unit_price_usd": 0.01,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "beech",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.119",
+   "role": "steel",
+   "volume_mm3": 216.5,
+   "valid": true,
+   "bbox_mm": [
+    8.08,
+    8.08,
+    30.0
+   ],
+   "std_meta": {
+    "kind": "wood_screw",
+    "role": "fastener",
+    "standard": "Chipboard screw (EN 14592 class)",
+    "size": "4 × 30",
+    "material": "zinc-plated steel",
+    "bom": {
+     "part": "Wood screw 4 × 30 countersunk PZ2, zinc-plated",
+     "standard": "EN 14592",
+     "kind": "wood_screw",
+     "unit_price_usd": 0.03,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "zinc-plated steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "hardwood.120",
+   "role": "hardwood",
+   "volume_mm3": 1714.4,
+   "valid": true,
+   "bbox_mm": [
+    35.0,
+    8.0,
+    8.0
+   ],
+   "std_meta": {
+    "kind": "wood_dowel",
+    "role": "fastener",
+    "standard": "DIN 68150",
+    "size": "Ø8 × 35",
+    "material": "fluted beech",
+    "bom": {
+     "part": "Fluted beech dowel Ø8 × 35 (DIN 68150)",
+     "standard": "DIN 68150",
+     "kind": "wood_dowel",
+     "unit_price_usd": 0.01,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "beech",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "hardwood.121",
+   "role": "hardwood",
+   "volume_mm3": 1714.4,
+   "valid": true,
+   "bbox_mm": [
+    35.0,
+    8.0,
+    8.0
+   ],
+   "std_meta": {
+    "kind": "wood_dowel",
+    "role": "fastener",
+    "standard": "DIN 68150",
+    "size": "Ø8 × 35",
+    "material": "fluted beech",
+    "bom": {
+     "part": "Fluted beech dowel Ø8 × 35 (DIN 68150)",
+     "standard": "DIN 68150",
+     "kind": "wood_dowel",
+     "unit_price_usd": 0.01,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "beech",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.122",
+   "role": "steel",
+   "volume_mm3": 216.5,
+   "valid": true,
+   "bbox_mm": [
+    8.08,
+    8.08,
+    30.0
+   ],
+   "std_meta": {
+    "kind": "wood_screw",
+    "role": "fastener",
+    "standard": "Chipboard screw (EN 14592 class)",
+    "size": "4 × 30",
+    "material": "zinc-plated steel",
+    "bom": {
+     "part": "Wood screw 4 × 30 countersunk PZ2, zinc-plated",
+     "standard": "EN 14592",
+     "kind": "wood_screw",
+     "unit_price_usd": 0.03,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "zinc-plated steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "hardwood.123",
+   "role": "hardwood",
+   "volume_mm3": 1714.4,
+   "valid": true,
+   "bbox_mm": [
+    35.0,
+    8.0,
+    8.0
+   ],
+   "std_meta": {
+    "kind": "wood_dowel",
+    "role": "fastener",
+    "standard": "DIN 68150",
+    "size": "Ø8 × 35",
+    "material": "fluted beech",
+    "bom": {
+     "part": "Fluted beech dowel Ø8 × 35 (DIN 68150)",
+     "standard": "DIN 68150",
+     "kind": "wood_dowel",
+     "unit_price_usd": 0.01,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "beech",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "hardwood.124",
+   "role": "hardwood",
+   "volume_mm3": 1714.4,
+   "valid": true,
+   "bbox_mm": [
+    35.0,
+    8.0,
+    8.0
+   ],
+   "std_meta": {
+    "kind": "wood_dowel",
+    "role": "fastener",
+    "standard": "DIN 68150",
+    "size": "Ø8 × 35",
+    "material": "fluted beech",
+    "bom": {
+     "part": "Fluted beech dowel Ø8 × 35 (DIN 68150)",
+     "standard": "DIN 68150",
+     "kind": "wood_dowel",
+     "unit_price_usd": 0.01,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "beech",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.125",
+   "role": "steel",
+   "volume_mm3": 216.5,
+   "valid": true,
+   "bbox_mm": [
+    8.08,
+    8.08,
+    30.0
+   ],
+   "std_meta": {
+    "kind": "wood_screw",
+    "role": "fastener",
+    "standard": "Chipboard screw (EN 14592 class)",
+    "size": "4 × 30",
+    "material": "zinc-plated steel",
+    "bom": {
+     "part": "Wood screw 4 × 30 countersunk PZ2, zinc-plated",
+     "standard": "EN 14592",
+     "kind": "wood_screw",
+     "unit_price_usd": 0.03,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "zinc-plated steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "hardwood.126",
+   "role": "hardwood",
+   "volume_mm3": 1714.4,
+   "valid": true,
+   "bbox_mm": [
+    35.0,
+    8.0,
+    8.0
+   ],
+   "std_meta": {
+    "kind": "wood_dowel",
+    "role": "fastener",
+    "standard": "DIN 68150",
+    "size": "Ø8 × 35",
+    "material": "fluted beech",
+    "bom": {
+     "part": "Fluted beech dowel Ø8 × 35 (DIN 68150)",
+     "standard": "DIN 68150",
+     "kind": "wood_dowel",
+     "unit_price_usd": 0.01,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "beech",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "hardwood.127",
+   "role": "hardwood",
+   "volume_mm3": 1714.4,
+   "valid": true,
+   "bbox_mm": [
+    35.0,
+    8.0,
+    8.0
+   ],
+   "std_meta": {
+    "kind": "wood_dowel",
+    "role": "fastener",
+    "standard": "DIN 68150",
+    "size": "Ø8 × 35",
+    "material": "fluted beech",
+    "bom": {
+     "part": "Fluted beech dowel Ø8 × 35 (DIN 68150)",
+     "standard": "DIN 68150",
+     "kind": "wood_dowel",
+     "unit_price_usd": 0.01,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "beech",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.128",
+   "role": "steel",
+   "volume_mm3": 216.5,
+   "valid": true,
+   "bbox_mm": [
+    8.08,
+    8.08,
+    30.0
+   ],
+   "std_meta": {
+    "kind": "wood_screw",
+    "role": "fastener",
+    "standard": "Chipboard screw (EN 14592 class)",
+    "size": "4 × 30",
+    "material": "zinc-plated steel",
+    "bom": {
+     "part": "Wood screw 4 × 30 countersunk PZ2, zinc-plated",
+     "standard": "EN 14592",
+     "kind": "wood_screw",
+     "unit_price_usd": 0.03,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "zinc-plated steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "hardwood.129",
+   "role": "hardwood",
+   "volume_mm3": 1714.4,
+   "valid": true,
+   "bbox_mm": [
+    8.0,
+    35.0,
+    8.0
+   ],
+   "std_meta": {
+    "kind": "wood_dowel",
+    "role": "fastener",
+    "standard": "DIN 68150",
+    "size": "Ø8 × 35",
+    "material": "fluted beech",
+    "bom": {
+     "part": "Fluted beech dowel Ø8 × 35 (DIN 68150)",
+     "standard": "DIN 68150",
+     "kind": "wood_dowel",
+     "unit_price_usd": 0.01,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "beech",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "hardwood.130",
+   "role": "hardwood",
+   "volume_mm3": 1714.4,
+   "valid": true,
+   "bbox_mm": [
+    8.0,
+    35.0,
+    8.0
+   ],
+   "std_meta": {
+    "kind": "wood_dowel",
+    "role": "fastener",
+    "standard": "DIN 68150",
+    "size": "Ø8 × 35",
+    "material": "fluted beech",
+    "bom": {
+     "part": "Fluted beech dowel Ø8 × 35 (DIN 68150)",
+     "standard": "DIN 68150",
+     "kind": "wood_dowel",
+     "unit_price_usd": 0.01,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "beech",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.131",
+   "role": "steel",
+   "volume_mm3": 216.5,
+   "valid": true,
+   "bbox_mm": [
+    8.08,
+    8.08,
+    30.0
+   ],
+   "std_meta": {
+    "kind": "wood_screw",
+    "role": "fastener",
+    "standard": "Chipboard screw (EN 14592 class)",
+    "size": "4 × 30",
+    "material": "zinc-plated steel",
+    "bom": {
+     "part": "Wood screw 4 × 30 countersunk PZ2, zinc-plated",
+     "standard": "EN 14592",
+     "kind": "wood_screw",
+     "unit_price_usd": 0.03,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "zinc-plated steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "hardwood.132",
+   "role": "hardwood",
+   "volume_mm3": 1714.4,
+   "valid": true,
+   "bbox_mm": [
+    8.0,
+    35.0,
+    8.0
+   ],
+   "std_meta": {
+    "kind": "wood_dowel",
+    "role": "fastener",
+    "standard": "DIN 68150",
+    "size": "Ø8 × 35",
+    "material": "fluted beech",
+    "bom": {
+     "part": "Fluted beech dowel Ø8 × 35 (DIN 68150)",
+     "standard": "DIN 68150",
+     "kind": "wood_dowel",
+     "unit_price_usd": 0.01,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "beech",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "hardwood.133",
+   "role": "hardwood",
+   "volume_mm3": 1714.4,
+   "valid": true,
+   "bbox_mm": [
+    8.0,
+    35.0,
+    8.0
+   ],
+   "std_meta": {
+    "kind": "wood_dowel",
+    "role": "fastener",
+    "standard": "DIN 68150",
+    "size": "Ø8 × 35",
+    "material": "fluted beech",
+    "bom": {
+     "part": "Fluted beech dowel Ø8 × 35 (DIN 68150)",
+     "standard": "DIN 68150",
+     "kind": "wood_dowel",
+     "unit_price_usd": 0.01,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "beech",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.134",
+   "role": "steel",
+   "volume_mm3": 216.5,
+   "valid": true,
+   "bbox_mm": [
+    8.08,
+    8.08,
+    30.0
+   ],
+   "std_meta": {
+    "kind": "wood_screw",
+    "role": "fastener",
+    "standard": "Chipboard screw (EN 14592 class)",
+    "size": "4 × 30",
+    "material": "zinc-plated steel",
+    "bom": {
+     "part": "Wood screw 4 × 30 countersunk PZ2, zinc-plated",
+     "standard": "EN 14592",
+     "kind": "wood_screw",
+     "unit_price_usd": 0.03,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "zinc-plated steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "hardwood.135",
+   "role": "hardwood",
+   "volume_mm3": 1714.4,
+   "valid": true,
+   "bbox_mm": [
+    8.0,
+    35.0,
+    8.0
+   ],
+   "std_meta": {
+    "kind": "wood_dowel",
+    "role": "fastener",
+    "standard": "DIN 68150",
+    "size": "Ø8 × 35",
+    "material": "fluted beech",
+    "bom": {
+     "part": "Fluted beech dowel Ø8 × 35 (DIN 68150)",
+     "standard": "DIN 68150",
+     "kind": "wood_dowel",
+     "unit_price_usd": 0.01,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "beech",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "hardwood.136",
+   "role": "hardwood",
+   "volume_mm3": 1714.4,
+   "valid": true,
+   "bbox_mm": [
+    8.0,
+    35.0,
+    8.0
+   ],
+   "std_meta": {
+    "kind": "wood_dowel",
+    "role": "fastener",
+    "standard": "DIN 68150",
+    "size": "Ø8 × 35",
+    "material": "fluted beech",
+    "bom": {
+     "part": "Fluted beech dowel Ø8 × 35 (DIN 68150)",
+     "standard": "DIN 68150",
+     "kind": "wood_dowel",
+     "unit_price_usd": 0.01,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "beech",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.137",
+   "role": "steel",
+   "volume_mm3": 216.5,
+   "valid": true,
+   "bbox_mm": [
+    8.08,
+    8.08,
+    30.0
+   ],
+   "std_meta": {
+    "kind": "wood_screw",
+    "role": "fastener",
+    "standard": "Chipboard screw (EN 14592 class)",
+    "size": "4 × 30",
+    "material": "zinc-plated steel",
+    "bom": {
+     "part": "Wood screw 4 × 30 countersunk PZ2, zinc-plated",
+     "standard": "EN 14592",
+     "kind": "wood_screw",
+     "unit_price_usd": 0.03,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "zinc-plated steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "hardwood.138",
+   "role": "hardwood",
+   "volume_mm3": 1714.4,
+   "valid": true,
+   "bbox_mm": [
+    8.0,
+    35.0,
+    8.0
+   ],
+   "std_meta": {
+    "kind": "wood_dowel",
+    "role": "fastener",
+    "standard": "DIN 68150",
+    "size": "Ø8 × 35",
+    "material": "fluted beech",
+    "bom": {
+     "part": "Fluted beech dowel Ø8 × 35 (DIN 68150)",
+     "standard": "DIN 68150",
+     "kind": "wood_dowel",
+     "unit_price_usd": 0.01,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "beech",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "hardwood.139",
+   "role": "hardwood",
+   "volume_mm3": 1714.4,
+   "valid": true,
+   "bbox_mm": [
+    8.0,
+    35.0,
+    8.0
+   ],
+   "std_meta": {
+    "kind": "wood_dowel",
+    "role": "fastener",
+    "standard": "DIN 68150",
+    "size": "Ø8 × 35",
+    "material": "fluted beech",
+    "bom": {
+     "part": "Fluted beech dowel Ø8 × 35 (DIN 68150)",
+     "standard": "DIN 68150",
+     "kind": "wood_dowel",
+     "unit_price_usd": 0.01,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "beech",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.140",
+   "role": "steel",
+   "volume_mm3": 216.5,
+   "valid": true,
+   "bbox_mm": [
+    8.08,
+    8.08,
+    30.0
+   ],
+   "std_meta": {
+    "kind": "wood_screw",
+    "role": "fastener",
+    "standard": "Chipboard screw (EN 14592 class)",
+    "size": "4 × 30",
+    "material": "zinc-plated steel",
+    "bom": {
+     "part": "Wood screw 4 × 30 countersunk PZ2, zinc-plated",
+     "standard": "EN 14592",
+     "kind": "wood_screw",
+     "unit_price_usd": 0.03,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "zinc-plated steel",
+     "category": "mechanical"
+    }
+   }
   }
  ],
  "target_dims_mm": [
@@ -232,5 +904,64 @@
  "instruction": null,
  "parent_version": null,
  "seconds": 18.75,
- "brief": "product_name: Safe baby changing table; one_liner: A freestanding baby changing table with a stable frame, raised edges, and a wipe-clean changing surface.; category: mechanical; key_features: Stable freestanding frame; Raised edges around the changing surface; Wipe-clean changing surface; Accessible storage for changing supplies; Anchor provision to reduce tip-over risk; prompt: A simple, safe changing table for babies"
+ "brief": "product_name: Safe baby changing table; one_liner: A freestanding baby changing table with a stable frame, raised edges, and a wipe-clean changing surface.; category: mechanical; key_features: Stable freestanding frame; Raised edges around the changing surface; Wipe-clean changing surface; Accessible storage for changing supplies; Anchor provision to reduce tip-over risk; prompt: A simple, safe changing table for babies",
+ "detail_level": "pro",
+ "hardware_bom": [
+  {
+   "part": "Fluted beech dowel Ø8 × 35 (DIN 68150)",
+   "standard": "DIN 68150",
+   "kind": "wood_dowel",
+   "unit_price_usd": 0.01,
+   "price_label": "estimate",
+   "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+   "material": "beech",
+   "category": "mechanical",
+   "qty": 16,
+   "labels": [
+    "hardwood.117",
+    "hardwood.118",
+    "hardwood.120",
+    "hardwood.121",
+    "hardwood.123",
+    "hardwood.124",
+    "hardwood.126",
+    "hardwood.127",
+    "hardwood.129",
+    "hardwood.130",
+    "hardwood.132",
+    "hardwood.133",
+    "hardwood.135",
+    "hardwood.136",
+    "hardwood.138",
+    "hardwood.139"
+   ],
+   "size": "Ø8 × 35",
+   "id": "hw1",
+   "key": "fluted_beech_dowel_8_35_din_68150"
+  },
+  {
+   "part": "Wood screw 4 × 30 countersunk PZ2, zinc-plated",
+   "standard": "EN 14592",
+   "kind": "wood_screw",
+   "unit_price_usd": 0.03,
+   "price_label": "estimate",
+   "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+   "material": "zinc-plated steel",
+   "category": "mechanical",
+   "qty": 8,
+   "labels": [
+    "steel.119",
+    "steel.122",
+    "steel.125",
+    "steel.128",
+    "steel.131",
+    "steel.134",
+    "steel.137",
+    "steel.140"
+   ],
+   "size": "4 × 30",
+   "id": "hw2",
+   "key": "wood_screw_4_30_countersunk_pz2_zinc_plated"
+  }
+ ]
 }

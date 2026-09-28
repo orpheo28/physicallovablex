@@ -29,3 +29,16 @@ Files: `model_vN.{py,glb,step,stl,json}` in the project files dir. Versions are 
 
 Honesty: `LABEL` = "AI-generated CAD (concept level) — geometry measured on the result"; fallbacks carry
 `FALLBACK_LABEL` and a note. Tests: `uv run pytest tests/test_codegen.py tests/test_cad_families.py` (LLM mocked).
+
+## Retrieval-augmented prompts (C4, `CODEGEN_RAG=1`, default off)
+
+- `library.py` + `examples/`: 84 sandbox-verified build123d programs (17 family seeds, the generic example, 66 idioms:
+  `encl_` enclosures, `form_` revolve/loft/sweep/threads, `mech_` patterns/mirrors/joints), docstring = title,
+  description, `tags:`; measured facts in `examples/index.json` (`python -m api.cad.codegen.library --reindex`).
+- `retrieval.py`: pure-Python BM25 → up to 4 examples (2 in edit mode) within a 9,000-char budget (5,000 in edit
+  mode), seed family excluded, weak matches dropped.
+- `engine.py`: when the flag is on — `SYSTEM + RAG_RULES` (verified build123d do/don't list), the examples block
+  appended to the generate/edit prompt, `repair_hints(error)` in repair prompts, and `result["rag"]["examples"]`.
+  Flag off = prompts byte-identical to before (tested).
+- Measured in docs/CAD_BENCH.md (`tests/cad_bench.py`): no gain over the current prompt with `gpt-6-sol`
+  (100 % valid first try in both modes), 2.7× prompt tokens → left off. Tests: `tests/test_codegen_rag.py`.

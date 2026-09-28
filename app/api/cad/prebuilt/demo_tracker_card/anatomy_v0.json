@@ -1,5 +1,5 @@
 {
- "_v": "a4",
+ "_v": "a6",
  "version": 0,
  "glb_url": "/files/demo_tracker_card/anatomy_v0.glb",
  "label": "Illustrative internal layout \u2014 not a routed PCB",
@@ -15,7 +15,7 @@
    "name": "Top shell",
    "order": 0,
    "parts": [
-    "shell_top"
+    "body_1"
    ],
    "explode_vector": [
     0.0,
@@ -64,8 +64,8 @@
    "name": "Bottom shell",
    "order": 2,
    "parts": [
-    "shell_bottom",
-    "button"
+    "accent_1",
+    "button_1"
    ],
    "explode_vector": [
     0.0,
@@ -74,6 +74,21 @@
    ],
    "explode_distance_mm": 4.8,
    "caption": "Polycarbonate shell, 0.8 mm wall (Estimate)"
+  },
+  {
+   "id": "fasteners",
+   "name": "Fasteners",
+   "order": 3,
+   "parts": [
+    "ultrasonic_weld_energy_director"
+   ],
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 21.4,
+   "caption": "Fasteners \u00b7 1 kinds: Ultrasonic weld energy director"
   }
  ],
  "steps": [
@@ -117,10 +132,12 @@
     "fov_deg": 30.0
    },
    "layers_exploded": [
-    "shell_top"
+    "shell_top",
+    "fasteners"
    ],
    "focus_parts": [
-    "shell_top"
+    "body_1",
+    "ultrasonic_weld_energy_director"
    ]
   },
   {
@@ -142,7 +159,8 @@
     "fov_deg": 30.0
    },
    "layers_exploded": [
-    "shell_top"
+    "shell_top",
+    "fasteners"
    ],
    "focus_parts": [
     "main_pcb",
@@ -170,7 +188,8 @@
     "fov_deg": 30.0
    },
    "layers_exploded": [
-    "shell_top"
+    "shell_top",
+    "fasteners"
    ],
    "focus_parts": [
     "ble_5_soc_nrf52810",
@@ -182,7 +201,7 @@
    "id": "s5",
    "title": "Back together",
    "kicker": "05 \u00b7 Back together",
-   "caption": "Unit cost $4.18 at 2,000 units (Estimate), product mass 16.0 g (Estimate)",
+   "caption": "Unit cost $4.18 at 2,000 units (Estimate), product mass 19.0 g (Estimate)",
    "camera": {
     "position_mm": [
      -125.4,
@@ -202,12 +221,12 @@
  ],
  "parts": [
   {
-   "part_id": "shell_bottom",
-   "name": "Bottom shell",
+   "part_id": "accent_1",
+   "name": "Lower body",
    "role": "shell_bottom",
    "layer_id": "shell_bottom",
-   "material": "lower shell",
-   "finish": null,
+   "material": "Polycarbonate",
+   "finish": "Matte VDI 24 texture, black",
    "colour_hex": "#313234",
    "measured_bbox_mm": [
     85.6,
@@ -229,50 +248,30 @@
     "label": "estimate",
     "source_or_assumption": "Part weight 2.6 g \u00d7 resin + cycle cost"
    },
-   "editable": [
-    {
-     "param": "height",
-     "label": "Height",
-     "min": 5.8,
-     "max": 11.5,
-     "step": 0.5,
-     "unit": "mm",
-     "value": 5.8
-    },
-    {
-     "param": "length",
-     "label": "Length",
-     "min": 43.0,
-     "max": 171.0,
-     "step": 1.0,
-     "unit": "mm",
-     "value": 85.6
-    },
-    {
-     "param": "width",
-     "label": "Width",
-     "min": 27.0,
-     "max": 108.0,
-     "step": 1.0,
-     "unit": "mm",
-     "value": 54.0
-    }
-   ],
+   "editable": [],
    "colour_editable": true,
    "material_options": [
     "pc_abs",
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 0.0
   },
   {
-   "part_id": "shell_top",
-   "name": "Top shell",
+   "part_id": "body_1",
+   "name": "Body",
    "role": "shell_top",
    "layer_id": "shell_top",
-   "material": "moulded body",
-   "finish": null,
+   "material": "Polycarbonate",
+   "finish": "Matte VDI 24 texture, black",
    "colour_hex": "#1C1D1F",
    "measured_bbox_mm": [
     85.6,
@@ -285,7 +284,7 @@
     0.0
    ],
    "label": "measured",
-   "bom_item_id": "m1",
+   "bom_item_id": "m2",
    "lcsc_pn": null,
    "package": null,
    "unit_price": {
@@ -294,50 +293,30 @@
     "label": "estimate",
     "source_or_assumption": "Part weight 2.6 g \u00d7 resin + cycle cost"
    },
-   "editable": [
-    {
-     "param": "height",
-     "label": "Height",
-     "min": 5.8,
-     "max": 11.5,
-     "step": 0.5,
-     "unit": "mm",
-     "value": 5.8
-    },
-    {
-     "param": "length",
-     "label": "Length",
-     "min": 43.0,
-     "max": 171.0,
-     "step": 1.0,
-     "unit": "mm",
-     "value": 85.6
-    },
-    {
-     "param": "width",
-     "label": "Width",
-     "min": 27.0,
-     "max": 108.0,
-     "step": 1.0,
-     "unit": "mm",
-     "value": 54.0
-    }
-   ],
+   "editable": [],
    "colour_editable": true,
    "material_options": [
     "pc_abs",
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "accent_1",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 8.1
   },
   {
-   "part_id": "button",
+   "part_id": "button_1",
    "name": "Button",
    "role": "button",
    "layer_id": "shell_bottom",
-   "material": "button",
-   "finish": null,
+   "material": "Polycarbonate",
+   "finish": "Matte VDI 24 texture, black",
    "colour_hex": "#1A1B1D",
    "measured_bbox_mm": [
     0.6,
@@ -361,7 +340,55 @@
    },
    "editable": [],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "accent_1",
+   "joint": "linear",
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 11.0
+  },
+  {
+   "part_id": "ultrasonic_weld_energy_director",
+   "name": "Ultrasonic weld energy director",
+   "role": "other",
+   "layer_id": "fasteners",
+   "material": "Polycarbonate",
+   "finish": "Matte VDI 24 texture, black",
+   "colour_hex": "#1C1D1F",
+   "measured_bbox_mm": [
+    85.3,
+    0.1,
+    53.7
+   ],
+   "centroid_mm": [
+    0.0,
+    1.45,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": null,
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": null,
+   "editable": [],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ],
+   "parent_part_id": "body_1",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 2.2
   },
   {
    "part_id": "main_pcb",
@@ -393,7 +420,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "2_4_ghz_chip_antenna_3_2_1_6_mm",
@@ -425,7 +456,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "tactile_switch_smd_4_6_1_8_mm",
@@ -457,7 +492,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "ble_5_soc_nrf52810",
@@ -489,7 +528,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "crystal_32_768_khz_smd3215",
@@ -521,7 +564,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "crystal_32_mhz_smd2016",
@@ -553,7 +600,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "status_led_0402_white",
@@ -585,7 +636,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "mlcc_100_nf_0402_1",
@@ -617,7 +672,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "mlcc_100_nf_0402_2",
@@ -649,7 +708,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "mlcc_100_nf_0402_3",
@@ -681,7 +744,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "mlcc_100_nf_0402_4",
@@ -713,7 +780,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "mlcc_100_nf_0402_5",
@@ -745,7 +816,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "mlcc_100_nf_0402_6",
@@ -777,7 +852,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "mlcc_1_f_0402_1",
@@ -809,7 +888,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "mlcc_1_f_0402_2",
@@ -841,7 +924,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "piezo_disc_buzzer_12_mm",
@@ -873,7 +960,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "thin_lithium_primary_pouch_cell_3_v",
@@ -905,7 +996,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "control_pcb_4_layer_0_6_mm_enig",
@@ -937,7 +1032,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "passives_cluster",
@@ -969,7 +1068,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "switch_under_button",
@@ -1001,7 +1104,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   }
  ]
 }

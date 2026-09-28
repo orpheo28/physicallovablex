@@ -253,10 +253,25 @@ def build_assembly(params: dict[str, Any], path: Path | str, look: dict[str, dic
     """Full product GLB = shells of `params` + detail parts, cached by (params, features, look) hash."""
     path = Path(path)
     p = normalize(params)
-    key = hashlib.sha1(json.dumps({"v": BUILD_VERSION + LOOK_VERSION, "p": p, "f": sorted(features), "l": look},
-                                  sort_keys=True).encode()).hexdigest()[:16]
+    from api.cad.stdparts import is_pro
+
+    pro = is_pro() and int(p["family"]) != 4  # C5: lamp / boxes / tracker / wearable pod get their standard parts
+    key = hashlib.sha1(json.dumps({"v": BUILD_VERSION + LOOK_VERSION, "p": p, "f": sorted(features), "l": look,
+                                   **({"pro": 1} if pro else {})}, sort_keys=True).encode()).hexdigest()[:16]
     cache = path.parent / "_cache" / f"asm_{key}.glb"
     cache.parent.mkdir(parents=True, exist_ok=True)
+    if pro:  # labelled STEP + STL next to the GLB (assembly checks, drawings), hardware as named BOM-linked nodes
+        from api.cad.families import export_parts
+        from api.cad.stdparts.enclosure import pro_viewer_parts
+
+        stem = cache.with_suffix("")
+        if not all(stem.with_suffix(x).is_file() and stem.with_suffix(x).stat().st_size for x in (".glb", ".step")):
+            export_parts(pro_viewer_parts(p, set() if int(p["family"]) >= 3 else features), stem, look)
+        publish(cache, path)
+        for ext in (".step", ".stl"):
+            if stem.with_suffix(ext).is_file():
+                publish(stem.with_suffix(ext), path.with_suffix(ext))
+        return path
     if not (cache.exists() and cache.stat().st_size > 0):
         if int(p["family"]) >= 3:  # wearables (W17): moulded parts + strap, no desk-product details
             from api.cad.wearables import assembly_parts

@@ -1,5 +1,283 @@
 {
   "$defs": {
+    "AssemblyClearance": {
+      "additionalProperties": false,
+      "properties": {
+        "part_id": {
+          "description": "Moving part (or the smaller part of an adjacent pair)",
+          "title": "Part Id",
+          "type": "string"
+        },
+        "against": {
+          "title": "Against",
+          "type": "string"
+        },
+        "min_clearance": {
+          "$ref": "#/$defs/LabeledValue",
+          "description": "Minimum distance, mm (Measured with BRepExtrema; over the motion range when moving)"
+        },
+        "motion": {
+          "description": "e.g. 'revolute 0-360\u00b0 (12 steps)', 'linear 0-0.8 mm', 'static'",
+          "title": "Motion",
+          "type": "string"
+        },
+        "verdict": {
+          "$ref": "#/$defs/CheckVerdict"
+        },
+        "rule": {
+          "title": "Rule",
+          "type": "string"
+        }
+      },
+      "required": [
+        "part_id",
+        "against",
+        "min_clearance",
+        "motion",
+        "verdict",
+        "rule"
+      ],
+      "title": "AssemblyClearance",
+      "type": "object"
+    },
+    "AssemblyInterference": {
+      "additionalProperties": false,
+      "properties": {
+        "a": {
+          "title": "A",
+          "type": "string"
+        },
+        "b": {
+          "title": "B",
+          "type": "string"
+        },
+        "volume": {
+          "$ref": "#/$defs/LabeledValue",
+          "description": "Boolean intersection volume, mm\u00b3 (Measured; tolerance 0.01 mm\u00b3)"
+        },
+        "kind": {
+          "description": "interference = parts that move relative to each other (different rigid bodies, not joint partners) or the two shells of a parting line overlap \u2192 fail; joint_seat = overlap between the two parts of one joint (seat / insertion depth of concept geometry); static_overlap = parts of one rigid body interpenetrate (concept geometry, pocket at detail design)",
+          "enum": [
+            "interference",
+            "joint_seat",
+            "static_overlap"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "note": {
+          "default": "",
+          "title": "Note",
+          "type": "string"
+        }
+      },
+      "required": [
+        "a",
+        "b",
+        "volume",
+        "kind"
+      ],
+      "title": "AssemblyInterference",
+      "type": "object"
+    },
+    "AssemblyJoint": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "parent": {
+          "description": "part_id of the parent (the part that carries the joint)",
+          "title": "Parent",
+          "type": "string"
+        },
+        "child": {
+          "description": "part_id placed by the joint",
+          "title": "Child",
+          "type": "string"
+        },
+        "kind": {
+          "description": "build123d RigidJoint / RevoluteJoint / LinearJoint",
+          "enum": [
+            "rigid",
+            "revolute",
+            "linear"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "method": {
+          "enum": [
+            "screwed",
+            "snap_fit",
+            "inlay",
+            "press_fit",
+            "bonded",
+            "clip",
+            "hinge",
+            "bearing",
+            "slide",
+            "latch"
+          ],
+          "title": "Method",
+          "type": "string"
+        },
+        "dof": {
+          "description": "Degrees of freedom of the child relative to the parent (0 rigid, 1 revolute / linear)",
+          "title": "Dof",
+          "type": "integer"
+        },
+        "origin_mm": {
+          "description": "Joint origin, mm, GLB axes (+Y up)",
+          "items": {
+            "type": "number"
+          },
+          "maxItems": 3,
+          "minItems": 3,
+          "title": "Origin Mm",
+          "type": "array"
+        },
+        "axis": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "number"
+              },
+              "maxItems": 3,
+              "minItems": 3,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Unit joint axis, GLB axes",
+          "title": "Axis"
+        },
+        "range": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "number"
+              },
+              "maxItems": 2,
+              "minItems": 2,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Motion range: deg (revolute) or mm (linear)",
+          "title": "Range"
+        },
+        "fasteners": {
+          "items": {
+            "$ref": "#/$defs/FastenerUse"
+          },
+          "title": "Fasteners",
+          "type": "array"
+        },
+        "rule": {
+          "description": "Why this mate: the family / role rule that inferred it",
+          "title": "Rule",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "parent",
+        "child",
+        "kind",
+        "method",
+        "dof",
+        "origin_mm",
+        "rule"
+      ],
+      "title": "AssemblyJoint",
+      "type": "object"
+    },
+    "AssemblyNode": {
+      "additionalProperties": false,
+      "properties": {
+        "part_id": {
+          "description": "= PartMeta.part_id of the version GLB",
+          "title": "Part Id",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "role": {
+          "title": "Role",
+          "type": "string"
+        },
+        "parent": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Parent part_id (None = assembly root)",
+          "title": "Parent"
+        },
+        "joint_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Joint Id"
+        },
+        "rigid_body": {
+          "description": "Parts with the same number move together (connected by rigid joints)",
+          "title": "Rigid Body",
+          "type": "integer"
+        },
+        "volume": {
+          "$ref": "#/$defs/LabeledValue",
+          "description": "Measured solid volume, mm\u00b3"
+        },
+        "explode_vector": {
+          "description": "Unit vector, GLB axes; derived from the joint",
+          "items": {
+            "type": "number"
+          },
+          "maxItems": 3,
+          "minItems": 3,
+          "title": "Explode Vector",
+          "type": "array"
+        },
+        "explode_distance_mm": {
+          "description": "Cumulative along the tree (a child moves with its parent)",
+          "title": "Explode Distance Mm",
+          "type": "number"
+        }
+      },
+      "required": [
+        "part_id",
+        "name",
+        "role",
+        "rigid_body",
+        "volume",
+        "explode_vector",
+        "explode_distance_mm"
+      ],
+      "title": "AssemblyNode",
+      "type": "object"
+    },
     "Assumption": {
       "additionalProperties": false,
       "properties": {
@@ -46,6 +324,115 @@
         "label"
       ],
       "title": "Assumption",
+      "type": "object"
+    },
+    "BOMCategory": {
+      "enum": [
+        "electronic",
+        "mechanical",
+        "packaging"
+      ],
+      "title": "BOMCategory",
+      "type": "string"
+    },
+    "BOMItem": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "part": {
+          "title": "Part",
+          "type": "string"
+        },
+        "category": {
+          "$ref": "#/$defs/BOMCategory"
+        },
+        "qty": {
+          "description": "Quantity per finished unit",
+          "title": "Qty",
+          "type": "number"
+        },
+        "description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Description"
+        },
+        "manufacturer_pn": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Manufacturer Pn"
+        },
+        "lcsc_pn": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "e.g. 'C725790' when matched to the LCSC snapshot",
+          "title": "Lcsc Pn"
+        },
+        "unit_cost_est": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/LabeledValue"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "risk": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ComponentRisk"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "alternative": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Alternative"
+        }
+      },
+      "required": [
+        "id",
+        "part",
+        "category",
+        "qty"
+      ],
+      "title": "BOMItem",
       "type": "object"
     },
     "BuildStrategy": {
@@ -140,6 +527,27 @@
       ],
       "title": "CheckVerdict",
       "type": "string"
+    },
+    "ComponentRisk": {
+      "additionalProperties": false,
+      "properties": {
+        "level": {
+          "$ref": "#/$defs/RiskLevel"
+        },
+        "reasons": {
+          "description": "e.g. EOL, single source, long lead time, low stock",
+          "items": {
+            "type": "string"
+          },
+          "title": "Reasons",
+          "type": "array"
+        }
+      },
+      "required": [
+        "level"
+      ],
+      "title": "ComponentRisk",
+      "type": "object"
     },
     "DesignRisk": {
       "additionalProperties": false,
@@ -332,7 +740,8 @@
             "mass",
             "geometry",
             "flight",
-            "regulatory"
+            "regulatory",
+            "assembly"
           ],
           "title": "Domain",
           "type": "string"
@@ -387,6 +796,63 @@
         "formula"
       ],
       "title": "EngineeringCheck",
+      "type": "object"
+    },
+    "FastenerUse": {
+      "additionalProperties": false,
+      "description": "One fastener kind used at a joint (screw + its insert are two rows).",
+      "properties": {
+        "kind": {
+          "enum": [
+            "screw",
+            "insert",
+            "spring_bar",
+            "pin",
+            "nut",
+            "washer"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "standard": {
+          "description": "e.g. 'ISO 14583 (hexalobular pan head)', 'Heat-set brass insert'",
+          "title": "Standard",
+          "type": "string"
+        },
+        "designation": {
+          "description": "e.g. 'M2.5\u00d78', 'M2.5\u00d74.0'",
+          "title": "Designation",
+          "type": "string"
+        },
+        "size": {
+          "description": "Thread / nominal size, e.g. 'M2.5'",
+          "title": "Size",
+          "type": "string"
+        },
+        "length_mm": {
+          "title": "Length Mm",
+          "type": "number"
+        },
+        "qty": {
+          "title": "Qty",
+          "type": "integer"
+        },
+        "source": {
+          "description": "'api.cad.stdparts' (C1 catalogue) or 'built-in table' (C2 fallback)",
+          "title": "Source",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "standard",
+        "designation",
+        "size",
+        "length_mm",
+        "qty",
+        "source"
+      ],
+      "title": "FastenerUse",
       "type": "object"
     },
     "FirmwareProject": {
@@ -664,6 +1130,102 @@
       "title": "PowerNode",
       "type": "object"
     },
+    "ProjectAssembly": {
+      "additionalProperties": false,
+      "description": "GET /projects/{id}/assembly?version=n \u2014 parts connected by build123d joints, with measured assembly checks.",
+      "properties": {
+        "project_id": {
+          "title": "Project Id",
+          "type": "string"
+        },
+        "version": {
+          "title": "Version",
+          "type": "integer"
+        },
+        "label": {
+          "default": "Measured on the version STEP (build123d / OCCT); mates inferred from the family / part roles",
+          "title": "Label",
+          "type": "string"
+        },
+        "source": {
+          "description": "STEP the solids were read from, e.g. /files/<pid>/model_v2.step",
+          "title": "Source",
+          "type": "string"
+        },
+        "root": {
+          "description": "part_id of the assembly root",
+          "title": "Root",
+          "type": "string"
+        },
+        "nodes": {
+          "items": {
+            "$ref": "#/$defs/AssemblyNode"
+          },
+          "title": "Nodes",
+          "type": "array"
+        },
+        "joints": {
+          "items": {
+            "$ref": "#/$defs/AssemblyJoint"
+          },
+          "title": "Joints",
+          "type": "array"
+        },
+        "interferences": {
+          "description": "Every overlapping pair > 0.01 mm\u00b3, classified",
+          "items": {
+            "$ref": "#/$defs/AssemblyInterference"
+          },
+          "title": "Interferences",
+          "type": "array"
+        },
+        "clearances": {
+          "items": {
+            "$ref": "#/$defs/AssemblyClearance"
+          },
+          "title": "Clearances",
+          "type": "array"
+        },
+        "fasteners": {
+          "description": "Fastener BOM lines aggregated by designation (ids 'fx<n>'; Estimate price unless LCSC-matched \u2192 Sourced)",
+          "items": {
+            "$ref": "#/$defs/BOMItem"
+          },
+          "title": "Fasteners",
+          "type": "array"
+        },
+        "checks": {
+          "description": "domain 'assembly'",
+          "items": {
+            "$ref": "#/$defs/EngineeringCheck"
+          },
+          "title": "Checks",
+          "type": "array"
+        },
+        "summary": {
+          "description": "One line, e.g. '28 parts \u00b7 27 joints (3 moving) \u00b7 0 interferences \u00b7 16 fasteners'",
+          "title": "Summary",
+          "type": "string"
+        },
+        "engine": {
+          "description": "Assembly engine version (cache key)",
+          "title": "Engine",
+          "type": "string"
+        }
+      },
+      "required": [
+        "project_id",
+        "version",
+        "source",
+        "root",
+        "nodes",
+        "joints",
+        "summary",
+        "engine"
+      ],
+      "title": "ProjectAssembly",
+      "type": "object"
+    },
     "PrototypeCostLine": {
       "additionalProperties": false,
       "properties": {
@@ -791,6 +1353,15 @@
       ],
       "title": "RequiredTest",
       "type": "object"
+    },
+    "RiskLevel": {
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "title": "RiskLevel",
+      "type": "string"
     },
     "Severity": {
       "enum": [
@@ -1127,6 +1698,18 @@
       ],
       "default": null,
       "description": "W21b: turnkey cost of one installation (per_installation only; = solar.install_cost)"
+    },
+    "assembly": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ProjectAssembly"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "C2 (CAD_ASSEMBLY=1): assembly tree, joints, measured interference / clearance / fastener checks (also in `checks`, domain 'assembly'); travels into the Factory Pack with `FactoryPack.engineering`"
     }
   },
   "required": [

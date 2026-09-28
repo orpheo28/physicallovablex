@@ -4,8 +4,11 @@ Last updated: 2026-09-27. **Hypothesis: to be validated by discovery.** Structur
 
 ## Early Customer Profile (now) vs ICP (later)
 - **ECP, now (disposable after 3-6 months):** late crowdfunded **consumer-electronics** founders (PCB + enclosure). Funded campaign, first or second product, working prototype, no own factory, public ship date missed.
-- **ICP, later (once one case is documented end to end):** funded hardware startups before a campaign, and brands adding a physical product (beachhead rows 3-4 below).
-- Idea-stage users stay the free funnel (`context/profile.md`). Method: GTM Strategist, "Before there is Ideal, there is Early" (`04_LIVRABLE/GTM_Lessons_Substack_MajaVoje.md`).
+- **ICP, later — the scale engine (once one case is documented end to end):** product brands that launch physical SKUs again and again without in-house engineering: DTC / e-commerce brands that want a product *of their own*, and funded hardware startups before a campaign (beachhead rows 3-4 below). Budget + repeat launches; revenue = commission on each production run.
+- **Expansion:** product and R&D teams in large companies ("no more briefs: show a Factory Pack"); larger contracts, long cycles.
+- **Audience, not ICP:** idea-stage users and makers stay the free funnel (`context/profile.md`): free Studio = funnel, data, brand.
+- **Why not B2C revenue (Hypothesis):** a Lovable-style subscription needs ~330,000 payers at $25/month, and designing a physical product is not a weekly habit. A take rate works: $1B of production × 10% = $100M ≈ 20,000 runs at $50k ≈ ~7,000 brands × 3 launches a year. Lovable: ~80% of revenue from people building real businesses (Osika, 20VC).
+- **Watch-out:** generic private-label sellers don't need design; Alibaba's Accio already serves them. Next test: 5 conversations with Shopify brands that already launched a proprietary physical product. Method: GTM Strategist, "Before there is Ideal, there is Early" (`04_LIVRABLE/GTM_Lessons_Substack_MajaVoje.md`).
 
 ## Segment evidence
 | | Segment A: funded creator, late (ECP) | Segment B: DTC brand launching a China-made product (later) |
@@ -65,3 +68,4 @@ Known: size, business type, industry (decided 27/09), decision-maker, problem, c
 | 2026-09-27 | ECP ≠ ICP: late crowdfunded electronics founders now; startups and brands later | Beachhead scoring above (access decides) |
 | 2026-09-27 | Studio pivot: positioning moved, ICP unchanged | Deck appendix B item 10 |
 | 2026-09-27 | 10 accounts added from Crowd Supply and founder blogs (batch 3); `03_DISCOVERY/comptes.csv` now 55 rows | `A_ENVOYER.md` #27-#36 |
+| 2026-09-27 | ICP ladder made explicit: audience (free Studio) → ECP (late founders) → ICP (repeat product brands, take rate) → expansion (enterprise product teams) | Unicorn math: subscription does not fit a low-frequency job; take rate does (deck appendix A11) |

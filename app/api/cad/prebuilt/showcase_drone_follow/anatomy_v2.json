@@ -1,13 +1,13 @@
 {
- "_v": "a4",
+ "_v": "a6",
  "version": 2,
  "glb_url": "/files/demo_drone_follow/anatomy_v2.glb",
  "label": "Illustrative internal layout \u2014 not a routed PCB",
  "kind": "electronics",
  "bbox_mm": [
-  172.4,
-  79.15,
-  259.58
+  204.88,
+  80.0,
+  302.7
  ],
  "layers": [
   {
@@ -52,15 +52,11 @@
    "name": "Top shell",
    "order": 2,
    "parts": [
-    "fuselage",
     "nose_panel",
     "tracking_windows",
-    "hinge_1",
-    "hinge_2",
-    "hinge_3",
-    "hinge_4",
     "battery_light",
-    "camera_lens"
+    "camera_lens",
+    "upper_body_shell"
    ],
    "explode_vector": [
     0.0,
@@ -131,6 +127,45 @@
    ],
    "explode_distance_mm": 14.0,
    "caption": "Brushless outrunner motor ($6.44 (Estimate)) + Carbon-fibre folding arms ($1.84 (Estimate))"
+  },
+  {
+   "id": "shell_bottom",
+   "name": "Bottom shell",
+   "order": 6,
+   "parts": [
+    "lower_body_shell"
+   ],
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 49.0,
+   "caption": "PA12-GF body, carbon-fibre arms shell, 2.0 mm wall (Estimate)"
+  },
+  {
+   "id": "fasteners",
+   "name": "Fasteners",
+   "order": 7,
+   "parts": [
+    "hinge_1",
+    "hinge_2",
+    "hinge_3",
+    "hinge_4",
+    "m2_x_20_pan_screws_x4",
+    "m2_heat_set_inserts_x4",
+    "m3_x_14_socket_screws_x8",
+    "m3_nuts_x8",
+    "m2_x_10_socket_screws_x16",
+    "m5_nuts_x4"
+   ],
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 47.5,
+   "caption": "Fasteners \u00b7 10 kinds: Folding hinge 1, Folding hinge 2, Folding hinge 3, Folding hinge 4\u2026"
   }
  ],
  "steps": [
@@ -141,13 +176,13 @@
    "caption": "Kitesurf follow-me drone \u2014 234.2 \u00d7 261.9 \u00d7 91.5 mm (Measured), 9 electronic BOM lines laid out inside (illustrative internal layout, not a routed PCB)",
    "camera": {
     "position_mm": [
-     401.8,
-     271.4,
-     505.7
+     463.2,
+     309.9,
+     588.5
     ],
     "target_mm": [
      27.3,
-     39.2,
+     39.6,
      0.0
     ],
     "fov_deg": 30.0
@@ -162,9 +197,9 @@
    "caption": "Propeller set ($2.30 (Estimate))",
    "camera": {
     "position_mm": [
-     436.9,
-     335.0,
-     553.0
+     493.4,
+     370.0,
+     629.4
     ],
     "target_mm": [
      27.3,
@@ -192,9 +227,9 @@
    "caption": "2450 mAh Li-po at 14.4 V (sized at 400 Wh/L, Estimate) \u2014 flight time 24 min (Estimate)",
    "camera": {
     "position_mm": [
-     458.6,
-     367.0,
-     582.3
+     512.6,
+     400.5,
+     655.3
     ],
     "target_mm": [
      27.3,
@@ -223,9 +258,9 @@
    "caption": "Avionics: STM32F405 Flight controller PCB ($16.56 (Estimate)) + 4-in-1 brushless ESC ($20.24 (Estimate)) + Wi-Fi vision compute module ($32.20 (Estimate))",
    "camera": {
     "position_mm": [
-     245.0,
-     196.1,
-     330.7
+     323.2,
+     244.6,
+     436.4
     ],
     "target_mm": [
      0.0,
@@ -270,7 +305,8 @@
     "props",
     "battery_pack",
     "shell_top",
-    "gimbal"
+    "gimbal",
+    "fasteners"
    ],
    "focus_parts": [
     "gimbal_yoke",
@@ -281,16 +317,16 @@
    "id": "s6",
    "title": "Back together",
    "kicker": "06 \u00b7 Back together",
-   "caption": "Unit cost $190.54 at 2,000 units (Estimate), product mass 885.0 g (Estimate)",
+   "caption": "Unit cost $190.95 at 2,000 units (Estimate), product mass 927.0 g (Estimate)",
    "camera": {
     "position_mm": [
-     -373.6,
-     279.7,
-     481.0
+     -439.3,
+     319.5,
+     559.9
     ],
     "target_mm": [
      27.3,
-     39.2,
+     39.6,
      0.0
     ],
     "fov_deg": 30.0
@@ -300,71 +336,6 @@
   }
  ],
  "parts": [
-  {
-   "part_id": "fuselage",
-   "name": "Fuselage shell",
-   "role": "shell_top",
-   "layer_id": "shell_top",
-   "material": "PC/ABS (UL94 V-0)",
-   "finish": "Matte",
-   "colour_hex": "#3A3D42",
-   "measured_bbox_mm": [
-    93.27,
-    35.0,
-    53.27
-   ],
-   "centroid_mm": [
-    0.0,
-    41.5,
-    0.0
-   ],
-   "label": "measured",
-   "bom_item_id": "m1",
-   "lcsc_pn": null,
-   "package": null,
-   "unit_price": {
-    "value": 0.5862,
-    "unit": "USD",
-    "label": "estimate",
-    "source_or_assumption": "Top shell: Moulded shell 110\u00d762\u00d719 mm, wall 2 mm \u2248 24.2 cm\u00b3 \u00d7 1.14 g/cm\u00b3 = 28 g \u00d7 $3.5/kg + $0.54 moulding/finish conversion"
-   },
-   "editable": [
-    {
-     "param": "body_height",
-     "label": "Body height",
-     "min": 25.0,
-     "max": 70.0,
-     "step": 0.5,
-     "unit": "mm",
-     "value": 35.0
-    },
-    {
-     "param": "body_length",
-     "label": "Body length",
-     "min": 80.0,
-     "max": 188.0,
-     "step": 1.0,
-     "unit": "mm",
-     "value": 94.0
-    },
-    {
-     "param": "body_width",
-     "label": "Body width",
-     "min": 50.0,
-     "max": 108.0,
-     "step": 1.0,
-     "unit": "mm",
-     "value": 54.0
-    }
-   ],
-   "colour_editable": true,
-   "material_options": [
-    "pc_abs",
-    "aluminium",
-    "stainless_steel",
-    "tpu"
-   ]
-  },
   {
    "part_id": "nose_panel",
    "name": "Nose panel",
@@ -410,7 +381,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "upper_body_shell",
+   "joint": "rigid",
+   "explode_vector": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "explode_distance_mm": 9.3
   },
   {
    "part_id": "tracking_windows",
@@ -455,13 +434,21 @@
    "material_options": [
     "glass",
     "clear_pc"
-   ]
+   ],
+   "parent_part_id": "nose_panel",
+   "joint": "rigid",
+   "explode_vector": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "explode_distance_mm": 21.3
   },
   {
    "part_id": "hinge_1",
    "name": "Folding hinge 1",
    "role": "fastener",
-   "layer_id": "shell_top",
+   "layer_id": "fasteners",
    "material": "anodised aluminium",
    "finish": null,
    "colour_hex": "#E7E8EB",
@@ -497,7 +484,15 @@
     }
    ],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "upper_body_shell",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    0.0,
+    -1.0
+   ],
+   "explode_distance_mm": 14.5
   },
   {
    "part_id": "arm_1",
@@ -508,14 +503,14 @@
    "finish": null,
    "colour_hex": "#2E3033",
    "measured_bbox_mm": [
-    32.98,
+    48.98,
     9.0,
-    53.35
+    75.37
    ],
    "centroid_mm": [
-    37.48,
+    45.6,
     42.9,
-    -41.64
+    -52.42
    ],
    "label": "measured",
    "bom_item_id": "m3",
@@ -540,11 +535,11 @@
     {
      "param": "arm_reach",
      "label": "Arm reach",
-     "min": 42.0,
-     "max": 166.0,
+     "min": 55.0,
+     "max": 220.0,
      "step": 1.0,
      "unit": "mm",
-     "value": 83.0
+     "value": 110.0
     },
     {
      "param": "arm_angle_deg",
@@ -571,7 +566,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "hinge_1",
+   "joint": "revolute",
+   "explode_vector": [
+    0.0,
+    0.0,
+    -1.0
+   ],
+   "explode_distance_mm": 65.2
   },
   {
    "part_id": "motor_1",
@@ -587,9 +590,9 @@
     17.99
    ],
    "centroid_mm": [
-    49.96,
+    66.21,
     56.4,
-    -66.29
+    -87.85
    ],
    "label": "measured",
    "bom_item_id": "e1",
@@ -623,11 +626,11 @@
     {
      "param": "arm_reach",
      "label": "Arm reach",
-     "min": 42.0,
-     "max": 166.0,
+     "min": 55.0,
+     "max": 220.0,
      "step": 1.0,
      "unit": "mm",
-     "value": 83.0
+     "value": 110.0
     },
     {
      "param": "body_height",
@@ -640,7 +643,15 @@
     }
    ],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "arm_1",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    0.3266,
+    -0.9452
+   ],
+   "explode_distance_mm": 69.0
   },
   {
    "part_id": "prop_1",
@@ -656,9 +667,9 @@
     12.0
    ],
    "centroid_mm": [
-    49.95,
+    66.2,
     71.15,
-    -66.29
+    -87.85
    ],
    "label": "measured",
    "bom_item_id": "e4",
@@ -674,11 +685,11 @@
     {
      "param": "arm_reach",
      "label": "Arm reach",
-     "min": 42.0,
-     "max": 166.0,
+     "min": 55.0,
+     "max": 220.0,
      "step": 1.0,
      "unit": "mm",
-     "value": 83.0
+     "value": 110.0
     },
     {
      "param": "body_height",
@@ -709,7 +720,15 @@
     }
    ],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "motor_1",
+   "joint": "revolute",
+   "explode_vector": [
+    0.0,
+    0.4708,
+    -0.8822
+   ],
+   "explode_distance_mm": 73.9
   },
   {
    "part_id": "landing_legs",
@@ -720,9 +739,9 @@
    "finish": null,
    "colour_hex": "#303032",
    "measured_bbox_mm": [
-    82.72,
+    107.42,
     41.3,
-    107.54
+    140.31
    ],
    "centroid_mm": [
     0.0,
@@ -743,11 +762,11 @@
     {
      "param": "arm_reach",
      "label": "Arm reach",
-     "min": 42.0,
-     "max": 166.0,
+     "min": 55.0,
+     "max": 220.0,
      "step": 1.0,
      "unit": "mm",
-     "value": 83.0
+     "value": 110.0
     },
     {
      "param": "body_height",
@@ -769,13 +788,21 @@
     }
    ],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "arm_3",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    -0.4808,
+    -0.8769
+   ],
+   "explode_distance_mm": 74.4
   },
   {
    "part_id": "hinge_2",
    "name": "Folding hinge 2",
    "role": "fastener",
-   "layer_id": "shell_top",
+   "layer_id": "fasteners",
    "material": "anodised aluminium",
    "finish": null,
    "colour_hex": "#E7E8EB",
@@ -811,7 +838,15 @@
     }
    ],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "upper_body_shell",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "explode_distance_mm": 13.8
   },
   {
    "part_id": "arm_2",
@@ -822,14 +857,14 @@
    "finish": null,
    "colour_hex": "#2E3033",
    "measured_bbox_mm": [
-    32.98,
+    48.98,
     9.0,
-    53.35
+    75.37
    ],
    "centroid_mm": [
-    37.47,
+    45.6,
     42.9,
-    41.64
+    52.43
    ],
    "label": "measured",
    "bom_item_id": "m3",
@@ -854,11 +889,11 @@
     {
      "param": "arm_reach",
      "label": "Arm reach",
-     "min": 42.0,
-     "max": 166.0,
+     "min": 55.0,
+     "max": 220.0,
      "step": 1.0,
      "unit": "mm",
-     "value": 83.0
+     "value": 110.0
     },
     {
      "param": "arm_angle_deg",
@@ -885,7 +920,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "hinge_2",
+   "joint": "revolute",
+   "explode_vector": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "explode_distance_mm": 63.5
   },
   {
    "part_id": "motor_2",
@@ -901,9 +944,9 @@
     17.99
    ],
    "centroid_mm": [
-    49.96,
+    66.21,
     56.4,
-    66.29
+    87.85
    ],
    "label": "measured",
    "bom_item_id": "e1",
@@ -937,11 +980,11 @@
     {
      "param": "arm_reach",
      "label": "Arm reach",
-     "min": 42.0,
-     "max": 166.0,
+     "min": 55.0,
+     "max": 220.0,
      "step": 1.0,
      "unit": "mm",
-     "value": 83.0
+     "value": 110.0
     },
     {
      "param": "body_height",
@@ -954,7 +997,15 @@
     }
    ],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "arm_2",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    0.3347,
+    0.9423
+   ],
+   "explode_distance_mm": 67.3
   },
   {
    "part_id": "prop_2",
@@ -970,9 +1021,9 @@
     12.0
    ],
    "centroid_mm": [
-    49.95,
+    66.2,
     71.15,
-    66.29
+    87.85
    ],
    "label": "measured",
    "bom_item_id": "e4",
@@ -988,11 +1039,11 @@
     {
      "param": "arm_reach",
      "label": "Arm reach",
-     "min": 42.0,
-     "max": 166.0,
+     "min": 55.0,
+     "max": 220.0,
      "step": 1.0,
      "unit": "mm",
-     "value": 83.0
+     "value": 110.0
     },
     {
      "param": "body_height",
@@ -1023,13 +1074,21 @@
     }
    ],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "motor_2",
+   "joint": "revolute",
+   "explode_vector": [
+    0.0,
+    0.514,
+    0.8578
+   ],
+   "explode_distance_mm": 74.0
   },
   {
    "part_id": "hinge_3",
    "name": "Folding hinge 3",
    "role": "fastener",
-   "layer_id": "shell_top",
+   "layer_id": "fasteners",
    "material": "anodised aluminium",
    "finish": null,
    "colour_hex": "#E7E8EB",
@@ -1065,7 +1124,15 @@
     }
    ],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "upper_body_shell",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    0.0,
+    -1.0
+   ],
+   "explode_distance_mm": 14.5
   },
   {
    "part_id": "arm_3",
@@ -1076,14 +1143,14 @@
    "finish": null,
    "colour_hex": "#2E3033",
    "measured_bbox_mm": [
-    32.98,
+    48.98,
     9.0,
-    53.35
+    75.37
    ],
    "centroid_mm": [
-    -37.47,
+    -45.6,
     42.9,
-    -41.64
+    -52.43
    ],
    "label": "measured",
    "bom_item_id": "m3",
@@ -1108,11 +1175,11 @@
     {
      "param": "arm_reach",
      "label": "Arm reach",
-     "min": 42.0,
-     "max": 166.0,
+     "min": 55.0,
+     "max": 220.0,
      "step": 1.0,
      "unit": "mm",
-     "value": 83.0
+     "value": 110.0
     },
     {
      "param": "arm_angle_deg",
@@ -1139,7 +1206,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "hinge_3",
+   "joint": "revolute",
+   "explode_vector": [
+    0.0,
+    0.0,
+    -1.0
+   ],
+   "explode_distance_mm": 65.2
   },
   {
    "part_id": "motor_3",
@@ -1155,9 +1230,9 @@
     17.99
    ],
    "centroid_mm": [
-    -49.95,
+    -66.19,
     56.4,
-    -66.29
+    -87.85
    ],
    "label": "measured",
    "bom_item_id": "e1",
@@ -1191,11 +1266,11 @@
     {
      "param": "arm_reach",
      "label": "Arm reach",
-     "min": 42.0,
-     "max": 166.0,
+     "min": 55.0,
+     "max": 220.0,
      "step": 1.0,
      "unit": "mm",
-     "value": 83.0
+     "value": 110.0
     },
     {
      "param": "body_height",
@@ -1208,7 +1283,15 @@
     }
    ],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "arm_3",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    0.3449,
+    -0.9386
+   ],
+   "explode_distance_mm": 69.5
   },
   {
    "part_id": "prop_3",
@@ -1224,9 +1307,9 @@
     127.0
    ],
    "centroid_mm": [
-    -49.95,
+    -66.2,
     71.15,
-    -66.29
+    -87.85
    ],
    "label": "measured",
    "bom_item_id": "e4",
@@ -1242,11 +1325,11 @@
     {
      "param": "arm_reach",
      "label": "Arm reach",
-     "min": 42.0,
-     "max": 166.0,
+     "min": 55.0,
+     "max": 220.0,
      "step": 1.0,
      "unit": "mm",
-     "value": 83.0
+     "value": 110.0
     },
     {
      "param": "body_height",
@@ -1277,13 +1360,21 @@
     }
    ],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "motor_3",
+   "joint": "revolute",
+   "explode_vector": [
+    0.0,
+    0.5175,
+    -0.8557
+   ],
+   "explode_distance_mm": 76.2
   },
   {
    "part_id": "hinge_4",
    "name": "Folding hinge 4",
    "role": "fastener",
-   "layer_id": "shell_top",
+   "layer_id": "fasteners",
    "material": "anodised aluminium",
    "finish": null,
    "colour_hex": "#E7E8EB",
@@ -1319,7 +1410,15 @@
     }
    ],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "upper_body_shell",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "explode_distance_mm": 15.1
   },
   {
    "part_id": "arm_4",
@@ -1330,14 +1429,14 @@
    "finish": null,
    "colour_hex": "#2E3033",
    "measured_bbox_mm": [
-    32.98,
+    48.98,
     9.0,
-    53.35
+    75.37
    ],
    "centroid_mm": [
-    -37.48,
+    -45.6,
     42.9,
-    41.64
+    52.42
    ],
    "label": "measured",
    "bom_item_id": "m3",
@@ -1362,11 +1461,11 @@
     {
      "param": "arm_reach",
      "label": "Arm reach",
-     "min": 42.0,
-     "max": 166.0,
+     "min": 55.0,
+     "max": 220.0,
      "step": 1.0,
      "unit": "mm",
-     "value": 83.0
+     "value": 110.0
     },
     {
      "param": "arm_angle_deg",
@@ -1393,7 +1492,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "hinge_4",
+   "joint": "revolute",
+   "explode_vector": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "explode_distance_mm": 66.7
   },
   {
    "part_id": "motor_4",
@@ -1409,9 +1516,9 @@
     17.99
    ],
    "centroid_mm": [
-    -49.95,
+    -66.19,
     56.4,
-    66.29
+    87.85
    ],
    "label": "measured",
    "bom_item_id": "e1",
@@ -1445,11 +1552,11 @@
     {
      "param": "arm_reach",
      "label": "Arm reach",
-     "min": 42.0,
-     "max": 166.0,
+     "min": 55.0,
+     "max": 220.0,
      "step": 1.0,
      "unit": "mm",
-     "value": 83.0
+     "value": 110.0
     },
     {
      "param": "body_height",
@@ -1462,7 +1569,15 @@
     }
    ],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "arm_4",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    0.3383,
+    0.941
+   ],
+   "explode_distance_mm": 70.8
   },
   {
    "part_id": "prop_4",
@@ -1478,9 +1593,9 @@
     127.0
    ],
    "centroid_mm": [
-    -49.95,
+    -66.2,
     71.15,
-    66.29
+    87.85
    ],
    "label": "measured",
    "bom_item_id": "e4",
@@ -1496,11 +1611,11 @@
     {
      "param": "arm_reach",
      "label": "Arm reach",
-     "min": 42.0,
-     "max": 166.0,
+     "min": 55.0,
+     "max": 220.0,
      "step": 1.0,
      "unit": "mm",
-     "value": 83.0
+     "value": 110.0
     },
     {
      "param": "body_height",
@@ -1531,7 +1646,15 @@
     }
    ],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "motor_4",
+   "joint": "revolute",
+   "explode_vector": [
+    0.0,
+    0.5093,
+    0.8606
+   ],
+   "explode_distance_mm": 77.5
   },
   {
    "part_id": "battery_pack",
@@ -1600,7 +1723,15 @@
     }
    ],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "upper_body_shell",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 19.2
   },
   {
    "part_id": "battery_light",
@@ -1651,7 +1782,15 @@
     }
    ],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "battery_pack",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 31.0
   },
   {
    "part_id": "gimbal_yoke",
@@ -1702,7 +1841,15 @@
     }
    ],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "lower_body_shell",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 49.4
   },
   {
    "part_id": "gimbal_camera",
@@ -1753,7 +1900,15 @@
     }
    ],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "gimbal_yoke",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 72.8
   },
   {
    "part_id": "camera_lens",
@@ -1807,7 +1962,345 @@
    "material_options": [
     "glass",
     "clear_pc"
-   ]
+   ],
+   "parent_part_id": "gimbal_camera",
+   "joint": "revolute",
+   "explode_vector": [
+    0.1891,
+    -0.982,
+    0.0
+   ],
+   "explode_distance_mm": 74.1
+  },
+  {
+   "part_id": "lower_body_shell",
+   "name": "Lower body shell",
+   "role": "shell_bottom",
+   "layer_id": "shell_bottom",
+   "material": "PC/ABS (UL94 V-0)",
+   "finish": "Matte",
+   "colour_hex": "#3A3D42",
+   "measured_bbox_mm": [
+    93.27,
+    13.85,
+    53.27
+   ],
+   "centroid_mm": [
+    0.0,
+    30.93,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "m1",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 0.5862,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Top shell: Moulded shell 110\u00d762\u00d719 mm, wall 2 mm \u2248 24.2 cm\u00b3 \u00d7 1.14 g/cm\u00b3 = 28 g \u00d7 $3.5/kg + $0.54 moulding/finish conversion"
+   },
+   "editable": [],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ],
+   "parent_part_id": "m2_x_20_pan_screws_x4",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 31.7
+  },
+  {
+   "part_id": "upper_body_shell",
+   "name": "Upper body shell",
+   "role": "shell_top",
+   "layer_id": "shell_top",
+   "material": "PC/ABS (UL94 V-0)",
+   "finish": "Matte",
+   "colour_hex": "#3A3D42",
+   "measured_bbox_mm": [
+    91.52,
+    20.85,
+    51.52
+   ],
+   "centroid_mm": [
+    0.0,
+    48.58,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "m1",
+   "lcsc_pn": null,
+   "package": null,
+   "unit_price": {
+    "value": 0.5862,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Top shell: Moulded shell 110\u00d762\u00d719 mm, wall 2 mm \u2248 24.2 cm\u00b3 \u00d7 1.14 g/cm\u00b3 = 28 g \u00d7 $3.5/kg + $0.54 moulding/finish conversion"
+   },
+   "editable": [],
+   "colour_editable": true,
+   "material_options": [
+    "pc_abs",
+    "aluminium",
+    "stainless_steel",
+    "tpu"
+   ],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 0.0
+  },
+  {
+   "part_id": "m2_x_20_pan_screws_x4",
+   "name": "M2 \u00d7 20 pan screws \u00d74",
+   "role": "fastener",
+   "layer_id": "fasteners",
+   "material": "A2 stainless steel",
+   "finish": null,
+   "colour_hex": "#EFEFF0",
+   "measured_bbox_mm": [
+    60.4,
+    21.6,
+    32.08
+   ],
+   "centroid_mm": [
+    0.0,
+    33.6,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "hw5",
+   "lcsc_pn": null,
+   "package": "ISO 14583 M2 \u00d7 20",
+   "unit_price": {
+    "value": 0.02,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": true,
+   "material_options": [],
+   "parent_part_id": "upper_body_shell",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 17.9
+  },
+  {
+   "part_id": "m2_heat_set_inserts_x4",
+   "name": "M2 heat-set inserts \u00d74",
+   "role": "fastener",
+   "layer_id": "fasteners",
+   "material": "brass",
+   "finish": null,
+   "colour_hex": "#E5CB8B",
+   "measured_bbox_mm": [
+    60.0,
+    4.0,
+    31.68
+   ],
+   "centroid_mm": [
+    0.0,
+    40.0,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "hw1",
+   "lcsc_pn": null,
+   "package": "McMaster-Carr 94459A120 M2 \u00d7 4",
+   "unit_price": {
+    "value": 0.0552,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": true,
+   "material_options": [],
+   "parent_part_id": "upper_body_shell",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 13.4
+  },
+  {
+   "part_id": "m3_x_14_socket_screws_x8",
+   "name": "M3 \u00d7 14 socket screws \u00d78",
+   "role": "fastener",
+   "layer_id": "fasteners",
+   "material": "A2 stainless steel",
+   "finish": null,
+   "colour_hex": "#EFEFF0",
+   "measured_bbox_mm": [
+    90.26,
+    17.0,
+    101.13
+   ],
+   "centroid_mm": [
+    0.0,
+    44.25,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "hw4",
+   "lcsc_pn": null,
+   "package": "ISO 4762 M3 \u00d7 14",
+   "unit_price": {
+    "value": 0.0184,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": true,
+   "material_options": [],
+   "parent_part_id": "arm_2",
+   "joint": "rigid",
+   "explode_vector": [
+    -0.6984,
+    0.0,
+    0.7157
+   ],
+   "explode_distance_mm": 88.7
+  },
+  {
+   "part_id": "m3_nuts_x8",
+   "name": "M3 nuts \u00d78",
+   "role": "fastener",
+   "layer_id": "fasteners",
+   "material": "A2 stainless steel",
+   "finish": null,
+   "colour_hex": "#EFEFF0",
+   "measured_bbox_mm": [
+    90.93,
+    2.4,
+    100.95
+   ],
+   "centroid_mm": [
+    0.0,
+    48.95,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "hw2",
+   "lcsc_pn": null,
+   "package": "ISO 4032 M3",
+   "unit_price": {
+    "value": 0.012,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": true,
+   "material_options": [],
+   "parent_part_id": "m3_x_14_socket_screws_x8",
+   "joint": "rigid",
+   "explode_vector": [
+    -0.6916,
+    0.1388,
+    0.7088
+   ],
+   "explode_distance_mm": 89.5
+  },
+  {
+   "part_id": "m2_x_10_socket_screws_x16",
+   "name": "M2 \u00d7 10 socket screws \u00d716",
+   "role": "fastener",
+   "layer_id": "fasteners",
+   "material": "A2 stainless steel",
+   "finish": null,
+   "colour_hex": "#EFEFF0",
+   "measured_bbox_mm": [
+    146.69,
+    12.0,
+    189.99
+   ],
+   "centroid_mm": [
+    0.0,
+    42.75,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "hw4",
+   "lcsc_pn": null,
+   "package": "ISO 4762 M2 \u00d7 10",
+   "unit_price": {
+    "value": 0.0184,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": true,
+   "material_options": [],
+   "parent_part_id": "motor_2",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    0.3441,
+    -0.939
+   ],
+   "explode_distance_mm": 65.5
+  },
+  {
+   "part_id": "m5_nuts_x4",
+   "name": "M5 nuts \u00d74",
+   "role": "fastener",
+   "layer_id": "fasteners",
+   "material": "A2 stainless steel",
+   "finish": null,
+   "colour_hex": "#EFEFF0",
+   "measured_bbox_mm": [
+    141.64,
+    4.7,
+    183.7
+   ],
+   "centroid_mm": [
+    0.0,
+    77.25,
+    0.0
+   ],
+   "label": "measured",
+   "bom_item_id": "hw3",
+   "lcsc_pn": null,
+   "package": "ISO 4032 M5",
+   "unit_price": {
+    "value": 0.02,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "editable": [],
+   "colour_editable": true,
+   "material_options": [],
+   "parent_part_id": "prop_1",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    0.5281,
+    0.8492
+   ],
+   "explode_distance_mm": 65.9
   },
   {
    "part_id": "stm32f405_flight_controller_pcb",
@@ -1839,7 +2332,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "4_in_1_brushless_esc",
@@ -1871,7 +2368,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "microsd_card",
@@ -1903,7 +2404,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "passives_cluster",
@@ -1920,7 +2425,7 @@
    ],
    "centroid_mm": [
     5.05,
-    44.02,
+    44.03,
     -14.2
    ],
    "label": "estimate",
@@ -1935,7 +2440,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "wi_fi_vision_compute_module",
@@ -1967,7 +2476,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "motor_lead_1",
@@ -1978,14 +2491,14 @@
    "finish": null,
    "colour_hex": "#1D1D1F",
    "measured_bbox_mm": [
-    50.86,
+    67.11,
     1.2,
-    66.98
+    88.54
    ],
    "centroid_mm": [
-    24.98,
+    33.1,
     35.3,
-    -33.15
+    -43.92
    ],
    "label": "estimate",
    "bom_item_id": null,
@@ -1994,7 +2507,11 @@
    "unit_price": null,
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "motor_lead_2",
@@ -2005,14 +2522,14 @@
    "finish": null,
    "colour_hex": "#B3302A",
    "measured_bbox_mm": [
-    50.86,
+    67.11,
     1.2,
-    66.98
+    88.54
    ],
    "centroid_mm": [
-    24.98,
+    33.1,
     35.3,
-    33.15
+    43.92
    ],
    "label": "estimate",
    "bom_item_id": null,
@@ -2021,7 +2538,11 @@
    "unit_price": null,
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "motor_lead_3",
@@ -2032,14 +2553,14 @@
    "finish": null,
    "colour_hex": "#1D1D1F",
    "measured_bbox_mm": [
-    50.86,
+    67.11,
     1.2,
-    66.98
+    88.54
    ],
    "centroid_mm": [
-    -24.98,
+    -33.1,
     35.3,
-    -33.15
+    -43.92
    ],
    "label": "estimate",
    "bom_item_id": null,
@@ -2048,7 +2569,11 @@
    "unit_price": null,
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "motor_lead_4",
@@ -2059,14 +2584,14 @@
    "finish": null,
    "colour_hex": "#B3302A",
    "measured_bbox_mm": [
-    50.86,
+    67.11,
     1.2,
-    66.98
+    88.54
    ],
    "centroid_mm": [
-    -24.98,
+    -33.1,
     35.3,
-    33.15
+    43.92
    ],
    "label": "estimate",
    "bom_item_id": null,
@@ -2075,7 +2600,11 @@
    "unit_price": null,
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "li_po_cell_1",
@@ -2107,7 +2636,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "li_po_cell_2",
@@ -2139,7 +2672,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "li_po_cell_3",
@@ -2171,7 +2708,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "li_po_cell_4",
@@ -2203,7 +2744,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   }
  ]
 }

@@ -7,10 +7,10 @@
  "strategy": "odm_customization",
  "hero_image_url": "/files/demo_minimal_phone/photo_v1_hero_studio.png",
  "glb_url": "/files/demo_minimal_phone/model_v1.glb",
- "one_line_result": "1 version · AI-written CAD · $183.90/unit @ 2,000 (Estimate) · ODM customisation · 7/13 stages",
+ "one_line_result": "1 version · AI-written CAD · $183.09/unit @ 2,000 (Estimate) · ODM customisation · 7/13 stages",
  "unit_basis": "per_unit",
  "unit_cost": {
-  "value": 183.9,
+  "value": 183.09,
   "unit": "USD",
   "label": "estimate",
   "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"

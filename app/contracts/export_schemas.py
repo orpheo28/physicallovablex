@@ -75,6 +75,8 @@ EXPORTED: list[type[BaseModel]] = [
     a.AnatomyCamera,
     a.AnatomyStep,
     a.ProjectAnatomy,
+    a.DrawingSheet,
+    a.ProjectAssembly,
 ]
 
 

@@ -368,18 +368,6 @@
    "alternative": null
   },
   {
-   "id": "m8",
-   "part": "Assembly screws",
-   "category": "mechanical",
-   "qty": 12.0,
-   "description": "Assorted screws for housing and subassembly fastening; final sizes to be determined.",
-   "manufacturer_pn": null,
-   "lcsc_pn": null,
-   "unit_cost_est": null,
-   "risk": null,
-   "alternative": null
-  },
-  {
    "id": "k1",
    "part": "Retail carton with protective inserts",
    "category": "packaging",
@@ -402,6 +390,23 @@
    "unit_cost_est": null,
    "risk": null,
    "alternative": null
+  },
+  {
+   "id": "hw1",
+   "part": "Thread-forming screw DELTA PT 3 × 8 pan head (plastics), zinc-plated steel",
+   "category": "mechanical",
+   "qty": 7.0,
+   "description": "Standard part (EJOT DELTA PT), counted on the CAD: 7 placed",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.025,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
   }
  ],
  "tolerances": [
@@ -415,7 +420,7 @@
    "format": "glb",
    "url": "/files/demo_stick_vacuum/model_v2.glb",
    "description": "AI-generated CAD (concept level) — geometry measured on the result — bbox 265 × 250 × 1180 mm",
-   "size_bytes": 614260
+   "size_bytes": 707500
   },
   {
    "format": "step",
@@ -433,7 +438,7 @@
    "format": "glb",
    "url": "/files/demo_stick_vacuum/v2.glb",
    "description": "Full product — materials",
-   "size_bytes": 1156792
+   "size_bytes": 1257112
   },
   {
    "format": "step",

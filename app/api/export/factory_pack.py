@@ -154,6 +154,17 @@ def _engineering(ctx: StageContext) -> Any:
         return None
 
 
+def _drawings(ctx: StageContext) -> list:
+    """C3: the current version's 2D drawing sheets (CAD_DRAWINGS=1), built from the CAD on first use; [] otherwise."""
+    try:
+        from api.cad.drawings import drawings, enabled
+
+        return drawings(ctx.project.id) if enabled() else []
+    except Exception as e:  # noqa: BLE001 — the pack never breaks on drawings
+        log.info("drawings section skipped: %s", e)
+        return []
+
+
 @provider("factory_pack")
 def build_factory_pack(ctx: StageContext) -> FactoryPack:
     example = _example_pack(ctx)
@@ -245,4 +256,5 @@ def build_factory_pack(ctx: StageContext) -> FactoryPack:
         questions=questions,
         assumption_register=register,
         engineering=_engineering(ctx),
+        drawings=_drawings(ctx),
     )

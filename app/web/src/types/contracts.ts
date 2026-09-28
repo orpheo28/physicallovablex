@@ -153,6 +153,8 @@ export interface ContractsBundle {
   AnatomyCamera: AnatomyCamera;
   AnatomyStep: AnatomyStep;
   ProjectAnatomy: ProjectAnatomy;
+  DrawingSheet: DrawingSheet;
+  ProjectAssembly: ProjectAssembly;
   Label: Label;
   StageStatus: StageStatus;
   ProcessType: ProcessType;
@@ -1215,6 +1217,7 @@ export interface FactoryPack {
   questions: FactoryQuestion[];
   assumption_register: Assumption[];
   engineering: EngineeringArtifact | null;
+  drawings: DrawingSheet[];
 }
 /**
  * This interface was referenced by `ContractsBundle`'s JSON-Schema
@@ -1291,6 +1294,10 @@ export interface EngineeringArtifact {
    * W21b: turnkey cost of one installation (per_installation only; = solar.install_cost)
    */
   installation_cost: LabeledValue | null;
+  /**
+   * C2 (CAD_ASSEMBLY=1): assembly tree, joints, measured interference / clearance / fastener checks (also in `checks`, domain 'assembly'); travels into the Factory Pack with `FactoryPack.engineering`
+   */
+  assembly: ProjectAssembly | null;
 }
 /**
  * This interface was referenced by `ContractsBundle`'s JSON-Schema
@@ -1361,7 +1368,8 @@ export interface EngineeringCheck {
     | "mass"
     | "geometry"
     | "flight"
-    | "regulatory";
+    | "regulatory"
+    | "assembly";
   value: LabeledValue;
   /**
    * Human wording of the pass/warn/fail rule, e.g. '≥ 15° (design target)'
@@ -1572,6 +1580,232 @@ export interface BuildStrategy {
   path: string[];
   certifications_note: string;
   assumptions: string[];
+}
+/**
+ * GET /projects/{id}/assembly?version=n — parts connected by build123d joints, with measured assembly checks.
+ *
+ * This interface was referenced by `ContractsBundle`'s JSON-Schema
+ * via the `definition` "ProjectAssembly".
+ */
+export interface ProjectAssembly {
+  project_id: string;
+  version: number;
+  label: string;
+  /**
+   * STEP the solids were read from, e.g. /files/<pid>/model_v2.step
+   */
+  source: string;
+  /**
+   * part_id of the assembly root
+   */
+  root: string;
+  nodes: AssemblyNode[];
+  joints: AssemblyJoint[];
+  /**
+   * Every overlapping pair > 0.01 mm³, classified
+   */
+  interferences: AssemblyInterference[];
+  clearances: AssemblyClearance[];
+  /**
+   * Fastener BOM lines aggregated by designation (ids 'fx<n>'; Estimate price unless LCSC-matched → Sourced)
+   */
+  fasteners: BOMItem[];
+  /**
+   * domain 'assembly'
+   */
+  checks: EngineeringCheck[];
+  /**
+   * One line, e.g. '28 parts · 27 joints (3 moving) · 0 interferences · 16 fasteners'
+   */
+  summary: string;
+  /**
+   * Assembly engine version (cache key)
+   */
+  engine: string;
+}
+/**
+ * This interface was referenced by `ContractsBundle`'s JSON-Schema
+ * via the `definition` "AssemblyNode".
+ */
+export interface AssemblyNode {
+  /**
+   * = PartMeta.part_id of the version GLB
+   */
+  part_id: string;
+  name: string;
+  role: string;
+  /**
+   * Parent part_id (None = assembly root)
+   */
+  parent: string | null;
+  joint_id: string | null;
+  /**
+   * Parts with the same number move together (connected by rigid joints)
+   */
+  rigid_body: number;
+  volume: LabeledValue;
+  /**
+   * Unit vector, GLB axes; derived from the joint
+   *
+   * @minItems 3
+   * @maxItems 3
+   */
+  explode_vector: [number, number, number];
+  /**
+   * Cumulative along the tree (a child moves with its parent)
+   */
+  explode_distance_mm: number;
+}
+/**
+ * This interface was referenced by `ContractsBundle`'s JSON-Schema
+ * via the `definition` "AssemblyJoint".
+ */
+export interface AssemblyJoint {
+  id: string;
+  /**
+   * part_id of the parent (the part that carries the joint)
+   */
+  parent: string;
+  /**
+   * part_id placed by the joint
+   */
+  child: string;
+  /**
+   * build123d RigidJoint / RevoluteJoint / LinearJoint
+   */
+  kind: "rigid" | "revolute" | "linear";
+  method: "screwed" | "snap_fit" | "inlay" | "press_fit" | "bonded" | "clip" | "hinge" | "bearing" | "slide" | "latch";
+  /**
+   * Degrees of freedom of the child relative to the parent (0 rigid, 1 revolute / linear)
+   */
+  dof: number;
+  /**
+   * Joint origin, mm, GLB axes (+Y up)
+   *
+   * @minItems 3
+   * @maxItems 3
+   */
+  origin_mm: [number, number, number];
+  /**
+   * Unit joint axis, GLB axes
+   */
+  axis: [number, number, number] | null;
+  /**
+   * Motion range: deg (revolute) or mm (linear)
+   */
+  range: [number, number] | null;
+  fasteners: FastenerUse[];
+  /**
+   * Why this mate: the family / role rule that inferred it
+   */
+  rule: string;
+}
+/**
+ * One fastener kind used at a joint (screw + its insert are two rows).
+ *
+ * This interface was referenced by `ContractsBundle`'s JSON-Schema
+ * via the `definition` "FastenerUse".
+ */
+export interface FastenerUse {
+  kind: "screw" | "insert" | "spring_bar" | "pin" | "nut" | "washer";
+  /**
+   * e.g. 'ISO 14583 (hexalobular pan head)', 'Heat-set brass insert'
+   */
+  standard: string;
+  /**
+   * e.g. 'M2.5×8', 'M2.5×4.0'
+   */
+  designation: string;
+  /**
+   * Thread / nominal size, e.g. 'M2.5'
+   */
+  size: string;
+  length_mm: number;
+  qty: number;
+  /**
+   * 'api.cad.stdparts' (C1 catalogue) or 'built-in table' (C2 fallback)
+   */
+  source: string;
+}
+/**
+ * This interface was referenced by `ContractsBundle`'s JSON-Schema
+ * via the `definition` "AssemblyInterference".
+ */
+export interface AssemblyInterference {
+  a: string;
+  b: string;
+  volume: LabeledValue;
+  /**
+   * interference = parts that move relative to each other (different rigid bodies, not joint partners) or the two shells of a parting line overlap → fail; joint_seat = overlap between the two parts of one joint (seat / insertion depth of concept geometry); static_overlap = parts of one rigid body interpenetrate (concept geometry, pocket at detail design)
+   */
+  kind: "interference" | "joint_seat" | "static_overlap";
+  note: string;
+}
+/**
+ * This interface was referenced by `ContractsBundle`'s JSON-Schema
+ * via the `definition` "AssemblyClearance".
+ */
+export interface AssemblyClearance {
+  /**
+   * Moving part (or the smaller part of an adjacent pair)
+   */
+  part_id: string;
+  against: string;
+  min_clearance: LabeledValue;
+  /**
+   * e.g. 'revolute 0-360° (12 steps)', 'linear 0-0.8 mm', 'static'
+   */
+  motion: string;
+  verdict: CheckVerdict;
+  rule: string;
+}
+/**
+ * C3 (additive): one 2D technical drawing sheet of a version — GET /projects/{id}/drawings?version=n (CAD_DRAWINGS=1).
+ * Orthographic views (first angle) + isometric, dimensions measured on the STEP, ISO 2768-m title block.
+ *
+ * This interface was referenced by `ContractsBundle`'s JSON-Schema
+ * via the `definition` "DrawingSheet".
+ */
+export interface DrawingSheet {
+  /**
+   * Sheet id within the version: 'A1' assembly, 'P01'… parts, 'M01'… moulded shells (DFM model)
+   */
+  sheet: string;
+  kind: "assembly" | "part" | "moulded";
+  /**
+   * GLB part_id (PartMeta.part_id) drawn on a part sheet; None on the assembly
+   */
+  part_id: string | null;
+  title: string;
+  /**
+   * /files/<pid>/drawings/v<n>_<sheet>.svg
+   */
+  svg_url: string;
+  /**
+   * /files/<pid>/drawings/v<n>_<sheet>.pdf (vector, one page)
+   */
+  pdf_url: string;
+  /**
+   * /files/<pid>/drawings/v<n>_set.pdf — every sheet of the version, one PDF
+   */
+  set_pdf_url: string;
+  version: number;
+  size: "A3" | "A4";
+  /**
+   * Scale of the orthographic views, ISO 5455 standard, e.g. '1:2'
+   */
+  scale: string;
+  /**
+   * Overall [x, y, z] measured on the STEP (Z up)
+   *
+   * @minItems 3
+   * @maxItems 3
+   */
+  bbox_mm: [number, number, number];
+  bom_item_id: string | null;
+  qty: number;
+  label: "measured";
+  note: "Generated from CAD — verify before release";
 }
 /**
  * This interface was referenced by `ContractsBundle`'s JSON-Schema
@@ -2274,6 +2508,22 @@ export interface PartMeta {
    * Material keys accepted by POST /parts/{id}/edit
    */
   material_options: string[];
+  /**
+   * C2 (CAD_ASSEMBLY=1): parent in the assembly tree
+   */
+  parent_part_id: string | null;
+  /**
+   * C2: joint to the parent
+   */
+  joint: ("rigid" | "revolute" | "linear") | null;
+  /**
+   * C2: unit vector (GLB axes) derived from the joint; move the part node by explode_vector × explode_distance_mm
+   */
+  explode_vector: [number, number, number] | null;
+  /**
+   * C2: cumulative along the assembly tree
+   */
+  explode_distance_mm: number | null;
 }
 /**
  * GET /projects/{id}/parts?version=n

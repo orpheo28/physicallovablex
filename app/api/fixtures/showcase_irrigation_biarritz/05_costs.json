@@ -15,7 +15,7 @@
   },
   {
    "id": "a2",
-   "text": "Assembly 14.4 min = 6 base + 0.6 × 14 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials",
+   "text": "Assembly 19.8 min = 6 base + 0.6 × 23 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials",
    "label": "estimate",
    "source": null,
    "stage": 5
@@ -267,25 +267,6 @@
    }
   },
   {
-   "bom_item_id": "m4",
-   "part": "Enclosure screws",
-   "qty_per_unit": 4.0,
-   "unit_price": {
-    "value": 0.0276,
-    "unit": "USD",
-    "label": "estimate",
-    "source_or_assumption": "Module price model: screw ≈ USD 0.03 (typical 2026 trade price at ~2k units, not a quote)"
-   },
-   "lcsc_pn": null,
-   "stock": null,
-   "extended": {
-    "value": 0.1104,
-    "unit": "USD",
-    "label": "estimate",
-    "source_or_assumption": "4 × 0.0276"
-   }
-  },
-  {
    "bom_item_id": "m5",
    "part": "Cable glands and weather seals",
    "qty_per_unit": 1.0,
@@ -360,6 +341,196 @@
     "label": "estimate",
     "source_or_assumption": "1 × 4.6000"
    }
+  },
+  {
+   "bom_item_id": "hw2",
+   "part": "Heat-set threaded insert M4 × 8.2 (OD 6.3 mm), brass — ref. McMaster-Carr 94459A170",
+   "qty_per_unit": 4.0,
+   "unit_price": {
+    "value": 0.1012,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "lcsc_pn": null,
+   "stock": null,
+   "extended": {
+    "value": 0.4048,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "4 × 0.1012"
+   }
+  },
+  {
+   "bom_item_id": "hw3",
+   "part": "Screw M4 × 20 pan head, T20 (ISO 14583), A2 stainless",
+   "qty_per_unit": 4.0,
+   "unit_price": {
+    "value": 0.0322,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "lcsc_pn": null,
+   "stock": null,
+   "extended": {
+    "value": 0.1288,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "4 × 0.0322"
+   }
+  },
+  {
+   "bom_item_id": "fx1",
+   "part": "Heat-set threaded insert M2.5×4 (Heat-set brass insert (catalogue class))",
+   "qty_per_unit": 8.0,
+   "unit_price": {
+    "value": 0.0644,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "lcsc_pn": null,
+   "stock": null,
+   "extended": {
+    "value": 0.5152,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "8 × 0.0644"
+   }
+  },
+  {
+   "bom_item_id": "fx2",
+   "part": "Heat-set threaded insert M2×4 (Heat-set brass insert (McMaster-Carr 94459A120))",
+   "qty_per_unit": 6.0,
+   "unit_price": {
+    "value": 0.0552,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "lcsc_pn": null,
+   "stock": null,
+   "extended": {
+    "value": 0.3312,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "6 × 0.0552"
+   }
+  },
+  {
+   "bom_item_id": "fx3",
+   "part": "Screw M2.5 × 10 pan head T-drive (ISO 14583 (hexalobular pan head), A2 stainless)",
+   "qty_per_unit": 4.0,
+   "unit_price": {
+    "value": 0.0202,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "lcsc_pn": null,
+   "stock": null,
+   "extended": {
+    "value": 0.081,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "4 × 0.0202"
+   }
+  },
+  {
+   "bom_item_id": "fx4",
+   "part": "Screw M2.5 × 5 pan head T-drive (ISO 14583 (hexalobular pan head), A2 stainless)",
+   "qty_per_unit": 2.0,
+   "unit_price": {
+    "value": 0.0202,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "lcsc_pn": null,
+   "stock": null,
+   "extended": {
+    "value": 0.0405,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "2 × 0.0202"
+   }
+  },
+  {
+   "bom_item_id": "fx5",
+   "part": "Screw M2.5 × 8 pan head T-drive (ISO 14583 (hexalobular pan head), A2 stainless)",
+   "qty_per_unit": 2.0,
+   "unit_price": {
+    "value": 0.0202,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "lcsc_pn": null,
+   "stock": null,
+   "extended": {
+    "value": 0.0405,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "2 × 0.0202"
+   }
+  },
+  {
+   "bom_item_id": "fx6",
+   "part": "Screw M2 × 6 pan head T-drive (ISO 14583 (hexalobular pan head), A2 stainless)",
+   "qty_per_unit": 2.0,
+   "unit_price": {
+    "value": 0.0184,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "lcsc_pn": null,
+   "stock": null,
+   "extended": {
+    "value": 0.0368,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "2 × 0.0184"
+   }
+  },
+  {
+   "bom_item_id": "fx7",
+   "part": "Screw M2 × 8 pan head T-drive (ISO 14583 (hexalobular pan head), A2 stainless)",
+   "qty_per_unit": 4.0,
+   "unit_price": {
+    "value": 0.0184,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "lcsc_pn": null,
+   "stock": null,
+   "extended": {
+    "value": 0.0736,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "4 × 0.0184"
+   }
+  },
+  {
+   "bom_item_id": "fx8",
+   "part": "Screw M3 × 12 pan head T-drive (ISO 14583 (hexalobular pan head), A2 stainless)",
+   "qty_per_unit": 4.0,
+   "unit_price": {
+    "value": 0.023,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "lcsc_pn": null,
+   "stock": null,
+   "extended": {
+    "value": 0.092,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "4 × 0.0230"
+   }
   }
  ],
  "volume_factor": {
@@ -372,16 +543,16 @@
   {
    "quantity": 500,
    "bom_cost": {
-    "value": 38.42,
+    "value": 40.2,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Electronics at LCSC price breaks (LCSC price, 2026-09-26); other lines base × 0.92^0"
    },
    "assembly_cost": {
-    "value": 8.0,
+    "value": 9.03,
     "unit": "USD",
     "label": "estimate",
-    "source_or_assumption": "Assembly + factory overhead/margin: 14.4 min = 6 base + 0.6 × 14 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^0"
+    "source_or_assumption": "Assembly + factory overhead/margin: 19.8 min = 6 base + 0.6 × 23 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^0"
    },
    "packaging_cost": {
     "value": 1.5,
@@ -390,7 +561,7 @@
     "source_or_assumption": "Packaging BOM lines × 0.92^0"
    },
    "unit_cost": {
-    "value": 47.93,
+    "value": 50.72,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
@@ -402,25 +573,25 @@
     "source_or_assumption": "$3,600 tooling ÷ 500"
    },
    "margin_pct": {
-    "value": 45.2,
+    "value": 42.5,
     "unit": "pct",
     "label": "estimate",
-    "source_or_assumption": "($139.32 target − $76.28 landed estimate) ÷ target; before retailer margin, VAT and marketing"
+    "source_or_assumption": "($139.32 target − $80.06 landed estimate) ÷ target; before retailer margin, VAT and marketing"
    }
   },
   {
    "quantity": 2000,
    "bom_cost": {
-    "value": 35.36,
+    "value": 36.99,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Electronics at LCSC price breaks (LCSC price, 2026-09-26); other lines base × 0.92^1"
    },
    "assembly_cost": {
-    "value": 7.37,
+    "value": 8.31,
     "unit": "USD",
     "label": "estimate",
-    "source_or_assumption": "Assembly + factory overhead/margin: 14.4 min = 6 base + 0.6 × 14 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^1"
+    "source_or_assumption": "Assembly + factory overhead/margin: 19.8 min = 6 base + 0.6 × 23 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^1"
    },
    "packaging_cost": {
     "value": 1.38,
@@ -429,7 +600,7 @@
     "source_or_assumption": "Packaging BOM lines × 0.92^1"
    },
    "unit_cost": {
-    "value": 44.11,
+    "value": 46.68,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
@@ -441,25 +612,25 @@
     "source_or_assumption": "$3,600 tooling ÷ 2,000"
    },
    "margin_pct": {
-    "value": 53.5,
+    "value": 51.0,
     "unit": "pct",
     "label": "estimate",
-    "source_or_assumption": "($139.32 target − $64.73 landed estimate) ÷ target; before retailer margin, VAT and marketing"
+    "source_or_assumption": "($139.32 target − $68.21 landed estimate) ÷ target; before retailer margin, VAT and marketing"
    }
   },
   {
    "quantity": 10000,
    "bom_cost": {
-    "value": 32.57,
+    "value": 34.07,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Electronics at LCSC price breaks (LCSC price, 2026-09-26); other lines base × 0.92^2"
    },
    "assembly_cost": {
-    "value": 6.78,
+    "value": 7.65,
     "unit": "USD",
     "label": "estimate",
-    "source_or_assumption": "Assembly + factory overhead/margin: 14.4 min = 6 base + 0.6 × 14 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^2"
+    "source_or_assumption": "Assembly + factory overhead/margin: 19.8 min = 6 base + 0.6 × 23 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^2"
    },
    "packaging_cost": {
     "value": 1.27,
@@ -468,7 +639,7 @@
     "source_or_assumption": "Packaging BOM lines × 0.92^2"
    },
    "unit_cost": {
-    "value": 40.62,
+    "value": 42.99,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
@@ -480,10 +651,10 @@
     "source_or_assumption": "$3,600 tooling ÷ 10,000"
    },
    "margin_pct": {
-    "value": 58.5,
+    "value": 56.2,
     "unit": "pct",
     "label": "estimate",
-    "source_or_assumption": "($139.32 target − $57.76 landed estimate) ÷ target; before retailer margin, VAT and marketing"
+    "source_or_assumption": "($139.32 target − $60.98 landed estimate) ÷ target; before retailer margin, VAT and marketing"
    }
   }
  ],
@@ -524,7 +695,7 @@
  },
  "reference_quantity": 2000,
  "total_cash_needed": {
-  "value": 138239.16,
+  "value": 145281.46,
   "unit": "USD",
   "label": "estimate",
   "source_or_assumption": "Sum of cash_breakdown"
@@ -551,19 +722,19 @@
   {
    "name": "Samples (T0, T1, golden)",
    "amount": {
-    "value": 1683.18,
+    "value": 1760.42,
     "unit": "USD",
     "label": "estimate",
-    "source_or_assumption": "3 rounds × (10 units × $44.11 + $120 express shipping)"
+    "source_or_assumption": "3 rounds × (10 units × $46.68 + $120 express shipping)"
    }
   },
   {
    "name": "First production order (2,000 × FOB)",
    "amount": {
-    "value": 88211.98,
+    "value": 93361.04,
     "unit": "USD",
     "label": "estimate",
-    "source_or_assumption": "2,000 × $44.11 ex-works"
+    "source_or_assumption": "2,000 × $46.68 ex-works"
    }
   },
   {
@@ -578,7 +749,7 @@
   {
    "name": "Freight + insurance",
    "amount": {
-    "value": 4584.0,
+    "value": 4600.0,
     "unit": "USD",
     "label": "fictional",
     "source_or_assumption": "demo freight and insurance rates — demo data"
@@ -587,7 +758,7 @@
   {
    "name": "Duties (HTS + Section 301)",
    "amount": {
-    "value": 24700.0,
+    "value": 26140.0,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "HTS TBD: Placeholder general duty 3%: heading unknown, to be confirmed by a customs broker; IEEPA 0; Section 122 off"
@@ -605,7 +776,7 @@
   {
    "name": "Platform / agent fee",
    "amount": {
-    "value": 6180.0,
+    "value": 6540.0,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "7% of FOB (benchmark 5-10%)"
@@ -619,9 +790,9 @@
   "source_or_assumption": "Brief target price 129 EUR × 1.08 (assumed FX) (retail price incl. VAT where applicable)"
  },
  "breakeven_units": {
-  "value": 163.0,
+  "value": 171.0,
   "unit": "units",
   "label": "estimate",
-  "source_or_assumption": "(tooling + certification + samples = $12,383) ÷ ($139.32 target − $62.93 variable landed cost)"
+  "source_or_assumption": "(tooling + certification + samples = $12,460) ÷ ($139.32 target − $66.41 variable landed cost)"
  }
 }

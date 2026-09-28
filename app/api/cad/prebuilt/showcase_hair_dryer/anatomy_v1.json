@@ -1,5 +1,5 @@
 {
- "_v": "a4",
+ "_v": "a6",
  "version": 1,
  "glb_url": "/files/demo_hair_dryer/anatomy_v1.glb",
  "label": "Illustrative internal layout \u2014 not a routed PCB",
@@ -187,7 +187,7 @@
    "id": "s5",
    "title": "Back together",
    "kicker": "05 \u00b7 Back together",
-   "caption": "Unit cost $42.93 at 2,000 units (Estimate), product mass 134.0 g (Estimate)",
+   "caption": "Unit cost $43.47 at 2,000 units (Estimate), product mass 134.0 g (Estimate)",
    "camera": {
     "position_mm": [
      -320.1,
@@ -269,7 +269,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 0.0
   },
   {
    "part_id": "lower_body",
@@ -343,7 +351,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "body",
+   "joint": "rigid",
+   "explode_vector": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "explode_distance_mm": 41.0
   },
   {
    "part_id": "window",
@@ -401,7 +417,15 @@
    "material_options": [
     "glass",
     "clear_pc"
-   ]
+   ],
+   "parent_part_id": "window_2",
+   "joint": "rigid",
+   "explode_vector": [
+    -1.0,
+    0.0,
+    0.0
+   ],
+   "explode_distance_mm": 33.3
   },
   {
    "part_id": "window_2",
@@ -459,7 +483,15 @@
    "material_options": [
     "glass",
     "clear_pc"
-   ]
+   ],
+   "parent_part_id": "body",
+   "joint": "rigid",
+   "explode_vector": [
+    -1.0,
+    0.0,
+    0.0
+   ],
+   "explode_distance_mm": 19.4
   },
   {
    "part_id": "window_3",
@@ -508,7 +540,15 @@
    "material_options": [
     "glass",
     "clear_pc"
-   ]
+   ],
+   "parent_part_id": "window",
+   "joint": "rigid",
+   "explode_vector": [
+    -1.0,
+    0.0,
+    0.0
+   ],
+   "explode_distance_mm": 51.5
   },
   {
    "part_id": "handle",
@@ -577,7 +617,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "body",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 84.5
   },
   {
    "part_id": "handle_2",
@@ -614,7 +662,15 @@
     }
    ],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "handle",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 125.3
   },
   {
    "part_id": "rubber_part",
@@ -646,7 +702,15 @@
    },
    "editable": [],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "handle",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 107.0
   },
   {
    "part_id": "button",
@@ -678,7 +742,15 @@
    },
    "editable": [],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "handle",
+   "joint": "linear",
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 51.9
   },
   {
    "part_id": "button_2",
@@ -710,7 +782,15 @@
    },
    "editable": [],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "body",
+   "joint": "linear",
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 27.2
   },
   {
    "part_id": "button_3",
@@ -742,7 +822,15 @@
    },
    "editable": [],
    "colour_editable": true,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "handle",
+   "joint": "linear",
+   "explode_vector": [
+    0.2307,
+    -0.973,
+    0.0
+   ],
+   "explode_distance_mm": 86.9
   },
   {
    "part_id": "status_light",
@@ -769,7 +857,15 @@
    "unit_price": null,
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "handle",
+   "joint": "rigid",
+   "explode_vector": [
+    0.2215,
+    -0.9752,
+    0.0
+   ],
+   "explode_distance_mm": 86.7
   },
   {
    "part_id": "main_pcb",
@@ -801,7 +897,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "power",
@@ -833,7 +933,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "triac_heater_power_switch",
@@ -865,7 +969,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "motor_1",
@@ -897,7 +1005,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "motor_2",
@@ -929,7 +1041,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "ac_universal_motor",
@@ -961,7 +1077,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "nichrome_heating_element_assembly",
@@ -993,7 +1113,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "thermal_safety_cutouts_1",
@@ -1025,7 +1149,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "thermal_safety_cutouts_2",
@@ -1057,7 +1185,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "mains_power_cord",
@@ -1089,7 +1221,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "passives_cluster",
@@ -1121,7 +1257,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "switch_under_button_1",
@@ -1153,7 +1293,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "switch_under_button_2",
@@ -1185,7 +1329,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "switch_under_button_3",
@@ -1217,7 +1365,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   }
  ]
 }

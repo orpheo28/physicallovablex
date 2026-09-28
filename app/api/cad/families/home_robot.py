@@ -12,7 +12,7 @@ from dataclasses import asdict, dataclass
 
 from build123d import *  # noqa: F403 — the geometry block is also stand-alone seed code
 
-from api.cad.families._common import clamp
+from api.cad.families._common import clamp, with_detail
 
 NAME = "home_robot"
 CATEGORY = "home_robot"
@@ -138,8 +138,46 @@ def build_parts(P):
 # === END GEOMETRY ===
 
 
+# === PRO DETAIL ===
+def pro_details(P, parts):
+    """CAD_DETAIL_LEVEL=pro: a 6001-2Z bearing in each wheel hub with an M5 axle screw + washer, a rear access panel
+    held by 4 countersunk M3 screws into heat-set inserts, torso screwed to the base with 4 M4 into inserts."""
+    from api.cad.stdparts import add_parts, bearing, named, screw_joint, washer
+
+    R, bh = P["base_diameter"] / 2, P["base_height"]
+    wr = P["wheel_diameter"] / 2
+    clear = max(wr * 0.35, 18.0)
+    kit = []
+    for s in (1, -1):
+        yw = s * (R * 0.72)
+        kit.append(bearing("6001").along((0, yw, wr), (0, -s, 0)))
+        hub_face = s * (R * 0.72 + min(wr * 0.25, 22.5) + 1.5)
+        kit.append(washer("M5").along((0, hub_face + s * 1.1, wr), (0, -s, 0)))
+        kit += screw_joint("M5", (0, hub_face + s * 1.1, wr), (0, -s, 0), grip=1.1 + 3, head="socket", into="tap")
+    # base → torso: 4 × M4 up through the 8 mm base deck (heads inside the base) into inserts in the torso floor
+    for k in range(4):
+        a = math.radians(45 + 90 * k)
+        kit += screw_joint("M4", (R * 0.45 * math.cos(a), R * 0.45 * math.sin(a), clear + bh - 8), (0, 0, 1), grip=8,
+                          head="socket", boss_len=12, wall=2.5)
+    # rear access panel on the torso (−X), 4 countersunk M3 into inserts
+    th, tr = P["torso_height"], P["torso_diameter"] / 2
+    z = clear + bh
+    zp = z + th * 0.45
+    rp = tr - (tr - tr * 0.82) * 0.45
+    pw, ph = tr * 0.9, th * 0.3
+    panel = Pos(-rp + 1.0, 0, zp) * Box(2.0, pw, ph)
+    kit.append(named(panel, "Rear access panel", role="shell_top", look_role="accent"))
+    for sy in (1, -1):
+        for sz in (1, -1):
+            kit += screw_joint("M3", (-rp, sy * (pw / 2 - 8), zp + sz * (ph / 2 - 8)), (1, 0, 0), grip=2.0, head="countersunk",
+                              boss_len=6, wall=2.5)
+    return add_parts(parts, kit, "body")
+# === END PRO DETAIL ===
+
+
 def build(params: Params | dict | None = None):
     p = params if isinstance(params, Params) else Params(**{k: float(v) for k, v in (params or {}).items()
                                                                if k in Params.__dataclass_fields__})
-    parts = build_parts(asdict(p.clamped()))
+    P = asdict(p.clamped())
+    parts = with_detail(pro_details, P, build_parts(P))  # C1: CAD_DETAIL_LEVEL=pro adds hardware
     return Compound(children=parts), parts

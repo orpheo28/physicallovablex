@@ -13,7 +13,7 @@ from dataclasses import asdict, dataclass
 
 from build123d import *  # noqa: F403 — the geometry block is also stand-alone seed code
 
-from api.cad.families._common import clamp
+from api.cad.families._common import clamp, with_detail
 
 NAME = "board"
 CATEGORY = "board"
@@ -196,9 +196,34 @@ def build_parts(P):
 # === END GEOMETRY ===
 
 
+# === PRO DETAIL ===
+def pro_details(P, parts):
+    """CAD_DETAIL_LEVEL=pro: real fin boxes (single-tab, glass-filled nylon) set flush into the bottom under each fin,
+    and a leash plug in the deck at the tail (surfboard). Glassed in — no screws."""
+    from api.cad.stdparts import add_parts, fin_box, leash_plug
+
+    L = P["length"]
+    kite = P["twin_tip"] >= 0.5
+    fins = [q for q in parts if (q.label or "").startswith("fin.")]
+    slabs = {f"rubber.{i + 1}" for i in range(len(fins))}  # the basic fin-box slabs
+    parts = [q for q in parts if q.label not in slabs]
+    box = fin_box()
+    kit = []
+    for f in fins:
+        c = f.bounding_box().center()
+        zb = surface_at(P, c.X)[0]
+        kit.append(box.along((c.X + 5, c.Y, zb), (0, 0, 1)))
+    if not kite:
+        x = -0.5 * L + 45
+        kit.append(leash_plug().along((x, 0, surface_at(P, x)[1]), (0, 0, -1)))
+    return add_parts(parts, kit, "rubber")
+# === END PRO DETAIL ===
+
+
 def build(params: Params | dict | None = None):
     """Deterministic board assembly → (Compound, labelled parts)."""
     p = params if isinstance(params, Params) else Params(**{k: float(v) for k, v in (params or {}).items()
                                                                if k in Params.__dataclass_fields__})
-    parts = build_parts(asdict(p.clamped()))
+    P = asdict(p.clamped())
+    parts = with_detail(pro_details, P, build_parts(P))  # C1: CAD_DETAIL_LEVEL=pro adds hardware
     return Compound(children=parts), parts

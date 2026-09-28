@@ -363,18 +363,6 @@
    "alternative": null
   },
   {
-   "id": "m6",
-   "part": "Assembly screws",
-   "category": "mechanical",
-   "qty": 1.0,
-   "description": "Set of screws for housing and internal assemblies",
-   "manufacturer_pn": null,
-   "lcsc_pn": null,
-   "unit_cost_est": null,
-   "risk": null,
-   "alternative": null
-  },
-  {
    "id": "m7",
    "part": "Instant-film cartridge",
    "category": "mechanical",
@@ -397,6 +385,74 @@
    "unit_cost_est": null,
    "risk": null,
    "alternative": null
+  },
+  {
+   "id": "hw1",
+   "part": "Heat-set threaded insert M2 × 4 (OD 3.6 mm), brass — ref. McMaster-Carr 94459A120",
+   "category": "mechanical",
+   "qty": 8.0,
+   "description": "Standard part (McMaster-Carr 94459A120), counted on the CAD: 8 placed",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.06,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "hw2",
+   "part": "Screw M2 × 14 countersunk head, T6 (ISO 14581), A2 stainless",
+   "category": "mechanical",
+   "qty": 4.0,
+   "description": "Standard part (ISO 14581), counted on the CAD: 4 placed",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.02,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "hw3",
+   "part": "Screw M2 × 6 pan head, T6 (ISO 14583), A2 stainless",
+   "category": "mechanical",
+   "qty": 4.0,
+   "description": "Standard part (ISO 14583), counted on the CAD: 4 placed",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.02,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "hw4",
+   "part": "Tripod socket insert 1/4\"-20 UNC (ISO 1222), brass",
+   "category": "mechanical",
+   "qty": 1.0,
+   "description": "Standard part (ISO 1222), counted on the CAD: 1 placed",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.25,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
   }
  ],
  "tolerances": [
@@ -410,7 +466,7 @@
    "format": "glb",
    "url": "/files/demo_instant_camera/model_v1.glb",
    "description": "AI-generated CAD (concept level) — geometry measured on the result — bbox 152 × 117 × 124 mm",
-   "size_bytes": 313604
+   "size_bytes": 435088
   },
   {
    "format": "step",
@@ -428,7 +484,7 @@
    "format": "glb",
    "url": "/files/demo_instant_camera/v1.glb",
    "description": "Full product — materials",
-   "size_bytes": 175536
+   "size_bytes": 301440
   },
   {
    "format": "step",

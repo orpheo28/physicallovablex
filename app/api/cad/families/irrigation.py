@@ -13,7 +13,7 @@ from dataclasses import asdict, dataclass
 
 from build123d import *  # noqa: F403 — the geometry block is also stand-alone seed code
 
-from api.cad.families._common import clamp
+from api.cad.families._common import clamp, with_detail
 
 NAME = "irrigation"
 CATEGORY = "irrigation"
@@ -134,8 +134,35 @@ def build_parts(P):
 # === END GEOMETRY ===
 
 
+# === PRO DETAIL ===
+def pro_details(P, parts):
+    """CAD_DETAIL_LEVEL=pro: IP65 controller — EPDM perimeter gasket in a face-seal groove (25 % squeeze) under the
+    lid, lid held by 4 M4 pan screws into heat-set inserts in the housing corners."""
+    from api.cad.stdparts import add_parts, gasket, gasket_groove, named, screw_joint
+
+    W, D, H, r = P["housing_width"], P["housing_depth"], P["housing_height"], P["corner_radius"]
+    body = next(q for q in parts if q.label == "body.1")
+    inset, cord = 6.0, 2.0
+    lm, dm, rm = W - 2 * inset, D - 2 * inset, max(r - inset, 3.0)
+    try:
+        housing = body - Pos(0, 0, H) * gasket_groove(lm, dm, rm, cord)
+    except Exception:
+        housing = body
+    parts = [q for q in parts if q is not body]
+    parts.append(lab(named(housing, "Controller housing (gasketed)", role="shell_bottom"), "body", 1))
+    seal = gasket(lm + cord, dm + cord, rm + cord / 2, cord).at(0, 0, H - 0.75 * cord)
+    kit = [seal]
+    c = max(r * 0.6, 9.0)
+    for sx in (1, -1):
+        for sy in (1, -1):
+            kit += screw_joint("M4", (sx * (W / 2 - c), sy * (D / 2 - c), H + 10), (0, 0, -1), grip=10, head="pan")
+    return add_parts(parts, kit, "body")
+# === END PRO DETAIL ===
+
+
 def build(params: Params | dict | None = None):
     p = params if isinstance(params, Params) else Params(**{k: float(v) for k, v in (params or {}).items()
                                                                if k in Params.__dataclass_fields__})
-    parts = build_parts(asdict(p.clamped()))
+    P = asdict(p.clamped())
+    parts = with_detail(pro_details, P, build_parts(P))  # C1: CAD_DETAIL_LEVEL=pro adds hardware
     return Compound(children=parts), parts

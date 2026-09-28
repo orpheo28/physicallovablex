@@ -7,10 +7,10 @@
  "strategy": "module_assembly",
  "hero_image_url": "/files/demo_stick_vacuum/photo_v2_hero_studio.png",
  "glb_url": "/files/demo_stick_vacuum/model_v2.glb",
- "one_line_result": "2 versions · AI-written CAD · $98.09/unit @ 2,000 (Estimate) · Module assembly · 13/13 stages",
+ "one_line_result": "2 versions · AI-written CAD · $99.91/unit @ 2,000 (Estimate) · Module assembly · 13/13 stages",
  "unit_basis": "per_unit",
  "unit_cost": {
-  "value": 98.09,
+  "value": 99.91,
   "unit": "USD",
   "label": "estimate",
   "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"

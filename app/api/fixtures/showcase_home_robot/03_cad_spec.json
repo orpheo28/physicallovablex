@@ -418,18 +418,6 @@
    "alternative": null
   },
   {
-   "id": "m5",
-   "part": "Fastener set",
-   "category": "mechanical",
-   "qty": 1.0,
-   "description": "Assembly screws, washers and inserts",
-   "manufacturer_pn": null,
-   "lcsc_pn": null,
-   "unit_cost_est": null,
-   "risk": null,
-   "alternative": null
-  },
-  {
    "id": "k1",
    "part": "Retail packaging set",
    "category": "packaging",
@@ -438,6 +426,125 @@
    "manufacturer_pn": null,
    "lcsc_pn": null,
    "unit_cost_est": null,
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "hw1",
+   "part": "Deep-groove ball bearing 6001-2Z 12×28×8 (ISO 15)",
+   "category": "mechanical",
+   "qty": 2.0,
+   "description": "Standard part (ISO 15), counted on the CAD: 2 placed",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.5,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "hw2",
+   "part": "Heat-set threaded insert M3 × 5.7 (OD 4.7 mm), brass — ref. McMaster-Carr 94459A140",
+   "category": "mechanical",
+   "qty": 4.0,
+   "description": "Standard part (McMaster-Carr 94459A140), counted on the CAD: 4 placed",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.08,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "hw3",
+   "part": "Heat-set threaded insert M4 × 8.2 (OD 6.3 mm), brass — ref. McMaster-Carr 94459A170",
+   "category": "mechanical",
+   "qty": 4.0,
+   "description": "Standard part (McMaster-Carr 94459A170), counted on the CAD: 4 placed",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.11,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "hw4",
+   "part": "Screw M3 × 10 countersunk head, T10 (ISO 14581), A2 stainless",
+   "category": "mechanical",
+   "qty": 4.0,
+   "description": "Standard part (ISO 14581), counted on the CAD: 4 placed",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.025,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "hw5",
+   "part": "Screw M4 × 16 socket head, 3 mm hex (ISO 4762), A2 stainless",
+   "category": "mechanical",
+   "qty": 4.0,
+   "description": "Standard part (ISO 4762), counted on the CAD: 4 placed",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.035,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "hw6",
+   "part": "Screw M5 × 14 socket head, 4 mm hex (ISO 4762), A2 stainless",
+   "category": "mechanical",
+   "qty": 2.0,
+   "description": "Standard part (ISO 4762), counted on the CAD: 2 placed",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.045,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "hw7",
+   "part": "Plain washer M5 (ISO 7089), A2 stainless",
+   "category": "mechanical",
+   "qty": 2.0,
+   "description": "Standard part (ISO 7089), counted on the CAD: 2 placed",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.01,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
    "risk": null,
    "alternative": null
   }
@@ -453,7 +560,7 @@
    "format": "glb",
    "url": "/files/demo_home_robot/model_v1.glb",
    "description": "AI-generated CAD (concept level) — geometry measured on the result — bbox 722 × 468 × 1012 mm",
-   "size_bytes": 899188
+   "size_bytes": 1089068
   },
   {
    "format": "step",
@@ -471,7 +578,7 @@
    "format": "glb",
    "url": "/files/demo_home_robot/v1.glb",
    "description": "Full product — materials",
-   "size_bytes": 1613716
+   "size_bytes": 1803644
   },
   {
    "format": "step",

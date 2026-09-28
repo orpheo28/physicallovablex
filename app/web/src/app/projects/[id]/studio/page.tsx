@@ -1,11 +1,12 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useProject } from "@/components/project/ProjectContext";
 import { Conversation } from "@/components/studio/Conversation";
 import { Strip, useViewMode, Viewer, ViewToggle } from "@/components/studio/ProductPane";
 import { CadCodeTab, EngineeringTab, FirmwareTab, type TabId } from "@/components/studio/Tabs";
+import { DRAWINGS_ROUTE, DrawingsTab } from "@/components/studio/DrawingsTab";
 import { Arrow, Btn, BtnLink, CachedBanner, CouldntLoad, ErrorBox, Skeleton, Spinner } from "@/components/ui";
 import { MoreMenu } from "@/components/MoreMenu";
 import { ListingKit } from "@/components/ListingKit";
@@ -23,6 +24,7 @@ const TABS: { id: TabId; label: string; route: string | null }[] = [
   { id: "engineering", label: "Engineering", route: "/projects/{project_id}/engineering" },
   { id: "code", label: "CAD code", route: "/projects/{project_id}/cad/code/{n}" },
   { id: "firmware", label: "Firmware", route: "/projects/{project_id}/engineering" },
+  { id: "drawings", label: "Drawings", route: DRAWINGS_ROUTE },
 ];
 
 /**
@@ -35,7 +37,8 @@ export default function StudioPage() {
   const paths = useApiPaths();
   const { versions, error, reload, expect } = useVersions(id);
   const [selected, setSelected] = useState<number | null>(null);
-  const [tab, setTab] = useState<TabId>("product");
+  const sp = useSearchParams(); // ?tab=drawings: the stage 3 "Technical drawings" link
+  const [tab, setTab] = useState<TabId>(sp.get("tab") === "drawings" ? "drawings" : "product");
   const [sending, setSending] = useState(false);
   const [sendError, setSendError] = useState<string | null>(null);
   const [making, setMaking] = useState(false);
@@ -400,9 +403,10 @@ export default function StudioPage() {
           {tab === "engineering" && <EngineeringTab eng={{ ...eng, available: available(TABS[1]) }} />}
           {tab === "code" && <CadCodeTab projectId={id} version={shown} versions={versions ?? []} available={available(TABS[2])} />}
           {tab === "firmware" && <FirmwareTab eng={{ ...eng, available: available(TABS[3]) }} />}
+          {tab === "drawings" && <DrawingsTab projectId={id} version={shown} available={available(TABS[4])} />}
         </div>
         <div role="tablist" aria-label="Product views" className="flex items-center gap-5">
-          {TABS.map((t) => {
+          {TABS.filter((t) => t.id !== "drawings" || available(t)).map((t) => {
             const on = available(t);
             return (
               <button

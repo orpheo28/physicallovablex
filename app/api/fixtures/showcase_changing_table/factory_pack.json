@@ -143,7 +143,7 @@
    "format": "glb",
    "url": "/files/demo_changing_table/model_v2.glb",
    "description": "AI-generated CAD (concept level) — geometry measured on the result — bbox 900 × 564 × 1010 mm",
-   "size_bytes": 283244
+   "size_bytes": 365080
   },
   {
    "format": "step",
@@ -161,7 +161,7 @@
    "format": "glb",
    "url": "/files/demo_changing_table/v2.glb",
    "description": "Full product — materials",
-   "size_bytes": 583192
+   "size_bytes": 708316
   },
   {
    "format": "step",
@@ -252,23 +252,6 @@
    "alternative": null
   },
   {
-   "id": "m5",
-   "part": "Furniture assembly fastener set",
-   "category": "mechanical",
-   "qty": 1.0,
-   "description": "Set of screws, bolts, washers and locking nuts sized for the plywood joints; select lengths to avoid exposed points",
-   "manufacturer_pn": null,
-   "lcsc_pn": null,
-   "unit_cost_est": {
-    "value": 3.68,
-    "unit": "USD",
-    "label": "estimate",
-    "source_or_assumption": "Category price estimate: fitting kit ≈ USD 4 (typical 2026 trade price, not a quote)"
-   },
-   "risk": null,
-   "alternative": null
-  },
-  {
    "id": "m6",
    "part": "Anti-tip wall anchor kit",
    "category": "mechanical",
@@ -332,6 +315,40 @@
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Category price estimate: fabric / wicker storage basket ≈ USD 9 (typical 2026 trade price, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "hw1",
+   "part": "Fluted beech dowel Ø8 × 35 (DIN 68150)",
+   "category": "mechanical",
+   "qty": 16.0,
+   "description": "Standard part (DIN 68150), counted on the CAD: 16 placed",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.0092,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "risk": null,
+   "alternative": null
+  },
+  {
+   "id": "hw2",
+   "part": "Wood screw 4 × 30 countersunk PZ2, zinc-plated",
+   "category": "mechanical",
+   "qty": 8.0,
+   "description": "Standard part (EN 14592), counted on the CAD: 8 placed",
+   "manufacturer_pn": null,
+   "lcsc_pn": null,
+   "unit_cost_est": {
+    "value": 0.0276,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
    },
    "risk": null,
    "alternative": null
@@ -518,16 +535,16 @@
   {
    "quantity": 500,
    "bom_cost": {
-    "value": 107.5,
+    "value": 103.9,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Electronics at LCSC price breaks (LCSC price, 2026-09-26); other lines base × 0.92^0"
    },
    "assembly_cost": {
-    "value": 18.69,
+    "value": 18.23,
     "unit": "USD",
     "label": "estimate",
-    "source_or_assumption": "Assembly + factory overhead/margin: 10.8 min = 6 base + 0.6 × 8 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^0"
+    "source_or_assumption": "Assembly + factory overhead/margin: 11.4 min = 6 base + 0.6 × 9 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^0"
    },
    "packaging_cost": {
     "value": 7.0,
@@ -536,7 +553,7 @@
     "source_or_assumption": "Packaging BOM lines × 0.92^0"
    },
    "unit_cost": {
-    "value": 133.19,
+    "value": 129.13,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
@@ -548,25 +565,25 @@
     "source_or_assumption": "$0 tooling ÷ 500"
    },
    "margin_pct": {
-    "value": 4.4,
+    "value": 6.3,
     "unit": "pct",
     "label": "estimate",
-    "source_or_assumption": "($289.00 target − $276.16 landed estimate) ÷ target; before retailer margin, VAT and marketing"
+    "source_or_assumption": "($289.00 target − $270.66 landed estimate) ÷ target; before retailer margin, VAT and marketing"
    }
   },
   {
    "quantity": 2000,
    "bom_cost": {
-    "value": 98.9,
+    "value": 95.59,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Electronics at LCSC price breaks (LCSC price, 2026-09-26); other lines base × 0.92^1"
    },
    "assembly_cost": {
-    "value": 17.19,
+    "value": 16.77,
     "unit": "USD",
     "label": "estimate",
-    "source_or_assumption": "Assembly + factory overhead/margin: 10.8 min = 6 base + 0.6 × 8 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^1"
+    "source_or_assumption": "Assembly + factory overhead/margin: 11.4 min = 6 base + 0.6 × 9 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^1"
    },
    "packaging_cost": {
     "value": 6.44,
@@ -575,7 +592,7 @@
     "source_or_assumption": "Packaging BOM lines × 0.92^1"
    },
    "unit_cost": {
-    "value": 122.53,
+    "value": 118.8,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
@@ -587,25 +604,25 @@
     "source_or_assumption": "$0 tooling ÷ 2,000"
    },
    "margin_pct": {
-    "value": 11.1,
+    "value": 12.8,
     "unit": "pct",
     "label": "estimate",
-    "source_or_assumption": "($289.00 target − $257.02 landed estimate) ÷ target; before retailer margin, VAT and marketing"
+    "source_or_assumption": "($289.00 target − $251.97 landed estimate) ÷ target; before retailer margin, VAT and marketing"
    }
   },
   {
    "quantity": 10000,
    "bom_cost": {
-    "value": 90.99,
+    "value": 87.94,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Electronics at LCSC price breaks (LCSC price, 2026-09-26); other lines base × 0.92^2"
    },
    "assembly_cost": {
-    "value": 15.82,
+    "value": 15.43,
     "unit": "USD",
     "label": "estimate",
-    "source_or_assumption": "Assembly + factory overhead/margin: 10.8 min = 6 base + 0.6 × 8 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^2"
+    "source_or_assumption": "Assembly + factory overhead/margin: 11.4 min = 6 base + 0.6 × 9 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^2"
    },
    "packaging_cost": {
     "value": 5.92,
@@ -614,7 +631,7 @@
     "source_or_assumption": "Packaging BOM lines × 0.92^2"
    },
    "unit_cost": {
-    "value": 112.73,
+    "value": 109.3,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
@@ -626,10 +643,10 @@
     "source_or_assumption": "$0 tooling ÷ 10,000"
    },
    "margin_pct": {
-    "value": 16.0,
+    "value": 17.6,
     "unit": "pct",
     "label": "estimate",
-    "source_or_assumption": "($289.00 target − $242.75 landed estimate) ÷ target; before retailer margin, VAT and marketing"
+    "source_or_assumption": "($289.00 target − $238.11 landed estimate) ÷ target; before retailer margin, VAT and marketing"
    }
   }
  ],
@@ -1021,7 +1038,7 @@
   "fallback": false,
   "fallback_reason": null,
   "generated_by": "code",
-  "generated_at": "2026-09-27T00:17:33.137085Z",
+  "generated_at": "2026-09-28T11:08:05.397911Z",
   "assumptions": [
    {
     "id": "e1",
@@ -1036,6 +1053,13 @@
     "label": "estimate",
     "source": null,
     "stage": null
+   },
+   {
+    "id": "e5",
+    "text": "Assembly mates are inferred from the part roles and the product family (rules shown per joint); interference, clearance and screw material are measured on the version's STEP",
+    "label": "estimate",
+    "source": null,
+    "stage": null
    }
   ],
   "stage": "engineering",
@@ -1044,7 +1068,7 @@
   "partner_word": "factories",
   "site_install": false,
   "product_name": "Safe baby changing table",
-  "inputs_digest": "f7eb60bf11b31d1a",
+  "inputs_digest": "c2558bb6441fa090",
   "standards": [
    {
     "code": "EN 12221-1",
@@ -1279,6 +1303,112 @@
      }
     ],
     "notes": []
+   },
+   {
+    "id": "asm_interference",
+    "name": "Interference between moving parts",
+    "domain": "assembly",
+    "value": {
+     "value": 0.0,
+     "unit": "pairs",
+     "label": "measured",
+     "source_or_assumption": "Boolean common of every part pair (OCCT), classified by the assembly joints; total 0.0 mm³"
+    },
+    "threshold": "0 intersecting pairs > 0.01 mm³ between parts that move relative to each other (different rigid bodies, over their motion study) or across a parting line — CAD interference-check practice",
+    "verdict": "pass",
+    "formula": "V(A ∩ B) per pair of solids at the assembled pose and over each moving joint's motion study",
+    "inputs": [
+     {
+      "value": 0.0,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Sum of interference volumes"
+     }
+    ],
+    "notes": []
+   },
+   {
+    "id": "asm_static_overlap",
+    "name": "Overlaps inside rigid bodies (concept geometry)",
+    "domain": "assembly",
+    "value": {
+     "value": 49616.8,
+     "unit": "mm³",
+     "label": "measured",
+     "source_or_assumption": "3 pairs of rigidly joined parts interpenetrate (2 over 5 % of the smaller part)"
+    },
+    "threshold": "Parts of one rigid body should not interpenetrate: overlap > 5 % of the smaller part = concept geometry to pocket at detail design (warn); smaller overlaps are seats (info)",
+    "verdict": "warn",
+    "formula": "V(A ∩ B) for parts of the same rigid body that are not directly joined",
+    "inputs": [],
+    "notes": [
+     "Legs ↔ Wood part 2: 48813 mm³",
+     "Bodies ↔ Wood screws 4 × 30 ×8: 763 mm³"
+    ]
+   },
+   {
+    "id": "asm_clearance",
+    "name": "Minimum clearance of moving parts",
+    "domain": "assembly",
+    "value": {
+     "value": 12.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Lower bound: no moving part has a neighbour within 12 mm (or no moving joint)"
+    },
+    "threshold": "Moving parts clear their surroundings",
+    "verdict": "info",
+    "formula": "min over poses of d(moving subtree, other parts); revolute props 12 poses / 360°, buttons pressed 0.5 mm",
+    "inputs": [],
+    "notes": []
+   },
+   {
+    "id": "asm_fastener_count",
+    "name": "Fasteners by standard",
+    "domain": "assembly",
+    "value": {
+     "value": 0.0,
+     "unit": "pcs",
+     "label": "estimate",
+     "source_or_assumption": "Joint rules (screws per parting-line perimeter, motor mounts, spring bars); sizes from the part scale"
+    },
+    "threshold": null,
+    "verdict": "info",
+    "formula": "Σ fasteners over the assembly joints",
+    "inputs": [],
+    "notes": []
+   },
+   {
+    "id": "asm_joint_closure",
+    "name": "Joint closure (build123d Joints)",
+    "domain": "assembly",
+    "value": {
+     "value": 0.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Each child re-placed from its joint frame with build123d RigidJoint / RevoluteJoint / LinearJoint.connect_to; 12 joints"
+    },
+    "threshold": "build123d joints re-place every part at its modelled pose: residual < 0.01 mm",
+    "verdict": "pass",
+    "formula": "|bbox centre after connect_to − modelled bbox centre|",
+    "inputs": [],
+    "notes": []
+   },
+   {
+    "id": "asm_support",
+    "name": "Every part is attached",
+    "domain": "assembly",
+    "value": {
+     "value": 0.0,
+     "unit": "parts",
+     "label": "measured",
+     "source_or_assumption": "Parts with no contact (≤ 0.05 mm, BRepExtrema) with the part they are joined to"
+    },
+    "threshold": "Every part touches the part it is joined to (contact ≤ 0.05 mm)",
+    "verdict": "pass",
+    "formula": "d(child, parent) ≤ 0.05 mm for every joint",
+    "inputs": [],
+    "notes": []
    }
   ],
   "electronics": null,
@@ -1369,6 +1499,1014 @@
    ]
   },
   "unit_basis": "per_unit",
-  "installation_cost": null
- }
+  "installation_cost": null,
+  "assembly": {
+   "project_id": "demo_changing_table",
+   "version": 2,
+   "label": "Measured on the version STEP (build123d / OCCT); mates inferred from the family / part roles",
+   "source": "/files/demo_changing_table/model_v2.step",
+   "root": "dark_part",
+   "nodes": [
+    {
+     "part_id": "top_shell",
+     "name": "Top shell",
+     "role": "shell_top",
+     "parent": "dark_part",
+     "joint_id": "j1",
+     "rigid_body": 0,
+     "volume": {
+      "value": 9043100.5,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      -1.0,
+      0.0
+     ],
+     "explode_distance_mm": 39.4
+    },
+    {
+     "part_id": "legs",
+     "name": "Legs",
+     "role": "frame",
+     "parent": "top_shell",
+     "joint_id": "j2",
+     "rigid_body": 0,
+     "volume": {
+      "value": 3548464.2,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      -1.0,
+      0.0
+     ],
+     "explode_distance_mm": 597.9
+    },
+    {
+     "part_id": "bodies",
+     "name": "Bodies",
+     "role": "other",
+     "parent": "top_shell",
+     "joint_id": "j3",
+     "rigid_body": 0,
+     "volume": {
+      "value": 2056320.0,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      -1.0,
+      0.0
+     ],
+     "explode_distance_mm": 186.5
+    },
+    {
+     "part_id": "bodies_2",
+     "name": "Bodies",
+     "role": "other",
+     "parent": "top_shell",
+     "joint_id": "j4",
+     "rigid_body": 0,
+     "volume": {
+      "value": 1284480.0,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      -1.0,
+      0.0
+     ],
+     "explode_distance_mm": 186.5
+    },
+    {
+     "part_id": "body",
+     "name": "Body",
+     "role": "shell_top",
+     "parent": "top_shell",
+     "joint_id": "j5",
+     "rigid_body": 0,
+     "volume": {
+      "value": 2109880.9,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "explode_distance_mm": 98.8
+    },
+    {
+     "part_id": "bodies_3",
+     "name": "Bodies",
+     "role": "shell_top",
+     "parent": "body",
+     "joint_id": "j9",
+     "rigid_body": 0,
+     "volume": {
+      "value": 2475978.9,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      0.2356,
+      0.9718
+     ],
+     "explode_distance_mm": 419.3
+    },
+    {
+     "part_id": "wood_part",
+     "name": "Wood part 1",
+     "role": "frame",
+     "parent": "legs",
+     "joint_id": "j7",
+     "rigid_body": 0,
+     "volume": {
+      "value": 7246660.9,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      -1.0,
+      0.0
+     ],
+     "explode_distance_mm": 666.0
+    },
+    {
+     "part_id": "wood_part_2",
+     "name": "Wood part 2",
+     "role": "frame",
+     "parent": "wood_part",
+     "joint_id": "j11",
+     "rigid_body": 0,
+     "volume": {
+      "value": 693582.2,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      -1.0,
+      0.0
+     ],
+     "explode_distance_mm": 538.0
+    },
+    {
+     "part_id": "top_shells",
+     "name": "Top shells",
+     "role": "shell_top",
+     "parent": "wood_part",
+     "joint_id": "j12",
+     "rigid_body": 0,
+     "volume": {
+      "value": 3495295.2,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      -1.0,
+      0.0
+     ],
+     "explode_distance_mm": 491.8
+    },
+    {
+     "part_id": "dark_part",
+     "name": "Dark part",
+     "role": "other",
+     "parent": null,
+     "joint_id": null,
+     "rigid_body": 0,
+     "volume": {
+      "value": 14517098.9,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "explode_distance_mm": 0.0
+    },
+    {
+     "part_id": "steel_parts",
+     "name": "Steel parts",
+     "role": "frame",
+     "parent": "body",
+     "joint_id": "j10",
+     "rigid_body": 0,
+     "volume": {
+      "value": 35694.6,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      0.6954,
+      -0.7186
+     ],
+     "explode_distance_mm": 142.1
+    },
+    {
+     "part_id": "beech_dowels_8_x_35_x16",
+     "name": "Beech dowels Ø8 × 35 ×16",
+     "role": "fastener",
+     "parent": "legs",
+     "joint_id": "j8",
+     "rigid_body": 0,
+     "volume": {
+      "value": 27430.7,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      -1.0,
+      0.0
+     ],
+     "explode_distance_mm": 470.0
+    },
+    {
+     "part_id": "wood_screws_4_x_30_x8",
+     "name": "Wood screws 4 × 30 ×8",
+     "role": "fastener",
+     "parent": "top_shell",
+     "joint_id": "j6",
+     "rigid_body": 0,
+     "volume": {
+      "value": 1731.7,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      -1.0,
+      0.0
+     ],
+     "explode_distance_mm": 156.5
+    }
+   ],
+   "joints": [
+    {
+     "id": "j1",
+     "parent": "dark_part",
+     "child": "top_shell",
+     "kind": "rigid",
+     "method": "press_fit",
+     "dof": 0,
+     "origin_mm": [
+      -403.0,
+      875.0,
+      -176.5
+     ],
+     "axis": [
+      -0.0,
+      -1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Flat-pack panel joint: beech dowels pressed in + cam locks / wood screws (furniture rule; the panel overlap is the dowel / rebate seat, not a parting line)"
+    },
+    {
+     "id": "j2",
+     "parent": "top_shell",
+     "child": "legs",
+     "kind": "rigid",
+     "method": "press_fit",
+     "dof": 0,
+     "origin_mm": [
+      360.74,
+      857.0,
+      -237.26
+     ],
+     "axis": [
+      -0.0,
+      -1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Flat-pack panel joint: beech dowels pressed in + cam locks / wood screws (furniture rule; the panel overlap is the dowel / rebate seat, not a parting line)"
+    },
+    {
+     "id": "j3",
+     "parent": "top_shell",
+     "child": "bodies",
+     "kind": "rigid",
+     "method": "press_fit",
+     "dof": 0,
+     "origin_mm": [
+      -357.0,
+      857.0,
+      -223.0
+     ],
+     "axis": [
+      -0.0,
+      -1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Flat-pack panel joint: beech dowels pressed in + cam locks / wood screws (furniture rule; the panel overlap is the dowel / rebate seat, not a parting line)"
+    },
+    {
+     "id": "j4",
+     "parent": "top_shell",
+     "child": "bodies_2",
+     "kind": "rigid",
+     "method": "press_fit",
+     "dof": 0,
+     "origin_mm": [
+      386.0,
+      857.0,
+      223.0
+     ],
+     "axis": [
+      -0.0,
+      -1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Flat-pack panel joint: beech dowels pressed in + cam locks / wood screws (furniture rule; the panel overlap is the dowel / rebate seat, not a parting line)"
+    },
+    {
+     "id": "j5",
+     "parent": "top_shell",
+     "child": "body",
+     "kind": "rigid",
+     "method": "press_fit",
+     "dof": 0,
+     "origin_mm": [
+      -438.0,
+      875.0,
+      -267.0
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Flat-pack panel joint: beech dowels pressed in + cam locks / wood screws (furniture rule; the panel overlap is the dowel / rebate seat, not a parting line)"
+    },
+    {
+     "id": "j6",
+     "parent": "top_shell",
+     "child": "wood_screws_4_x_30_x8",
+     "kind": "rigid",
+     "method": "press_fit",
+     "dof": 0,
+     "origin_mm": [
+      0.0,
+      862.9,
+      0.0
+     ],
+     "axis": [
+      -0.0,
+      -1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Wood screws 4 × 30 ×8 set into Top shell: press-fit (insert rule; the host is pocketed around it at detail design)"
+    },
+    {
+     "id": "j7",
+     "parent": "legs",
+     "child": "wood_part",
+     "kind": "rigid",
+     "method": "press_fit",
+     "dof": 0,
+     "origin_mm": [
+      0.0,
+      215.0,
+      0.0
+     ],
+     "axis": [
+      -0.0,
+      -1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Flat-pack panel joint: beech dowels pressed in + cam locks / wood screws (furniture rule; the panel overlap is the dowel / rebate seat, not a parting line)"
+    },
+    {
+     "id": "j8",
+     "parent": "legs",
+     "child": "beech_dowels_8_x_35_x16",
+     "kind": "rigid",
+     "method": "press_fit",
+     "dof": 0,
+     "origin_mm": [
+      0.0,
+      817.0,
+      0.0
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Beech dowels Ø8 × 35 ×16 set into Legs: press-fit (insert rule; the host is pocketed around it at detail design)"
+    },
+    {
+     "id": "j9",
+     "parent": "body",
+     "child": "bodies_3",
+     "kind": "rigid",
+     "method": "press_fit",
+     "dof": 0,
+     "origin_mm": [
+      0.0,
+      942.5,
+      -264.0
+     ],
+     "axis": [
+      -0.0,
+      -0.0,
+      1.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Flat-pack panel joint: beech dowels pressed in + cam locks / wood screws (furniture rule; the panel overlap is the dowel / rebate seat, not a parting line)"
+    },
+    {
+     "id": "j10",
+     "parent": "body",
+     "child": "steel_parts",
+     "kind": "rigid",
+     "method": "press_fit",
+     "dof": 0,
+     "origin_mm": [
+      0.0,
+      967.0,
+      -279.75
+     ],
+     "axis": [
+      0.0,
+      0.0,
+      -1.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Flat-pack panel joint: beech dowels pressed in + cam locks / wood screws (furniture rule; the panel overlap is the dowel / rebate seat, not a parting line)"
+    },
+    {
+     "id": "j11",
+     "parent": "wood_part",
+     "child": "wood_part_2",
+     "kind": "rigid",
+     "method": "press_fit",
+     "dof": 0,
+     "origin_mm": [
+      -405.0,
+      224.0,
+      -244.0
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Flat-pack panel joint: beech dowels pressed in + cam locks / wood screws (furniture rule; the panel overlap is the dowel / rebate seat, not a parting line)"
+    },
+    {
+     "id": "j12",
+     "parent": "wood_part",
+     "child": "top_shells",
+     "kind": "rigid",
+     "method": "press_fit",
+     "dof": 0,
+     "origin_mm": [
+      -362.5,
+      224.0,
+      144.0
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Flat-pack panel joint: beech dowels pressed in + cam locks / wood screws (furniture rule; the panel overlap is the dowel / rebate seat, not a parting line)"
+    }
+   ],
+   "interferences": [
+    {
+     "a": "legs",
+     "b": "wood_part_2",
+     "volume": {
+      "value": 48813.33,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "bodies",
+     "b": "wood_screws_4_x_30_x8",
+     "volume": {
+      "value": 762.52,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "bodies_2",
+     "b": "wood_screws_4_x_30_x8",
+     "volume": {
+      "value": 40.95,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "legs",
+     "b": "wood_part",
+     "volume": {
+      "value": 63341.54,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint press-fit: concept overlap at the mate"
+    },
+    {
+     "a": "body",
+     "b": "bodies_3",
+     "volume": {
+      "value": 6313.53,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint press-fit: concept overlap at the mate"
+    },
+    {
+     "a": "legs",
+     "b": "beech_dowels_8_x_35_x16",
+     "volume": {
+      "value": 4259.71,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint press-fit: concept overlap at the mate"
+    },
+    {
+     "a": "body",
+     "b": "steel_parts",
+     "volume": {
+      "value": 3569.46,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint press-fit: concept overlap at the mate"
+    },
+    {
+     "a": "top_shell",
+     "b": "wood_screws_4_x_30_x8",
+     "volume": {
+      "value": 206.65,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint press-fit: concept overlap at the mate"
+    }
+   ],
+   "clearances": [],
+   "fasteners": [],
+   "checks": [
+    {
+     "id": "asm_interference",
+     "name": "Interference between moving parts",
+     "domain": "assembly",
+     "value": {
+      "value": 0.0,
+      "unit": "pairs",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of every part pair (OCCT), classified by the assembly joints; total 0.0 mm³"
+     },
+     "threshold": "0 intersecting pairs > 0.01 mm³ between parts that move relative to each other (different rigid bodies, over their motion study) or across a parting line — CAD interference-check practice",
+     "verdict": "pass",
+     "formula": "V(A ∩ B) per pair of solids at the assembled pose and over each moving joint's motion study",
+     "inputs": [
+      {
+       "value": 0.0,
+       "unit": "mm³",
+       "label": "measured",
+       "source_or_assumption": "Sum of interference volumes"
+      }
+     ],
+     "notes": []
+    },
+    {
+     "id": "asm_static_overlap",
+     "name": "Overlaps inside rigid bodies (concept geometry)",
+     "domain": "assembly",
+     "value": {
+      "value": 49616.8,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "3 pairs of rigidly joined parts interpenetrate (2 over 5 % of the smaller part)"
+     },
+     "threshold": "Parts of one rigid body should not interpenetrate: overlap > 5 % of the smaller part = concept geometry to pocket at detail design (warn); smaller overlaps are seats (info)",
+     "verdict": "warn",
+     "formula": "V(A ∩ B) for parts of the same rigid body that are not directly joined",
+     "inputs": [],
+     "notes": [
+      "Legs ↔ Wood part 2: 48813 mm³",
+      "Bodies ↔ Wood screws 4 × 30 ×8: 763 mm³"
+     ]
+    },
+    {
+     "id": "asm_clearance",
+     "name": "Minimum clearance of moving parts",
+     "domain": "assembly",
+     "value": {
+      "value": 12.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Lower bound: no moving part has a neighbour within 12 mm (or no moving joint)"
+     },
+     "threshold": "Moving parts clear their surroundings",
+     "verdict": "info",
+     "formula": "min over poses of d(moving subtree, other parts); revolute props 12 poses / 360°, buttons pressed 0.5 mm",
+     "inputs": [],
+     "notes": []
+    },
+    {
+     "id": "asm_fastener_count",
+     "name": "Fasteners by standard",
+     "domain": "assembly",
+     "value": {
+      "value": 0.0,
+      "unit": "pcs",
+      "label": "estimate",
+      "source_or_assumption": "Joint rules (screws per parting-line perimeter, motor mounts, spring bars); sizes from the part scale"
+     },
+     "threshold": null,
+     "verdict": "info",
+     "formula": "Σ fasteners over the assembly joints",
+     "inputs": [],
+     "notes": []
+    },
+    {
+     "id": "asm_joint_closure",
+     "name": "Joint closure (build123d Joints)",
+     "domain": "assembly",
+     "value": {
+      "value": 0.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Each child re-placed from its joint frame with build123d RigidJoint / RevoluteJoint / LinearJoint.connect_to; 12 joints"
+     },
+     "threshold": "build123d joints re-place every part at its modelled pose: residual < 0.01 mm",
+     "verdict": "pass",
+     "formula": "|bbox centre after connect_to − modelled bbox centre|",
+     "inputs": [],
+     "notes": []
+    },
+    {
+     "id": "asm_support",
+     "name": "Every part is attached",
+     "domain": "assembly",
+     "value": {
+      "value": 0.0,
+      "unit": "parts",
+      "label": "measured",
+      "source_or_assumption": "Parts with no contact (≤ 0.05 mm, BRepExtrema) with the part they are joined to"
+     },
+     "threshold": "Every part touches the part it is joined to (contact ≤ 0.05 mm)",
+     "verdict": "pass",
+     "formula": "d(child, parent) ≤ 0.05 mm for every joint",
+     "inputs": [],
+     "notes": []
+    }
+   ],
+   "summary": "13 parts · 12 joints (0 moving) · 0 interferences · 0 fasteners",
+   "engine": "c2.2"
+  }
+ },
+ "drawings": [
+  {
+   "sheet": "A1",
+   "kind": "assembly",
+   "part_id": null,
+   "title": "Safe baby changing table — general assembly",
+   "svg_url": "/files/demo_changing_table/drawings/v2_A1.svg",
+   "pdf_url": "/files/demo_changing_table/drawings/v2_A1.pdf",
+   "set_pdf_url": "/files/demo_changing_table/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A3",
+   "scale": "1:10",
+   "bbox_mm": [
+    900.0,
+    564.5,
+    1010.0
+   ],
+   "bom_item_id": null,
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P01",
+   "kind": "part",
+   "part_id": "dark_part",
+   "title": "Detail part — powder coat",
+   "svg_url": "/files/demo_changing_table/drawings/v2_P01.svg",
+   "pdf_url": "/files/demo_changing_table/drawings/v2_P01.pdf",
+   "set_pdf_url": "/files/demo_changing_table/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A3",
+   "scale": "1:5",
+   "bbox_mm": [
+    826.0,
+    495.0,
+    36.0
+   ],
+   "bom_item_id": "hw1",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P02",
+   "kind": "part",
+   "part_id": "top_shell",
+   "title": "Top shell",
+   "svg_url": "/files/demo_changing_table/drawings/v2_P02.svg",
+   "pdf_url": "/files/demo_changing_table/drawings/v2_P02.pdf",
+   "set_pdf_url": "/files/demo_changing_table/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A3",
+   "scale": "1:5",
+   "bbox_mm": [
+    900.0,
+    560.0,
+    18.0
+   ],
+   "bom_item_id": "m1",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P03",
+   "kind": "part",
+   "part_id": "wood_part",
+   "title": "Structural part 1 — oiled beech",
+   "svg_url": "/files/demo_changing_table/drawings/v2_P03.svg",
+   "pdf_url": "/files/demo_changing_table/drawings/v2_P03.pdf",
+   "set_pdf_url": "/files/demo_changing_table/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A3",
+   "scale": "1:5",
+   "bbox_mm": [
+    825.0,
+    488.0,
+    18.0
+   ],
+   "bom_item_id": "m1",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P04",
+   "kind": "part",
+   "part_id": "legs",
+   "title": "Legs",
+   "svg_url": "/files/demo_changing_table/drawings/v2_P04.svg",
+   "pdf_url": "/files/demo_changing_table/drawings/v2_P04.pdf",
+   "set_pdf_url": "/files/demo_changing_table/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A3",
+   "scale": "1:10",
+   "bbox_mm": [
+    866.0,
+    482.0,
+    857.0
+   ],
+   "bom_item_id": "m1",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P05",
+   "kind": "part",
+   "part_id": "top_shells",
+   "title": "Top shells",
+   "svg_url": "/files/demo_changing_table/drawings/v2_P05.svg",
+   "pdf_url": "/files/demo_changing_table/drawings/v2_P05.pdf",
+   "set_pdf_url": "/files/demo_changing_table/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A3",
+   "scale": "1:5",
+   "bbox_mm": [
+    725.0,
+    300.0,
+    125.0
+   ],
+   "bom_item_id": null,
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P06",
+   "kind": "part",
+   "part_id": "bodies_3",
+   "title": "Housing — Birch plywood 18 mm",
+   "svg_url": "/files/demo_changing_table/drawings/v2_P06.svg",
+   "pdf_url": "/files/demo_changing_table/drawings/v2_P06.pdf",
+   "set_pdf_url": "/files/demo_changing_table/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A3",
+   "scale": "1:5",
+   "bbox_mm": [
+    900.0,
+    514.0,
+    135.0
+   ],
+   "bom_item_id": null,
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P07",
+   "kind": "part",
+   "part_id": "body",
+   "title": "Housing — Birch plywood 18 mm",
+   "svg_url": "/files/demo_changing_table/drawings/v2_P07.svg",
+   "pdf_url": "/files/demo_changing_table/drawings/v2_P07.pdf",
+   "set_pdf_url": "/files/demo_changing_table/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A4",
+   "scale": "1:5",
+   "bbox_mm": [
+    876.0,
+    18.0,
+    135.0
+   ],
+   "bom_item_id": null,
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P08",
+   "kind": "part",
+   "part_id": "bodies",
+   "title": "Housing — Birch plywood 18 mm",
+   "svg_url": "/files/demo_changing_table/drawings/v2_P08.svg",
+   "pdf_url": "/files/demo_changing_table/drawings/v2_P08.pdf",
+   "set_pdf_url": "/files/demo_changing_table/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A3",
+   "scale": "1:5",
+   "bbox_mm": [
+    714.0,
+    482.0,
+    80.0
+   ],
+   "bom_item_id": null,
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P09",
+   "kind": "part",
+   "part_id": "bodies_2",
+   "title": "Housing — Birch plywood 18 mm",
+   "svg_url": "/files/demo_changing_table/drawings/v2_P09.svg",
+   "pdf_url": "/files/demo_changing_table/drawings/v2_P09.pdf",
+   "set_pdf_url": "/files/demo_changing_table/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A3",
+   "scale": "1:5",
+   "bbox_mm": [
+    808.0,
+    446.0,
+    80.0
+   ],
+   "bom_item_id": null,
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P10",
+   "kind": "part",
+   "part_id": "wood_part_2",
+   "title": "Structural part 2 — oiled beech",
+   "svg_url": "/files/demo_changing_table/drawings/v2_P10.svg",
+   "pdf_url": "/files/demo_changing_table/drawings/v2_P10.pdf",
+   "set_pdf_url": "/files/demo_changing_table/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A3",
+   "scale": "1:5",
+   "bbox_mm": [
+    810.0,
+    18.0,
+    48.0
+   ],
+   "bom_item_id": "m1",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P11",
+   "kind": "part",
+   "part_id": "steel_parts",
+   "title": "Structural part — stainless steel 304",
+   "svg_url": "/files/demo_changing_table/drawings/v2_P11.svg",
+   "pdf_url": "/files/demo_changing_table/drawings/v2_P11.pdf",
+   "set_pdf_url": "/files/demo_changing_table/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A3",
+   "scale": "1:2",
+   "bbox_mm": [
+    688.0,
+    5.0,
+    76.0
+   ],
+   "bom_item_id": null,
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P12",
+   "kind": "part",
+   "part_id": "beech_dowels_8_x_35_x16",
+   "title": "Beech dowels Ø8 × 35 ×16",
+   "svg_url": "/files/demo_changing_table/drawings/v2_P12.svg",
+   "pdf_url": "/files/demo_changing_table/drawings/v2_P12.pdf",
+   "set_pdf_url": "/files/demo_changing_table/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A3",
+   "scale": "1:5",
+   "bbox_mm": [
+    843.6,
+    503.6,
+    48.0
+   ],
+   "bom_item_id": "hw1",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  }
+ ]
 }

@@ -26,7 +26,7 @@ from contracts.artifacts import ANATOMY_LABEL, ProjectAnatomy
 
 log = logging.getLogger("cad.anatomy")
 
-ANATOMY_VERSION = "a4"  # bump when the layout rules change (cached anatomy_v<n>.json is rebuilt)
+ANATOMY_VERSION = "a6"  # a5-a6 (C5): pro hardware = its own "fasteners" layer, split vacuum motor pod; bump when the layout rules change (cached anatomy_v<n>.json is rebuilt)
 _locks: dict[str, threading.Lock] = {}
 _reg = threading.Lock()
 
@@ -203,6 +203,29 @@ def _cached(pid: str, n: int) -> ProjectAnatomy | None:
     return None
 
 
+def _fastener_layer(pl, parts: list[dict], facts) -> None:
+    """C5: the purchased hardware of a pro build (screws, inserts, nuts, bearings… — GLB layer 'fasteners') is its own
+    anatomy layer, taken out of the family plan's layers, exploded downwards in the steps that explode everything."""
+    hw = [p["part_id"] for p in parts if p.get("layer_id") == "fasteners"]
+    if not hw:
+        return
+    for L in pl.layers:
+        if L["id"] != "fasteners":
+            L["parts"] = [x for x in L["parts"] if x not in hw]
+    have = next((L for L in pl.layers if L["id"] == "fasteners"), None)
+    if have is not None:
+        have["parts"] = list(dict.fromkeys(have["parts"] + hw))
+        return
+    size = max(max(p["measured_bbox_mm"]) for p in parts) if parts else 100.0
+    names = [p["name"] for p in parts if p["part_id"] in hw]
+    pl.layers.append(LAY.layer("fasteners", "Fasteners", max((L["order"] for L in pl.layers), default=0) + 1, hw, (0, -1, 0),
+                               size * 0.25, f"Fasteners · {len(hw)} kinds: " + ", ".join(names[:4]) + ("…" if len(names) > 4 else "")))
+    most = max((len(s["layers_exploded"]) for s in pl.steps), default=0)
+    for s in pl.steps:
+        if most and len(s["layers_exploded"]) == most:
+            s["layers_exploded"].append("fasteners")
+
+
 def build(ctx, out_dir: Path | None = None) -> ProjectAnatomy:
     from api.studio.parts import enriched
 
@@ -221,6 +244,7 @@ def build(ctx, out_dir: Path | None = None) -> ProjectAnatomy:
     gpath = out / f"anatomy_v{n}.glb"
     metas = glb.compose(gpath, ctx.path, pl.items, layer_of=pl.layer_of, replace=pl.replace)
     all_ids = {m["part_id"] for m in metas}
+    _fastener_layer(pl, parts, facts)
     owner: dict[str, str] = {}
     for L in sorted(pl.layers, key=lambda x: x["order"]):
         L["parts"] = [p for p in dict.fromkeys(L["parts"]) if p in all_ids and p not in owner]

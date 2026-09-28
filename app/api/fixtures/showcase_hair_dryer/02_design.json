@@ -22,8 +22,8 @@
   },
   {
    "id": "a2_photo",
-   "label": "estimate",
    "text": "Product photos: AI images photo-styled from the Blender render of the CAD (geometry from our CAD; light, surface and framing by the image model). Lifestyle scenes are staged — illustrative.",
+   "label": "estimate",
    "source": null,
    "stage": 2
   }

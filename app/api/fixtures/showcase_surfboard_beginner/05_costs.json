@@ -15,7 +15,7 @@
   },
   {
    "id": "a2",
-   "text": "Assembly 10.2 min = 6 base + 0.6 × 7 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials",
+   "text": "Assembly 11.4 min = 6 base + 0.6 × 9 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials",
    "label": "estimate",
    "source": null,
    "stage": 5
@@ -50,7 +50,7 @@
   },
   {
    "id": "a7",
-   "text": "No founder price and the assumed brief target price 450 usd is below 1.6× landed cost $356.40: retail derived as 2.4× ex-works unit cost $224.55 at 2,000 units (category retail multiplier, comparables to confirm)",
+   "text": "No founder price and the assumed brief target price 450 usd is below 1.6× landed cost $357.40: retail derived as 2.4× ex-works unit cost $225.29 at 2,000 units (category retail multiplier, comparables to confirm)",
    "label": "estimate",
    "source": null,
    "stage": 5
@@ -236,6 +236,44 @@
     "label": "estimate",
     "source_or_assumption": "1 × 7.3600"
    }
+  },
+  {
+   "bom_item_id": "fx1",
+   "part": "Heat-set threaded insert M2.5×4 (Heat-set brass insert (catalogue class))",
+   "qty_per_unit": 6.0,
+   "unit_price": {
+    "value": 0.0644,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "lcsc_pn": null,
+   "stock": null,
+   "extended": {
+    "value": 0.3864,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "6 × 0.0644"
+   }
+  },
+  {
+   "bom_item_id": "fx2",
+   "part": "Screw M2.5 × 10 pan head T-drive (ISO 14583 (hexalobular pan head), A2 stainless)",
+   "qty_per_unit": 6.0,
+   "unit_price": {
+    "value": 0.0202,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+   },
+   "lcsc_pn": null,
+   "stock": null,
+   "extended": {
+    "value": 0.1214,
+    "unit": "USD",
+    "label": "estimate",
+    "source_or_assumption": "6 × 0.0202"
+   }
   }
  ],
  "volume_factor": {
@@ -248,16 +286,16 @@
   {
    "quantity": 500,
    "bom_cost": {
-    "value": 195.0,
+    "value": 195.55,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Electronics at LCSC price breaks (LCSC price, 2026-09-26); other lines base × 0.92^0"
    },
    "assembly_cost": {
-    "value": 33.08,
+    "value": 33.33,
     "unit": "USD",
     "label": "estimate",
-    "source_or_assumption": "Assembly + factory overhead/margin: 10.2 min = 6 base + 0.6 × 7 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^0"
+    "source_or_assumption": "Assembly + factory overhead/margin: 11.4 min = 6 base + 0.6 × 9 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^0"
    },
    "packaging_cost": {
     "value": 16.0,
@@ -266,7 +304,7 @@
     "source_or_assumption": "Packaging BOM lines × 0.92^0"
    },
    "unit_cost": {
-    "value": 244.08,
+    "value": 244.88,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
@@ -278,25 +316,25 @@
     "source_or_assumption": "$1,070 tooling ÷ 500"
    },
    "margin_pct": {
-    "value": 28.1,
+    "value": 27.9,
     "unit": "pct",
     "label": "estimate",
-    "source_or_assumption": "($549.00 target − $394.62 landed estimate) ÷ target; before retailer margin, VAT and marketing"
+    "source_or_assumption": "($549.00 target − $395.70 landed estimate) ÷ target; before retailer margin, VAT and marketing"
    }
   },
   {
    "quantity": 2000,
    "bom_cost": {
-    "value": 179.4,
+    "value": 179.91,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Electronics at LCSC price breaks (LCSC price, 2026-09-26); other lines base × 0.92^1"
    },
    "assembly_cost": {
-    "value": 30.43,
+    "value": 30.66,
     "unit": "USD",
     "label": "estimate",
-    "source_or_assumption": "Assembly + factory overhead/margin: 10.2 min = 6 base + 0.6 × 7 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^1"
+    "source_or_assumption": "Assembly + factory overhead/margin: 11.4 min = 6 base + 0.6 × 9 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^1"
    },
    "packaging_cost": {
     "value": 14.72,
@@ -305,7 +343,7 @@
     "source_or_assumption": "Packaging BOM lines × 0.92^1"
    },
    "unit_cost": {
-    "value": 224.55,
+    "value": 225.29,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
@@ -317,25 +355,25 @@
     "source_or_assumption": "$1,070 tooling ÷ 2,000"
    },
    "margin_pct": {
-    "value": 35.1,
+    "value": 34.9,
     "unit": "pct",
     "label": "estimate",
-    "source_or_assumption": "($549.00 target − $356.40 landed estimate) ÷ target; before retailer margin, VAT and marketing"
+    "source_or_assumption": "($549.00 target − $357.40 landed estimate) ÷ target; before retailer margin, VAT and marketing"
    }
   },
   {
    "quantity": 10000,
    "bom_cost": {
-    "value": 165.05,
+    "value": 165.52,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Electronics at LCSC price breaks (LCSC price, 2026-09-26); other lines base × 0.92^2"
    },
    "assembly_cost": {
-    "value": 28.0,
+    "value": 28.21,
     "unit": "USD",
     "label": "estimate",
-    "source_or_assumption": "Assembly + factory overhead/margin: 10.2 min = 6 base + 0.6 × 7 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^2"
+    "source_or_assumption": "Assembly + factory overhead/margin: 11.4 min = 6 base + 0.6 × 9 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^2"
    },
    "packaging_cost": {
     "value": 13.54,
@@ -344,7 +382,7 @@
     "source_or_assumption": "Packaging BOM lines × 0.92^2"
    },
    "unit_cost": {
-    "value": 206.59,
+    "value": 207.27,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
@@ -356,10 +394,10 @@
     "source_or_assumption": "$1,070 tooling ÷ 10,000"
    },
    "margin_pct": {
-    "value": 40.2,
+    "value": 40.0,
     "unit": "pct",
     "label": "estimate",
-    "source_or_assumption": "($549.00 target − $328.32 landed estimate) ÷ target; before retailer margin, VAT and marketing"
+    "source_or_assumption": "($549.00 target − $329.24 landed estimate) ÷ target; before retailer margin, VAT and marketing"
    }
   }
  ],
@@ -390,7 +428,7 @@
  },
  "reference_quantity": 2000,
  "total_cash_needed": {
-  "value": 720398.07,
+  "value": 722401.38,
   "unit": "USD",
   "label": "estimate",
   "source_or_assumption": "Sum of cash_breakdown"
@@ -417,19 +455,19 @@
   {
    "name": "Samples (T0, T1, golden)",
    "amount": {
-    "value": 7096.55,
+    "value": 7118.71,
     "unit": "USD",
     "label": "estimate",
-    "source_or_assumption": "3 rounds × (10 units × $224.55 + $120 express shipping)"
+    "source_or_assumption": "3 rounds × (10 units × $225.29 + $120 express shipping)"
    }
   },
   {
    "name": "First production order (2,000 × FOB)",
    "amount": {
-    "value": 449103.52,
+    "value": 450580.67,
     "unit": "USD",
     "label": "estimate",
-    "source_or_assumption": "2,000 × $224.55 ex-works"
+    "source_or_assumption": "2,000 × $225.29 ex-works"
    }
   },
   {
@@ -444,7 +482,7 @@
   {
    "name": "Freight + insurance",
    "amount": {
-    "value": 103248.0,
+    "value": 103252.0,
     "unit": "USD",
     "label": "fictional",
     "source_or_assumption": "demo freight and insurance rates — demo data"
@@ -453,7 +491,7 @@
   {
    "name": "Duties (HTS + Section 301)",
    "amount": {
-    "value": 125760.0,
+    "value": 126160.0,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "HTS TBD: Placeholder general duty 3%: heading unknown, to be confirmed by a customs broker; IEEPA 0; Section 122 off"
@@ -471,7 +509,7 @@
   {
    "name": "Platform / agent fee",
    "amount": {
-    "value": 31440.0,
+    "value": 31540.0,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "7% of FOB (benchmark 5-10%)"
@@ -482,12 +520,12 @@
   "value": 549.0,
   "unit": "USD",
   "label": "estimate",
-  "source_or_assumption": "No founder price and the assumed brief target price 450 usd is below 1.6× landed cost $356.40: retail derived as 2.4× ex-works unit cost $224.55 at 2,000 units (category retail multiplier, comparables to confirm)"
+  "source_or_assumption": "No founder price and the assumed brief target price 450 usd is below 1.6× landed cost $357.40: retail derived as 2.4× ex-works unit cost $225.29 at 2,000 units (category retail multiplier, comparables to confirm)"
  },
  "breakeven_units": {
-  "value": 45.0,
+  "value": 46.0,
   "unit": "units",
   "label": "estimate",
-  "source_or_assumption": "(tooling + certification + samples = $8,667) ÷ ($549.00 target − $355.86 variable landed cost)"
+  "source_or_assumption": "(tooling + certification + samples = $8,689) ÷ ($549.00 target − $356.86 variable landed cost)"
  }
 }

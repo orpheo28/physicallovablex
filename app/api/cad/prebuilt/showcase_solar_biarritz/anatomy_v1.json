@@ -1,5 +1,5 @@
 {
- "_v": "a4",
+ "_v": "a6",
  "version": 1,
  "glb_url": "/files/demo_solar_biarritz/anatomy_v1.glb",
  "label": "Illustrative internal layout \u2014 not a routed PCB",
@@ -259,7 +259,15 @@
     }
    ],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 0.0
   },
   {
    "part_id": "roof_planes",
@@ -333,7 +341,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "roof_plane",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 1192.4
   },
   {
    "part_id": "roof_planes_2",
@@ -407,7 +423,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "roof_planes",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "explode_distance_mm": 622.2
   },
   {
    "part_id": "roof_planes_3",
@@ -481,7 +505,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "roof_planes",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 2627.2
   },
   {
    "part_id": "roof_planes_4",
@@ -550,7 +582,15 @@
     }
    ],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "roof_planes_3",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "explode_distance_mm": 4576.6
   },
   {
    "part_id": "top_shell",
@@ -624,7 +664,15 @@
     "aluminium",
     "stainless_steel",
     "tpu"
-   ]
+   ],
+   "parent_part_id": "light",
+   "joint": "rigid",
+   "explode_vector": [
+    -0.3413,
+    0.9181,
+    0.2014
+   ],
+   "explode_distance_mm": 2861.5
   },
   {
    "part_id": "window",
@@ -682,7 +730,15 @@
    "material_options": [
     "glass",
     "clear_pc"
-   ]
+   ],
+   "parent_part_id": "top_shell",
+   "joint": "rigid",
+   "explode_vector": [
+    -0.304,
+    0.8177,
+    0.4888
+   ],
+   "explode_distance_mm": 3212.8
   },
   {
    "part_id": "light",
@@ -737,7 +793,15 @@
     }
    ],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": "roof_planes_3",
+   "joint": "rigid",
+   "explode_vector": [
+    0.0,
+    0.9768,
+    0.2143
+   ],
+   "explode_distance_mm": 2689.7
   },
   {
    "part_id": "connector_bolt_1_1",
@@ -769,7 +833,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "connector_bolt_1_2",
@@ -801,7 +869,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "connector_bolt_2_1",
@@ -833,7 +905,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "connector_bolt_2_2",
@@ -865,7 +941,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "connector_bolt_3_1",
@@ -897,7 +977,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "connector_bolt_3_2",
@@ -929,7 +1013,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "connector_bolt_4_1",
@@ -961,7 +1049,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   },
   {
    "part_id": "connector_bolt_4_2",
@@ -993,7 +1085,11 @@
    },
    "editable": [],
    "colour_editable": false,
-   "material_options": []
+   "material_options": [],
+   "parent_part_id": null,
+   "joint": null,
+   "explode_vector": null,
+   "explode_distance_mm": null
   }
  ]
 }

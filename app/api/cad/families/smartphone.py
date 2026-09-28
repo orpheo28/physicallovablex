@@ -12,7 +12,7 @@ from dataclasses import asdict, dataclass
 
 from build123d import *  # noqa: F403 — the geometry block is also stand-alone seed code
 
-from api.cad.families._common import clamp
+from api.cad.families._common import clamp, with_detail
 
 NAME = "smartphone"
 CATEGORY = "smartphone"
@@ -84,8 +84,27 @@ def build_parts(P):
 # === END GEOMETRY ===
 
 
+# === PRO DETAIL ===
+def pro_details(P, parts):
+    """CAD_DETAIL_LEVEL=pro (ODM): 2 countersunk M1.6 at the bottom edge beside the USB-C port into the tapped aluminium
+    frame, 6 M1.6 board screws into tapped bosses of the midframe (internal, seen in anatomy / exploded views)."""
+    from api.cad.stdparts import add_parts, screw_joint
+
+    W, L, T = P["width"], P["length"], P["thickness"]
+    z0 = P["bump_height"]
+    kit = []
+    for sx in (1, -1):
+        kit += screw_joint("M1.6", (sx * 7.0, -L / 2, z0 + T / 2), (0, 1, 0), grip=0.8, head="countersunk", into="tap")
+        for y in (L / 2 - 14, 0.0, -L / 2 + 14):
+            kit += screw_joint("M1.6", (sx * (W / 2 - 5), y, z0 + T * 0.62), (0, 0, -1), grip=0.8, head="pan", into="tap",
+                               boss_len=T * 0.62 - 1.6, wall=1.0)
+    return add_parts(parts, kit, "metal")
+# === END PRO DETAIL ===
+
+
 def build(params: Params | dict | None = None):
     p = params if isinstance(params, Params) else Params(**{k: float(v) for k, v in (params or {}).items()
                                                                if k in Params.__dataclass_fields__})
-    parts = build_parts(asdict(p.clamped()))
+    P = asdict(p.clamped())
+    parts = with_detail(pro_details, P, build_parts(P))  # C1: CAD_DETAIL_LEVEL=pro adds hardware
     return Compound(children=parts), parts

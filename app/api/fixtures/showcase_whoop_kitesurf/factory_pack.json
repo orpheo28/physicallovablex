@@ -217,7 +217,7 @@
    "format": "glb",
    "url": "/files/demo_whoop_kitesurf/v4.glb",
    "description": "Full product — materials",
-   "size_bytes": 330912
+   "size_bytes": 369928
   },
   {
    "format": "step",
@@ -484,12 +484,7 @@
    "description": "Enclosure fastening screws; length and head style to match shell bosses",
    "manufacturer_pn": null,
    "lcsc_pn": null,
-   "unit_cost_est": {
-    "value": 0.0276,
-    "unit": "USD",
-    "label": "estimate",
-    "source_or_assumption": "Module price model: screw ≈ USD 0.03 (typical 2026 trade price at ~2k units, not a quote)"
-   },
+   "unit_cost_est": null,
    "risk": null,
    "alternative": null
   },
@@ -859,7 +854,7 @@
   {
    "quantity": 500,
    "bom_cost": {
-    "value": 21.5,
+    "value": 21.46,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Electronics at LCSC price breaks (LCSC price, 2026-09-26); other lines base × 0.92^0"
@@ -877,7 +872,7 @@
     "source_or_assumption": "Packaging BOM lines × 0.92^0"
    },
    "unit_cost": {
-    "value": 28.82,
+    "value": 28.77,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
@@ -892,19 +887,19 @@
     "value": 76.0,
     "unit": "pct",
     "label": "estimate",
-    "source_or_assumption": "($199.00 target − $47.83 landed estimate) ÷ target; before retailer margin, VAT and marketing"
+    "source_or_assumption": "($199.00 target − $47.76 landed estimate) ÷ target; before retailer margin, VAT and marketing"
    }
   },
   {
    "quantity": 2000,
    "bom_cost": {
-    "value": 20.76,
+    "value": 20.73,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Electronics at LCSC price breaks (LCSC price, 2026-09-26); other lines base × 0.92^1"
    },
    "assembly_cost": {
-    "value": 5.22,
+    "value": 5.21,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Assembly + factory overhead/margin: 14.4 min = 6 base + 0.6 × 14 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^1"
@@ -916,7 +911,7 @@
     "source_or_assumption": "Packaging BOM lines × 0.92^1"
    },
    "unit_cost": {
-    "value": 27.64,
+    "value": 27.59,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
@@ -931,13 +926,13 @@
     "value": 80.1,
     "unit": "pct",
     "label": "estimate",
-    "source_or_assumption": "($199.00 target − $39.60 landed estimate) ÷ target; before retailer margin, VAT and marketing"
+    "source_or_assumption": "($199.00 target − $39.54 landed estimate) ÷ target; before retailer margin, VAT and marketing"
    }
   },
   {
    "quantity": 10000,
    "bom_cost": {
-    "value": 20.07,
+    "value": 20.03,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Electronics at LCSC price breaks (LCSC price, 2026-09-26); other lines base × 0.92^2"
@@ -955,7 +950,7 @@
     "source_or_assumption": "Packaging BOM lines × 0.92^2"
    },
    "unit_cost": {
-    "value": 26.54,
+    "value": 26.5,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
@@ -970,7 +965,7 @@
     "value": 81.7,
     "unit": "pct",
     "label": "estimate",
-    "source_or_assumption": "($199.00 target − $36.45 landed estimate) ÷ target; before retailer margin, VAT and marketing"
+    "source_or_assumption": "($199.00 target − $36.39 landed estimate) ÷ target; before retailer margin, VAT and marketing"
    }
   }
  ],
@@ -1376,7 +1371,7 @@
   "fallback": false,
   "fallback_reason": null,
   "generated_by": "code",
-  "generated_at": "2026-09-26T23:53:42.057044Z",
+  "generated_at": "2026-09-28T11:08:00.126941Z",
   "assumptions": [
    {
     "id": "e1",
@@ -1391,6 +1386,13 @@
     "label": "estimate",
     "source": null,
     "stage": null
+   },
+   {
+    "id": "e5",
+    "text": "Assembly mates are inferred from the part roles and the product family (rules shown per joint); interference, clearance and screw material are measured on the version's STEP",
+    "label": "estimate",
+    "source": null,
+    "stage": null
    }
   ],
   "stage": "engineering",
@@ -1399,7 +1401,7 @@
   "partner_word": "factories",
   "site_install": false,
   "product_name": "Kitesurf recovery band",
-  "inputs_digest": "bec165f1c3debb2d",
+  "inputs_digest": "00fe7b550ad75881",
   "standards": [
    {
     "code": "IEC 60529",
@@ -1583,10 +1585,10 @@
     "name": "Battery life / runtime from the power budget",
     "domain": "power",
     "value": {
-     "value": 58.3,
+     "value": 65.4,
      "unit": "h",
      "label": "estimate",
-     "source_or_assumption": "150 mAh × 85% usable / 2.186 mA average"
+     "source_or_assumption": "150 mAh × 85% usable / 1.949 mA average"
     },
     "threshold": "≥ 4 days pass, ≥ 50% of it warn (category target, Estimate)",
     "verdict": "warn",
@@ -1599,7 +1601,7 @@
       "source_or_assumption": "Capacity from the BOM line 'LiPo battery, 3.7 V, 150 mAh'"
      },
      {
-      "value": 2.1858,
+      "value": 1.9489,
       "unit": "mA",
       "label": "estimate",
       "source_or_assumption": "Sum of the power-budget lines"
@@ -1661,13 +1663,138 @@
       "source_or_assumption": "Bounding box of the built STEP (build123d/OCCT), pod only (strap excluded)"
      },
      {
-      "value": 2.1858,
+      "value": 1.9489,
       "unit": "mA",
       "label": "estimate",
       "source_or_assumption": "Sum of the power-budget lines"
      }
     ],
     "notes": []
+   },
+   {
+    "id": "asm_interference",
+    "name": "Interference between moving parts",
+    "domain": "assembly",
+    "value": {
+     "value": 0.0,
+     "unit": "pairs",
+     "label": "measured",
+     "source_or_assumption": "Boolean common of every part pair (OCCT), classified by the assembly joints; total 0.0 mm³"
+    },
+    "threshold": "0 intersecting pairs > 0.01 mm³ between parts that move relative to each other (different rigid bodies, over their motion study) or across a parting line — CAD interference-check practice",
+    "verdict": "pass",
+    "formula": "V(A ∩ B) per pair of solids at the assembled pose and over each moving joint's motion study",
+    "inputs": [
+     {
+      "value": 0.0,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Sum of interference volumes"
+     }
+    ],
+    "notes": []
+   },
+   {
+    "id": "asm_static_overlap",
+    "name": "Overlaps inside rigid bodies (concept geometry)",
+    "domain": "assembly",
+    "value": {
+     "value": 0.0,
+     "unit": "mm³",
+     "label": "measured",
+     "source_or_assumption": "0 pairs of rigidly joined parts interpenetrate (0 over 5 % of the smaller part)"
+    },
+    "threshold": "Parts of one rigid body should not interpenetrate: overlap > 5 % of the smaller part = concept geometry to pocket at detail design (warn); smaller overlaps are seats (info)",
+    "verdict": "info",
+    "formula": "V(A ∩ B) for parts of the same rigid body that are not directly joined",
+    "inputs": [],
+    "notes": []
+   },
+   {
+    "id": "asm_clearance",
+    "name": "Minimum clearance of moving parts",
+    "domain": "assembly",
+    "value": {
+     "value": 12.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Lower bound: no moving part has a neighbour within 12 mm (or no moving joint)"
+    },
+    "threshold": "Moving parts clear their surroundings",
+    "verdict": "info",
+    "formula": "min over poses of d(moving subtree, other parts); revolute props 12 poses / 360°, buttons pressed 0.5 mm",
+    "inputs": [],
+    "notes": []
+   },
+   {
+    "id": "asm_parting_gap",
+    "name": "Shell parting-line gap",
+    "domain": "assembly",
+    "value": {
+     "value": 0.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "BRepExtrema distance between the two shells of each parting line"
+    },
+    "threshold": "Shells meet at the parting line: gap ≤ 0.3 mm (visible-gap limit for moulded enclosures)",
+    "verdict": "pass",
+    "formula": "d(top shell, bottom shell); an overlap is reported as an interference",
+    "inputs": [],
+    "notes": [
+     "Top shell / Bottom shell: 0.00 mm"
+    ]
+   },
+   {
+    "id": "asm_fastener_count",
+    "name": "Fasteners by standard",
+    "domain": "assembly",
+    "value": {
+     "value": 2.0,
+     "unit": "pcs",
+     "label": "estimate",
+     "source_or_assumption": "Joint rules (screws per parting-line perimeter, motor mounts, spring bars); sizes from the part scale"
+    },
+    "threshold": null,
+    "verdict": "info",
+    "formula": "Σ fasteners over the assembly joints",
+    "inputs": [],
+    "notes": [
+     "2 × spring_bar Ø1.5×27 (Spring bar Ø1.5 mm, 316L stainless (watch-strap type))"
+    ]
+   },
+   {
+    "id": "asm_joint_closure",
+    "name": "Joint closure (build123d Joints)",
+    "domain": "assembly",
+    "value": {
+     "value": 0.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Each child re-placed from its joint frame with build123d RigidJoint / RevoluteJoint / LinearJoint.connect_to; 5 joints"
+    },
+    "threshold": "build123d joints re-place every part at its modelled pose: residual < 0.01 mm",
+    "verdict": "pass",
+    "formula": "|bbox centre after connect_to − modelled bbox centre|",
+    "inputs": [],
+    "notes": []
+   },
+   {
+    "id": "asm_support",
+    "name": "Every part is attached",
+    "domain": "assembly",
+    "value": {
+     "value": 1.0,
+     "unit": "parts",
+     "label": "measured",
+     "source_or_assumption": "Parts with no contact (≤ 0.05 mm, BRepExtrema) with the part they are joined to"
+    },
+    "threshold": "Every part touches the part it is joined to (contact ≤ 0.05 mm)",
+    "verdict": "warn",
+    "formula": "d(child, parent) ≤ 0.05 mm for every joint",
+    "inputs": [],
+    "notes": [
+     "Strap floats 1.42 mm from Bottom shell"
+    ]
    }
   ],
   "electronics": {
@@ -1701,7 +1828,7 @@
     },
     {
      "id": "p_reg",
-     "name": "3.3 V regulator (implied, VBAT 3.7 V)",
+     "name": "3.3 V LDO regulator, XC6206P332MR",
      "kind": "regulator",
      "parent": "p_bat",
      "voltage": {
@@ -1746,18 +1873,6 @@
       "label": "estimate",
       "source_or_assumption": "Logic rail"
      }
-    },
-    {
-     "id": "p_b6",
-     "name": "3.3 V LDO regulator, XC6206P332MR",
-     "kind": "load",
-     "parent": "p_reg",
-     "voltage": {
-      "value": 3.3,
-      "unit": "V",
-      "label": "estimate",
-      "source_or_assumption": "Logic rail"
-     }
     }
    ],
    "connections": [
@@ -1769,31 +1884,25 @@
     },
     {
      "source": "LiPo battery, 3.7 V, 150 mAh",
-     "target": "3.3 V regulator (implied, VBAT 3.7 V)",
+     "target": "3.3 V LDO regulator, XC6206P332MR",
      "bus": "power",
      "signals": "3.3 V"
     },
     {
-     "source": "3.3 V regulator (implied, VBAT 3.7 V)",
+     "source": "3.3 V LDO regulator, XC6206P332MR",
      "target": "BLE microcontroller, WCH CH582M",
      "bus": "power",
      "signals": "3.3 V"
     },
     {
-     "source": "3.3 V regulator (implied, VBAT 3.7 V)",
+     "source": "3.3 V LDO regulator, XC6206P332MR",
      "target": "Optical heart-rate sensor, MAX30102",
      "bus": "power",
      "signals": "3.3 V"
     },
     {
-     "source": "3.3 V regulator (implied, VBAT 3.7 V)",
+     "source": "3.3 V LDO regulator, XC6206P332MR",
      "target": "6-axis IMU, QMI8658A",
-     "bus": "power",
-     "signals": "3.3 V"
-    },
-    {
-     "source": "3.3 V regulator (implied, VBAT 3.7 V)",
-     "target": "3.3 V LDO regulator, XC6206P332MR",
      "bus": "power",
      "signals": "3.3 V"
     },
@@ -1814,12 +1923,6 @@
      "target": "Single-cell LiPo charger IC, TP4054",
      "bus": "gpio",
      "signals": "CHG_STAT, PGOOD"
-    },
-    {
-     "source": "BLE microcontroller, WCH CH582M",
-     "target": "3.3 V LDO regulator, XC6206P332MR",
-     "bus": "gpio",
-     "signals": "GPIO"
     },
     {
      "source": "BLE microcontroller, WCH CH582M",
@@ -1914,34 +2017,6 @@
      }
     },
     {
-     "block": "mcu",
-     "part": "3.3 V LDO regulator, XC6206P332MR",
-     "active_current": {
-      "value": 6.0,
-      "unit": "mA",
-      "label": "estimate",
-      "source_or_assumption": "Typical active current of a MCU (from the BOM)"
-     },
-     "sleep_current": {
-      "value": 2.0,
-      "unit": "µA",
-      "label": "estimate",
-      "source_or_assumption": "Typical sleep/standby current"
-     },
-     "duty_cycle": {
-      "value": 4.0,
-      "unit": "pct",
-      "label": "estimate",
-      "source_or_assumption": "Category duty cycle for 'mcu' (Wearable (water sports, skin contact))"
-     },
-     "average_current": {
-      "value": 0.2419,
-      "unit": "mA",
-      "label": "estimate",
-      "source_or_assumption": "active × duty + sleep × (1 − duty)"
-     }
-    },
-    {
      "block": "charger",
      "part": "Single-cell LiPo charger IC, TP4054",
      "active_current": {
@@ -1968,10 +2043,38 @@
       "label": "estimate",
       "source_or_assumption": "Quiescent current"
      }
+    },
+    {
+     "block": "regulator",
+     "part": "3.3 V LDO regulator, XC6206P332MR",
+     "active_current": {
+      "value": 0.0,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "Pass-through part"
+     },
+     "sleep_current": {
+      "value": 5.0,
+      "unit": "µA",
+      "label": "estimate",
+      "source_or_assumption": "Typical quiescent current"
+     },
+     "duty_cycle": {
+      "value": 100.0,
+      "unit": "pct",
+      "label": "estimate",
+      "source_or_assumption": "Always on"
+     },
+     "average_current": {
+      "value": 0.005,
+      "unit": "mA",
+      "label": "estimate",
+      "source_or_assumption": "Quiescent current"
+     }
     }
    ],
    "average_current": {
-    "value": 2.1858,
+    "value": 1.9489,
     "unit": "mA",
     "label": "estimate",
     "source_or_assumption": "Sum of the power-budget lines"
@@ -1989,10 +2092,10 @@
     "source_or_assumption": "Capacity from the BOM line 'LiPo battery, 3.7 V, 150 mAh'"
    },
    "battery_life": {
-    "value": 58.3,
+    "value": 65.4,
     "unit": "h",
     "label": "estimate",
-    "source_or_assumption": "150 mAh × 85% usable / 2.186 mA average"
+    "source_or_assumption": "150 mAh × 85% usable / 1.949 mA average"
    },
    "pcb_note": "PCB layout: next step (human or text-to-PCB)"
   },
@@ -2011,7 +2114,7 @@
     "src/sensors.cpp",
     "src/sensors.h"
    ],
-   "generated_by": "llm:openai/gpt-6-luna",
+   "generated_by": "template",
    "note": "Generated code — not compiled or tested",
    "pending_llm": false
   },
@@ -2037,10 +2140,10 @@
     {
      "item": "PCBA quick-turn (5 boards, 9 BOM lines)",
      "amount": {
-      "value": 213.0,
+      "value": 212.0,
       "unit": "USD",
       "label": "estimate",
-      "source_or_assumption": "5 boards: setup/stencil 25 + 2-layer fab 5 + parts 163.45 (LCSC price at 5× qty where matched, else BOM estimate × 3) + shipping 20 USD"
+      "source_or_assumption": "5 boards: setup/stencil 25 + 2-layer fab 5 + parts 161.95 (LCSC price at 5× qty where matched, else BOM estimate × 3) + shipping 20 USD"
      }
     },
     {
@@ -2115,7 +2218,7 @@
     "source_or_assumption": "Design freeze 0.5 + PCBA quick-turn incl. shipping 2 + integration 1 + test 0.5 (enclosure and firmware on the dev kit run in parallel)"
    },
    "total_cost": {
-    "value": 351.0,
+    "value": 350.0,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Sum of the prototype cost lines"
@@ -2167,6 +2270,623 @@
    ]
   },
   "unit_basis": "per_unit",
-  "installation_cost": null
- }
+  "installation_cost": null,
+  "assembly": {
+   "project_id": "demo_whoop_kitesurf",
+   "version": 4,
+   "label": "Measured on the version STEP (build123d / OCCT); mates inferred from the family / part roles",
+   "source": "/files/demo_whoop_kitesurf/model_v2.step",
+   "root": "bottom_shell",
+   "nodes": [
+    {
+     "part_id": "strap",
+     "name": "Strap",
+     "role": "strap",
+     "parent": "bottom_shell",
+     "joint_id": "j1",
+     "rigid_body": 0,
+     "volume": {
+      "value": 7842.9,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      -1.0,
+      0.0
+     ],
+     "explode_distance_mm": 23.3
+    },
+    {
+     "part_id": "bottom_shell",
+     "name": "Bottom shell",
+     "role": "shell_bottom",
+     "parent": null,
+     "joint_id": null,
+     "rigid_body": 0,
+     "volume": {
+      "value": 5159.3,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "explode_distance_mm": 0.0
+    },
+    {
+     "part_id": "top_shell",
+     "name": "Top shell",
+     "role": "shell_top",
+     "parent": "bottom_shell",
+     "joint_id": "j2",
+     "rigid_body": 0,
+     "volume": {
+      "value": 4549.3,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "explode_distance_mm": 6.0
+    },
+    {
+     "part_id": "window",
+     "name": "Window",
+     "role": "window",
+     "parent": "bottom_shell",
+     "joint_id": "j3",
+     "rigid_body": 0,
+     "volume": {
+      "value": 125.6,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      -1.0,
+      0.0
+     ],
+     "explode_distance_mm": 4.2
+    },
+    {
+     "part_id": "lights",
+     "name": "Lights",
+     "role": "diffuser",
+     "parent": "window",
+     "joint_id": "j5",
+     "rigid_body": 0,
+     "volume": {
+      "value": 1.8,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      -1.0,
+      0.0
+     ],
+     "explode_distance_mm": 9.6
+    },
+    {
+     "part_id": "light",
+     "name": "Light",
+     "role": "diffuser",
+     "parent": "top_shell",
+     "joint_id": "j4",
+     "rigid_body": 0,
+     "volume": {
+      "value": 0.3,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "explode_distance_mm": 11.4
+    }
+   ],
+   "joints": [
+    {
+     "id": "j1",
+     "parent": "bottom_shell",
+     "child": "strap",
+     "kind": "rigid",
+     "method": "clip",
+     "dof": 0,
+     "origin_mm": [
+      -19.0,
+      30.79,
+      12.31
+     ],
+     "axis": [
+      -0.0,
+      -1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [
+      {
+       "kind": "spring_bar",
+       "standard": "Spring bar Ø1.5 mm, 316L stainless (watch-strap type)",
+       "designation": "Ø1.5×27",
+       "size": "Ø1.5",
+       "length_mm": 27.0,
+       "qty": 2,
+       "source": "built-in table"
+      }
+     ],
+     "rule": "Strap retained by two spring bars (wearable rule) — NO CONTACT with Bottom shell (gap 1.42 mm): attach at detail design"
+    },
+    {
+     "id": "j2",
+     "parent": "bottom_shell",
+     "child": "top_shell",
+     "kind": "rigid",
+     "method": "snap_fit",
+     "dof": 0,
+     "origin_mm": [
+      -22.0,
+      35.7,
+      7.0
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Two shells under 60 mm: snap-fit closure (no screws) — small-enclosure rule"
+    },
+    {
+     "id": "j3",
+     "parent": "bottom_shell",
+     "child": "window",
+     "kind": "rigid",
+     "method": "inlay",
+     "dof": 0,
+     "origin_mm": [
+      0.0,
+      31.55,
+      0.0
+     ],
+     "axis": [
+      -0.0,
+      -1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Window set into Bottom shell: inlay (insert rule; the host is pocketed around it at detail design)"
+    },
+    {
+     "id": "j4",
+     "parent": "top_shell",
+     "child": "light",
+     "kind": "rigid",
+     "method": "inlay",
+     "dof": 0,
+     "origin_mm": [
+      15.5,
+      39.48,
+      0.0
+     ],
+     "axis": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Light set into Top shell: inlay (insert rule; the host is pocketed around it at detail design)"
+    },
+    {
+     "id": "j5",
+     "parent": "window",
+     "child": "lights",
+     "kind": "rigid",
+     "method": "inlay",
+     "dof": 0,
+     "origin_mm": [
+      0.0,
+      30.88,
+      0.0
+     ],
+     "axis": [
+      -0.0,
+      -1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Lights set into Window: inlay (insert rule; the host is pocketed around it at detail design)"
+    }
+   ],
+   "interferences": [
+    {
+     "a": "bottom_shell",
+     "b": "window",
+     "volume": {
+      "value": 16.74,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint inlay: concept overlap at the mate"
+    },
+    {
+     "a": "window",
+     "b": "lights",
+     "volume": {
+      "value": 0.49,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint inlay: concept overlap at the mate"
+    },
+    {
+     "a": "top_shell",
+     "b": "light",
+     "volume": {
+      "value": 0.07,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint inlay: concept overlap at the mate"
+    }
+   ],
+   "clearances": [
+    {
+     "part_id": "top_shell",
+     "against": "bottom_shell",
+     "min_clearance": {
+      "value": 0.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "BRepExtrema distance"
+     },
+     "motion": "static (parting line)",
+     "verdict": "pass",
+     "rule": "Shells meet at the parting line: gap ≤ 0.3 mm (visible-gap limit for moulded enclosures)"
+    }
+   ],
+   "fasteners": [
+    {
+     "id": "fx1",
+     "part": "Spring bar Ø1.5×27 mm (Spring bar Ø1.5 mm, 316L stainless (watch-strap type))",
+     "category": "mechanical",
+     "qty": 2.0,
+     "description": "Fastener aggregated from the assembly joints (built-in table)",
+     "manufacturer_pn": null,
+     "lcsc_pn": null,
+     "unit_cost_est": {
+      "value": 0.04,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+     },
+     "risk": null,
+     "alternative": null
+    }
+   ],
+   "checks": [
+    {
+     "id": "asm_interference",
+     "name": "Interference between moving parts",
+     "domain": "assembly",
+     "value": {
+      "value": 0.0,
+      "unit": "pairs",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of every part pair (OCCT), classified by the assembly joints; total 0.0 mm³"
+     },
+     "threshold": "0 intersecting pairs > 0.01 mm³ between parts that move relative to each other (different rigid bodies, over their motion study) or across a parting line — CAD interference-check practice",
+     "verdict": "pass",
+     "formula": "V(A ∩ B) per pair of solids at the assembled pose and over each moving joint's motion study",
+     "inputs": [
+      {
+       "value": 0.0,
+       "unit": "mm³",
+       "label": "measured",
+       "source_or_assumption": "Sum of interference volumes"
+      }
+     ],
+     "notes": []
+    },
+    {
+     "id": "asm_static_overlap",
+     "name": "Overlaps inside rigid bodies (concept geometry)",
+     "domain": "assembly",
+     "value": {
+      "value": 0.0,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "0 pairs of rigidly joined parts interpenetrate (0 over 5 % of the smaller part)"
+     },
+     "threshold": "Parts of one rigid body should not interpenetrate: overlap > 5 % of the smaller part = concept geometry to pocket at detail design (warn); smaller overlaps are seats (info)",
+     "verdict": "info",
+     "formula": "V(A ∩ B) for parts of the same rigid body that are not directly joined",
+     "inputs": [],
+     "notes": []
+    },
+    {
+     "id": "asm_clearance",
+     "name": "Minimum clearance of moving parts",
+     "domain": "assembly",
+     "value": {
+      "value": 12.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Lower bound: no moving part has a neighbour within 12 mm (or no moving joint)"
+     },
+     "threshold": "Moving parts clear their surroundings",
+     "verdict": "info",
+     "formula": "min over poses of d(moving subtree, other parts); revolute props 12 poses / 360°, buttons pressed 0.5 mm",
+     "inputs": [],
+     "notes": []
+    },
+    {
+     "id": "asm_parting_gap",
+     "name": "Shell parting-line gap",
+     "domain": "assembly",
+     "value": {
+      "value": 0.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "BRepExtrema distance between the two shells of each parting line"
+     },
+     "threshold": "Shells meet at the parting line: gap ≤ 0.3 mm (visible-gap limit for moulded enclosures)",
+     "verdict": "pass",
+     "formula": "d(top shell, bottom shell); an overlap is reported as an interference",
+     "inputs": [],
+     "notes": [
+      "Top shell / Bottom shell: 0.00 mm"
+     ]
+    },
+    {
+     "id": "asm_fastener_count",
+     "name": "Fasteners by standard",
+     "domain": "assembly",
+     "value": {
+      "value": 2.0,
+      "unit": "pcs",
+      "label": "estimate",
+      "source_or_assumption": "Joint rules (screws per parting-line perimeter, motor mounts, spring bars); sizes from the part scale"
+     },
+     "threshold": null,
+     "verdict": "info",
+     "formula": "Σ fasteners over the assembly joints",
+     "inputs": [],
+     "notes": [
+      "2 × spring_bar Ø1.5×27 (Spring bar Ø1.5 mm, 316L stainless (watch-strap type))"
+     ]
+    },
+    {
+     "id": "asm_joint_closure",
+     "name": "Joint closure (build123d Joints)",
+     "domain": "assembly",
+     "value": {
+      "value": 0.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Each child re-placed from its joint frame with build123d RigidJoint / RevoluteJoint / LinearJoint.connect_to; 5 joints"
+     },
+     "threshold": "build123d joints re-place every part at its modelled pose: residual < 0.01 mm",
+     "verdict": "pass",
+     "formula": "|bbox centre after connect_to − modelled bbox centre|",
+     "inputs": [],
+     "notes": []
+    },
+    {
+     "id": "asm_support",
+     "name": "Every part is attached",
+     "domain": "assembly",
+     "value": {
+      "value": 1.0,
+      "unit": "parts",
+      "label": "measured",
+      "source_or_assumption": "Parts with no contact (≤ 0.05 mm, BRepExtrema) with the part they are joined to"
+     },
+     "threshold": "Every part touches the part it is joined to (contact ≤ 0.05 mm)",
+     "verdict": "warn",
+     "formula": "d(child, parent) ≤ 0.05 mm for every joint",
+     "inputs": [],
+     "notes": [
+      "Strap floats 1.42 mm from Bottom shell"
+     ]
+    }
+   ],
+   "summary": "6 parts · 5 joints (0 moving) · 0 interferences · 2 fasteners",
+   "engine": "c2.2"
+  }
+ },
+ "drawings": [
+  {
+   "sheet": "A1",
+   "kind": "assembly",
+   "part_id": null,
+   "title": "Kitesurf recovery band — general assembly",
+   "svg_url": "/files/demo_whoop_kitesurf/drawings/v4_A1.svg",
+   "pdf_url": "/files/demo_whoop_kitesurf/drawings/v4_A1.pdf",
+   "set_pdf_url": "/files/demo_whoop_kitesurf/drawings/v4_set.pdf",
+   "version": 4,
+   "size": "A3",
+   "scale": "1:1",
+   "bbox_mm": [
+    80.0,
+    30.0,
+    39.59
+   ],
+   "bom_item_id": null,
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P01",
+   "kind": "part",
+   "part_id": "strap",
+   "title": "Strap",
+   "svg_url": "/files/demo_whoop_kitesurf/drawings/v4_P01.svg",
+   "pdf_url": "/files/demo_whoop_kitesurf/drawings/v4_P01.pdf",
+   "set_pdf_url": "/files/demo_whoop_kitesurf/drawings/v4_set.pdf",
+   "version": 4,
+   "size": "A4",
+   "scale": "1:1",
+   "bbox_mm": [
+    80.0,
+    25.0,
+    30.08
+   ],
+   "bom_item_id": "m4",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P02",
+   "kind": "part",
+   "part_id": "bottom_shell",
+   "title": "Bottom shell",
+   "svg_url": "/files/demo_whoop_kitesurf/drawings/v4_P02.svg",
+   "pdf_url": "/files/demo_whoop_kitesurf/drawings/v4_P02.pdf",
+   "set_pdf_url": "/files/demo_whoop_kitesurf/drawings/v4_set.pdf",
+   "version": 4,
+   "size": "A4",
+   "scale": "2:1",
+   "bbox_mm": [
+    44.0,
+    30.0,
+    4.2
+   ],
+   "bom_item_id": "m1",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P03",
+   "kind": "part",
+   "part_id": "top_shell",
+   "title": "Top shell",
+   "svg_url": "/files/demo_whoop_kitesurf/drawings/v4_P03.svg",
+   "pdf_url": "/files/demo_whoop_kitesurf/drawings/v4_P03.pdf",
+   "set_pdf_url": "/files/demo_whoop_kitesurf/drawings/v4_set.pdf",
+   "version": 4,
+   "size": "A4",
+   "scale": "2:1",
+   "bbox_mm": [
+    44.0,
+    30.0,
+    3.8
+   ],
+   "bom_item_id": "m1",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P04",
+   "kind": "part",
+   "part_id": "window",
+   "title": "Window",
+   "svg_url": "/files/demo_whoop_kitesurf/drawings/v4_P04.svg",
+   "pdf_url": "/files/demo_whoop_kitesurf/drawings/v4_P04.pdf",
+   "set_pdf_url": "/files/demo_whoop_kitesurf/drawings/v4_set.pdf",
+   "version": 4,
+   "size": "A4",
+   "scale": "5:1",
+   "bbox_mm": [
+    14.6,
+    14.6,
+    0.75
+   ],
+   "bom_item_id": "m5",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P05",
+   "kind": "part",
+   "part_id": "lights",
+   "title": "Lights",
+   "svg_url": "/files/demo_whoop_kitesurf/drawings/v4_P05.svg",
+   "pdf_url": "/files/demo_whoop_kitesurf/drawings/v4_P05.pdf",
+   "set_pdf_url": "/files/demo_whoop_kitesurf/drawings/v4_set.pdf",
+   "version": 4,
+   "size": "A4",
+   "scale": "20:1",
+   "bbox_mm": [
+    8.1,
+    2.5,
+    0.18
+   ],
+   "bom_item_id": null,
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "M01",
+   "kind": "moulded",
+   "part_id": "bottom_shell",
+   "title": "Bottom shell — moulded (DFM model)",
+   "svg_url": "/files/demo_whoop_kitesurf/drawings/v4_M01.svg",
+   "pdf_url": "/files/demo_whoop_kitesurf/drawings/v4_M01.pdf",
+   "set_pdf_url": "/files/demo_whoop_kitesurf/drawings/v4_set.pdf",
+   "version": 4,
+   "size": "A4",
+   "scale": "2:1",
+   "bbox_mm": [
+    44.0,
+    30.0,
+    5.12
+   ],
+   "bom_item_id": null,
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "M02",
+   "kind": "moulded",
+   "part_id": "top_shell",
+   "title": "Top shell — moulded (DFM model)",
+   "svg_url": "/files/demo_whoop_kitesurf/drawings/v4_M02.svg",
+   "pdf_url": "/files/demo_whoop_kitesurf/drawings/v4_M02.pdf",
+   "set_pdf_url": "/files/demo_whoop_kitesurf/drawings/v4_set.pdf",
+   "version": 4,
+   "size": "A4",
+   "scale": "2:1",
+   "bbox_mm": [
+    44.0,
+    30.0,
+    2.88
+   ],
+   "bom_item_id": null,
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  }
+ ]
 }

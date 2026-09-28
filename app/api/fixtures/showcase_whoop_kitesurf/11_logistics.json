@@ -4,7 +4,7 @@
  "fallback": false,
  "fallback_reason": null,
  "generated_by": "code",
- "generated_at": "2026-09-27T08:58:59.439202Z",
+ "generated_at": "2026-09-28T11:06:07.305348Z",
  "assumptions": [
   {
    "id": "a1",
@@ -43,7 +43,7 @@
   },
   {
    "id": "a6",
-   "text": "FOB basis: Approved final terms, quote qt_7754a76df3 — demo data",
+   "text": "FOB basis: Approved final terms, quote qt_7172f82952 — demo data",
    "label": "fictional",
    "source": "stage8_final_terms",
    "stage": 11
@@ -166,10 +166,10 @@
   {
    "name": "FOB unit price",
    "amount": {
-    "value": 29.23,
+    "value": 29.17,
     "unit": "USD",
     "label": "fictional",
-    "source_or_assumption": "Approved final terms, quote qt_7754a76df3 — demo data"
+    "source_or_assumption": "Approved final terms, quote qt_7172f82952 — demo data"
    }
   },
   {
@@ -202,7 +202,7 @@
   {
    "name": "Section 301 (25%)",
    "amount": {
-    "value": 7.31,
+    "value": 7.29,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "25% × FOB. Section 301 China, heading 9903.88.01 (+25%): USITC HTS, https://hts.usitc.gov/search?query=9903.88.01, fetched 2026-09-26; heading cited with HTS 9031.80.8085 in CBP ruling N348181 (2025-04-30). Coverage on the entry date to be confirmed by a customs broker"
@@ -247,7 +247,7 @@
   {
    "name": "Platform / agent fee (7% of FOB)",
    "amount": {
-    "value": 2.05,
+    "value": 2.04,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Sourcing agent / platform benchmark 5-10% of order (Dragon Sourcing, https://www.dragonsourcing.com/top-10-cost-insights-for-hiring-a-china-sourcing-agent/), 7% assumed"
@@ -273,11 +273,11 @@
   }
  ],
  "landed_cost_per_unit": {
-  "value": 41.59,
+  "value": 41.5,
   "unit": "USD",
   "label": "estimate",
   "source_or_assumption": "Sum of landed cost components"
  },
  "reconciles_with_stage5": true,
- "reconciliation_note": "Landed $41.59 vs stage 5 estimate $39.60 at 2,000 units (+5.0%): FOB $29.23 vs stage 5 $27.64 (stage8_final_terms); tooling $3,450 vs $3,730."
+ "reconciliation_note": "Landed $41.50 vs stage 5 estimate $39.54 at 2,000 units (+5.0%): FOB $29.17 vs stage 5 $27.59 (stage8_final_terms); tooling $3,450 vs $3,730."
 }

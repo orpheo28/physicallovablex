@@ -143,7 +143,7 @@
    "format": "glb",
    "url": "/files/demo_surfboard_beginner/model_v2.glb",
    "description": "AI-generated CAD (concept level) — geometry measured on the result — bbox 2286 × 573 × 203 mm",
-   "size_bytes": 153732
+   "size_bytes": 154152
   },
   {
    "format": "step",
@@ -161,7 +161,7 @@
    "format": "glb",
    "url": "/files/demo_surfboard_beginner/v2.glb",
    "description": "Full product — materials",
-   "size_bytes": 577212
+   "size_bytes": 592140
   },
   {
    "format": "step",
@@ -487,16 +487,16 @@
   {
    "quantity": 500,
    "bom_cost": {
-    "value": 195.0,
+    "value": 195.55,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Electronics at LCSC price breaks (LCSC price, 2026-09-26); other lines base × 0.92^0"
    },
    "assembly_cost": {
-    "value": 33.08,
+    "value": 33.33,
     "unit": "USD",
     "label": "estimate",
-    "source_or_assumption": "Assembly + factory overhead/margin: 10.2 min = 6 base + 0.6 × 7 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^0"
+    "source_or_assumption": "Assembly + factory overhead/margin: 11.4 min = 6 base + 0.6 × 9 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^0"
    },
    "packaging_cost": {
     "value": 16.0,
@@ -505,7 +505,7 @@
     "source_or_assumption": "Packaging BOM lines × 0.92^0"
    },
    "unit_cost": {
-    "value": 244.08,
+    "value": 244.88,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
@@ -517,25 +517,25 @@
     "source_or_assumption": "$1,070 tooling ÷ 500"
    },
    "margin_pct": {
-    "value": 28.1,
+    "value": 27.9,
     "unit": "pct",
     "label": "estimate",
-    "source_or_assumption": "($549.00 target − $394.62 landed estimate) ÷ target; before retailer margin, VAT and marketing"
+    "source_or_assumption": "($549.00 target − $395.70 landed estimate) ÷ target; before retailer margin, VAT and marketing"
    }
   },
   {
    "quantity": 2000,
    "bom_cost": {
-    "value": 179.4,
+    "value": 179.91,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Electronics at LCSC price breaks (LCSC price, 2026-09-26); other lines base × 0.92^1"
    },
    "assembly_cost": {
-    "value": 30.43,
+    "value": 30.66,
     "unit": "USD",
     "label": "estimate",
-    "source_or_assumption": "Assembly + factory overhead/margin: 10.2 min = 6 base + 0.6 × 7 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^1"
+    "source_or_assumption": "Assembly + factory overhead/margin: 11.4 min = 6 base + 0.6 × 9 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^1"
    },
    "packaging_cost": {
     "value": 14.72,
@@ -544,7 +544,7 @@
     "source_or_assumption": "Packaging BOM lines × 0.92^1"
    },
    "unit_cost": {
-    "value": 224.55,
+    "value": 225.29,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
@@ -556,25 +556,25 @@
     "source_or_assumption": "$1,070 tooling ÷ 2,000"
    },
    "margin_pct": {
-    "value": 35.1,
+    "value": 34.9,
     "unit": "pct",
     "label": "estimate",
-    "source_or_assumption": "($549.00 target − $356.40 landed estimate) ÷ target; before retailer margin, VAT and marketing"
+    "source_or_assumption": "($549.00 target − $357.40 landed estimate) ÷ target; before retailer margin, VAT and marketing"
    }
   },
   {
    "quantity": 10000,
    "bom_cost": {
-    "value": 165.05,
+    "value": 165.52,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "Electronics at LCSC price breaks (LCSC price, 2026-09-26); other lines base × 0.92^2"
    },
    "assembly_cost": {
-    "value": 28.0,
+    "value": 28.21,
     "unit": "USD",
     "label": "estimate",
-    "source_or_assumption": "Assembly + factory overhead/margin: 10.2 min = 6 base + 0.6 × 7 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^2"
+    "source_or_assumption": "Assembly + factory overhead/margin: 11.4 min = 6 base + 0.6 × 9 BOM lines; × $6/h × 1.4 overhead, + 15% factory margin and scrap on materials; labour × 0.92^2"
    },
    "packaging_cost": {
     "value": 13.54,
@@ -583,7 +583,7 @@
     "source_or_assumption": "Packaging BOM lines × 0.92^2"
    },
    "unit_cost": {
-    "value": 206.59,
+    "value": 207.27,
     "unit": "USD",
     "label": "estimate",
     "source_or_assumption": "BOM + assembly + packaging (ex-works, FOB basis)"
@@ -595,10 +595,10 @@
     "source_or_assumption": "$1,070 tooling ÷ 10,000"
    },
    "margin_pct": {
-    "value": 40.2,
+    "value": 40.0,
     "unit": "pct",
     "label": "estimate",
-    "source_or_assumption": "($549.00 target − $328.32 landed estimate) ÷ target; before retailer margin, VAT and marketing"
+    "source_or_assumption": "($549.00 target − $329.24 landed estimate) ÷ target; before retailer margin, VAT and marketing"
    }
   }
  ],
@@ -997,7 +997,7 @@
   "fallback": false,
   "fallback_reason": null,
   "generated_by": "code",
-  "generated_at": "2026-09-27T00:15:03.562404Z",
+  "generated_at": "2026-09-28T11:08:27.566427Z",
   "assumptions": [
    {
     "id": "e1",
@@ -1012,6 +1012,13 @@
     "label": "estimate",
     "source": null,
     "stage": null
+   },
+   {
+    "id": "e5",
+    "text": "Assembly mates are inferred from the part roles and the product family (rules shown per joint); interference, clearance and screw material are measured on the version's STEP",
+    "label": "estimate",
+    "source": null,
+    "stage": null
    }
   ],
   "stage": "engineering",
@@ -1020,7 +1027,7 @@
   "partner_word": "factories",
   "site_install": false,
   "product_name": "Beginner surfboard 7'6\"",
-  "inputs_digest": "06250adbbde2ee05",
+  "inputs_digest": "3eca6d0b5b979b6f",
   "standards": [
    {
     "code": "Regulation (EU) 2023/988",
@@ -1238,6 +1245,139 @@
      }
     ],
     "notes": []
+   },
+   {
+    "id": "asm_interference",
+    "name": "Interference between moving parts",
+    "domain": "assembly",
+    "value": {
+     "value": 0.0,
+     "unit": "pairs",
+     "label": "measured",
+     "source_or_assumption": "Boolean common of every part pair (OCCT), classified by the assembly joints; total 0.0 mm³"
+    },
+    "threshold": "0 intersecting pairs > 0.01 mm³ between parts that move relative to each other (different rigid bodies, over their motion study) or across a parting line — CAD interference-check practice",
+    "verdict": "pass",
+    "formula": "V(A ∩ B) per pair of solids at the assembled pose and over each moving joint's motion study",
+    "inputs": [
+     {
+      "value": 0.0,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Sum of interference volumes"
+     }
+    ],
+    "notes": []
+   },
+   {
+    "id": "asm_static_overlap",
+    "name": "Overlaps inside rigid bodies (concept geometry)",
+    "domain": "assembly",
+    "value": {
+     "value": 808.9,
+     "unit": "mm³",
+     "label": "measured",
+     "source_or_assumption": "2 pairs of rigidly joined parts interpenetrate (0 over 5 % of the smaller part)"
+    },
+    "threshold": "Parts of one rigid body should not interpenetrate: overlap > 5 % of the smaller part = concept geometry to pocket at detail design (warn); smaller overlaps are seats (info)",
+    "verdict": "info",
+    "formula": "V(A ∩ B) for parts of the same rigid body that are not directly joined",
+    "inputs": [],
+    "notes": []
+   },
+   {
+    "id": "asm_clearance",
+    "name": "Minimum clearance of moving parts",
+    "domain": "assembly",
+    "value": {
+     "value": 12.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Lower bound: no moving part has a neighbour within 12 mm (or no moving joint)"
+    },
+    "threshold": "Moving parts clear their surroundings",
+    "verdict": "info",
+    "formula": "min over poses of d(moving subtree, other parts); revolute props 12 poses / 360°, buttons pressed 0.5 mm",
+    "inputs": [],
+    "notes": []
+   },
+   {
+    "id": "asm_fastener_engagement",
+    "name": "Screw engagement vs insert / thread",
+    "domain": "assembly",
+    "value": {
+     "value": 4.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Material under each screw measured by a line ∩ solid on both parts; flange capped at 2·d (counterbore), screw = shortest ISO length reaching the insert / thread"
+    },
+    "threshold": "Heat-set insert: boss holds the insert + 0.5 mm and the screw engages ≥ 80 % of it (McMaster-Carr 94459A insert data); tapped metal ≥ 1.5·d; thread-forming screw in plastic ≥ 2·d (EJOT DELTA PT design guide)",
+    "verdict": "pass",
+    "formula": "engagement = min(insert length, screw length − flange); boss depth = material of the threaded part",
+    "inputs": [
+     {
+      "value": 70.52,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Smallest boss / thread material measured"
+     }
+    ],
+    "notes": [
+     "Fin 1 → Body: 2 × M2.5×10 + insert M2.5×4, engagement ≥ 4.0 mm, pass",
+     "Fin 2 → Body: 2 × M2.5×10 + insert M2.5×4, engagement ≥ 4.0 mm, pass",
+     "Fin 3 → Body: 2 × M2.5×10 + insert M2.5×4, engagement ≥ 4.0 mm, pass"
+    ]
+   },
+   {
+    "id": "asm_fastener_count",
+    "name": "Fasteners by standard",
+    "domain": "assembly",
+    "value": {
+     "value": 12.0,
+     "unit": "pcs",
+     "label": "estimate",
+     "source_or_assumption": "Joint rules (screws per parting-line perimeter, motor mounts, spring bars); sizes from the part scale"
+    },
+    "threshold": null,
+    "verdict": "info",
+    "formula": "Σ fasteners over the assembly joints",
+    "inputs": [],
+    "notes": [
+     "6 × insert M2.5×4 (Heat-set brass insert (catalogue class))",
+     "6 × screw M2.5×10 (ISO 14583 (hexalobular pan head), A2 stainless)"
+    ]
+   },
+   {
+    "id": "asm_joint_closure",
+    "name": "Joint closure (build123d Joints)",
+    "domain": "assembly",
+    "value": {
+     "value": 0.0,
+     "unit": "mm",
+     "label": "measured",
+     "source_or_assumption": "Each child re-placed from its joint frame with build123d RigidJoint / RevoluteJoint / LinearJoint.connect_to; 4 joints"
+    },
+    "threshold": "build123d joints re-place every part at its modelled pose: residual < 0.01 mm",
+    "verdict": "pass",
+    "formula": "|bbox centre after connect_to − modelled bbox centre|",
+    "inputs": [],
+    "notes": []
+   },
+   {
+    "id": "asm_support",
+    "name": "Every part is attached",
+    "domain": "assembly",
+    "value": {
+     "value": 0.0,
+     "unit": "parts",
+     "label": "measured",
+     "source_or_assumption": "Parts with no contact (≤ 0.05 mm, BRepExtrema) with the part they are joined to"
+    },
+    "threshold": "Every part touches the part it is joined to (contact ≤ 0.05 mm)",
+    "verdict": "pass",
+    "formula": "d(child, parent) ≤ 0.05 mm for every joint",
+    "inputs": [],
+    "notes": []
    }
   ],
   "electronics": null,
@@ -1326,6 +1466,613 @@
    ]
   },
   "unit_basis": "per_unit",
-  "installation_cost": null
- }
+  "installation_cost": null,
+  "assembly": {
+   "project_id": "demo_surfboard_beginner",
+   "version": 2,
+   "label": "Measured on the version STEP (build123d / OCCT); mates inferred from the family / part roles",
+   "source": "/files/demo_surfboard_beginner/model_v2.step",
+   "root": "body",
+   "nodes": [
+    {
+     "part_id": "body",
+     "name": "Body",
+     "role": "shell_top",
+     "parent": null,
+     "joint_id": null,
+     "rigid_body": 0,
+     "volume": {
+      "value": 71605248.5,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "explode_distance_mm": 0.0
+    },
+    {
+     "part_id": "fin",
+     "name": "Fin 1",
+     "role": "other",
+     "parent": "body",
+     "joint_id": "j1",
+     "rigid_body": 0,
+     "volume": {
+      "value": 20863.3,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      -1.0,
+      0.0
+     ],
+     "explode_distance_mm": 327.1
+    },
+    {
+     "part_id": "fin_2",
+     "name": "Fin 2",
+     "role": "other",
+     "parent": "body",
+     "joint_id": "j2",
+     "rigid_body": 0,
+     "volume": {
+      "value": 20863.3,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      -1.0,
+      0.0
+     ],
+     "explode_distance_mm": 327.1
+    },
+    {
+     "part_id": "fin_3",
+     "name": "Fin 3",
+     "role": "other",
+     "parent": "body",
+     "joint_id": "j3",
+     "rigid_body": 0,
+     "volume": {
+      "value": 28029.6,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.0,
+      -1.0,
+      0.0
+     ],
+     "explode_distance_mm": 255.2
+    },
+    {
+     "part_id": "fin_boxes_x3",
+     "name": "Fin boxes ×3",
+     "role": "fastener",
+     "parent": "fin_3",
+     "joint_id": "j4",
+     "rigid_body": 0,
+     "volume": {
+      "value": 68688.0,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Solid volume (OCCT)"
+     },
+     "explode_vector": [
+      0.8727,
+      -0.4882,
+      0.0
+     ],
+     "explode_distance_mm": 522.6
+    }
+   ],
+   "joints": [
+    {
+     "id": "j1",
+     "parent": "body",
+     "child": "fin",
+     "kind": "rigid",
+     "method": "screwed",
+     "dof": 0,
+     "origin_mm": [
+      -817.57,
+      88.17,
+      130.0
+     ],
+     "axis": [
+      -0.0,
+      -1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [
+      {
+       "kind": "screw",
+       "standard": "ISO 14583 (hexalobular pan head), A2 stainless",
+       "designation": "M2.5×10",
+       "size": "M2.5",
+       "length_mm": 10.0,
+       "qty": 2,
+       "source": "api.cad.stdparts"
+      },
+      {
+       "kind": "insert",
+       "standard": "Heat-set brass insert (catalogue class)",
+       "designation": "M2.5×4",
+       "size": "M2.5",
+       "length_mm": 4.0,
+       "qty": 2,
+       "source": "api.cad.stdparts"
+      }
+     ],
+     "rule": "Structural part ≥ 20 mm: 2 screws into heat-set inserts (structural-joint rule)"
+    },
+    {
+     "id": "j2",
+     "parent": "body",
+     "child": "fin_2",
+     "kind": "rigid",
+     "method": "screwed",
+     "dof": 0,
+     "origin_mm": [
+      -817.57,
+      88.17,
+      -144.0
+     ],
+     "axis": [
+      -0.0,
+      -1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [
+      {
+       "kind": "screw",
+       "standard": "ISO 14583 (hexalobular pan head), A2 stainless",
+       "designation": "M2.5×10",
+       "size": "M2.5",
+       "length_mm": 10.0,
+       "qty": 2,
+       "source": "api.cad.stdparts"
+      },
+      {
+       "kind": "insert",
+       "standard": "Heat-set brass insert (catalogue class)",
+       "designation": "M2.5×4",
+       "size": "M2.5",
+       "length_mm": 4.0,
+       "qty": 2,
+       "source": "api.cad.stdparts"
+      }
+     ],
+     "rule": "Structural part ≥ 20 mm: 2 screws into heat-set inserts (structural-joint rule)"
+    },
+    {
+     "id": "j3",
+     "parent": "body",
+     "child": "fin_3",
+     "kind": "rigid",
+     "method": "screwed",
+     "dof": 0,
+     "origin_mm": [
+      -995.47,
+      99.33,
+      -7.0
+     ],
+     "axis": [
+      -0.0,
+      -1.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [
+      {
+       "kind": "screw",
+       "standard": "ISO 14583 (hexalobular pan head), A2 stainless",
+       "designation": "M2.5×10",
+       "size": "M2.5",
+       "length_mm": 10.0,
+       "qty": 2,
+       "source": "api.cad.stdparts"
+      },
+      {
+       "kind": "insert",
+       "standard": "Heat-set brass insert (catalogue class)",
+       "designation": "M2.5×4",
+       "size": "M2.5",
+       "length_mm": 4.0,
+       "qty": 2,
+       "source": "api.cad.stdparts"
+      }
+     ],
+     "rule": "Structural part ≥ 20 mm: 2 screws into heat-set inserts (structural-joint rule)"
+    },
+    {
+     "id": "j4",
+     "parent": "fin_3",
+     "child": "fin_boxes_x3",
+     "kind": "rigid",
+     "method": "press_fit",
+     "dof": 0,
+     "origin_mm": [
+      -1000.74,
+      45.3,
+      -7.0
+     ],
+     "axis": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "range": null,
+     "fasteners": [],
+     "rule": "Fin boxes ×3 set into Fin 3: press-fit (insert rule; the host is pocketed around it at detail design)"
+    }
+   ],
+   "interferences": [
+    {
+     "a": "fin",
+     "b": "fin_boxes_x3",
+     "volume": {
+      "value": 404.47,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "fin_2",
+     "b": "fin_boxes_x3",
+     "volume": {
+      "value": 404.47,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "static_overlap",
+     "note": "Same rigid body: concept geometry interpenetrates (pocket at detail design)"
+    },
+    {
+     "a": "body",
+     "b": "fin_3",
+     "volume": {
+      "value": 1462.01,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint screwed: concept overlap at the mate"
+    },
+    {
+     "a": "body",
+     "b": "fin",
+     "volume": {
+      "value": 1105.28,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint screwed: concept overlap at the mate"
+    },
+    {
+     "a": "body",
+     "b": "fin_2",
+     "volume": {
+      "value": 1105.28,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint screwed: concept overlap at the mate"
+    },
+    {
+     "a": "fin_3",
+     "b": "fin_boxes_x3",
+     "volume": {
+      "value": 539.23,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of the two solids (OCCT)"
+     },
+     "kind": "joint_seat",
+     "note": "Seat of joint press-fit: concept overlap at the mate"
+    }
+   ],
+   "clearances": [],
+   "fasteners": [
+    {
+     "id": "fx1",
+     "part": "Heat-set threaded insert M2.5×4 (Heat-set brass insert (catalogue class))",
+     "category": "mechanical",
+     "qty": 6.0,
+     "description": "Fastener aggregated from the assembly joints (api.cad.stdparts)",
+     "manufacturer_pn": null,
+     "lcsc_pn": null,
+     "unit_cost_est": {
+      "value": 0.07,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+     },
+     "risk": null,
+     "alternative": null
+    },
+    {
+     "id": "fx2",
+     "part": "Screw M2.5 × 10 pan head T-drive (ISO 14583 (hexalobular pan head), A2 stainless)",
+     "category": "mechanical",
+     "qty": 6.0,
+     "description": "Fastener aggregated from the assembly joints (api.cad.stdparts)",
+     "manufacturer_pn": null,
+     "lcsc_pn": null,
+     "unit_cost_est": {
+      "value": 0.022,
+      "unit": "USD",
+      "label": "estimate",
+      "source_or_assumption": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)"
+     },
+     "risk": null,
+     "alternative": null
+    }
+   ],
+   "checks": [
+    {
+     "id": "asm_interference",
+     "name": "Interference between moving parts",
+     "domain": "assembly",
+     "value": {
+      "value": 0.0,
+      "unit": "pairs",
+      "label": "measured",
+      "source_or_assumption": "Boolean common of every part pair (OCCT), classified by the assembly joints; total 0.0 mm³"
+     },
+     "threshold": "0 intersecting pairs > 0.01 mm³ between parts that move relative to each other (different rigid bodies, over their motion study) or across a parting line — CAD interference-check practice",
+     "verdict": "pass",
+     "formula": "V(A ∩ B) per pair of solids at the assembled pose and over each moving joint's motion study",
+     "inputs": [
+      {
+       "value": 0.0,
+       "unit": "mm³",
+       "label": "measured",
+       "source_or_assumption": "Sum of interference volumes"
+      }
+     ],
+     "notes": []
+    },
+    {
+     "id": "asm_static_overlap",
+     "name": "Overlaps inside rigid bodies (concept geometry)",
+     "domain": "assembly",
+     "value": {
+      "value": 808.9,
+      "unit": "mm³",
+      "label": "measured",
+      "source_or_assumption": "2 pairs of rigidly joined parts interpenetrate (0 over 5 % of the smaller part)"
+     },
+     "threshold": "Parts of one rigid body should not interpenetrate: overlap > 5 % of the smaller part = concept geometry to pocket at detail design (warn); smaller overlaps are seats (info)",
+     "verdict": "info",
+     "formula": "V(A ∩ B) for parts of the same rigid body that are not directly joined",
+     "inputs": [],
+     "notes": []
+    },
+    {
+     "id": "asm_clearance",
+     "name": "Minimum clearance of moving parts",
+     "domain": "assembly",
+     "value": {
+      "value": 12.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Lower bound: no moving part has a neighbour within 12 mm (or no moving joint)"
+     },
+     "threshold": "Moving parts clear their surroundings",
+     "verdict": "info",
+     "formula": "min over poses of d(moving subtree, other parts); revolute props 12 poses / 360°, buttons pressed 0.5 mm",
+     "inputs": [],
+     "notes": []
+    },
+    {
+     "id": "asm_fastener_engagement",
+     "name": "Screw engagement vs insert / thread",
+     "domain": "assembly",
+     "value": {
+      "value": 4.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Material under each screw measured by a line ∩ solid on both parts; flange capped at 2·d (counterbore), screw = shortest ISO length reaching the insert / thread"
+     },
+     "threshold": "Heat-set insert: boss holds the insert + 0.5 mm and the screw engages ≥ 80 % of it (McMaster-Carr 94459A insert data); tapped metal ≥ 1.5·d; thread-forming screw in plastic ≥ 2·d (EJOT DELTA PT design guide)",
+     "verdict": "pass",
+     "formula": "engagement = min(insert length, screw length − flange); boss depth = material of the threaded part",
+     "inputs": [
+      {
+       "value": 70.52,
+       "unit": "mm",
+       "label": "measured",
+       "source_or_assumption": "Smallest boss / thread material measured"
+      }
+     ],
+     "notes": [
+      "Fin 1 → Body: 2 × M2.5×10 + insert M2.5×4, engagement ≥ 4.0 mm, pass",
+      "Fin 2 → Body: 2 × M2.5×10 + insert M2.5×4, engagement ≥ 4.0 mm, pass",
+      "Fin 3 → Body: 2 × M2.5×10 + insert M2.5×4, engagement ≥ 4.0 mm, pass"
+     ]
+    },
+    {
+     "id": "asm_fastener_count",
+     "name": "Fasteners by standard",
+     "domain": "assembly",
+     "value": {
+      "value": 12.0,
+      "unit": "pcs",
+      "label": "estimate",
+      "source_or_assumption": "Joint rules (screws per parting-line perimeter, motor mounts, spring bars); sizes from the part scale"
+     },
+     "threshold": null,
+     "verdict": "info",
+     "formula": "Σ fasteners over the assembly joints",
+     "inputs": [],
+     "notes": [
+      "6 × insert M2.5×4 (Heat-set brass insert (catalogue class))",
+      "6 × screw M2.5×10 (ISO 14583 (hexalobular pan head), A2 stainless)"
+     ]
+    },
+    {
+     "id": "asm_joint_closure",
+     "name": "Joint closure (build123d Joints)",
+     "domain": "assembly",
+     "value": {
+      "value": 0.0,
+      "unit": "mm",
+      "label": "measured",
+      "source_or_assumption": "Each child re-placed from its joint frame with build123d RigidJoint / RevoluteJoint / LinearJoint.connect_to; 4 joints"
+     },
+     "threshold": "build123d joints re-place every part at its modelled pose: residual < 0.01 mm",
+     "verdict": "pass",
+     "formula": "|bbox centre after connect_to − modelled bbox centre|",
+     "inputs": [],
+     "notes": []
+    },
+    {
+     "id": "asm_support",
+     "name": "Every part is attached",
+     "domain": "assembly",
+     "value": {
+      "value": 0.0,
+      "unit": "parts",
+      "label": "measured",
+      "source_or_assumption": "Parts with no contact (≤ 0.05 mm, BRepExtrema) with the part they are joined to"
+     },
+     "threshold": "Every part touches the part it is joined to (contact ≤ 0.05 mm)",
+     "verdict": "pass",
+     "formula": "d(child, parent) ≤ 0.05 mm for every joint",
+     "inputs": [],
+     "notes": []
+    }
+   ],
+   "summary": "5 parts · 4 joints (0 moving) · 0 interferences · 12 fasteners",
+   "engine": "c2.2"
+  }
+ },
+ "drawings": [
+  {
+   "sheet": "A1",
+   "kind": "assembly",
+   "part_id": null,
+   "title": "Beginner surfboard 7'6\" — general assembly",
+   "svg_url": "/files/demo_surfboard_beginner/drawings/v2_A1.svg",
+   "pdf_url": "/files/demo_surfboard_beginner/drawings/v2_A1.pdf",
+   "set_pdf_url": "/files/demo_surfboard_beginner/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A3",
+   "scale": "1:10",
+   "bbox_mm": [
+    2286.0,
+    573.41,
+    203.46
+   ],
+   "bom_item_id": null,
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P01",
+   "kind": "part",
+   "part_id": "body",
+   "title": "Housing — PU foam core",
+   "svg_url": "/files/demo_surfboard_beginner/drawings/v2_P01.svg",
+   "pdf_url": "/files/demo_surfboard_beginner/drawings/v2_P01.pdf",
+   "set_pdf_url": "/files/demo_surfboard_beginner/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A3",
+   "scale": "1:10",
+   "bbox_mm": [
+    2286.0,
+    573.41,
+    134.82
+   ],
+   "bom_item_id": null,
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P02",
+   "kind": "part",
+   "part_id": "fin_boxes_x3",
+   "title": "Fin boxes ×3",
+   "svg_url": "/files/demo_surfboard_beginner/drawings/v2_P02.svg",
+   "pdf_url": "/files/demo_surfboard_beginner/drawings/v2_P02.pdf",
+   "set_pdf_url": "/files/demo_surfboard_beginner/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A3",
+   "scale": "1:2",
+   "bbox_mm": [
+    303.0,
+    292.0,
+    27.17
+   ],
+   "bom_item_id": "m4",
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P03",
+   "kind": "part",
+   "part_id": "fin_3",
+   "title": "Fin",
+   "svg_url": "/files/demo_surfboard_beginner/drawings/v2_P03.svg",
+   "pdf_url": "/files/demo_surfboard_beginner/drawings/v2_P03.pdf",
+   "set_pdf_url": "/files/demo_surfboard_beginner/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A3",
+   "scale": "1:1",
+   "bbox_mm": [
+    112.0,
+    7.0,
+    102.0
+   ],
+   "bom_item_id": null,
+   "qty": 1,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  },
+  {
+   "sheet": "P04",
+   "kind": "part",
+   "part_id": "fin",
+   "title": "Fin",
+   "svg_url": "/files/demo_surfboard_beginner/drawings/v2_P04.svg",
+   "pdf_url": "/files/demo_surfboard_beginner/drawings/v2_P04.pdf",
+   "set_pdf_url": "/files/demo_surfboard_beginner/drawings/v2_set.pdf",
+   "version": 2,
+   "size": "A4",
+   "scale": "1:1",
+   "bbox_mm": [
+    96.63,
+    7.0,
+    88.0
+   ],
+   "bom_item_id": null,
+   "qty": 2,
+   "label": "measured",
+   "note": "Generated from CAD — verify before release"
+  }
+ ]
 }

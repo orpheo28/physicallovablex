@@ -104,7 +104,7 @@ def make_fin(base, height, thickness, rake):
     )
 
 
-def build():
+def _basic_build():
     parts = []
     hull = make_hull()
     hull.label = "body.1"
@@ -133,3 +133,86 @@ def build():
     # Move the complete assembly together so its lowest fin tip rests on z=0.
     lowest = min(part.bounding_box().min.Z for part in parts)
     return [Pos(0, 0, -lowest) * part for part in parts]
+
+
+# === PRO DETAIL === (C5: the seed family 'board' CAD_DETAIL_LEVEL=pro block, appended deterministically, no LLM)
+P_PRO = {**{'twin_tip': 0.0, 'length': 1850.0, 'width': 530.0, 'thickness': 62.0, 'nose_width': 300.0, 'tail_width': 370.0, 'rocker_nose': 115.0, 'rocker_tail': 40.0, 'rail_radius_frac': 0.45, 'fin_count': 3.0, 'fin_height': 115.0}, **P, **{}}
+
+
+def _f_board_stations(P):
+    """(x, half_width, thickness, bottom_z) along the board; t = 0 tail, 1 nose."""
+    L, W, T = P["length"], P["width"], P["thickness"]
+    kite = P["twin_tip"] >= 0.5
+    f12 = min(305.0 / L, 0.3)  # 12" from each end
+    if kite:
+        ts = [0.0, 0.012, 0.04, f12, 0.5, 1 - f12, 0.96, 0.988, 1.0]
+        ws = [0.30 * W, 0.62 * P["tail_width"], 0.86 * P["tail_width"], P["tail_width"], W,
+              P["nose_width"], 0.86 * P["nose_width"], 0.62 * P["nose_width"], 0.30 * W]
+    else:
+        ts = [0.0, 0.04, f12, 0.42, 1 - f12, 0.95, 1.0]
+        ws = [0.62 * P["tail_width"], 0.82 * P["tail_width"], P["tail_width"], W, P["nose_width"],
+              0.45 * P["nose_width"], 14.0]
+    out = []
+    n = 26
+    for i in range(n + 1):
+        t = 0.5 - 0.5 * math.cos(math.pi * i / n)  # denser at both ends
+        hw = max(_f_catmull(ts, ws, t) / 2, 5.0)
+        foil = math.sin(math.pi * min(max(t, 0.02), 0.98)) ** 0.55
+        th = max(T * (0.32 + 0.68 * foil), 4.0)
+        th = min(th, 2 * hw - 1.0)
+        z = P["rocker_nose"] * max(0.0, (t - 0.5) / 0.5) ** 2.3 + P["rocker_tail"] * max(0.0, (0.5 - t) / 0.5) ** 2.3
+        out.append(((t - 0.5) * L, hw, th, z))
+    return out
+
+
+def _f_catmull(ts, vs, t):
+    """Catmull-Rom spline through (ts, vs), clamped ends."""
+    t = min(max(t, ts[0]), ts[-1])
+    i = 0
+    while i < len(ts) - 2 and t > ts[i + 1]:
+        i += 1
+    p0, p1 = vs[max(i - 1, 0)], vs[i]
+    p2, p3 = vs[i + 1], vs[min(i + 2, len(vs) - 1)]
+    u = (t - ts[i]) / (ts[i + 1] - ts[i])
+    return 0.5 * ((2 * p1) + (-p0 + p2) * u + (2 * p0 - 5 * p1 + 4 * p2 - p3) * u * u + (-p0 + 3 * p1 - 3 * p2 + p3) * u ** 3)
+
+
+def _f_surface_at(P, x):
+    """(bottom z, deck z, half width) of the hull at station x (linear between stations)."""
+    st = _f_board_stations(P)
+    for a, b in zip(st, st[1:]):
+        if a[0] <= x <= b[0]:
+            u = (x - a[0]) / (b[0] - a[0])
+            hw = a[1] + (b[1] - a[1]) * u
+            th = a[2] + (b[2] - a[2]) * u
+            z = a[3] + (b[3] - a[3]) * u
+            return z, z + th, hw
+    return st[-1][3], st[-1][3] + st[-1][2], st[-1][1]
+
+
+def pro_details(P, parts):
+    """CAD_DETAIL_LEVEL=pro: real fin boxes (single-tab, glass-filled nylon) set flush into the bottom under each fin,
+    and a leash plug in the deck at the tail (surfboard). Glassed in — no screws."""
+    from api.cad.stdparts import add_parts, fin_box, leash_plug
+
+    L = P["length"]
+    kite = P["twin_tip"] >= 0.5
+    fins = [q for q in parts if (q.label or "").startswith("fin.")]
+    slabs = {f"rubber.{i + 1}" for i in range(len(fins))}  # the basic fin-box slabs
+    parts = [q for q in parts if q.label not in slabs]
+    box = fin_box()
+    kit = []
+    for f in fins:
+        c = f.bounding_box().center()
+        zb = _f_surface_at(P, c.X)[0]
+        kit.append(box.along((c.X + 5, c.Y, zb), (0, 0, 1)))
+    if not kite:
+        x = -0.5 * L + 45
+    return add_parts(parts, kit, "rubber")
+
+
+def build():
+    r = _basic_build()
+    r = r[1] if isinstance(r, tuple) else r
+    parts = pro_details(P_PRO, list(r) if isinstance(r, list) else list(r.children))
+    return parts

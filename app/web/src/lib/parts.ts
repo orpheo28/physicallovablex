@@ -51,6 +51,11 @@ export type PartMeta = {
   editable: EditableParam[];
   colour_editable: boolean;
   material_options: string[];
+  /** C2 (assembly on): parent in the assembly tree, joint kind, joint-derived explode direction (GLB axes) × distance. */
+  parent_part_id?: string | null;
+  joint?: string | null;
+  explode_vector?: [number, number, number] | null;
+  explode_distance_mm?: number | null;
 };
 
 export type ProjectParts = { version: number; glb_url: string; parts: PartMeta[] };

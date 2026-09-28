@@ -127,9 +127,31 @@ def _is_shell(design) -> bool | None:
     return "wall" in d.cad_parameters
 
 
+def _assembly_digest(ctx) -> str | None:
+    """C2 assembly group: engine version + the current version (the model the group is measured on)."""
+    try:
+        from api.cad.assembly import engine as asm_engine
+        from api.cad.assembly import service as asm_service
+    except Exception:  # noqa: BLE001
+        return None
+    if not asm_service.enabled():
+        return None
+    try:
+        from api.studio import store
+
+        cur = store.current(ctx.project.id)
+    except Exception:  # noqa: BLE001
+        cur = None
+    return f"{asm_engine.ENGINE}:v{cur}"
+
+
 def _digest(ctx) -> str:
     keep = {n: ctx.artifact(n).model_dump(mode="json", exclude={"generated_at", "status"}) for n in (1, 2, 3) if ctx.artifact(n) is not None}
-    raw = json.dumps({"v": ENGINE_VERSION, "p": ctx.project.prompt, "n": ctx.project.name, "a": keep}, sort_keys=True, default=str)
+    data = {"v": ENGINE_VERSION, "p": ctx.project.prompt, "n": ctx.project.name, "a": keep}
+    asm = _assembly_digest(ctx)
+    if asm:  # C2: only when CAD_ASSEMBLY=1, so the digests of cached artifacts stay valid with the flag off
+        data["asm"] = asm
+    raw = json.dumps(data, sort_keys=True, default=str)
     return hashlib.sha1(raw.encode()).hexdigest()[:16]
 
 
@@ -263,6 +285,14 @@ def compute(ctx, llm_firmware: bool = True, background: bool = True, with_firmwa
     proto = prototype.prototype_path(pack, vol_for_proto, bom, arch, sol)
     installers = site_install.installers() if site else []
     notes.append(Assumption(id="e4", text="Physics checks are concept-level (rigid-body statics, rules of thumb): validate with the listed tests", label=Label.estimate))
+    assembly = None
+    group = _assembly_group(pid)
+    if group is not None:  # C2 (CAD_ASSEMBLY=1): measured assembly checks, domain "assembly"
+        checks = checks + group[0]
+        assembly = group[1]
+        notes.append(Assumption(id="e5", text="Assembly mates are inferred from the part roles and the product family (rules shown "
+                                "per joint); interference, clearance and screw material are measured on the version's STEP",
+                                label=Label.estimate))
     return EngineeringArtifact(
         project_id=pid, generated_by="code", fallback=fallback, fallback_reason=reason, assumptions=notes,
         category=key, category_title=pack["title"], partner_word=pack.get("partner_word", "factories"), site_install=site,
@@ -270,8 +300,16 @@ def compute(ctx, llm_firmware: bool = True, background: bool = True, with_firmwa
         standards=cat.standards_for(pack), risks=cat.risks_for(pack), tests=cat.tests_for(pack), checks=checks,
         electronics=arch, firmware=fw, prototype=proto, solar=sol, installers=installers,
         build_strategy=strategy.build_strategy(key, sol),
-        unit_basis="per_installation" if site else "per_unit", installation_cost=_installed(ctx, sol),
+        unit_basis="per_installation" if site else "per_unit", installation_cost=_installed(ctx, sol), assembly=assembly,
     )
+
+
+def _assembly_group(pid: str):
+    try:
+        from api.cad.assembly import service as asm_service
+    except Exception:  # noqa: BLE001
+        return None
+    return asm_service.engineering_group(pid)
 
 
 def _installed(ctx, sol):

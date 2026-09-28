@@ -95,9 +95,24 @@ def _clamp(v: float, lo: float, hi: float) -> float:
     return max(lo, min(hi, float(v)))
 
 
+def pro_clearance(p: dict[str, Any]) -> float | None:
+    """C5 (CAD_DETAIL_LEVEL=pro): ISO 273 medium clearance Ø of the bottom-boss holes when the shells are screwed
+    (screws driven up through the floor into inserts in the top shell, api.cad.stdparts.enclosure); None = W2 pilot."""
+    from api.cad.stdparts import is_pro
+
+    if not is_pro() or int(p["family"]) >= 3 or not int(p["boss_count"]):
+        return None
+    from api.cad.stdparts import enclosure, tables
+
+    if enclosure.joint_for(p) != "screws":
+        return None
+    return tables.CLEARANCE_ISO273[enclosure._size_for(min(p["length"], p["width"]))][1]
+
+
 def params_hash(params: dict[str, Any]) -> str:
     p = normalize(params)
-    blob = json.dumps({"v": BUILD_VERSION, **p}, sort_keys=True)
+    clear = pro_clearance(p) if int(p["family"]) < 3 else None
+    blob = json.dumps({"v": BUILD_VERSION, **p, **({"pro_clear": clear} if clear else {})}, sort_keys=True)
     return hashlib.sha1(blob.encode()).hexdigest()[:16]
 
 
@@ -115,9 +130,10 @@ def _footprint(family: int, length: float, width: float, radius: float):
 
 
 def _shell_half(family: int, length: float, width: float, radius: float, h: float, wall: float, draft: float,
-                edge_fillet: float, bosses: int):
-    """One moulded half: floor at z=0 (narrow), opening at z=h (widest = length × width). Pull axis +Z."""
-    from build123d import Cone, Location, Pos, extrude, fillet
+                edge_fillet: float, bosses: int, clear_d: float | None = None):
+    """One moulded half: floor at z=0 (narrow), opening at z=h (widest = length × width). Pull axis +Z.
+    `clear_d` (pro): the bosses get a straight clearance hole through the floor instead of the blind M2.5 pilot."""
+    from build123d import Cone, Cylinder, Location, Pos, extrude, fillet
 
     t = math.tan(math.radians(draft))
     shrink = 2 * h * t  # floor is smaller than the opening by 2·h·tan(draft)
@@ -150,7 +166,8 @@ def _shell_half(family: int, length: float, width: float, radius: float, h: floa
         try:
             for x, y in pts:
                 boss = Cone(boss_r, boss_r - boss_h * t, boss_h + 0.5).moved(Pos(x, y, wall - 0.5 + (boss_h + 0.5) / 2))
-                hole = Cone(hole_r, hole_r + boss_h * t, boss_h).moved(Pos(x, y, wall + 0.5 + boss_h / 2))
+                hole = Cone(hole_r, hole_r + boss_h * t, boss_h).moved(Pos(x, y, wall + 0.5 + boss_h / 2)) if not clear_d \
+                    else Cylinder(clear_d / 2, wall + boss_h + 2.0).moved(Pos(x, y, (wall + boss_h) / 2))  # ISO 273, through
                 part = (part + boss) - hole
         except Exception as e:  # noqa: BLE001
             log.info("bosses dropped: %s", e)
@@ -183,7 +200,7 @@ def build_shape(params: dict[str, Any]):
     L, W, H, wall, d = p["length"], p["width"], p["height"], p["wall"], p["draft_deg"]
     hb = round(H * p["split_ratio"], 3)
     ht = H - hb
-    bottom = _shell_half(fam, L, W, p["fillet"], hb, wall, d, p["edge_fillet"], int(p["boss_count"]))
+    bottom = _shell_half(fam, L, W, p["fillet"], hb, wall, d, p["edge_fillet"], int(p["boss_count"]), pro_clearance(p))
     top = _shell_half(fam, L, W, p["fillet"], ht, wall, d, p["edge_fillet"], 0)
     top = top.mirror(Plane.XY).moved(Location((0, 0, H)))
     bottom.label, top.label = "bottom_shell", "top_shell"

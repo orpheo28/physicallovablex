@@ -8,7 +8,7 @@ import { BUILD_TEXT } from "@/lib/showcase";
 import { ScrollArea } from "../ScrollArea";
 import { LabelBadge, LV, Pill, Severity, Spinner } from "../ui";
 
-export type TabId = "product" | "engineering" | "code" | "firmware";
+export type TabId = "product" | "engineering" | "code" | "firmware" | "drawings";
 
 const VERDICT: Record<Verdict, { tone: "green" | "amber" | "red" | "zinc"; text: string }> = {
   pass: { tone: "green", text: "Pass" },
@@ -32,6 +32,27 @@ function Section({ title, children, right }: { title: string; children: React.Re
       </div>
       <div className="mt-2">{children}</div>
     </section>
+  );
+}
+
+function CheckList({ checks }: { checks: Engineering["checks"] }) {
+  return (
+    <ul className="divide-y divide-line">
+      {checks.map((c) => (
+        <li key={c.id} className="grid grid-cols-[56px_minmax(0,1fr)_auto] items-start gap-3 py-2 text-sm" title={c.formula}>
+          <span className="flex pt-0.5">
+            <Pill tone={VERDICT[c.verdict].tone} dot>
+              {VERDICT[c.verdict].text}
+            </Pill>
+          </span>
+          <span className="min-w-0">
+            <span className="text-ink">{c.name}</span>
+            {c.threshold && <span className="block text-2xs text-ink-3">{c.threshold}</span>}
+          </span>
+          <LV v={c.value} />
+        </li>
+      ))}
+    </ul>
   );
 }
 
@@ -115,6 +136,9 @@ export function EngineeringTab({ eng }: { eng: EngState }) {
     );
   if (!e) return <div className="flex h-full items-center justify-center text-sm text-ink-3">{error ? `Engineering unavailable: ${error}` : "No engineering data yet."}</div>;
   const counts = e.checks.reduce<Record<string, number>>((m, c) => ((m[c.verdict] = (m[c.verdict] ?? 0) + 1), m), {});
+  // C2: measured assembly checks (interference, clearance, screw engagement, fasteners) get their own group
+  const assembly = e.checks.filter((c) => c.domain === "assembly");
+  const physics = e.checks.filter((c) => c.domain !== "assembly");
   return (
     <ScrollArea className="h-full pr-2" label="Engineering">
       <div className="flex flex-col gap-5 pb-2">
@@ -122,24 +146,15 @@ export function EngineeringTab({ eng }: { eng: EngState }) {
         <p className="text-sm text-ink-2">
           <span className="font-medium text-ink">{e.category_title}</span> · checks {counts.pass ?? 0} pass · {counts.warn ?? 0} warn · {counts.fail ?? 0} fail
         </p>
-        <Section title={`Physics checks · ${e.checks.length}`}>
-          <ul className="divide-y divide-line">
-            {e.checks.map((c) => (
-              <li key={c.id} className="grid grid-cols-[56px_minmax(0,1fr)_auto] items-start gap-3 py-2 text-sm" title={c.formula}>
-                <span className="flex pt-0.5">
-                  <Pill tone={VERDICT[c.verdict].tone} dot>
-                    {VERDICT[c.verdict].text}
-                  </Pill>
-                </span>
-                <span className="min-w-0">
-                  <span className="text-ink">{c.name}</span>
-                  {c.threshold && <span className="block text-2xs text-ink-3">{c.threshold}</span>}
-                </span>
-                <LV v={c.value} />
-              </li>
-            ))}
-          </ul>
+        <Section title={`Physics checks · ${physics.length}`}>
+          <CheckList checks={physics} />
         </Section>
+        {assembly.length > 0 && (
+          <Section title={`Assembly · ${assembly.length}`}>
+            {e.assembly?.summary && <p className="mb-1.5 text-sm text-ink-2">{e.assembly.summary}</p>}
+            <CheckList checks={assembly} />
+          </Section>
+        )}
         {e.electronics && (
           <Section
             title="Power budget"

@@ -2,7 +2,7 @@
  "status": "ok",
  "version": 1,
  "source": "llm:openai/gpt-6-sol",
- "label": "AI-generated CAD (concept level) \u2014 geometry measured on the result",
+ "label": "AI-generated CAD (concept level) — geometry measured on the result",
  "category": "home_robot",
  "seed_family": "home_robot",
  "variant": "helper",
@@ -23,7 +23,7 @@
   468.0,
   1012.5
  ],
- "volume_mm3": 70121671.4,
+ "volume_mm3": 70182888.6,
  "parts": [
   {
    "label": "body.1",
@@ -398,6 +398,932 @@
     24.0,
     24.0
    ]
+  },
+  {
+   "label": "steel.134",
+   "role": "steel",
+   "volume_mm3": 3801.1,
+   "valid": true,
+   "bbox_mm": [
+    28.0,
+    8.0,
+    28.0
+   ],
+   "std_meta": {
+    "kind": "bearing",
+    "role": "component",
+    "standard": "ISO 15",
+    "size": "6001-2Z (12×28×8)",
+    "bore_mm": 12.0,
+    "od_mm": 28.0,
+    "width_mm": 8.0,
+    "material": "chrome steel 52100",
+    "bom": {
+     "part": "Deep-groove ball bearing 6001-2Z 12×28×8 (ISO 15)",
+     "standard": "ISO 15",
+     "kind": "bearing",
+     "unit_price_usd": 0.5,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "52100 steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.135",
+   "role": "steel",
+   "volume_mm3": 60.5,
+   "valid": true,
+   "bbox_mm": [
+    10.0,
+    1.1,
+    10.0
+   ],
+   "std_meta": {
+    "kind": "washer",
+    "role": "fastener",
+    "standard": "ISO 7089",
+    "size": "M5",
+    "d1": 5.3,
+    "d2": 10.0,
+    "h": 1.1,
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Plain washer M5 (ISO 7089), A2 stainless",
+     "standard": "ISO 7089",
+     "kind": "washer",
+     "unit_price_usd": 0.01,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.136",
+   "role": "steel",
+   "volume_mm3": 517.3,
+   "valid": true,
+   "bbox_mm": [
+    8.72,
+    19.0,
+    8.72
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 4762",
+    "size": "M5",
+    "length_mm": 14.0,
+    "head": "socket",
+    "drive": "4 mm hex",
+    "thread": "M5×0.8",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M5 × 14 socket head, 4 mm hex (ISO 4762), A2 stainless",
+     "standard": "ISO 4762",
+     "kind": "screw",
+     "unit_price_usd": 0.045,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.137",
+   "role": "steel",
+   "volume_mm3": 3801.1,
+   "valid": true,
+   "bbox_mm": [
+    28.0,
+    8.0,
+    28.0
+   ],
+   "std_meta": {
+    "kind": "bearing",
+    "role": "component",
+    "standard": "ISO 15",
+    "size": "6001-2Z (12×28×8)",
+    "bore_mm": 12.0,
+    "od_mm": 28.0,
+    "width_mm": 8.0,
+    "material": "chrome steel 52100",
+    "bom": {
+     "part": "Deep-groove ball bearing 6001-2Z 12×28×8 (ISO 15)",
+     "standard": "ISO 15",
+     "kind": "bearing",
+     "unit_price_usd": 0.5,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "52100 steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.138",
+   "role": "steel",
+   "volume_mm3": 60.5,
+   "valid": true,
+   "bbox_mm": [
+    10.0,
+    1.1,
+    10.0
+   ],
+   "std_meta": {
+    "kind": "washer",
+    "role": "fastener",
+    "standard": "ISO 7089",
+    "size": "M5",
+    "d1": 5.3,
+    "d2": 10.0,
+    "h": 1.1,
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Plain washer M5 (ISO 7089), A2 stainless",
+     "standard": "ISO 7089",
+     "kind": "washer",
+     "unit_price_usd": 0.01,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.139",
+   "role": "steel",
+   "volume_mm3": 517.3,
+   "valid": true,
+   "bbox_mm": [
+    8.72,
+    19.0,
+    8.72
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 4762",
+    "size": "M5",
+    "length_mm": 14.0,
+    "head": "socket",
+    "drive": "4 mm hex",
+    "thread": "M5×0.8",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M5 × 14 socket head, 4 mm hex (ISO 4762), A2 stainless",
+     "standard": "ISO 4762",
+     "kind": "screw",
+     "unit_price_usd": 0.045,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.140",
+   "role": "steel",
+   "volume_mm3": 336.8,
+   "valid": true,
+   "bbox_mm": [
+    7.22,
+    7.22,
+    20.0
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 4762",
+    "size": "M4",
+    "length_mm": 16.0,
+    "head": "socket",
+    "drive": "3 mm hex",
+    "thread": "M4×0.7",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M4 × 16 socket head, 3 mm hex (ISO 4762), A2 stainless",
+     "standard": "ISO 4762",
+     "kind": "screw",
+     "unit_price_usd": 0.035,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "brass.141",
+   "role": "brass",
+   "volume_mm3": 129.7,
+   "valid": true,
+   "bbox_mm": [
+    6.3,
+    6.3,
+    8.2
+   ],
+   "std_meta": {
+    "kind": "insert",
+    "role": "fastener",
+    "standard": "McMaster-Carr 94459A170",
+    "size": "M4",
+    "od_mm": 6.3,
+    "length_mm": 8.2,
+    "hole_mm": 5.6,
+    "material": "brass",
+    "bom": {
+     "part": "Heat-set threaded insert M4 × 8.2 (OD 6.3 mm), brass — ref. McMaster-Carr 94459A170",
+     "standard": "McMaster-Carr 94459A170",
+     "kind": "insert",
+     "unit_price_usd": 0.11,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "brass",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "body.142",
+   "role": "body",
+   "volume_mm3": 849.4,
+   "valid": true,
+   "bbox_mm": [
+    11.2,
+    11.2,
+    12.0
+   ],
+   "std_meta": {
+    "kind": "boss",
+    "role": "boss",
+    "standard": "McMaster-Carr 94459A heat-set insert datasheet; Covestro 'Part and Mold Design' guide (boss OD ≈ 2 × hole)",
+    "dfm": {
+     "rule": "Boss hole = insert hole Ø from the datasheet; boss OD = 2 × hole Ø; boss height ≥ insert length + 0.5 mm",
+     "citation": "McMaster-Carr 94459A heat-set insert datasheet; Covestro 'Part and Mold Design' guide (boss OD ≈ 2 × hole)",
+     "size": "M4",
+     "fastener": "insert",
+     "hole_mm": 5.6,
+     "od_mm": 11.2,
+     "height_mm": 12,
+     "wall_mm": 2.5,
+     "draft_deg": 0.5
+    }
+   }
+  },
+  {
+   "label": "steel.143",
+   "role": "steel",
+   "volume_mm3": 336.8,
+   "valid": true,
+   "bbox_mm": [
+    7.22,
+    7.22,
+    20.0
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 4762",
+    "size": "M4",
+    "length_mm": 16.0,
+    "head": "socket",
+    "drive": "3 mm hex",
+    "thread": "M4×0.7",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M4 × 16 socket head, 3 mm hex (ISO 4762), A2 stainless",
+     "standard": "ISO 4762",
+     "kind": "screw",
+     "unit_price_usd": 0.035,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "brass.144",
+   "role": "brass",
+   "volume_mm3": 129.7,
+   "valid": true,
+   "bbox_mm": [
+    6.3,
+    6.3,
+    8.2
+   ],
+   "std_meta": {
+    "kind": "insert",
+    "role": "fastener",
+    "standard": "McMaster-Carr 94459A170",
+    "size": "M4",
+    "od_mm": 6.3,
+    "length_mm": 8.2,
+    "hole_mm": 5.6,
+    "material": "brass",
+    "bom": {
+     "part": "Heat-set threaded insert M4 × 8.2 (OD 6.3 mm), brass — ref. McMaster-Carr 94459A170",
+     "standard": "McMaster-Carr 94459A170",
+     "kind": "insert",
+     "unit_price_usd": 0.11,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "brass",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "body.145",
+   "role": "body",
+   "volume_mm3": 849.4,
+   "valid": true,
+   "bbox_mm": [
+    11.2,
+    11.2,
+    12.0
+   ],
+   "std_meta": {
+    "kind": "boss",
+    "role": "boss",
+    "standard": "McMaster-Carr 94459A heat-set insert datasheet; Covestro 'Part and Mold Design' guide (boss OD ≈ 2 × hole)",
+    "dfm": {
+     "rule": "Boss hole = insert hole Ø from the datasheet; boss OD = 2 × hole Ø; boss height ≥ insert length + 0.5 mm",
+     "citation": "McMaster-Carr 94459A heat-set insert datasheet; Covestro 'Part and Mold Design' guide (boss OD ≈ 2 × hole)",
+     "size": "M4",
+     "fastener": "insert",
+     "hole_mm": 5.6,
+     "od_mm": 11.2,
+     "height_mm": 12,
+     "wall_mm": 2.5,
+     "draft_deg": 0.5
+    }
+   }
+  },
+  {
+   "label": "steel.146",
+   "role": "steel",
+   "volume_mm3": 336.8,
+   "valid": true,
+   "bbox_mm": [
+    7.22,
+    7.22,
+    20.0
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 4762",
+    "size": "M4",
+    "length_mm": 16.0,
+    "head": "socket",
+    "drive": "3 mm hex",
+    "thread": "M4×0.7",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M4 × 16 socket head, 3 mm hex (ISO 4762), A2 stainless",
+     "standard": "ISO 4762",
+     "kind": "screw",
+     "unit_price_usd": 0.035,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "brass.147",
+   "role": "brass",
+   "volume_mm3": 129.7,
+   "valid": true,
+   "bbox_mm": [
+    6.3,
+    6.3,
+    8.2
+   ],
+   "std_meta": {
+    "kind": "insert",
+    "role": "fastener",
+    "standard": "McMaster-Carr 94459A170",
+    "size": "M4",
+    "od_mm": 6.3,
+    "length_mm": 8.2,
+    "hole_mm": 5.6,
+    "material": "brass",
+    "bom": {
+     "part": "Heat-set threaded insert M4 × 8.2 (OD 6.3 mm), brass — ref. McMaster-Carr 94459A170",
+     "standard": "McMaster-Carr 94459A170",
+     "kind": "insert",
+     "unit_price_usd": 0.11,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "brass",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "body.148",
+   "role": "body",
+   "volume_mm3": 849.4,
+   "valid": true,
+   "bbox_mm": [
+    11.2,
+    11.2,
+    12.0
+   ],
+   "std_meta": {
+    "kind": "boss",
+    "role": "boss",
+    "standard": "McMaster-Carr 94459A heat-set insert datasheet; Covestro 'Part and Mold Design' guide (boss OD ≈ 2 × hole)",
+    "dfm": {
+     "rule": "Boss hole = insert hole Ø from the datasheet; boss OD = 2 × hole Ø; boss height ≥ insert length + 0.5 mm",
+     "citation": "McMaster-Carr 94459A heat-set insert datasheet; Covestro 'Part and Mold Design' guide (boss OD ≈ 2 × hole)",
+     "size": "M4",
+     "fastener": "insert",
+     "hole_mm": 5.6,
+     "od_mm": 11.2,
+     "height_mm": 12,
+     "wall_mm": 2.5,
+     "draft_deg": 0.5
+    }
+   }
+  },
+  {
+   "label": "steel.149",
+   "role": "steel",
+   "volume_mm3": 336.8,
+   "valid": true,
+   "bbox_mm": [
+    7.22,
+    7.22,
+    20.0
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 4762",
+    "size": "M4",
+    "length_mm": 16.0,
+    "head": "socket",
+    "drive": "3 mm hex",
+    "thread": "M4×0.7",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M4 × 16 socket head, 3 mm hex (ISO 4762), A2 stainless",
+     "standard": "ISO 4762",
+     "kind": "screw",
+     "unit_price_usd": 0.035,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "brass.150",
+   "role": "brass",
+   "volume_mm3": 129.7,
+   "valid": true,
+   "bbox_mm": [
+    6.3,
+    6.3,
+    8.2
+   ],
+   "std_meta": {
+    "kind": "insert",
+    "role": "fastener",
+    "standard": "McMaster-Carr 94459A170",
+    "size": "M4",
+    "od_mm": 6.3,
+    "length_mm": 8.2,
+    "hole_mm": 5.6,
+    "material": "brass",
+    "bom": {
+     "part": "Heat-set threaded insert M4 × 8.2 (OD 6.3 mm), brass — ref. McMaster-Carr 94459A170",
+     "standard": "McMaster-Carr 94459A170",
+     "kind": "insert",
+     "unit_price_usd": 0.11,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "brass",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "body.151",
+   "role": "body",
+   "volume_mm3": 849.4,
+   "valid": true,
+   "bbox_mm": [
+    11.2,
+    11.2,
+    12.0
+   ],
+   "std_meta": {
+    "kind": "boss",
+    "role": "boss",
+    "standard": "McMaster-Carr 94459A heat-set insert datasheet; Covestro 'Part and Mold Design' guide (boss OD ≈ 2 × hole)",
+    "dfm": {
+     "rule": "Boss hole = insert hole Ø from the datasheet; boss OD = 2 × hole Ø; boss height ≥ insert length + 0.5 mm",
+     "citation": "McMaster-Carr 94459A heat-set insert datasheet; Covestro 'Part and Mold Design' guide (boss OD ≈ 2 × hole)",
+     "size": "M4",
+     "fastener": "insert",
+     "hole_mm": 5.6,
+     "od_mm": 11.2,
+     "height_mm": 12,
+     "wall_mm": 2.5,
+     "draft_deg": 0.5
+    }
+   }
+  },
+  {
+   "label": "accent.152",
+   "role": "accent",
+   "volume_mm3": 45765.0,
+   "valid": true,
+   "bbox_mm": [
+    2.0,
+    135.0,
+    169.5
+   ],
+   "std_meta": {
+    "kind": "feature",
+    "role": "shell_top",
+    "name": "Rear access panel",
+    "group": "Rear access panel",
+    "look_role": "accent"
+   }
+  },
+  {
+   "label": "steel.153",
+   "role": "steel",
+   "volume_mm3": 83.0,
+   "valid": true,
+   "bbox_mm": [
+    10.0,
+    6.36,
+    6.36
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 14581",
+    "size": "M3",
+    "length_mm": 10.0,
+    "head": "countersunk",
+    "drive": "T10",
+    "thread": "M3×0.5",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M3 × 10 countersunk head, T10 (ISO 14581), A2 stainless",
+     "standard": "ISO 14581",
+     "kind": "screw",
+     "unit_price_usd": 0.025,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "brass.154",
+   "role": "brass",
+   "volume_mm3": 47.4,
+   "valid": true,
+   "bbox_mm": [
+    5.7,
+    4.7,
+    4.7
+   ],
+   "std_meta": {
+    "kind": "insert",
+    "role": "fastener",
+    "standard": "McMaster-Carr 94459A140",
+    "size": "M3",
+    "od_mm": 4.7,
+    "length_mm": 5.7,
+    "hole_mm": 4.0,
+    "material": "brass",
+    "bom": {
+     "part": "Heat-set threaded insert M3 × 5.7 (OD 4.7 mm), brass — ref. McMaster-Carr 94459A140",
+     "standard": "McMaster-Carr 94459A140",
+     "kind": "insert",
+     "unit_price_usd": 0.08,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "brass",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "body.155",
+   "role": "body",
+   "volume_mm3": 227.3,
+   "valid": true,
+   "bbox_mm": [
+    6.2,
+    8.0,
+    8.0
+   ],
+   "std_meta": {
+    "kind": "boss",
+    "role": "boss",
+    "standard": "McMaster-Carr 94459A heat-set insert datasheet; Covestro 'Part and Mold Design' guide (boss OD ≈ 2 × hole)",
+    "dfm": {
+     "rule": "Boss hole = insert hole Ø from the datasheet; boss OD = 2 × hole Ø; boss height ≥ insert length + 0.5 mm",
+     "citation": "McMaster-Carr 94459A heat-set insert datasheet; Covestro 'Part and Mold Design' guide (boss OD ≈ 2 × hole)",
+     "size": "M3",
+     "fastener": "insert",
+     "hole_mm": 4.0,
+     "od_mm": 8.0,
+     "height_mm": 6.2,
+     "wall_mm": 2.5,
+     "draft_deg": 0.5
+    }
+   }
+  },
+  {
+   "label": "steel.156",
+   "role": "steel",
+   "volume_mm3": 83.0,
+   "valid": true,
+   "bbox_mm": [
+    10.0,
+    6.36,
+    6.36
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 14581",
+    "size": "M3",
+    "length_mm": 10.0,
+    "head": "countersunk",
+    "drive": "T10",
+    "thread": "M3×0.5",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M3 × 10 countersunk head, T10 (ISO 14581), A2 stainless",
+     "standard": "ISO 14581",
+     "kind": "screw",
+     "unit_price_usd": 0.025,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "brass.157",
+   "role": "brass",
+   "volume_mm3": 47.4,
+   "valid": true,
+   "bbox_mm": [
+    5.7,
+    4.7,
+    4.7
+   ],
+   "std_meta": {
+    "kind": "insert",
+    "role": "fastener",
+    "standard": "McMaster-Carr 94459A140",
+    "size": "M3",
+    "od_mm": 4.7,
+    "length_mm": 5.7,
+    "hole_mm": 4.0,
+    "material": "brass",
+    "bom": {
+     "part": "Heat-set threaded insert M3 × 5.7 (OD 4.7 mm), brass — ref. McMaster-Carr 94459A140",
+     "standard": "McMaster-Carr 94459A140",
+     "kind": "insert",
+     "unit_price_usd": 0.08,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "brass",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "body.158",
+   "role": "body",
+   "volume_mm3": 227.3,
+   "valid": true,
+   "bbox_mm": [
+    6.2,
+    8.0,
+    8.0
+   ],
+   "std_meta": {
+    "kind": "boss",
+    "role": "boss",
+    "standard": "McMaster-Carr 94459A heat-set insert datasheet; Covestro 'Part and Mold Design' guide (boss OD ≈ 2 × hole)",
+    "dfm": {
+     "rule": "Boss hole = insert hole Ø from the datasheet; boss OD = 2 × hole Ø; boss height ≥ insert length + 0.5 mm",
+     "citation": "McMaster-Carr 94459A heat-set insert datasheet; Covestro 'Part and Mold Design' guide (boss OD ≈ 2 × hole)",
+     "size": "M3",
+     "fastener": "insert",
+     "hole_mm": 4.0,
+     "od_mm": 8.0,
+     "height_mm": 6.2,
+     "wall_mm": 2.5,
+     "draft_deg": 0.5
+    }
+   }
+  },
+  {
+   "label": "steel.159",
+   "role": "steel",
+   "volume_mm3": 83.0,
+   "valid": true,
+   "bbox_mm": [
+    10.0,
+    6.36,
+    6.36
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 14581",
+    "size": "M3",
+    "length_mm": 10.0,
+    "head": "countersunk",
+    "drive": "T10",
+    "thread": "M3×0.5",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M3 × 10 countersunk head, T10 (ISO 14581), A2 stainless",
+     "standard": "ISO 14581",
+     "kind": "screw",
+     "unit_price_usd": 0.025,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "brass.160",
+   "role": "brass",
+   "volume_mm3": 47.4,
+   "valid": true,
+   "bbox_mm": [
+    5.7,
+    4.7,
+    4.7
+   ],
+   "std_meta": {
+    "kind": "insert",
+    "role": "fastener",
+    "standard": "McMaster-Carr 94459A140",
+    "size": "M3",
+    "od_mm": 4.7,
+    "length_mm": 5.7,
+    "hole_mm": 4.0,
+    "material": "brass",
+    "bom": {
+     "part": "Heat-set threaded insert M3 × 5.7 (OD 4.7 mm), brass — ref. McMaster-Carr 94459A140",
+     "standard": "McMaster-Carr 94459A140",
+     "kind": "insert",
+     "unit_price_usd": 0.08,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "brass",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "body.161",
+   "role": "body",
+   "volume_mm3": 227.3,
+   "valid": true,
+   "bbox_mm": [
+    6.2,
+    8.0,
+    8.0
+   ],
+   "std_meta": {
+    "kind": "boss",
+    "role": "boss",
+    "standard": "McMaster-Carr 94459A heat-set insert datasheet; Covestro 'Part and Mold Design' guide (boss OD ≈ 2 × hole)",
+    "dfm": {
+     "rule": "Boss hole = insert hole Ø from the datasheet; boss OD = 2 × hole Ø; boss height ≥ insert length + 0.5 mm",
+     "citation": "McMaster-Carr 94459A heat-set insert datasheet; Covestro 'Part and Mold Design' guide (boss OD ≈ 2 × hole)",
+     "size": "M3",
+     "fastener": "insert",
+     "hole_mm": 4.0,
+     "od_mm": 8.0,
+     "height_mm": 6.2,
+     "wall_mm": 2.5,
+     "draft_deg": 0.5
+    }
+   }
+  },
+  {
+   "label": "steel.162",
+   "role": "steel",
+   "volume_mm3": 83.0,
+   "valid": true,
+   "bbox_mm": [
+    10.0,
+    6.36,
+    6.36
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 14581",
+    "size": "M3",
+    "length_mm": 10.0,
+    "head": "countersunk",
+    "drive": "T10",
+    "thread": "M3×0.5",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M3 × 10 countersunk head, T10 (ISO 14581), A2 stainless",
+     "standard": "ISO 14581",
+     "kind": "screw",
+     "unit_price_usd": 0.025,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "brass.163",
+   "role": "brass",
+   "volume_mm3": 47.4,
+   "valid": true,
+   "bbox_mm": [
+    5.7,
+    4.7,
+    4.7
+   ],
+   "std_meta": {
+    "kind": "insert",
+    "role": "fastener",
+    "standard": "McMaster-Carr 94459A140",
+    "size": "M3",
+    "od_mm": 4.7,
+    "length_mm": 5.7,
+    "hole_mm": 4.0,
+    "material": "brass",
+    "bom": {
+     "part": "Heat-set threaded insert M3 × 5.7 (OD 4.7 mm), brass — ref. McMaster-Carr 94459A140",
+     "standard": "McMaster-Carr 94459A140",
+     "kind": "insert",
+     "unit_price_usd": 0.08,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "brass",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "body.164",
+   "role": "body",
+   "volume_mm3": 227.3,
+   "valid": true,
+   "bbox_mm": [
+    6.2,
+    8.0,
+    8.0
+   ],
+   "std_meta": {
+    "kind": "boss",
+    "role": "boss",
+    "standard": "McMaster-Carr 94459A heat-set insert datasheet; Covestro 'Part and Mold Design' guide (boss OD ≈ 2 × hole)",
+    "dfm": {
+     "rule": "Boss hole = insert hole Ø from the datasheet; boss OD = 2 × hole Ø; boss height ≥ insert length + 0.5 mm",
+     "citation": "McMaster-Carr 94459A heat-set insert datasheet; Covestro 'Part and Mold Design' guide (boss OD ≈ 2 × hole)",
+     "size": "M3",
+     "fastener": "insert",
+     "hole_mm": 4.0,
+     "od_mm": 8.0,
+     "height_mm": 6.2,
+     "wall_mm": 2.5,
+     "draft_deg": 0.5
+    }
+   }
   }
  ],
  "target_dims_mm": [
@@ -419,5 +1345,142 @@
  "instruction": null,
  "parent_version": null,
  "seconds": 22.1,
- "brief": "product_name: Toy-tidying home robot; one_liner: A home robot that finds toys on the floor and moves them to a designated collection area.; category: other; key_features: Detect toys on the floor; Navigate around household obstacles; Pick up compatible toys; Transport toys to a designated collection area; Return to a charging dock; prompt: A next-gen home robot that tidies toys"
+ "brief": "product_name: Toy-tidying home robot; one_liner: A home robot that finds toys on the floor and moves them to a designated collection area.; category: other; key_features: Detect toys on the floor; Navigate around household obstacles; Pick up compatible toys; Transport toys to a designated collection area; Return to a charging dock; prompt: A next-gen home robot that tidies toys",
+ "detail_level": "pro",
+ "hardware_bom": [
+  {
+   "part": "Deep-groove ball bearing 6001-2Z 12×28×8 (ISO 15)",
+   "standard": "ISO 15",
+   "kind": "bearing",
+   "unit_price_usd": 0.5,
+   "price_label": "estimate",
+   "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+   "material": "52100 steel",
+   "category": "mechanical",
+   "qty": 2,
+   "labels": [
+    "steel.134",
+    "steel.137"
+   ],
+   "size": "6001-2Z (12×28×8)",
+   "id": "hw1",
+   "key": "deep_groove_ball_bearing_6001_2z_12_28_8_iso_15"
+  },
+  {
+   "part": "Heat-set threaded insert M3 × 5.7 (OD 4.7 mm), brass — ref. McMaster-Carr 94459A140",
+   "standard": "McMaster-Carr 94459A140",
+   "kind": "insert",
+   "unit_price_usd": 0.08,
+   "price_label": "estimate",
+   "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+   "material": "brass",
+   "category": "mechanical",
+   "qty": 4,
+   "labels": [
+    "brass.154",
+    "brass.157",
+    "brass.160",
+    "brass.163"
+   ],
+   "size": "M3",
+   "id": "hw2",
+   "key": "heat_set_threaded_insert_m3_5_7_od_4_7_mm_brass_ref_mcmaster"
+  },
+  {
+   "part": "Heat-set threaded insert M4 × 8.2 (OD 6.3 mm), brass — ref. McMaster-Carr 94459A170",
+   "standard": "McMaster-Carr 94459A170",
+   "kind": "insert",
+   "unit_price_usd": 0.11,
+   "price_label": "estimate",
+   "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+   "material": "brass",
+   "category": "mechanical",
+   "qty": 4,
+   "labels": [
+    "brass.141",
+    "brass.144",
+    "brass.147",
+    "brass.150"
+   ],
+   "size": "M4",
+   "id": "hw3",
+   "key": "heat_set_threaded_insert_m4_8_2_od_6_3_mm_brass_ref_mcmaster"
+  },
+  {
+   "part": "Screw M3 × 10 countersunk head, T10 (ISO 14581), A2 stainless",
+   "standard": "ISO 14581",
+   "kind": "screw",
+   "unit_price_usd": 0.025,
+   "price_label": "estimate",
+   "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+   "material": "A2 stainless steel",
+   "category": "mechanical",
+   "qty": 4,
+   "labels": [
+    "steel.153",
+    "steel.156",
+    "steel.159",
+    "steel.162"
+   ],
+   "size": "M3",
+   "id": "hw4",
+   "key": "screw_m3_10_countersunk_head_t10_iso_14581_a2_stainless"
+  },
+  {
+   "part": "Screw M4 × 16 socket head, 3 mm hex (ISO 4762), A2 stainless",
+   "standard": "ISO 4762",
+   "kind": "screw",
+   "unit_price_usd": 0.035,
+   "price_label": "estimate",
+   "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+   "material": "A2 stainless steel",
+   "category": "mechanical",
+   "qty": 4,
+   "labels": [
+    "steel.140",
+    "steel.143",
+    "steel.146",
+    "steel.149"
+   ],
+   "size": "M4",
+   "id": "hw5",
+   "key": "screw_m4_16_socket_head_3_mm_hex_iso_4762_a2_stainless"
+  },
+  {
+   "part": "Screw M5 × 14 socket head, 4 mm hex (ISO 4762), A2 stainless",
+   "standard": "ISO 4762",
+   "kind": "screw",
+   "unit_price_usd": 0.045,
+   "price_label": "estimate",
+   "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+   "material": "A2 stainless steel",
+   "category": "mechanical",
+   "qty": 2,
+   "labels": [
+    "steel.136",
+    "steel.139"
+   ],
+   "size": "M5",
+   "id": "hw6",
+   "key": "screw_m5_14_socket_head_4_mm_hex_iso_4762_a2_stainless"
+  },
+  {
+   "part": "Plain washer M5 (ISO 7089), A2 stainless",
+   "standard": "ISO 7089",
+   "kind": "washer",
+   "unit_price_usd": 0.01,
+   "price_label": "estimate",
+   "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+   "material": "A2 stainless steel",
+   "category": "mechanical",
+   "qty": 2,
+   "labels": [
+    "steel.135",
+    "steel.138"
+   ],
+   "size": "M5",
+   "id": "hw7",
+   "key": "plain_washer_m5_iso_7089_a2_stainless"
+  }
+ ]
 }

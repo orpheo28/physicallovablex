@@ -12,7 +12,7 @@ from dataclasses import asdict, dataclass
 
 from build123d import *  # noqa: F403 — the geometry block is also stand-alone seed code
 
-from api.cad.families._common import clamp
+from api.cad.families._common import clamp, with_detail
 
 NAME = "furniture"
 CATEGORY = "furniture_child"
@@ -139,8 +139,42 @@ def build_parts(P):
 # === END GEOMETRY ===
 
 
+# === PRO DETAIL ===
+def pro_details(P, parts):
+    """CAD_DETAIL_LEVEL=pro: flat-pack joinery — each apron rail joins its leg with 2 fluted beech dowels Ø8 × 35
+    (DIN 68150) + 1 Minifix 15 cam connector; the top is screwed from inside the rails with 4 × 30 wood screws."""
+    from api.cad.stdparts import add_parts, cam_lock, wood_dowel, wood_screw
+
+    L, D, H = P["length"], P["depth"], P["height"]
+    tt, leg, r = P["top_thickness"], P["leg_size"], P["corner_radius"]
+    inset = max(r * 0.3, 10.0) + leg / 2
+    lx, ly = L / 2 - inset, D / 2 - inset
+    rh, rt = P["rail_height"], 18.0
+    z_rail = H - tt - rh
+    zm = z_rail + rh / 2
+    dowel, cam, screw4 = wood_dowel(8.0), cam_lock(), wood_screw(4.0, 30.0)
+    kit = []
+    for sy in (1, -1):  # front / back rails along X
+        for sx in (1, -1):
+            ex = sx * (lx - leg / 2)
+            for dz in (-rh * 0.25, rh * 0.25):
+                kit.append(dowel.along((ex, sy * ly, zm + dz), (1, 0, 0)))
+            kit.append(cam.along((ex - sx * 24, sy * (ly - rt / 2), zm), (0, sy, 0), x_dir=(sx, 0, 0)))
+            kit.append(screw4.along((sx * lx * 0.5, sy * (ly - rt / 2 - 3), H - tt - 16), (0, 0, 1)))
+    for sx in (1, -1):  # side rails along Y
+        for sy in (1, -1):
+            ey = sy * (ly - leg / 2)
+            for dz in (-rh * 0.25, rh * 0.25):
+                kit.append(dowel.along((sx * lx, ey, zm + dz), (0, 1, 0)))
+            kit.append(cam.along((sx * (lx - rt / 2), ey - sy * 24, zm), (sx, 0, 0), x_dir=(0, sy, 0)))
+            kit.append(screw4.along((sx * (lx - rt / 2 - 3), sy * ly * 0.5, H - tt - 16), (0, 0, 1)))
+    return add_parts(parts, kit, "wood")
+# === END PRO DETAIL ===
+
+
 def build(params: Params | dict | None = None):
     p = params if isinstance(params, Params) else Params(**{k: float(v) for k, v in (params or {}).items()
                                                                if k in Params.__dataclass_fields__})
-    parts = build_parts(asdict(p.clamped()))
+    P = asdict(p.clamped())
+    parts = with_detail(pro_details, P, build_parts(P))  # C1: CAD_DETAIL_LEVEL=pro adds hardware
     return Compound(children=parts), parts

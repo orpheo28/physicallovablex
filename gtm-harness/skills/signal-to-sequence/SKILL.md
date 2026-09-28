@@ -61,7 +61,7 @@ stage, or did it only appear at the factory?
 2. Fill `{exact quote}` with a sentence copied from the source, not a paraphrase.
 3. Adapt the "design, components, certification or factory" line so it names the account's bucket first.
 4. Circular Ring 2 is a Paris startup: send its messages in French (`02_RECHERCHE/parallel/00_SYNTHESE.md` §3).
-5. Hand the drafts to a human for the QA gate in `workflows/campaign-build.md`. After the human sends, log in this order: `03_DISCOVERY/envoi/SUIVI.md` (source of truth) → `outputs/campaign-01-discovery/tracking.md` → the performance table in `context/signals.md`.
+5. Tag each draft `<signal>-<hook>-<channel>` (`workflows/hook-experiments.md`). Hand the drafts to a human for the QA gate in `workflows/campaign-build.md`. After the human sends, log in this order: `03_DISCOVERY/envoi/SUIVI.md` (source of truth) → `outputs/campaign-01-discovery/tracking.md` → the performance table in `context/signals.md`.
 
 ## Worked example (AIVELA Ring Pro, score 4)
 Signal source: ["About half of the units made in that batch passed final checks… the rest were held back due to component quality issues"](https://gadgetsandwearables.com/2026/02/12/aivela-ring-pro-shipping/) (12/02/2026).

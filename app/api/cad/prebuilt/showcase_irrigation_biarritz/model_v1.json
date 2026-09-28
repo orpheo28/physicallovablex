@@ -2,7 +2,7 @@
  "status": "ok",
  "version": 1,
  "source": "llm:openai/gpt-6-sol",
- "label": "AI-generated CAD (concept level) \u2014 geometry measured on the result",
+ "label": "AI-generated CAD (concept level) — geometry measured on the result",
  "category": "solar_roof",
  "seed_family": "irrigation",
  "variant": "roof",
@@ -23,19 +23,8 @@
   74.42,
   221.5
  ],
- "volume_mm3": 2318679.5,
+ "volume_mm3": 2320671.9,
  "parts": [
-  {
-   "label": "body.1",
-   "role": "body",
-   "volume_mm3": 1677357.9,
-   "valid": true,
-   "bbox_mm": [
-    150.0,
-    60.0,
-    190.0
-   ]
-  },
   {
    "label": "glass.1",
    "role": "glass",
@@ -420,6 +409,303 @@
     3.0,
     5.0
    ]
+  },
+  {
+   "label": "body.1",
+   "role": "body",
+   "volume_mm3": 1675853.2,
+   "valid": true,
+   "bbox_mm": [
+    150.0,
+    60.0,
+    190.0
+   ],
+   "std_meta": {
+    "kind": "feature",
+    "role": "shell_bottom",
+    "name": "Controller housing (gasketed)",
+    "group": "Controller housing (gasketed)"
+   }
+  },
+  {
+   "label": "rubber.136",
+   "role": "rubber",
+   "volume_mm3": 1433.1,
+   "valid": true,
+   "bbox_mm": [
+    140.0,
+    50.0,
+    2.0
+   ],
+   "std_meta": {
+    "kind": "gasket",
+    "role": "other",
+    "standard": "Parker O-Ring Handbook ORD 5700 (face seal, 25 % squeeze)",
+    "size": "140 × 50, cord 2",
+    "material": "EPDM 70 Shore A",
+    "bom": {
+     "part": "Perimeter gasket EPDM 70A, cord 2 mm, 140 × 50",
+     "standard": "Parker ORD 5700",
+     "kind": "gasket",
+     "unit_price_usd": 0.15,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "EPDM",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.137",
+   "role": "steel",
+   "volume_mm3": 386.3,
+   "valid": true,
+   "bbox_mm": [
+    8.0,
+    8.0,
+    23.1
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 14583",
+    "size": "M4",
+    "length_mm": 20.0,
+    "head": "pan",
+    "drive": "T20",
+    "thread": "M4×0.7",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M4 × 20 pan head, T20 (ISO 14583), A2 stainless",
+     "standard": "ISO 14583",
+     "kind": "screw",
+     "unit_price_usd": 0.035,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "brass.138",
+   "role": "brass",
+   "volume_mm3": 129.7,
+   "valid": true,
+   "bbox_mm": [
+    6.3,
+    6.3,
+    8.2
+   ],
+   "std_meta": {
+    "kind": "insert",
+    "role": "fastener",
+    "standard": "McMaster-Carr 94459A170",
+    "size": "M4",
+    "od_mm": 6.3,
+    "length_mm": 8.2,
+    "hole_mm": 5.6,
+    "material": "brass",
+    "bom": {
+     "part": "Heat-set threaded insert M4 × 8.2 (OD 6.3 mm), brass — ref. McMaster-Carr 94459A170",
+     "standard": "McMaster-Carr 94459A170",
+     "kind": "insert",
+     "unit_price_usd": 0.11,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "brass",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.139",
+   "role": "steel",
+   "volume_mm3": 386.3,
+   "valid": true,
+   "bbox_mm": [
+    8.0,
+    8.0,
+    23.1
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 14583",
+    "size": "M4",
+    "length_mm": 20.0,
+    "head": "pan",
+    "drive": "T20",
+    "thread": "M4×0.7",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M4 × 20 pan head, T20 (ISO 14583), A2 stainless",
+     "standard": "ISO 14583",
+     "kind": "screw",
+     "unit_price_usd": 0.035,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "brass.140",
+   "role": "brass",
+   "volume_mm3": 129.7,
+   "valid": true,
+   "bbox_mm": [
+    6.3,
+    6.3,
+    8.2
+   ],
+   "std_meta": {
+    "kind": "insert",
+    "role": "fastener",
+    "standard": "McMaster-Carr 94459A170",
+    "size": "M4",
+    "od_mm": 6.3,
+    "length_mm": 8.2,
+    "hole_mm": 5.6,
+    "material": "brass",
+    "bom": {
+     "part": "Heat-set threaded insert M4 × 8.2 (OD 6.3 mm), brass — ref. McMaster-Carr 94459A170",
+     "standard": "McMaster-Carr 94459A170",
+     "kind": "insert",
+     "unit_price_usd": 0.11,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "brass",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.141",
+   "role": "steel",
+   "volume_mm3": 386.3,
+   "valid": true,
+   "bbox_mm": [
+    8.0,
+    8.0,
+    23.1
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 14583",
+    "size": "M4",
+    "length_mm": 20.0,
+    "head": "pan",
+    "drive": "T20",
+    "thread": "M4×0.7",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M4 × 20 pan head, T20 (ISO 14583), A2 stainless",
+     "standard": "ISO 14583",
+     "kind": "screw",
+     "unit_price_usd": 0.035,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "brass.142",
+   "role": "brass",
+   "volume_mm3": 129.7,
+   "valid": true,
+   "bbox_mm": [
+    6.3,
+    6.3,
+    8.2
+   ],
+   "std_meta": {
+    "kind": "insert",
+    "role": "fastener",
+    "standard": "McMaster-Carr 94459A170",
+    "size": "M4",
+    "od_mm": 6.3,
+    "length_mm": 8.2,
+    "hole_mm": 5.6,
+    "material": "brass",
+    "bom": {
+     "part": "Heat-set threaded insert M4 × 8.2 (OD 6.3 mm), brass — ref. McMaster-Carr 94459A170",
+     "standard": "McMaster-Carr 94459A170",
+     "kind": "insert",
+     "unit_price_usd": 0.11,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "brass",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "steel.143",
+   "role": "steel",
+   "volume_mm3": 386.3,
+   "valid": true,
+   "bbox_mm": [
+    8.0,
+    8.0,
+    23.1
+   ],
+   "std_meta": {
+    "kind": "screw",
+    "role": "fastener",
+    "standard": "ISO 14583",
+    "size": "M4",
+    "length_mm": 20.0,
+    "head": "pan",
+    "drive": "T20",
+    "thread": "M4×0.7",
+    "material": "A2 stainless steel",
+    "bom": {
+     "part": "Screw M4 × 20 pan head, T20 (ISO 14583), A2 stainless",
+     "standard": "ISO 14583",
+     "kind": "screw",
+     "unit_price_usd": 0.035,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "A2 stainless steel",
+     "category": "mechanical"
+    }
+   }
+  },
+  {
+   "label": "brass.144",
+   "role": "brass",
+   "volume_mm3": 129.7,
+   "valid": true,
+   "bbox_mm": [
+    6.3,
+    6.3,
+    8.2
+   ],
+   "std_meta": {
+    "kind": "insert",
+    "role": "fastener",
+    "standard": "McMaster-Carr 94459A170",
+    "size": "M4",
+    "od_mm": 6.3,
+    "length_mm": 8.2,
+    "hole_mm": 5.6,
+    "material": "brass",
+    "bom": {
+     "part": "Heat-set threaded insert M4 × 8.2 (OD 6.3 mm), brass — ref. McMaster-Carr 94459A170",
+     "standard": "McMaster-Carr 94459A170",
+     "kind": "insert",
+     "unit_price_usd": 0.11,
+     "price_label": "estimate",
+     "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+     "material": "brass",
+     "category": "mechanical"
+    }
+   }
   }
  ],
  "target_dims_mm": [
@@ -441,5 +727,65 @@
  "instruction": null,
  "parent_version": null,
  "seconds": 23.26,
- "brief": "product_name: Smart garden irrigation; one_liner: An irrigation controller for a 30 m\u00b2 garden in Biarritz that adjusts watering schedules based on weather and soil conditions.; category: other; key_features: Scheduled watering; Weather-based schedule adjustments; Soil moisture monitoring; Manual watering override; prompt: Smart irrigation for a 30 m\u00b2 garden in Biarritz"
+ "brief": "product_name: Smart garden irrigation; one_liner: An irrigation controller for a 30 m² garden in Biarritz that adjusts watering schedules based on weather and soil conditions.; category: other; key_features: Scheduled watering; Weather-based schedule adjustments; Soil moisture monitoring; Manual watering override; prompt: Smart irrigation for a 30 m² garden in Biarritz",
+ "detail_level": "pro",
+ "hardware_bom": [
+  {
+   "part": "Perimeter gasket EPDM 70A, cord 2 mm, 140 × 50",
+   "standard": "Parker ORD 5700",
+   "kind": "gasket",
+   "unit_price_usd": 0.15,
+   "price_label": "estimate",
+   "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+   "material": "EPDM",
+   "category": "mechanical",
+   "qty": 1,
+   "labels": [
+    "rubber.136"
+   ],
+   "size": "140 × 50, cord 2",
+   "id": "hw1",
+   "key": "perimeter_gasket_epdm_70a_cord_2_mm_140_50"
+  },
+  {
+   "part": "Heat-set threaded insert M4 × 8.2 (OD 6.3 mm), brass — ref. McMaster-Carr 94459A170",
+   "standard": "McMaster-Carr 94459A170",
+   "kind": "insert",
+   "unit_price_usd": 0.11,
+   "price_label": "estimate",
+   "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+   "material": "brass",
+   "category": "mechanical",
+   "qty": 4,
+   "labels": [
+    "brass.138",
+    "brass.140",
+    "brass.142",
+    "brass.144"
+   ],
+   "size": "M4",
+   "id": "hw2",
+   "key": "heat_set_threaded_insert_m4_8_2_od_6_3_mm_brass_ref_mcmaster"
+  },
+  {
+   "part": "Screw M4 × 20 pan head, T20 (ISO 14583), A2 stainless",
+   "standard": "ISO 14583",
+   "kind": "screw",
+   "unit_price_usd": 0.035,
+   "price_label": "estimate",
+   "price_source": "Catalogue order of magnitude at ~2,000 pcs (Estimate, not a quote)",
+   "material": "A2 stainless steel",
+   "category": "mechanical",
+   "qty": 4,
+   "labels": [
+    "steel.137",
+    "steel.139",
+    "steel.141",
+    "steel.143"
+   ],
+   "size": "M4",
+   "id": "hw3",
+   "key": "screw_m4_20_pan_head_t20_iso_14583_a2_stainless"
+  }
+ ]
 }
